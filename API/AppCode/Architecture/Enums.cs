@@ -20,7 +20,7 @@
 
     public enum Mode7Colour
     {
-        Blue = 0,
+        Blue = 1,
         Red = 2,
         Magenta = 3,
         Green = 4,
