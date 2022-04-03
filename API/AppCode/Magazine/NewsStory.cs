@@ -37,8 +37,8 @@ namespace PagesFromCeefax
             // Parse story body - only to be called once URL has been retrieved
             _body = new List<string>();
 
-            var mainlines = doc.DocumentNode.SelectNodes("//article/*[@data-component='text-block']")
-                ?? doc.DocumentNode.SelectNodes("//article/div/p/span");
+            var mainlines = doc.DocumentNode.SelectNodes("//article/*[@data-component='text-block']")   // news page
+                ?? doc.DocumentNode.SelectNodes("//article/div/p/span");                                // sport page
 
             if (mainlines != null)
             {
