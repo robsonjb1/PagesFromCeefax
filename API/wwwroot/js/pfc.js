@@ -89,7 +89,7 @@
                         previousPage = currentPage;
                     }
                     else {
-                        // There's a problem - so force the request the magazine content again
+                        // There's a problem - so force request the magazine content again
                         magazineRequestTime = 0;
                         transitionSecond++;
                     }
@@ -119,7 +119,6 @@
             var actualWait = (magazineReceiveTime - magazineRequestTime) / 1000;
             if (actualWait >= loadingPageDuration) {
                 // More than 15 seconds have passed, so move to the first page straight away
-
                 transitionSecond = (magazineReceiveTime.getSeconds() + 1) % 60;
             }
             else {
