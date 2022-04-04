@@ -76,8 +76,11 @@ namespace PagesFromCeefax
             // Update the cache once all results are in
             foreach (CachedUrl cu in results)
             {
-                Console.WriteLine(cu.Location);
-                UrlCache.Find(l => l.Location == cu.Location)!.Content = cu.Content;
+                var item = UrlCache.Find(l => l.Location == cu.Location);
+                if (item is not null)
+                {
+                    item.Content = cu.Content;
+                }
             }
         }
     
