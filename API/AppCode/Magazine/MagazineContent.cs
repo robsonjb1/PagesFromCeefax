@@ -68,7 +68,7 @@ namespace PagesFromCeefax
             {
                 // Extract the message body
                 results.Add(new CachedUrl(
-                    r.RequestMessage!.RequestUri!,
+                    new Uri(r.RequestMessage!.RequestUri!.ToString().Replace("/av/", "/")), // video stories are redirected and then can't be found
                     await r.Content.ReadAsStringAsync()
                 ));
             }
@@ -76,14 +76,14 @@ namespace PagesFromCeefax
             // Update the cache once all results are in
             foreach (CachedUrl cu in results)
             {
-                var item = UrlCache.Find(l => l.Location.ToString().Replace("/av/", "") == cu.Location.ToString().Replace("/av/", ""));
-                // video stories are redirected to a new page and then can't be found in the index
+                var item = UrlCache.Find(l => l.Location == cu.Location);
                 if (item is not null)
                 {
                     item.Content = cu.Content;
                 }
             }
         }
+    
     
         private void ProcessRSSFeed(MagazineSection section)
         {
