@@ -38,7 +38,8 @@ namespace PagesFromCeefax
             _body = new List<string>();
 
             var mainlines = doc.DocumentNode.SelectNodes("//article/*[@data-component='text-block']")   // news page
-                ?? doc.DocumentNode.SelectNodes("//article/div/p/span");                                // sport page
+                ?? doc.DocumentNode.SelectNodes("//article/div/p/span")                                 // sport page
+                ?? doc.DocumentNode.SelectNodes("//article//div/p");                                    // video story
 
             if (mainlines != null)
             {

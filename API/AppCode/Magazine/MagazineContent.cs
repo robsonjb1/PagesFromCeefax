@@ -76,7 +76,8 @@ namespace PagesFromCeefax
             // Update the cache once all results are in
             foreach (CachedUrl cu in results)
             {
-                var item = UrlCache.Find(l => l.Location == cu.Location);
+                var item = UrlCache.Find(l => l.Location.ToString().Replace("/av/", "") == cu.Location.ToString().Replace("/av/", ""));
+                // video stories are redirected to a new page and then can't be found in the index
                 if (item is not null)
                 {
                     item.Content = cu.Content;
@@ -93,7 +94,6 @@ namespace PagesFromCeefax
             {
                 // Only add the story if not already present, and is displayable
                 if (!StoryList.Exists(z => z.Link == item.Links[0].Uri)
-                    && (item.Title.Text.IndexOf("VIDEO:") == -1)
                     && (storyCount < section.TotalStories)
                     && (section.Keyword == String.Empty || item.Title.Text.ToUpper().Contains(section.Keyword.ToUpper()))
                     )
