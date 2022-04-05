@@ -18,7 +18,7 @@ namespace PagesFromCeefax
 
             // Loop through each story and generate a news page
             int storyCount = 1;
-            foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName))
+            foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body.Count > 0))
             {
                 content.Append(OutputNewsPage(ref PageNo, header, headingCol, story, (storyCount == (_mc.Sections.Find(z => z.Name == sectionName).TotalStories) ? promoFooter : ""), promoPaper, promoInk));
                 storyCount++;
