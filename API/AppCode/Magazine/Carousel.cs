@@ -12,10 +12,13 @@ namespace PagesFromCeefax
         {
             // Get and parse source data
             MagazineContent mc = new MagazineContent();
-           
+            WeatherData weather = new WeatherData(
+                mc.UrlCache.Find(l => l.Location == mc.Sections.Find(z => z.Name == MagazineSectionType.Weather).Feed).Content);
+
             // Initialise page generators
             TeletextPageNews tn = new TeletextPageNews(mc);
-        
+            TeletextPageWeather tw = new TeletextPageWeather(mc);
+
             // This is teletext
             Content.Append(tn.BuildTeletextPage(ref PageNo, Graphics.PromoTeletext));
             Content.Append(tn.BuildTeletextPage(ref PageNo, Graphics.PromoNews));
@@ -43,8 +46,10 @@ namespace PagesFromCeefax
 
             // Weather Intro
             Content.Append(tn.BuildTeletextPage(ref PageNo, Graphics.PromoWeather));
-            //Content.Append(tn.OutputNewsSection(ref PageNo, Graphics.HeaderWeather, Mode7Colour.Yellow, MagazineSectionType.Science, "", Mode7Colour.Blue, Mode7Colour.Yellow));
-
+            Content.Append(tw.OutputWeather(ref PageNo, 1, weather.TodayTitle, weather.TodayText));
+            Content.Append(tw.OutputWeather(ref PageNo, 2, weather.TomorrowTitle, weather.TomorrowText));
+            Content.Append(tw.OutputWeather(ref PageNo, 3, weather.OutlookTitle, weather.OutlookText));
+            
             // Entertainment Intro
             Content.Append(tn.BuildTeletextPage(ref PageNo, Graphics.PromoTV));
             Content.Append(tn.OutputNewsSection(ref PageNo, Graphics.HeaderEntertainment, Mode7Colour.Yellow, MagazineSectionType.Entertainment, "", Mode7Colour.Magenta, Mode7Colour.Yellow));

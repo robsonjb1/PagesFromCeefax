@@ -33,7 +33,8 @@ namespace PagesFromCeefax
             Sections.Add(new MagazineSection(MagazineSectionType.Formula1, 2, new Uri("http://feeds.bbci.co.uk/sport/formula1/rss.xml")));
 
             Sections.Add(new MagazineSection(MagazineSectionType.Entertainment, 3, new Uri("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
-
+            Sections.Add(new MagazineSection(MagazineSectionType.Weather, 0, new Uri("https://www.bbc.co.uk/weather")));
+            
             // Add each section's feed URL to URL cache
             Sections.ForEach(z => UrlCache.Add(new CachedUrl(z.Feed)));
 

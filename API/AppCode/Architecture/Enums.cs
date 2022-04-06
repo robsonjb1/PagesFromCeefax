@@ -15,7 +15,8 @@
         Golf,
         Formula1,
         Entertainment,
-        Sussex
+        Sussex,
+        Weather
     }
 
     public enum Mode7Colour
