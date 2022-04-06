@@ -43,7 +43,7 @@ namespace PagesFromCeefax
 
             // Weather Intro
             Content.Append(tn.BuildTeletextPage(ref PageNo, Graphics.PromoWeather));
-            Content.Append(tn.OutputNewsSection(ref PageNo, Graphics.HeaderWeather, Mode7Colour.Yellow, MagazineSectionType.Science, "", Mode7Colour.Blue, Mode7Colour.Yellow));
+            //Content.Append(tn.OutputNewsSection(ref PageNo, Graphics.HeaderWeather, Mode7Colour.Yellow, MagazineSectionType.Science, "", Mode7Colour.Blue, Mode7Colour.Yellow));
 
             // Entertainment Intro
             Content.Append(tn.BuildTeletextPage(ref PageNo, Graphics.PromoTV));
