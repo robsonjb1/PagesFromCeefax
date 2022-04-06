@@ -63,10 +63,10 @@ namespace PagesFromCeefax
             }
 
             // Optionally display met office notice
-            int lastLine = 17;
-            if (bodyLines.Count <= 14)
+            int lastLine = 18;
+            if (bodyLines.Count <= 15)
             {
-                lastLine = 14;
+                lastLine = 15;
             }
 
             for (int j = bodyLines.Count; j < lastLine; j++)
@@ -74,7 +74,7 @@ namespace PagesFromCeefax
                 sb.AppendLine("<br>");
             }
 
-            if (lastLine == 14)
+            if (lastLine == 15)
             {
                 sb.AppendLine("<br>");
                 sb.Append("<p><span class=\"ink4\">Data: BBC Weather Centre/Met Office</span></p>");

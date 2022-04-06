@@ -29,6 +29,7 @@ namespace PagesFromCeefax
             Content.Append(tn.OutputNewsSection(ref PageNo, Graphics.HeaderWorld, Mode7Colour.Yellow, MagazineSectionType.World, "", Mode7Colour.Blue, Mode7Colour.Yellow));
             Content.Append(tn.OutputNewsInBrief(ref PageNo, Graphics.HeaderWorld, Mode7Colour.Yellow, MagazineSectionType.World, "Political news coming up next >>>", Mode7Colour.Blue, Mode7Colour.Yellow));
             Content.Append(tn.OutputNewsSection(ref PageNo, Graphics.HeaderPolitics, Mode7Colour.Yellow, MagazineSectionType.Politics, "Technology news coming up next >>>", Mode7Colour.Blue, Mode7Colour.Yellow));
+            Content.Append(tn.OutputNewsSection(ref PageNo, Graphics.HeaderSciTech, Mode7Colour.Yellow, MagazineSectionType.Science, "", Mode7Colour.Blue, Mode7Colour.Yellow));
             Content.Append(tn.OutputNewsSection(ref PageNo, Graphics.HeaderSciTech, Mode7Colour.Yellow, MagazineSectionType.Technology, "Sussex news coming up next >>>", Mode7Colour.Blue, Mode7Colour.Yellow));
             Content.Append(tn.OutputNewsSection(ref PageNo, Graphics.HeaderSussex, Mode7Colour.Yellow, MagazineSectionType.Sussex, "Business news coming up next >>>", Mode7Colour.Blue, Mode7Colour.Yellow));
             Content.Append(tn.OutputNewsSection(ref PageNo, Graphics.HeaderBusiness, Mode7Colour.Yellow, MagazineSectionType.Business, "", Mode7Colour.Red, Mode7Colour.White));

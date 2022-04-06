@@ -1,9 +1,10 @@
-﻿<Properties StartupConfiguration="{0DE994EC-53D7-4840-A4A5-8BA8D9A0F739}|Default" GitUserInfo="UsingGIT">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{0DE994EC-53D7-4840-A4A5-8BA8D9A0F739}|Default">
   <MonoDevelop.Ide.ItemProperties.API PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="API/Program.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="API/AppCode/Page Generators/TeletextPageWeather.cs">
     <Files>
       <File FileName="API/Program.cs" Line="16" Column="53" />
       <File FileName="API/appsettings.json" Line="1" Column="1" />
@@ -11,17 +12,16 @@
       <File FileName="API/wwwroot/index.html" Line="8" Column="26" />
       <File FileName="API/wwwroot/js/pfc.js" Line="122" Column="1" />
       <File FileName="API/wwwroot/nogui.html" Line="1" Column="1" />
-      <File FileName="API/AppCode/Magazine/MagazineContent.cs" Line="37" Column="12" />
+      <File FileName="API/AppCode/Magazine/MagazineContent.cs" Line="37" Column="13" />
       <File FileName="API/AppCode/Magazine/MagazineCache.cs" Line="9" Column="37" />
-      <File FileName="API/AppCode/Magazine/Carousel.cs" Line="16" Column="49" />
+      <File FileName="API/AppCode/Magazine/Carousel.cs" Line="18" Column="1" />
       <File FileName="API/AppCode/Architecture/Graphics.cs" Line="1" Column="1" />
       <File FileName="API/AppCode/Magazine/CachedUrl.cs" Line="16" Column="6" />
       <File FileName="API/AppCode/Page Generators/TeletextPageNews.cs" Line="21" Column="116" />
       <File FileName="API/AppCode/Architecture/Utility.cs" Line="422" Column="1" />
       <File FileName="API/AppCode/Page Generators/TeletextPage.cs" Line="1" Column="1" />
       <File FileName="API/AppCode/Magazine/NewsStory.cs" Line="48" Column="81" />
-      <File FileName="API/AppCode/Page Generators/TeletextPageWeather.cs" Line="20" Column="112" />
-      <File FileName="API/AppCode/Data Transfer Objects/WeatherData.cs" Line="22" Column="135" />
+      <File FileName="API/AppCode/Page Generators/TeletextPageWeather.cs" Line="61" Column="39" />
       <File FileName="API/wwwroot/js/jquery.min.js" Line="1" Column="1" />
       <File FileName="API/AppCode/Magazine/MagazineSection.cs" Line="1" Column="1" />
       <File FileName="API/Properties/PublishProfiles/pagesfromceefax - Zip Deploy.pubxml" Line="1" Column="1" />
@@ -29,17 +29,15 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="MacPFC" expanded="True">
+          <Node name="MacPFC" expanded="True" selected="True">
             <Node name="API" expanded="True">
               <Node name="AppCode" expanded="True">
-                <Node name="Data Transfer Objects" expanded="True" />
                 <Node name="Magazine" expanded="True" />
                 <Node name="Page Generators" expanded="True" />
               </Node>
               <Node name="Properties" expanded="True">
                 <Node name="PublishProfiles" expanded="True" />
               </Node>
-              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -49,9 +47,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/jason/Projects/MacPFC/API/AppCode/Data Transfer Objects/WeatherData.cs" relfile="API/AppCode/Data Transfer Objects/WeatherData.cs" line="22" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
