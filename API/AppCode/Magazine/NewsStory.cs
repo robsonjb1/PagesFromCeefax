@@ -10,23 +10,15 @@ namespace PagesFromCeefax
 
         public readonly MagazineSectionType SectionName;
         public readonly Uri Link;
-        public readonly List<string> Summary;
+        public readonly List<string> Headline;
 
-        private List<string>? _body;
-        
-        public NewsStory(MagazineSectionType SectionName, string Summary, Uri Link)
+        public List<string>[] Body = new List<string>[3] { new List<string>(), new List<string>(), new List<String>() };
+
+        public NewsStory(MagazineSectionType SectionName, string Headline, Uri Link)
         {
             this.SectionName = SectionName;
             this.Link = Link;
-            this.Summary = Utility.ParseParagraph(Summary);
-        }
-
-        public List<string>? Body
-        {
-            get
-            {
-                return _body;
-            }
+            this.Headline = Utility.ParseParagraph(Headline);
         }
 
         public void AddBody(string html)
@@ -35,11 +27,11 @@ namespace PagesFromCeefax
             doc.LoadHtml(html);
 
             // Parse story body - only to be called once URL has been retrieved
-            _body = new List<string>();
-
             var mainlines = doc.DocumentNode.SelectNodes("//article/*[@data-component='text-block']")   // news page
                 ?? doc.DocumentNode.SelectNodes("//article/div/p/span")                                 // sport page
                 ?? doc.DocumentNode.SelectNodes("//article//div/p");                                    // video story
+
+            int pageNo = 0;
 
             if (mainlines != null)
             {
@@ -49,15 +41,17 @@ namespace PagesFromCeefax
 
                     if (newChunk.Count > 0)
                     {
-                        if (this.Summary.Count + _body.Count + newChunk.Count - 1 > maxLines)
+                        if (Headline.Count + Body[pageNo].Count + newChunk.Count - 1 > maxLines)
                         {
-                            break;
+                            pageNo++;
+                            if (pageNo == 2)
+                            {
+                                break;
+                            }
                         }
-                        else
-                        {
-                            _body.Add("");
-                            _body.AddRange(newChunk);
-                        }
+
+                        Body[pageNo].Add("");
+                        Body[pageNo].AddRange(newChunk);
                     }
                 }
             }

@@ -138,6 +138,9 @@ namespace PagesFromCeefax
             html = html.Replace("â€™", "'");
             html = html.Replace("â€", "'");
             html = html.Replace("\\\"", "'");
+            html = html.Replace("&#x27;", "'");
+            // Ampersand
+            html = html.Replace("&amp;", "&");
 
             return html;
         }

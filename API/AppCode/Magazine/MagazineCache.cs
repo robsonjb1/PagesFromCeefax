@@ -6,7 +6,7 @@ namespace PagesFromCeefax
 {
     public static class MagazineCache
     {
-        private static StringBuilder _currentMagazine;
+        private static StringBuilder _currentMagazine = new StringBuilder();
         private static DateTime _timeStamp = DateTime.Now.AddYears(-1);
         private static Object l = new Object();
         private static int _totalRequests = 0;
@@ -15,6 +15,7 @@ namespace PagesFromCeefax
 
         public static StringBuilder CurrentMagazine
         {
+            // Only refresh the magazine on the first get (not on service start)
             get
             {
                 _totalRequests++;

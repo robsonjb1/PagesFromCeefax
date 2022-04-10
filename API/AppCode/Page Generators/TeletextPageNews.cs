@@ -18,7 +18,7 @@ namespace PagesFromCeefax
 
             // Loop through each story and generate a news page
             int storyCount = 1;
-            foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body.Count > 0))
+            foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body[0].Count > 0))
             {
                 content.Append(OutputNewsPage(ref PageNo, header, headingCol, story, (storyCount == (_mc.Sections.Find(z => z.Name == sectionName).TotalStories) ? promoFooter : ""), promoPaper, promoInk));
                 storyCount++;
@@ -30,47 +30,57 @@ namespace PagesFromCeefax
         private StringBuilder OutputNewsPage(
             ref int pageNo, StringBuilder header, Mode7Colour headingCol, NewsStory story, string promoFooter, Mode7Colour promoPaper, Mode7Colour promoInk)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine(header.ToString());
+            StringBuilder newsStory = new StringBuilder();
 
-            bool firstParagraph = true;
-            Mode7Colour bodyCol = Mode7Colour.White;
-            foreach (string line in story.Summary)
+            for (int subPage = 0; subPage < 1; subPage++)
             {
-                sb.AppendLine(String.Format("<p><span class=\"ink{0} indent\">{1}</span></p>", Convert.ToInt32(headingCol), line));
-            }
-            foreach (string line in story.Body)
-            {
-                if (line == String.Empty)
+                StringBuilder sb = new StringBuilder();
+
+                sb.AppendLine(header.ToString());
+
+                bool firstParagraph = true;
+                Mode7Colour bodyCol = Mode7Colour.White;
+
+                foreach (string line in story.Headline)
                 {
-                    if (!firstParagraph)
+                    sb.AppendLine(String.Format("<p><span class=\"ink{0} indent\">{1}</span></p>", Convert.ToInt32(headingCol), line));
+                }
+             
+                foreach (string line in story.Body[subPage])
+                {
+                    if (line == String.Empty)
                     {
-                        sb.AppendLine("<br>");
-                        bodyCol = Mode7Colour.Cyan;
+                        if (!firstParagraph)
+                        {
+                            sb.AppendLine("<br>");
+                            bodyCol = Mode7Colour.Cyan;
+                        }
+                        firstParagraph = false;
                     }
-                    firstParagraph = false;
+                    else
+                    {
+                        sb.AppendLine(String.Format("<p><span class=\"ink{0} indent\">{1}</span></p>", Convert.ToInt32(bodyCol), line));
+                    }
+                }
+
+                for (int i = 0; i < 20 - (story.Headline.Count + story.Body[subPage].Count); i++)
+                {
+                    sb.Append("<br>");
+                }
+
+                if (promoFooter == String.Empty)
+                {
+                    sb.Append(String.Format("<p><span class=\"paper{0} ink{1}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>", Convert.ToInt32(promoPaper), Convert.ToInt32(promoInk)));
                 }
                 else
                 {
-                    sb.AppendLine(String.Format("<p><span class=\"ink{0} indent\">{1}</span></p>", Convert.ToInt32(bodyCol), line));
+                    sb.Append(String.Format("<p><span class=\"paper{0} ink{1}\">&nbsp;&nbsp;{2}</span></p>", Convert.ToInt32(promoPaper), Convert.ToInt32(promoInk), promoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - promoFooter.Length))));
                 }
+
+                newsStory.Append(BuildTeletextPage(ref pageNo, sb));
             }
 
-            for (int i = 0; i < 20 - (story.Summary.Count + story.Body.Count); i++)
-            {
-                sb.Append("<br>");
-            }
-
-            if (promoFooter == "")
-            {
-                sb.Append(String.Format("<p><span class=\"paper{0} ink{1}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>", Convert.ToInt32(promoPaper), Convert.ToInt32(promoInk)));
-            }
-            else
-            {
-                sb.Append(String.Format("<p><span class=\"paper{0} ink{1}\">&nbsp;&nbsp;{2}</span></p>", Convert.ToInt32(promoPaper), Convert.ToInt32(promoInk), promoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - promoFooter.Length))));
-            }
-
-            return BuildTeletextPage(ref pageNo, sb);
+            return newsStory;
         }
 
         public StringBuilder OutputNewsInBrief(
