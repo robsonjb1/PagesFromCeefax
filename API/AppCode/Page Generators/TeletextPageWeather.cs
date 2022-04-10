@@ -11,17 +11,14 @@ namespace PagesFromCeefax
         {
         }
 
-        public StringBuilder OutputWeather(ref int pageNo, int sectionPage, string sectionTitle, string sectionText)
+        public StringBuilder CreateWeather(int sectionPage, string sectionTitle, string sectionText)
         {
             StringBuilder sb = new StringBuilder();
+            sectionTitle = sectionTitle.ToUpper() + string.Join("", Enumerable.Repeat("&nbsp;", 36 - sectionTitle.Length));
 
             sb.Append(Graphics.HeaderWeather);
-
-            sb.AppendLine(String.Format("<p><span class=\"ink6 indent\">{0}{1}</span><span class=\"ink7\">{2}/3</p>",
-                sectionTitle.ToUpper(),
-                string.Join("", Enumerable.Repeat("&nbsp;", 36 - sectionTitle.Length)),
-                sectionPage));
-
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">{sectionTitle}</span><span class=\"ink{(int)Mode7Colour.White}\">{sectionPage}/3</p>");
+            
             List<string> bodyLines = new List<string>();
 
             // Break body text up into paragraphs
@@ -55,7 +52,7 @@ namespace PagesFromCeefax
             bool firstLine = true;
             foreach (string line in bodyLines)
             {
-                sb.AppendLine(String.Format("<p><span class=\"ink" + (firstLine ? "7" : "5") + " indent\">{0}</span></p>", line));
+                sb.AppendLine($"<p><span class=\"ink{(firstLine ? (int)Mode7Colour.White : (int)Mode7Colour.Cyan)} indent\">{line}</span></p>");
                 if(line == String.Empty)
                 {
                     firstLine = false;
@@ -77,13 +74,13 @@ namespace PagesFromCeefax
             if (lastLine == 15)
             {
                 sb.AppendLine("<br>");
-                sb.Append("<p><span class=\"ink4\">Data: BBC Weather Centre/Met Office</span></p>");
+                sb.Append($"<p><span class=\"ink{(int)Mode7Colour.Green}\">Data: BBC Weather Centre/Met Office</span></p>");
                 sb.AppendLine("<br>");
             }
 
-            sb.Append("<p><span class=\"paper1 ink6\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
+            sb.Append($"<p><span class=\"paper{(int)Mode7Colour.Blue} ink{(int)Mode7Colour.Yellow}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
 
-            return BuildTeletextPage(ref pageNo, sb);
+            return BuildTeletextPage(sb);
         }
 
     }

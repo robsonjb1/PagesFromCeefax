@@ -32,7 +32,6 @@ namespace PagesFromCeefax
                 ?? doc.DocumentNode.SelectNodes("//article//div/p");                                    // video story
 
             int pageNo = 0;
-
             if (mainlines != null)
             {
                 foreach (var l in mainlines)
@@ -43,9 +42,11 @@ namespace PagesFromCeefax
                     {
                         if (Headline.Count + Body[pageNo].Count + newChunk.Count - 1 > maxLines)
                         {
+                            // The current paragraph will overflow the page
                             pageNo++;
                             if (pageNo == 2)
                             {
+                                // We only want two pages, so stop now
                                 break;
                             }
                         }

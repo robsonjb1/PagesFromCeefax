@@ -12,40 +12,43 @@ namespace PagesFromCeefax
         {
         }
 
-        public StringBuilder OutputNewsSection(ref int PageNo, StringBuilder header, Mode7Colour headingCol, MagazineSectionType sectionName, string promoFooter, Mode7Colour promoPaper, Mode7Colour promoInk)
+        public StringBuilder CreateNewsSection(MagazineSectionType sectionName, bool overrideSectionFooter = false)
         {
+            MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
             StringBuilder content = new StringBuilder();
 
             // Loop through each story and generate a news page
             int storyCount = 1;
             foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body[0].Count > 0))
             {
-                content.Append(OutputNewsPage(ref PageNo, header, headingCol, story, (storyCount == (_mc.Sections.Find(z => z.Name == sectionName).TotalStories) ? promoFooter : ""), promoPaper, promoInk));
+                content.Append(CreateNewsPage(section, story,
+                    (storyCount == section.TotalStories) ?
+                        (overrideSectionFooter ? null : section.PromoFooter!) : null));
                 storyCount++;
             }
 
             return content;
         }
 
-        private StringBuilder OutputNewsPage(
-            ref int pageNo, StringBuilder header, Mode7Colour headingCol, NewsStory story, string promoFooter, Mode7Colour promoPaper, Mode7Colour promoInk)
+        private StringBuilder CreateNewsPage(MagazineSection section, NewsStory story, string? promoFooter)
         {
             StringBuilder newsStory = new StringBuilder();
-
+          
             for (int subPage = 0; subPage < 1; subPage++)
             {
                 StringBuilder sb = new StringBuilder();
-
-                sb.AppendLine(header.ToString());
+                sb.Append(section.Header);
 
                 bool firstParagraph = true;
                 Mode7Colour bodyCol = Mode7Colour.White;
 
+                // Headline
                 foreach (string line in story.Headline)
                 {
-                    sb.AppendLine(String.Format("<p><span class=\"ink{0} indent\">{1}</span></p>", Convert.ToInt32(headingCol), line));
+                    sb.AppendLine($"<p><span class=\"ink{(int)section.HeadingCol!} indent\">{line}</span></p>");
                 }
-             
+
+                // Story
                 foreach (string line in story.Body[subPage])
                 {
                     if (line == String.Empty)
@@ -59,39 +62,42 @@ namespace PagesFromCeefax
                     }
                     else
                     {
-                        sb.AppendLine(String.Format("<p><span class=\"ink{0} indent\">{1}</span></p>", Convert.ToInt32(bodyCol), line));
+                        sb.AppendLine($"<p><span class=\"ink{(int)bodyCol} indent\">{line}</span></p>");
                     }
                 }
 
+                // Pad to the bottom of the page
                 for (int i = 0; i < 20 - (story.Headline.Count + story.Body[subPage].Count); i++)
                 {
                     sb.Append("<br>");
                 }
 
-                if (promoFooter == String.Empty)
+                // Footer
+                if (promoFooter is null)
                 {
-                    sb.Append(String.Format("<p><span class=\"paper{0} ink{1}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>", Convert.ToInt32(promoPaper), Convert.ToInt32(promoInk)));
+                    sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
                 }
                 else
                 {
-                    sb.Append(String.Format("<p><span class=\"paper{0} ink{1}\">&nbsp;&nbsp;{2}</span></p>", Convert.ToInt32(promoPaper), Convert.ToInt32(promoInk), promoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - promoFooter.Length))));
+                    string promoFooterPadded = promoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - promoFooter.Length));
+                    sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooterPadded!}</span></p>");
                 }
 
-                newsStory.Append(BuildTeletextPage(ref pageNo, sb));
+                newsStory.Append(BuildTeletextPage(sb));
             }
 
             return newsStory;
         }
 
-        public StringBuilder OutputNewsInBrief(
-            ref int pageNo, StringBuilder header, Mode7Colour headingCol, MagazineSectionType sectionName, string promoFooter, Mode7Colour promoPaper, Mode7Colour promoInk)
+        public StringBuilder CreateNewsInBrief(MagazineSectionType sectionName)
         {
+            MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(header);
-            sb.AppendLine("<p><span class=\"indent ink" + Convert.ToInt32(headingCol) + "\">OTHER NEWS IN BRIEF...</span></p>");
+            sb.Append(section.Header);
+            sb.AppendLine($"<p><span class=\"indent ink{(int)section.HeadingCol!}\">OTHER NEWS IN BRIEF...</span></p>");
 
-            SyndicationFeed feed = Utility.ReadRSSFeed(_mc.UrlCache.Find(l => l.Location == _mc.Sections.Find(z => z.Name == sectionName).Feed).Content);
+            SyndicationFeed feed = Utility.ReadRSSFeed(_mc.UrlCache.Find(l => l.Location == _mc.Sections.Find(z => z.Name == sectionName)!.Feed)!.Content!);
 
             int rows = 0;
           
@@ -109,14 +115,16 @@ namespace PagesFromCeefax
                             sb.Append("<br>");
                         }
 
+                        // Title
                         foreach (string line in title)
                         {
-                            sb.AppendLine(String.Format("<p><span class=\"ink7 indent\">{0}</span></p>", line));
+                            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.White} indent\">{line}</span></p>");
                         }
 
+                        // Summary
                         foreach (string line in summary)
                         {
-                            sb.AppendLine(String.Format("<p><span class=\"ink5 indent\">{0}</span></p>", line));
+                            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Cyan} indent\">{line}</span></p>");
                         }
                         rows += summary.Count + title.Count;
                         
@@ -126,21 +134,25 @@ namespace PagesFromCeefax
                     }
                 }
             }
+
+            // Pad lines to the end
             for (int i = 0; i < 18 - rows; i++)
             {
                 sb.Append("<br>");
             }
 
-            if (promoFooter == "")
+            // Display either the standard or a bespoke footer
+            if (section.PromoFooter is null)
             {
-                sb.Append(String.Format("<p><span class=\"paper{0} ink{1}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>", Convert.ToInt32(promoPaper), Convert.ToInt32(promoInk)));
+                sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
             }
             else
             {
-                sb.Append(String.Format("<p><span class=\"paper{0} ink{1}\">&nbsp;&nbsp;{2}</span></p>", Convert.ToInt32(promoPaper), Convert.ToInt32(promoInk), promoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - promoFooter.Length))));
+                string promoFooter = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
+                sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooter}</span></p>");
             }
 
-            return BuildTeletextPage(ref pageNo, sb);
+            return BuildTeletextPage(sb);
         }
     }
 }

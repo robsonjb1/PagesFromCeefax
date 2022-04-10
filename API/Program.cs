@@ -13,7 +13,7 @@ app.UseHttpsRedirection();
 
 app.MapGet("/carousel", () =>
 {
-    return MagazineCache.CurrentMagazine.ToString();
+    return CarouselCache.CurrentCarousel.ToString();
 });
 
 app.UseFileServer(new FileServerOptions

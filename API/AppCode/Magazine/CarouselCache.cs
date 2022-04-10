@@ -4,16 +4,16 @@ using System.Web;
 
 namespace PagesFromCeefax
 {
-    public static class MagazineCache
+    public static class CarouselCache
     {
-        private static StringBuilder _currentMagazine = new StringBuilder();
+        private static StringBuilder _currentCarousel = new StringBuilder();
         private static DateTime _timeStamp = DateTime.Now.AddYears(-1);
         private static Object l = new Object();
         private static int _totalRequests = 0;
         private static int _totalCarousels = 0;
         private static DateTime _serviceStart = DateTime.Now;
 
-        public static StringBuilder CurrentMagazine
+        public static StringBuilder CurrentCarousel
         {
             // Only refresh the magazine on the first get (not on service start)
             get
@@ -26,8 +26,7 @@ namespace PagesFromCeefax
                         try
                         {
                             Carousel c = new Carousel();
-                       
-                            _currentMagazine = c.Content;
+                            _currentCarousel = c.Content.DisplayHtml;
                             _totalCarousels++;
                         }
                         finally
@@ -37,7 +36,7 @@ namespace PagesFromCeefax
                     }
                 }
 
-                return _currentMagazine
+                return _currentCarousel
                     .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
                     .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
                     .Replace("{PFC_SERVICESTART}", _serviceStart.DayOfWeek.ToString().Substring(0, 3) + _serviceStart.ToString(" dd MMM HH:mm/ss"))

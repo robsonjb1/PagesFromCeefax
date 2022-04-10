@@ -11,15 +11,16 @@ namespace PagesFromCeefax
         {
             _mc = mc;
         }
-        
-        public StringBuilder BuildTeletextPage(ref int pageNo, StringBuilder content)
-        {
-            StringBuilder sb = new StringBuilder();
-            pageNo++;
 
-            sb.AppendLine(String.Format("<div id=\"page{0}\" style=\"display:none\">", pageNo));
-            sb.Append(content);
-            sb.AppendLine("</div>");
+        public StringBuilder BuildTeletextPage(StringBuilder newPage)
+        {
+            _mc.MaxPages++;
+
+            // Generate the <div> enclosure that contains the individual page
+            StringBuilder sb = new StringBuilder();
+            _mc.DisplayHtml.AppendLine($"<div id=\"page{_mc.MaxPages}\" style=\"display:none\">");
+            _mc.DisplayHtml.Append(newPage);
+            _mc.DisplayHtml.Append("</div>");
 
             return sb;
         }
