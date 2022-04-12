@@ -105,7 +105,7 @@ namespace PagesFromCeefax
             {
                 if (!_mc.StoryList.Exists(z => z.Link == item.Links[0].Uri) && item.Title.Text.IndexOf("VIDEO:") == -1)
                 {
-                    List<string> title = Utility.ParseParagraph(item.Title.Text);
+                    List<string> title = Utility.ParseParagraph(item.Title.Text + ".");
                     List<string> summary = Utility.ParseParagraph(item.Summary.Text);
                     if (rows + title.Count + summary.Count < 17)
                     {

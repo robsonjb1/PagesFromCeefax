@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using HtmlAgilityPack;
 
 namespace PagesFromCeefax
@@ -28,31 +29,41 @@ namespace PagesFromCeefax
 
             // Parse story body - only to be called once URL has been retrieved
             var mainlines = doc.DocumentNode.SelectNodes("//article/*[@data-component='text-block']")   // news page
-                ?? doc.DocumentNode.SelectNodes("//article/div/p/span")                                 // sport page
+                ?? doc.DocumentNode.SelectNodes("//article/div/p//span")                                // sport page
                 ?? doc.DocumentNode.SelectNodes("//article//div/p");                                    // video story
 
             int pageNo = 0;
             if (mainlines != null)
             {
+                // Break into sentences (one paragraph = one sentence)
+                StringBuilder allText = new StringBuilder();
                 foreach (var l in mainlines)
                 {
-                    List<string> newChunk = Utility.ParseParagraph(l.InnerText);
+                    allText.Append(l.InnerText + " ");
+                }
 
-                    if (newChunk.Count > 0)
+                foreach (var l in allText.ToString().Split(". "))
+                {
+                    if (l.Trim() != String.Empty)
                     {
-                        if (Headline.Count + Body[pageNo].Count + newChunk.Count - 1 > maxLines)
-                        {
-                            // The current paragraph will overflow the page
-                            pageNo++;
-                            if (pageNo == 2)
-                            {
-                                // We only want two pages, so stop now
-                                break;
-                            }
-                        }
+                        List<string> newChunk = Utility.ParseParagraph(l + ". ");
 
-                        Body[pageNo].Add("");
-                        Body[pageNo].AddRange(newChunk);
+                        if (newChunk.Count > 0)
+                        {
+                            if (Headline.Count + Body[pageNo].Count + newChunk.Count - 1 > maxLines)
+                            {
+                                // The current paragraph will overflow the page
+                                pageNo++;
+                                if (pageNo == 2)
+                                {
+                                    // We only want two pages, so stop now
+                                    break;
+                                }
+                            }
+
+                            Body[pageNo].Add("");
+                            Body[pageNo].AddRange(newChunk);
+                        }
                     }
                 }
             }
