@@ -1,8 +1,12 @@
-﻿<Properties StartupConfiguration="{0DE994EC-53D7-4840-A4A5-8BA8D9A0F739}|Default" GitUserInfo="UsingGIT">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{0DE994EC-53D7-4840-A4A5-8BA8D9A0F739}|Default">
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.API PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="API/AppCode/Magazine/Carousel.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="API/AppCode/Page Generators/TeletextPageNews.cs">
     <Files>
       <File FileName="API/Program.cs" Line="24" Column="26" />
       <File FileName="API/appsettings.json" Line="1" Column="1" />
@@ -10,12 +14,12 @@
       <File FileName="API/wwwroot/index.html" Line="8" Column="26" />
       <File FileName="API/wwwroot/js/pfc.js" Line="122" Column="1" />
       <File FileName="API/wwwroot/nogui.html" Line="1" Column="1" />
-      <File FileName="API/AppCode/Magazine/MagazineContent.cs" Line="12" Column="33" />
+      <File FileName="API/AppCode/Magazine/MagazineContent.cs" Line="100" Column="1" />
       <File FileName="API/AppCode/Magazine/Carousel.cs" Line="67" Column="32" />
       <File FileName="API/AppCode/Architecture/Graphics.cs" Line="25" Column="37" />
       <File FileName="API/AppCode/Magazine/CachedUrl.cs" Line="8" Column="29" />
-      <File FileName="API/AppCode/Page Generators/TeletextPageNews.cs" Line="30" Column="28" />
-      <File FileName="API/AppCode/Magazine/NewsStory.cs" Line="35" Column="1" />
+      <File FileName="API/AppCode/Page Generators/TeletextPageNews.cs" Line="108" Column="86" />
+      <File FileName="API/AppCode/Magazine/NewsStory.cs" Line="67" Column="22" />
       <File FileName="API/AppCode/Page Generators/TeletextPageWeather.cs" Line="17" Column="53" />
       <File FileName="API/wwwroot/js/jquery.min.js" Line="1" Column="1" />
       <File FileName="API/AppCode/Magazine/MagazineSection.cs" Line="127" Column="5" />
@@ -33,9 +37,7 @@
               <Node name="AppCode" expanded="True">
                 <Node name="Architecture" expanded="True" />
                 <Node name="Data Transfer Objects" expanded="True" />
-                <Node name="Magazine" expanded="True">
-                  <Node name="Carousel.cs" selected="True" />
-                </Node>
+                <Node name="Magazine" expanded="True" />
                 <Node name="Page Generators" expanded="True" />
               </Node>
               <Node name="Properties" expanded="True">
@@ -50,8 +52,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
 </Properties>

@@ -103,7 +103,9 @@ namespace PagesFromCeefax
           
             foreach (SyndicationItem item in feed.Items)
             {
-                if (!_mc.StoryList.Exists(z => z.Link == item.Links[0].Uri) && item.Title.Text.IndexOf("VIDEO:") == -1)
+                if (!_mc.StoryList.Exists(z => z.Link == item.Links[0].Uri)
+                    && item.Title.Text.IndexOf("VIDEO:") == -1
+                    && item.Summary is not null)
                 {
                     List<string> title = Utility.ParseParagraph(item.Title.Text + ".");
                     List<string> summary = Utility.ParseParagraph(item.Summary.Text);
