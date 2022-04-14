@@ -21,7 +21,7 @@ namespace PagesFromCeefax
                 _totalRequests++;
                 lock (l)
                 {
-                    if (DateTime.Now > _timeStamp.AddMinutes(20))
+                    if (DateTime.Now > _timeStamp.AddMinutes(3))
                     {
                         try
                         {

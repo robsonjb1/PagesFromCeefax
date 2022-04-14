@@ -11,11 +11,13 @@
     <None Remove="HtmlAgilityPack" />
     <None Remove="System.ServiceModel.Syndication" />
     <None Remove="AppCode\Data Transfer Objects\" />
+    <None Remove="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppCode\" />
     <Folder Include="wwwroot\" />
     <Folder Include="AppCode\Data Transfer Objects\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />
