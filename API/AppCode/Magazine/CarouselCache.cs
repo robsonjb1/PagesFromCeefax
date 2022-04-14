@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Text;
 using System.Web;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace PagesFromCeefax
 {
     public static class CarouselCache
     {
-        private static StringBuilder _currentCarousel = new StringBuilder();
-        private static DateTime _timeStamp = DateTime.Now.AddYears(-1);
+        private static readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
+
         private static Object l = new Object();
         private static int _totalRequests = 0;
         private static int _totalCarousels = 0;
         private static DateTime _serviceStart = DateTime.Now;
-
-        public static StringBuilder CurrentCarousel
+        private static DateTime _lastBuilt = DateTime.Now;
+        
+        public static string Current
         {
             // Only refresh the magazine on the first get (not on service start)
             get
@@ -21,26 +23,23 @@ namespace PagesFromCeefax
                 _totalRequests++;
                 lock (l)
                 {
-                    if (DateTime.Now > _timeStamp.AddMinutes(3))
+                    var content = _currentCarousel.Get<string>("carousel");
+                    if (content is null)
                     {
-                        try
-                        {
-                            Carousel c = new Carousel();
-                            _currentCarousel = c.Content.DisplayHtml;
-                            _totalCarousels++;
-                        }
-                        finally
-                        {
-                            _timeStamp = DateTime.Now;
-                        }
-                    }
-                }
+                        _totalCarousels++;
 
-                return _currentCarousel
-                    .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
-                    .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
-                    .Replace("{PFC_SERVICESTART}", _serviceStart.DayOfWeek.ToString().Substring(0, 3) + _serviceStart.ToString(" dd MMM HH:mm/ss"))
-                    .Replace("{PFC_TIMESTAMP}", _timeStamp.DayOfWeek.ToString().Substring(0, 3) + _timeStamp.ToString(" dd MMM HH:mm/ss"));
+                        Carousel c = new Carousel();
+                        content = c.Content.DisplayHtml.ToString();
+                        _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(30));
+                        _lastBuilt = DateTime.Now;
+                    }
+
+                    return content!
+                        .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
+                        .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
+                        .Replace("{PFC_SERVICESTART}", _serviceStart.DayOfWeek.ToString().Substring(0, 3) + _serviceStart.ToString(" dd MMM HH:mm/ss"))
+                        .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString().Substring(0, 3) + _lastBuilt.ToString(" dd MMM HH:mm/ss"));
+                }
             }
         }
     }

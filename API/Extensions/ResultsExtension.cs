@@ -2,11 +2,11 @@
 using System.Text;
 static class ResultsExtensions
 {
-    public static IResult NoCache(this IResultExtensions resultExtensions, StringBuilder html)
+    public static IResult NoCache(this IResultExtensions resultExtensions, string html)
     {
         ArgumentNullException.ThrowIfNull(resultExtensions);
 
-        return new NoCacheResult(html.ToString());
+        return new NoCacheResult(html);
     }
 }
 

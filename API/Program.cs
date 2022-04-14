@@ -13,7 +13,7 @@ app.UseHttpsRedirection();
 
 app.MapGet("/carousel", () =>
 {
-    return Results.Extensions.NoCache(CarouselCache.CurrentCarousel);
+    return Results.Extensions.NoCache(CarouselCache.Current); ;
 });
 
 app.UseFileServer(new FileServerOptions

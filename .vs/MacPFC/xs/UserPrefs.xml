@@ -1,8 +1,10 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{0DE994EC-53D7-4840-A4A5-8BA8D9A0F739}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.API PreferredExecutionTarget="/Applications/Safari.app" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workbench ActiveDocument="API/wwwroot/js/pfc.js">
     <Files>
-      <File FileName="API/Program.cs" Line="13" Column="1" />
+      <File FileName="API/Program.cs" Line="16" Column="12" />
       <File FileName="API/appsettings.json" Line="1" Column="1" />
       <File FileName="API/Properties/launchSettings.json" Line="25" Column="31" />
       <File FileName="API/wwwroot/index.html" Line="8" Column="26" />
@@ -20,7 +22,8 @@
       <File FileName="API/Properties/PublishProfiles/pagesfromceefax - Zip Deploy.pubxml" Line="1" Column="1" />
       <File FileName="API/AppCode/Architecture/Enums.cs" Line="3" Column="25" />
       <File FileName="API/AppCode/Page Generators/TeletextPage.cs" Line="19" Column="34" />
-      <File FileName="API/AppCode/Magazine/CarouselCache.cs" Line="1" Column="1" />
+      <File FileName="API/AppCode/Magazine/CarouselCache.cs" Line="24" Column="63" />
+      <File FileName="API/Extensions/ResultsExtension.cs" Line="28" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -28,14 +31,10 @@
           <Node name="MacPFC" expanded="True">
             <Node name="API" expanded="True">
               <Node name="AppCode" expanded="True">
-                <Node name="Architecture" expanded="True" />
-                <Node name="Data Transfer Objects" expanded="True" />
                 <Node name="Magazine" expanded="True" />
-                <Node name="Page Generators" expanded="True" />
               </Node>
-              <Node name="Properties" expanded="True">
-                <Node name="PublishProfiles" expanded="True" />
-              </Node>
+              <Node name="Extensions" expanded="True" />
+              <Node name="Properties" expanded="True" />
               <Node name="wwwroot" expanded="True">
                 <Node name="js" expanded="True">
                   <Node name="pfc.js" selected="True" />
@@ -50,10 +49,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.API PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
