@@ -1,7 +1,4 @@
-﻿using System;
-using HtmlAgilityPack;
-
-namespace PagesFromCeefax
+﻿namespace PagesFromCeefax
 {
     public class CachedUrl
     {

@@ -3,14 +3,14 @@ using System.Text;
 
 namespace PagesFromCeefax
 {
-    public class Carousel
+    public class CarouselBuilder
     {
         public MagazineContent Content = new MagazineContent();
 
-        public Carousel()
+        public CarouselBuilder()
         {
             // Construct DTO's
-            WeatherData weather = new WeatherData(
+            var weather = new WeatherData(
                 Content.UrlCache.Find(l => l.Location == Content.Sections.Find(z => z.Name == MagazineSectionType.Weather)!.Feed)!.Content!);
 
             // Initialise page generators

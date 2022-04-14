@@ -73,19 +73,6 @@ namespace PagesFromCeefax
             }
         }
 
-        private struct RetrievalList
-        {
-            public Uri? location { get; set; }
-            public HttpResponseMessage? httpResponse { get; set; }
-        }
-
-        private async Task<RetrievalList> FetchPageAsync(Uri location)
-        {
-            var client = new HttpClient();
-            var content = await client.GetAsync(location);
-            return new RetrievalList() { location = location, httpResponse = content };
-        }
-
         private void ProcessRSSFeed(MagazineSection section)
         {
             SyndicationFeed feed = Utility.ReadRSSFeed(UrlCache.Find(l => l.Location == section.Feed)!.Content!);
@@ -105,5 +92,20 @@ namespace PagesFromCeefax
                 }
             }
         }
+
+        private struct RetrievalList
+        {
+            public Uri? location { get; set; }
+            public HttpResponseMessage? httpResponse { get; set; }
+        }
+
+        private async Task<RetrievalList> FetchPageAsync(Uri location)
+        {
+            var client = new HttpClient();
+            var content = await client.GetAsync(location);
+            return new RetrievalList() { location = location, httpResponse = content };
+        }
+
+        
     }
 }

@@ -28,7 +28,7 @@ namespace PagesFromCeefax
                     {
                         _totalCarousels++;
 
-                        Carousel c = new Carousel();
+                        var c = new CarouselBuilder();
                         content = c.Content.DisplayHtml.ToString();
                         _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(30));
                         _lastBuilt = DateTime.Now;
