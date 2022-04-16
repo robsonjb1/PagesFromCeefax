@@ -1,45 +1,46 @@
-﻿using System;
-using System.Text;
-using System.Web;
-using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.Extensions.Caching.Memory;
 
 namespace PagesFromCeefax
 {
-    public static class CarouselCache
+    public class CarouselCache
     {
-        private static readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
+        private readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
 
-        private static Object l = new Object();
-        private static int _totalRequests = 0;
-        private static int _totalCarousels = 0;
-        private static DateTime _serviceStart = DateTime.Now;
-        private static DateTime _lastBuilt = DateTime.Now;
-        
-        public static string Current
+        private Object l = new Object();
+        private int _totalRequests = 0;
+        private int _totalCarousels = 0;
+        private DateTime _serviceStart = DateTime.Now;
+        private DateTime _lastBuilt = DateTime.Now;
+
+        public string GetMagazine(ILogger logger)
         {
             // Only refresh the magazine on the first get (not on service start)
-            get
+            _totalRequests++;
+            lock (l)
             {
-                _totalRequests++;
-                lock (l)
+                var content = _currentCarousel.Get<string>("carousel");
+                if (content is null)
                 {
-                    var content = _currentCarousel.Get<string>("carousel");
-                    if (content is null)
-                    {
-                        _totalCarousels++;
+                    _totalCarousels++;
 
-                        var c = new CarouselBuilder();
-                        content = c.Content.DisplayHtml.ToString();
-                        _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(30));
-                        _lastBuilt = DateTime.Now;
-                    }
+                    DateTime start = DateTime.Now;
+                    var c = new CarouselBuilder();
+                    DateTime end = DateTime.Now;
 
-                    return content!
-                        .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
-                        .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
-                        .Replace("{PFC_SERVICESTART}", _serviceStart.DayOfWeek.ToString().Substring(0, 3) + _serviceStart.ToString(" dd MMM HH:mm/ss"))
-                        .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString().Substring(0, 3) + _lastBuilt.ToString(" dd MMM HH:mm/ss"));
+                    content = c.Content.DisplayHtml.ToString();
+                    _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(30));
+                    _lastBuilt = DateTime.Now;
+
+                    logger.LogInformation($"Generated new carousel #{_totalCarousels} in {(end - start).TotalMilliseconds}ms");
                 }
+
+                logger.LogInformation($"Returning carousel request {_totalRequests}");
+
+                return content!
+                    .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
+                    .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
+                    .Replace("{PFC_SERVICESTART}", _serviceStart.DayOfWeek.ToString().Substring(0, 3) + _serviceStart.ToString(" dd MMM HH:mm/ss"))
+                    .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString().Substring(0, 3) + _lastBuilt.ToString(" dd MMM HH:mm/ss"));
             }
         }
     }

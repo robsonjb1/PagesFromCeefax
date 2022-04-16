@@ -1,5 +1,6 @@
 ﻿using System.Net.Mime;
 using System.Text;
+
 static class ResultsExtensions
 {
     public static IResult NoCache(this IResultExtensions resultExtensions, string html)

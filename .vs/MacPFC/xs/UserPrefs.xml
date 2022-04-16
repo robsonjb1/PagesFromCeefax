@@ -1,9 +1,11 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{0DE994EC-53D7-4840-A4A5-8BA8D9A0F739}|Default">
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.API PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="API/AppCode/Magazine/MagazineContent.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="API/AppCode/Magazine/MagazineSection.cs">
     <Files>
       <File FileName="API/Program.cs" Line="7" Column="1" />
       <File FileName="API/appsettings.json" Line="1" Column="1" />
@@ -12,20 +14,21 @@
       <File FileName="API/wwwroot/js/pfc.js" Line="122" Column="1" />
       <File FileName="API/wwwroot/nogui.html" Line="1" Column="1" />
       <File FileName="API/AppCode/Architecture/Graphics.cs" Line="25" Column="37" />
-      <File FileName="API/AppCode/Magazine/CachedUrl.cs" Line="7" Column="6" />
-      <File FileName="API/AppCode/Page Generators/TeletextPageNews.cs" Line="108" Column="49" />
+      <File FileName="API/AppCode/Magazine/CachedUrl.cs" Line="5" Column="35" />
+      <File FileName="API/AppCode/Page Generators/TeletextPageNews.cs" Line="99" Column="79" />
       <File FileName="API/AppCode/Magazine/NewsStory.cs" Line="67" Column="22" />
       <File FileName="API/AppCode/Page Generators/TeletextPageWeather.cs" Line="17" Column="53" />
       <File FileName="API/wwwroot/js/jquery.min.js" Line="1" Column="1" />
-      <File FileName="API/AppCode/Magazine/MagazineSection.cs" Line="127" Column="5" />
+      <File FileName="API/AppCode/Magazine/MagazineSection.cs" Line="15" Column="25" />
       <File FileName="API/Properties/PublishProfiles/pagesfromceefax - Zip Deploy.pubxml" Line="1" Column="1" />
       <File FileName="API/AppCode/Architecture/Enums.cs" Line="3" Column="25" />
       <File FileName="API/AppCode/Page Generators/TeletextPage.cs" Line="19" Column="34" />
       <File FileName="API/AppCode/Magazine/CarouselCache.cs" Line="31" Column="52" />
-      <File FileName="API/Extensions/ResultsExtension.cs" Line="9" Column="38" />
-      <File FileName="API/AppCode/Architecture/Utility.cs" Line="423" Column="1" />
-      <File FileName="API/AppCode/Magazine/MagazineContent.cs" Line="13" Column="1" />
+      <File FileName="API/Extensions/ResultsExtension.cs" Line="24" Column="61" />
+      <File FileName="API/AppCode/Architecture/Utility.cs" Line="14" Column="79" />
+      <File FileName="API/AppCode/Magazine/MagazineContent.cs" Line="97" Column="1" />
       <File FileName="API/AppCode/Data Transfer Objects/WeatherData.cs" Line="20" Column="1" />
+      <File FileName="API/AppCode/Magazine/CarouselBuilder.cs" Line="68" Column="53" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -35,9 +38,7 @@
               <Node name="AppCode" expanded="True">
                 <Node name="Architecture" expanded="True" />
                 <Node name="Data Transfer Objects" expanded="True" />
-                <Node name="Magazine" expanded="True">
-                  <Node name="MagazineContent.cs" selected="True" />
-                </Node>
+                <Node name="Magazine" expanded="True" />
                 <Node name="Page Generators" expanded="True" />
               </Node>
               <Node name="Extensions" expanded="True" />
@@ -54,7 +55,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.API PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
 </Properties>
