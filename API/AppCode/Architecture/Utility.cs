@@ -11,59 +11,7 @@ namespace PagesFromCeefax
 {
     public static class Utility
     {
-        public static string Replace(this String str, string oldValue, string newValue, StringComparison comparison)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            int previousIndex = 0;
-            int index = str.IndexOf(oldValue, comparison);
-            while (index != -1)
-            {
-                sb.Append(str.Substring(previousIndex, index - previousIndex));
-                sb.Append(newValue);
-                index += oldValue.Length;
-
-                previousIndex = index;
-                index = str.IndexOf(oldValue, index, comparison);
-            }
-            sb.Append(str.Substring(previousIndex));
-
-            return sb.ToString();
-        }
-
-        public static string ParseHeadline(string headline)
-        {
-            string parsedHeadline = headline + " ";
-            if(parsedHeadline.Length > 40)
-            {
-                parsedHeadline = parsedHeadline.Substring(0, 40);
-                parsedHeadline = parsedHeadline.Substring(0, parsedHeadline.LastIndexOf(' '));
-            }
-
-            parsedHeadline = parsedHeadline.EndsWith(",") ? parsedHeadline.Substring(0, parsedHeadline.Length - 1) : parsedHeadline;
-
-            parsedHeadline = parsedHeadline.EndsWith(" :") ? parsedHeadline.Substring(0, parsedHeadline.Length - 2) : parsedHeadline;
-            parsedHeadline = parsedHeadline.EndsWith(" &") ? parsedHeadline.Substring(0, parsedHeadline.Length - 2) : parsedHeadline;
-            parsedHeadline = parsedHeadline.EndsWith(" -") ? parsedHeadline.Substring(0, parsedHeadline.Length - 2) : parsedHeadline;
-
-            parsedHeadline = parsedHeadline.EndsWith(" at") ? parsedHeadline.Substring(0, parsedHeadline.Length - 3) : parsedHeadline;
-            parsedHeadline = parsedHeadline.EndsWith(" in") ? parsedHeadline.Substring(0, parsedHeadline.Length - 3) : parsedHeadline;
-            parsedHeadline = parsedHeadline.EndsWith(" of") ? parsedHeadline.Substring(0, parsedHeadline.Length - 3) : parsedHeadline;
-
-            parsedHeadline = parsedHeadline.EndsWith(" and") ? parsedHeadline.Substring(0, parsedHeadline.Length - 4) : parsedHeadline;
-            parsedHeadline = parsedHeadline.EndsWith(" the") ? parsedHeadline.Substring(0, parsedHeadline.Length - 4) : parsedHeadline;
-
-            parsedHeadline = parsedHeadline.EndsWith(" with") ? parsedHeadline.Substring(0, parsedHeadline.Length - 5) : parsedHeadline;
-            parsedHeadline = parsedHeadline.EndsWith(" from") ? parsedHeadline.Substring(0, parsedHeadline.Length - 5) : parsedHeadline;
-
-            if(headline.Length != parsedHeadline.Length && parsedHeadline.Length <= 36)
-            {
-                parsedHeadline += "...";
-            }
-
-            return parsedHeadline;
-        }
-
+        // Mixture of string parsing utilities and graphics character handling
         public static List<string> ParseParagraph(string content)
         {
             return ParseParagraph(content, 39);
@@ -143,65 +91,6 @@ namespace PagesFromCeefax
             html = html.Replace("&amp;", "&");
 
             return html;
-        }
-
-        public static string InsertCharacterSpan(int pageNo, StringBuilder html)
-        {
-            StringBuilder sb = new StringBuilder();
-            int charNo = 1;
-            bool inTag = false;
-            bool inUnicode = false;
-            string unicode = "";
-
-            string text = html.ToString();
-            for (int i = 0; i < text.Length; i++ )
-            {
-                string c = text.Substring(i, 1);
-                if(c == "<")
-                {
-                    inTag = true;
-                }
-
-                if(c == "&")
-                {
-                    inUnicode = true;
-                }
-
-                if (inUnicode)
-                {
-                    unicode += c;
-                }
-                else
-                {
-                    if (inTag)
-                    {
-                        // Output as normal
-                        sb.Append(c);
-                    }
-                    else
-                    {
-                        // Add character span
-                        sb.Append(String.Format("<span style=\"display:none\" id=\"vd{0}\">" + c + "</span>", pageNo.ToString() + "-" + charNo.ToString()));
-                        charNo++;
-                    }
-                }
-
-                if(c == ">")
-                {
-                    inTag = false;
-                }
-
-                if(c == ";")
-                {
-                    inUnicode = false;
-                    // Add character span
-                    sb.Append(String.Format("<span style=\"display:none\" id=\"vd{0}\">" + unicode + "</span>", pageNo.ToString() + "-" + charNo.ToString()));
-                    unicode = "";
-                    charNo++;
-                }
-            }
-
-            return sb.ToString();
         }
 
         public static string SepGraph(string input)
@@ -418,14 +307,7 @@ namespace PagesFromCeefax
             return output;
         }
 
-        public static SyndicationFeed ReadRSSFeed(string xmlFeed)
-        {
-            TextReader tr = new StringReader(xmlFeed);
-            XmlReader xmlReader = XmlReader.Create(tr);
-            SyndicationFeed feed = SyndicationFeed.Load(xmlReader);
-
-            return feed;
-        }
+       
 
         public static string BlockGraph(string input)
         {
@@ -640,8 +522,5 @@ namespace PagesFromCeefax
 
             return output;
         }
-
-        
-
     }
 }

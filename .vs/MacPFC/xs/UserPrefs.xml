@@ -1,10 +1,8 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{0DE994EC-53D7-4840-A4A5-8BA8D9A0F739}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.API PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workbench ActiveDocument="API/AppCode/Magazine/MagazineContent.cs">
     <Files>
       <File FileName="API/Program.cs" Line="7" Column="1" />
@@ -13,7 +11,6 @@
       <File FileName="API/wwwroot/index.html" Line="8" Column="26" />
       <File FileName="API/wwwroot/js/pfc.js" Line="122" Column="1" />
       <File FileName="API/wwwroot/nogui.html" Line="1" Column="1" />
-      <File FileName="API/AppCode/Magazine/Carousel.cs" Line="22" Column="32" />
       <File FileName="API/AppCode/Architecture/Graphics.cs" Line="25" Column="37" />
       <File FileName="API/AppCode/Magazine/CachedUrl.cs" Line="7" Column="6" />
       <File FileName="API/AppCode/Page Generators/TeletextPageNews.cs" Line="108" Column="49" />
@@ -38,7 +35,9 @@
               <Node name="AppCode" expanded="True">
                 <Node name="Architecture" expanded="True" />
                 <Node name="Data Transfer Objects" expanded="True" />
-                <Node name="Magazine" expanded="True" />
+                <Node name="Magazine" expanded="True">
+                  <Node name="MagazineContent.cs" selected="True" />
+                </Node>
                 <Node name="Page Generators" expanded="True" />
               </Node>
               <Node name="Extensions" expanded="True" />
@@ -55,5 +54,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.API PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

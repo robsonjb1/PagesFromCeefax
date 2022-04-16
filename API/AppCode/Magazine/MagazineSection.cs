@@ -8,11 +8,11 @@ namespace PagesFromCeefax
         public readonly MagazineSectionType Name;
         public readonly Uri Feed;
         public readonly int TotalStories;
-        public StringBuilder? Header;
-        public Mode7Colour? HeadingCol;
-        public string? PromoFooter;
-        public Mode7Colour? PromoPaper;
-        public Mode7Colour? PromoInk;
+        public readonly StringBuilder? Header;
+        public readonly Mode7Colour? HeadingCol;
+        public readonly string? PromoFooter;
+        public readonly Mode7Colour? PromoPaper;
+        public readonly Mode7Colour? PromoInk;
 
         public MagazineSection(MagazineSectionType Name, int TotalStories, Uri Feed)
         {

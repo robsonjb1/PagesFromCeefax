@@ -21,6 +21,7 @@ class NoCacheResult : IResult
 
     public Task ExecuteAsync(HttpContext httpContext)
     {
+        // Force the reponse to not be cached at the browser
         httpContext.Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
         httpContext.Response.Headers["Expires"] = "-1";
         httpContext.Response.Headers["Pragma"] = "no-cache";

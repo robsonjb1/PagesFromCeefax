@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Text;
+using System.Xml;
 
 namespace PagesFromCeefax
 {
@@ -94,13 +95,13 @@ namespace PagesFromCeefax
             MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
             StringBuilder sb = new StringBuilder();
 
+            TextReader tr = new StringReader(_mc.UrlCache.Find(l => l.Location == _mc.Sections.Find(z => z.Name == sectionName)!.Feed)!.Content!);
+            SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
+
             sb.Append(section.Header);
             sb.AppendLine($"<p><span class=\"indent ink{(int)section.HeadingCol!}\">OTHER NEWS IN BRIEF...</span></p>");
 
-            SyndicationFeed feed = Utility.ReadRSSFeed(_mc.UrlCache.Find(l => l.Location == _mc.Sections.Find(z => z.Name == sectionName)!.Feed)!.Content!);
-
             int rows = 0;
-          
             foreach (SyndicationItem item in feed.Items)
             {
                 if (!_mc.StoryList.Exists(z => z.Link == item.Links[0].Uri)

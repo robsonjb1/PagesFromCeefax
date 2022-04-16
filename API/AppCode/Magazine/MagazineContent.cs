@@ -1,5 +1,6 @@
 ﻿using System.ServiceModel.Syndication;
 using System.Text;
+using System.Xml;
 
 namespace PagesFromCeefax
 {
@@ -7,7 +8,7 @@ namespace PagesFromCeefax
     {
         public readonly List<NewsStory> StoryList = new List<NewsStory>();
         public readonly List<CachedUrl> UrlCache = new List<CachedUrl>();
-        public List<MagazineSection> Sections { get; private set; } = new List<MagazineSection>();
+        public readonly List<MagazineSection> Sections = new List<MagazineSection>();
         public StringBuilder DisplayHtml = new StringBuilder();
         public int MaxPages = 0;
 
@@ -33,7 +34,7 @@ namespace PagesFromCeefax
             Sections.Add(new MagazineSection(MagazineSectionType.Weather, 0, new Uri("https://www.bbc.co.uk/weather")));
 
             // Add each section's feed URL to URL cache
-            Sections.ForEach(z => UrlCache.Add(new CachedUrl() { Location = z.Feed }));
+            Sections.ForEach(z => UrlCache.Add(new CachedUrl(z.Feed)));
 
             // Process the URL cache (first time)
             ProcessUrlCache().Wait();
@@ -75,7 +76,8 @@ namespace PagesFromCeefax
 
         private void ProcessRSSFeed(MagazineSection section)
         {
-            SyndicationFeed feed = Utility.ReadRSSFeed(UrlCache.Find(l => l.Location == section.Feed)!.Content!);
+            TextReader tr = new StringReader(UrlCache.Find(l => l.Location == section.Feed)!.Content!);
+            SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
 
             int storyCount = 0;
             foreach (SyndicationItem item in feed.Items)
@@ -86,26 +88,18 @@ namespace PagesFromCeefax
                     StoryList.Add(new NewsStory(section.Name, item.Title.Text + ".", item.Links[0].Uri));
 
                     // Add story link to the URL cache to be retrieved later
-                    UrlCache.Add(new CachedUrl() { Location = item.Links[0].Uri });
-
+                    UrlCache.Add(new CachedUrl(item.Links[0].Uri));
+                
                     storyCount++;
                 }
             }
         }
 
-        private struct RetrievalList
-        {
-            public Uri? location { get; set; }
-            public HttpResponseMessage? httpResponse { get; set; }
-        }
-
-        private async Task<RetrievalList> FetchPageAsync(Uri location)
+        private async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
         {
             var client = new HttpClient();
             var content = await client.GetAsync(location);
-            return new RetrievalList() { location = location, httpResponse = content };
+            return (location, content);
         }
-
-        
     }
 }
