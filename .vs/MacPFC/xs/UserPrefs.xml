@@ -1,13 +1,8 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{0DE994EC-53D7-4840-A4A5-8BA8D9A0F739}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.API PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="API/AppCode/Magazine/MagazineSection.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="API/Program.cs">
     <Files>
-      <File FileName="API/Program.cs" Line="7" Column="1" />
+      <File FileName="API/Program.cs" Line="29" Column="1" />
       <File FileName="API/appsettings.json" Line="1" Column="1" />
       <File FileName="API/Properties/launchSettings.json" Line="25" Column="31" />
       <File FileName="API/wwwroot/index.html" Line="8" Column="26" />
@@ -16,15 +11,15 @@
       <File FileName="API/AppCode/Architecture/Graphics.cs" Line="25" Column="37" />
       <File FileName="API/AppCode/Magazine/CachedUrl.cs" Line="5" Column="35" />
       <File FileName="API/AppCode/Page Generators/TeletextPageNews.cs" Line="99" Column="79" />
-      <File FileName="API/AppCode/Magazine/NewsStory.cs" Line="67" Column="22" />
+      <File FileName="API/AppCode/Magazine/NewsStory.cs" Line="1" Column="14" />
       <File FileName="API/AppCode/Page Generators/TeletextPageWeather.cs" Line="17" Column="53" />
       <File FileName="API/wwwroot/js/jquery.min.js" Line="1" Column="1" />
       <File FileName="API/AppCode/Magazine/MagazineSection.cs" Line="15" Column="25" />
       <File FileName="API/Properties/PublishProfiles/pagesfromceefax - Zip Deploy.pubxml" Line="1" Column="1" />
       <File FileName="API/AppCode/Architecture/Enums.cs" Line="3" Column="25" />
       <File FileName="API/AppCode/Page Generators/TeletextPage.cs" Line="19" Column="34" />
-      <File FileName="API/AppCode/Magazine/CarouselCache.cs" Line="31" Column="52" />
-      <File FileName="API/Extensions/ResultsExtension.cs" Line="24" Column="61" />
+      <File FileName="API/AppCode/Magazine/CarouselCache.cs" Line="1" Column="1" />
+      <File FileName="API/Extensions/ResultsExtension.cs" Line="3" Column="1" />
       <File FileName="API/AppCode/Architecture/Utility.cs" Line="14" Column="79" />
       <File FileName="API/AppCode/Magazine/MagazineContent.cs" Line="97" Column="1" />
       <File FileName="API/AppCode/Data Transfer Objects/WeatherData.cs" Line="20" Column="1" />
@@ -55,5 +50,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>
