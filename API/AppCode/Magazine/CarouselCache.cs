@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Web;
+﻿using System.Text;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace PagesFromCeefax
@@ -8,6 +6,7 @@ namespace PagesFromCeefax
     public class CarouselCache
     {
         private readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
+        private StringBuilder _activityLog = new StringBuilder();
 
         private Object l = new Object();
         private int _totalRequests = 0;
@@ -15,7 +14,12 @@ namespace PagesFromCeefax
         private DateTime _serviceStart = DateTime.Now;
         private DateTime _lastBuilt = DateTime.Now;
 
-        public string GetMagazine(ILogger logger)
+        public CarouselCache()
+        {
+            LogActivity("Service start.");
+        }
+
+        public string GetMagazine()
         {
             // Only refresh the magazine on the first get (not on service start)
             _totalRequests++;
@@ -33,11 +37,11 @@ namespace PagesFromCeefax
                     content = c.Content.DisplayHtml.ToString();
                     _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(30));
                  
-                    logger.LogInformation($"Generated new carousel #{_totalCarousels} in {(_lastBuilt - start).TotalMilliseconds}ms");
+                    LogActivity($"Generated new carousel #{_totalCarousels} in {(_lastBuilt - start).TotalMilliseconds}ms.");
                 }
 
-                logger.LogInformation($"Returning carousel request {_totalRequests}");
-
+                LogActivity($"Carousel request {_totalRequests}.");
+                
                 return content!
                     .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
                     .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
@@ -45,5 +49,17 @@ namespace PagesFromCeefax
                     .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString().Substring(0, 3) + _lastBuilt.ToString(" dd MMM HH:mm/ss"));
             }
         }
+
+        public string ShowActivity()
+        {
+            return _activityLog.ToString();
+        }
+
+        private void LogActivity(string text)
+        {
+            _activityLog.AppendLine(string.Concat(DateTime.Now, ": ", text));
+        }
+
+
     }
 }

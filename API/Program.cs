@@ -11,10 +11,16 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 app.UseHttpsRedirection();
 
-app.MapGet("/carousel", (ILogger<Program> logger, CarouselCache cache) =>
+app.MapGet("/carousel", (CarouselCache cache) =>
 {
-    return Results.Extensions.NoCache(cache.GetMagazine(logger)) ;
+    return Results.Extensions.NoCache(cache.GetMagazine());
 });
+
+app.MapGet("/activity", (CarouselCache cache) =>
+{
+    return Results.Extensions.NoCache(cache.ShowActivity());
+});
+
 
 app.UseFileServer(new FileServerOptions
 {
@@ -24,5 +30,4 @@ app.UseFileServer(new FileServerOptions
     EnableDefaultFiles = true
 });
 
-app.Logger.LogInformation("Starting carousel service");
 app.Run();
