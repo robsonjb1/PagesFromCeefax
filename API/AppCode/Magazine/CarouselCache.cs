@@ -36,12 +36,11 @@ namespace PagesFromCeefax
 
                     content = c.Content.DisplayHtml.ToString();
                     _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(30));
-                 
+
+                    LogActivity($"Total service requests {_totalRequests}");
                     LogActivity($"Generated new carousel {_totalCarousels} in {(_lastBuilt - start).TotalMilliseconds}ms");
                 }
 
-                LogActivity($"Carousel request {_totalRequests}");
-                
                 return content!
                     .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
                     .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
