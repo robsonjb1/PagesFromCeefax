@@ -16,7 +16,7 @@ namespace PagesFromCeefax
 
         public CarouselCache()
         {
-            LogActivity("Service start.");
+            LogActivity("Service start");
         }
 
         public string GetMagazine()
@@ -37,10 +37,10 @@ namespace PagesFromCeefax
                     content = c.Content.DisplayHtml.ToString();
                     _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(30));
                  
-                    LogActivity($"Generated new carousel #{_totalCarousels} in {(_lastBuilt - start).TotalMilliseconds}ms.");
+                    LogActivity($"Generated new carousel {_totalCarousels} in {(_lastBuilt - start).TotalMilliseconds}ms");
                 }
 
-                LogActivity($"Carousel request {_totalRequests}.");
+                LogActivity($"Carousel request {_totalRequests}");
                 
                 return content!
                     .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
