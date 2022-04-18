@@ -61,10 +61,10 @@ namespace PagesFromCeefax
 
             // Insert stats
             Content.DisplayHtml.AppendLine("<!-- Service started: {PFC_SERVICESTART} -->");
-            Content.DisplayHtml.AppendLine("<!-- Carousel built at: {PFC_TIMESTAMP} -->");
-            Content.DisplayHtml.AppendLine("<!-- Total Requests: {PFC_TOTALREQUESTS} -->");
-            Content.DisplayHtml.AppendLine("<!-- Total Carousels: {PFC_TOTALCAROUSELS} -->");
-
+            Content.DisplayHtml.AppendLine("<!-- Total carousels built: {PFC_TOTALCAROUSELS} -->");
+            Content.DisplayHtml.AppendLine("<!-- Latest carousel: {PFC_TIMESTAMP} -->");
+            Content.DisplayHtml.AppendLine("<!-- Total requests: {PFC_TOTALREQUESTS} -->");
+        
             // The number of total pages is required javascript page cycler
             Content.DisplayHtml.AppendLine($"<div id='totalPages' style='display:none'>{Content.MaxPages}</div>");
         }
