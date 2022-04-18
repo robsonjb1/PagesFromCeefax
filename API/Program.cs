@@ -4,19 +4,19 @@ using PagesFromCeefax;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton(new CarouselCache());
+builder.Services.AddSingleton<ICarouselCache, CarouselCache>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseHttpsRedirection();
 
-app.MapGet("/carousel", (CarouselCache cache) =>
+app.MapGet("/carousel", (ICarouselCache cache) =>
 {
     return Results.Extensions.NoCache(cache.GetMagazine());
 });
 
-app.MapGet("/activity", (CarouselCache cache) =>
+app.MapGet("/activity", (ICarouselCache cache) =>
 {
     return Results.Extensions.NoCache(cache.ShowActivity());
 });

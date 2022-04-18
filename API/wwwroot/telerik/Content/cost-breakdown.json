@@ -1,0 +1,22 @@
+[
+	{
+	   "Group":"Accessory",
+	   "Amount":91080,
+	   "Explode":false
+	},
+	{
+	   "Group":"Consumer Food",
+	   "Amount":12886.149999999823,
+	   "Explode":true
+	},
+	{
+	   "Group":"Whole Product",
+	   "Amount":40287,
+	   "Explode":false
+	},
+	{
+	   "Group":"Consumer Drink",
+	   "Amount":22951.5,
+	   "Explode":false
+	}
+ ]

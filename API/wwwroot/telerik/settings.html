@@ -1,0 +1,837 @@
+<div id="settings-tilelayout"></div>
+<ul id="plan-cards-menu">
+  <li><span class='k-icon k-i-delete'></span>Delete</li>
+</ul>
+<div id="dialog"></div>
+
+<script id="info-header-template" type="text/html">
+  <button id="accountButton">Account</button>
+  <button id="billingButton">Billing</button>
+  <button id="notificationsButton">Notifications</button>
+</script>
+
+<script id="account-template" type="text/html">
+  <div class="k-d-flex-col">
+    <div style="margin-bottom: 16px;">
+      <div class="formTitle" class="formTitle">USERNAME</div>
+      <form id="userDetailForm" class="settingsForm"></form>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <div class="formTitle" class="formTitle">INFORMATION</div>
+      <form id="userInformationForm" class="settingsForm"></form>
+    </div>
+
+    <div>
+      <div class="formTitle" class="formTitle">SECURITY</div>
+      <form id="securityForm" class="settingsForm"></form>
+      <div class="k-hstack" style="margin-top: 26px;">
+        <div>Public Profile<input id="publicProfile" aria-label="Name Switch" style="margin-left: 8px;"/></div>
+        <div class="k-spacer"></div>
+        <div style="margin-top: 26px; float: right;">
+          <button id="cancelButton" class="k-button k-button-md k-button-rectangle k-rounded-md k-button-flat k-button-flat-base">Cancel</button>
+          <button id="save" class="k-selected k-button k-button-md k-button-rectangle k-rounded-md k-button-solid k-button-solid-primary k-form-submit" type="submit">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="billing-template" type="text/html">
+  <div class="formTitle" class="formTitle">CHANGE YOUR PLAN</div>
+  <div id="cards-container">
+    <div class="k-card k-card-type-rich" onclick="selectCard(event)">
+        <div class="k-card-header plan-card">
+            <h5 class="k-card-title plan-title">Starter</h5>
+            <span class="template-menu">
+                <div class="k-card-header-actions">
+                    <button class="k-button k-button-md k-button-rectangle k-rounded-md k-button-flat k-button-flat-base k-taskboard-card-menu-button k-button-icon">
+                        <span class="k-icon k-i-more-vertical"></span>
+                    </button>
+                </div>
+            </span>
+        </div>
+        <div class="k-card-body body-label">
+            Free
+        </div>
+        <div class="k-card-footer plan-footer">STARTER  PLAN FOR INDIVIDUALS</div>
+    </div>
+
+    <div class="k-card k-card-type-rich" onclick="selectCard(event)">
+      <div class="k-card-header plan-card">
+          <h5 class="k-card-title plan-title">Team</h5>
+          <span class="template-menu">
+              <div class="k-card-header-actions menu">
+                  <button class="k-button k-button-md k-button-rectangle k-rounded-md k-button-flat k-button-flat-base k-taskboard-card-menu-button k-button-icon">
+                      <span class="k-icon k-i-more-vertical"></span>
+                  </button>
+              </div>
+          </span>
+      </div>
+      <div class="k-card-body body-label">$20/Month</div>
+      <div class="k-card-footer plan-footer">COLLABORATE UP TO 16 PEOPLE</div>
+    </div>
+    <div class="k-card k-card-type-rich" onclick="selectCard(event)">
+      <div class="k-card-header plan-card">
+          <h5 class="k-card-title plan-title">Enterprise</h5>
+          <span class="template-menu">
+              <div class="k-card-header-actions">
+                  <button class="k-button k-button-md k-button-rectangle k-rounded-md k-button-flat k-button-flat-base k-taskboard-card-menu-button k-button-icon">
+                      <span class="k-icon k-i-more-vertical"></span>
+                  </button>
+              </div>
+          </span>
+      </div>
+      <div class="k-card-body body-label">$45/Month</div>
+      <div class="k-card-footer plan-footer">FOR BIGGER BUSINESSES</div>
+    </div>
+  </div>
+  <div class="formTitle">PAYMENT DETAILS</div>
+  <form id="paymentDetailsForm" class="settingsForm"></form>
+  <div style="margin-top: 26px; float: right;">
+    <button id="cancelButton" class="k-button k-button-md k-button-rectangle k-rounded-md k-button-flat k-button-flat-base">Cancel</button>
+    <button id="save" class="k-selected k-button k-button-md k-button-rectangle k-rounded-md k-button-solid k-button-solid-primary k-form-submit" type="submit">Save Changes</button>
+  </div>
+</script>
+
+<script id="notifications-template" type="text/html">
+  <div style="float: right; margin-right: 15px;"><span>Toggle all notifications</span><input id="allNotifications" aria-label="Name Switch" style="margin-left: 8px;"/></div>
+  <div class="formTitle" style="margin-top: 30px;">ALERT</div>
+  <form id="alertsForm" class="settingsForm"></form>
+
+  <div class="formTitle">EMAILS</div>
+  <form id="emailsForm" class="settingsForm"></form>
+  <div style="margin-top: 26px; float: right;">
+    <button id="cancelButton" class="k-button k-button-md k-button-rectangle k-rounded-md k-button-flat k-button-flat-base">Cancel</button>
+    <button id="save" class="k-selected k-button k-button-md k-button-rectangle k-rounded-md k-button-solid k-button-solid-primary k-form-submit" type="submit">Save Changes</button>
+  </div>
+</script>
+
+<script id="date-template" type="text/html">
+  <div style="display:flex; justify-content:center; flex-direction:row; align-content:center">
+    <div id="calendar"></div>
+  </div>
+</script>
+
+<script id="weather-header-template" type="text/html">
+  <span class="k-card-title side-tile-header">Weather</span>
+  <span class="k-spacer k-toolbar-spacer"></span>
+  <a class="k-card-title k-link" style="float: right;">
+    <span class="k-icon k-i-globe" style="margin-right:9px;"></span>
+    <span class="side-tile-header" style="color: \\#0058E9;">Sofia</span>
+  </a>
+</script>
+
+<script id="weather-template" type="text/html">
+  <div class="k-d-flex-col k-align-items-center k-justify-content-around">
+    <div style="width: 100px; height: 100px; background-image: url(Content/images/cloud.svg)"></div>
+    <div class="k-state-disabled">Partly Cloudy</div>
+    <div style="font-family: 'Roboto'; font-size: 70px; font-weight: 300; color: \\#0058E9">
+      12 &\\#176;C
+    </div>
+  </div>
+  <div class="k-card-footer">
+    <div class="weather-data-container k-d-flex-row k-align-items-center k-justify-content-center">
+      <div>
+        Humidity:<br />
+        Dew:<br />
+        Pressure:<br />
+        Wind Speed:
+      </div>
+      <div>
+        76%<br />
+        2˚C<br />
+        1031mb<br />
+        12km/h NW
+      </div>
+    </div>
+  </div>
+</script>
+
+<script>
+  var settingsTileLayout = $("#settings-tilelayout").kendoTileLayout({
+    containers: [
+      {
+        colSpan: 2,
+        rowSpan: 2,
+        header: {
+          template: kendo.template($("#info-header-template").html()),
+        },
+        bodyTemplate: kendo.template($("#account-template").html())
+      },
+      {
+        colSpan: 1,
+        rowSpan: 1,
+        header: {
+          template: "<span class='k-card-title side-tile-header'>Date</span>"
+        },
+        bodyTemplate: kendo.template($("#date-template").html())
+      },
+      {
+        colSpan: 1,
+        rowSpan: 1,
+        header: {
+          template: kendo.template($("#weather-header-template").html())
+        },
+        bodyTemplate: kendo.template($("#weather-template").html())
+      },
+    ],
+    columns: 3,
+    columnsWidth: "33%",
+    rowsHeight: "auto",
+    reorderable: true,
+    resizable: true,
+  }).data("kendoTileLayout");
+
+  $(document).ready(function () {
+    createConstantWidgets();
+    createAccountWidgets();
+
+    $("#dialog").kendoDialog({
+      title: "Success",
+      content: "Form has been submitted!",
+      visible: false
+    });
+  });
+
+  function selectCard(e) {
+    $(".selected").removeClass("selected");
+    $(e.target).closest(".k-card-type-rich").addClass("selected");
+  }
+
+  function createConstantWidgets() {
+    $("#plan-cards-menu").kendoContextMenu({
+      target: "#settings-tilelayout",
+      filter: ".template-menu",
+      showOn: "click",
+      select: function (e) {
+        e.target.closest(".k-card").remove();
+      }
+    });
+
+    $("#accountButton").kendoButton({
+      fillMode: "flat",
+      themeColor: "primary",
+      icon: "user",
+      click: function () {
+        settingsTileLayout.options.containers[0].bodyTemplate = kendo.template($("#account-template").html());
+        var containers = settingsTileLayout.options.containers
+        settingsTileLayout.setOptions({
+          containers: containers
+        });
+
+        createConstantWidgets();
+        $("#accountButton").addClass("k-active k-button-flat-primary").removeClass("k-button-flat-base");
+        $("#billingButton").removeClass("k-button-flat-primary k-active").addClass("k-button-flat-base");
+        $("#notificationsButton").removeClass("k-active k-button-flat-primary").addClass("k-button-flat-base");
+        createAccountWidgets();
+      }
+    });
+
+    $("#accountButton").addClass("k-active");
+
+    $("#cancelButton").kendoButton({
+      fillMode: "flat",
+      enable: false,
+      click: function (e) {
+        if ($("#paymentDetailsForm").length) {
+          $("#paymentDetailsForm").data("kendoForm").clear();
+        }
+        if ($("#userDetailForm").length) {
+          $("#userDetailForm").data("kendoForm").clear();
+          $("#userInformationForm").data("kendoForm").clear();
+          $("#securityForm").data("kendoForm").clear();
+          $("#publicProfile").data("kendoSwitch").check(false);
+        }
+        enableButtons(false);
+      }
+    });
+
+    $("#save").kendoButton({
+      themeColor: "primary",
+      enable: false,
+      click: function () {
+        $("#dialog").data("kendoDialog").open();
+        enableButtons(false);
+      }
+    });
+
+    $("#billingButton").kendoButton({
+      fillMode: "flat",
+      icon: "file-txt",
+      click: function () {
+        settingsTileLayout.options.containers[0].bodyTemplate = kendo.template($("#billing-template").html());
+        var containers = settingsTileLayout.options.containers
+        settingsTileLayout.setOptions({
+          containers: containers
+        });
+
+        createConstantWidgets();
+        $("#accountButton").removeClass("k-active k-button-flat-primary").addClass("k-button-flat-base");
+        $("#billingButton").removeClass('k-button-flat-base').addClass("k-button-flat-primary k-active");
+        $("#notificationsButton").removeClass("k-active k-button-flat-primary").addClass("k-button-flat-base");
+        createBillingWidgets();
+      }
+    });
+
+    $("#notificationsButton").kendoButton({
+      fillMode: "flat",
+      icon: "notification",
+      showOn: "click",
+      click: function () {
+        settingsTileLayout.options.containers[0].bodyTemplate = kendo.template($("#notifications-template").html());
+        var containers = settingsTileLayout.options.containers
+        settingsTileLayout.setOptions({
+          containers: containers
+        });
+
+        createConstantWidgets();
+        $("#accountButton").removeClass("k-active k-button-flat-primary").addClass("k-button-flat-base");
+        $("#billingButton").removeClass("k-active k-button-flat-primary").addClass("k-button-flat-base");
+
+        createNotificationsWidgets();
+        $("#notificationsButton").addClass("k-button-flat-primary k-active").removeClass("k-button-flat-base");
+      }
+    });
+
+    $("#calendar").kendoCalendar({
+      componentType: "modern"
+    });
+  }
+
+  function createAccountWidgets() {
+    $("#userDetailForm").kendoForm({
+      validatable: {
+        validateOnBlur: false,
+        validationSummary: false
+      },
+      formData: {
+        Username: "Jaxons",
+        Email: "jaxons.danniels@company.com",
+        Nickname: "JX",
+        PhoneNumber: 183738379302
+      },
+      layout: "grid",
+      grid: {
+        cols: 2,
+        gutter: 20
+      },
+      items: [
+        {
+          field: "Username",
+          label: "Username"
+        },
+        {
+          field: "Email",
+          label: "Email Address"
+        },
+        {
+          field: "Nickname",
+          label: "Nickname"
+        },
+        {
+          field: "PhoneNumber",
+          editor: "MaskedTextBox",
+          editorOptions: {
+            mask: "(+9) 0000-000-00-00"
+          },
+          label: "Phone Number"
+        }
+      ],
+      buttonsTemplate: " ",
+      change: function (e) {
+        enableButtons(true);
+      }
+    });
+
+    $("#userInformationForm").kendoForm({
+      validatable: {
+        validateOnBlur: false,
+        validationSummary: false,
+      },
+      formData: {
+        BirthDate: "0001-01-01T00:00:00",
+        Country: "1",
+        Website: "https://www.telerik.com/",
+        WorkPhone: 183738379301
+      },
+      layout: "grid",
+      grid: {
+        cols: 2,
+        gutter: 20
+      },
+      items: [
+        {
+          field: "BirthDate",
+          editor: "DateInput",
+          editorOptions: {
+            format: "{0:MM / dd / yy}",
+            messages: {
+              "year": "YY",
+              "month": "MM",
+              "day": "DD",
+            }
+          },
+          label: {
+            text: "Birth Date"
+          }
+        },
+        {
+          field: "Country",
+          editor: "DropDownList",
+          editorOptions: {
+            dataTextField: "Text",
+            dataValueField: "Value",
+            dataSource: [
+              {
+                Text: "USA",
+                Value: "1",
+                Selected: false
+              },
+              {
+                Text: "United Kingdom",
+                Value: "2",
+                Selected: false
+              },
+              {
+                Text: "Bulgaria",
+                Value: "3",
+                Selected: false
+              },
+            ],
+          },
+          label: {
+            text: "Country"
+          }
+        },
+        {
+          field: "Website",
+          label: {
+            text: "Website"
+          }
+        },
+        {
+          field: "WorkPhone",
+          editor: "MaskedTextBox",
+          editorOptions: {
+            mask: "(+9) 0000-000-00-00"
+          },
+          label: {
+            text: "Phone Number"
+          }
+        }
+      ],
+      buttonsTemplate: " ",
+      change: function (e) {
+        enableButtons(true);
+      }
+    });
+
+    $("#securityForm").kendoForm({
+      orientation: "horizontal",
+      validatable: {
+        validateOnBlur: false,
+        validationSummary: false
+      },
+      formData: {
+        CurrentPassword: "*********",
+        NewPassword: "",
+        TwoStepAuth: true,
+        ChangePwOnSixMonths: true
+      },
+      layout: "grid",
+      grid: {
+        cols: 1,
+        gutter: 20
+      },
+      items: [
+        {
+          id: "Current_Password",
+          field: "CurrentPassword",
+          editor: function (container, options) {
+            $("<input type='password' name='" + options.field + "'/>")
+              .appendTo(container)
+              .kendoTextBox()
+          },
+          label: {
+            text: "Current Password"
+          },
+          cols: 1,
+          hint: "You can only change your password once within 48 hours."
+        },
+        {
+          field: "NewPassword",
+          editor: function (container, options) {
+            $("<input type='password' name='" + options.field + "'/>")
+              .appendTo(container)
+              .kendoTextBox()
+          },
+          label: {
+            text: "New Password"
+          },
+          hint: "Minimum 8 characters, include numbers, letter and special characters.",
+          cols: 1
+        },
+        {
+          field: "TwoStepAuth",
+          editor: "Switch",
+          label: "Enable 2-step authentication"
+        },
+        {
+          field: "ChangePwOnSixMonths",
+          editor: "Switch",
+          label: {
+            text: "Ask to change password on every 6 months"
+          }
+        }
+      ],
+      buttonsTemplate: " ",
+      change: function (e) {
+        enableButtons(true);
+      }
+    });
+
+    $("#publicProfile").kendoSwitch({
+      checked: true,
+      change: function () {
+        enableButtons(true);
+      }
+    });
+
+    $("input[name='CurrentPassword']").closest(".k-form-field").css("display", "block");
+    $("input[name='CurrentPassword']").closest(".k-textbox").width("65%");
+    $("input[name='NewPassword']").closest(".k-form-field").css("display", "block");
+    $("input[name='NewPassword']").closest(".k-textbox").width("65%");
+  }
+
+  function createBillingWidgets() {
+    $("#paymentDetailsForm").kendoForm({
+      validatable: {
+        validateOnBlur: false,
+        validationSummary: false,
+      },
+      formData: {
+        CardHolder: "Jaxons Danniels",
+        CardNumber: "JS",
+        ExpirationDate: "MM/YY",
+        CVC: "",
+        Country: 1,
+        ZIP: "#"
+      },
+      layout: "grid",
+      grid: {
+        cols: 7,
+        gutter: 20
+      },
+      items: [
+        {
+          field: "CardHolder",
+          label: "Card holder",
+          colSpan: 7,
+        },
+        {
+          field: "CardNumber",
+          label: "Card number",
+          colSpan: 4,
+        },
+        {
+          field: "ExpirationDate",
+          label: "Expiration date",
+          editor: "DateInput",
+          editorOptions: {
+            format: "{0:MM / dd}",
+            messages: {
+              "year": "YY",
+              "month": "MM",
+              "day": "DD",
+            }
+          },
+          colSpan: 2,
+        },
+        {
+          field: "CVC",
+          editor: "NumericTextBox",
+          editorOptions: {
+            spinners: false,
+            decimals: 0,
+            restrictDecimals: true,
+            min: 0,
+            format: "###"
+          },
+          label: "CVC",
+          colSpan: 1,
+        },
+        {
+          field: "Country",
+          editor: "DropDownList",
+          editorOptions: {
+            dataTextField: "Text",
+            dataValueField: "Value",
+            dataSource: [
+              {
+                Text: "USA",
+                Value: "1",
+                Selected: false
+              },
+              {
+                Text: "United Kingdom",
+                Value: "2",
+                Selected: false
+              },
+              {
+                Text: "Bulgaria",
+                Value: "3",
+                Selected: false
+              },
+            ],
+          },
+          label: {
+            text: "Country"
+          },
+          colSpan: 4,
+        },
+        {
+          field: "Zip",
+          label: "Zip / Postal code",
+          colSpan: 3,
+        }
+      ],
+      buttonsTemplate: " ",
+      change: function (e) {
+        enableButtons(true);
+      }
+    });
+
+    $("input#CVC").attr('maxlength', '3');
+  }
+
+  function createNotificationsWidgets() {
+    $("#allNotifications").kendoSwitch({
+      checked: true,
+      change: function (e) {
+        var switchValue = e.sender.check();
+        var alertsFormData = $("#alertsForm").data("kendoForm").options.formData;
+        var emailsFormData = $("#emailsForm").data("kendoForm").options.formData
+
+        for (const key of Object.keys(alertsFormData)) {
+          alertsFormData[key] = switchValue;
+        }
+
+        $("#alertsForm").data("kendoForm").setOptions({
+          formData: alertsFormData
+        });
+
+        for (const key of Object.keys(emailsFormData)) {
+          emailsFormData[key] = switchValue;
+        }
+
+        $("#emailsForm").data("kendoForm").setOptions({
+          formData: emailsFormData
+        });
+
+        enableButtons(true);
+      }
+    });
+
+    $("#alertsForm").kendoForm({
+      orientation: "horizontal",
+      validatable: {
+        validateOnBlur: false,
+        validationSummary: false
+      },
+      formData: {
+        Communication: true,
+        Security: false,
+        Meetups: true,
+      },
+      layout: "grid",
+      grid: {
+        cols: 1,
+        gutter: 20
+      },
+      items: [
+        {
+          field: "Communication",
+          editor: "Switch",
+          label: {
+            text: "<div>Communication</div><div class='alertSubLabel'>Get news, announcements and product updates.</div>",
+            encoded: false
+          }
+        },
+        {
+          field: "Security",
+          editor: "Switch",
+          label: {
+            text: "<div>Security</div><div class='alertSubLabel'>Get important notifications about your account security.</div>",
+            encoded: false
+          }
+        },
+        {
+          field: "Meetups",
+          editor: "Switch",
+          label: {
+            text: "<div>Meetups</div><div class='alertSubLabel'>Get an email when a Meetup is posted close to my location.</div>",
+            encoded: false
+          }
+        }
+      ],
+      buttonsTemplate: " ",
+      change: function (e) {
+        enableButtons(true);
+      }
+    });
+
+    $("#emailsForm").kendoForm({
+      orientation: "horizontal",
+      validatable: {
+        validateOnBlur: false,
+        validationSummary: false
+      },
+      formData: {
+        PhotoComments: false,
+        MentionOnComment: false,
+        ReplyToMyGroup: true,
+      },
+      layout: "grid",
+      items: [
+        {
+          field: "PhotoComments",
+          editor: "Switch",
+          label: {
+            text: "Photo comments",
+          }
+        },
+        {
+          field: "MentionOnComment",
+          editor: "Switch",
+          label: {
+            text: "Mention on a comment"
+          }
+        },
+        {
+          field: "ReplyToMyGroup",
+          editor: "Switch",
+          label: {
+            text: "Reply to my group"
+          }
+        }
+      ],
+      buttonsTemplate: " ",
+      change: function (e) {
+        enableButtons(true);
+      }
+    });
+  }
+
+  function enableButtons(args) {
+    $("#cancelButton").data("kendoButton").enable(args);
+    $("#save").data("kendoButton").enable(args);
+  }
+</script>
+
+<style>
+  #settings-tilelayout .k-card-header {
+    border-style: none;
+  }
+
+  .weather-data-container {
+    padding: 8px 0px 0px;
+    gap: 18px;
+  }
+
+  .weather-data-container>div {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .weather-data-container>div:nth-child(1) {
+    font-weight: bold;
+    text-align: right;
+  }
+
+  #userInformationForm>div.k-form-buttons {
+    justify-content: space-between;
+  }
+
+  @media (max-width: 716px) {
+    #settings-tilelayout div.k-tilelayout-item {
+      grid-column-end: span 3 !important;
+    }
+  }
+
+  #cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .k-card-type-rich {
+    min-width: 160px;
+    flex-grow: 1;
+    padding: 8px 16px;
+    justify-content: space-between;
+  }
+
+  .plan-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 8px 8px 0px;
+  }
+
+  .plan-title {
+    font-family: Roboto;
+    font-size: 20px;
+    color: #424242;
+  }
+
+  .body-label {
+    text-align: center;
+    font-weight: 300;
+    font-size: 28px;
+  }
+
+  .plan-footer {
+    color: #8F8F8F;
+    font-weight: 400;
+    font-size: 12px;
+    border-width: 0px;
+  }
+
+  .k-form-field-wrap .k-switch {
+    float: right;
+  }
+
+  .k-form-horizontal .k-form-field>.k-form-label {
+    align-items: flex-start;
+    width: 85%;
+  }
+
+  .alertSubLabel {
+    color: #8F8F8F;
+  }
+
+  .formTitle {
+    color: #8F8F8F;
+    padding: 16px 0px 8px 0px;
+    font-size: 12px;
+  }
+
+  .settingsForm {
+    background-color: #fafafa;
+    padding: 0px 16px 0px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .side-tile-header {
+    font-size: 20px;
+  }
+
+  .selected {
+    border: 1px solid #37B400;
+  }
+</style>

@@ -1,0 +1,287 @@
+<script type="text/html" id="cardTemplate">
+    <div class="k-card" style="width:260px; height:340px;">
+        <img class="k-card-image" src="Content/Products-images/#= (ProductID % 9) + 1 #.png" alt="#: Title # image">
+        <div class="k-card-body">
+            <div class="k-card-title">#= Title #</div>
+            <div class="k-card-subtitle">#= Description #</div>
+        </div>
+        <div class="k-card-footer">
+            <div class="k-d-flex-col k-align-items-center">
+                <span>
+                    <span class="k-button k-button-md k-button-rectangle k-rounded-md k-button-flat k-button-flat-base" onclick="review()">
+                        <span class="k-icon k-i-preview"></span>Review
+                    </span>
+                </span>
+                <span>
+                    <span class="k-button k-edit-button k-button-md k-button-rectangle k-rounded-md k-button-flat k-button-flat-primary">
+                        <span class="k-icon k-i-edit"></span>Edit
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="editTemplate">
+    <div class="k-card" style="width:260px; height:340px;">
+        <img class="k-card-image" src="Content/Products-images/#= (ProductID % 9) + 1 #.png" alt="#: Title # image">
+        <div class="k-card-body">
+            <div class="k-card-title"><input data-role="textbox" data-bind="value: Title" name="Title" style="width: 100%;" /></div>
+            <div class="k-card-subtitle"><textarea data-role="textarea" data-rows="3" data-bind="value: Description" name="Description" style="width: 100%;" ></textarea></div>
+        </div>
+        <div class="k-card-footer">
+            <div class="k-d-flex-col k-align-items-center">
+                <span class="k-button k-button-md k-button-rectangle k-rounded-md k-button-flat k-button-flat-base k-cancel-button"><span class="k-icon k-i-cancel"></span>Cancel</span>
+                <span class="k-button k-button-md k-button-rectangle k-rounded-md k-button-flat k-button-flat-primary k-update-button"><span class="k-icon k-i-check"></span>Save</span>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="previewTemplate">
+    <div class="k-card" style="width:260px; height:340px;">
+        <img class="k-card-image" src="Content/Products-images/#= (ProductID % 9) + 1 #.png" alt="#: Title # image">
+        <div class="k-card-body">
+            <div class="k-card-title">#= Title #</div>
+            <div class="k-card-subtitle">#= Description #</div>
+        </div>
+    </div>
+</script>
+
+<script id="bubble-chart-template" type="text/x-kendo-template">
+    <div id="bubble-chart" style="height:100%; width:100%"></div>
+</script>
+
+<script id="products-template" type="text/html" style="background-color: #FAFAFA">
+    <div class="k-d-flex-row k-justify-content-center k-align-content-center" style="margin-bottom:45px;">
+        <span class="k-input k-textbox">
+        <input id="filter" class="k-input-inner" data-role="textbox" name="search" placeholder="Product Search" style="width:40%;" />
+    </span>
+    </div>
+    <div style="height:100%;">
+        <div id="listView"></div>
+        <div id="pager"></div>
+    </div>
+</script>
+
+<div id="tilelayout"></div>
+
+<div id="review"></div>
+
+<script>
+    function review() {
+        var listView = $("#listView").getKendoListView();
+        var dataItem = listView.dataItem($(event.target).closest('.k-card'));
+        var reviewWindow = $("#review").getKendoWindow();
+        if (!reviewWindow) {
+            reviewWindow = $("#review").kendoWindow({
+                actions: [
+                    "Close"
+                ],
+                visible: false,
+                title: dataItem.Title,
+            }).getKendoWindow();
+        }
+        var windowContent = kendo.template($("#previewTemplate").html());
+        reviewWindow.center().open().content(windowContent(dataItem));
+    }
+
+    function onTileResize(e) {
+        // for widgets that do not auto resize
+        // https://docs.telerik.com/kendo-ui/styles-and-layout/using-kendo-in-responsive-web-pages
+        kendo.resize(e.container, true);
+    }
+
+    function updateLabelsProducts() {
+        var productsChart = $("#bubble-chart").data("kendoChart");
+
+        if (productsChart) {
+            
+            var windowWidth = $(window).width();
+
+            if (windowWidth >= 925) {
+
+                productsChart.options.xAxis.labels.step = 1;
+
+            } else if (windowWidth >= 716 && windowWidth < 925) {
+
+                productsChart.options.xAxis.labels.step = 2;
+
+            } else if (windowWidth >= 520 && windowWidth < 716) {
+
+                productsChart.options.xAxis.labels.step = 4;
+
+            }
+        }
+    }
+
+    function resizeWidgets() {
+        updateLabelsProducts();
+        kendo.resize($(".k-chart"));
+    }
+
+    $(document).ready(function () {
+
+        $(window).resize(function () {
+            resizeWidgets();
+        })
+
+        $("#tilelayout").kendoTileLayout({
+            resize: onTileResize,
+            columns: 1,
+            columnsWidth: "100%",
+            containers: [{
+                    bodyTemplate: kendo.template($("#bubble-chart-template").html()),
+                    colSpan: 1,
+                    rowSpan: 1
+                },
+                {
+                    bodyTemplate: kendo.template($("#products-template").html()),
+                    colSpan: 1,
+                    rowSpan: 3
+                }
+            ],
+            reorderable: true,
+            resizable: true,
+            rowsHeight: "420px"
+        })
+
+        $("#bubble-chart").kendoChart({
+            dataSource: {
+                group: [{
+                    field: "Region"
+                }],
+                transport: {
+                    read: {
+                        url: "Content/revenue-per-product.json",
+                        dataType: "json"
+                    }
+                }
+            },
+            legend: {
+                labels: {
+                    margin: {
+                        right: 200
+                    }
+                },
+                visible: true,
+                position: "bottom"
+            },
+            series: [{
+                "categoryField": "Product",
+                "sizeField": "Rate",
+                "xField": "Amount",
+                "yField": "SalesCount"
+            }],
+            seriesDefaults: {
+                type: "bubble"
+            },
+            theme: "sass",
+            title: {
+                font: "font-family: Roboto; font-style: normal; font-weight: normal; font-size: 20px;",
+                text: "Revenue per Product Type",
+                align: "left",
+                position: "top"
+            },
+            tooltip: {
+                template: "#=dataItem.Region# : #=dataItem.Product# Sales : #=kendo.toString(dataItem.Amount,'c')#",
+                visible: true
+            },
+            xAxis: [{
+                labels: {
+                    "format": "{0:c}",
+                    step: 3
+                }
+            }],
+            yAxis: [{
+                labels: {
+                    "format": "{0:n}"
+                }
+            }],
+        });
+
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "Content/products.json",
+                    dataType: "json"
+                }
+            },
+            pageSize: 8
+        });
+
+        $("#pager").kendoPager({
+            dataSource: dataSource,
+            buttonCount: 5,
+            responsive: true,
+            input: true,
+            refresh: true,
+        });
+
+        $("#listView").kendoListView({
+            dataSource: dataSource,
+            template: kendo.template($("#cardTemplate").html()),
+            editTemplate: kendo.template($("#editTemplate").html())
+        });
+
+        $("#filter").keyup(function () {
+            var filter = $(this).val(),
+                count = 0;
+
+            $('#listView .k-card').each(function () {
+                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                    count++;
+                }
+            });
+        });
+
+        setTimeout(function () {
+            resizeWidgets();
+        }, 350);
+    });
+</script>
+<style>
+    #listView>.k-listview-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 32px;
+        max-height: 1100px;
+    }
+
+    .k-card-image {
+        width: 100%;
+        height: 111px;
+    }
+
+    .k-card-title {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .k-card-subtitle {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .k-tilelayout-item.k-card:nth-child(2) {
+        border: none;
+        background: inherit;
+    }
+
+    .k-listview {
+        background: inherit;
+        border: none;
+    }
+    .k-d-flex-row>.k-textbox{
+        width:40%;
+    }
+</style>

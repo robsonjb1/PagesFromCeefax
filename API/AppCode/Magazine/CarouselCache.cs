@@ -1,9 +1,10 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace PagesFromCeefax
 {
-    public class CarouselCache
+    public class CarouselCache : ICarouselCache
     {
         private readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
         private StringBuilder _activityLog = new StringBuilder();
@@ -23,6 +24,7 @@ namespace PagesFromCeefax
         {
             // Only refresh the magazine on the first get (not on service start)
             _totalRequests++;
+
             lock (l)
             {
                 var content = _currentCarousel.Get<string>("carousel");
@@ -30,7 +32,8 @@ namespace PagesFromCeefax
                 {
                     _totalCarousels++;
 
-                    DateTime start = DateTime.Now;
+                    var sw = new Stopwatch();
+                    sw.Start();
                     var c = new CarouselBuilder();
                     _lastBuilt = DateTime.Now;
 
@@ -38,7 +41,7 @@ namespace PagesFromCeefax
                     _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(30));
 
                     LogActivity($"Total service requests {_totalRequests}");
-                    LogActivity($"Generated new carousel {_totalCarousels} in {(_lastBuilt - start).TotalMilliseconds}ms");
+                    LogActivity($"Generated new carousel {_totalCarousels} in {sw.ElapsedMilliseconds}ms");
                 }
 
                 return content!
