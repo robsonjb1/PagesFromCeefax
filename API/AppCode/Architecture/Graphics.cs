@@ -390,7 +390,7 @@ namespace PagesFromCeefax
             PromoLinks.AppendLine("<br>");
             PromoLinks.AppendLine("<p><span class=\"ink5 indent\"><a href=\"http://teletext.mb21.co.uk\" target=\"_new\">http://teletext.mb21.co.uk</a></span></p>");
             PromoLinks.AppendLine("<br><br>");
-            PromoLinks.AppendLine("<p><span class=\"ink5 indent\">{PFC_SERVICESTART} ({PFC_TOTALREQUESTS}/{PFC_TOTALCAROUSELS})</span></p>");
+            PromoLinks.AppendLine("<p><span class=\"ink5 indent\">{PFC_SERVICESTART} ({PFC_TOTALCAROUSELS}/{PFC_TOTALREQUESTS})</span></p>");
             PromoLinks.AppendLine("<br>");
             PromoLinks.AppendLine("<p><span class=\"paper1 ink6\">&nbsp;&nbsp;CEEFAX: The world at your fingertips&nbsp;</span></p>");
 

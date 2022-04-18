@@ -39,8 +39,8 @@ namespace PagesFromCeefax
                 logger.LogInformation($"Returning carousel request {_totalRequests}");
 
                 return content!
-                    .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
                     .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
+                    .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
                     .Replace("{PFC_SERVICESTART}", _serviceStart.DayOfWeek.ToString().Substring(0, 3) + _serviceStart.ToString(" dd MMM HH:mm/ss"))
                     .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString().Substring(0, 3) + _lastBuilt.ToString(" dd MMM HH:mm/ss"));
             }
