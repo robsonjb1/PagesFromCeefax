@@ -38,7 +38,7 @@ namespace PagesFromCeefax
                     _lastBuilt = DateTime.Now;
 
                     content = c.Content.DisplayHtml.ToString();
-                    _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(30));
+                    _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(20));
 
                     LogActivity($"Total service requests {_totalRequests}");
                     LogActivity($"Generated new carousel {_totalCarousels} in {sw.ElapsedMilliseconds}ms");

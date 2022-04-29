@@ -47,52 +47,50 @@
             $('#date').text(days[now.getDay()] + ' ' + ('0' + now.getDate()).slice(-2) + ' ' + months[now.getMonth()]);
             $('#clock').text(('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2) + '/' + ('0' + now.getSeconds()).slice(-2));
 
+            // Do we need to refresh the magazine ? (takes place every 30 minutes)
+            if (now - magazineRequestTime > (30 * 60 * 1000)) {
+                transitionSecond = (now.getSeconds() + 15) % 60;
+              
+                // Switch back to loading page
+                $('#page' + previousPage).hide();
+                previousPage = 0;
+                $('#magazineLoading').slideDown(300);
+
+                // Turn on the page ticker
+                pageTicking = true;
+
+                // Refresh magazine
+                $('#magazineContent').load("/carousel");
+            }
+
             // Change page if we've hit the transition second
             if (now.getSeconds() == transitionSecond) {
                 // Turn off the ticker
                 pageTicking = false;
 
-                // Do we need to refresh the magazine ? (takes place every 30 minutes)
-                if (now - magazineRequestTime > (30 * 60 * 1000)) {
-                    transitionSecond = (transitionSecond + 15) % 60;
-                    magazineRequestTime = now;
+                // Move to next page
+                currentPage = 1 + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration) % pagesInCarousel);
+                transitionSecond = (transitionSecond + pageDuration) % 60;
 
-                    // Switch back to loading page
-                    $('#page' + previousPage).hide();
-                    previousPage = 0;
-                    $('#magazineLoading').slideDown(300);
-
-                    // Turn on the page ticker
-                    pageTicking = true;
-
-                    // Refresh magazine
-                    $('#magazineContent').load("/carousel");
-                }
-                else {
-                    // Move to next page
-                    currentPage = 1 + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration) % pagesInCarousel);
-                    transitionSecond = (transitionSecond + pageDuration) % 60;
-
-                    if ($('#page' + currentPage).length > 0) {
-                        if (previousPage == 0) {
-                            // Hide loading page
-                            $('#magazineLoading').hide();
-                        }
-                        else {
-                            $('#page' + previousPage).hide();
-                        }
-
-                        // Slide down page
-                        $('#page' + currentPage).slideDown(300);
-                        $('#pageTicker').text("152");
-
-                        previousPage = currentPage;
+                if ($('#page' + currentPage).length > 0) {
+                    if (previousPage == 0) {
+                        // Hide loading page
+                        $('#magazineLoading').hide();
                     }
                     else {
-                        // There's a problem - so force request the magazine content again
-                        magazineRequestTime = 0;
-                        transitionSecond++;
+                        $('#page' + previousPage).hide();
                     }
+
+                    // Slide down page
+                    $('#page' + currentPage).slideDown(300);
+                    $('#pageTicker').text("152");
+
+                    previousPage = currentPage;
+                }
+                else {
+                    // There's a problem - so force request the magazine content again
+                    magazineRequestTime = 0;
+                    transitionSecond++;
                 }
             }
         }

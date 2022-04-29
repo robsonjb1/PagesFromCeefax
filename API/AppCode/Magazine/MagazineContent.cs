@@ -19,7 +19,7 @@ namespace PagesFromCeefax
             Sections.Add(new MagazineSection(MagazineSectionType.World, 3, new Uri("http://feeds.bbci.co.uk/news/world/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.Politics, 2, new Uri("http://feeds.bbci.co.uk/news/politics/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.Science, 1, new Uri("http://feeds.bbci.co.uk/news/science_and_environment/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Technology, 1, new Uri("http://feeds.bbci.co.uk/news/technology/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Technology, 2, new Uri("http://feeds.bbci.co.uk/news/technology/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.Business, 3, new Uri("http://feeds.bbci.co.uk/news/business/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.Sussex, 2, new Uri("http://feeds.bbci.co.uk/news/england/sussex/rss.xml")));
 

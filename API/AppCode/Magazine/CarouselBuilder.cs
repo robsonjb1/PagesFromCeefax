@@ -11,7 +11,7 @@ namespace PagesFromCeefax
         {
             // Construct DTO's
             var weather = new WeatherData(
-                Content.UrlCache.Find(l => l.Location == Content.Sections.Find(z => z.Name == MagazineSectionType.Weather)!.Feed)!.Content!);
+                Content.UrlCache.First(l => l.Location == Content.Sections.First(z => z.Name == MagazineSectionType.Weather).Feed).Content!);
 
             // Initialise page generators
             TeletextPageNews tn = new TeletextPageNews(Content);

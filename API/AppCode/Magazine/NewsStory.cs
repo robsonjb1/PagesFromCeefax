@@ -11,7 +11,6 @@ namespace PagesFromCeefax
         public readonly MagazineSectionType SectionName;
         public readonly Uri Link;
         public readonly List<string> Headline;
-
         public List<string>[] Body = new List<string>[3] { new List<string>(), new List<string>(), new List<String>() };
 
         public NewsStory(MagazineSectionType SectionName, string Headline, Uri Link)
