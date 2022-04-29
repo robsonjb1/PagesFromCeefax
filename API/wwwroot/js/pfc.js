@@ -55,6 +55,7 @@
                 transitionSecond = (now.getSeconds() + loadingPageDuration) % 60;
               
                 // Switch back to loading page
+
                 $('#page' + previousPage).hide();
                 previousPage = 0;
                 $('#magazineLoading').slideDown(300);
@@ -103,6 +104,7 @@
     }
 
     // Page initialisation
+
     $(window).load(function () {
         // Default control values
         $('#page').attr('class', 'view');
