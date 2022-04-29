@@ -11,6 +11,7 @@ namespace PagesFromCeefax
         public readonly MagazineSectionType SectionName;
         public readonly Uri Link;
         public readonly List<string> Headline;
+        public readonly List<string> MultiPageHeadline;
         public List<string>[] Body = new List<string>[3] { new List<string>(), new List<string>(), new List<String>() };
 
         public NewsStory(MagazineSectionType SectionName, string Headline, Uri Link)
@@ -18,6 +19,7 @@ namespace PagesFromCeefax
             this.SectionName = SectionName;
             this.Link = Link;
             this.Headline = Utility.ParseParagraph(Headline);
+            this.MultiPageHeadline = Utility.ParseParagraph(Headline, 39, 35);
         }
 
         public void AddBody(string html)

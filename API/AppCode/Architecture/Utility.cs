@@ -14,10 +14,10 @@ namespace PagesFromCeefax
         // Mixture of string parsing utilities and graphics character handling
         public static List<string> ParseParagraph(string content)
         {
-            return ParseParagraph(content, 39);
+            return ParseParagraph(content, 39, 39);
         }
 
-        public static List<string> ParseParagraph(string content, int lineLength)
+        public static List<string> ParseParagraph(string content, int lineLength, int firstLineOverride)
         {
             List<string> rows = new List<String>();
             content += "</p>";  // In case there isn't already an ending </p>
@@ -26,7 +26,8 @@ namespace PagesFromCeefax
             String[] words = content.Split(' ');
             string currentLine = "";
             bool invalidText = false;
-
+            int effectiveLineLength = firstLineOverride;
+            
             foreach (string currentWord in words)
             {
                 if (currentWord.ToUpper() == "JAVASCRIPT" || currentWord.ToUpper() == "(CSS)")
@@ -36,11 +37,17 @@ namespace PagesFromCeefax
 
                 if (!invalidText)
                 {
-                    if ((currentLine.Length >= lineLength) ||
-                        ((currentLine.Length + currentWord.Length) >= lineLength))
+                    if ((currentLine.Length >= effectiveLineLength) ||
+                        ((currentLine.Length + currentWord.Length) >= effectiveLineLength))
                     {
+                        if(effectiveLineLength != lineLength)
+                        {
+                            currentLine += string.Join("", Enumerable.Repeat("&nbsp;", firstLineOverride - currentLine.Length)) + " x/y";
+                        }
+
                         rows.Add(CleanHTML(currentLine));
                         currentLine = "";
+                        effectiveLineLength = lineLength;
                     }
 
                     if (currentLine.Length > 0)
@@ -72,7 +79,7 @@ namespace PagesFromCeefax
         public static string CleanHTML(string html)
         {
             // Tags
-            html = Regex.Replace(html, @"<[^>]+>|&nbsp;", "").Trim().Replace(System.Environment.NewLine, "").Replace("&#039;", "'").Replace("&quot;", "'").Replace("\n", "");
+            html = Regex.Replace(html, @"<[^>]+>", "").Trim().Replace(System.Environment.NewLine, "").Replace("&#039;", "'").Replace("&quot;", "'").Replace("\n", "");
             // Double spaces
             html = Regex.Replace(html, @"[ ]{2,}", @" ");
             // Line

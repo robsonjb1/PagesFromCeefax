@@ -22,7 +22,9 @@ namespace PagesFromCeefax
             int storyCount = 1;
             foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body[0].Count > 0))
             {
-                content.Append(CreateNewsPage(section, story, storyCount == section.TotalStories));
+                content.Append(CreateNewsPage(section, story,
+                    isLastStory: storyCount == section.TotalStories,
+                    isTwoPageStory : section.HasNewsInBrief && storyCount == 1));
                 storyCount++;
             }
 
@@ -34,11 +36,11 @@ namespace PagesFromCeefax
             return content;
         }
 
-        private StringBuilder CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory)
+        private StringBuilder CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory, bool isTwoPageStory)
         {
             StringBuilder newsStory = new StringBuilder();
 
-            for (int subPage = 0; subPage < 1; subPage++)
+            for (int subPage = 0; subPage < (isTwoPageStory ? 2 : 1); subPage++)
             {
                 StringBuilder sb = new StringBuilder();
                 sb.Append(section.Header);
@@ -47,9 +49,10 @@ namespace PagesFromCeefax
                 Mode7Colour bodyCol = Mode7Colour.White;
                 
                 // Headline
-                foreach (string line in story.Headline)
+                foreach (string line in isTwoPageStory ? story.MultiPageHeadline : story.Headline)
                 {
-                    sb.AppendLine($"<p><span class=\"ink{(int)section.HeadingCol!} indent\">{line}</span></p>");
+                    var displayLine = line.Replace("x/y", $"<span class=\"ink{(int)Mode7Colour.White}\">{subPage + 1}/2</span>");
+                    sb.AppendLine($"<p><span class=\"ink{(int)section.HeadingCol!} indent\">{displayLine}</span></p>");
                 }
 
                 // Story
