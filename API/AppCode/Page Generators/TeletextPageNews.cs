@@ -13,7 +13,7 @@ namespace PagesFromCeefax
         {
         }
 
-        public StringBuilder CreateNewsSection(MagazineSectionType sectionName, bool overrideSectionFooter = false)
+        public StringBuilder CreateNewsSection(MagazineSectionType sectionName)
         {
             MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
             StringBuilder content = new StringBuilder();
@@ -22,19 +22,22 @@ namespace PagesFromCeefax
             int storyCount = 1;
             foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body[0].Count > 0))
             {
-                content.Append(CreateNewsPage(section, story,
-                    (storyCount == section.TotalStories) ?
-                        (overrideSectionFooter ? null : section.PromoFooter!) : null));
+                content.Append(CreateNewsPage(section, story, storyCount == section.TotalStories));
                 storyCount++;
+            }
+
+            if (section.HasNewsInBrief)
+            {
+                content.Append(CreateNewsInBrief(sectionName));
             }
 
             return content;
         }
 
-        private StringBuilder CreateNewsPage(MagazineSection section, NewsStory story, string? promoFooter)
+        private StringBuilder CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory)
         {
             StringBuilder newsStory = new StringBuilder();
-          
+
             for (int subPage = 0; subPage < 1; subPage++)
             {
                 StringBuilder sb = new StringBuilder();
@@ -42,7 +45,7 @@ namespace PagesFromCeefax
 
                 bool firstParagraph = true;
                 Mode7Colour bodyCol = Mode7Colour.White;
-
+                
                 // Headline
                 foreach (string line in story.Headline)
                 {
@@ -74,14 +77,15 @@ namespace PagesFromCeefax
                 }
 
                 // Footer
-                if (promoFooter is null)
+                if (section.PromoFooter is not null 
+                    && (isLastStory && !section.HasNewsInBrief))
                 {
-                    sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
+                    string promoFooterPadded = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
+                    sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooterPadded!}</span></p>");
                 }
                 else
                 {
-                    string promoFooterPadded = promoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - promoFooter.Length));
-                    sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooterPadded!}</span></p>");
+                    sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
                 }
 
                 newsStory.Append(BuildTeletextPage(sb));

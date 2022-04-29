@@ -15,23 +15,23 @@ namespace PagesFromCeefax
         public MagazineContent()
         {
             // Initialise magazine sections
-            Sections.Add(new MagazineSection(MagazineSectionType.Home, 3, new Uri("http://feeds.bbci.co.uk/news/uk/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.World, 3, new Uri("http://feeds.bbci.co.uk/news/world/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Politics, 2, new Uri("http://feeds.bbci.co.uk/news/politics/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Science, 1, new Uri("http://feeds.bbci.co.uk/news/science_and_environment/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Technology, 2, new Uri("http://feeds.bbci.co.uk/news/technology/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Business, 3, new Uri("http://feeds.bbci.co.uk/news/business/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Sussex, 2, new Uri("http://feeds.bbci.co.uk/news/england/sussex/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Home, new Uri("http://feeds.bbci.co.uk/news/uk/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.World, new Uri("http://feeds.bbci.co.uk/news/world/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Politics, new Uri("http://feeds.bbci.co.uk/news/politics/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Science, new Uri("http://feeds.bbci.co.uk/news/science_and_environment/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Technology, new Uri("http://feeds.bbci.co.uk/news/technology/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Business, new Uri("http://feeds.bbci.co.uk/news/business/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Sussex, new Uri("http://feeds.bbci.co.uk/news/england/sussex/rss.xml")));
 
-            Sections.Add(new MagazineSection(MagazineSectionType.Football, 2, new Uri("http://feeds.bbci.co.uk/sport/football/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Rugby, 2, new Uri("http://feeds.bbci.co.uk/sport/rugby-union/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Cricket, 2, new Uri("http://feeds.bbci.co.uk/sport/cricket/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Tennis, 2, new Uri("http://feeds.bbci.co.uk/sport/tennis/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Golf, 1, new Uri("http://feeds.bbci.co.uk/sport/golf/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Formula1, 2, new Uri("http://feeds.bbci.co.uk/sport/formula1/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Football, new Uri("http://feeds.bbci.co.uk/sport/football/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Rugby, new Uri("http://feeds.bbci.co.uk/sport/rugby-union/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Cricket, new Uri("http://feeds.bbci.co.uk/sport/cricket/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Tennis, new Uri("http://feeds.bbci.co.uk/sport/tennis/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Golf, new Uri("http://feeds.bbci.co.uk/sport/golf/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Formula1, new Uri("http://feeds.bbci.co.uk/sport/formula1/rss.xml")));
 
-            Sections.Add(new MagazineSection(MagazineSectionType.Entertainment, 3, new Uri("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Weather, 0, new Uri("https://www.bbc.co.uk/weather")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Entertainment, new Uri("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
+            Sections.Add(new MagazineSection(MagazineSectionType.Weather, new Uri("https://www.bbc.co.uk/weather")));
 
             // Add each section's feed URL to URL cache
             Sections.ForEach(z => UrlCache.Add(new CachedUrl(z.Feed)));

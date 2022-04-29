@@ -3,23 +3,31 @@ using System.Text;
 
 namespace PagesFromCeefax
 {
+
+    public enum SectionSize
+    {
+        Compact,
+        Full,
+        Manual
+    }
+
     public class MagazineSection
     {
         public readonly MagazineSectionType Name;
         public readonly Uri Feed;
         public readonly int TotalStories;
+        public readonly bool HasNewsInBrief;
         public readonly StringBuilder? Header;
         public readonly Mode7Colour? HeadingCol;
         public readonly string? PromoFooter;
         public readonly Mode7Colour? PromoPaper;
         public readonly Mode7Colour? PromoInk;
 
-        public MagazineSection(MagazineSectionType Name, int TotalStories, Uri Feed)
+        public MagazineSection(MagazineSectionType Name, Uri Feed)
         {
             this.Name = Name;
             this.Feed = Feed;
-            this.TotalStories = TotalStories;
-
+           
             // Initialise the visual parameters depending on section
             switch (Name)
             {
@@ -60,6 +68,31 @@ namespace PagesFromCeefax
                 default:
                     break;
             }
+
+            // Initialise the full section sizes
+            switch (Name)
+            {
+                case MagazineSectionType.Home:
+                case MagazineSectionType.World:
+                case MagazineSectionType.Politics:
+                case MagazineSectionType.Business:
+                case MagazineSectionType.Football:
+                case MagazineSectionType.Entertainment:
+                    this.TotalStories = 3;
+                    this.HasNewsInBrief = true;
+                    break;
+
+                case MagazineSectionType.Weather:
+                    this.TotalStories = 0;
+                    this.HasNewsInBrief = false;
+                    break;
+
+                default:
+                    this.TotalStories = 2;
+                    this.HasNewsInBrief = false;
+                    break;
+            }
+
 
             // Initialise header banner and promo footer text
             switch (Name)

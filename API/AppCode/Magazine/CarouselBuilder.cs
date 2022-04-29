@@ -24,21 +24,17 @@ namespace PagesFromCeefax
 
             // News section
             tn.BuildTeletextPage(Graphics.PromoNews);
-            tn.CreateNewsSection(MagazineSectionType.Home, true);   // true = display a default footer because we have a News in Brief following
-            tn.CreateNewsInBrief(MagazineSectionType.Home);
-            tn.CreateNewsSection(MagazineSectionType.World, true);
-            tn.CreateNewsInBrief(MagazineSectionType.World);
+            tn.CreateNewsSection(MagazineSectionType.Home);
+            tn.CreateNewsSection(MagazineSectionType.World);
             tn.CreateNewsSection(MagazineSectionType.Politics);
             tn.CreateNewsSection(MagazineSectionType.Science);
             tn.CreateNewsSection(MagazineSectionType.Technology);
             tn.CreateNewsSection(MagazineSectionType.Sussex);
             tn.CreateNewsSection(MagazineSectionType.Business);
-            tn.CreateNewsInBrief(MagazineSectionType.Business);
-
+         
             // Sports section
             tn.BuildTeletextPage(Graphics.PromoSport);
-            tn.CreateNewsSection(MagazineSectionType.Football, true);
-            tn.CreateNewsInBrief(MagazineSectionType.Football);
+            tn.CreateNewsSection(MagazineSectionType.Football);
             tn.CreateNewsSection(MagazineSectionType.Rugby);
             tn.CreateNewsSection(MagazineSectionType.Cricket);
             tn.CreateNewsSection(MagazineSectionType.Tennis);
@@ -54,8 +50,7 @@ namespace PagesFromCeefax
             // Entertainment section
             tn.BuildTeletextPage(Graphics.PromoTV);
             tn.CreateNewsSection(MagazineSectionType.Entertainment);
-            tn.CreateNewsInBrief(MagazineSectionType.Entertainment);
-
+          
             // Close
             tn.BuildTeletextPage(Graphics.PromoLinks);
 

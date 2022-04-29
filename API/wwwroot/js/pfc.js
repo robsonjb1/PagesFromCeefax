@@ -42,14 +42,17 @@
         var s = Math.floor(now.getTime() / 1000);
         if (s != currentSeconds) {
             // Update clock
+
             currentSeconds = s;
 
             $('#date').text(days[now.getDay()] + ' ' + ('0' + now.getDate()).slice(-2) + ' ' + months[now.getMonth()]);
             $('#clock').text(('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2) + '/' + ('0' + now.getSeconds()).slice(-2));
 
             // Do we need to refresh the magazine ? (takes place every 30 minutes)
+
             if (now - magazineRequestTime > (30 * 60 * 1000)) {
-                transitionSecond = (now.getSeconds() + 15) % 60;
+                magazineRequestTime = now;
+                transitionSecond = (now.getSeconds() + loadingPageDuration) % 60;
               
                 // Switch back to loading page
                 $('#page' + previousPage).hide();
@@ -60,6 +63,7 @@
                 pageTicking = true;
 
                 // Refresh magazine
+
                 $('#magazineContent').load("/carousel");
             }
 
@@ -123,7 +127,9 @@
                 // Magazine received before 15 seconds have passed, so calculate the correct transition second
                 transitionSecond = (magazineRequestTime.getSeconds() + loadingPageDuration) % 60;
             }
+
             // We now know how many pages are in the carousel
+
             pagesInCarousel = $('#totalPages').html();
         });
 
