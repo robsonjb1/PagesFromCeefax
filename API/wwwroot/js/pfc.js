@@ -17,7 +17,7 @@
     var pageTickerNo = 153;
     var pageTicking = true;
     var pageTickerInterval = 0;
-
+    var lastPageRefresh = new Date();
 
     function timer() {
         var now = new Date();
@@ -52,7 +52,8 @@
 
             if (now - magazineRequestTime > (30 * 60 * 1000)) {
                 magazineRequestTime = now;
-                transitionSecond = (now.getSeconds() + loadingPageDuration) % 60;
+                lastPageRefresh = now;
+                transitionSecond = -1; // do not do a regular refresh until the new carousel is loaded
               
                 // Switch back to loading page
 
@@ -64,18 +65,19 @@
                 pageTicking = true;
 
                 // Refresh magazine
-
-                $('#magazineContent').load("/carousel");
+                getNewCarousel();
             }
 
             // Change page if we've hit the transition second
-            if (now.getSeconds() == transitionSecond) {
+
+            if (now.getSeconds() == transitionSecond || (now - lastPageRefresh > 60 * 1000)) {
                 // Turn off the ticker
                 pageTicking = false;
 
                 // Move to next page
                 currentPage = 1 + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration) % pagesInCarousel);
                 transitionSecond = (transitionSecond + pageDuration) % 60;
+                lastPageRefresh = now;
 
                 if ($('#page' + currentPage).length > 0) {
                     if (previousPage == 0) {
@@ -115,6 +117,14 @@
         // Display loading page
         window.setTimeout(function () { $('#magazineLoading').slideDown(300) }, 500);
 
+        getNewCarousel();
+
+        // Start clock and transition timer
+        timer();
+
+    });
+
+    function getNewCarousel() {
         // Mark the time we first requested the magazine
         magazineRequestTime = new Date();
         $('#magazineContent').load("/carousel", function () {
@@ -131,17 +141,11 @@
             }
 
             // We now know how many pages are in the carousel
-
             pagesInCarousel = $('#totalPages').html();
         });
-
-        // Start clock and transition timer
-        timer();
-
-    });
+    }
 
 })();
-
 
 // Support for background music
 var musicOn = false;
