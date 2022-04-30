@@ -3,20 +3,12 @@ using System.Text;
 
 namespace PagesFromCeefax
 {
-
-    public enum SectionSize
-    {
-        Compact,
-        Full,
-        Manual
-    }
-
     public class MagazineSection
     {
         public readonly MagazineSectionType Name;
         public readonly Uri Feed;
         public readonly int TotalStories;
-        public readonly bool HasNewsInBrief;
+        public readonly bool HasNewsInBrief = false;
         public readonly StringBuilder? Header;
         public readonly Mode7Colour? HeadingCol;
         public readonly string? PromoFooter;
@@ -84,12 +76,10 @@ namespace PagesFromCeefax
 
                 case MagazineSectionType.Weather:
                     this.TotalStories = 0;
-                    this.HasNewsInBrief = false;
                     break;
 
                 default:
                     this.TotalStories = 2;
-                    this.HasNewsInBrief = false;
                     break;
             }
 

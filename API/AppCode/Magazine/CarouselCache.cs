@@ -7,18 +7,12 @@ namespace PagesFromCeefax
     public class CarouselCache : ICarouselCache
     {
         private readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
-        private StringBuilder _activityLog = new StringBuilder();
 
         private Object l = new Object();
         private int _totalRequests = 0;
         private int _totalCarousels = 0;
         private DateTime _serviceStart = DateTime.Now;
         private DateTime _lastBuilt = DateTime.Now;
-
-        public CarouselCache()
-        {
-            LogActivity("Service start");
-        }
 
         public string GetMagazine()
         {
@@ -39,9 +33,6 @@ namespace PagesFromCeefax
 
                     content = c.Content.DisplayHtml.ToString();
                     _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(20));
-
-                    LogActivity($"Total service requests {_totalRequests}");
-                    LogActivity($"Generated new carousel {_totalCarousels} in {sw.ElapsedMilliseconds}ms");
                 }
 
                 return content!
@@ -51,17 +42,6 @@ namespace PagesFromCeefax
                     .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString().Substring(0, 3) + _lastBuilt.ToString(" dd MMM HH:mm/ss"));
             }
         }
-
-        public string ShowActivity()
-        {
-            return _activityLog.ToString();
-        }
-
-        private void LogActivity(string text)
-        {
-            _activityLog.AppendLine(string.Concat(DateTime.Now, ": ", text));
-        }
-
 
     }
 }

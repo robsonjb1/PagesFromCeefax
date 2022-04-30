@@ -16,12 +16,6 @@ app.MapGet("/carousel", (ICarouselCache cache) =>
     return Results.Extensions.NoCache(cache.GetMagazine());
 });
 
-app.MapGet("/activity", (ICarouselCache cache) =>
-{
-    return Results.Extensions.NoCache(cache.ShowActivity());
-});
-
-
 app.UseFileServer(new FileServerOptions
 {
     FileProvider = new PhysicalFileProvider(
