@@ -68,7 +68,7 @@
                 getNewCarousel();
             }
 
-            // Change page if we've hit the transition second
+            // Change page if we've hit the transition second, or it has been at least a minute since the last refresh
 
             if (now.getSeconds() == transitionSecond || (now - lastPageRefresh > 60 * 1000)) {
                 // Turn off the ticker
@@ -76,7 +76,7 @@
 
                 // Move to next page
                 currentPage = 1 + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration) % pagesInCarousel);
-                transitionSecond = (transitionSecond + pageDuration) % 60;
+                transitionSecond = (now.getSeconds() + pageDuration) % 60;
                 lastPageRefresh = now;
 
                 if ($('#page' + currentPage).length > 0) {
@@ -97,7 +97,6 @@
                 else {
                     // There's a problem - so force request the magazine content again
                     magazineRequestTime = 0;
-                    transitionSecond++;
                 }
             }
         }
