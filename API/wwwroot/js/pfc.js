@@ -12,7 +12,7 @@
     var pagesInCarousel = 1;
     var transitionSecond = -1;
     var loadingPageDuration = 10;
-    var pageDuration = 27;
+    var pageDuration = 26;
 
     var pageTickerNo = 153;
     var pageTicking = true;
