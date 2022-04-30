@@ -39,7 +39,7 @@
             }
         }
 
-        var s = Math.floor(now.getTime() / 1000);
+        var s = now.getSeconds();
         if (s != currentSeconds) {
             // Update clock
 
@@ -70,7 +70,7 @@
 
             // Change page if we've hit the transition second, or it has been at least a minute since the last refresh
 
-            if (now.getSeconds() == transitionSecond || (now - lastPageRefresh > 60 * 1000)) {
+            if (currentSeconds == transitionSecond || (now - lastPageRefresh > 60 * 1000)) {
                 // Turn off the ticker
                 pageTicking = false;
 
