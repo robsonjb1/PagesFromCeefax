@@ -53,6 +53,7 @@ audio {
 #controls {
     text-align: center;
 	    color: white;
+	font-size: .7em;
 	background-color: black;	
 }
 
