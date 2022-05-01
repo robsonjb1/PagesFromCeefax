@@ -31,6 +31,10 @@ html {
 	color: #ffffff;
 }
 
+body {
+	background-color: black;
+}
+
 Header {
 	position: absolute;
 	top: -1000px;
@@ -48,7 +52,7 @@ audio {
 
 #controls {
     text-align: center;
-    color: white;
+	    color: white;
 	background-color: black;	
 }
 
