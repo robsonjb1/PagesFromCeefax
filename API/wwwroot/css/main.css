@@ -48,21 +48,8 @@ audio {
 
 #controls {
     text-align: center;
-    vertical-align: top;
-    color: black;
-    font-size: .95em;
-}
-#controls table {
-    margin-left:auto; 
-    margin-right:auto;
-    text-align:center;
-    border-spacing:15px;
-}
-#controls td {
-    vertical-align:top;
-}
-#controls a {
-    white-space: pre;
+    color: white;
+	background-color: black;	
 }
 
 /* main page container */
@@ -210,6 +197,10 @@ p.doubleHeight {
 }
 p.doubleHeight + p {
 	visibility: hidden;
+}
+
+.material-icons.md-40 {
+	font-size: 30px;
 }
 
 /* size adjustments */
