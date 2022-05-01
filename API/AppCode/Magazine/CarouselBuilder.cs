@@ -56,7 +56,7 @@ namespace PagesFromCeefax
 
             // Insert stats
             Content.DisplayHtml.AppendLine("<!-- The service started on: {PFC_SERVICESTART} and has built a total of {PFC_TOTALCAROUSELS} carousel(s). -->");
-            Content.DisplayHtml.AppendLine("<!-- The latest carousel is: {PFC_TIMESTAMP} -->");
+            Content.DisplayHtml.AppendLine("<!-- The latest carousel is: {PFC_TIMESTAMP} taking {PFC_BUILDTIME}ms to build. -->");
             Content.DisplayHtml.AppendLine("<!-- The service has handled {PFC_TOTALREQUESTS} requests in total -->");
         
             // The number of total pages is required javascript page cycler

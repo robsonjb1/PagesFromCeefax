@@ -13,6 +13,7 @@ namespace PagesFromCeefax
         private int _totalCarousels = 0;
         private DateTime _serviceStart = DateTime.Now;
         private DateTime _lastBuilt = DateTime.Now;
+        private long _buildTime = 0;
 
         public string GetMagazine()
         {
@@ -30,6 +31,7 @@ namespace PagesFromCeefax
                     sw.Start();
                     var c = new CarouselBuilder();
                     _lastBuilt = DateTime.Now;
+                    _buildTime = sw.ElapsedMilliseconds;
 
                     content = c.Content.DisplayHtml.ToString();
                     _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(20));
@@ -39,7 +41,8 @@ namespace PagesFromCeefax
                     .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
                     .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
                     .Replace("{PFC_SERVICESTART}", _serviceStart.DayOfWeek.ToString().Substring(0, 3) + _serviceStart.ToString(" dd MMM HH:mm/ss"))
-                    .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString().Substring(0, 3) + _lastBuilt.ToString(" dd MMM HH:mm/ss"));
+                    .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString().Substring(0, 3) + _lastBuilt.ToString(" dd MMM HH:mm/ss"))
+                    .Replace("{PFC_BUILDTIME}", _buildTime.ToString());
             }
         }
 
