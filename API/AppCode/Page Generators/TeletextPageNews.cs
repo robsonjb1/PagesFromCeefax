@@ -74,7 +74,7 @@ namespace PagesFromCeefax
                 }
 
                 // Pad to the bottom of the page
-                for (int i = 0; i < 20 - (story.Headline.Count + story.Body[subPage].Count); i++)
+                for (int i = 0; i < 20 - (isTwoPageStory ? story.MultiPageHeadline.Count : story.Headline.Count) - story.Body[subPage].Count; i++)
                 {
                     sb.Append("<br>");
                 }
