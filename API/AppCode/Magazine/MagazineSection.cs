@@ -9,11 +9,11 @@ namespace PagesFromCeefax
         public readonly Uri Feed;
         public readonly int TotalStories;
         public readonly bool HasNewsInBrief = false;
-        public readonly StringBuilder? Header;
-        public readonly Mode7Colour? HeadingCol;
-        public readonly string? PromoFooter;
-        public readonly Mode7Colour? PromoPaper;
-        public readonly Mode7Colour? PromoInk;
+        public readonly StringBuilder Header;
+        public readonly Mode7Colour HeadingCol;
+        public readonly string PromoFooter;
+        public readonly Mode7Colour PromoPaper;
+        public readonly Mode7Colour PromoInk;
 
         public MagazineSection(MagazineSectionType Name, Uri Feed)
         {
@@ -74,7 +74,13 @@ namespace PagesFromCeefax
                     this.HasNewsInBrief = true;
                     break;
 
-                case MagazineSectionType.Weather:
+                case MagazineSectionType.WeatherForecast:
+                case MagazineSectionType.WeatherTempBelfast:
+                case MagazineSectionType.WeatherTempCardiff:
+                case MagazineSectionType.WeatherTempEdinburgh:
+                case MagazineSectionType.WeatherTempLerwick:
+                case MagazineSectionType.WeatherTempLondon:
+                case MagazineSectionType.WeatherTempManchester:
                     this.TotalStories = 0;
                     break;
 

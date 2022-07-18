@@ -1,6 +1,7 @@
 ﻿using System.ServiceModel.Syndication;
 using System.Text;
 using System.Xml;
+using API;
 
 namespace PagesFromCeefax
 {
@@ -9,11 +10,13 @@ namespace PagesFromCeefax
         public readonly List<NewsStory> StoryList = new List<NewsStory>();
         public readonly List<CachedUrl> UrlCache = new List<CachedUrl>();
         public readonly List<MagazineSection> Sections = new List<MagazineSection>();
-        public StringBuilder DisplayHtml = new StringBuilder();
-        public int MaxPages = 0;
+      
+        private ISystemConfig _config;
 
-        public MagazineContent()
+        public MagazineContent(ISystemConfig config)
         {
+            _config = config;
+
             // Initialise magazine sections
             Sections.Add(new MagazineSection(MagazineSectionType.Home, new Uri("http://feeds.bbci.co.uk/news/uk/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.World, new Uri("http://feeds.bbci.co.uk/news/world/rss.xml")));
@@ -31,7 +34,14 @@ namespace PagesFromCeefax
             Sections.Add(new MagazineSection(MagazineSectionType.Formula1, new Uri("http://feeds.bbci.co.uk/sport/formula1/rss.xml")));
 
             Sections.Add(new MagazineSection(MagazineSectionType.Entertainment, new Uri("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Weather, new Uri("https://www.bbc.co.uk/weather")));
+            Sections.Add(new MagazineSection(MagazineSectionType.WeatherForecast, new Uri("https://www.bbc.co.uk/weather")));
+           
+            AddWeatherTempSection(MagazineSectionType.WeatherTempLondon, "London");
+            AddWeatherTempSection(MagazineSectionType.WeatherTempBelfast, "Belfast");
+            AddWeatherTempSection(MagazineSectionType.WeatherTempCardiff, "Cardiff");
+            AddWeatherTempSection(MagazineSectionType.WeatherTempEdinburgh, "Edinburgh");
+            AddWeatherTempSection(MagazineSectionType.WeatherTempLerwick, "Lerwick");
+            AddWeatherTempSection(MagazineSectionType.WeatherTempManchester, "Manchester");
 
             // Add each section's feed URL to URL cache
             Sections.ForEach(z => UrlCache.Add(new CachedUrl(z.Feed)));
@@ -47,6 +57,11 @@ namespace PagesFromCeefax
 
             // Parse all stories
             StoryList.ForEach(z => z.AddBody(UrlCache.Find(l => l.Location == z.Link)!.Content!));
+        }
+
+        private void AddWeatherTempSection(MagazineSectionType section, string city)
+        {
+            Sections.Add(new MagazineSection(section, new Uri($"https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={_config.OpenWeatherApiKey}")));
         }
 
         private async Task ProcessUrlCache()

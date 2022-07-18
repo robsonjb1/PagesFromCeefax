@@ -124,7 +124,7 @@ namespace PagesFromCeefax
             HeaderHeadlines.AppendLine("<p>" + Utility.BlockGraph("\"£££\"£££\"£££ ") + "<span class=\"ink1\">" + Utility.BlockGraph("//-.,-,-.,-,.-,-.,-.,.,,//") + "</span></p>");
 
 
-            PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                    _4_~@|@}        ") + "</span><span class=\"ink7\">2/4</span></p>");
+            PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                    _4_~@|@}        ") + "</span><span class=\"ink7\">1/4</span></p>");
             PromoMap.AppendLine("<p>[LINE1]<span class=\"ink4\">" + Utility.SepGraph(" _?0~[FF]%") + "</span></p>");
             PromoMap.AppendLine("<p>[LINE2]<span class=\"ink4\">" + Utility.SepGraph(" j*@@@@@y||t") + "</span></p>");
             PromoMap.AppendLine("<p>[LINE3]<span class=\"ink4\">" + Utility.SepGraph("  ({@@@@@@@?") + "</span></p>");
@@ -133,9 +133,9 @@ namespace PagesFromCeefax
             PromoMap.AppendLine("<p>[LINE6]<span class=\"ink4\">" + Utility.SepGraph("   ~o@@@@wq") + "</span></p>");
             PromoMap.AppendLine("<p>[LINE7]<span class=\"ink4\">" + Utility.SepGraph("  j)\"@[DD]@}") + "</span></p>");
             PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                p|@t  x@@g@@@@0") + "</span></p>");
-            PromoMap.AppendLine("<p><span class=\"ink7 indent\">DATA AT</span><span class=\"ink4\">" + Utility.SepGraph("        n[EE]t +\" @@@@@@") + "</span></p>");
-            PromoMap.AppendLine("<p><span class=\"ink7 indent\">[TTT]</span><span class=\"ink4\">" + Utility.SepGraph("          +@@@@@ _4 +@@@@@|0") + "</span></p>");
-            PromoMap.AppendLine("<p><span class=\"ink7 indent\">UK TIME</span><span class=\"ink4\">" + Utility.SepGraph("         \"%*o! \"   *@@@@@u") + "</span></p>");
+            PromoMap.AppendLine("<p><span class=\"ink7 indent\">Current</span><span class=\"ink4\">" + Utility.SepGraph("        n[EE]t +\" @@@@@@") + "</span></p>");
+            PromoMap.AppendLine("<p><span class=\"ink7 indent\">Temperatures</span><span class=\"ink4\">" + Utility.SepGraph("   +@@@@@ _4 +@@@@@|0") + "</span></p>");
+            PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                \"%*o! \"   *@@@@@u") + "</span></p>");
             PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                          *@[CC]@}") + "</span></p>");
             PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                      k||@@@@@@@@@") + "</span></p>");
             PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                   4  '@@@@@@@@@@}z@t") + "</span></p>");

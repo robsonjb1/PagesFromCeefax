@@ -16,7 +16,13 @@
         Formula1,
         Entertainment,
         Sussex,
-        Weather
+        WeatherForecast,
+        WeatherTempLondon,
+        WeatherTempBelfast,
+        WeatherTempCardiff,
+        WeatherTempManchester,
+        WeatherTempEdinburgh,
+        WeatherTempLerwick
     }
 
     public enum Mode7Colour

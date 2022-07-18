@@ -1,9 +1,15 @@
 ﻿using System.Diagnostics;
 using System.Text;
+using API.AppCode.Magazine;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace PagesFromCeefax
 {
+    public interface ICarouselCache
+    {
+        public string GetMagazine();
+    }
+
     public class CarouselCache : ICarouselCache
     {
         private readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
@@ -15,6 +21,12 @@ namespace PagesFromCeefax
         private long _buildTime = 0;
         private Dictionary<DateOnly, int> _totalRequests = new();
 
+        private ICarousel _carousel;
+
+        public CarouselCache(ICarousel carousel)
+        {
+            _carousel = carousel;
+        }
 
         public string GetMagazine()
         {
@@ -40,11 +52,10 @@ namespace PagesFromCeefax
 
                     var sw = new Stopwatch();
                     sw.Start();
-                    var c = new CarouselBuilder();
+                    content = _carousel.BuildCarousel();
                     _lastBuilt = DateTime.Now;
                     _buildTime = sw.ElapsedMilliseconds;
 
-                    content = c.Content.DisplayHtml.ToString();
                     _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(20));
                 }
 

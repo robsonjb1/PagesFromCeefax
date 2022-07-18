@@ -4,41 +4,55 @@ using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Text;
 using System.Xml;
+using API.AppCode.Magazine;
 
 namespace PagesFromCeefax
 {
-    public class TeletextPageNews : TeletextPage
+    public interface ITeletextPageNews
     {
-        public TeletextPageNews(MagazineContent mc) : base(mc)
+        public List<StringBuilder> CreateNewsSection(MagazineSectionType sectionName);
+
+        public StringBuilder CreateNewsInBrief(MagazineSectionType sectionName);
+    }
+
+    public class TeletextPageNews : ITeletextPageNews
+    {
+        MagazineContent _mc;
+    
+        public TeletextPageNews(MagazineContent mc)
         {
+            _mc = mc;
         }
 
-        public StringBuilder CreateNewsSection(MagazineSectionType sectionName)
+        public List<StringBuilder> CreateNewsSection(MagazineSectionType sectionName)
         {
             MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
-            StringBuilder content = new StringBuilder();
+            List<StringBuilder> content = new();
 
             // Loop through each story and generate a news page
             int storyCount = 1;
             foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body[0].Count > 0))
             {
-                content.Append(CreateNewsPage(section, story,
+                foreach(StringBuilder page in CreateNewsPage(section, story,
                     isLastStory: storyCount == section.TotalStories,
-                    isTwoPageStory : section.HasNewsInBrief && storyCount == 1));
+                    isTwoPageStory : section.HasNewsInBrief && storyCount == 1))
+                {
+                    content.Add(page);
+                }
                 storyCount++;
             }
 
             if (section.HasNewsInBrief)
             {
-                content.Append(CreateNewsInBrief(sectionName));
+                content.Add(CreateNewsInBrief(sectionName));
             }
 
             return content;
         }
 
-        private StringBuilder CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory, bool isTwoPageStory)
+        private List<StringBuilder> CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory, bool isTwoPageStory)
         {
-            StringBuilder newsStory = new StringBuilder();
+            List<StringBuilder> newsStory = new();
 
             for (int subPage = 0; subPage < (isTwoPageStory ? 2 : 1); subPage++)
             {
@@ -91,7 +105,7 @@ namespace PagesFromCeefax
                     sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
                 }
 
-                newsStory.Append(BuildTeletextPage(sb));
+                newsStory.Add(sb);
             }
 
             return newsStory;
@@ -162,7 +176,7 @@ namespace PagesFromCeefax
                 sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooter}</span></p>");
             }
 
-            return BuildTeletextPage(sb);
+            return sb;
         }
     }
 }
