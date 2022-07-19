@@ -15,12 +15,12 @@ namespace API.Magazine
 
         private Object l = new Object();
         private int _totalCarousels = 0;
-        private DateTime _serviceStart = DateTime.Now;
+        private readonly DateTime _serviceStart = DateTime.Now;
         private DateTime _lastBuilt = DateTime.Now;
         private long _buildTime = 0;
         private Dictionary<DateOnly, int> _totalRequests = new();
 
-        private ICarousel _carousel;
+        private readonly ICarousel _carousel;
 
         public CarouselCache(ICarousel carousel)
         {

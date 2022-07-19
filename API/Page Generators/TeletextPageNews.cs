@@ -15,7 +15,7 @@ namespace API.PageGenerators
 
     public class TeletextPageNews : ITeletextPageNews
     {
-        MagazineContent _mc;
+        readonly MagazineContent _mc;
     
         public TeletextPageNews(MagazineContent mc)
         {
@@ -124,7 +124,7 @@ namespace API.PageGenerators
             foreach (SyndicationItem item in feed.Items)
             {
                 if (!_mc.StoryList.Exists(z => z.Link == item.Links[0].Uri)
-                    && item.Title.Text.IndexOf("VIDEO:") == -1
+                    && !item.Title.Text.Contains("VIDEO:", StringComparison.CurrentCulture)
                     && item.Summary is not null)
                 {
                     List<string> title = Utility.ParseParagraph(item.Title.Text + ".");
