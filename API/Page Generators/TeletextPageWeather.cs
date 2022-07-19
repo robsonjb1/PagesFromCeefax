@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using API.AppCode.Magazine;
+﻿using System.Text;
+using API.Architecture;
+using API.DataTransferObjects;
+using API.Magazine;
 
-namespace PagesFromCeefax
+namespace API.PageGenerators
 {
     public interface ITeletextPageWeather
     {

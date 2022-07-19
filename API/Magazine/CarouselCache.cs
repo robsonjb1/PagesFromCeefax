@@ -1,9 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Text;
-using API.AppCode.Magazine;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace PagesFromCeefax
+namespace API.Magazine
 {
     public interface ICarouselCache
     {

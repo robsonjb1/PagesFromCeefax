@@ -1,7 +1,8 @@
-﻿using API;
-using API.AppCode.Magazine;
+﻿using API.Architecture;
+using API.Extensions;
+using API.Magazine;
+using API.PageGenerators;
 using Microsoft.Extensions.FileProviders;
-using PagesFromCeefax;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,10 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<MagazineContent>();
 builder.Services.AddSingleton<ITeletextPageNews, TeletextPageNews>();
 builder.Services.AddSingleton<ITeletextPageWeather, TeletextPageWeather>();
-
 builder.Services.AddSingleton<ICarousel, Carousel>();
 builder.Services.AddSingleton<ICarouselCache, CarouselCache>();
-
 builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
 {
     OpenWeatherApiKey = builder.Configuration["OpenWeatherApiKey"]

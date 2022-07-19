@@ -1,9 +1,8 @@
 ﻿using System.ServiceModel.Syndication;
-using System.Text;
 using System.Xml;
-using API;
+using API.Architecture;
 
-namespace PagesFromCeefax
+namespace API.Magazine
 {
     public class MagazineContent
     {

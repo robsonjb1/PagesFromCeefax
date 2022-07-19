@@ -1,8 +1,9 @@
 ﻿using System.Text.Json;
-using API.AppCode.DataTransferObjects;
+using API.Architecture;
+using API.Magazine;
 using HtmlAgilityPack;
 
-namespace PagesFromCeefax
+namespace API.DataTransferObjects
 {
     public class WeatherData
     {

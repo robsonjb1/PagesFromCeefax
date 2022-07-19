@@ -1,7 +1,7 @@
 ﻿using System;
-namespace API.AppCode.DataTransferObjects
-{
-    
+
+namespace API.DataTransferObjects
+{ 
     public class OpenWeather
     {
         public Coord coord { get; set; }

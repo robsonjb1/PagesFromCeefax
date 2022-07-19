@@ -1,4 +1,4 @@
-﻿namespace PagesFromCeefax
+﻿namespace API.Architecture
 {
     public enum MagazineSectionType
     {

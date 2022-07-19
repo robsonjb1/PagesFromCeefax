@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.ServiceModel.Syndication;
-using System.IO;
-using System.Xml;
-using HtmlAgilityPack;
+﻿using System.Text.RegularExpressions;
 
-namespace PagesFromCeefax
+namespace API.Architecture
 {
     public static class Utility
     {

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
+using API.Architecture;
 
-namespace PagesFromCeefax
+namespace API.Magazine
 {
     public class MagazineSection
     {

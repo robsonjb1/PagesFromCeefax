@@ -1,4 +1,4 @@
-﻿namespace PagesFromCeefax
+﻿namespace API.Magazine
 {
     public class CachedUrl
     {

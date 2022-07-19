@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel.Syndication;
+﻿using System.ServiceModel.Syndication;
 using System.Text;
 using System.Xml;
-using API.AppCode.Magazine;
+using API.Architecture;
+using API.Magazine;
 
-namespace PagesFromCeefax
+namespace API.PageGenerators
 {
     public interface ITeletextPageNews
     {

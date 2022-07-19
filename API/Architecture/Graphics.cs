@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace PagesFromCeefax
+namespace API.Architecture
 {
     public class Graphics
     {

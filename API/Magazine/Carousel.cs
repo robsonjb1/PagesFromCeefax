@@ -1,8 +1,9 @@
-﻿using System;
-using System.Text;
-using PagesFromCeefax;
+﻿using System.Text;
+using API.Architecture;
+using API.DataTransferObjects;
+using API.PageGenerators;
 
-namespace API.AppCode.Magazine
+namespace API.Magazine
 {
     public interface ICarousel
     {
