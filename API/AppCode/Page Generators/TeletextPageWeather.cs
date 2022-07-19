@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using API.AppCode.Magazine;
 
 namespace PagesFromCeefax
@@ -69,12 +70,17 @@ namespace PagesFromCeefax
                 map = map.Replace("[LINE" + k.ToString() + "]", "<span class=\"ink7 indent\">" + String.Join("", Enumerable.Repeat("&nbsp;", 18)) + "</span>");
             }
 
+
+            TimeZoneInfo cstZone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");
+            DateTime ukTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, cstZone);
+
             map = map.Replace("[AA]", FormatWeatherString(weather.Temperatures["London"]))
                 .Replace("[BB]", FormatWeatherString(weather.Temperatures["Cardiff"]))
                 .Replace("[CC]", FormatWeatherString(weather.Temperatures["Manchester"]))
                 .Replace("[DD]", FormatWeatherString(weather.Temperatures["Edinburgh"]))
                 .Replace("[EE]", FormatWeatherString(weather.Temperatures["Belfast"]))
-                .Replace("[FF]", FormatWeatherString(weather.Temperatures["Lerwick"]));
+                .Replace("[FF]", FormatWeatherString(weather.Temperatures["Lerwick"]))
+                .Replace("[TTT]", ukTime.ToString("HH:mm"));
 
             sb.Append(map);
 
