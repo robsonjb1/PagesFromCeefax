@@ -50,7 +50,7 @@ namespace API.Magazine
 
                         if (newChunk.Count > 0)
                         {
-                            if (Headline.Count + Body[pageNo].Count + newChunk.Count - 1 > maxLines)
+                            if (MultiPageHeadline.Count + Body[pageNo].Count + newChunk.Count - 1 > maxLines)
                             {
                                 // The current paragraph will overflow the page
                                 pageNo++;

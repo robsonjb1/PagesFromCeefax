@@ -5,41 +5,41 @@ namespace API.Architecture
     public class Graphics
     {
         // Page headers
-        public static StringBuilder HeaderHeadlines = new StringBuilder();
-        public static StringBuilder HeaderPolitics = new StringBuilder();
-        public static StringBuilder HeaderHome = new StringBuilder();
-        public static StringBuilder HeaderSussex = new StringBuilder();
-        public static StringBuilder HeaderWorld = new StringBuilder();
-        public static StringBuilder HeaderSciTech = new StringBuilder();
-        public static StringBuilder HeaderBusiness = new StringBuilder();
-        public static StringBuilder HeaderFootball = new StringBuilder();
-        public static StringBuilder HeaderRugby = new StringBuilder();
-        public static StringBuilder HeaderCricket = new StringBuilder();
-        public static StringBuilder HeaderGolf = new StringBuilder();
-        public static StringBuilder HeaderFormula1 = new StringBuilder();
-        public static StringBuilder HeaderTennis = new StringBuilder();
-        public static StringBuilder HeaderEntertainment = new StringBuilder();
-        public static StringBuilder HeaderTop40Singles = new StringBuilder();
-        public static StringBuilder HeaderTV = new StringBuilder();
-        public static StringBuilder HeaderMarkets = new StringBuilder();
-        public static StringBuilder HeaderWeather = new StringBuilder();
-        public static StringBuilder HeaderLinks = new StringBuilder();
-        public static StringBuilder HeaderTravel = new StringBuilder();
+        public readonly static StringBuilder HeaderHeadlines = new StringBuilder();
+        public readonly static StringBuilder HeaderPolitics = new StringBuilder();
+        public readonly static StringBuilder HeaderHome = new StringBuilder();
+        public readonly static StringBuilder HeaderSussex = new StringBuilder();
+        public readonly static StringBuilder HeaderWorld = new StringBuilder();
+        public readonly static StringBuilder HeaderSciTech = new StringBuilder();
+        public readonly static StringBuilder HeaderBusiness = new StringBuilder();
+        public readonly static StringBuilder HeaderFootball = new StringBuilder();
+        public readonly static StringBuilder HeaderRugby = new StringBuilder();
+        public readonly static StringBuilder HeaderCricket = new StringBuilder();
+        public readonly static StringBuilder HeaderGolf = new StringBuilder();
+        public readonly static StringBuilder HeaderFormula1 = new StringBuilder();
+        public readonly static StringBuilder HeaderTennis = new StringBuilder();
+        public readonly static StringBuilder HeaderEntertainment = new StringBuilder();
+        public readonly static StringBuilder HeaderTop40Singles = new StringBuilder();
+        public readonly static StringBuilder HeaderTV = new StringBuilder();
+        public readonly static StringBuilder HeaderMarkets = new StringBuilder();
+        public readonly static StringBuilder HeaderWeather = new StringBuilder();
+        public readonly static StringBuilder HeaderLinks = new StringBuilder();
+        public readonly static StringBuilder HeaderTravel = new StringBuilder();
 
-        public static string[] LogoSunny = new string[6];
-        public static string[] LogoNight = new string[6];
-        public static string[] LogoTV = new string[6];
+        //public readonly static string[] LogoSunny = new string[6];
+        //public readonly static string[] LogoNight = new string[6];
+        //public readonly static string[] LogoTV = new string[6];
         
         // Transitional screens
-        public static StringBuilder PromoMap = new StringBuilder();
-        public static StringBuilder PromoWeather = new StringBuilder();
-        public static StringBuilder PromoSport = new StringBuilder();
-        public static StringBuilder PromoTV = new StringBuilder();
-        public static StringBuilder PromoNews = new StringBuilder();
-        public static StringBuilder PromoTeletext = new StringBuilder();
-        public static StringBuilder PromoCeefax = new StringBuilder();
-        public static StringBuilder PromoLinks = new StringBuilder();
-        public static StringBuilder PromoChristmas = new StringBuilder();
+        public readonly static StringBuilder PromoMap = new StringBuilder();
+        public readonly static StringBuilder PromoWeather = new StringBuilder();
+        public readonly static StringBuilder PromoSport = new StringBuilder();
+        public readonly static StringBuilder PromoTV = new StringBuilder();
+        public readonly static StringBuilder PromoNews = new StringBuilder();
+        public readonly static StringBuilder PromoTeletext = new StringBuilder();
+        public readonly static StringBuilder PromoCeefax = new StringBuilder();
+        public readonly static StringBuilder PromoLinks = new StringBuilder();
+        public readonly static StringBuilder PromoChristmas = new StringBuilder();
 
         static Graphics()
         {
@@ -341,25 +341,25 @@ namespace API.Architecture
             PromoCeefax.Append("<p><span class=\"ink2\">" + Utility.BlockGraph("\"£££££ ") + "</span><span class=\"ink1\">" + Utility.BlockGraph("/.../% ") + "</span><span>");
             PromoCeefax.AppendLine(Utility.BlockGraph("\"££££///'£") + "</span></p>");
 
-            LogoSunny[0] = "<span class=\"ink6\">" + Utility.BlockGraph("     j") + "</span>";
-            LogoSunny[1] = "<span class=\"ink6\">" + Utility.BlockGraph("  (0 h  8! 0") + "</span>";
-            LogoSunny[2] = "<span class=\"ink6\">" + Utility.BlockGraph(" d0 ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("|||tp ") + "</span><span class=\"ink6\">" + Utility.BlockGraph("£") + "</span>";
-            LogoSunny[3] = "<span class=\"ink5\">" + Utility.BlockGraph(" l|") + "</span><span class=\"paper5 ink6\">" + Utility.BlockGraph("  x|t   ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("|") + "</span>";
-            LogoSunny[4] = "<span class=\"ink6\">" + Utility.BlockGraph(" ,$") + "</span><span>" + Utility.BlockGraph("x@@@@@t0") + "</span>";
-            LogoSunny[5] = "<span>" + Utility.BlockGraph(" \"££££///'£") + "</span>";
+            //LogoSunny[0] = "<span class=\"ink6\">" + Utility.BlockGraph("     j") + "</span>";
+            //LogoSunny[1] = "<span class=\"ink6\">" + Utility.BlockGraph("  (0 h  8! 0") + "</span>";
+            //LogoSunny[2] = "<span class=\"ink6\">" + Utility.BlockGraph(" d0 ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("|||tp ") + "</span><span class=\"ink6\">" + Utility.BlockGraph("£") + "</span>";
+            //LogoSunny[3] = "<span class=\"ink5\">" + Utility.BlockGraph(" l|") + "</span><span class=\"paper5 ink6\">" + Utility.BlockGraph("  x|t   ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("|") + "</span>";
+            //LogoSunny[4] = "<span class=\"ink6\">" + Utility.BlockGraph(" ,$") + "</span><span>" + Utility.BlockGraph("x@@@@@t0") + "</span>";
+            //LogoSunny[5] = "<span>" + Utility.BlockGraph(" \"££££///'£") + "</span>";
 
-            LogoNight[0] = "<span class=\"ink5\">" + Utility.BlockGraph(" ||||<||||||") + "</span>";
-            LogoNight[1] = "<span class=\"ink5\">" + Utility.BlockGraph(" @@@?!+7£@@@") + "</span>";
-            LogoNight[2] = "<span class=\"ink5\">" + Utility.BlockGraph(" @@ ") + "</span><span>" + Utility.BlockGraph("$1 ") + "</span><span class=\"ink3\">" + Utility.BlockGraph("% ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("?o@") + "</span>";
-            LogoNight[3] = "<span class=\"ink3\">" + Utility.BlockGraph(" @? ") + "</span><span>" + Utility.BlockGraph("1$   ") + "</span><span class=\"ink3\">" + Utility.BlockGraph("%j@") + "</span>";
-            LogoNight[4] = "<span class=\"ink1\">" + Utility.BlockGraph(" /!        /") + "</span>";
+            //LogoNight[0] = "<span class=\"ink5\">" + Utility.BlockGraph(" ||||<||||||") + "</span>";
+            //LogoNight[1] = "<span class=\"ink5\">" + Utility.BlockGraph(" @@@?!+7£@@@") + "</span>";
+            //LogoNight[2] = "<span class=\"ink5\">" + Utility.BlockGraph(" @@ ") + "</span><span>" + Utility.BlockGraph("$1 ") + "</span><span class=\"ink3\">" + Utility.BlockGraph("% ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("?o@") + "</span>";
+            //LogoNight[3] = "<span class=\"ink3\">" + Utility.BlockGraph(" @? ") + "</span><span>" + Utility.BlockGraph("1$   ") + "</span><span class=\"ink3\">" + Utility.BlockGraph("%j@") + "</span>";
+            //LogoNight[4] = "<span class=\"ink1\">" + Utility.BlockGraph(" /!        /") + "</span>";
 
-            LogoTV[0] = "<span class=\"ink2\">" + Utility.BlockGraph("h,,,,,,,,|4") + "</span>";
-            LogoTV[1] = "<span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"paper5\">" + Utility.BlockGraph("  $,l ") + "</span><span class=\"ink2\">" + Utility.BlockGraph(" w5 ") + "</span><span>" + Utility.BlockGraph("0") + "</span>";
-            LogoTV[2] = "<span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"paper5\">" + Utility.BlockGraph("    \" ") + "</span><span class=\"ink2\">" + Utility.BlockGraph(" }5 ") + "</span><span>" + Utility.BlockGraph("5") + "</span>";
-            LogoTV[3] = "<span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("@@@@ ") + "</span><span>" + Utility.BlockGraph(",,,,,%") + "</span>";
-            LogoTV[4] = "<span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("//// ") + "</span><span class=\"ink1\">" + Utility.BlockGraph("wwww@5") + "</span>";
-            LogoTV[5] = "<span class=\"ink2\">" + Utility.BlockGraph("\"£££££ ") + "</span><span class=\"ink1\">" + Utility.BlockGraph("/.../%") + "</span>";
+            //LogoTV[0] = "<span class=\"ink2\">" + Utility.BlockGraph("h,,,,,,,,|4") + "</span>";
+            //LogoTV[1] = "<span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"paper5\">" + Utility.BlockGraph("  $,l ") + "</span><span class=\"ink2\">" + Utility.BlockGraph(" w5 ") + "</span><span>" + Utility.BlockGraph("0") + "</span>";
+            //LogoTV[2] = "<span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"paper5\">" + Utility.BlockGraph("    \" ") + "</span><span class=\"ink2\">" + Utility.BlockGraph(" }5 ") + "</span><span>" + Utility.BlockGraph("5") + "</span>";
+            //LogoTV[3] = "<span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("@@@@ ") + "</span><span>" + Utility.BlockGraph(",,,,,%") + "</span>";
+            //LogoTV[4] = "<span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("//// ") + "</span><span class=\"ink1\">" + Utility.BlockGraph("wwww@5") + "</span>";
+            //LogoTV[5] = "<span class=\"ink2\">" + Utility.BlockGraph("\"£££££ ") + "</span><span class=\"ink1\">" + Utility.BlockGraph("/.../%") + "</span>";
 
             HeaderLinks.AppendLine("<p><span class=\"paper1 ink5\">" + Utility.BlockGraph("  0p0             p0       _,       ") + "[T]</span></p>");
             HeaderLinks.AppendLine("<p><span class=\"paper1 ink5\">" + Utility.BlockGraph("  7 \"d 8d _,$48$_& \" 8d 8d_up 8,_  _$  ") + "</span></p>");

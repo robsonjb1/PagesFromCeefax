@@ -13,7 +13,7 @@ namespace API.Magazine
     public class Carousel : ICarousel
     {
         public int MaxPages { get; set; } = 0;
-        private StringBuilder DisplayHtml = new();
+        private readonly StringBuilder DisplayHtml = new();
 
         public MagazineContent _content;
         public ITeletextPageWeather _tw;
