@@ -13,7 +13,7 @@ namespace API.Services
     public class CarouselService : ICarouselService
     {
         public int MaxPages { get; set; } = 0;
-        private StringBuilder DisplayHtml = new();
+        private readonly StringBuilder DisplayHtml = new();
 
         public ITeletextPageWeather _tw;
         public ITeletextPageNews _tn;
@@ -26,9 +26,6 @@ namespace API.Services
         
         public string GetCarousel()
         {
-            DisplayHtml = new();
-            MaxPages = 0;
-
             // This is teletext
             BuildTeletextPage(Graphics.PromoTeletext);
 
@@ -67,9 +64,8 @@ namespace API.Services
 
             // Insert stats
             DisplayHtml.AppendLine("<!-- The service started on: {PFC_SERVICESTART} and has built a total of {PFC_TOTALCAROUSELS} carousel(s). -->");
+            DisplayHtml.AppendLine("<!-- The service has served {PFC_TOTALREQUESTS} request(s) since starting. -->");
             DisplayHtml.AppendLine("<!-- The latest carousel is: {PFC_TIMESTAMP} taking {PFC_BUILDTIME}ms to build. -->");
-            DisplayHtml.AppendLine("<!-- The service has handled the following requests -->");
-            DisplayHtml.AppendLine("{PFC_TOTALREQUESTS}");
 
             // The number of total pages is required javascript page cycler
             DisplayHtml.AppendLine($"<div id='totalPages' style='display:none'>{MaxPages}</div>");

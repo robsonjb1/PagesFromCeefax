@@ -11,29 +11,19 @@ namespace API.Magazine
         public List<NewsStory> StoryList { get; set; }
         public List<CachedUrl> UrlCache { get; set; }
         public List<MagazineSection> Sections { get; set; }
-
-        public void RefreshContent();
     }
 
     public class MagazineContent : IMagazineContent
     {
-        public List<NewsStory> StoryList { get; set; }
-        public List<CachedUrl> UrlCache { get; set; }
-        public List<MagazineSection> Sections { get; set; }
-       
+        public List<NewsStory> StoryList { get; set; } = new();
+        public List<CachedUrl> UrlCache { get; set; } = new();
+        public List<MagazineSection> Sections { get; set; } = new();
+
         private readonly ISystemConfig _config;
 
         public MagazineContent(ISystemConfig config)
         {
             _config = config;
-            RefreshContent();
-        }
-
-        public void RefreshContent()
-        {
-            StoryList = new List<NewsStory>();
-            UrlCache = new List<CachedUrl>();
-            Sections = new List<MagazineSection>();
 
             // Initialise magazine sections
             Sections.Add(new MagazineSection(MagazineSectionType.Home, new Uri("http://feeds.bbci.co.uk/news/uk/rss.xml")));

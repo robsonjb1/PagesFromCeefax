@@ -1,18 +1,11 @@
 ﻿using API.Architecture;
 using API.Extensions;
-using API.Magazine;
-using API.PageGenerators;
 using API.Services;
 using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<IMagazineContent, MagazineContent>();
-builder.Services.AddSingleton<IWeatherService, WeatherService>();
-builder.Services.AddSingleton<ITeletextPageNews, TeletextPageNews>();
-builder.Services.AddSingleton<ITeletextPageWeather, TeletextPageWeather>();
-builder.Services.AddSingleton<ICarouselService, CarouselService>();
 builder.Services.AddSingleton<ICacheService, CacheService>();
 builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
 {

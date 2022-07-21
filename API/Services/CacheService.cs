@@ -16,34 +16,23 @@ namespace API.Services
     {
         private readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
 
-        private Object l = new Object();
+        private readonly Object l = new Object();
         private int _totalCarousels = 0;
+        private int _totalRequests = 0;
         private readonly DateTime _serviceStart = DateTime.Now;
         private DateTime _lastBuilt = DateTime.Now;
         private long _buildTime = 0;
-        private readonly Dictionary<DateOnly, int> _totalRequests = new();
 
-        private readonly ICarouselService _carousel;
         private readonly ISystemConfig _config;
 
-        public CacheService(ICarouselService carousel, ISystemConfig config)
+        public CacheService(ISystemConfig config)
         {
-            _carousel = carousel;
             _config = config;
         }
 
         public string GetMagazine()
         {
-            // Log request count per day
-            DateOnly todaysDate = DateOnly.FromDateTime(DateTime.Now);
-            if (_totalRequests.ContainsKey(todaysDate))
-            {
-                _totalRequests[todaysDate]++;
-            }
-            else
-            {
-                _totalRequests.Add(todaysDate, 1);
-            }
+            _totalRequests++;
 
             lock (l)
             {
@@ -54,24 +43,26 @@ namespace API.Services
 
                     var sw = new Stopwatch();
                     sw.Start();
-                    content = _carousel.GetCarousel();
+
+                    // Instantiate objects required to build cache
+                    // These were previously in the DI container but moved due to issues with caching
+                    MagazineContent mc = new(_config);
+                    WeatherService ws = new(mc);
+                    TeletextPageWeather tw = new(ws);
+                    TeletextPageNews tn = new(mc);
+                    CarouselService cs = new(tn, tw);
+
+                    content = cs.GetCarousel();
+
                     _lastBuilt = DateTime.Now;
                     _buildTime = sw.ElapsedMilliseconds;
 
                     _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(_config.ServiceContentExpiryMins));
                 }
 
-                var requestLog = new StringBuilder();
-                foreach(var key in _totalRequests.Keys)
-                {
-                    requestLog.AppendLine(String.Format("<!-- {0}: {1} -->",
-                        key.DayOfWeek.ToString()[..3] + key.ToString(" dd MMM"),
-                        _totalRequests[key]));
-                }
-
                 return content
                     .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
-                    .Replace("{PFC_TOTALREQUESTS}", requestLog.ToString())
+                    .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
                     .Replace("{PFC_SERVICESTART}", _serviceStart.DayOfWeek.ToString()[..3] + _serviceStart.ToString(" dd MMM HH:mm/ss"))
                     .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString()[..3] + _lastBuilt.ToString(" dd MMM HH:mm/ss"))
                     .Replace("{PFC_BUILDTIME}", _buildTime.ToString());
