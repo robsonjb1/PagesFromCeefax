@@ -35,4 +35,11 @@
         Yellow = 6,
         White = 7
     }
+
+    public enum WeatherPage
+    {
+        Today,
+        Tomorrow,
+        Outlook
+    }
 }

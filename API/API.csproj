@@ -13,6 +13,7 @@
     <None Remove="Architecture\" />
     <None Remove="Magazine\" />
     <None Remove="Page Generators\" />
+    <None Remove="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
@@ -20,6 +21,7 @@
     <Folder Include="Architecture\" />
     <Folder Include="Magazine\" />
     <Folder Include="Page Generators\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.43" />

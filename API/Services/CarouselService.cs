@@ -1,37 +1,33 @@
 ﻿using System.Text;
 using API.Architecture;
-using API.DataTransferObjects;
+using API.Magazine;
 using API.PageGenerators;
 
-namespace API.Magazine
+namespace API.Services
 {
-    public interface ICarousel
+    public interface ICarouselService
     {
-        public string BuildCarousel();
+        public string GetCarousel();
     }
 
-    public class Carousel : ICarousel
+    public class CarouselService : ICarouselService
     {
         public int MaxPages { get; set; } = 0;
-        private readonly StringBuilder DisplayHtml = new();
+        private StringBuilder DisplayHtml = new();
 
-        public MagazineContent _content;
         public ITeletextPageWeather _tw;
         public ITeletextPageNews _tn;
-
-        public Carousel(MagazineContent content, ITeletextPageNews tn, ITeletextPageWeather tw)
+       
+        public CarouselService(ITeletextPageNews tn, ITeletextPageWeather tw)
         {
-            _content = content;
             _tw = tw;
             _tn = tn;
         }
         
-        public string BuildCarousel()
+        public string GetCarousel()
         {
-            // Construct DTO's
-            var weather = new WeatherData(_content);
-
-            // BUILD CAROUSEL
+            DisplayHtml = new();
+            MaxPages = 0;
 
             // This is teletext
             BuildTeletextPage(Graphics.PromoTeletext);
@@ -57,13 +53,10 @@ namespace API.Magazine
 
             // Weather section
             BuildTeletextPage(Graphics.PromoWeather);
-            if (weather.TempsValid)
-            {
-                BuildTeletextPage(_tw.CreateWeatherMap(weather));
-            }
-            BuildTeletextPage(_tw.CreateWeather(2, weather.TodayTitle, weather.TodayText));
-            BuildTeletextPage(_tw.CreateWeather(3, weather.TomorrowTitle, weather.TomorrowText));
-            BuildTeletextPage(_tw.CreateWeather(4, weather.OutlookTitle, weather.OutlookText));
+            BuildTeletextPage(_tw.CreateWeatherMap());
+            BuildTeletextPage(_tw.CreateWeatherPage(WeatherPage.Today));
+            BuildTeletextPage(_tw.CreateWeatherPage(WeatherPage.Tomorrow));
+            BuildTeletextPage(_tw.CreateWeatherPage(WeatherPage.Outlook));
 
             // Entertainment section
             BuildTeletextPage(Graphics.PromoTV);
@@ -84,12 +77,12 @@ namespace API.Magazine
             return DisplayHtml.ToString();
         }
 
+        #region Private Methods
         private void BuildTeletextPage(StringBuilder newPage)
         {
             MaxPages++;
 
             // Generate the <div> enclosure that contains the individual page
-            StringBuilder sb = new StringBuilder();
             DisplayHtml.AppendLine($"<div id=\"page{MaxPages}\" style=\"display:none\">");
             DisplayHtml.Append(newPage);
             DisplayHtml.Append("</div>");
@@ -99,15 +92,10 @@ namespace API.Magazine
         {
             foreach (StringBuilder newPage in newPages)
             {
-                MaxPages++;
-
-                // Generate the <div> enclosure that contains the individual page
-                StringBuilder sb = new StringBuilder();
-                DisplayHtml.AppendLine($"<div id=\"page{MaxPages}\" style=\"display:none\">");
-                DisplayHtml.Append(newPage);
-                DisplayHtml.Append("</div>");
+                BuildTeletextPage(newPage);
             }
         }
+        #endregion
     }
 }
 

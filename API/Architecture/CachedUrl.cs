@@ -1,4 +1,4 @@
-﻿namespace API.Magazine
+﻿namespace API.Architecture
 {
     public class CachedUrl
     {

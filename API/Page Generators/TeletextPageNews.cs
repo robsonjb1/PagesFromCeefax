@@ -15,13 +15,14 @@ namespace API.PageGenerators
 
     public class TeletextPageNews : ITeletextPageNews
     {
-        readonly MagazineContent _mc;
+        readonly IMagazineContent _mc;
     
-        public TeletextPageNews(MagazineContent mc)
+        public TeletextPageNews(IMagazineContent mc)
         {
             _mc = mc;
         }
 
+        #region Public Methods
         public List<StringBuilder> CreateNewsSection(MagazineSectionType sectionName)
         {
             MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
@@ -46,67 +47,6 @@ namespace API.PageGenerators
             }
 
             return content;
-        }
-
-        private List<StringBuilder> CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory, bool isTwoPageStory)
-        {
-            List<StringBuilder> newsStory = new();
-
-            for (int subPage = 0; subPage < (isTwoPageStory ? 2 : 1); subPage++)
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(section.Header);
-
-                bool firstParagraph = true;
-                Mode7Colour bodyCol = Mode7Colour.White;
-                
-                // Headline
-                foreach (string line in isTwoPageStory ? story.MultiPageHeadline : story.Headline)
-                {
-                    var displayLine = line.Replace("x/y", $"<span class=\"ink{(int)Mode7Colour.White}\">{subPage + 1}/2</span>");
-                    sb.AppendLine($"<p><span class=\"ink{(int)section.HeadingCol!} indent\">{displayLine}</span></p>");
-                }
-
-                // Story
-                foreach (string line in story.Body[subPage])
-                {
-                    if (line == String.Empty)
-                    {
-                        if (!firstParagraph)
-                        {
-                            sb.AppendLine("<br>");
-                            bodyCol = Mode7Colour.Cyan;
-                        }
-                        firstParagraph = false;
-                    }
-                    else
-                    {
-                        sb.AppendLine($"<p><span class=\"ink{(int)bodyCol} indent\">{line}</span></p>");
-                    }
-                }
-
-                // Pad to the bottom of the page
-                for (int i = 0; i < 20 - (isTwoPageStory ? story.MultiPageHeadline.Count : story.Headline.Count) - story.Body[subPage].Count; i++)
-                {
-                    sb.Append("<br>");
-                }
-
-                // Footer
-                if (section.PromoFooter is not null 
-                    && (isLastStory && !section.HasNewsInBrief))
-                {
-                    string promoFooterPadded = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
-                    sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooterPadded!}</span></p>");
-                }
-                else
-                {
-                    sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
-                }
-
-                newsStory.Add(sb);
-            }
-
-            return newsStory;
         }
 
         public StringBuilder CreateNewsInBrief(MagazineSectionType sectionName)
@@ -176,5 +116,69 @@ namespace API.PageGenerators
 
             return sb;
         }
+        #endregion
+
+        #region Private Methods
+        private List<StringBuilder> CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory, bool isTwoPageStory)
+        {
+            List<StringBuilder> newsStory = new();
+
+            for (int subPage = 0; subPage < (isTwoPageStory ? 2 : 1); subPage++)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(section.Header);
+
+                bool firstParagraph = true;
+                Mode7Colour bodyCol = Mode7Colour.White;
+
+                // Headline
+                foreach (string line in isTwoPageStory ? story.MultiPageHeadline : story.Headline)
+                {
+                    var displayLine = line.Replace("x/y", $"<span class=\"ink{(int)Mode7Colour.White}\">{subPage + 1}/2</span>");
+                    sb.AppendLine($"<p><span class=\"ink{(int)section.HeadingCol!} indent\">{displayLine}</span></p>");
+                }
+
+                // Story
+                foreach (string line in story.Body[subPage])
+                {
+                    if (line == String.Empty)
+                    {
+                        if (!firstParagraph)
+                        {
+                            sb.AppendLine("<br>");
+                            bodyCol = Mode7Colour.Cyan;
+                        }
+                        firstParagraph = false;
+                    }
+                    else
+                    {
+                        sb.AppendLine($"<p><span class=\"ink{(int)bodyCol} indent\">{line}</span></p>");
+                    }
+                }
+
+                // Pad to the bottom of the page
+                for (int i = 0; i < 20 - (isTwoPageStory ? story.MultiPageHeadline.Count : story.Headline.Count) - story.Body[subPage].Count; i++)
+                {
+                    sb.Append("<br>");
+                }
+
+                // Footer
+                if (section.PromoFooter is not null
+                    && (isLastStory && !section.HasNewsInBrief))
+                {
+                    string promoFooterPadded = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
+                    sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooterPadded!}</span></p>");
+                }
+                else
+                {
+                    sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
+                }
+
+                newsStory.Add(sb);
+            }
+
+            return newsStory;
+        }
+        #endregion
     }
 }

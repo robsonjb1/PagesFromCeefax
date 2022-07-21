@@ -1,15 +1,18 @@
 ﻿using System.Diagnostics;
 using System.Text;
+using API.Architecture;
+using API.Magazine;
+using API.PageGenerators;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace API.Magazine
+namespace API.Services
 {
-    public interface ICarouselCache
+    public interface ICacheService
     {
         public string GetMagazine();
     }
 
-    public class CarouselCache : ICarouselCache
+    public class CacheService : ICacheService
     {
         private readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
 
@@ -18,19 +21,19 @@ namespace API.Magazine
         private readonly DateTime _serviceStart = DateTime.Now;
         private DateTime _lastBuilt = DateTime.Now;
         private long _buildTime = 0;
-        private Dictionary<DateOnly, int> _totalRequests = new();
+        private readonly Dictionary<DateOnly, int> _totalRequests = new();
 
-        private readonly ICarousel _carousel;
+        private readonly ICarouselService _carousel;
+        private readonly ISystemConfig _config;
 
-        public CarouselCache(ICarousel carousel)
+        public CacheService(ICarouselService carousel, ISystemConfig config)
         {
             _carousel = carousel;
+            _config = config;
         }
 
         public string GetMagazine()
         {
-            // Only refresh the magazine on the first get (not on service start)
-
             // Log request count per day
             DateOnly todaysDate = DateOnly.FromDateTime(DateTime.Now);
             if (_totalRequests.ContainsKey(todaysDate))
@@ -51,26 +54,26 @@ namespace API.Magazine
 
                     var sw = new Stopwatch();
                     sw.Start();
-                    content = _carousel.BuildCarousel();
+                    content = _carousel.GetCarousel();
                     _lastBuilt = DateTime.Now;
                     _buildTime = sw.ElapsedMilliseconds;
 
-                    _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(20));
+                    _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(_config.ServiceContentExpiryMins));
                 }
 
                 var requestLog = new StringBuilder();
                 foreach(var key in _totalRequests.Keys)
                 {
                     requestLog.AppendLine(String.Format("<!-- {0}: {1} -->",
-                        key.DayOfWeek.ToString().Substring(0, 3) + key.ToString(" dd MMM"),
+                        key.DayOfWeek.ToString()[..3] + key.ToString(" dd MMM"),
                         _totalRequests[key]));
                 }
 
-                return content!
+                return content
                     .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
                     .Replace("{PFC_TOTALREQUESTS}", requestLog.ToString())
-                    .Replace("{PFC_SERVICESTART}", _serviceStart.DayOfWeek.ToString().Substring(0, 3) + _serviceStart.ToString(" dd MMM HH:mm/ss"))
-                    .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString().Substring(0, 3) + _lastBuilt.ToString(" dd MMM HH:mm/ss"))
+                    .Replace("{PFC_SERVICESTART}", _serviceStart.DayOfWeek.ToString()[..3] + _serviceStart.ToString(" dd MMM HH:mm/ss"))
+                    .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString()[..3] + _lastBuilt.ToString(" dd MMM HH:mm/ss"))
                     .Replace("{PFC_BUILDTIME}", _buildTime.ToString());
             }
         }

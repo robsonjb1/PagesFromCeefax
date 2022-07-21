@@ -1,20 +1,39 @@
 ﻿using System.ServiceModel.Syndication;
 using System.Xml;
 using API.Architecture;
+using API.DataTransferObjects;
 
 namespace API.Magazine
 {
-    public class MagazineContent
+
+    public interface IMagazineContent
     {
-        public readonly List<NewsStory> StoryList = new List<NewsStory>();
-        public readonly List<CachedUrl> UrlCache = new List<CachedUrl>();
-        public readonly List<MagazineSection> Sections = new List<MagazineSection>();
-      
-        private ISystemConfig _config;
+        public List<NewsStory> StoryList { get; set; }
+        public List<CachedUrl> UrlCache { get; set; }
+        public List<MagazineSection> Sections { get; set; }
+
+        public void RefreshContent();
+    }
+
+    public class MagazineContent : IMagazineContent
+    {
+        public List<NewsStory> StoryList { get; set; }
+        public List<CachedUrl> UrlCache { get; set; }
+        public List<MagazineSection> Sections { get; set; }
+       
+        private readonly ISystemConfig _config;
 
         public MagazineContent(ISystemConfig config)
         {
             _config = config;
+            RefreshContent();
+        }
+
+        public void RefreshContent()
+        {
+            StoryList = new List<NewsStory>();
+            UrlCache = new List<CachedUrl>();
+            Sections = new List<MagazineSection>();
 
             // Initialise magazine sections
             Sections.Add(new MagazineSection(MagazineSectionType.Home, new Uri("http://feeds.bbci.co.uk/news/uk/rss.xml")));
@@ -55,7 +74,7 @@ namespace API.Magazine
             ProcessUrlCache().Wait();
 
             // Parse all stories
-            StoryList.ForEach(z => z.AddBody(UrlCache.Find(l => l.Location == z.Link)!.Content!));
+            StoryList.ForEach(z => z.AddBody(UrlCache.Find(l => l.Location == z.Link).Content));
         }
 
         private void AddWeatherTempSection(MagazineSectionType section, string city)
@@ -65,32 +84,39 @@ namespace API.Magazine
 
         private async Task ProcessUrlCache()
         {
-            var client = new HttpClient();
-            var results = new List<CachedUrl>();
-
-            var requests = UrlCache
-                .FindAll(l => l.Content == null)
-                .Select(z => FetchPageAsync(z.Location!))
-                .ToList();
-
-            await Task.WhenAll(requests);
-
-            var responses = requests.Select(task => task.Result);
-
-            foreach (var r in responses)
+            try
             {
-                // Extract the message body and update the Url cache
-                var item = UrlCache.Find(l => l.Location == r.location);
-                if (item is not null)
+                var client = new HttpClient();
+                var results = new List<CachedUrl>();
+
+                var requests = UrlCache
+                    .FindAll(l => l.Content == null)
+                    .Select(z => FetchPageAsync(z.Location!))
+                    .ToList();
+
+                await Task.WhenAll(requests);
+
+                var responses = requests.Select(task => task.Result);
+
+                foreach (var (location, httpResponse) in responses)
                 {
-                    item.Content = await r.httpResponse!.Content.ReadAsStringAsync();
+                    // Extract the message body and update the Url cache
+                    var item = UrlCache.Find(l => l.Location == location);
+                    if (item is not null)
+                    {
+                        item.Content = await httpResponse.Content.ReadAsStringAsync();
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"URL fetch error: {ex.Message} {ex.Source}");
             }
         }
 
         private void ProcessRSSFeed(MagazineSection section)
         {
-            TextReader tr = new StringReader(UrlCache.Find(l => l.Location == section.Feed)!.Content!);
+            TextReader tr = new StringReader(UrlCache.Find(l => l.Location == section.Feed).Content);
             SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
 
             int storyCount = 0;
@@ -109,7 +135,7 @@ namespace API.Magazine
             }
         }
 
-        private async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
+        private static async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
         {
             var client = new HttpClient();
             var content = await client.GetAsync(location);
