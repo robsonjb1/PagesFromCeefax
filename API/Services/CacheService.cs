@@ -19,8 +19,8 @@ namespace API.Services
         private readonly Object l = new Object();
         private int _totalCarousels = 0;
         private int _totalRequests = 0;
-        private readonly DateTime _serviceStart = DateTime.Now;
-        private DateTime _lastBuilt = DateTime.Now;
+        private readonly DateTime _serviceStart = Utility.ConvertToUKTime(DateTime.UtcNow);
+        private DateTime _lastBuilt = Utility.ConvertToUKTime(DateTime.UtcNow);
         private long _buildTime = 0;
 
         private readonly ISystemConfig _config;
@@ -54,7 +54,7 @@ namespace API.Services
 
                     content = cs.GetCarousel();
 
-                    _lastBuilt = DateTime.Now;
+                    _lastBuilt = Utility.ConvertToUKTime(DateTime.UtcNow);
                     _buildTime = sw.ElapsedMilliseconds;
 
                     _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(_config.ServiceContentExpiryMins));
@@ -65,7 +65,7 @@ namespace API.Services
                     .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
                     .Replace("{PFC_SERVICESTART}", _serviceStart.DayOfWeek.ToString()[..3] + _serviceStart.ToString(" dd MMM HH:mm/ss"))
                     .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString()[..3] + _lastBuilt.ToString(" dd MMM HH:mm/ss"))
-                    .Replace("{PFC_BUILDTIME}", _buildTime.ToString());
+                    .Replace("{PFC_BUILDTIME}", _buildTime.ToString("#,#0"));
             }
         }
 

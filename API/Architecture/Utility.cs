@@ -4,6 +4,13 @@ namespace API.Architecture
 {
     public static class Utility
     {
+        // Show in UK time
+        public static DateTime ConvertToUKTime(DateTime utcDateTime)
+        {
+            TimeZoneInfo cstZone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");
+            return TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, cstZone);
+        }
+
         // Mixture of string parsing utilities and graphics character handling
         public static List<string> ParseParagraph(string content)
         {

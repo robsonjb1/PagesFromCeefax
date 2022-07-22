@@ -55,16 +55,13 @@ namespace API.PageGenerators
                 map = map.Replace("[LINE" + k.ToString() + "]", "<span class=\"ink7 indent\">" + String.Join("", Enumerable.Repeat("&nbsp;", 18)) + "</span>");
             }
 
-            TimeZoneInfo cstZone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");
-            DateTime ukTime = TimeZoneInfo.ConvertTimeFromUtc(_wd.LastRefreshUTC, cstZone);
-
             map = map.Replace("[AA]", FormatWeatherString(_wd.Temperatures["London"]))
                 .Replace("[BB]", FormatWeatherString(_wd.Temperatures["Cardiff"]))
                 .Replace("[CC]", FormatWeatherString(_wd.Temperatures["Manchester"]))
                 .Replace("[DD]", FormatWeatherString(_wd.Temperatures["Edinburgh"]))
                 .Replace("[EE]", FormatWeatherString(_wd.Temperatures["Belfast"]))
                 .Replace("[FF]", FormatWeatherString(_wd.Temperatures["Lerwick"]))
-                .Replace("[TTT]", ukTime.ToString("HH:mm"));
+                .Replace("[TTT]", Utility.ConvertToUKTime(_wd.LastRefreshUTC).ToString("HH:mm"));
 
             sb.Append(map);
 
