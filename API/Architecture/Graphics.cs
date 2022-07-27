@@ -143,7 +143,7 @@ namespace API.Architecture
             PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("              ppp<'  x|[BB]@@@@@@@@@'") + "</span></p>");
             PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("            \"£!      ! +/'i@@[AA]@qp0") + "</span></p>");
             PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                        t@@@@@@@@@@@'") + "</span></p>");
-            PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                    h@@@@@@@@?s///?!") + "</span></p>");
+            PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                 [GG]@@@@@@@@?s///?!") + "</span></p>"); // h
             PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                   8?' \"'     \"") + "</span></p>");
 
 

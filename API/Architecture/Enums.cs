@@ -22,7 +22,8 @@
         WeatherTempCardiff,
         WeatherTempManchester,
         WeatherTempEdinburgh,
-        WeatherTempLerwick
+        WeatherTempLerwick,
+        WeatherTempTruro
     }
 
     public enum Mode7Colour

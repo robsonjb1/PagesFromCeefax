@@ -61,6 +61,7 @@ namespace API.PageGenerators
                 .Replace("[DD]", FormatWeatherString(_wd.Temperatures["Edinburgh"]))
                 .Replace("[EE]", FormatWeatherString(_wd.Temperatures["Belfast"]))
                 .Replace("[FF]", FormatWeatherString(_wd.Temperatures["Lerwick"]))
+                .Replace("[GG]", FormatWeatherString(_wd.Temperatures["Truro"]))
                 .Replace("[TTT]", Utility.ConvertToUKTime(_wd.LastRefreshUTC).ToString("HH:mm"));
 
             sb.Append(map);

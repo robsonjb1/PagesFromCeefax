@@ -47,6 +47,7 @@ namespace API.Services
                 wd.Temperatures.Add("Edinburgh", GetTempFromApiResponse(MagazineSectionType.WeatherTempEdinburgh));
                 wd.Temperatures.Add("Belfast", GetTempFromApiResponse(MagazineSectionType.WeatherTempBelfast));
                 wd.Temperatures.Add("Lerwick", GetTempFromApiResponse(MagazineSectionType.WeatherTempLerwick));
+                wd.Temperatures.Add("Truro", GetTempFromApiResponse(MagazineSectionType.WeatherTempTruro));
             }
             catch (Exception ex)
             {

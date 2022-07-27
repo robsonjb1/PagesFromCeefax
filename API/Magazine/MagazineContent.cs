@@ -50,6 +50,7 @@ namespace API.Magazine
             AddWeatherTempSection(MagazineSectionType.WeatherTempEdinburgh, "Edinburgh");
             AddWeatherTempSection(MagazineSectionType.WeatherTempLerwick, "Lerwick");
             AddWeatherTempSection(MagazineSectionType.WeatherTempManchester, "Manchester");
+            AddWeatherTempSection(MagazineSectionType.WeatherTempTruro, "Truro");
 
             // Add each section's feed URL to URL cache
             Sections.ForEach(z => UrlCache.Add(new CachedUrl(z.Feed)));
