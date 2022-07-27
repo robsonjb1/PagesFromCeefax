@@ -76,7 +76,7 @@ namespace API.PageGenerators
             StringBuilder sb = new();
 
             // Only build page if all spot temperatures have been found
-            if (_wd.Temperatures.Count == 6)
+            if (_wd.Temperatures.Count == 7)
             {
                 string sectionTitle = String.Empty;
                 string sectionText = String.Empty;
