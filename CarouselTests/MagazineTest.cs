@@ -41,7 +41,7 @@ public class MagazineTest
         WeatherData wd = ws.GetWeatherData();
 
         // Ensure we can retrieve data from all the RSS URL's and parse the story data
-        Assert.IsTrue(wd.Temperatures.Count > 0);
+        Assert.IsTrue(wd.Temperatures.Count == 7);
     }
 }
 
