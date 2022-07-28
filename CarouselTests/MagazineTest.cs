@@ -14,16 +14,16 @@ public class MagazineTest
     [ClassInitialize]
     public static void ClassInitialize(TestContext context)
     {
-        var configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile(@"appsettings.json", false, false)
-            .AddEnvironmentVariables()
-            .Build();
+        //var configuration = new ConfigurationBuilder()
+        //    .SetBasePath(Directory.GetCurrentDirectory())
+        //    .AddJsonFile(@"appsettings.json", false, false)
+        //    .AddEnvironmentVariables()
+        //    .Build();
 
         _mc = new MagazineContent(new SystemConfig()
         {
-            OpenWeatherApiKey = configuration["OpenWeatherApiKey"],
-            ServiceContentExpiryMins = Convert.ToInt32(configuration["ServiceContentExpiryMins"])
+            OpenWeatherApiKey = "ac62bfc3ecdd85327f12ed32eb7d8d61",//configuration["OpenWeatherApiKey"],
+            ServiceContentExpiryMins = 20//Convert.ToInt32(configuration["ServiceContentExpiryMins"])
         });
     }
 
