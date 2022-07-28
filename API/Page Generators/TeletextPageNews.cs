@@ -52,7 +52,7 @@ namespace API.PageGenerators
         public StringBuilder CreateNewsInBrief(MagazineSectionType sectionName)
         {
             MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             TextReader tr = new StringReader(_mc.UrlCache.Find(l => l.Location == _mc.Sections.Find(z => z.Name == sectionName)!.Feed)!.Content!);
             SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
@@ -119,13 +119,13 @@ namespace API.PageGenerators
         #endregion
 
         #region Private Methods
-        private List<StringBuilder> CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory, bool isTwoPageStory)
+        private static List<StringBuilder> CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory, bool isTwoPageStory)
         {
             List<StringBuilder> newsStory = new();
 
             for (int subPage = 0; subPage < (isTwoPageStory ? 2 : 1); subPage++)
             {
-                StringBuilder sb = new StringBuilder();
+                StringBuilder sb = new();
                 sb.Append(section.Header);
 
                 bool firstParagraph = true;

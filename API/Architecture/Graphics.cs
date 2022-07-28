@@ -5,41 +5,41 @@ namespace API.Architecture
     public class Graphics
     {
         // Page headers
-        public readonly static StringBuilder HeaderHeadlines = new StringBuilder();
-        public readonly static StringBuilder HeaderPolitics = new StringBuilder();
-        public readonly static StringBuilder HeaderHome = new StringBuilder();
-        public readonly static StringBuilder HeaderSussex = new StringBuilder();
-        public readonly static StringBuilder HeaderWorld = new StringBuilder();
-        public readonly static StringBuilder HeaderSciTech = new StringBuilder();
-        public readonly static StringBuilder HeaderBusiness = new StringBuilder();
-        public readonly static StringBuilder HeaderFootball = new StringBuilder();
-        public readonly static StringBuilder HeaderRugby = new StringBuilder();
-        public readonly static StringBuilder HeaderCricket = new StringBuilder();
-        public readonly static StringBuilder HeaderGolf = new StringBuilder();
-        public readonly static StringBuilder HeaderFormula1 = new StringBuilder();
-        public readonly static StringBuilder HeaderTennis = new StringBuilder();
-        public readonly static StringBuilder HeaderEntertainment = new StringBuilder();
-        public readonly static StringBuilder HeaderTop40Singles = new StringBuilder();
-        public readonly static StringBuilder HeaderTV = new StringBuilder();
-        public readonly static StringBuilder HeaderMarkets = new StringBuilder();
-        public readonly static StringBuilder HeaderWeather = new StringBuilder();
-        public readonly static StringBuilder HeaderLinks = new StringBuilder();
-        public readonly static StringBuilder HeaderTravel = new StringBuilder();
+        public readonly static StringBuilder HeaderHeadlines = new();
+        public readonly static StringBuilder HeaderPolitics = new();
+        public readonly static StringBuilder HeaderHome = new();
+        public readonly static StringBuilder HeaderSussex = new();
+        public readonly static StringBuilder HeaderWorld = new();
+        public readonly static StringBuilder HeaderSciTech = new();
+        public readonly static StringBuilder HeaderBusiness = new();
+        public readonly static StringBuilder HeaderFootball = new();
+        public readonly static StringBuilder HeaderRugby = new();
+        public readonly static StringBuilder HeaderCricket = new();
+        public readonly static StringBuilder HeaderGolf = new();
+        public readonly static StringBuilder HeaderFormula1 = new();
+        public readonly static StringBuilder HeaderTennis = new();
+        public readonly static StringBuilder HeaderEntertainment = new();
+        public readonly static StringBuilder HeaderTop40Singles = new();
+        public readonly static StringBuilder HeaderTV = new();
+        public readonly static StringBuilder HeaderMarkets = new();
+        public readonly static StringBuilder HeaderWeather = new();
+        public readonly static StringBuilder HeaderLinks = new();
+        public readonly static StringBuilder HeaderTravel = new();
 
         //public readonly static string[] LogoSunny = new string[6];
         //public readonly static string[] LogoNight = new string[6];
         //public readonly static string[] LogoTV = new string[6];
         
         // Transitional screens
-        public readonly static StringBuilder PromoMap = new StringBuilder();
-        public readonly static StringBuilder PromoWeather = new StringBuilder();
-        public readonly static StringBuilder PromoSport = new StringBuilder();
-        public readonly static StringBuilder PromoTV = new StringBuilder();
-        public readonly static StringBuilder PromoNews = new StringBuilder();
-        public readonly static StringBuilder PromoTeletext = new StringBuilder();
-        public readonly static StringBuilder PromoCeefax = new StringBuilder();
-        public readonly static StringBuilder PromoLinks = new StringBuilder();
-        public readonly static StringBuilder PromoChristmas = new StringBuilder();
+        public readonly static StringBuilder PromoMap = new();
+        public readonly static StringBuilder PromoWeather = new();
+        public readonly static StringBuilder PromoSport = new();
+        public readonly static StringBuilder PromoTV = new();
+        public readonly static StringBuilder PromoNews = new();
+        public readonly static StringBuilder PromoTeletext = new();
+        public readonly static StringBuilder PromoCeefax = new();
+        public readonly static StringBuilder PromoLinks = new();
+        public readonly static StringBuilder PromoChristmas = new();
 
         static Graphics()
         {

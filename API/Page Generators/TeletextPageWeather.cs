@@ -32,7 +32,7 @@ namespace API.PageGenerators
             string summaryText = _wd.TodayText;
             if (summaryText.Contains('.'))
             {
-                summaryText = summaryText.Substring(0, summaryText.IndexOf(".") + 1);
+                summaryText = summaryText[..(summaryText.IndexOf(".") + 1)];
             }
 
             List<string> mapLines = Utility.ParseParagraph(summaryText, 18, 18);
@@ -108,7 +108,7 @@ namespace API.PageGenerators
                 sb.Append(Graphics.HeaderWeather);
                 sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">{sectionTitle}</span><span class=\"ink{(int)Mode7Colour.White}\">{sectionPage}/4</p>");
 
-                List<string> bodyLines = new List<string>();
+                List<string> bodyLines = new();
 
                 // Break body text up into paragraphs
                 string content = $"<p>{sectionText}</p>";
@@ -117,7 +117,7 @@ namespace API.PageGenerators
 
                 while (content.Contains("<p>") && !pageLengthExceeded)
                 {
-                    content = content.Substring(content.IndexOf("<p>") + 3);
+                    content = content[(content.IndexOf("<p>") + 3)..];
 
                     List<string> newChunk = Utility.ParseParagraph(content);
 

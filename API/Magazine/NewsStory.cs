@@ -24,7 +24,7 @@ namespace API.Magazine
 
         public void AddBody(string html)
         {
-            HtmlDocument doc = new HtmlDocument();
+            HtmlDocument doc = new();
             doc.LoadHtml(html);
 
             // Parse story body - only to be called once URL has been retrieved
@@ -36,7 +36,7 @@ namespace API.Magazine
             if (mainlines != null)
             {
                 // Break into sentences (one paragraph = one sentence)
-                StringBuilder allText = new StringBuilder();
+                StringBuilder allText = new();
                 foreach (var l in mainlines)
                 {
                     allText.Append(l.InnerText + " ");

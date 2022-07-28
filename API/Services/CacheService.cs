@@ -16,7 +16,7 @@ namespace API.Services
     {
         private readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
 
-        private readonly Object l = new Object();
+        private readonly Object l = new();
         private int _totalCarousels = 0;
         private int _totalRequests = 0;
         private readonly DateTime _serviceStart = Utility.ConvertToUKTime(DateTime.UtcNow);

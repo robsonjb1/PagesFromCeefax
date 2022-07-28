@@ -19,9 +19,9 @@ namespace API.Architecture
 
         public static List<string> ParseParagraph(string content, int lineLength, int firstLineOverride)
         {
-            List<string> rows = new List<String>();
+            List<string> rows = new();
             content += "</p>";  // In case there isn't already an ending </p>
-            content = Utility.CleanHTML(content.Substring(0, content.IndexOf("</p>")));
+            content = Utility.CleanHTML(content[..content.IndexOf("</p>")]);
 
             String[] words = content.Split(' ');
             string currentLine = "";
@@ -108,207 +108,74 @@ namespace API.Architecture
             {
                 string transform = b.ToString();
 
-                switch (b)
+                output += b switch
                 {
-                    case ' ':
-                        output += "&nbsp;";
-                        break;
-                    case '!':
-                        output += "&#xE261;";
-                        break;
-                    case '\"':
-                        output += "&#xE262;";
-                        break;
-                    case '£':
-                        output += "&#xE263;";
-                        break;
-                    case '$':
-                        output += "&#xE264;";
-                        break;
-                    case '%':
-                        output += "&#xE265;";
-                        break;
-                    case '&':
-                        output += "&#xE266;";
-                        break;
-                    case '\'':
-                        output += "&#xE267;";
-                        break;
-                    case '(':
-                        output += "&#xE268;";
-                        break;
-                    case ')':
-                        output += "&#xE269;";
-                        break;
-                    case '*':
-                        output += "&#xE26A;";
-                        break;
-                    case '+':
-                        output += "&#xE26B;";
-                        break;
-                    case ',':
-                        output += "&#xE26C;";
-                        break;
-                    case '-':
-                        output += "&#xE26D;";
-                        break;
-                    case '.':
-                        output += "&#xE26E;";
-                        break;
-                    case '/':
-                        output += "&#xE26F;";
-                        break;
-                    case '0':
-                        output += "&#xE270;";
-                        break;
-                    case '1':
-                        output += "&#xE271;";
-                        break;
-                    case '2':
-                        output += "&#xE272;";
-                        break;
-                    case '3':
-                        output += "&#xE273;";
-                        break;
-                    case '4':
-                        output += "&#xE274;";
-                        break;
-                    case '5':
-                        output += "&#xE275;";
-                        break;
-                    case '6':
-                        output += "&#xE276;";
-                        break;
-
-                    case '7':
-                        output += "&#xE277;";
-                        break;
-                    case '8':
-                        output += "&#xE278;";
-                        break;
-                    case '9':
-                        output += "&#xE279;";
-                        break;
-                    case ':':
-                        output += "&#xE27A;";
-                        break;
-                    case ';':
-                        output += "&#xE27B;";
-                        break;
-                    case '<':
-                        output += "&#xE27C;";
-                        break;
-                    case '=':
-                        output += "&#xE27D;";
-                        break;
-                    case '>':
-                        output += "&#xE27E;";
-                        break;
-                    case '?':
-                        output += "&#xE27F;";
-                        break;
-                    case '_':
-                        output += "&#xE280;";
-                        break;
-                    case 'a':
-                        output += "&#xE281;";
-                        break;
-                    case 'b':
-                        output += "&#xE282;";
-                        break;
-                    case 'c':
-                        output += "&#xE283;";
-                        break;
-                    case 'd':
-                        output += "&#xE284;";
-                        break;
-                    case 'e':
-                        output += "&#xE285;";
-                        break;
-                    case 'f':
-                        output += "&#xE286;";
-                        break;
-                    case 'g':
-                        output += "&#xE287;";
-                        break;
-                    case 'h':
-                        output += "&#xE288;";
-                        break;
-                    case 'i':
-                        output += "&#xE289;";
-                        break;
-                    case 'j':
-                        output += "&#xE28A;";
-                        break;
-                    case 'k':
-                        output += "&#xE28B;";
-                        break;
-                    case 'l':
-                        output += "&#xE28C;";
-                        break;
-
-                    case 'm':
-                        output += "&#xE28D;";
-                        break;
-                    case 'n':
-                        output += "&#xE28E;";
-                        break;
-                    case 'o':
-                        output += "&#xE28F;";
-                        break;
-                    case 'p':
-                        output += "&#xE290;";
-                        break;
-                    case 'q':
-                        output += "&#xE291;";
-                        break;
-                    case 'r':
-                        output += "&#xE292;";
-                        break;
-                    case 's':
-                        output += "&#xE293;";
-                        break;
-                    case 't':
-                        output += "&#xE294;";
-                        break;
-                    case 'u':
-                        output += "&#xE295;";
-                        break;
-                    case 'v':
-                        output += "&#xE296;";
-                        break;
-                    case 'w':
-                        output += "&#xE297;";
-                        break;
-                    case 'x':
-                        output += "&#xE298;";
-                        break;
-                    case 'y':
-                        output += "&#xE299;";
-                        break;
-                    case 'z':
-                        output += "&#xE29A;";
-                        break;
-                    case '{':
-                        output += "&#xE29B;";
-                        break;
-                    case '|':
-                        output += "&#xE29C;";
-                        break;
-                    case '}':
-                        output += "&#xE29D;";
-                        break;
-                    case '~':
-                        output += "&#xE29E;";
-                        break;
-                    case '@':
-                        output += "&#xE29F;";
-                        break;
-
-                    default:
-                        output += b.ToString();
-                        break;
-                }
+                    ' ' => "&nbsp;",
+                    '!' => "&#xE261;",
+                    '\"' => "&#xE262;",
+                    '£' => "&#xE263;",
+                    '$' => "&#xE264;",
+                    '%' => "&#xE265;",
+                    '&' => "&#xE266;",
+                    '\'' => "&#xE267;",
+                    '(' => "&#xE268;",
+                    ')' => "&#xE269;",
+                    '*' => "&#xE26A;",
+                    '+' => "&#xE26B;",
+                    ',' => "&#xE26C;",
+                    '-' => "&#xE26D;",
+                    '.' => "&#xE26E;",
+                    '/' => "&#xE26F;",
+                    '0' => "&#xE270;",
+                    '1' => "&#xE271;",
+                    '2' => "&#xE272;",
+                    '3' => "&#xE273;",
+                    '4' => "&#xE274;",
+                    '5' => "&#xE275;",
+                    '6' => "&#xE276;",
+                    '7' => "&#xE277;",
+                    '8' => "&#xE278;",
+                    '9' => "&#xE279;",
+                    ':' => "&#xE27A;",
+                    ';' => "&#xE27B;",
+                    '<' => "&#xE27C;",
+                    '=' => "&#xE27D;",
+                    '>' => "&#xE27E;",
+                    '?' => "&#xE27F;",
+                    '_' => "&#xE280;",
+                    'a' => "&#xE281;",
+                    'b' => "&#xE282;",
+                    'c' => "&#xE283;",
+                    'd' => "&#xE284;",
+                    'e' => "&#xE285;",
+                    'f' => "&#xE286;",
+                    'g' => "&#xE287;",
+                    'h' => "&#xE288;",
+                    'i' => "&#xE289;",
+                    'j' => "&#xE28A;",
+                    'k' => "&#xE28B;",
+                    'l' => "&#xE28C;",
+                    'm' => "&#xE28D;",
+                    'n' => "&#xE28E;",
+                    'o' => "&#xE28F;",
+                    'p' => "&#xE290;",
+                    'q' => "&#xE291;",
+                    'r' => "&#xE292;",
+                    's' => "&#xE293;",
+                    't' => "&#xE294;",
+                    'u' => "&#xE295;",
+                    'v' => "&#xE296;",
+                    'w' => "&#xE297;",
+                    'x' => "&#xE298;",
+                    'y' => "&#xE299;",
+                    'z' => "&#xE29A;",
+                    '{' => "&#xE29B;",
+                    '|' => "&#xE29C;",
+                    '}' => "&#xE29D;",
+                    '~' => "&#xE29E;",
+                    '@' => "&#xE29F;",
+                    _ => b.ToString(),
+                };
             }
 
             return output;
@@ -324,207 +191,74 @@ namespace API.Architecture
             {
                 string transform = b.ToString();
 
-                switch (b)
+                output += b switch
                 {
-                    case ' ':
-                        output += "&nbsp;";
-                        break;
-                    case '!':
-                        output += "&#xE201;";
-                        break;
-                    case '\"':
-                        output += "&#xE202;";
-                        break;
-                    case '£':
-                        output += "&#xE203;";
-                        break;
-                    case '$':
-                        output += "&#xE204;";
-                        break;
-                    case '%':
-                        output += "&#xE205;";
-                        break;
-                    case '&':
-                        output += "&#xE206;";
-                        break;
-                    case '\'':
-                        output += "&#xE207;";
-                        break;
-                    case '(':
-                        output += "&#xE208;";
-                        break;
-                    case ')':
-                        output += "&#xE209;";
-                        break;
-                    case '*':
-                        output += "&#xE20A;";
-                        break;
-                    case '+':
-                        output += "&#xE20B;";
-                        break;
-                    case ',':
-                        output += "&#xE20C;";
-                        break;
-                    case '-':
-                        output += "&#xE20D;";
-                        break;
-                    case '.':
-                        output += "&#xE20E;";
-                        break;
-                    case '/':
-                        output += "&#xE20F;";
-                        break;
-                    case '0':
-                        output += "&#xE210;";
-                        break;
-                    case '1':
-                        output += "&#xE211;";
-                        break;
-                    case '2':
-                        output += "&#xE212;";
-                        break;
-                    case '3':
-                        output += "&#xE213;";
-                        break;
-                    case '4':
-                        output += "&#xE214;";
-                        break;
-                    case '5':
-                        output += "&#xE215;";
-                        break;
-                    case '6':
-                        output += "&#xE216;";
-                        break;
-
-                    case '7':
-                        output += "&#xE217;";
-                        break;
-                    case '8':
-                        output += "&#xE218;";
-                        break;
-                    case '9':
-                        output += "&#xE219;";
-                        break;
-                    case ':':
-                        output += "&#xE21A;";
-                        break;
-                    case ';':
-                        output += "&#xE21B;";
-                        break;
-                    case '<':
-                        output += "&#xE21C;";
-                        break;
-                    case '=':
-                        output += "&#xE21D;";
-                        break;
-                    case '>':
-                        output += "&#xE21E;";
-                        break;
-                    case '?':
-                        output += "&#xE21F;";
-                        break;
-                    case '_':
-                        output += "&#xE220;";
-                        break;
-                    case 'a':
-                        output += "&#xE221;";
-                        break;
-                    case 'b':
-                        output += "&#xE222;";
-                        break;
-                    case 'c':
-                        output += "&#xE223;";
-                        break;
-                    case 'd':
-                        output += "&#xE224;";
-                        break;
-                    case 'e':
-                        output += "&#xE225;";
-                        break;
-                    case 'f':
-                        output += "&#xE226;";
-                        break;
-                    case 'g':
-                        output += "&#xE227;";
-                        break;
-                    case 'h':
-                        output += "&#xE228;";
-                        break;
-                    case 'i':
-                        output += "&#xE229;";
-                        break;
-                    case 'j':
-                        output += "&#xE22A;";
-                        break;
-                    case 'k':
-                        output += "&#xE22B;";
-                        break;
-                    case 'l':
-                        output += "&#xE22C;";
-                        break;
-
-                    case 'm':
-                        output += "&#xE22D;";
-                        break;
-                    case 'n':
-                        output += "&#xE22E;";
-                        break;
-                    case 'o':
-                        output += "&#xE22F;";
-                        break;
-                    case 'p':
-                        output += "&#xE230;";
-                        break;
-                    case 'q':
-                        output += "&#xE231;";
-                        break;
-                    case 'r':
-                        output += "&#xE232;";
-                        break;
-                    case 's':
-                        output += "&#xE233;";
-                        break;
-                    case 't':
-                        output += "&#xE234;";
-                        break;
-                    case 'u':
-                        output += "&#xE235;";
-                        break;
-                    case 'v':
-                        output += "&#xE236;";
-                        break;
-                    case 'w':
-                        output += "&#xE237;";
-                        break;
-                    case 'x':
-                        output += "&#xE238;";
-                        break;
-                    case 'y':
-                        output += "&#xE239;";
-                        break;
-                    case 'z':
-                        output += "&#xE23A;";
-                        break;
-                    case '{':
-                        output += "&#xE23B;";
-                        break;
-                    case '|':
-                        output += "&#xE23C;";
-                        break;
-                    case '}':
-                        output += "&#xE23D;";
-                        break;
-                    case '~':
-                        output += "&#xE23E;";
-                        break;
-                    case '@':
-                        output += "&#xE23F;";
-                        break;
-
-                    default:
-                        output += b.ToString();
-                        break;
-                }
+                    ' ' => "&nbsp;",
+                    '!' => "&#xE201;",
+                    '\"' => "&#xE202;",
+                    '£' => "&#xE203;",
+                    '$' => "&#xE204;",
+                    '%' => "&#xE205;",
+                    '&' => "&#xE206;",
+                    '\'' => "&#xE207;",
+                    '(' => "&#xE208;",
+                    ')' => "&#xE209;",
+                    '*' => "&#xE20A;",
+                    '+' => "&#xE20B;",
+                    ',' => "&#xE20C;",
+                    '-' => "&#xE20D;",
+                    '.' => "&#xE20E;",
+                    '/' => "&#xE20F;",
+                    '0' => "&#xE210;",
+                    '1' => "&#xE211;",
+                    '2' => "&#xE212;",
+                    '3' => "&#xE213;",
+                    '4' => "&#xE214;",
+                    '5' => "&#xE215;",
+                    '6' => "&#xE216;",
+                    '7' => "&#xE217;",
+                    '8' => "&#xE218;",
+                    '9' => "&#xE219;",
+                    ':' => "&#xE21A;",
+                    ';' => "&#xE21B;",
+                    '<' => "&#xE21C;",
+                    '=' => "&#xE21D;",
+                    '>' => "&#xE21E;",
+                    '?' => "&#xE21F;",
+                    '_' => "&#xE220;",
+                    'a' => "&#xE221;",
+                    'b' => "&#xE222;",
+                    'c' => "&#xE223;",
+                    'd' => "&#xE224;",
+                    'e' => "&#xE225;",
+                    'f' => "&#xE226;",
+                    'g' => "&#xE227;",
+                    'h' => "&#xE228;",
+                    'i' => "&#xE229;",
+                    'j' => "&#xE22A;",
+                    'k' => "&#xE22B;",
+                    'l' => "&#xE22C;",
+                    'm' => "&#xE22D;",
+                    'n' => "&#xE22E;",
+                    'o' => "&#xE22F;",
+                    'p' => "&#xE230;",
+                    'q' => "&#xE231;",
+                    'r' => "&#xE232;",
+                    's' => "&#xE233;",
+                    't' => "&#xE234;",
+                    'u' => "&#xE235;",
+                    'v' => "&#xE236;",
+                    'w' => "&#xE237;",
+                    'x' => "&#xE238;",
+                    'y' => "&#xE239;",
+                    'z' => "&#xE23A;",
+                    '{' => "&#xE23B;",
+                    '|' => "&#xE23C;",
+                    '}' => "&#xE23D;",
+                    '~' => "&#xE23E;",
+                    '@' => "&#xE23F;",
+                    _ => b.ToString(),
+                };
             }
 
             return output;
