@@ -48,9 +48,11 @@ namespace API.Services
                     // These were previously in the DI container but moved due to issues with caching
                     MagazineContent mc = new(_config);
                     WeatherService ws = new(mc);
+                    MarketService ms = new(mc);
                     TeletextPageWeather tw = new(ws);
+                    TeletextPageMarkets tm = new(ms);
                     TeletextPageNews tn = new(mc);
-                    CarouselService cs = new(tn, tw);
+                    CarouselService cs = new(tn, tw, tm);
 
                     content = cs.GetCarousel();
 

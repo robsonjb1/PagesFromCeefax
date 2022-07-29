@@ -74,6 +74,7 @@ namespace API.Magazine
                     this.HasNewsInBrief = true;
                     break;
 
+                case MagazineSectionType.Markets:
                 case MagazineSectionType.WeatherForecast:
                 case MagazineSectionType.WeatherTempBelfast:
                 case MagazineSectionType.WeatherTempCardiff:
@@ -119,6 +120,7 @@ namespace API.Magazine
                     break;
                 case MagazineSectionType.Business:
                     this.Header = Graphics.HeaderBusiness;
+                    this.PromoFooter = "Market data coming up next >>>";
                     break;
 
                 case MagazineSectionType.Football:

@@ -34,14 +34,23 @@ public class MagazineTest
         Assert.IsTrue(_mc.StoryList.Count > 0);
     }
 
-    //[TestMethod]
-    //public void ParseWeatherData()
-    //{
-    //    WeatherService ws = new WeatherService(_mc);
-    //    WeatherData wd = ws.GetWeatherData();
+    [TestMethod]
+    public void ParseWeatherData()
+    {
+        WeatherService ws = new WeatherService(_mc);
+        WeatherData wd = ws.GetWeatherData();
 
-    //    // Ensure we can retrieve data from all the RSS URL's and parse the story data
-    //    Assert.IsTrue(wd.Temperatures.Count == 7);
-    //}
+        // Check all weather locations can be retrieved
+        Assert.IsTrue(wd.Temperatures.Count == 7);
+    }
+
+    [TestMethod]
+    public void ParseMarketsData()
+    {
+        MarketService ms = new MarketService(_mc);
+        MarketData md = ms.GetMarketData();
+
+        Assert.IsTrue(md.Markets.Count > 0);
+    }
 }
 

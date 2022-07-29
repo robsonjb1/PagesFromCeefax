@@ -23,7 +23,8 @@
         WeatherTempManchester,
         WeatherTempEdinburgh,
         WeatherTempLerwick,
-        WeatherTempTruro
+        WeatherTempTruro,
+        Markets
     }
 
     public enum Mode7Colour
