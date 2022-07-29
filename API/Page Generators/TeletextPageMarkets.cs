@@ -79,9 +79,9 @@ namespace API.PageGenerators
                 }
                 sb.Append(mr.Value.PadRight(10, ' ').Replace(" ", "&nbsp;"));
                 sb.Append(mr.Movement);
-                sb.Append("</span>");
-                sb.Append(mr.Closed ? "&nbsp;&nbsp;&nbsp;Closed" : "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open");
-                sb.Append("</p>");
+                sb.Append($"</span><span class=\"ink{(int)Mode7Colour.Cyan}\">");
+                sb.Append(mr.Closed ? "&nbsp;&nbsp;&nbsp;&nbsp;Closed" : "");
+                sb.Append("</span></p>");
             }
 
             return sb;
