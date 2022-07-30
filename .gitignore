@@ -1,4 +1,10 @@
 .vs/
 **/.DS_Store
 **/appsettings.json
+*.mp3
+api/obj/*
+api/bin/*
+carouseltests/obj/*
+carouseltests/bin/*
+.vscode
 
