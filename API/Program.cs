@@ -11,7 +11,8 @@ builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
 {
     OpenWeatherApiKey = Environment.GetEnvironmentVariable("OpenWeatherApiKey") != null ?
         Environment.GetEnvironmentVariable("OpenWeatherApiKey") : builder.Configuration["OpenWeatherApiKey"],
-    ServiceContentExpiryMins = Convert.ToInt32(builder.Configuration["ServiceContentExpiryMins"])
+    ServiceContentExpiryMins = Convert.ToInt32(Environment.GetEnvironmentVariable("ServiceContentExpiryMins") != null ?
+        Environment.GetEnvironmentVariable("ServiceContentExpiryMins") : builder.Configuration["ServiceContentExpiryMins"])
 });
 
 var app = builder.Build();
