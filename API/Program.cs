@@ -9,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<ICacheService, CacheService>();
 builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
 {
-    OpenWeatherApiKey = builder.Configuration["OpenWeatherApiKey"],
+    OpenWeatherApiKey = Environment.GetEnvironmentVariable("OpenWeatherApiKey") != null ?
+        Environment.GetEnvironmentVariable("OpenWeatherApiKey") : builder.Configuration["OpenWeatherApiKey"],
     ServiceContentExpiryMins = Convert.ToInt32(builder.Configuration["ServiceContentExpiryMins"])
 });
 

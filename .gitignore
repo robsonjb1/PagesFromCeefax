@@ -6,4 +6,5 @@ api/bin/*
 carouseltests/obj/*
 carouseltests/bin/*
 .vscode
+appsettings.json
 
