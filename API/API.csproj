@@ -29,5 +29,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
+    <Content Remove="appsettings.Development.json" />
   </ItemGroup>
 </Project>
