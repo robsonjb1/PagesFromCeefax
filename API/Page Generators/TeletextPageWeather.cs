@@ -52,7 +52,7 @@ namespace API.PageGenerators
             }
             for (int k = j; k <= 7; k++)
             {
-                map = map.Replace("[LINE" + k.ToString() + "]", "<span class=\"ink7 indent\">" + String.Join("", Enumerable.Repeat("&nbsp;", 18)) + "</span>");
+                map = map.Replace("[LINE" + k.ToString() + "]", $"<span class=\"ink{(int)Mode7Colour.White} indent\">" + String.Join("", Enumerable.Repeat("&nbsp;", 18)) + "</span>");
             }
 
             map = map.Replace("[AA]", FormatWeatherString(_wd.Temperatures["London"]))
@@ -75,8 +75,8 @@ namespace API.PageGenerators
         {
             StringBuilder sb = new();
 
-            // Only build page if all spot temperatures have been found
-            if (_wd.Temperatures.Count == 7)
+            // Only build page if spot temperatures are available
+            if (_wd.Temperatures.Count > 0)
             {
                 string sectionTitle = String.Empty;
                 string sectionText = String.Empty;

@@ -41,7 +41,7 @@ public class IntegrationTest
         WeatherData wd = ws.GetWeatherData();
 
         // Check all weather locations can be retrieved
-        Assert.IsTrue(wd.Temperatures.Count == 7);
+        Assert.IsTrue(wd.Temperatures.Count == _mc.UrlCache.FindAll(z => z.Location.ToString().Contains("openweathermap")).Count);
     }
 
     [TestMethod]

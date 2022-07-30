@@ -1,7 +1,10 @@
 ﻿using System;
 
 namespace API.DataTransferObjects
-{ 
+{
+    // OpenWeatherMap.org
+    // Requires use of the 'current weather and forecast' service
+
     public class OpenWeather
     {
         public Coord coord { get; set; }

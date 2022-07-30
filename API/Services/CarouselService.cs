@@ -89,10 +89,7 @@ namespace API.Services
 
         private void BuildTeletextPage(List<StringBuilder> newPages)
         {
-            foreach (StringBuilder newPage in newPages)
-            {
-                BuildTeletextPage(newPage);
-            }
+            newPages.ForEach(z => BuildTeletextPage(z));
         }
         #endregion
     }

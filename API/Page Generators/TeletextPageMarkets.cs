@@ -3,7 +3,6 @@ using API.Architecture;
 using API.DataTransferObjects;
 using API.Magazine;
 using API.Services;
-using static System.Collections.Specialized.BitVector32;
 
 namespace API.PageGenerators
 {

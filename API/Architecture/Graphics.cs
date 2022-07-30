@@ -26,10 +26,6 @@ namespace API.Architecture
         public readonly static StringBuilder HeaderLinks = new();
         public readonly static StringBuilder HeaderTravel = new();
 
-        //public readonly static string[] LogoSunny = new string[6];
-        //public readonly static string[] LogoNight = new string[6];
-        //public readonly static string[] LogoTV = new string[6];
-        
         // Transitional screens
         public readonly static StringBuilder PromoMap = new();
         public readonly static StringBuilder PromoWeather = new();
