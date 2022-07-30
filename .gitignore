@@ -1,5 +1,5 @@
 .vs/
-**/.DS_Store
+.DS_Store
 api/appsettings.json
 *.mp3
 api/obj/*
