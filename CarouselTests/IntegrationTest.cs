@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 namespace CarouselTests;
 
 [TestClass]
-public class MagazineTest
+public class IntegrationTest
 {
     private static MagazineContent _mc;
 
