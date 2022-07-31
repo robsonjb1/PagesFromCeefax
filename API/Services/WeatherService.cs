@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics;
+using System.Text.Json;
 using API.Architecture;
 using API.DataTransferObjects;
 using API.Magazine;
@@ -49,11 +50,18 @@ namespace API.Services
                 wd.Temperatures.Add("Lerwick", GetTempFromApiResponse(MagazineSectionType.WeatherTempLerwick));
                 wd.Temperatures.Add("Truro", GetTempFromApiResponse(MagazineSectionType.WeatherTempTruro));
             }
-            catch (Exception ex)
+            catch (OpenWeatherParseException ex)
             {
-                // Silent fail. We will continue even if we have no spot temperatures.
-                // In this case, the weather map will not be shown.
-                Console.WriteLine($"{ex.Message} {ex.Source}");
+                if (Debugger.IsAttached)
+                {
+                    throw;
+                }
+                else
+                {
+                    // Silent fail. We will continue even if we have no spot temperatures.
+                    // In this case, the weather map will not be shown.
+                    Console.WriteLine($"{ex.Message} {ex.Source}");
+                }
             }
 
             return wd;
@@ -61,9 +69,17 @@ namespace API.Services
 
         private int GetTempFromApiResponse(MagazineSectionType section)
         {
-            string json = _content.UrlCache.First(l => l.Location == _content.Sections.First(z => z.Name == section).Feed).Content;
-            OpenWeather dto = JsonSerializer.Deserialize<OpenWeather>(json);
-            return Convert.ToInt32(dto.main.temp);
+            string json = String.Empty;
+            try
+            {
+                json = _content.UrlCache.First(l => l.Location == _content.Sections.First(z => z.Name == section).Feed).Content;
+                OpenWeather dto = JsonSerializer.Deserialize<OpenWeather>(json);
+                return Convert.ToInt32(dto.main.temp);
+            }
+            catch (Exception ex)
+            {
+                throw new OpenWeatherParseException(json, ex);
+            }
         }
     }
 }

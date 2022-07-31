@@ -14,6 +14,7 @@
     <None Remove="Magazine\" />
     <None Remove="Page Generators\" />
     <None Remove="Services\" />
+    <None Remove="Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
@@ -22,6 +23,7 @@
     <Folder Include="Magazine\" />
     <Folder Include="Page Generators\" />
     <Folder Include="Services\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.43" />
@@ -30,5 +32,6 @@
   <ItemGroup>
     <Content Remove="wwwroot\" />
     <Content Remove="appsettings.Development.json" />
+    <Content Remove="appsettings.example.json" />
   </ItemGroup>
 </Project>
