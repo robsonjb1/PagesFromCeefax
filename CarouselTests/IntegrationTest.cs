@@ -16,7 +16,7 @@ public class IntegrationTest
     {
         var configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile(@"appsettings.test.json", false, false)
+            .AddJsonFile(@"appsettings.json", false, false)
             .AddEnvironmentVariables()
             .Build();
 
