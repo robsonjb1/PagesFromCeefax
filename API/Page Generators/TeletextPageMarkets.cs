@@ -68,6 +68,7 @@ namespace API.PageGenerators
             {
                 sb.Append($"<p><span class=\"indent ink{(int)Mode7Colour.White}\">");
                 sb.Append(mr.Name.PadRight(14, ' ').Replace(" ", "&nbsp;"));
+                sb.Append(mr.Value.PadLeft(9, ' ').Replace(" ", "&nbsp;"));
                 if (mr.Movement.StartsWith("-"))
                 {
                     sb.Append($"<span class=\"ink{(int)Mode7Colour.Red}\">");
@@ -76,10 +77,9 @@ namespace API.PageGenerators
                 {
                     sb.Append($"<span class=\"ink{(int)Mode7Colour.Green}\">");
                 }
-                sb.Append(mr.Value.PadLeft(8, ' ').Replace(" ", "&nbsp;"));
                 sb.Append($"&nbsp;&nbsp;{mr.Movement}");
                 sb.Append($"</span><span class=\"ink{(int)Mode7Colour.Cyan}\">");
-                sb.Append(mr.Closed ? "&nbsp;&nbsp;&nbsp;Closed" : "");
+                sb.Append(mr.Closed ? "&nbsp;&nbsp;Closed" : "");
                 sb.Append("</span></p>");
             }
 
@@ -94,9 +94,10 @@ namespace API.PageGenerators
 
             if (mr != null)
             {
-                sb.Append($"<p><span class=\"indent ink{(int)Mode7Colour.White}\">{currency.PadRight(14, ' ').Replace(" ", "&nbsp")}");
+                sb.Append($"<p><span class=\"indent ink{(int)Mode7Colour.White}\">{currency.PadRight(16, ' ').Replace(" ", "&nbsp")}");
+                sb.Append(mr.Value.PadRight(9, ' ').Replace(" ", "&nbsp;"));
 
-                if(mr.Movement.StartsWith("-"))
+                if (mr.Movement.StartsWith("-"))
                 {
                     sb.Append($"<span class=\"ink{(int)Mode7Colour.Red}\">");
                 }
@@ -104,7 +105,6 @@ namespace API.PageGenerators
                 {
                     sb.Append($"<span class=\"ink{(int)Mode7Colour.Green}\">");
                 }
-                sb.Append(mr.Value.PadRight(10, ' ').Replace(" ", "&nbsp;"));
                 sb.Append(mr.Movement);
                 sb.Append("</span></p>");
             }
