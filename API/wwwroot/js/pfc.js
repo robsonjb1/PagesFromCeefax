@@ -112,6 +112,7 @@
         $('#selectedPage').text("P152");
         $('#selectedChannel').text("CEEFAX 1");
         $('#imgPause').attr("style", "display:none");
+        $('#pageBreak').attr("style", "display:none");
 
         // Display loading page
         window.setTimeout(function () { $('#magazineLoading').slideDown(300) }, 500);

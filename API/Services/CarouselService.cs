@@ -84,6 +84,9 @@ namespace API.Services
             // Generate the <div> enclosure that contains the individual page
             DisplayHtml.AppendLine($"<div id=\"page{MaxPages}\" style=\"display:none\">");
             DisplayHtml.Append(newPage);
+
+            DisplayHtml.Append("<div class=\"pageBreak\"><br><br><br></div>");
+
             DisplayHtml.Append("</div>");
         }
 
