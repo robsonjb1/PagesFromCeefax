@@ -29,22 +29,22 @@ namespace API.PageGenerators
             sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">UK MARKETS</span></p>");
             sb.Append(OutputMarket("FTSE 100"));
             sb.Append(OutputMarket("FTSE 250"));
-            sb.AppendLine("<br>");
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">=======================================</span></p>");
 
             sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">EUROPE MARKETS</span></p>");
             sb.Append(OutputMarket("AEX"));
             sb.Append(OutputMarket("DAX"));
-            sb.AppendLine("<br>");
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">=======================================</span></p>");
 
             sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">US MARKETS</span></p>");
             sb.Append(OutputMarket("Dow Jones"));
             sb.Append(OutputMarket("Nasdaq"));
-            sb.AppendLine("<br>");
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">=======================================</span></p>");
 
             sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">ASIA MARKETS</span></p>");
             sb.Append(OutputMarket("Hang Seng"));
             sb.Append(OutputMarket("Nikkei 225"));
-            sb.AppendLine("<br>");
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">=======================================</span></p>");
 
             sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">CURRENCIES</span></p>");
             sb.Append(OutputCurrency("Euro"));
