@@ -10,6 +10,7 @@ namespace API.Services
     public interface ICacheService
     {
         public string GetMagazine();
+        public byte[] GetBBCDisk();
     }
 
     public class CacheService : ICacheService
@@ -28,6 +29,35 @@ namespace API.Services
         public CacheService(ISystemConfig config)
         {
             _config = config;
+        }
+
+        private int Interleave(int pos)
+        {
+            int gaps = pos / 2560;
+            return pos + (gaps * 2560);
+        }
+
+
+        public byte[] GetBBCDisk()
+        {
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "disks", "pfctemplate.dsd");
+            byte[] byteArray = File.ReadAllBytes(filePath);
+
+            int dataStart = 512;
+            byte content = 97;
+          
+            for (int pages = 1; pages <= 25; pages++)
+            {
+                for (int loop = dataStart; loop < dataStart + 1024; loop++)
+                {
+                    byteArray[Interleave(loop)] = content;
+                }
+
+                dataStart += 1024;
+                content++;
+            }
+
+            return byteArray;
         }
 
         public string GetMagazine()

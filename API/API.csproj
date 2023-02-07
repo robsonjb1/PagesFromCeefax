@@ -33,9 +33,5 @@
     <Content Remove="wwwroot\" />
     <Content Remove="appsettings.Development.json" />
     <Content Remove="appsettings.example.json" />
-    <Content Remove="wwwroot\Disks\pfctest.dsd" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\disks\pfctest.dsd" />
   </ItemGroup>
 </Project>
