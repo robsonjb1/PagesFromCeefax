@@ -38,6 +38,17 @@
         White = 7
     }
 
+    public enum Mode7AsciiColour
+    {
+        Blue = 132,
+        Red = 129,
+        Magenta = 133,
+        Green = 130,
+        Cyan = 134,
+        Yellow = 131,
+        White = 135
+    }
+
     public enum WeatherPage
     {
         Today,

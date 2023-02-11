@@ -26,7 +26,7 @@ app.MapGet("/carousel", (ICacheService cache) =>
 app.MapGet("/bbcdisk", (ICacheService cache) =>
 {
     var mimeType = "application/octet-stream";
-    return Results.File(cache.GetBBCDisk(), contentType: mimeType, "pfc.dsd");
+    return Results.File(cache.GetDisk(), contentType: mimeType, "pfc.ssd");
 });
 
 app.UseFileServer(new FileServerOptions

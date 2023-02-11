@@ -10,13 +10,13 @@ namespace API.Services
     public interface ICacheService
     {
         public string GetMagazine();
-        public byte[] GetBBCDisk();
+        public byte[] GetDisk();
     }
 
     public class CacheService : ICacheService
     {
         private readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
-
+        private byte[] _bbcDisk;
         private readonly Object l = new();
         private int _totalCarousels = 0;
         private int _totalRequests = 0;
@@ -31,33 +31,10 @@ namespace API.Services
             _config = config;
         }
 
-        private int Interleave(int pos)
+        public byte[] GetDisk()
         {
-            int gaps = pos / 2560;
-            return pos + (gaps * 2560);
-        }
-
-
-        public byte[] GetBBCDisk()
-        {
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "disks", "pfctemplate.dsd");
-            byte[] byteArray = File.ReadAllBytes(filePath);
-
-            int dataStart = 512;
-            byte content = 97;
-          
-            for (int pages = 1; pages <= 25; pages++)
-            {
-                for (int loop = dataStart; loop < dataStart + 1024; loop++)
-                {
-                    byteArray[Interleave(loop)] = content;
-                }
-
-                dataStart += 1024;
-                content++;
-            }
-
-            return byteArray;
+            GetMagazine();
+            return _bbcDisk;
         }
 
         public string GetMagazine()
@@ -85,6 +62,7 @@ namespace API.Services
                     CarouselService cs = new(tn, tw, tm);
 
                     content = cs.GetCarousel();
+                    _bbcDisk = cs.GetDisk();
 
                     _lastBuilt = Utility.ConvertToUKTime(DateTime.UtcNow);
                     _buildTime = sw.ElapsedMilliseconds;

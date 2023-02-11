@@ -9,7 +9,7 @@ namespace API.PageGenerators
     public interface ITeletextPageNews
     {
         public List<StringBuilder> CreateNewsSection(MagazineSectionType sectionName);
-
+        public List<StringBuilder> DiskCreateNewsSection(MagazineSectionType sectionName);
         public StringBuilder CreateNewsInBrief(MagazineSectionType sectionName);
     }
 
@@ -23,6 +23,25 @@ namespace API.PageGenerators
         }
 
         #region Public Methods
+        public List<StringBuilder> DiskCreateNewsSection(MagazineSectionType sectionName)
+        {
+            MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
+            List<StringBuilder> content = new();
+
+            // Loop through each story and generate a news page
+            foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body[0].Count > 0))
+            {
+                content.Add(DiskCreateNewsPage(section, story));
+            }
+
+            if (section.HasNewsInBrief)
+            {
+                content.Add(DiskCreateNewsInBrief(sectionName));
+            }
+
+            return content;
+        }
+
         public List<StringBuilder> CreateNewsSection(MagazineSectionType sectionName)
         {
             MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
@@ -92,7 +111,7 @@ namespace API.PageGenerators
                         
                         // Add this to the global list of stories, it will never have summary content because the feed URL is
                         // never visited - but it will stop other news in brief sections picking up the same article
-                        _mc.StoryList.Add(new NewsStory(sectionName, "NEWS IN BRIEF - DO NOT DISPLAY", item.Links[0].Uri));
+                        //_mc.StoryList.Add(new NewsStory(sectionName, "NEWS IN BRIEF - DO NOT DISPLAY", item.Links[0].Uri));
                     }
                 }
             }
@@ -116,9 +135,116 @@ namespace API.PageGenerators
 
             return sb;
         }
+
+        public StringBuilder DiskCreateNewsInBrief(MagazineSectionType sectionName)
+        {
+            MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
+            StringBuilder sb = new();
+
+            TextReader tr = new StringReader(_mc.UrlCache.Find(l => l.Location == _mc.Sections.Find(z => z.Name == sectionName)!.Feed)!.Content!);
+            SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
+
+            sb.AppendLine(String.Concat(
+                    (char)Utility.ConvertToAsciiColour(section.HeadingCol),
+                    "OTHER NEWS IN BRIEF..."));
+
+            int rows = 0;
+            foreach (SyndicationItem item in feed.Items)
+            {
+                if (!_mc.StoryList.Exists(z => z.Link == item.Links[0].Uri)
+                    && !item.Title.Text.Contains("VIDEO:", StringComparison.CurrentCulture)
+                    && item.Summary is not null)
+                {
+                    List<string> title = Utility.ParseParagraph(item.Title.Text + ".");
+                    List<string> summary = Utility.ParseParagraph(item.Summary.Text);
+                    if (rows + title.Count + summary.Count < 17)
+                    {
+                        if (rows > 0)
+                        {
+                            rows++;
+                            sb.AppendLine("");
+                        }
+
+                        // Title
+                        foreach (string line in title)
+                        {
+                            sb.AppendLine(String.Concat(
+                                (char)Utility.ConvertToAsciiColour(Mode7Colour.White),
+                                line));
+                        }
+
+                        // Summary
+                        foreach (string line in summary)
+                        {
+                            sb.AppendLine(String.Concat(
+                                (char)Utility.ConvertToAsciiColour(Mode7Colour.Cyan),
+                                line));
+                        }
+                        rows += summary.Count + title.Count;
+
+                        // Add this to the global list of stories, it will never have summary content because the feed URL is
+                        // never visited - but it will stop other news in brief sections picking up the same article
+                        //_mc.StoryList.Add(new NewsStory(sectionName, "NEWS IN BRIEF - DO NOT DISPLAY", item.Links[0].Uri));
+                    }
+                }
+            }
+
+            // Pad lines to the end
+            for (int i = 0; i < 19 - rows; i++)
+            {
+                sb.AppendLine("");
+            }
+
+            return sb;
+        }
+
         #endregion
 
         #region Private Methods
+        private static StringBuilder DiskCreateNewsPage(MagazineSection section, NewsStory story)
+        {
+            StringBuilder sb = new();
+
+            bool firstParagraph = true;
+            Mode7Colour bodyCol = Mode7Colour.White;
+
+            // Headline
+            foreach (string line in story.Headline)
+            {
+                sb.AppendLine(String.Concat(
+                    (char)Utility.ConvertToAsciiColour(section.HeadingCol),
+                    line));
+            }                
+
+            // Story
+            foreach (string line in story.Body[0])
+            {
+                if (line == String.Empty)
+                {
+                    if (!firstParagraph)
+                    {
+                        sb.AppendLine("");
+                        bodyCol = Mode7Colour.Cyan;
+                    }
+                    firstParagraph = false;
+                }
+                else
+                {
+                    sb.AppendLine(String.Concat(
+                        (char)Utility.ConvertToAsciiColour(bodyCol),
+                        line));
+                }
+            }
+
+            // Pad to the bottom of the page
+            for (int i = 0; i <= 20 - story.Headline.Count - story.Body[0].Count; i++)
+            {
+                sb.AppendLine("");
+            }
+
+            return sb;
+        }
+
         private static List<StringBuilder> CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory, bool isTwoPageStory)
         {
             List<StringBuilder> newsStory = new();
