@@ -190,7 +190,7 @@ namespace API.PageGenerators
             }
 
             // Pad lines to the end
-            for (int i = 0; i < 19 - rows; i++)
+            for (int i = 0; i < 18 - rows; i++)
             {
                 sb.AppendLine("");
             }
@@ -237,7 +237,7 @@ namespace API.PageGenerators
             }
 
             // Pad to the bottom of the page
-            for (int i = 0; i <= 20 - story.Headline.Count - story.Body[0].Count; i++)
+            for (int i = 0; i <= 19 - story.Headline.Count - story.Body[0].Count; i++)
             {
                 sb.AppendLine("");
             }

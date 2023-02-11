@@ -156,7 +156,11 @@ namespace API.Services
 
         private void BuildDiskPage(StringBuilder content)
         {
-            DiskContent.Append(content);
+            string[] lines = content.ToString().Split(Environment.NewLine);
+            foreach (string line in lines)
+            {
+                DiskContent.AppendLine(line);
+            }
         }
 
         private void BuildDiskPage(List<StringBuilder> newPages)
