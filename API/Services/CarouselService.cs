@@ -20,7 +20,7 @@ namespace API.Services
         public ITeletextPageWeather _tw;
         public ITeletextPageNews _tn;
         public ITeletextPageMarkets _tm;
-       
+
         public CarouselService(ITeletextPageNews tn, ITeletextPageWeather tw, ITeletextPageMarkets tm)
         {
             _tw = tw;
@@ -154,9 +154,17 @@ namespace API.Services
             newPages.ForEach(z => BuildTeletextPage(z));
         }
 
+        private void BuildDiskPage(StringBuilder content)
+        {
+            foreach(string line in content.ToString().Split(Environment.NewLine.ToCharArray()))
+            {
+                DiskContent.Append(line);
+            }
+        }
+
         private void BuildDiskPage(List<StringBuilder> newPages)
         {
-            newPages.ForEach(z => DiskContent.Append(z));
+            newPages.ForEach(z => BuildDiskPage(z));
         }
         #endregion
     }
