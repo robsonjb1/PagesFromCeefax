@@ -52,7 +52,7 @@ namespace API.Services
             int diskPtr = 512;
             int lineNo = 0;
 
-            string[] lines = DiskContent.ToString().Split(Environment.NewLine.ToCharArray());
+            string[] lines = DiskContent.ToString().Split(Environment.NewLine);
             foreach (string line in lines)
             {
                 // Must be exactly 40 characters line width
