@@ -33,7 +33,11 @@ namespace API.Services
 
         public byte[] GetDisk()
         {
-            GetMagazine();
+            MagazineContent mc = new(_config);
+            TeletextPageNews tn = new(mc);
+            CarouselService cs = new(tn, null, null);
+
+            _bbcDisk = cs.GetDisk();
             return _bbcDisk;
         }
 
@@ -62,8 +66,7 @@ namespace API.Services
                     CarouselService cs = new(tn, tw, tm);
 
                     content = cs.GetCarousel();
-                    _bbcDisk = cs.GetDisk();
-
+                   
                     _lastBuilt = Utility.ConvertToUKTime(DateTime.UtcNow);
                     _buildTime = sw.ElapsedMilliseconds;
 

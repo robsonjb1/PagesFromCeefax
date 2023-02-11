@@ -111,7 +111,7 @@ namespace API.PageGenerators
                         
                         // Add this to the global list of stories, it will never have summary content because the feed URL is
                         // never visited - but it will stop other news in brief sections picking up the same article
-                        //_mc.StoryList.Add(new NewsStory(sectionName, "NEWS IN BRIEF - DO NOT DISPLAY", item.Links[0].Uri));
+                        _mc.StoryList.Add(new NewsStory(sectionName, "NEWS IN BRIEF - DO NOT DISPLAY", item.Links[0].Uri));
                     }
                 }
             }
@@ -184,7 +184,7 @@ namespace API.PageGenerators
 
                         // Add this to the global list of stories, it will never have summary content because the feed URL is
                         // never visited - but it will stop other news in brief sections picking up the same article
-                        //_mc.StoryList.Add(new NewsStory(sectionName, "NEWS IN BRIEF - DO NOT DISPLAY", item.Links[0].Uri));
+                        _mc.StoryList.Add(new NewsStory(sectionName, "NEWS IN BRIEF - DO NOT DISPLAY", item.Links[0].Uri));
                     }
                 }
             }

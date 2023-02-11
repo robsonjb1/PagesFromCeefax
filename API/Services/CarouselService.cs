@@ -156,10 +156,7 @@ namespace API.Services
 
         private void BuildDiskPage(StringBuilder content)
         {
-            foreach(string line in content.ToString().Split(Environment.NewLine.ToCharArray()))
-            {
-                DiskContent.Append(line);
-            }
+            DiskContent.Append(content);
         }
 
         private void BuildDiskPage(List<StringBuilder> newPages)
