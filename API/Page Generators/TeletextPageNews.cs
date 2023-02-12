@@ -88,7 +88,7 @@ namespace API.PageGenerators
                 {
                     List<string> title = Utility.ParseParagraph(item.Title.Text + ".");
                     List<string> summary = Utility.ParseParagraph(item.Summary.Text);
-                    if (rows + title.Count + summary.Count < 17)
+                    if (rows + title.Count + summary.Count < 18)
                     {
                         if (rows > 0)
                         {
@@ -157,7 +157,7 @@ namespace API.PageGenerators
                 {
                     List<string> title = Utility.ParseParagraph(item.Title.Text + ".");
                     List<string> summary = Utility.ParseParagraph(item.Summary.Text);
-                    if (rows + title.Count + summary.Count < 17)
+                    if (rows + title.Count + summary.Count < 18)
                     {
                         if (rows > 0)
                         {
