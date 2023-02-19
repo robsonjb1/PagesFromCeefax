@@ -34,9 +34,13 @@ namespace API.Services
         public byte[] GetDisk()
         {
             MagazineContent mc = new(_config);
+            WeatherService ws = new(mc);
+            MarketService ms = new(mc);
+            TeletextPageWeather tw = new(ws);
+            TeletextPageMarkets tm = new(ms);
             TeletextPageNews tn = new(mc);
-            CarouselService cs = new(tn, null, null);
-
+            CarouselService cs = new(tn, tw, tm);
+            
             _bbcDisk = cs.GetDisk();
             return _bbcDisk;
         }

@@ -29,9 +29,16 @@ namespace API.PageGenerators
             List<StringBuilder> content = new();
 
             // Loop through each story and generate a news page
+            int storyCount = 1;
             foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body[0].Count > 0))
             {
-                content.Add(DiskCreateNewsPage(section, story));
+                foreach (StringBuilder page in DiskCreateNewsPage(section, story,
+                    isLastStory: storyCount == section.TotalStories,
+                    isTwoPageStory: section.HasNewsInBrief && storyCount == 1))
+                {
+                    content.Add(page);
+                }
+                storyCount++;
             }
 
             if (section.HasNewsInBrief)
@@ -201,48 +208,56 @@ namespace API.PageGenerators
         #endregion
 
         #region Private Methods
-        private static StringBuilder DiskCreateNewsPage(MagazineSection section, NewsStory story)
+        private static List<StringBuilder> DiskCreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory, bool isTwoPageStory)
         {
-            StringBuilder sb = new();
-
-            bool firstParagraph = true;
-            Mode7Colour bodyCol = Mode7Colour.White;
-
-            // Headline
-            foreach (string line in story.Headline)
+            List<StringBuilder> newsStory = new();
+            for (int subPage = 0; subPage < (isTwoPageStory ? 2 : 1); subPage++)
             {
-                sb.AppendLine(String.Concat(
-                    (char)Utility.ConvertToAsciiColour(section.HeadingCol),
-                    line));
-            }                
+                StringBuilder sb = new();
 
-            // Story
-            foreach (string line in story.Body[0])
-            {
-                if (line == String.Empty)
+                bool firstParagraph = true;
+                Mode7Colour bodyCol = Mode7Colour.White;
+
+                foreach (string line in isTwoPageStory ? story.MultiPageHeadline : story.Headline)
                 {
-                    if (!firstParagraph)
-                    {
-                        sb.AppendLine("");
-                        bodyCol = Mode7Colour.Cyan;
-                    }
-                    firstParagraph = false;
-                }
-                else
-                {
+                    var displayLine = line.Replace("&nbsp;", " ").Replace(" x/y",
+                        String.Concat((char)Utility.ConvertToAsciiColour(Mode7Colour.White), $"{subPage + 1}/2"));
+                    
                     sb.AppendLine(String.Concat(
-                        (char)Utility.ConvertToAsciiColour(bodyCol),
-                        line));
+                        (char)Utility.ConvertToAsciiColour(section.HeadingCol),
+                        displayLine));
                 }
+
+                // Story
+                foreach (string line in story.Body[subPage])
+                {
+                    if (line == String.Empty)
+                    {
+                        if (!firstParagraph)
+                        {
+                            sb.AppendLine("");
+                            bodyCol = Mode7Colour.Cyan;
+                        }
+                        firstParagraph = false;
+                    }
+                    else
+                    {
+                        sb.AppendLine(String.Concat(
+                            (char)Utility.ConvertToAsciiColour(bodyCol),
+                            line));
+                    }
+                }
+
+                // Pad to the bottom of the page
+                for (int i = 0; i <= 19 - story.Headline.Count - story.Body[subPage].Count; i++)
+                {
+                    sb.AppendLine("");
+                }
+            
+                newsStory.Add(sb);
             }
 
-            // Pad to the bottom of the page
-            for (int i = 0; i <= 19 - story.Headline.Count - story.Body[0].Count; i++)
-            {
-                sb.AppendLine("");
-            }
-
-            return sb;
+            return newsStory;
         }
 
         private static List<StringBuilder> CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory, bool isTwoPageStory)

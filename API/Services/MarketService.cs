@@ -44,7 +44,7 @@ namespace API.Services
                     md.Markets.Add(new MarketRecord()
                     {
                         Name = name,
-                        Movement = movement.Replace("&#45;", "-"),
+                        Movement = (movement.StartsWith("0") ? String.Concat("=", movement) : movement.Replace("&#45;", "-")),
                         Value = value.Replace("&euro;", "€"),
                         Closed = closed
                     });

@@ -38,7 +38,11 @@ namespace API.Services
             BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Technology));
             BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Sussex));
             BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Business));
+            BuildDiskPage(_tm.DiskCreateMarketsPage());
             BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Formula1));
+            BuildDiskPage(_tw.DiskCreateWeatherPage(WeatherPage.Today));
+            BuildDiskPage(_tw.DiskCreateWeatherPage(WeatherPage.Tomorrow));
+            BuildDiskPage(_tw.DiskCreateWeatherPage(WeatherPage.Outlook));
             BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Entertainment));
 
             // Create the populated disk image from the template
