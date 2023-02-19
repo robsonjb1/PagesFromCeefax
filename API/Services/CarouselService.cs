@@ -56,6 +56,13 @@ namespace API.Services
             int diskPtr = 512;
             int lineNo = 0;
 
+            // Put time in the title
+            string currentTime = DateTime.Now.ToString("MMddHHmm");
+            for (int i = 0; i < 8; i++)
+            {
+                _bbcDisk[i] = Encoding.Unicode.GetBytes(currentTime.Substring(i, 1))[0];
+            }
+
             string[] lines = DiskContent.ToString().Split(Environment.NewLine);
             foreach (string line in lines)
             {
