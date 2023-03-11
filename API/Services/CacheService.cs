@@ -10,13 +10,11 @@ namespace API.Services
     public interface ICacheService
     {
         public string GetMagazine();
-        public byte[] GetDisk();
     }
 
     public class CacheService : ICacheService
     {
         private readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
-        private byte[] _bbcDisk;
         private readonly Object l = new();
         private int _totalCarousels = 0;
         private int _totalRequests = 0;
@@ -29,20 +27,6 @@ namespace API.Services
         public CacheService(ISystemConfig config)
         {
             _config = config;
-        }
-
-        public byte[] GetDisk()
-        {
-            MagazineContent mc = new(_config);
-            WeatherService ws = new(mc);
-            MarketService ms = new(mc);
-            TeletextPageWeather tw = new(ws);
-            TeletextPageMarkets tm = new(ms);
-            TeletextPageNews tn = new(mc);
-            CarouselService cs = new(tn, tw, tm);
-            
-            _bbcDisk = cs.GetDisk();
-            return _bbcDisk;
         }
 
         public string GetMagazine()

@@ -75,30 +75,7 @@ namespace API.Architecture
                 return rows;
             }
         }
-
-        public static int ConvertToAsciiColour(Mode7Colour c)
-        {
-            switch(c)
-            {
-                case Mode7Colour.Blue:
-                    return (int)Mode7AsciiColour.Blue;
-                case Mode7Colour.Red:
-                    return (int)Mode7AsciiColour.Red;
-                case Mode7Colour.Magenta:
-                    return (int)Mode7AsciiColour.Magenta;
-                case Mode7Colour.Cyan:
-                    return (int)Mode7AsciiColour.Cyan;
-                case Mode7Colour.White:
-                    return (int)Mode7AsciiColour.White;
-                case Mode7Colour.Yellow:
-                    return (int)Mode7AsciiColour.Yellow;
-                case Mode7Colour.Green:
-                    return (int)Mode7AsciiColour.Green;
-                default:
-                    return (int)Mode7AsciiColour.White;
-            }
-        }
-        
+                
         public static string CleanHTML(string html)
         {
             // Tags

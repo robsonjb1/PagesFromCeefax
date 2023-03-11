@@ -10,7 +10,6 @@ namespace API.PageGenerators
     public interface ITeletextPageMarkets
     {
         public StringBuilder CreateMarketsPage();
-        public StringBuilder DiskCreateMarketsPage();
     }
 
     public class TeletextPageMarkets : ITeletextPageMarkets
@@ -56,59 +55,9 @@ namespace API.PageGenerators
 
             return sb;
         }
-
-        public StringBuilder DiskCreateMarketsPage()
-        {
-            StringBuilder sb = new();
-
-            sb.AppendLine(String.Concat(
-                 (char)Utility.ConvertToAsciiColour(Mode7Colour.Yellow),
-                 "UK MARKETS"));
-            sb.Append(DiskOutputMarket("FTSE 100"));
-            sb.Append(DiskOutputMarket("FTSE 250"));
-            sb.AppendLine(String.Concat(
-                (char)Utility.ConvertToAsciiColour(Mode7Colour.Red),
-                string.Join("", Enumerable.Repeat((char)224, 39))));
-
-            sb.AppendLine(String.Concat(
-                 (char)Utility.ConvertToAsciiColour(Mode7Colour.Yellow),
-                 "EUROPE MARKETS"));
-            sb.Append(DiskOutputMarket("AEX"));
-            sb.Append(DiskOutputMarket("DAX"));
-            sb.AppendLine(String.Concat(
-                (char)Utility.ConvertToAsciiColour(Mode7Colour.Red),
-                string.Join("", Enumerable.Repeat((char)224, 39))));
-
-            sb.AppendLine(String.Concat(
-                 (char)Utility.ConvertToAsciiColour(Mode7Colour.Yellow),
-                 "US MARKETS"));
-            sb.Append(DiskOutputMarket("Dow Jones"));
-            sb.Append(DiskOutputMarket("Nasdaq"));
-            sb.AppendLine(String.Concat(
-                (char)Utility.ConvertToAsciiColour(Mode7Colour.Red),
-                string.Join("", Enumerable.Repeat((char)224, 39))));
-
-            sb.AppendLine(String.Concat(
-                 (char)Utility.ConvertToAsciiColour(Mode7Colour.Yellow),
-                 "ASIA MARKETS"));
-            sb.Append(DiskOutputMarket("Hang Seng"));
-            sb.Append(DiskOutputMarket("Nikkei 225"));
-            sb.AppendLine(String.Concat(
-                (char)Utility.ConvertToAsciiColour(Mode7Colour.Red),
-                string.Join("", Enumerable.Repeat((char)224, 39))));
-
-            sb.AppendLine(String.Concat(
-                 (char)Utility.ConvertToAsciiColour(Mode7Colour.Yellow),
-                 "CURRENCIES"));
-            sb.Append(DiskOutputCurrency("Euro"));
-            sb.Append(DiskOutputCurrency("USD"));
-
-            return sb;
-        }
         #endregion
 
         #region Private Methods
-
         private StringBuilder OutputMarket(string marketName)
         {
             StringBuilder sb = new();
@@ -137,37 +86,6 @@ namespace API.PageGenerators
             return sb;
         }
 
-        private StringBuilder DiskOutputMarket(string marketName)
-        {
-            StringBuilder sb = new();
-
-            MarketRecord mr = _md.Markets.FirstOrDefault(z => z.Name == marketName);
-
-            if (mr != null)
-            {
-                sb.Append(String.Concat(
-                (char)Utility.ConvertToAsciiColour(Mode7Colour.White),
-                mr.Name.PadRight(14),
-                mr.Value.PadLeft(9)));
-
-                if (mr.Movement.StartsWith("-"))
-                {
-                    sb.Append((char)Utility.ConvertToAsciiColour(Mode7Colour.Red));
-                }
-                else
-                {
-                    sb.Append((char)Utility.ConvertToAsciiColour(Mode7Colour.Green));
-                }
-
-                sb.Append($" {mr.Movement}");
-                sb.AppendLine(String.Concat(
-                (char)Utility.ConvertToAsciiColour(Mode7Colour.Cyan),
-                mr.Closed ? " Closed" : ""));
-            }
-
-            return sb;
-        }
-
         private StringBuilder OutputCurrency(string currency)
         {
             StringBuilder sb = new();
@@ -189,33 +107,6 @@ namespace API.PageGenerators
                 }
                 sb.Append(mr.Movement);
                 sb.Append("</span></p>");
-            }
-
-            return sb;
-        }
-
-        private StringBuilder DiskOutputCurrency(string currency)
-        {
-            StringBuilder sb = new();
-
-            MarketRecord mr = _md.Markets.FirstOrDefault(z => z.Name.StartsWith("GBP") && z.Name.EndsWith(currency));
-
-            if (mr != null)
-            {
-                sb.Append(String.Concat(
-                (char)Utility.ConvertToAsciiColour(Mode7Colour.White),
-                currency.PadRight(16),
-                mr.Value.Replace("€", "E").PadRight(8)));
-
-                if (mr.Movement.StartsWith("-"))
-                {
-                    sb.Append((char)Utility.ConvertToAsciiColour(Mode7Colour.Red));
-                }
-                else
-                {
-                    sb.Append((char)Utility.ConvertToAsciiColour(Mode7Colour.Green));
-                }
-                sb.AppendLine(mr.Movement);
             }
 
             return sb;

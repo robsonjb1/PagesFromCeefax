@@ -23,12 +23,6 @@ app.MapGet("/carousel", (ICacheService cache) =>
     return Results.Extensions.NoCache(cache.GetMagazine());
 });
 
-app.MapGet("/bbcdisk", (ICacheService cache) =>
-{
-    var mimeType = "application/octet-stream";
-    return Results.File(cache.GetDisk(), contentType: mimeType, "pfc.ssd");
-});
-
 app.UseFileServer(new FileServerOptions
 {
     FileProvider = new PhysicalFileProvider(

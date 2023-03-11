@@ -11,7 +11,6 @@ namespace API.PageGenerators
     {
         public StringBuilder CreateWeatherMap();
         public StringBuilder CreateWeatherPage(WeatherPage page);
-        public StringBuilder DiskCreateWeatherPage(WeatherPage page);
     }
 
     public class TeletextPageWeather : ITeletextPageWeather
@@ -173,111 +172,6 @@ namespace API.PageGenerators
 
             sb.Append($"<p><span class=\"paper{(int)Mode7Colour.Blue} ink{(int)Mode7Colour.Yellow}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
             
-
-            return sb;
-        }
-
-        public StringBuilder DiskCreateWeatherPage(WeatherPage page)
-        {
-            StringBuilder sb = new();
-
-            string sectionTitle = String.Empty;
-            string sectionText = String.Empty;
-            int sectionPage = 0;
-
-            switch (page)
-            {
-                case WeatherPage.Today:
-                    sectionTitle = _wd.TodayTitle;
-                    sectionText = _wd.TodayText;
-                    sectionPage = 1;
-                    break;
-                case WeatherPage.Tomorrow:
-                    sectionTitle = _wd.TomorrowTitle;
-                    sectionText = _wd.TomorrowText;
-                    sectionPage = 2;
-                    break;
-                case WeatherPage.Outlook:
-                    sectionTitle = _wd.OutlookTitle;
-                    sectionText = _wd.OutlookText;
-                    sectionPage = 3;
-                    break;
-                default:
-                    break;
-            }
-
-            sectionTitle = sectionTitle.ToUpper().PadRight(35);
-            sb.AppendLine(String.Concat(
-                  (char)Utility.ConvertToAsciiColour(Mode7Colour.Yellow),
-                  sectionTitle,
-                  (char)Utility.ConvertToAsciiColour(Mode7Colour.White),
-                  sectionPage,
-                  "/3"
-                  ));
-
-            List<string> bodyLines = new();
-
-            // Break body text up into paragraphs
-            string content = $"<p>{sectionText}</p>";
-            bool pageLengthExceeded = false;
-            content = content.Replace(".", ".</p><p>");
-
-            while (content.Contains("<p>") && !pageLengthExceeded)
-            {
-                content = content[(content.IndexOf("<p>") + 3)..];
-
-                List<string> newChunk = Utility.ParseParagraph(content);
-
-                if (newChunk.Count > 0)
-                {
-                    if (bodyLines.Count + newChunk.Count > 16)
-                    {
-                        pageLengthExceeded = true;
-                    }
-                    else
-                    {
-                        if (bodyLines.Count > 0)
-                        {
-                            bodyLines.Add("");
-                        }
-                        bodyLines.AddRange(newChunk);
-                    }
-                }
-            }
-
-            bool firstLine = true;
-            foreach (string line in bodyLines)
-            {
-                sb.AppendLine(String.Concat(
-                   (char)Utility.ConvertToAsciiColour(firstLine ? Mode7Colour.White : Mode7Colour.Cyan),
-                   line));
-
-                if (line == String.Empty)
-                {
-                    firstLine = false;
-                }
-            }
-
-            // Optionally display met office notice
-            int lastLine = 18;
-            if (bodyLines.Count <= 15)
-            {
-                lastLine = 15;
-            }
-
-            for (int j = bodyLines.Count; j < lastLine; j++)
-            {
-                sb.AppendLine("");
-            }
-
-            if (lastLine == 15)
-            {
-                sb.AppendLine("");
-                sb.AppendLine(String.Concat(
-                    (char)Utility.ConvertToAsciiColour(Mode7Colour.Green),
-                    "Data: BBC Weather Centre / Met Office"));
-                sb.AppendLine("");
-            }
 
             return sb;
         }

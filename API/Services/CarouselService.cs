@@ -8,7 +8,6 @@ namespace API.Services
     public interface ICarouselService
     {
         public string GetCarousel();
-        public byte[] GetDisk();
     }
 
     public class CarouselService : ICarouselService
@@ -26,74 +25,6 @@ namespace API.Services
             _tw = tw;
             _tn = tn;
             _tm = tm;
-        }
-
-        public byte[] GetDisk()
-        {
-            // Write disk contents
-            BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Home));
-            BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.World));
-            BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Politics));
-            BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Science));
-            BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Technology));
-            BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Sussex));
-            BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Business));
-            BuildDiskPage(_tm.DiskCreateMarketsPage());
-            BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Formula1));
-            BuildDiskPage(_tw.DiskCreateWeatherPage(WeatherPage.Today));
-            BuildDiskPage(_tw.DiskCreateWeatherPage(WeatherPage.Tomorrow));
-            BuildDiskPage(_tw.DiskCreateWeatherPage(WeatherPage.Outlook));
-            BuildDiskPage(_tn.DiskCreateNewsSection(MagazineSectionType.Entertainment));
-
-            // Create the populated disk image from the template
-            return WriteToDisk();
-        }
-
-        private byte[] WriteToDisk()
-        {
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "disks", "pfctemplate.ssd");
-            byte[] _bbcDisk = File.ReadAllBytes(filePath);
-            int diskPtr = 512;
-            int lineNo = 0;
-
-            // Put time in the title
-            string currentTime = DateTime.Now.ToString("MMddHHmm");
-            for (int i = 0; i < 8; i++)
-            {
-                _bbcDisk[i] = Encoding.Unicode.GetBytes(currentTime.Substring(i, 1))[0];
-            }
-
-            string[] lines = DiskContent.ToString().Split(Environment.NewLine);
-            foreach (string line in lines)
-            {
-                // Must be exactly 40 characters line width
-                string tempLine;
-                if (line.Length > 40)
-                {
-                    tempLine = line.Substring(0, 40);
-                }
-                else
-                {
-                    tempLine = line.PadRight(40);
-                }
-
-                for (int loop = 0; loop < 40; loop++)
-                {
-                    _bbcDisk[diskPtr + loop] = Encoding.Unicode.GetBytes(tempLine.Substring(loop, 1))[0];
-                }
-
-                diskPtr += 40;
-
-                lineNo++;
-                if (lineNo == 20)
-                {
-                    // Pad to the start of the next sector (NB: each page takes 4x256byte sectors)
-                    diskPtr += (1024 - (20 * 40));
-                    lineNo = 0;
-                }
-            }
-
-            return _bbcDisk;
         }
 
         public string GetCarousel()
@@ -163,20 +94,6 @@ namespace API.Services
         private void BuildTeletextPage(List<StringBuilder> newPages)
         {
             newPages.ForEach(z => BuildTeletextPage(z));
-        }
-
-        private void BuildDiskPage(StringBuilder content)
-        {
-            string[] lines = content.ToString().Split(Environment.NewLine);
-            foreach (string line in lines)
-            {
-                DiskContent.AppendLine(line);
-            }
-        }
-
-        private void BuildDiskPage(List<StringBuilder> newPages)
-        {
-            newPages.ForEach(z => BuildDiskPage(z));
         }
         #endregion
     }

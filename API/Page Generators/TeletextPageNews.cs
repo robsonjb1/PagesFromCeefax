@@ -9,7 +9,6 @@ namespace API.PageGenerators
     public interface ITeletextPageNews
     {
         public List<StringBuilder> CreateNewsSection(MagazineSectionType sectionName);
-        public List<StringBuilder> DiskCreateNewsSection(MagazineSectionType sectionName);
         public StringBuilder CreateNewsInBrief(MagazineSectionType sectionName);
     }
 
@@ -22,33 +21,8 @@ namespace API.PageGenerators
             _mc = mc;
         }
 
+
         #region Public Methods
-        public List<StringBuilder> DiskCreateNewsSection(MagazineSectionType sectionName)
-        {
-            MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
-            List<StringBuilder> content = new();
-
-            // Loop through each story and generate a news page
-            int storyCount = 1;
-            foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body[0].Count > 0))
-            {
-                foreach (StringBuilder page in DiskCreateNewsPage(section, story,
-                    isLastStory: storyCount == section.TotalStories,
-                    isTwoPageStory: section.HasNewsInBrief && storyCount == 1))
-                {
-                    content.Add(page);
-                }
-                storyCount++;
-            }
-
-            if (section.HasNewsInBrief)
-            {
-                content.Add(DiskCreateNewsInBrief(sectionName));
-            }
-
-            return content;
-        }
-
         public List<StringBuilder> CreateNewsSection(MagazineSectionType sectionName)
         {
             MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
@@ -56,14 +30,10 @@ namespace API.PageGenerators
 
             // Loop through each story and generate a news page
             int storyCount = 1;
-            foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body[0].Count > 0))
+            foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body.Count > 0))
             {
-                foreach(StringBuilder page in CreateNewsPage(section, story,
-                    isLastStory: storyCount == section.TotalStories,
-                    isTwoPageStory : section.HasNewsInBrief && storyCount == 1))
-                {
-                    content.Add(page);
-                }
+                content.Add(CreateNewsPage(section, story,
+                isLastStory: storyCount == section.TotalStories));
                 storyCount++;
             }
 
@@ -142,183 +112,60 @@ namespace API.PageGenerators
 
             return sb;
         }
-
-        public StringBuilder DiskCreateNewsInBrief(MagazineSectionType sectionName)
-        {
-            MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
-            StringBuilder sb = new();
-
-            TextReader tr = new StringReader(_mc.UrlCache.Find(l => l.Location == _mc.Sections.Find(z => z.Name == sectionName)!.Feed)!.Content!);
-            SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
-
-            sb.AppendLine(String.Concat(
-                    (char)Utility.ConvertToAsciiColour(section.HeadingCol),
-                    "OTHER NEWS IN BRIEF..."));
-
-            int rows = 0;
-            foreach (SyndicationItem item in feed.Items)
-            {
-                if (!_mc.StoryList.Exists(z => z.Link == item.Links[0].Uri)
-                    && !item.Title.Text.Contains("VIDEO:", StringComparison.CurrentCulture)
-                    && item.Summary is not null)
-                {
-                    List<string> title = Utility.ParseParagraph(item.Title.Text + ".");
-                    List<string> summary = Utility.ParseParagraph(item.Summary.Text);
-                    if (rows + title.Count + summary.Count < 18)
-                    {
-                        if (rows > 0)
-                        {
-                            rows++;
-                            sb.AppendLine("");
-                        }
-
-                        // Title
-                        foreach (string line in title)
-                        {
-                            sb.AppendLine(String.Concat(
-                                (char)Utility.ConvertToAsciiColour(Mode7Colour.White),
-                                line));
-                        }
-
-                        // Summary
-                        foreach (string line in summary)
-                        {
-                            sb.AppendLine(String.Concat(
-                                (char)Utility.ConvertToAsciiColour(Mode7Colour.Cyan),
-                                line));
-                        }
-                        rows += summary.Count + title.Count;
-
-                        // Add this to the global list of stories, it will never have summary content because the feed URL is
-                        // never visited - but it will stop other news in brief sections picking up the same article
-                        _mc.StoryList.Add(new NewsStory(sectionName, "NEWS IN BRIEF - DO NOT DISPLAY", item.Links[0].Uri));
-                    }
-                }
-            }
-
-            // Pad lines to the end
-            for (int i = 0; i < 18 - rows; i++)
-            {
-                sb.AppendLine("");
-            }
-
-            return sb;
-        }
-
         #endregion
 
         #region Private Methods
-        private static List<StringBuilder> DiskCreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory, bool isTwoPageStory)
+        private static StringBuilder CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory)
         {
-            List<StringBuilder> newsStory = new();
-            for (int subPage = 0; subPage < (isTwoPageStory ? 2 : 1); subPage++)
+            StringBuilder sb = new();
+            sb.Append(section.Header);
+
+            bool firstParagraph = true;
+            Mode7Colour bodyCol = Mode7Colour.White;
+
+            // Headline
+            foreach (string line in story.Headline)
             {
-                StringBuilder sb = new();
-
-                bool firstParagraph = true;
-                Mode7Colour bodyCol = Mode7Colour.White;
-
-                foreach (string line in isTwoPageStory ? story.MultiPageHeadline : story.Headline)
-                {
-                    var displayLine = line.Replace("&nbsp;", " ").Replace(" x/y",
-                        String.Concat((char)Utility.ConvertToAsciiColour(Mode7Colour.White), $"{subPage + 1}/2"));
-                    
-                    sb.AppendLine(String.Concat(
-                        (char)Utility.ConvertToAsciiColour(section.HeadingCol),
-                        displayLine));
-                }
-
-                // Story
-                foreach (string line in story.Body[subPage])
-                {
-                    if (line == String.Empty)
-                    {
-                        if (!firstParagraph)
-                        {
-                            sb.AppendLine("");
-                            bodyCol = Mode7Colour.Cyan;
-                        }
-                        firstParagraph = false;
-                    }
-                    else
-                    {
-                        sb.AppendLine(String.Concat(
-                            (char)Utility.ConvertToAsciiColour(bodyCol),
-                            line));
-                    }
-                }
-
-                // Pad to the bottom of the page
-                for (int i = 0; i < 20 - (isTwoPageStory ? story.MultiPageHeadline.Count : story.Headline.Count) - story.Body[subPage].Count; i++)
-                {
-                    sb.AppendLine("");
-                }
-            
-                newsStory.Add(sb);
+                sb.AppendLine($"<p><span class=\"ink{(int)section.HeadingCol!} indent\">{line}</span></p>");
             }
 
-            return newsStory;
-        }
-
-        private static List<StringBuilder> CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory, bool isTwoPageStory)
-        {
-            List<StringBuilder> newsStory = new();
-
-            for (int subPage = 0; subPage < (isTwoPageStory ? 2 : 1); subPage++)
+            // Story
+            foreach (string line in story.Body)
             {
-                StringBuilder sb = new();
-                sb.Append(section.Header);
-
-                bool firstParagraph = true;
-                Mode7Colour bodyCol = Mode7Colour.White;
-
-                // Headline
-                foreach (string line in isTwoPageStory ? story.MultiPageHeadline : story.Headline)
+                if (line == String.Empty)
                 {
-                    var displayLine = line.Replace("x/y", $"<span class=\"ink{(int)Mode7Colour.White}\">{subPage + 1}/2</span>");
-                    sb.AppendLine($"<p><span class=\"ink{(int)section.HeadingCol!} indent\">{displayLine}</span></p>");
-                }
-
-                // Story
-                foreach (string line in story.Body[subPage])
-                {
-                    if (line == String.Empty)
+                    if (!firstParagraph)
                     {
-                        if (!firstParagraph)
-                        {
-                            sb.AppendLine("<br>");
-                            bodyCol = Mode7Colour.Cyan;
-                        }
-                        firstParagraph = false;
+                        sb.AppendLine("<br>");
+                        bodyCol = Mode7Colour.Cyan;
                     }
-                    else
-                    {
-                        sb.AppendLine($"<p><span class=\"ink{(int)bodyCol} indent\">{line}</span></p>");
-                    }
-                }
-
-                // Pad to the bottom of the page
-                for (int i = 0; i < 20 - (isTwoPageStory ? story.MultiPageHeadline.Count : story.Headline.Count) - story.Body[subPage].Count; i++)
-                {
-                    sb.Append("<br>");
-                }
-
-                // Footer
-                if (section.PromoFooter is not null
-                    && (isLastStory && !section.HasNewsInBrief))
-                {
-                    string promoFooterPadded = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
-                    sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooterPadded!}</span></p>");
+                    firstParagraph = false;
                 }
                 else
                 {
-                    sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
+                    sb.AppendLine($"<p><span class=\"ink{(int)bodyCol} indent\">{line}</span></p>");
                 }
-
-                newsStory.Add(sb);
             }
 
-            return newsStory;
+            // Pad to the bottom of the page
+            for (int i = 0; i < 20 - story.Headline.Count - story.Body.Count; i++)
+            {
+                sb.Append("<br>");
+            }
+
+            // Footer
+            if (section.PromoFooter is not null
+                && (isLastStory && !section.HasNewsInBrief))
+            {
+                string promoFooterPadded = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
+                sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooterPadded!}</span></p>");
+            }
+            else
+            {
+                sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
+            }
+
+            return sb;
         }
         #endregion
     }

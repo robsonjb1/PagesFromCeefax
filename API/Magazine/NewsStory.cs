@@ -12,14 +12,14 @@ namespace API.Magazine
         public readonly Uri Link;
         public readonly List<string> Headline;
         public readonly List<string> MultiPageHeadline;
-        public List<string>[] Body = new List<string>[3] { new List<string>(), new List<string>(), new List<String>() };
+        public List<string> Body;
 
         public NewsStory(MagazineSectionType SectionName, string Headline, Uri Link)
         {
             this.SectionName = SectionName;
             this.Link = Link;
             this.Headline = Utility.ParseParagraph(Headline);
-            this.MultiPageHeadline = Utility.ParseParagraph(Headline, 39, 35);
+            this.Body = new List<string>();
         }
 
         public void AddBody(string html)
@@ -32,7 +32,6 @@ namespace API.Magazine
                 ?? doc.DocumentNode.SelectNodes("//article/div/p//span")                                // sport page
                 ?? doc.DocumentNode.SelectNodes("//article//div/p");                                    // video story
 
-            int pageNo = 0;
             if (mainlines != null)
             {
                 // Break into sentences (one paragraph = one sentence)
@@ -50,19 +49,14 @@ namespace API.Magazine
 
                         if (newChunk.Count > 0)
                         {
-                            if (MultiPageHeadline.Count + Body[pageNo].Count + newChunk.Count - 1 > maxLines)
+                            if (Headline.Count + Body.Count + newChunk.Count - 1 > maxLines)
                             {
                                 // The current paragraph will overflow the page
-                                pageNo++;
-                                if (pageNo == 2)
-                                {
-                                    // We only want two pages, so stop now
-                                    break;
-                                }
+                               break;
                             }
 
-                            Body[pageNo].Add("");
-                            Body[pageNo].AddRange(newChunk);
+                            Body.Add("");
+                            Body.AddRange(newChunk);
                         }
                     }
                 }
