@@ -43,8 +43,7 @@ namespace API.Magazine
 
             Sections.Add(new MagazineSection(MagazineSectionType.Entertainment, new Uri("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.WeatherForecast, new Uri("https://www.bbc.co.uk/weather")));
-            Sections.Add(new MagazineSection(MagazineSectionType.Markets, new Uri("https://www.bbc.co.uk/news/business/market-data")));
-
+         
             AddWeatherTempSection(MagazineSectionType.WeatherTempLondon, "London");
             AddWeatherTempSection(MagazineSectionType.WeatherTempBelfast, "Belfast");
             AddWeatherTempSection(MagazineSectionType.WeatherTempCardiff, "Cardiff");
