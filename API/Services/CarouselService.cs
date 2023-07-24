@@ -41,7 +41,7 @@ namespace API.Services
             BuildTeletextPage(_tn.CreateNewsSection(MagazineSectionType.Technology));
             BuildTeletextPage(_tn.CreateNewsSection(MagazineSectionType.Sussex));
             BuildTeletextPage(_tn.CreateNewsSection(MagazineSectionType.Business));
-            BuildTeletextPage(_tm.CreateMarketsPage());
+            //BuildTeletextPage(_tm.CreateMarketsPage());
 
             // Sports section
             BuildTeletextPage(Graphics.PromoSport);
