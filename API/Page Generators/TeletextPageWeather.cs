@@ -1,8 +1,12 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
+using System.Text.Json;
 using API.Architecture;
 using API.DataTransferObjects;
 using API.Magazine;
 using API.Services;
+using HtmlAgilityPack;
+using Microsoft.AspNetCore.Http.HttpResults;
 using static System.Collections.Specialized.BitVector32;
 
 namespace API.PageGenerators
@@ -16,10 +20,52 @@ namespace API.PageGenerators
     public class TeletextPageWeather : ITeletextPageWeather
     {
         private readonly WeatherData _wd;
-    
-        public TeletextPageWeather(IWeatherService ws)
+        private readonly IMagazineContent _mc;
+
+        public TeletextPageWeather(IMagazineContent mc)
         {
-            _wd = ws.GetWeatherData();
+            _mc = mc;
+
+            string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == MagazineSectionType.WeatherForecast).Feed).Content;
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
+
+            _wd = new()
+            {
+                TodayTitle = doc.DocumentNode.SelectSingleNode("(//h4[@class='wr-c-text-forecast__summary-title gel-long-primer-bold gs-u-mt+'])[1]").InnerText,
+                TomorrowTitle = doc.DocumentNode.SelectSingleNode("(//h4[@class='wr-c-text-forecast__summary-title gel-long-primer-bold gs-u-mt+'])[2]").InnerText,
+                OutlookTitle = doc.DocumentNode.SelectSingleNode("(//h4[@class='wr-c-text-forecast__summary-title gel-long-primer-bold gs-u-mt+'])[3]").InnerText,
+
+                TodayText = doc.DocumentNode.SelectSingleNode("(//h4[@class='wr-c-text-forecast__summary-title gel-long-primer-bold gs-u-mt+'])[1]").NextSibling.InnerText,
+                TomorrowText = doc.DocumentNode.SelectSingleNode("(//h4[@class='wr-c-text-forecast__summary-title gel-long-primer-bold gs-u-mt+'])[2]").NextSibling.InnerText,
+                OutlookText = doc.DocumentNode.SelectSingleNode("(//h4[@class='wr-c-text-forecast__summary-title gel-long-primer-bold gs-u-mt+'])[3]").NextSibling.InnerText,
+
+                LastRefreshUTC = DateTime.UtcNow
+            };
+
+            try
+            {
+                _wd.Temperatures.Add("London", GetTempFromApiResponse(MagazineSectionType.WeatherTempLondon));
+                _wd.Temperatures.Add("Cardiff", GetTempFromApiResponse(MagazineSectionType.WeatherTempCardiff));
+                _wd.Temperatures.Add("Manchester", GetTempFromApiResponse(MagazineSectionType.WeatherTempManchester));
+                _wd.Temperatures.Add("Edinburgh", GetTempFromApiResponse(MagazineSectionType.WeatherTempEdinburgh));
+                _wd.Temperatures.Add("Belfast", GetTempFromApiResponse(MagazineSectionType.WeatherTempBelfast));
+                _wd.Temperatures.Add("Lerwick", GetTempFromApiResponse(MagazineSectionType.WeatherTempLerwick));
+                _wd.Temperatures.Add("Truro", GetTempFromApiResponse(MagazineSectionType.WeatherTempTruro));
+            }
+            catch (OpenWeatherParseException ex)
+            {
+                if (Debugger.IsAttached)
+                {
+                    throw;
+                }
+                else
+                {
+                    // Silent fail. We will continue even if we have no spot temperatures.
+                    // In this case, the weather map will not be shown.
+                    Console.WriteLine($"{ex.Message} {ex.Source}");
+                }
+            }
         }
 
         #region Public Methods
@@ -171,7 +217,7 @@ namespace API.PageGenerators
             }
 
             sb.Append($"<p><span class=\"paper{(int)Mode7Colour.Blue} ink{(int)Mode7Colour.Yellow}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
-            
+
 
             return sb;
         }
@@ -191,6 +237,21 @@ namespace API.PageGenerators
             }
 
             return str;
+        }
+
+        private int GetTempFromApiResponse(MagazineSectionType section)
+        {
+            string json = String.Empty;
+            try
+            {
+                json = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == section).Feed).Content;
+                OpenWeather dto = JsonSerializer.Deserialize<OpenWeather>(json);
+                return Convert.ToInt32(dto.main.temp);
+            }
+            catch (Exception ex)
+            {
+                throw new OpenWeatherParseException(json, ex);
+            }
         }
         #endregion
     }

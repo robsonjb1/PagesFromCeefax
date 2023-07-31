@@ -14,13 +14,12 @@ namespace API.PageGenerators
 
     public class TeletextPageNews : ITeletextPageNews
     {
-        readonly IMagazineContent _mc;
+        private readonly IMagazineContent _mc;
     
         public TeletextPageNews(IMagazineContent mc)
         {
             _mc = mc;
         }
-
 
         #region Public Methods
         public List<StringBuilder> CreateNewsSection(MagazineSectionType sectionName)
