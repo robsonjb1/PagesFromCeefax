@@ -13,19 +13,16 @@ builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
     OpenWeatherApiKey = builder.Configuration["OpenWeatherApiKey"],
     ServiceContentExpiryMins = Convert.ToInt32(builder.Configuration["ServiceContentExpiryMins"])
 });
-builder.Services.AddSingleton<IMagazineContent, MagazineContent>();
-builder.Services.AddSingleton<ITeletextPageNews, TeletextPageNews>();
-builder.Services.AddSingleton<ITeletextPageWeather, TeletextPageWeather>();
-builder.Services.AddSingleton<ICarouselService, CarouselService>();
+builder.Services.AddSingleton<ICacheService, CacheService>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseHttpsRedirection();
 
-app.MapGet("/carousel", (ICarouselService cs) =>
+app.MapGet("/carousel", (ICacheService cs) =>
 {
-return Results.Extensions.NoCache(cs.GetCarousel());
+    return Results.Extensions.NoCache(cs.GetMagazine());
 });
 
 app.UseFileServer(new FileServerOptions

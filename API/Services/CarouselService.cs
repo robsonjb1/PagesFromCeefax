@@ -62,6 +62,11 @@ namespace API.Services
             // Close
             BuildTeletextPage(Graphics.PromoLinks);
 
+            // Insert stats
+            DisplayHtml.AppendLine("<!-- The service started on: {PFC_SERVICESTART} and has built a total of {PFC_TOTALCAROUSELS} carousel(s). -->");
+            DisplayHtml.AppendLine("<!-- The service has served {PFC_TOTALREQUESTS} request(s) since starting. -->");
+            DisplayHtml.AppendLine("<!-- The latest carousel is: {PFC_TIMESTAMP} taking {PFC_BUILDTIME}ms to build. -->");
+            
             // The number of total pages is required javascript page cycler
             DisplayHtml.AppendLine($"<div id='totalPages' style='display:none'>{MaxPages}</div>");
 
