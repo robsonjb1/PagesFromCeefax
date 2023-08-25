@@ -1,0 +1,16 @@
+services:
+  pfc:
+    image: pfc-image
+    deploy:
+      replicas: 1
+    ports:
+      - "8002:80"
+    environment:
+      OpenWeatherApiKey: "a8458f0871988d137e49963ec2fa83b7"
+      ServiceContentExpiryMins: 20
+
+networks:
+  default:
+    driver: bridge
+    name: pfc
+
