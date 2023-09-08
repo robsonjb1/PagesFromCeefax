@@ -32,13 +32,13 @@ namespace API.PageGenerators
 
             _wd = new()
             {
-                TodayTitle = doc.DocumentNode.SelectSingleNode("(//h4[@class='wr-c-text-forecast__summary-title gel-long-primer-bold gs-u-mt+'])[1]").InnerText,
-                TomorrowTitle = doc.DocumentNode.SelectSingleNode("(//h4[@class='wr-c-text-forecast__summary-title gel-long-primer-bold gs-u-mt+'])[2]").InnerText,
-                OutlookTitle = doc.DocumentNode.SelectSingleNode("(//h4[@class='wr-c-text-forecast__summary-title gel-long-primer-bold gs-u-mt+'])[3]").InnerText,
+                TodayTitle = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-hmf8ql-BoldText e5tfeyi3'])[1]").InnerText,
+                TomorrowTitle = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-hmf8ql-BoldText e5tfeyi3'])[2]").InnerText,
+                OutlookTitle = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-hmf8ql-BoldText e5tfeyi3'])[3]").InnerText,
 
-                TodayText = doc.DocumentNode.SelectSingleNode("(//h4[@class='wr-c-text-forecast__summary-title gel-long-primer-bold gs-u-mt+'])[1]").NextSibling.InnerText,
-                TomorrowText = doc.DocumentNode.SelectSingleNode("(//h4[@class='wr-c-text-forecast__summary-title gel-long-primer-bold gs-u-mt+'])[2]").NextSibling.InnerText,
-                OutlookText = doc.DocumentNode.SelectSingleNode("(//h4[@class='wr-c-text-forecast__summary-title gel-long-primer-bold gs-u-mt+'])[3]").NextSibling.InnerText,
+                TodayText = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-hmf8ql-BoldText e5tfeyi3'])[1]/parent::p/following-sibling::p").InnerText,
+                TomorrowText = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-hmf8ql-BoldText e5tfeyi3'])[2]/parent::p/following-sibling::p").InnerText,
+                OutlookText = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-hmf8ql-BoldText e5tfeyi3'])[3]/parent::p/following-sibling::p").InnerText,
 
                 LastRefreshUTC = DateTime.UtcNow
             };
