@@ -14,7 +14,7 @@ is required. You will need to place your key in the appsettings.json file.
 
 ## How it works
 
-This is a simple .NET 7 minimal API that serves an HTML carousel of teletext-style pages.
+This is a simple .NET 8 minimal API that serves an HTML carousel of teletext-style pages.
 The content is taken from the BBC RSS news feeds and cached on the server. It is refreshed every 20 minutes.
 
 Even though the browser has the entire carousel in memory, it cycles through each page according to the current time in order to re-create the
