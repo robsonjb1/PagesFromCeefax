@@ -32,13 +32,13 @@ namespace API.PageGenerators
 
             _wd = new()
             {
-                TodayTitle = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-hmf8ql-BoldText e5tfeyi3'])[1]").InnerText,
-                TomorrowTitle = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-hmf8ql-BoldText e5tfeyi3'])[2]").InnerText,
-                OutlookTitle = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-hmf8ql-BoldText e5tfeyi3'])[3]").InnerText,
+                TodayTitle = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[1]").InnerText,
+                TomorrowTitle = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[2]").InnerText,
+                OutlookTitle = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[3]").InnerText,
 
-                TodayText = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-hmf8ql-BoldText e5tfeyi3'])[1]/parent::p/following-sibling::p").InnerText,
-                TomorrowText = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-hmf8ql-BoldText e5tfeyi3'])[2]/parent::p/following-sibling::p").InnerText,
-                OutlookText = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-hmf8ql-BoldText e5tfeyi3'])[3]/parent::p/following-sibling::p").InnerText,
+                TodayText = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[1]/parent::p/following-sibling::p").InnerText,
+                TomorrowText = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[2]/parent::p/following-sibling::p").InnerText,
+                OutlookText = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[3]/parent::p/following-sibling::p").InnerText,
 
                 LastRefreshUTC = DateTime.UtcNow
             };
