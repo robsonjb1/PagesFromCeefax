@@ -45,9 +45,11 @@ namespace API.Services
 
                     // Instantiate objects required to build cache
                     MagazineContent mc = new(_config);
+                    MarketService ms = new(mc);
                     TeletextPageWeather tw = new(mc);
                     TeletextPageNews tn = new(mc);
-                    CarouselService cs = new(tn, tw);
+                    TeletextPageMarkets tm = new(ms);
+                    CarouselService cs = new(tn, tw, tm);
 
                     content = cs.GetCarousel();
                    

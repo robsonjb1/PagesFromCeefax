@@ -120,8 +120,8 @@ namespace API.Magazine
                     break;
                 case MagazineSectionType.Business:
                     this.Header = Graphics.HeaderBusiness;
+                    this.PromoFooter = "Market data coming up next >>>";
                     break;
-
                 case MagazineSectionType.Football:
                     this.Header = Graphics.HeaderFootball;
                     this.PromoFooter = "Rugby news coming up next >>>";
