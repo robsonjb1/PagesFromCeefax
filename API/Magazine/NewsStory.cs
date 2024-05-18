@@ -38,14 +38,14 @@ namespace API.Magazine
                 StringBuilder allText = new();
                 foreach (var l in mainlines)
                 {
-                    allText.Append(l.InnerText + " ");
+                    allText.Append(l.InnerText + "|");
                 }
 
-                foreach (var l in allText.ToString().Split("."))
+                foreach (var l in allText.ToString().Split("|"))
                 {
                     if (l.Trim() != String.Empty)
                     {
-                        List<string> newChunk = Utility.ParseParagraph(l + ".");
+                        List<string> newChunk = Utility.ParseParagraph(l);
 
                         if (newChunk.Count > 0)
                         {
