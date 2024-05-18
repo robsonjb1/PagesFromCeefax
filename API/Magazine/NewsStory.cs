@@ -28,7 +28,7 @@ namespace API.Magazine
             doc.LoadHtml(html);
 
             // Parse story body - only to be called once URL has been retrieved
-            var mainlines = doc.DocumentNode.SelectNodes("//article/*[@data-component='text-block']/p")   // news page
+            var mainlines = doc.DocumentNode.SelectNodes("//article/*[@data-component='text-block']//p")   // news page
                 //?? doc.DocumentNode.SelectNodes("//article/div/p//span")                                // sport page
                 ?? doc.DocumentNode.SelectNodes("//article//div/p");                                    // video story
 
