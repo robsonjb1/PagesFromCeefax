@@ -38,7 +38,7 @@ namespace API.Magazine
                 StringBuilder allText = new();
                 foreach (var l in mainlines)
                 {
-                    allText.Append(l.InnerText + " ");
+                    allText.Append(l.InnerText.Trim() + " ");
                 }
 
                 foreach (var l in allText.ToString().Split(". "))
