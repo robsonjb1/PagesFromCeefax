@@ -41,11 +41,11 @@ namespace API.Magazine
                     allText.Append(l.InnerText + " ");
                 }
 
-                foreach (var l in allText.ToString().Split(" "))
+                foreach (var l in allText.ToString().Split("."))
                 {
                     if (l.Trim() != String.Empty)
                     {
-                        List<string> newChunk = Utility.ParseParagraph(l + " ");
+                        List<string> newChunk = Utility.ParseParagraph(l + ".");
 
                         if (newChunk.Count > 0)
                         {
