@@ -28,22 +28,19 @@ namespace API.Magazine
             doc.LoadHtml(html);
 
             // Parse story body - only to be called once URL has been retrieved
-            var mainlines = doc.DocumentNode.SelectNodes("//article/*[@data-component='text-block']")   // news page
-                ?? doc.DocumentNode.SelectNodes("//article/div/p//span")                                // sport page
+            var mainlines = doc.DocumentNode.SelectNodes("//article/*[@data-component='text-block']/p")   // news page
+                //?? doc.DocumentNode.SelectNodes("//article/div/p//span")                                // sport page
                 ?? doc.DocumentNode.SelectNodes("//article//div/p");                                    // video story
 
             if (mainlines != null)
             {
                 // Break into sentences (one paragraph = one sentence)
                 StringBuilder allText = new();
-                foreach (var l in mainlines)
+                foreach (var p in mainlines)
                 {
-                    allText.Append(l.InnerText.Replace(".<", ". ") + ". ");
-                }
+					var l = p.InnerText.Trim();
 
-                foreach (var l in allText.ToString().Split(". "))
-                {
-                    if (l.Trim() != String.Empty)
+                    if (l != String.Empty)
                     {
                         List<string> newChunk = Utility.ParseParagraph(l);
 
