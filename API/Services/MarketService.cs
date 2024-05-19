@@ -43,7 +43,7 @@ namespace API.Services
                     value = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]/span[1]")?.InnerText.Trim();
                 }
 
-				if (int.TryParse(value, out int n))
+				if (double.TryParse(value, out double n))
 				{
 					value = n.ToString("#,##0.00");
 				}
