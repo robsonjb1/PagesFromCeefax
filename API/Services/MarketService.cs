@@ -43,6 +43,11 @@ namespace API.Services
                     value = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]/span[1]")?.InnerText.Trim();
                 }
 
+				if (int.TryParse(value, out int n))
+				{
+					value = n.ToString("#,##0.00")
+				}
+
                 bool closed = market.SelectSingleNode(".//span[@class='ssrcss-12gx7m0-MarketStatus eohkjht1']")?.InnerText.Trim().ToUpper() == "CLOSED";
                 
                 if (name != null)
