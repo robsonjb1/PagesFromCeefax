@@ -1,4 +1,4 @@
-﻿using System.ServiceModel.Syndication;
+using System.ServiceModel.Syndication;
 using System.Text;
 using System.Xml;
 using API.Architecture;
@@ -62,7 +62,7 @@ namespace API.PageGenerators
                     && !item.Title.Text.Contains("VIDEO:", StringComparison.CurrentCulture)
                     && item.Summary is not null)
                 {
-                    List<string> title = Utility.ParseParagraph(item.Title.Text + ".");
+                    List<string> title = Utility.ParseParagraph(item.Title.Text.Trim() + ".");
                     List<string> summary = Utility.ParseParagraph(item.Summary.Text);
                     if (rows + title.Count + summary.Count < 18)
                     {
