@@ -1,4 +1,4 @@
-﻿using System.ServiceModel.Syndication;
+using System.ServiceModel.Syndication;
 using System.Xml;
 using API.Architecture;
 using API.DataTransferObjects;
@@ -117,7 +117,7 @@ namespace API.Magazine
                 // Only add the story if not already present, and is displayable
                 if (!StoryList.Exists(z => z.Link == item.Links[0].Uri) && (storyCount < section.TotalStories))
                 {
-                    StoryList.Add(new NewsStory(section.Name, item.Title.Text + ".", item.Links[0].Uri));
+                    StoryList.Add(new NewsStory(section.Name, item.Title.Text.Trim() + ".", item.Links[0].Uri));
 
                     // Add story link to the URL cache to be retrieved later
                     UrlCache.Add(new CachedUrl(item.Links[0].Uri));
