@@ -1,4 +1,4 @@
-using System.ServiceModel.Syndication;
+﻿using System.ServiceModel.Syndication;
 using System.Xml;
 using API.Architecture;
 using API.DataTransferObjects;
@@ -33,18 +33,16 @@ namespace API.Magazine
             Sections.Add(new MagazineSection(MagazineSectionType.Technology, new Uri("http://feeds.bbci.co.uk/news/technology/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.Business, new Uri("http://feeds.bbci.co.uk/news/business/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.Sussex, new Uri("http://feeds.bbci.co.uk/news/england/sussex/rss.xml")));
-
             Sections.Add(new MagazineSection(MagazineSectionType.Football, new Uri("http://feeds.bbci.co.uk/sport/football/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.Rugby, new Uri("http://feeds.bbci.co.uk/sport/rugby-union/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.Cricket, new Uri("http://feeds.bbci.co.uk/sport/cricket/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.Tennis, new Uri("http://feeds.bbci.co.uk/sport/tennis/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.Golf, new Uri("http://feeds.bbci.co.uk/sport/golf/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.Formula1, new Uri("http://feeds.bbci.co.uk/sport/formula1/rss.xml")));
-
             Sections.Add(new MagazineSection(MagazineSectionType.Entertainment, new Uri("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.WeatherForecast, new Uri("https://www.bbc.co.uk/weather")));
             Sections.Add(new MagazineSection(MagazineSectionType.Markets, new Uri("https://www.bbc.co.uk/news/business/market-data")));
-
+           
             AddWeatherTempSection(MagazineSectionType.WeatherTempLondon, "London");
             AddWeatherTempSection(MagazineSectionType.WeatherTempBelfast, "Belfast");
             AddWeatherTempSection(MagazineSectionType.WeatherTempCardiff, "Cardiff");
@@ -114,8 +112,8 @@ namespace API.Magazine
             int storyCount = 0;
             foreach (SyndicationItem item in feed.Items)
             {
-                // Only add the story if not already present, and is displayable
-                if (!StoryList.Exists(z => z.Link == item.Links[0].Uri) && (storyCount < section.TotalStories))
+                // Only add the story if not already present, and is not marked as a 'live' scrolling story
+                if (!StoryList.Exists(z => z.Link == item.Links[0].Uri) && (storyCount < section.TotalStories) && !item.Links[0].Uri.ToString().Contains("/live/"))
                 {
                     StoryList.Add(new NewsStory(section.Name, item.Title.Text.Trim() + ".", item.Links[0].Uri));
 

@@ -17,7 +17,7 @@ namespace API.Services
         public ITeletextPageWeather _tw;
         public ITeletextPageNews _tn;
         public ITeletextPageMarkets _tm;
-      
+       
         public CarouselService(ITeletextPageNews tn, ITeletextPageWeather tw, ITeletextPageMarkets tm)
         {
             _tw = tw;

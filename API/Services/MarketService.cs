@@ -28,8 +28,6 @@ namespace API.Services
             doc.LoadHtml(html);
 
             MarketData md = new();
-            md.LastRefreshUTC = DateTime.UtcNow;
-
             var markets = doc.DocumentNode.SelectNodes("//tr[@class='ssrcss-xw0taf-EntryRow eohkjht10']");
 
             foreach (var market in markets)

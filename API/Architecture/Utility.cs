@@ -23,6 +23,18 @@ namespace API.Architecture
             content += "</p>";  // In case there isn't already an ending </p>
             content = Utility.CleanHTML(content[..content.IndexOf("</p>")]);
 
+            // Ensure a final full stop or question mark
+            if(!content.EndsWith(".") 
+                && !content.EndsWith("?")
+                && !content.EndsWith("”")
+                && !content.EndsWith("\"")
+                && !content.EndsWith("'")
+                && !content.EndsWith(">")
+                && content.Length > 0)
+            {
+                content = content + ".";
+            }
+
             String[] words = content.Split(' ');
             string currentLine = "";
             bool invalidText = false;
@@ -97,7 +109,7 @@ namespace API.Architecture
             // Ampersand
             html = html.Replace("&amp;", "&");
 
-            return html;
+            return html.Trim();
         }
 
         public static string SepGraph(string input)

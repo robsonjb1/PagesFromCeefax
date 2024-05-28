@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 using API.Architecture;
 using HtmlAgilityPack;
 
@@ -29,18 +29,21 @@ namespace API.Magazine
 
             // Parse story body - only to be called once URL has been retrieved
             var mainlines = doc.DocumentNode.SelectNodes("//article/*[@data-component='text-block']//p")   // news page
-                //?? doc.DocumentNode.SelectNodes("//article/div/p//span")                                // sport page
                 ?? doc.DocumentNode.SelectNodes("//article//div/p");                                    // video story
 
             if (mainlines != null)
             {
                 // Break into sentences (one paragraph = one sentence)
-                StringBuilder allText = new();
+                List<string> storyText = new();
                 foreach (var p in mainlines)
                 {
-					var l = p.InnerText.Trim();
-
-                    if (l != String.Empty)
+                    var tempLine = p.InnerText.Trim().Split(". ");
+                    storyText.AddRange(tempLine);
+                }
+                
+                foreach (var l in storyText)
+                {
+				    if (l != String.Empty)
                     {
                         List<string> newChunk = Utility.ParseParagraph(l);
 

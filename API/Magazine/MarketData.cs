@@ -11,7 +11,5 @@ namespace API.Magazine
     public class MarketData
     {
         public List<MarketRecord> Markets { get; set; } = new();
-
-        public DateTime LastRefreshUTC { get; set; }
     }
 }
