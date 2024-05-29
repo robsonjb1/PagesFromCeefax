@@ -14,17 +14,18 @@ namespace API.Architecture
         // Mixture of string parsing utilities and graphics character handling
         public static List<string> ParseParagraph(string content)
         {
-            return ParseParagraph(content, 39, 39);
+            return ParseParagraph(content, 39, 39, true);
         }
 
-        public static List<string> ParseParagraph(string content, int lineLength, int firstLineOverride)
+        public static List<string> ParseParagraph(string content, int lineLength, int firstLineOverride, bool addFullStop)
         {
             List<string> rows = new();
             content += "</p>";  // In case there isn't already an ending </p>
             content = Utility.CleanHTML(content[..content.IndexOf("</p>")]);
 
             // Ensure a final full stop or question mark
-            if(!content.EndsWith(".") 
+            if(addFullStop
+                && !content.EndsWith(".") 
                 && !content.EndsWith("?")
                 && !content.EndsWith("”")
                 && !content.EndsWith("\"")

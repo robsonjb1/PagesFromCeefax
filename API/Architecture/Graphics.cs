@@ -101,11 +101,11 @@ namespace API.Architecture
 
             HeaderTV.AppendLine("<p><span class=\"ink5\">" + Utility.BlockGraph("h<,,,,,,||") + " ----------------------------</span></p>");
             HeaderTV.AppendLine("<p><span class=\"ink5\">" + Utility.BlockGraph("j5k7j5@ @n") + "</span>");
-            HeaderTV.AppendLine("<span class=\"ink6\">" + Utility.BlockGraph("@{%@{%@+%") + "</span>");
-            HeaderTV.AppendLine("<span class=\"ink6\"> Top iPlayer</span></p>");
+            HeaderTV.AppendLine("<span class=\"ink6\">" + Utility.BlockGraph("@{%@{%@+%") + "{ChannelTop}</span>");
+            HeaderTV.AppendLine("<span class=\"ink7\"> {DayOfWeek}</span></p>");
             HeaderTV.AppendLine("<p><span class=\"ink5\">" + Utility.BlockGraph("j5j5\"m' @@") + "</span>");
-            HeaderTV.AppendLine("<span class=\"ink6\">" + Utility.BlockGraph("@z5@z5@x4") + "</span></p>");
-            HeaderTV.AppendLine("<p><span class=\"ink5\">" + Utility.BlockGraph("*-,,,,,,/.") + " ------------------------</span><span class=\"ink7\"> {pageNo}/4</span></p>");
+            HeaderTV.AppendLine("<span class=\"ink6\">" + Utility.BlockGraph("@z5@z5@x4") + "{ChannelBottom}</span><span class=\"ink7\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{TimeSpan}</span></p>");
+            HeaderTV.AppendLine("<p><span class=\"ink5\">" + Utility.BlockGraph("*-,,,,,,/.") + " ----------------------------</span><span class=\"ink7\"></span></p>");
             
             HeaderWeather.AppendLine("<p>" + Utility.BlockGraph("j£3kj£3kj£3k ") + "<span class=\"paper1 ink6\">" + Utility.BlockGraph("   h44|h<h<|(|$|h4|$|l    ") + "</span></p>");
             HeaderWeather.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"paper1 ink6\">" + Utility.BlockGraph("   *uu?jwj7@ @ @k5@1@k4   ") + "</span></p>");

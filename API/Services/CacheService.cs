@@ -49,8 +49,9 @@ namespace API.Services
                     TeletextPageWeather tw = new(mc);
                     TeletextPageNews tn = new(mc);
                     TeletextPageMarkets tm = new(ms);
+                    TeletextPageSchedule ts = new(mc);
                     
-                    CarouselService cs = new(tn, tw, tm);
+                    CarouselService cs = new(tn, tw, tm, ts);
 
                     content = cs.GetCarousel();
                    

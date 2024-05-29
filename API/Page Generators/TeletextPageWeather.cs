@@ -85,7 +85,7 @@ namespace API.PageGenerators
                     summaryText = summaryText[..(summaryText.IndexOf(".") + 1)];
                 }
 
-                List<string> mapLines = Utility.ParseParagraph(summaryText, 18, 18);
+                List<string> mapLines = Utility.ParseParagraph(summaryText, 18, 18, true);
 
                 Mode7Colour summaryColour = Mode7Colour.Yellow;
                 if (DateTime.Now.Hour >= 18 || DateTime.Now.Hour <= 6)

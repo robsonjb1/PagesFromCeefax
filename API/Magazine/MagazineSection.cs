@@ -83,6 +83,9 @@ namespace API.Magazine
                 case MagazineSectionType.WeatherTempLondon:
                 case MagazineSectionType.WeatherTempManchester:
                 case MagazineSectionType.WeatherTempTruro:
+                case MagazineSectionType.TVScheduleBBC1:
+                case MagazineSectionType.TVScheduleBBC2:
+                case MagazineSectionType.TVScheduleBBC4:
                     this.TotalStories = 0;
                     break;
 

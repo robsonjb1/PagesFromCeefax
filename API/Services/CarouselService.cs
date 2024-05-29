@@ -17,12 +17,14 @@ namespace API.Services
         public ITeletextPageWeather _tw;
         public ITeletextPageNews _tn;
         public ITeletextPageMarkets _tm;
+        public ITeletextPageSchedule _ts;
        
-        public CarouselService(ITeletextPageNews tn, ITeletextPageWeather tw, ITeletextPageMarkets tm)
+        public CarouselService(ITeletextPageNews tn, ITeletextPageWeather tw, ITeletextPageMarkets tm, ITeletextPageSchedule ts)
         {
             _tw = tw;
             _tn = tn;
             _tm = tm;
+            _ts = ts;
         }
 
         public string GetCarousel()
@@ -59,6 +61,9 @@ namespace API.Services
 
             // Entertainment section
             BuildTeletextPage(Graphics.PromoTV);
+            BuildTeletextPage(_ts.CreateSchedule(MagazineSectionType.TVScheduleBBC1));
+            BuildTeletextPage(_ts.CreateSchedule(MagazineSectionType.TVScheduleBBC2));
+            BuildTeletextPage(_ts.CreateSchedule(MagazineSectionType.TVScheduleBBC4));
             BuildTeletextPage(_tn.CreateNewsSection(MagazineSectionType.Entertainment));
 
             // Close

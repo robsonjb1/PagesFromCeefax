@@ -42,7 +42,11 @@ namespace API.Magazine
             Sections.Add(new MagazineSection(MagazineSectionType.Entertainment, new Uri("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
             Sections.Add(new MagazineSection(MagazineSectionType.WeatherForecast, new Uri("https://www.bbc.co.uk/weather")));
             Sections.Add(new MagazineSection(MagazineSectionType.Markets, new Uri("https://www.bbc.co.uk/news/business/market-data")));
-           
+            Sections.Add(new MagazineSection(MagazineSectionType.Markets, new Uri("https://www.bbc.co.uk/news/business/market-data")));
+            Sections.Add(new MagazineSection(MagazineSectionType.TVScheduleBBC1, new Uri("https://www.bbc.co.uk/schedules/p00fzl6x")));
+            Sections.Add(new MagazineSection(MagazineSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
+            Sections.Add(new MagazineSection(MagazineSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));
+                      
             AddWeatherTempSection(MagazineSectionType.WeatherTempLondon, "London");
             AddWeatherTempSection(MagazineSectionType.WeatherTempBelfast, "Belfast");
             AddWeatherTempSection(MagazineSectionType.WeatherTempCardiff, "Cardiff");

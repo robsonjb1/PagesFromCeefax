@@ -24,7 +24,10 @@
         WeatherTempEdinburgh,
         WeatherTempLerwick,
         WeatherTempTruro,
-        Markets
+        Markets,
+        TVScheduleBBC1,
+        TVScheduleBBC2,
+        TVScheduleBBC4
     }
 
     public enum Mode7Colour
