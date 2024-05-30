@@ -24,15 +24,15 @@ namespace API.PageGenerators
         {
             // Create a two page schedule for each channel
             StringBuilder page1 = new();
-            int endTime = CreatePage(page1, sectionName, 1900);
+            int endTime = CreatePage(page1, sectionName, 1800, false); // Find first show on or immediately after the start time
 
             StringBuilder page2 = new();
-            CreatePage(page2, sectionName, endTime); // Feed the end time from page 1 into the start time of page 2
+            CreatePage(page2, sectionName, endTime, true); // Feed the end time from page 1 into the start time of page 2
 
             return new List<StringBuilder> {page1, page2};
         }
 
-        public int CreatePage(StringBuilder pageSb, MagazineSectionType sectionName, int startTime)
+        public int CreatePage(StringBuilder pageSb, MagazineSectionType sectionName, int startTime, bool exactMatch)
         {
             StringBuilder sb = new();
 
@@ -74,7 +74,9 @@ namespace API.PageGenerators
                 time = show.SelectSingleNode(".//a/@aria-label").GetAttributeValue("aria-label", "").Trim().Substring(7, 5);
                 int comboTime = Convert.ToInt32(time.Substring(0,2) + time.Substring(3,2));
                 
-                if(comboTime >= startTime && actualStartTime == String.Empty)
+                if(
+                    ((!exactMatch && comboTime >= startTime) || (exactMatch && comboTime == startTime))
+                    && actualStartTime == String.Empty)
                 {
                     startListing = true;
                     actualStartTime = time;
