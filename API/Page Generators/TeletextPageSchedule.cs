@@ -101,7 +101,8 @@ namespace API.PageGenerators
                         else
                         {
                             // Continue, fill up any remaining space with just the show titles
-                            showDescriptions = false;
+                           // showDescriptions = false;
+break;
                         }
                     }
 
