@@ -23,6 +23,7 @@ try
         ServiceContentExpiryMins = Convert.ToInt32(builder.Configuration["ServiceContentExpiryMins"])
     });
     builder.Services.AddSingleton<ICacheService, CacheService>();
+    builder.Services.AddApplicationInsightsTelemetry();
 
     var app = builder.Build();
 
