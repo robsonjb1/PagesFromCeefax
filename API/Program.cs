@@ -1,18 +1,23 @@
 ﻿using API.Architecture;
 using API.Extensions;
 using API.Services;
+using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Extensions.FileProviders;
 using Serilog;
+
+Log.Logger = new LoggerConfiguration()
+            .WriteTo.Console()
+            .CreateBootstrapLogger();
+
+Log.Information("Starting PFC service");
 
 try
 {
     var builder = WebApplication.CreateBuilder(args);
 
-    Log.Logger = new LoggerConfiguration()
-        .ReadFrom.Configuration(builder.Configuration)
-        .CreateLogger();
-
-    Log.Information("Starting PFC service");
+    builder.Host.UseSerilog((context, loggerConfiguration) => loggerConfiguration
+        .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}")
+        .ReadFrom.Configuration(context.Configuration));
 
     // Add services to the container.
     builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
@@ -21,7 +26,7 @@ try
         ServiceContentExpiryMins = Convert.ToInt32(builder.Configuration["ServiceContentExpiryMins"])
     });
     builder.Services.AddSingleton<ICacheService, CacheService>();
-   
+  
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
