@@ -1,10 +1,8 @@
 ﻿using System.Diagnostics;
-using System.Text;
 using API.Architecture;
 using API.Magazine;
 using API.PageGenerators;
 using Microsoft.Extensions.Caching.Memory;
-using Serilog;
 
 namespace API.Services
 {
@@ -33,7 +31,7 @@ namespace API.Services
         public string GetMagazine()
         {
             _totalRequests++;
-            Log.Information($"New request received {_totalRequests} total.");
+            Console.WriteLine($"New request received {_totalRequests} total.");
 
             lock (l)
             {
@@ -41,7 +39,7 @@ namespace API.Services
                 if (content is null)
                 {
                     _totalCarousels++;
-                    Log.Information($"Building new carousel {_totalCarousels} total.");
+                    Console.WriteLine($"Building new carousel {_totalCarousels} total.");
 
                     var sw = new Stopwatch();
                     sw.Start();
@@ -72,6 +70,5 @@ namespace API.Services
                     .Replace("{PFC_BUILDTIME}", _buildTime.ToString("#,#0"));
             }
         }
-
     }
 }
