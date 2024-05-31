@@ -1,7 +1,5 @@
 ﻿using API.Architecture;
 using API.Extensions;
-using API.Magazine;
-using API.PageGenerators;
 using API.Services;
 using Microsoft.Extensions.FileProviders;
 using Serilog;
@@ -14,7 +12,7 @@ try
         .ReadFrom.Configuration(builder.Configuration)
         .CreateLogger();
 
-    builder.Host.UseSerilog();
+    Log.Information("Starting PFC service");
 
     // Add services to the container.
     builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
@@ -23,8 +21,7 @@ try
         ServiceContentExpiryMins = Convert.ToInt32(builder.Configuration["ServiceContentExpiryMins"])
     });
     builder.Services.AddSingleton<ICacheService, CacheService>();
-    builder.Services.AddApplicationInsightsTelemetry();
-
+   
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
