@@ -6,15 +6,15 @@ using API.Services;
 using Microsoft.Extensions.FileProviders;
 using Serilog;
 
-Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()
-    .CreateBootstrapLogger();
- 
 try
 {
-    Log.Information("Starting web host");
-
     var builder = WebApplication.CreateBuilder(args);
+
+    Log.Logger = new LoggerConfiguration()
+        .ReadFrom.Configuration(builder.Configuration)
+        .CreateLogger();
+
+    builder.Host.UseSerilog();
 
     // Add services to the container.
     builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
