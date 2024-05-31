@@ -3,8 +3,7 @@ using API.Extensions;
 using API.Services;
 using Microsoft.Extensions.FileProviders;
 
-Console.WriteLine("Starting PFC service");
-
+System.Diagnostics.Trace.WriteLine("Starting PFC service");
 
 var builder = WebApplication.CreateBuilder(args);
 

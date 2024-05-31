@@ -31,7 +31,7 @@ namespace API.Services
         public string GetMagazine()
         {
             _totalRequests++;
-            Console.WriteLine($"New request received {_totalRequests} total.");
+            System.Diagnostics.Trace.WriteLine($"New request received {_totalRequests} total.");
 
             lock (l)
             {
@@ -39,7 +39,7 @@ namespace API.Services
                 if (content is null)
                 {
                     _totalCarousels++;
-                    Console.WriteLine($"Building new carousel {_totalCarousels} total.");
+                    System.Diagnostics.Trace.WriteLine($"Building new carousel {_totalCarousels} total.");
 
                     var sw = new Stopwatch();
                     sw.Start();

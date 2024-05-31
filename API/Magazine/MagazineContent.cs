@@ -103,7 +103,7 @@ namespace API.Magazine
             }
             catch(Exception ex)
             {
-                Console.WriteLine($"URL fetch error: {ex.Message} {ex.Source}");
+                System.Diagnostics.Trace.WriteLine($"URL fetch error: {ex.Message} {ex.Source}");
             }
         }
 
