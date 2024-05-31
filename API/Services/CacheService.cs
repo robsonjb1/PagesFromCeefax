@@ -31,7 +31,7 @@ namespace API.Services
         public string GetMagazine()
         {
             _totalRequests++;
-            System.Diagnostics.Trace.WriteLine($"New request received {_totalRequests} total.");
+            Console.WriteLine($"New request received {_totalRequests} total.");
 
             lock (l)
             {

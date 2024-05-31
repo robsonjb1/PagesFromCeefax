@@ -2,10 +2,17 @@
 using API.Extensions;
 using API.Services;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Logging.AzureAppServices;
 
-System.Diagnostics.Trace.WriteLine("Starting PFC service");
+Console.WriteLine("Starting PFC service");
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Set up logging
+builder.Logging.ClearProviders(); 
+builder.Logging.AddConsole(); 
+builder.Logging.AddDebug(); 
+builder.Logging.AddAzureWebAppDiagnostics();
 
 // Add services to the container.
 builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
