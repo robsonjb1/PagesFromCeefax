@@ -4,33 +4,53 @@ using API.Magazine;
 using API.PageGenerators;
 using API.Services;
 using Microsoft.Extensions.FileProviders;
+using Serilog;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateBootstrapLogger();
+ 
+try
 {
-    OpenWeatherApiKey = builder.Configuration["OpenWeatherApiKey"],
-    ServiceContentExpiryMins = Convert.ToInt32(builder.Configuration["ServiceContentExpiryMins"])
-});
-builder.Services.AddSingleton<ICacheService, CacheService>();
+    Log.Information("Starting web host");
 
-var app = builder.Build();
+    var builder = WebApplication.CreateBuilder(args);
 
-// Configure the HTTP request pipeline.
-app.UseHttpsRedirection();
+    // Add services to the container.
+    builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
+    {
+        OpenWeatherApiKey = builder.Configuration["OpenWeatherApiKey"],
+        ServiceContentExpiryMins = Convert.ToInt32(builder.Configuration["ServiceContentExpiryMins"])
+    });
+    builder.Services.AddSingleton<ICacheService, CacheService>();
 
-app.MapGet("/carousel", (ICacheService cs) =>
+    var app = builder.Build();
+
+    // Configure the HTTP request pipeline.
+    app.UseHttpsRedirection();
+
+    app.MapGet("/carousel", (ICacheService cs) =>
+    {
+        return Results.Extensions.NoCache(cs.GetMagazine());
+    });
+
+    app.UseFileServer(new FileServerOptions
+    {
+        FileProvider = new PhysicalFileProvider(
+            Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
+        RequestPath = "",
+        EnableDefaultFiles = true
+    });
+
+    app.Run();
+}
+catch (Exception ex) when (ex.GetType().Name is not "StopTheHostException" &&
+                           ex.GetType().Name is not "HostAbortedException")
 {
-    return Results.Extensions.NoCache(cs.GetMagazine());
-});
-
-app.UseFileServer(new FileServerOptions
+    Log.Fatal(ex, "Unhandled exception");
+}
+finally
 {
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
-    RequestPath = "",
-    EnableDefaultFiles = true
-});
-
-app.Run();
+    Log.Information("Shut down complete");
+    Log.CloseAndFlush();
+}

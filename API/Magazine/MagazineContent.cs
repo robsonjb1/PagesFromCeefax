@@ -2,6 +2,7 @@
 using System.Xml;
 using API.Architecture;
 using API.DataTransferObjects;
+using Serilog;
 
 namespace API.Magazine
 {
@@ -55,6 +56,8 @@ namespace API.Magazine
             AddWeatherTempSection(MagazineSectionType.WeatherTempManchester, "Manchester");
             AddWeatherTempSection(MagazineSectionType.WeatherTempTruro, "Truro");
 
+            Log.Information("Parsing URLs - pass 1");
+
             // Add each section's feed URL to URL cache
             Sections.ForEach(z => UrlCache.Add(new CachedUrl(z.Feed)));
 
@@ -64,8 +67,12 @@ namespace API.Magazine
             // Process feeds to determine which full text stories to display
             Sections.FindAll(z => z.TotalStories > 0).ForEach(z => ProcessRSSFeed(z));
 
+            Log.Information("Parsing URLs - pass 2");
+            
             // Process the URL cache (second time, now all story URL's are in)
             ProcessUrlCache().Wait();
+
+            Log.Information("Parsing story content");
 
             // Parse all stories
             StoryList.ForEach(z => z.AddBody(UrlCache.Find(l => l.Location == z.Link).Content));
