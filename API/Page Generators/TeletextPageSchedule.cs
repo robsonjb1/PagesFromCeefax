@@ -32,6 +32,11 @@ namespace API.PageGenerators
             return new List<StringBuilder> {page1, page2};
         }
 
+        private string FormatDisplayTime(string time)
+        {
+            return $"{time.Split(":")[0].PadLeft(2,'0')}{time.Split(":")[1].PadLeft(2,'0')}";
+        }
+
         public int CreatePage(StringBuilder pageSb, MagazineSectionType sectionName, int startTime, bool exactMatch)
         {
             StringBuilder sb = new();
@@ -64,7 +69,6 @@ namespace API.PageGenerators
             var shows = doc.DocumentNode.SelectNodes("//div[@class='programme__body']");
             
             bool startListing = false;
-            bool showDescriptions = true;
             int lineCount = 0;
             string time = "";
             string actualStartTime = "";        // The time of the first show found at or after the supplied time
@@ -72,7 +76,7 @@ namespace API.PageGenerators
             foreach (var show in shows)
             {
                 time = show.SelectSingleNode(".//a/@aria-label").GetAttributeValue("aria-label", "").Trim().Substring(7, 5);
-                int comboTime = Convert.ToInt32(time.Substring(0,2) + time.Substring(3,2));
+                int comboTime = Convert.ToInt32(FormatDisplayTime(time));
                 
                 if(
                     ((!exactMatch && comboTime >= startTime) || (exactMatch && comboTime == startTime))
@@ -90,27 +94,16 @@ namespace API.PageGenerators
                     string body = show.SelectSingleNode(".//p[contains(@class, 'programme__synopsis')]/span")?.InnerText.Trim();
                     var bodyLines = Utility.ParseParagraph(body, 34, 34, false);
             
-                    if(lineCount + titleLines.Count + (showDescriptions ? bodyLines.Count : 0) > 18)
+                    if(lineCount + titleLines.Count + bodyLines.Count > 18)
                     {
                         // We will run off the end of the page
-                        if(!showDescriptions)
-                        {
-                            // Even with just show titles we have now run out of space
-                            break;
-                        }
-                        else
-                        {
-                            // Continue, fill up any remaining space with just the show titles
-                           // showDescriptions = false;
-break;
-                        }
+                        break;
                     }
 
-                    lineCount = lineCount + titleLines.Count + (showDescriptions ? bodyLines.Count : 0);
+                    lineCount = lineCount + titleLines.Count + bodyLines.Count;
 
                     sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">");
-                    
-                    sb.AppendLine($"{time.Substring(0,2)}{time.Substring(3,2)} </span><span class=\"ink{(int)Mode7Colour.White}\">{titleLines[0]}</span>");
+                    sb.AppendLine($"{FormatDisplayTime(time)} </span><span class=\"ink{(int)Mode7Colour.White}\">{titleLines[0]}</span>");
                     sb.AppendLine("</span></p>");
                     
                     // Output show title
@@ -123,14 +116,11 @@ break;
                         }
                     }
                     
-                    // Optionally, output show description
-                    if(showDescriptions)
+                    // Show description
+                    for(int i = 0; i < bodyLines.Count; i++) 
                     {
-                        for(int i = 0; i < bodyLines.Count; i++) 
-                        {
-                            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Cyan} indent\">");
-                            sb.AppendLine($"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{bodyLines[i]}</span></p>");
-                        }
+                        sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Cyan} indent\">");
+                        sb.AppendLine($"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{bodyLines[i]}</span></p>");
                     }
                 }
             }
@@ -143,8 +133,8 @@ break;
             sb.Append($"<p><span class=\"paper{(int)Mode7Colour.Blue} ink{(int)Mode7Colour.Yellow}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
 
             // Only now do we now the true timespan. The end time shown is from the show that couldn't fit on this page.
-            pageSb.Append(sb.Replace("{TimeSpan}", $"{actualStartTime.Substring(0,2)}{actualStartTime.Substring(3,2)}-{time.Substring(0,2)}{time.Substring(3,2)}"));
-            return Convert.ToInt32($"{time.Substring(0,2)}{time.Substring(3,2)}");
+            pageSb.Append(sb.Replace("{TimeSpan}", $"{FormatDisplayTime(actualStartTime)}-{FormatDisplayTime(time)}"));
+            return Convert.ToInt32($"{FormatDisplayTime(time)}");
         }
 
         
