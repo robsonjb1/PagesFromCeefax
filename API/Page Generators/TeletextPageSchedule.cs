@@ -24,7 +24,7 @@ namespace API.PageGenerators
         {
             // Create a two page schedule for each channel
             StringBuilder page1 = new();
-            int endTime = CreatePage(page1, sectionName, 1800, false); // Find first show on or immediately after the start time
+            int endTime = CreatePage(page1, sectionName, 1900, false); // Find first show on or immediately after the start time
 
             StringBuilder page2 = new();
             CreatePage(page2, sectionName, endTime, true); // Feed the end time from page 1 into the start time of page 2
