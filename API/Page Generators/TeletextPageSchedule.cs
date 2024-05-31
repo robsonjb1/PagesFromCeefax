@@ -24,7 +24,7 @@ namespace API.PageGenerators
         {
             // Create a two page schedule for each channel
             StringBuilder page1 = new();
-            int endTime = CreatePage(page1, sectionName, 1900, false); // Find first show on or immediately after the start time
+            int endTime = CreatePage(page1, sectionName, 1800, false); // Find first show on or immediately after the start time
 
             StringBuilder page2 = new();
             CreatePage(page2, sectionName, endTime, true); // Feed the end time from page 1 into the start time of page 2
@@ -35,6 +35,11 @@ namespace API.PageGenerators
         private string FormatDisplayTime(string time)
         {
             return $"{time.Split(":")[0].PadLeft(2,'0')}{time.Split(":")[1].PadLeft(2,'0')}";
+        }
+
+        private bool OnlyShowHeadline(string title)
+        {
+            return (title.Contains("BBC NEWS") || title.Contains("SOUTH EAST TODAY") || title.Contains("WEATHER"));
         }
 
         public int CreatePage(StringBuilder pageSb, MagazineSectionType sectionName, int startTime, bool exactMatch)
@@ -94,6 +99,12 @@ namespace API.PageGenerators
                     string body = show.SelectSingleNode(".//p[contains(@class, 'programme__synopsis')]/span")?.InnerText.Trim();
                     var bodyLines = Utility.ParseParagraph(body, 34, 34, false);
             
+                    // Don't show a description for news or weather
+                    if(OnlyShowHeadline(title))
+                    {
+                        bodyLines = new List<string>();
+                    }
+
                     if(lineCount + titleLines.Count + bodyLines.Count > 18)
                     {
                         // We will run off the end of the page
