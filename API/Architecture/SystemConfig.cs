@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace API.Architecture
+﻿namespace API.Architecture
 {
     public interface ISystemConfig
     {

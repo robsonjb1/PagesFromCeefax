@@ -39,7 +39,7 @@ namespace API.Services
                 if (content is null)
                 {
                     _totalCarousels++;
-                    System.Diagnostics.Trace.WriteLine($"Building new carousel {_totalCarousels} total.");
+                    Console.WriteLine($"Building new carousel {_totalCarousels} total.");
 
                     var sw = new Stopwatch();
                     sw.Start();
