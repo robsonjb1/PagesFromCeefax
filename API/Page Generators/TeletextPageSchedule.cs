@@ -44,7 +44,7 @@ public class TeletextPageSchedule : ITeletextPageSchedule
 
     private bool OnlyShowHeadline(string title)
     {
-        return title.Contains("BBC NEWS") || title.Contains("SOUTH EAST TODAY") || title.Contains("WEATHER");
+        return title.Contains("BBC NEWS") || title.Contains("BBC WEEKEND NEWS") || title.Contains("SOUTH EAST TODAY") || title.Contains("WEATHER");
     }
 
     public int CreatePage(StringBuilder pageSb, MagazineSectionType sectionName, int startTime, bool exactMatch)
