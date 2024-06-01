@@ -7,6 +7,7 @@ using System.Net.Mail;
 using System.IO.Compression;
 using API.Architecture;
 using API.Spectator;
+using System.Diagnostics;
 
 namespace API.Services;
 
@@ -26,21 +27,31 @@ public class SpectatorService : ISpectatorService
 
     public async Task<string> Spectator()
     {
-        // Visit each article and retrieve the full details, including article and author images
-        List<Article> articles = await GetArticleList(@"https://www.spectator.co.uk/");
-        articles.ForEach(a => ReadArticle(a));
+        try
+        {
+            Stopwatch s = new Stopwatch();
+            s.Start();
 
-        // Visit each cartoon and retrieve the full details
-        List<Cartoon> cartoons = await GetCartoonList(@"https://www.spectator.co.uk/illustrations/");
-        cartoons.ForEach(c => ReadCartoon(c));
+            // Visit each article and retrieve the full details, including article and author images
+            List<Article> articles = await GetArticleList(@"https://www.spectator.co.uk/");
+            articles.ForEach(a => ReadArticle(a));
 
-        // Construct final html file
-        string filename = BuildMagazine(articles, cartoons);
+            // Visit each cartoon and retrieve the full details
+            List<Cartoon> cartoons = await GetCartoonList(@"https://www.spectator.co.uk/illustrations/");
+            cartoons.ForEach(c => ReadCartoon(c));
 
-        // Send e-mail to Kindle
-        //SendEMail(filename);
-      
-        return "Done";
+            // Construct final html file
+            string filename = BuildMagazine(articles, cartoons);
+
+            // Send e-mail to Kindle
+            SendEMail(filename);
+            
+            return $"Done in {Math.Round(s.ElapsedMilliseconds / 1000d)} seconds.";
+        }
+        catch (Exception ex)
+        {
+            return $"{ex.Message} {ex.InnerException} {ex.StackTrace}";
+        }
     }
     private async Task<List<Article>> GetArticleList(string specRoot)
     {
