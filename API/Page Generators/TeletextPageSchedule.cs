@@ -34,7 +34,12 @@ public class TeletextPageSchedule : ITeletextPageSchedule
 
     private string FormatDisplayTime(string time)
     {
-        return $"{time.Split(":")[0].PadLeft(2,'0')}{time.Split(":")[1].PadLeft(2,'0')}";
+        if(time == String.Empty)
+        {
+            return "0000";
+        } else {
+            return $"{time.Split(":")[0].PadLeft(2,'0')}{time.Split(":")[1].PadLeft(2,'0')}";
+        }
     }
 
     private bool OnlyShowHeadline(string title)
@@ -80,7 +85,11 @@ public class TeletextPageSchedule : ITeletextPageSchedule
 
         foreach (var show in shows)
         {
-            time = show.SelectSingleNode(".//a/@aria-label").GetAttributeValue("aria-label", "").Trim().Substring(7, 5);
+            time = show.SelectSingleNode(".//a/@aria-label").GetAttributeValue("aria-label", "").Trim();
+            // Example format = '1 Jun 11:30: Simply Nigella, Episode 6'
+            var temp = time.Split(' ')[2].Split(':');
+            time = temp[0] + ':' + temp[1];
+            
             int comboTime = Convert.ToInt32(FormatDisplayTime(time));
             
             if(((!exactMatch && comboTime >= startTime) || (exactMatch && comboTime == startTime))
