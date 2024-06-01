@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+// See https://aka.ms/new-console-template for more information
 
 using HtmlAgilityPack;
 using System.Text;
@@ -184,7 +184,7 @@ public class SpectatorService : ISpectatorService
         int maxCartoons = 10;
 
         // Heading
-        m.AppendLine("<html><head><style> .container {text-align: center;} img {display: block; margin:0 auto;} h2 {margin-top: 0px; margin-bottom: 0px;} p {margin-top: 5px; margin-bottom: 10px;}</style></head>");
+        m.AppendLine("<html><head><style> .container {text-align: center;} img {display: block; margin:0 auto;} h2 {margin-top: 0px; margin-bottom: 0px;} .container p {margin-top: 5px; margin-bottom: 10px;}</style></head>");
         m.AppendLine("<body><div id='0'>");
 
         string logo = Task.Run(async () => await ImageUrlToBase64(new Uri("https://logos-download.com/wp-content/uploads/2016/10/The_Spectator_logo_text_wordmark.png"))).Result;
