@@ -1,4 +1,4 @@
-// See https://aka.ms/new-console-template for more information
+﻿// See https://aka.ms/new-console-template for more information
 
 using HtmlAgilityPack;
 using System.Text;
@@ -13,7 +13,7 @@ namespace API.Services;
 
 public interface ISpectatorService
 {
-    public Task<string> Spectator();
+    public Task<string> Spectator(string email);
 }
 
 public class SpectatorService : ISpectatorService
@@ -25,7 +25,7 @@ public class SpectatorService : ISpectatorService
         _config = config;
     }
 
-    public async Task<string> Spectator()
+    public async Task<string> Spectator(string email)
     {
         try
         {
@@ -44,7 +44,10 @@ public class SpectatorService : ISpectatorService
             string filename = BuildMagazine(articles, cartoons);
 
             // Send e-mail to Kindle
-            SendEMail(filename);
+            if(email == _config.SpecFromAddress)
+            {
+                SendEMail(filename);
+            }
             
             return $"Done in {Math.Round(s.ElapsedMilliseconds / 1000d)} seconds.";
         }
@@ -184,7 +187,9 @@ public class SpectatorService : ISpectatorService
         int maxCartoons = 10;
 
         // Heading
-        m.AppendLine("<html><head><style> .container {text-align: center;} img {display: block; margin:0 auto;} h2 {margin-top: 0px; margin-bottom: 0px;} .container p {margin-top: 5px; margin-bottom: 10px;}</style></head>");
+        m.AppendLine("<html><head><style> .header_container {text-align: center;} img {display: block; margin:0 auto;} ");
+        m.AppendLine("h2 {margin-top: 0px; margin-bottom: 0px;} .header_container p {margin-top: 5px; margin-bottom: 10px;} ");
+        m.AppendLine(".body_container p:first-of-type {margin-top: 5px; margin-bottom: 10px;} </style></head>");
         m.AppendLine("<body><div id='0'>");
 
         string logo = Task.Run(async () => await ImageUrlToBase64(new Uri("https://logos-download.com/wp-content/uploads/2016/10/The_Spectator_logo_text_wordmark.png"))).Result;
@@ -206,7 +211,7 @@ public class SpectatorService : ISpectatorService
         count = 1;
         foreach(var article in articles.FindAll(z=>z.IsValid).Take(maxArticles))
         {
-            c.AppendLine($"<div id='{count}'><div class='container'>");
+            c.AppendLine($"<div id='{count}'><div class='header_container'>");
             //c.AppendLine($"<p><i>{article.PublishDate}, {article.PublishTime}<br>");
             if(article.AvatarBase64 != String.Empty)
             {
@@ -217,9 +222,9 @@ public class SpectatorService : ISpectatorService
             
             if(article.ImageUri != null && article.ImageBase64 != String.Empty)
             {
-                c.AppendLine($"<img class='articleimage' src='data:image/{getMimeType(article.ImageUri)};base64,{article.ImageBase64}'><br>");
+                c.AppendLine($"<img class='articleimage' src='data:image/{getMimeType(article.ImageUri)};base64,{article.ImageBase64}'>");
             }
-            c.AppendLine(article.StoryHtml);
+            c.AppendLine($"<div class='body_container'>{article.StoryHtml}</div>");
             c.AppendLine("<a href='#0'>Return to front page</a>");
             c.AppendLine("</div><mbp:pagebreak>");
 
