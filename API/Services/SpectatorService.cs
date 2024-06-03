@@ -139,7 +139,7 @@ public class SpectatorService : ISpectatorService
             {
                 if(p.ParentNode.Name == "blockquote")
                 {
-                    lines.AppendLine("<b><i><center>" + p.OuterHtml + "</center></i></b>");
+                    lines.AppendLine("<p><b><i><center>" + p.OuterHtml.Replace("<p>", "").Replace("</p>", "") + "</center></i></b></p>");
                 }
                 else
                 {
