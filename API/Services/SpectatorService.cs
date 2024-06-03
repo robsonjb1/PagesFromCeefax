@@ -189,7 +189,7 @@ public class SpectatorService : ISpectatorService
         // Heading
         m.AppendLine("<html><head><style> .header_container {text-align: center;} img {display: block; margin:0 auto;} ");
         m.AppendLine("h2 {margin-top: 0px; margin-bottom: 0px;} .header_container p {margin-top: 5px; margin-bottom: 10px;} ");
-        m.AppendLine(".body_container p:first-of-type {margin-top: 5px; margin-bottom: 10px;} </style></head>");
+        m.AppendLine(".body_container p:first-of-type {margin-top: 10px; margin-bottom: 10px;} </style></head>");
         m.AppendLine("<body><div id='0'>");
 
         string logo = Task.Run(async () => await ImageUrlToBase64(new Uri("https://logos-download.com/wp-content/uploads/2016/10/The_Spectator_logo_text_wordmark.png"))).Result;
