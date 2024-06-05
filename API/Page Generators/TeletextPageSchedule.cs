@@ -150,21 +150,10 @@ public class TeletextPageSchedule : ITeletextPageSchedule
         }
 
         // Ensure we pad any remaining lines until we get to the footer position
-        for(int i=0; i<18-lineCount; i++)  
-        {
-            sb.Append("<br>");  
-        }
-
+        Utility.PadLines(sb, 18-lineCount);
+        
         // Display either the standard or bespoke footer (only valid for last page, where we specifically match on the previous page end time)
-        if (exactMatch)
-        {
-            string promoFooter = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
-            sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooter}</span></p>");
-        }
-        else
-        {
-            sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
-        }
+        Utility.FooterText(sb, section, exactMatch);
         
         // Only now do we now the true timespan. The end time shown is from the show that couldn't fit on this page.
         pageSb.Append(sb.Replace("{TimeSpan}", $"{FormatDisplayTime(actualStartTime)}-{FormatDisplayTime(time)}"));

@@ -1,7 +1,7 @@
 using System.Text;
 using API.Architecture;
 using API.Magazine;
-using API.Services;
+using HtmlAgilityPack;
 
 namespace API.PageGenerators;
 
@@ -12,14 +12,58 @@ public interface ITeletextPageMarkets
 
 public class TeletextPageMarkets : ITeletextPageMarkets
 {
+    private readonly IMagazineContent _mc;
     private readonly MarketData _md;
-
-    public TeletextPageMarkets(IMarketService ms)
+    
+    public TeletextPageMarkets(IMagazineContent mc)
     {
-        _md = ms.GetMarketData();
+        _mc = mc;
+        _md = GetMarketData();
     }
 
     #region Public Methods
+
+    private MarketData GetMarketData()
+    {
+        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == MagazineSectionType.Markets).Feed).Content;
+        var doc = new HtmlDocument();
+        doc.LoadHtml(html);
+
+        MarketData md = new();
+        var markets = doc.DocumentNode.SelectNodes("//tr[@class='ssrcss-xw0taf-EntryRow eohkjht10']");
+
+        foreach (var market in markets)
+        {
+            string name = market.SelectSingleNode(".//div[@class='ssrcss-14tpdky-EntryName eohkjht9']")?.InnerText.Trim();
+            string movement = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[1]")?.InnerText.Trim();
+            string value = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]")?.InnerText.Trim();
+            if(market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]/span[1]") != null)
+            {
+                value = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]/span[1]")?.InnerText.Trim();
+            }
+
+				if (double.TryParse(value, out double n))
+				{
+					value = n.ToString("#,##0.00");
+				}
+
+            bool closed = market.SelectSingleNode(".//span[@class='ssrcss-12gx7m0-MarketStatus eohkjht1']")?.InnerText.Trim().ToUpper() == "CLOSED";
+            
+            if (name != null)
+            {
+                md.Markets.Add(new MarketRecord()
+                {
+                    Name = name,
+                    Movement = (movement.StartsWith("0") ? String.Concat("=", movement) : movement.Replace("−", "-")),
+                    Value = value.Replace("&euro;", "€"),
+                    Closed = closed
+                });
+            }
+        }
+
+        return md;
+    }
+
     public StringBuilder CreateMarketsPage()
     {
         StringBuilder sb = new();
@@ -49,7 +93,8 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         sb.Append(OutputCurrency("EUR"));
         sb.Append(OutputCurrency("USD"));
 
-        sb.Append($"<p><span class=\"paper{(int)Mode7Colour.Red} ink{(int)Mode7Colour.White}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
+        // Display footer
+        Utility.FooterText(sb, _mc.Sections.Find(z => z.Name == MagazineSectionType.Markets));
 
         return sb;
     }

@@ -68,6 +68,7 @@ public class TeletextPageWeather : ITeletextPageWeather
     #region Public Methods
     public StringBuilder CreateWeatherMap()
     {
+        MagazineSection section = _mc.Sections.Find(z => z.Name == MagazineSectionType.WeatherForecast);
         StringBuilder sb = new();
 
         // Only create the map if we have temperatures for all locations
@@ -115,13 +116,14 @@ public class TeletextPageWeather : ITeletextPageWeather
 
             sb.Append(map);
 
-            sb.Append($"<p><span class=\"paper{(int)Mode7Colour.Blue} ink{(int)Mode7Colour.Yellow}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
+            Utility.FooterText(sb, section);
         }
         return sb;
     }
 
     public StringBuilder CreateWeatherPage(WeatherPage page)
     {
+        MagazineSection section = _mc.Sections.Find(z => z.Name == MagazineSectionType.WeatherForecast);
         StringBuilder sb = new();
 
         string sectionTitle = String.Empty;
@@ -201,10 +203,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             lastLine = 15;
         }
 
-        for (int j = bodyLines.Count; j < lastLine; j++)
-        {
-            sb.AppendLine("<br>");
-        }
+        Utility.PadLines(sb, lastLine - bodyLines.Count);
 
         if (lastLine == 15)
         {
@@ -213,8 +212,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             sb.AppendLine("<br>");
         }
 
-        sb.Append($"<p><span class=\"paper{(int)Mode7Colour.Blue} ink{(int)Mode7Colour.Yellow}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
-
+        Utility.FooterText(sb, section);
 
         return sb;
     }

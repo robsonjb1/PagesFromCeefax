@@ -143,7 +143,15 @@ public class SpectatorService : ISpectatorService
                 }
                 else
                 {
-                    lines.AppendLine(p.OuterHtml);
+                    if(lines.Length == 0)
+                    {
+                        // Display the dateline in the first paragraph
+                        lines.AppendLine(p.OuterHtml.Replace("<p>", $"<p><b>{a.PublishDate[..a.PublishDate.IndexOf(" ")]}, {a.PublishTime}. </b>"));
+                    }
+                    else
+                    {
+                        lines.AppendLine(p.OuterHtml);
+                    }
                 }
             }
             a.StoryHtml = lines.ToString();      
@@ -196,7 +204,7 @@ public class SpectatorService : ISpectatorService
         m.AppendLine($"<center><img width='100%' src='data:image/png;base64,{logo}'>");
         
         // Build index
-        m.AppendLine($"<h1>{DateTime.Now.DayOfWeek}</h1></center><ol>");
+        m.AppendLine($"</center><ol>");
         int count = 1;
         foreach(var article in articles.FindAll(z=>z.IsValid).Take(maxArticles))
         {

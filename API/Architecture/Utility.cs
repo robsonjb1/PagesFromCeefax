@@ -1,9 +1,34 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Text;
+using System.Text.RegularExpressions;
+using API.Magazine;
 
 namespace API.Architecture
 {
     public static class Utility
     {
+        // Line padding
+        public static void PadLines(StringBuilder sb, int totalLines)
+        {
+            for(int i=0; i<totalLines; i++)  
+            {
+                sb.Append("<br>");  
+            }
+        }
+
+        // Output standard footer text
+        public static void FooterText(StringBuilder sb, MagazineSection section, bool overrideDefault = false)
+        {
+            if (overrideDefault && section.PromoFooter is not null)
+            {
+                string promoFooter = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
+                sb.AppendLine($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooter}</span></p>");
+            }
+            else
+            {
+                sb.AppendLine($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
+            }
+        }
+
         // Show in UK time
         public static DateTime ConvertToUKTime(DateTime utcDateTime)
         {

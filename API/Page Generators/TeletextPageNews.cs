@@ -93,21 +93,10 @@ public class TeletextPageNews : ITeletextPageNews
         }
 
         // Pad lines to the end
-        for (int i = 0; i < 18 - rows; i++)
-        {
-            sb.Append("<br>");
-        }
-
-        // Display either the standard or a bespoke footer
-        if (section.PromoFooter is null)
-        {
-            sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
-        }
-        else
-        {
-            string promoFooter = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
-            sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooter}</span></p>");
-        }
+        Utility.PadLines(sb, 18 - rows);
+        
+        // Display bespoke footer
+        Utility.FooterText(sb, section, true);
 
         return sb;
     }
@@ -146,23 +135,11 @@ public class TeletextPageNews : ITeletextPageNews
             }
         }
 
-        // Pad to the bottom of the page
-        for (int i = 0; i < 20 - story.Headline.Count - story.Body.Count; i++)
-        {
-            sb.Append("<br>");
-        }
+        // Pad lines to the end
+        Utility.PadLines(sb, 20 - story.Headline.Count - story.Body.Count);
 
-        // Footer
-        if (section.PromoFooter is not null
-            && (isLastStory && !section.HasNewsInBrief))
-        {
-            string promoFooterPadded = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
-            sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooterPadded!}</span></p>");
-        }
-        else
-        {
-            sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
-        }
+        // Display footer
+        Utility.FooterText(sb, section, isLastStory && !section.HasNewsInBrief);
 
         return sb;
     }

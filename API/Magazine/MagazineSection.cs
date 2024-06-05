@@ -32,12 +32,14 @@ public class MagazineSection
             case MagazineSectionType.TVScheduleBBC1:
             case MagazineSectionType.TVScheduleBBC2:
             case MagazineSectionType.TVScheduleBBC4:
+            case MagazineSectionType.WeatherForecast:
                 this.HeadingCol = Mode7Colour.Yellow;
                 this.PromoPaper = Mode7Colour.Blue;
                 this.PromoInk = Mode7Colour.Yellow;
                 break;
 
             case MagazineSectionType.Business:
+            case MagazineSectionType.Markets:
                 this.HeadingCol = Mode7Colour.Yellow;
                 this.PromoPaper = Mode7Colour.Red;
                 this.PromoInk = Mode7Colour.White;
@@ -161,7 +163,7 @@ public class MagazineSection
                 this.PromoFooter = "BBC4 tonight coming up next >>>";
                 break;
             case MagazineSectionType.TVScheduleBBC4:
-                this.PromoFooter = "Entertainment news up next >>>";
+                this.PromoFooter = "Entertainment news coming up >>>";
                 break;
 
             default:
