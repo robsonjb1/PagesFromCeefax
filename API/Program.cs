@@ -34,9 +34,9 @@ app.MapGet("/carousel", (ICacheService cs) =>
     return Results.Extensions.NoCache(cs.GetMagazine());
 });
 
-app.MapGet("/spectator/{email}", (IKindleService ss, string email) =>
+app.MapGet("/kindle/{email}", (IKindleService ks, string email) =>
 {
-    return ss.Spectator(email);
+    return ks.Publish(email);
 });
 
 app.UseFileServer(new FileServerOptions

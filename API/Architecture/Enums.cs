@@ -1,6 +1,6 @@
 ﻿namespace API.Architecture;
 
-public enum PFCSectionType
+public enum CeefaxSectionType
 {
     Home,
     World,

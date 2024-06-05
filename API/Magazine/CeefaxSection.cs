@@ -3,9 +3,9 @@ using API.Architecture;
 
 namespace API.Magazine;
 
-public class PFCSection
+public class CeefaxSection
 {
-    public readonly PFCSectionType Name;
+    public readonly CeefaxSectionType Name;
     public readonly Uri Feed;
     public readonly int TotalStories;
     public readonly bool HasNewsInBrief = false;
@@ -15,7 +15,7 @@ public class PFCSection
     public readonly Mode7Colour PromoPaper;
     public readonly Mode7Colour PromoInk;
 
-    public PFCSection(PFCSectionType Name, Uri Feed)
+    public CeefaxSection(CeefaxSectionType Name, Uri Feed)
     {
         this.Name = Name;
         this.Feed = Feed;
@@ -23,40 +23,40 @@ public class PFCSection
         // Initialise the visual parameters depending on section
         switch (Name)
         {
-            case PFCSectionType.Home:
-            case PFCSectionType.World:
-            case PFCSectionType.Politics:
-            case PFCSectionType.Science:
-            case PFCSectionType.Technology:
-            case PFCSectionType.Sussex:
-            case PFCSectionType.TVScheduleBBC1:
-            case PFCSectionType.TVScheduleBBC2:
-            case PFCSectionType.TVScheduleBBC4:
-            case PFCSectionType.WeatherForecast:
+            case CeefaxSectionType.Home:
+            case CeefaxSectionType.World:
+            case CeefaxSectionType.Politics:
+            case CeefaxSectionType.Science:
+            case CeefaxSectionType.Technology:
+            case CeefaxSectionType.Sussex:
+            case CeefaxSectionType.TVScheduleBBC1:
+            case CeefaxSectionType.TVScheduleBBC2:
+            case CeefaxSectionType.TVScheduleBBC4:
+            case CeefaxSectionType.WeatherForecast:
                 this.HeadingCol = Mode7Colour.Yellow;
                 this.PromoPaper = Mode7Colour.Blue;
                 this.PromoInk = Mode7Colour.Yellow;
                 break;
 
-            case PFCSectionType.Business:
-            case PFCSectionType.Markets:
+            case CeefaxSectionType.Business:
+            case CeefaxSectionType.Markets:
                 this.HeadingCol = Mode7Colour.Yellow;
                 this.PromoPaper = Mode7Colour.Red;
                 this.PromoInk = Mode7Colour.White;
                 break;
 
-            case PFCSectionType.Football:
-            case PFCSectionType.Rugby:
-            case PFCSectionType.Cricket:
-            case PFCSectionType.Tennis:
-            case PFCSectionType.Golf:
-            case PFCSectionType.Formula1:
+            case CeefaxSectionType.Football:
+            case CeefaxSectionType.Rugby:
+            case CeefaxSectionType.Cricket:
+            case CeefaxSectionType.Tennis:
+            case CeefaxSectionType.Golf:
+            case CeefaxSectionType.Formula1:
                 this.HeadingCol = Mode7Colour.Green;
                 this.PromoPaper = Mode7Colour.Blue;
                 this.PromoInk = Mode7Colour.Yellow;
                 break;
 
-            case PFCSectionType.Entertainment:
+            case CeefaxSectionType.Entertainment:
                 this.HeadingCol = Mode7Colour.Yellow;
                 this.PromoPaper = Mode7Colour.Magenta;
                 this.PromoInk = Mode7Colour.Yellow;
@@ -69,28 +69,28 @@ public class PFCSection
         // Initialise the full section sizes
         switch (Name)
         {
-            case PFCSectionType.Home:
-            case PFCSectionType.World:
-            case PFCSectionType.Politics:
-            case PFCSectionType.Business:
-            case PFCSectionType.Football:
-            case PFCSectionType.Entertainment:
+            case CeefaxSectionType.Home:
+            case CeefaxSectionType.World:
+            case CeefaxSectionType.Politics:
+            case CeefaxSectionType.Business:
+            case CeefaxSectionType.Football:
+            case CeefaxSectionType.Entertainment:
                 this.TotalStories = 3;
                 this.HasNewsInBrief = true;
                 break;
 
-            case PFCSectionType.Markets:
-            case PFCSectionType.WeatherForecast:
-            case PFCSectionType.WeatherTempBelfast:
-            case PFCSectionType.WeatherTempCardiff:
-            case PFCSectionType.WeatherTempEdinburgh:
-            case PFCSectionType.WeatherTempLerwick:
-            case PFCSectionType.WeatherTempLondon:
-            case PFCSectionType.WeatherTempManchester:
-            case PFCSectionType.WeatherTempTruro:
-            case PFCSectionType.TVScheduleBBC1:
-            case PFCSectionType.TVScheduleBBC2:
-            case PFCSectionType.TVScheduleBBC4:
+            case CeefaxSectionType.Markets:
+            case CeefaxSectionType.WeatherForecast:
+            case CeefaxSectionType.WeatherTempBelfast:
+            case CeefaxSectionType.WeatherTempCardiff:
+            case CeefaxSectionType.WeatherTempEdinburgh:
+            case CeefaxSectionType.WeatherTempLerwick:
+            case CeefaxSectionType.WeatherTempLondon:
+            case CeefaxSectionType.WeatherTempManchester:
+            case CeefaxSectionType.WeatherTempTruro:
+            case CeefaxSectionType.TVScheduleBBC1:
+            case CeefaxSectionType.TVScheduleBBC2:
+            case CeefaxSectionType.TVScheduleBBC4:
                 this.TotalStories = 0;
                 break;
 
@@ -103,57 +103,57 @@ public class PFCSection
         // Initialise header banner and promo footer text
         switch (Name)
         {
-            case PFCSectionType.Home:
+            case CeefaxSectionType.Home:
                 this.Header = Graphics.HeaderHome;
                 this.PromoFooter = "World news coming up next >>>";
                 break;
-            case PFCSectionType.World:
+            case CeefaxSectionType.World:
                 this.Header = Graphics.HeaderWorld;
                 this.PromoFooter = "Political news coming up next >>>";
                 break;
-            case PFCSectionType.Politics:
+            case CeefaxSectionType.Politics:
                 this.Header = Graphics.HeaderPolitics;
                 this.PromoFooter = "Technology news coming up next >>>";
                 break;
-            case PFCSectionType.Science:
+            case CeefaxSectionType.Science:
                 this.Header = Graphics.HeaderSciTech;
                 break;
-            case PFCSectionType.Technology:
+            case CeefaxSectionType.Technology:
                 this.Header = Graphics.HeaderSciTech;
                 this.PromoFooter = "Sussex news coming up next >>>";
                 break;
-            case PFCSectionType.Sussex:
+            case CeefaxSectionType.Sussex:
                 this.Header = Graphics.HeaderSussex;
                 this.PromoFooter = "Business news coming up next >>>";
                 break;
-            case PFCSectionType.Business:
+            case CeefaxSectionType.Business:
                 this.Header = Graphics.HeaderBusiness;
                 this.PromoFooter = "Market data coming up next >>>";
                 break;
-            case PFCSectionType.Football:
+            case CeefaxSectionType.Football:
                 this.Header = Graphics.HeaderFootball;
                 this.PromoFooter = "Rugby news coming up next >>>";
                 break;
-            case PFCSectionType.Rugby:
+            case CeefaxSectionType.Rugby:
                 this.Header = Graphics.HeaderRugby;
                 this.PromoFooter = "Cricket news coming up next >>>";
                 break;
-            case PFCSectionType.Cricket:
+            case CeefaxSectionType.Cricket:
                 this.Header = Graphics.HeaderCricket;
                 this.PromoFooter = "Tennis news coming up next >>>";
                 break;
-            case PFCSectionType.Tennis:
+            case CeefaxSectionType.Tennis:
                 this.Header = Graphics.HeaderTennis;
                 this.PromoFooter = "Golf news coming up next >>>";
                 break;
-            case PFCSectionType.Golf:
+            case CeefaxSectionType.Golf:
                 this.Header = Graphics.HeaderGolf;
                 this.PromoFooter = "Motorsport news coming up next >>>";
                 break;
-            case PFCSectionType.Formula1:
+            case CeefaxSectionType.Formula1:
                 this.Header = Graphics.HeaderFormula1;
                 break;
-            case PFCSectionType.Entertainment:
+            case CeefaxSectionType.Entertainment:
                 this.Header = Graphics.HeaderEntertainment;
                 break;
           

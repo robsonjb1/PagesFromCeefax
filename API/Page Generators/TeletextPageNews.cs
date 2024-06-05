@@ -8,23 +8,23 @@ namespace API.PageGenerators;
 
 public interface ITeletextPageNews
 {
-    public List<StringBuilder> CreateNewsPage(PFCSectionType sectionName);
-    public StringBuilder CreateNewsInBrief(PFCSectionType sectionName);
+    public List<StringBuilder> CreateNewsPage(CeefaxSectionType sectionName);
+    public StringBuilder CreateNewsInBrief(CeefaxSectionType sectionName);
 }
 
 public class TeletextPageNews : ITeletextPageNews
 {
-    private readonly IPFCContent _mc;
+    private readonly ICeefaxContent _mc;
 
-    public TeletextPageNews(IPFCContent mc)
+    public TeletextPageNews(ICeefaxContent mc)
     {
         _mc = mc;
     }
 
     #region Public Methods
-    public List<StringBuilder> CreateNewsPage(PFCSectionType sectionName)
+    public List<StringBuilder> CreateNewsPage(CeefaxSectionType sectionName)
     {
-        PFCSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
+        CeefaxSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
         List<StringBuilder> content = new();
 
         // Loop through each story and generate a news page
@@ -44,9 +44,9 @@ public class TeletextPageNews : ITeletextPageNews
         return content;
     }
 
-    public StringBuilder CreateNewsInBrief(PFCSectionType sectionName)
+    public StringBuilder CreateNewsInBrief(CeefaxSectionType sectionName)
     {
-        PFCSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
+        CeefaxSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
         StringBuilder sb = new();
 
         TextReader tr = new StringReader(_mc.UrlCache.Find(l => l.Location == _mc.Sections.Find(z => z.Name == sectionName)!.Feed)!.Content!);
@@ -103,7 +103,7 @@ public class TeletextPageNews : ITeletextPageNews
     #endregion
 
     #region Private Methods
-    private static StringBuilder CreateNewsPage(PFCSection section, NewsStory story, bool isLastStory)
+    private static StringBuilder CreateNewsPage(CeefaxSection section, NewsStory story, bool isLastStory)
     {
         StringBuilder sb = new();
         sb.Append(section.Header);

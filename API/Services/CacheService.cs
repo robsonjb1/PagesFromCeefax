@@ -45,7 +45,7 @@ namespace API.Services
                     sw.Start();
 
                     // Instantiate objects required to build cache
-                    MagazineContent mc = new(_config);
+                    CeefaxContent mc = new(_config);
                     TeletextPageWeather tw = new(mc);
                     TeletextPageNews tn = new(mc);
                     TeletextPageMarkets tm = new(mc);

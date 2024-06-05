@@ -9,22 +9,22 @@ namespace API.PageGenerators;
 
 public interface ITeletextPageSchedule
 {
-    public List<StringBuilder> CreateSchedule(PFCSectionType sectionName);
+    public List<StringBuilder> CreateSchedule(CeefaxSectionType sectionName);
 }
 
 public class TeletextPageSchedule : ITeletextPageSchedule
 {
-    private readonly IPFCContent _mc;
+    private readonly ICeefaxContent _mc;
 
-    public TeletextPageSchedule(IPFCContent mc)
+    public TeletextPageSchedule(ICeefaxContent mc)
     {
         _mc = mc;
     }
 
     #region Public Methods
-    public List<StringBuilder> CreateSchedule(PFCSectionType sectionName)
+    public List<StringBuilder> CreateSchedule(CeefaxSectionType sectionName)
     {
-        PFCSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
+        CeefaxSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
 
         // Create a two page schedule for each channel
         StringBuilder page1 = new();
@@ -52,7 +52,7 @@ public class TeletextPageSchedule : ITeletextPageSchedule
             title.Contains("SOUTH EAST TODAY") || title.Contains("WEATHER");
     }
 
-    public int CreateSinglePage(StringBuilder pageSb, PFCSection section, int startTime, bool exactMatch)
+    public int CreateSinglePage(StringBuilder pageSb, CeefaxSection section, int startTime, bool exactMatch)
     {
         StringBuilder sb = new();
 
@@ -60,13 +60,13 @@ public class TeletextPageSchedule : ITeletextPageSchedule
         string ident = Graphics.HeaderTV.ToString();
         switch(section.Name)
         {
-            case PFCSectionType.TVScheduleBBC1:
+            case CeefaxSectionType.TVScheduleBBC1:
                 ident = ident.Replace("{ChannelTop}", Utility.BlockGraph("(@ ")).Replace("{ChannelBottom}", Utility.BlockGraph("_@0"));
                 break;
-            case PFCSectionType.TVScheduleBBC2:
+            case CeefaxSectionType.TVScheduleBBC2:
                 ident = ident.Replace("{ChannelTop}", Utility.BlockGraph("bs@")).Replace("{ChannelBottom}", Utility.BlockGraph("jup"));
                 break;
-            case PFCSectionType.TVScheduleBBC4:
+            case CeefaxSectionType.TVScheduleBBC4:
                 ident = ident.Replace("{ChannelTop}", Utility.BlockGraph("@h4")).Replace("{ChannelBottom}", Utility.BlockGraph("£k7"));
                 break;
             default:

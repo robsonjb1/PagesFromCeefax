@@ -17,13 +17,13 @@ public interface ITeletextPageWeather
 public class TeletextPageWeather : ITeletextPageWeather
 {
     private readonly WeatherData _wd;
-    private readonly IPFCContent _mc;
+    private readonly ICeefaxContent _mc;
 
-    public TeletextPageWeather(IPFCContent mc)
+    public TeletextPageWeather(ICeefaxContent mc)
     {
         _mc = mc;
 
-        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == PFCSectionType.WeatherForecast).Feed).Content;
+        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == CeefaxSectionType.WeatherForecast).Feed).Content;
         var doc = new HtmlDocument();
         doc.LoadHtml(html);
 
@@ -42,13 +42,13 @@ public class TeletextPageWeather : ITeletextPageWeather
 
         try
         {
-            _wd.Temperatures.Add("London", GetTempFromApiResponse(PFCSectionType.WeatherTempLondon));
-            _wd.Temperatures.Add("Cardiff", GetTempFromApiResponse(PFCSectionType.WeatherTempCardiff));
-            _wd.Temperatures.Add("Manchester", GetTempFromApiResponse(PFCSectionType.WeatherTempManchester));
-            _wd.Temperatures.Add("Edinburgh", GetTempFromApiResponse(PFCSectionType.WeatherTempEdinburgh));
-            _wd.Temperatures.Add("Belfast", GetTempFromApiResponse(PFCSectionType.WeatherTempBelfast));
-            _wd.Temperatures.Add("Lerwick", GetTempFromApiResponse(PFCSectionType.WeatherTempLerwick));
-            _wd.Temperatures.Add("Truro", GetTempFromApiResponse(PFCSectionType.WeatherTempTruro));
+            _wd.Temperatures.Add("London", GetTempFromApiResponse(CeefaxSectionType.WeatherTempLondon));
+            _wd.Temperatures.Add("Cardiff", GetTempFromApiResponse(CeefaxSectionType.WeatherTempCardiff));
+            _wd.Temperatures.Add("Manchester", GetTempFromApiResponse(CeefaxSectionType.WeatherTempManchester));
+            _wd.Temperatures.Add("Edinburgh", GetTempFromApiResponse(CeefaxSectionType.WeatherTempEdinburgh));
+            _wd.Temperatures.Add("Belfast", GetTempFromApiResponse(CeefaxSectionType.WeatherTempBelfast));
+            _wd.Temperatures.Add("Lerwick", GetTempFromApiResponse(CeefaxSectionType.WeatherTempLerwick));
+            _wd.Temperatures.Add("Truro", GetTempFromApiResponse(CeefaxSectionType.WeatherTempTruro));
         }
         catch (OpenWeatherParseException ex)
         {
@@ -68,7 +68,7 @@ public class TeletextPageWeather : ITeletextPageWeather
     #region Public Methods
     public StringBuilder CreateWeatherMap()
     {
-        PFCSection section = _mc.Sections.Find(z => z.Name == PFCSectionType.WeatherForecast);
+        CeefaxSection section = _mc.Sections.Find(z => z.Name == CeefaxSectionType.WeatherForecast);
         StringBuilder sb = new();
 
         // Only create the map if we have temperatures for all locations
@@ -123,7 +123,7 @@ public class TeletextPageWeather : ITeletextPageWeather
 
     public StringBuilder CreateWeatherPage(WeatherSubPage page)
     {
-        PFCSection section = _mc.Sections.Find(z => z.Name == PFCSectionType.WeatherForecast);
+        CeefaxSection section = _mc.Sections.Find(z => z.Name == CeefaxSectionType.WeatherForecast);
         StringBuilder sb = new();
 
         string sectionTitle = String.Empty;
@@ -234,7 +234,7 @@ public class TeletextPageWeather : ITeletextPageWeather
         return str;
     }
 
-    private int GetTempFromApiResponse(PFCSectionType section)
+    private int GetTempFromApiResponse(CeefaxSectionType section)
     {
         string json = String.Empty;
         try

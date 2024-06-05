@@ -16,7 +16,7 @@ namespace API.Architecture
         }
 
         // Output standard footer text
-        public static void FooterText(StringBuilder sb, PFCSection section, bool overrideDefault = false)
+        public static void FooterText(StringBuilder sb, CeefaxSection section, bool overrideDefault = false)
         {
             if (overrideDefault && section.PromoFooter is not null)
             {
@@ -45,8 +45,8 @@ namespace API.Architecture
         public static List<string> ParseParagraph(string content, int lineLength, int firstLineOverride, bool addFullStop)
         {
             List<string> rows = new();
-            content += "</p>";  // In case there isn't already an ending </p>
-            content = Utility.CleanHTML(content[..content.IndexOf("</p>")]);
+            //content += "</p>";  // In case there isn't already an ending </p>
+            content = Utility.CleanHTML(content);//[..content.IndexOf("</p>")]);
 
             // Ensure a final full stop or question mark
             if(addFullStop
@@ -68,10 +68,10 @@ namespace API.Architecture
             
             foreach (string currentWord in words)
             {
-                if (currentWord.ToUpper() == "JAVASCRIPT" || currentWord.ToUpper() == "(CSS)")
-                {
-                    invalidText = true;
-                }
+           //     if (currentWord.ToUpper() == "JAVASCRIPT" || currentWord.ToUpper() == "(CSS)")
+           //     {
+           //         invalidText = true;
+           //     }
 
                 if (!invalidText)
                 {
@@ -104,14 +104,14 @@ namespace API.Architecture
                 rows.Add(CleanHTML(currentLine));
             }
 
-            if (invalidText || currentLine.EndsWith(":") || currentLine.EndsWith("&hellip;"))
-            {
-                return new List<string>();
-            }
-            else
-            {
+            //if (invalidText || currentLine.EndsWith(":") || currentLine.EndsWith("&hellip;"))
+            //{
+            //    return new List<string>();
+            //}
+            //else
+            //{
                 return rows;
-            }
+            //}
         }
                 
         public static string CleanHTML(string html)
@@ -120,6 +120,8 @@ namespace API.Architecture
             html = Regex.Replace(html, @"<[^>]+>", "").Trim().Replace(System.Environment.NewLine, "").Replace("&#039;", "'").Replace("&quot;", "'").Replace("\n", "");
             // Double spaces
             html = Regex.Replace(html, @"[ ]{2,}", @" ");
+
+            /*
             // Line
             html = html.Replace("â€”", " - ");
             // Pound
@@ -134,6 +136,7 @@ namespace API.Architecture
             html = html.Replace("&#x27;", "'");
             // Ampersand
             html = html.Replace("&amp;", "&");
+            */
 
             return html.Trim();
         }

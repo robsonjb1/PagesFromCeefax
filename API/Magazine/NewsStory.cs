@@ -7,13 +7,13 @@ public class NewsStory
 {
     const int maxLines = 18;
 
-    public readonly PFCSectionType SectionName;
+    public readonly CeefaxSectionType SectionName;
     public readonly Uri Link;
     public readonly List<string> Headline;
     public readonly List<string> MultiPageHeadline;
     public List<string> Body;
 
-    public NewsStory(PFCSectionType SectionName, string Headline, Uri Link)
+    public NewsStory(CeefaxSectionType SectionName, string Headline, Uri Link)
     {
         this.SectionName = SectionName;
         this.Link = Link;

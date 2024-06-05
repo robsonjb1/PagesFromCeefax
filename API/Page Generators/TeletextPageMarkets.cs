@@ -12,10 +12,10 @@ public interface ITeletextPageMarkets
 
 public class TeletextPageMarkets : ITeletextPageMarkets
 {
-    private readonly IPFCContent _mc;
+    private readonly ICeefaxContent _mc;
     private readonly MarketData _md;
     
-    public TeletextPageMarkets(IPFCContent mc)
+    public TeletextPageMarkets(ICeefaxContent mc)
     {
         _mc = mc;
         _md = GetMarketData();
@@ -25,7 +25,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
 
     private MarketData GetMarketData()
     {
-        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == PFCSectionType.Markets).Feed).Content;
+        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == CeefaxSectionType.Markets).Feed).Content;
         var doc = new HtmlDocument();
         doc.LoadHtml(html);
 
@@ -94,7 +94,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         sb.Append(OutputCurrency("USD"));
 
         // Display footer
-        Utility.FooterText(sb, _mc.Sections.Find(z => z.Name == PFCSectionType.Markets));
+        Utility.FooterText(sb, _mc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
 
         return sb;
     }
