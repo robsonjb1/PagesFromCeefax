@@ -1,4 +1,4 @@
-﻿using System.ServiceModel.Syndication;
+using System.ServiceModel.Syndication;
 using System.Xml;
 using API.Architecture;
 
@@ -39,7 +39,6 @@ public class MagazineContent : IMagazineContent
         Sections.Add(new MagazineSection(MagazineSectionType.Formula1, new Uri("http://feeds.bbci.co.uk/sport/formula1/rss.xml")));
         Sections.Add(new MagazineSection(MagazineSectionType.Entertainment, new Uri("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
         Sections.Add(new MagazineSection(MagazineSectionType.WeatherForecast, new Uri("https://www.bbc.co.uk/weather")));
-        Sections.Add(new MagazineSection(MagazineSectionType.Markets, new Uri("https://www.bbc.co.uk/news/business/market-data")));
         Sections.Add(new MagazineSection(MagazineSectionType.Markets, new Uri("https://www.bbc.co.uk/news/business/market-data")));
         Sections.Add(new MagazineSection(MagazineSectionType.TVScheduleBBC1, new Uri("https://www.bbc.co.uk/schedules/p00fzl6x")));
         Sections.Add(new MagazineSection(MagazineSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
