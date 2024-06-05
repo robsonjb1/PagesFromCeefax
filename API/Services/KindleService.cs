@@ -6,21 +6,21 @@ using System.Net;
 using System.Net.Mail;
 using System.IO.Compression;
 using API.Architecture;
-using API.Spectator;
+using API.Magazine;
 using System.Diagnostics;
 
 namespace API.Services;
 
-public interface ISpectatorService
+public interface IKindleService
 {
     public Task<string> Spectator(string email);
 }
 
-public class SpectatorService : ISpectatorService
+public class KindleService : IKindleService
 {
     private readonly ISystemConfig _config;
 
-    public SpectatorService(ISystemConfig config)
+    public KindleService(ISystemConfig config)
     {
         _config = config;
     }
@@ -33,11 +33,11 @@ public class SpectatorService : ISpectatorService
             s.Start();
 
             // Visit each article and retrieve the full details, including article and author images
-            List<Article> articles = await GetArticleList(@"https://www.spectator.co.uk/");
+            List<SpectatorArticle> articles = await GetArticleList(@"https://www.spectator.co.uk/");
             articles.ForEach(a => ReadArticle(a));
 
             // Visit each cartoon and retrieve the full details
-            List<Cartoon> cartoons = await GetCartoonList(@"https://www.spectator.co.uk/illustrations/");
+            List<SpectatorCartoon> cartoons = await GetCartoonList(@"https://www.spectator.co.uk/illustrations/");
             cartoons.ForEach(c => ReadCartoon(c));
 
             // Construct final html file
@@ -56,10 +56,10 @@ public class SpectatorService : ISpectatorService
             return $"{ex.Message} {ex.InnerException} {ex.StackTrace}";
         }
     }
-    private async Task<List<Article>> GetArticleList(string specRoot)
+    private async Task<List<SpectatorArticle>> GetArticleList(string specRoot)
     {
         string rootHtml = await FetchPageAsync(new Uri(specRoot)).Result.httpResponse.Content.ReadAsStringAsync();
-        List<Article> articles = new List<Article>();
+        List<SpectatorArticle> articles = new List<SpectatorArticle>();
 
         HtmlDocument doc = new();
         doc.LoadHtml(rootHtml);
@@ -76,7 +76,7 @@ public class SpectatorService : ISpectatorService
                     Uri u = new Uri(href);
                     if(!articles.Exists(z=> z.ArticleUri == u))
                     {
-                        articles.Add(new Article(u));
+                        articles.Add(new SpectatorArticle(u));
                     }
                 }
             }
@@ -85,10 +85,10 @@ public class SpectatorService : ISpectatorService
         return articles;
     }
 
-    private async Task<List<Cartoon>> GetCartoonList(string specRoot)
+    private async Task<List<SpectatorCartoon>> GetCartoonList(string specRoot)
     {
         string rootHtml = await FetchPageAsync(new Uri(specRoot)).Result.httpResponse.Content.ReadAsStringAsync();
-        List<Cartoon> cartoons = new List<Cartoon>();
+        List<SpectatorCartoon> cartoons = new List<SpectatorCartoon>();
 
         HtmlDocument doc = new();
         doc.LoadHtml(rootHtml);
@@ -100,14 +100,14 @@ public class SpectatorService : ISpectatorService
             foreach (var tag in tags)
             {
                 string href = tag.Attributes["href"].Value;
-                cartoons.Add(new Cartoon(new Uri(href)));
+                cartoons.Add(new SpectatorCartoon(new Uri(href)));
             }
         }
 
         return cartoons;
     }
 
-    private async void ReadArticle(Article a)
+    private async void ReadArticle(SpectatorArticle a)
     {
         try
         {
@@ -162,7 +162,7 @@ public class SpectatorService : ISpectatorService
         }
     }
 
-    private async void ReadCartoon(Cartoon c)
+    private async void ReadCartoon(SpectatorCartoon c)
     {
         try
         {
@@ -188,7 +188,7 @@ public class SpectatorService : ISpectatorService
         return (location, content);
     }
 
-    private string BuildMagazine(List<Article> articles, List<Cartoon> cartoons)
+    private string BuildMagazine(List<SpectatorArticle> articles, List<SpectatorCartoon> cartoons)
     {
         StringBuilder m = new StringBuilder();
         int maxArticles = 50;

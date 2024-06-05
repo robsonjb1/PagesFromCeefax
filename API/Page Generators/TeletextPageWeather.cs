@@ -11,19 +11,19 @@ namespace API.PageGenerators;
 public interface ITeletextPageWeather
 {
     public StringBuilder CreateWeatherMap();
-    public StringBuilder CreateWeatherPage(WeatherPage page);
+    public StringBuilder CreateWeatherPage(WeatherSubPage page);
 }
 
 public class TeletextPageWeather : ITeletextPageWeather
 {
     private readonly WeatherData _wd;
-    private readonly IMagazineContent _mc;
+    private readonly IPFCContent _mc;
 
-    public TeletextPageWeather(IMagazineContent mc)
+    public TeletextPageWeather(IPFCContent mc)
     {
         _mc = mc;
 
-        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == MagazineSectionType.WeatherForecast).Feed).Content;
+        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == PFCSectionType.WeatherForecast).Feed).Content;
         var doc = new HtmlDocument();
         doc.LoadHtml(html);
 
@@ -42,13 +42,13 @@ public class TeletextPageWeather : ITeletextPageWeather
 
         try
         {
-            _wd.Temperatures.Add("London", GetTempFromApiResponse(MagazineSectionType.WeatherTempLondon));
-            _wd.Temperatures.Add("Cardiff", GetTempFromApiResponse(MagazineSectionType.WeatherTempCardiff));
-            _wd.Temperatures.Add("Manchester", GetTempFromApiResponse(MagazineSectionType.WeatherTempManchester));
-            _wd.Temperatures.Add("Edinburgh", GetTempFromApiResponse(MagazineSectionType.WeatherTempEdinburgh));
-            _wd.Temperatures.Add("Belfast", GetTempFromApiResponse(MagazineSectionType.WeatherTempBelfast));
-            _wd.Temperatures.Add("Lerwick", GetTempFromApiResponse(MagazineSectionType.WeatherTempLerwick));
-            _wd.Temperatures.Add("Truro", GetTempFromApiResponse(MagazineSectionType.WeatherTempTruro));
+            _wd.Temperatures.Add("London", GetTempFromApiResponse(PFCSectionType.WeatherTempLondon));
+            _wd.Temperatures.Add("Cardiff", GetTempFromApiResponse(PFCSectionType.WeatherTempCardiff));
+            _wd.Temperatures.Add("Manchester", GetTempFromApiResponse(PFCSectionType.WeatherTempManchester));
+            _wd.Temperatures.Add("Edinburgh", GetTempFromApiResponse(PFCSectionType.WeatherTempEdinburgh));
+            _wd.Temperatures.Add("Belfast", GetTempFromApiResponse(PFCSectionType.WeatherTempBelfast));
+            _wd.Temperatures.Add("Lerwick", GetTempFromApiResponse(PFCSectionType.WeatherTempLerwick));
+            _wd.Temperatures.Add("Truro", GetTempFromApiResponse(PFCSectionType.WeatherTempTruro));
         }
         catch (OpenWeatherParseException ex)
         {
@@ -68,7 +68,7 @@ public class TeletextPageWeather : ITeletextPageWeather
     #region Public Methods
     public StringBuilder CreateWeatherMap()
     {
-        MagazineSection section = _mc.Sections.Find(z => z.Name == MagazineSectionType.WeatherForecast);
+        PFCSection section = _mc.Sections.Find(z => z.Name == PFCSectionType.WeatherForecast);
         StringBuilder sb = new();
 
         // Only create the map if we have temperatures for all locations
@@ -121,9 +121,9 @@ public class TeletextPageWeather : ITeletextPageWeather
         return sb;
     }
 
-    public StringBuilder CreateWeatherPage(WeatherPage page)
+    public StringBuilder CreateWeatherPage(WeatherSubPage page)
     {
-        MagazineSection section = _mc.Sections.Find(z => z.Name == MagazineSectionType.WeatherForecast);
+        PFCSection section = _mc.Sections.Find(z => z.Name == PFCSectionType.WeatherForecast);
         StringBuilder sb = new();
 
         string sectionTitle = String.Empty;
@@ -132,17 +132,17 @@ public class TeletextPageWeather : ITeletextPageWeather
 
         switch (page)
         {
-            case WeatherPage.Today:
+            case WeatherSubPage.Today:
                 sectionTitle = _wd.TodayTitle;
                 sectionText = _wd.TodayText;
                 sectionPage = 2;
                 break;
-            case WeatherPage.Tomorrow:
+            case WeatherSubPage.Tomorrow:
                 sectionTitle = _wd.TomorrowTitle;
                 sectionText = _wd.TomorrowText;
                 sectionPage = 3;
                 break;
-            case WeatherPage.Outlook:
+            case WeatherSubPage.Outlook:
                 sectionTitle = _wd.OutlookTitle;
                 sectionText = _wd.OutlookText;
                 sectionPage = 4;
@@ -234,7 +234,7 @@ public class TeletextPageWeather : ITeletextPageWeather
         return str;
     }
 
-    private int GetTempFromApiResponse(MagazineSectionType section)
+    private int GetTempFromApiResponse(PFCSectionType section)
     {
         string json = String.Empty;
         try

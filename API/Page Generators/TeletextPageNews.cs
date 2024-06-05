@@ -8,23 +8,23 @@ namespace API.PageGenerators;
 
 public interface ITeletextPageNews
 {
-    public List<StringBuilder> CreateNewsPage(MagazineSectionType sectionName);
-    public StringBuilder CreateNewsInBrief(MagazineSectionType sectionName);
+    public List<StringBuilder> CreateNewsPage(PFCSectionType sectionName);
+    public StringBuilder CreateNewsInBrief(PFCSectionType sectionName);
 }
 
 public class TeletextPageNews : ITeletextPageNews
 {
-    private readonly IMagazineContent _mc;
+    private readonly IPFCContent _mc;
 
-    public TeletextPageNews(IMagazineContent mc)
+    public TeletextPageNews(IPFCContent mc)
     {
         _mc = mc;
     }
 
     #region Public Methods
-    public List<StringBuilder> CreateNewsPage(MagazineSectionType sectionName)
+    public List<StringBuilder> CreateNewsPage(PFCSectionType sectionName)
     {
-        MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
+        PFCSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
         List<StringBuilder> content = new();
 
         // Loop through each story and generate a news page
@@ -44,9 +44,9 @@ public class TeletextPageNews : ITeletextPageNews
         return content;
     }
 
-    public StringBuilder CreateNewsInBrief(MagazineSectionType sectionName)
+    public StringBuilder CreateNewsInBrief(PFCSectionType sectionName)
     {
-        MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
+        PFCSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
         StringBuilder sb = new();
 
         TextReader tr = new StringReader(_mc.UrlCache.Find(l => l.Location == _mc.Sections.Find(z => z.Name == sectionName)!.Feed)!.Content!);
@@ -103,7 +103,7 @@ public class TeletextPageNews : ITeletextPageNews
     #endregion
 
     #region Private Methods
-    private static StringBuilder CreateNewsPage(MagazineSection section, NewsStory story, bool isLastStory)
+    private static StringBuilder CreateNewsPage(PFCSection section, NewsStory story, bool isLastStory)
     {
         StringBuilder sb = new();
         sb.Append(section.Header);

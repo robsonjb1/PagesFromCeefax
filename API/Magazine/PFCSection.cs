@@ -3,9 +3,9 @@ using API.Architecture;
 
 namespace API.Magazine;
 
-public class MagazineSection
+public class PFCSection
 {
-    public readonly MagazineSectionType Name;
+    public readonly PFCSectionType Name;
     public readonly Uri Feed;
     public readonly int TotalStories;
     public readonly bool HasNewsInBrief = false;
@@ -15,7 +15,7 @@ public class MagazineSection
     public readonly Mode7Colour PromoPaper;
     public readonly Mode7Colour PromoInk;
 
-    public MagazineSection(MagazineSectionType Name, Uri Feed)
+    public PFCSection(PFCSectionType Name, Uri Feed)
     {
         this.Name = Name;
         this.Feed = Feed;
@@ -23,40 +23,40 @@ public class MagazineSection
         // Initialise the visual parameters depending on section
         switch (Name)
         {
-            case MagazineSectionType.Home:
-            case MagazineSectionType.World:
-            case MagazineSectionType.Politics:
-            case MagazineSectionType.Science:
-            case MagazineSectionType.Technology:
-            case MagazineSectionType.Sussex:
-            case MagazineSectionType.TVScheduleBBC1:
-            case MagazineSectionType.TVScheduleBBC2:
-            case MagazineSectionType.TVScheduleBBC4:
-            case MagazineSectionType.WeatherForecast:
+            case PFCSectionType.Home:
+            case PFCSectionType.World:
+            case PFCSectionType.Politics:
+            case PFCSectionType.Science:
+            case PFCSectionType.Technology:
+            case PFCSectionType.Sussex:
+            case PFCSectionType.TVScheduleBBC1:
+            case PFCSectionType.TVScheduleBBC2:
+            case PFCSectionType.TVScheduleBBC4:
+            case PFCSectionType.WeatherForecast:
                 this.HeadingCol = Mode7Colour.Yellow;
                 this.PromoPaper = Mode7Colour.Blue;
                 this.PromoInk = Mode7Colour.Yellow;
                 break;
 
-            case MagazineSectionType.Business:
-            case MagazineSectionType.Markets:
+            case PFCSectionType.Business:
+            case PFCSectionType.Markets:
                 this.HeadingCol = Mode7Colour.Yellow;
                 this.PromoPaper = Mode7Colour.Red;
                 this.PromoInk = Mode7Colour.White;
                 break;
 
-            case MagazineSectionType.Football:
-            case MagazineSectionType.Rugby:
-            case MagazineSectionType.Cricket:
-            case MagazineSectionType.Tennis:
-            case MagazineSectionType.Golf:
-            case MagazineSectionType.Formula1:
+            case PFCSectionType.Football:
+            case PFCSectionType.Rugby:
+            case PFCSectionType.Cricket:
+            case PFCSectionType.Tennis:
+            case PFCSectionType.Golf:
+            case PFCSectionType.Formula1:
                 this.HeadingCol = Mode7Colour.Green;
                 this.PromoPaper = Mode7Colour.Blue;
                 this.PromoInk = Mode7Colour.Yellow;
                 break;
 
-            case MagazineSectionType.Entertainment:
+            case PFCSectionType.Entertainment:
                 this.HeadingCol = Mode7Colour.Yellow;
                 this.PromoPaper = Mode7Colour.Magenta;
                 this.PromoInk = Mode7Colour.Yellow;
@@ -69,28 +69,28 @@ public class MagazineSection
         // Initialise the full section sizes
         switch (Name)
         {
-            case MagazineSectionType.Home:
-            case MagazineSectionType.World:
-            case MagazineSectionType.Politics:
-            case MagazineSectionType.Business:
-            case MagazineSectionType.Football:
-            case MagazineSectionType.Entertainment:
+            case PFCSectionType.Home:
+            case PFCSectionType.World:
+            case PFCSectionType.Politics:
+            case PFCSectionType.Business:
+            case PFCSectionType.Football:
+            case PFCSectionType.Entertainment:
                 this.TotalStories = 3;
                 this.HasNewsInBrief = true;
                 break;
 
-            case MagazineSectionType.Markets:
-            case MagazineSectionType.WeatherForecast:
-            case MagazineSectionType.WeatherTempBelfast:
-            case MagazineSectionType.WeatherTempCardiff:
-            case MagazineSectionType.WeatherTempEdinburgh:
-            case MagazineSectionType.WeatherTempLerwick:
-            case MagazineSectionType.WeatherTempLondon:
-            case MagazineSectionType.WeatherTempManchester:
-            case MagazineSectionType.WeatherTempTruro:
-            case MagazineSectionType.TVScheduleBBC1:
-            case MagazineSectionType.TVScheduleBBC2:
-            case MagazineSectionType.TVScheduleBBC4:
+            case PFCSectionType.Markets:
+            case PFCSectionType.WeatherForecast:
+            case PFCSectionType.WeatherTempBelfast:
+            case PFCSectionType.WeatherTempCardiff:
+            case PFCSectionType.WeatherTempEdinburgh:
+            case PFCSectionType.WeatherTempLerwick:
+            case PFCSectionType.WeatherTempLondon:
+            case PFCSectionType.WeatherTempManchester:
+            case PFCSectionType.WeatherTempTruro:
+            case PFCSectionType.TVScheduleBBC1:
+            case PFCSectionType.TVScheduleBBC2:
+            case PFCSectionType.TVScheduleBBC4:
                 this.TotalStories = 0;
                 break;
 
@@ -103,69 +103,60 @@ public class MagazineSection
         // Initialise header banner and promo footer text
         switch (Name)
         {
-            case MagazineSectionType.Home:
+            case PFCSectionType.Home:
                 this.Header = Graphics.HeaderHome;
                 this.PromoFooter = "World news coming up next >>>";
                 break;
-            case MagazineSectionType.World:
+            case PFCSectionType.World:
                 this.Header = Graphics.HeaderWorld;
                 this.PromoFooter = "Political news coming up next >>>";
                 break;
-            case MagazineSectionType.Politics:
+            case PFCSectionType.Politics:
                 this.Header = Graphics.HeaderPolitics;
                 this.PromoFooter = "Technology news coming up next >>>";
                 break;
-            case MagazineSectionType.Science:
+            case PFCSectionType.Science:
                 this.Header = Graphics.HeaderSciTech;
                 break;
-            case MagazineSectionType.Technology:
+            case PFCSectionType.Technology:
                 this.Header = Graphics.HeaderSciTech;
                 this.PromoFooter = "Sussex news coming up next >>>";
                 break;
-            case MagazineSectionType.Sussex:
+            case PFCSectionType.Sussex:
                 this.Header = Graphics.HeaderSussex;
                 this.PromoFooter = "Business news coming up next >>>";
                 break;
-            case MagazineSectionType.Business:
+            case PFCSectionType.Business:
                 this.Header = Graphics.HeaderBusiness;
                 this.PromoFooter = "Market data coming up next >>>";
                 break;
-            case MagazineSectionType.Football:
+            case PFCSectionType.Football:
                 this.Header = Graphics.HeaderFootball;
                 this.PromoFooter = "Rugby news coming up next >>>";
                 break;
-            case MagazineSectionType.Rugby:
+            case PFCSectionType.Rugby:
                 this.Header = Graphics.HeaderRugby;
                 this.PromoFooter = "Cricket news coming up next >>>";
                 break;
-            case MagazineSectionType.Cricket:
+            case PFCSectionType.Cricket:
                 this.Header = Graphics.HeaderCricket;
                 this.PromoFooter = "Tennis news coming up next >>>";
                 break;
-            case MagazineSectionType.Tennis:
+            case PFCSectionType.Tennis:
                 this.Header = Graphics.HeaderTennis;
                 this.PromoFooter = "Golf news coming up next >>>";
                 break;
-            case MagazineSectionType.Golf:
+            case PFCSectionType.Golf:
                 this.Header = Graphics.HeaderGolf;
                 this.PromoFooter = "Motorsport news coming up next >>>";
                 break;
-            case MagazineSectionType.Formula1:
+            case PFCSectionType.Formula1:
                 this.Header = Graphics.HeaderFormula1;
                 break;
-            case MagazineSectionType.Entertainment:
+            case PFCSectionType.Entertainment:
                 this.Header = Graphics.HeaderEntertainment;
                 break;
-            case MagazineSectionType.TVScheduleBBC1:
-                this.PromoFooter = "BBC2 tonight coming up next >>>";
-                break;
-            case MagazineSectionType.TVScheduleBBC2:
-                this.PromoFooter = "BBC4 tonight coming up next >>>";
-                break;
-            case MagazineSectionType.TVScheduleBBC4:
-                this.PromoFooter = "Entertainment news coming up >>>";
-                break;
-
+          
             default:
                 break;
         }

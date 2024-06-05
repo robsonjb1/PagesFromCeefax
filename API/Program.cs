@@ -22,7 +22,7 @@ builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
     SpecEnableSsl = Convert.ToBoolean(builder.Configuration["SpecEnableSsl"])
 });
 builder.Services.AddSingleton<ICacheService, CacheService>();
-builder.Services.AddSingleton<ISpectatorService, SpectatorService>();
+builder.Services.AddSingleton<IKindleService, KindleService>();
 
 var app = builder.Build();
 
@@ -34,7 +34,7 @@ app.MapGet("/carousel", (ICacheService cs) =>
     return Results.Extensions.NoCache(cs.GetMagazine());
 });
 
-app.MapGet("/spectator/{email}", (ISpectatorService ss, string email) =>
+app.MapGet("/spectator/{email}", (IKindleService ss, string email) =>
 {
     return ss.Spectator(email);
 });

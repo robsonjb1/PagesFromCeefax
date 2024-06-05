@@ -16,7 +16,7 @@ namespace API.Architecture
         }
 
         // Output standard footer text
-        public static void FooterText(StringBuilder sb, MagazineSection section, bool overrideDefault = false)
+        public static void FooterText(StringBuilder sb, PFCSection section, bool overrideDefault = false)
         {
             if (overrideDefault && section.PromoFooter is not null)
             {

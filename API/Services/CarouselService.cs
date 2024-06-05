@@ -34,37 +34,37 @@ public class CarouselService : ICarouselService
 
         // News section
         BuildTeletextPage(Graphics.PromoNews);
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Home));
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.World));
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Politics));
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Science));
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Technology));
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Sussex));
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Business));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Home));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.World));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Politics));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Science));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Technology));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Sussex));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Business));
         BuildTeletextPage(_tm.CreateMarketsPage());
 
         // Sports section
         BuildTeletextPage(Graphics.PromoSport);
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Football));
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Rugby));
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Cricket));
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Tennis));
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Golf));
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Formula1));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Football));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Rugby));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Cricket));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Tennis));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Golf));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Formula1));
 
         // Weather section
         BuildTeletextPage(Graphics.PromoWeather);
         BuildTeletextPage(_tw.CreateWeatherMap());
-        BuildTeletextPage(_tw.CreateWeatherPage(WeatherPage.Today));
-        BuildTeletextPage(_tw.CreateWeatherPage(WeatherPage.Tomorrow));
-        BuildTeletextPage(_tw.CreateWeatherPage(WeatherPage.Outlook));
+        BuildTeletextPage(_tw.CreateWeatherPage(WeatherSubPage.Today));
+        BuildTeletextPage(_tw.CreateWeatherPage(WeatherSubPage.Tomorrow));
+        BuildTeletextPage(_tw.CreateWeatherPage(WeatherSubPage.Outlook));
 
         // Entertainment section
         BuildTeletextPage(Graphics.PromoTV);
-        BuildTeletextPage(_ts.CreateSchedule(MagazineSectionType.TVScheduleBBC1));
-        BuildTeletextPage(_ts.CreateSchedule(MagazineSectionType.TVScheduleBBC2));
-        BuildTeletextPage(_ts.CreateSchedule(MagazineSectionType.TVScheduleBBC4));
-        BuildTeletextPage(_tn.CreateNewsPage(MagazineSectionType.Entertainment));
+        BuildTeletextPage(_ts.CreateSchedule(PFCSectionType.TVScheduleBBC1));
+        BuildTeletextPage(_ts.CreateSchedule(PFCSectionType.TVScheduleBBC2));
+        BuildTeletextPage(_ts.CreateSchedule(PFCSectionType.TVScheduleBBC4));
+        BuildTeletextPage(_tn.CreateNewsPage(PFCSectionType.Entertainment));
 
         // Close
         BuildTeletextPage(Graphics.PromoLinks);

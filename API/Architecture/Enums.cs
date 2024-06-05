@@ -1,6 +1,6 @@
 ﻿namespace API.Architecture;
 
-public enum MagazineSectionType
+public enum PFCSectionType
 {
     Home,
     World,
@@ -41,7 +41,7 @@ public enum Mode7Colour
     White = 7
 }
 
-public enum WeatherPage
+public enum WeatherSubPage
 {
     Today,
     Tomorrow,

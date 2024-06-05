@@ -1,6 +1,6 @@
-namespace API.Spectator;
+namespace API.Magazine;
 
-public class Cartoon(Uri CartoonUri)
+public class SpectatorCartoon(Uri CartoonUri)
 {
 #pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
 

@@ -9,22 +9,22 @@ namespace API.PageGenerators;
 
 public interface ITeletextPageSchedule
 {
-    public List<StringBuilder> CreateSchedule(MagazineSectionType sectionName);
+    public List<StringBuilder> CreateSchedule(PFCSectionType sectionName);
 }
 
 public class TeletextPageSchedule : ITeletextPageSchedule
 {
-    private readonly IMagazineContent _mc;
+    private readonly IPFCContent _mc;
 
-    public TeletextPageSchedule(IMagazineContent mc)
+    public TeletextPageSchedule(IPFCContent mc)
     {
         _mc = mc;
     }
 
     #region Public Methods
-    public List<StringBuilder> CreateSchedule(MagazineSectionType sectionName)
+    public List<StringBuilder> CreateSchedule(PFCSectionType sectionName)
     {
-        MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
+        PFCSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
 
         // Create a two page schedule for each channel
         StringBuilder page1 = new();
@@ -48,11 +48,11 @@ public class TeletextPageSchedule : ITeletextPageSchedule
 
     private bool OnlyShowHeadline(string title)
     {
-        return title.Contains("BBC NEWS") || title.Contains("BBC WEEKEND NEWS") || title.Contains("NEWSNIGHT") || title.Contains("THE ONE SHOW") ||
+        return title.Contains("BBC NEWS") || title.Contains("BBC WEEKEND NEWS") || title.Contains("NEWSNIGHT") ||
             title.Contains("SOUTH EAST TODAY") || title.Contains("WEATHER");
     }
 
-    public int CreateSinglePage(StringBuilder pageSb, MagazineSection section, int startTime, bool exactMatch)
+    public int CreateSinglePage(StringBuilder pageSb, PFCSection section, int startTime, bool exactMatch)
     {
         StringBuilder sb = new();
 
@@ -60,13 +60,13 @@ public class TeletextPageSchedule : ITeletextPageSchedule
         string ident = Graphics.HeaderTV.ToString();
         switch(section.Name)
         {
-            case MagazineSectionType.TVScheduleBBC1:
+            case PFCSectionType.TVScheduleBBC1:
                 ident = ident.Replace("{ChannelTop}", Utility.BlockGraph("(@ ")).Replace("{ChannelBottom}", Utility.BlockGraph("_@0"));
                 break;
-            case MagazineSectionType.TVScheduleBBC2:
+            case PFCSectionType.TVScheduleBBC2:
                 ident = ident.Replace("{ChannelTop}", Utility.BlockGraph("bs@")).Replace("{ChannelBottom}", Utility.BlockGraph("jup"));
                 break;
-            case MagazineSectionType.TVScheduleBBC4:
+            case PFCSectionType.TVScheduleBBC4:
                 ident = ident.Replace("{ChannelTop}", Utility.BlockGraph("@h4")).Replace("{ChannelBottom}", Utility.BlockGraph("£k7"));
                 break;
             default:
@@ -152,8 +152,8 @@ public class TeletextPageSchedule : ITeletextPageSchedule
         // Ensure we pad any remaining lines until we get to the footer position
         Utility.PadLines(sb, 18-lineCount);
         
-        // Display either the standard or bespoke footer (only valid for last page, where we specifically match on the previous page end time)
-        Utility.FooterText(sb, section, exactMatch);
+        // Display footer
+        Utility.FooterText(sb, section);
         
         // Only now do we now the true timespan. The end time shown is from the show that couldn't fit on this page.
         pageSb.Append(sb.Replace("{TimeSpan}", $"{FormatDisplayTime(actualStartTime)}-{FormatDisplayTime(time)}"));
