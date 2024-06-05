@@ -29,6 +29,9 @@ public class MagazineSection
             case MagazineSectionType.Science:
             case MagazineSectionType.Technology:
             case MagazineSectionType.Sussex:
+            case MagazineSectionType.TVScheduleBBC1:
+            case MagazineSectionType.TVScheduleBBC2:
+            case MagazineSectionType.TVScheduleBBC4:
                 this.HeadingCol = Mode7Colour.Yellow;
                 this.PromoPaper = Mode7Colour.Blue;
                 this.PromoInk = Mode7Colour.Yellow;
@@ -148,11 +151,18 @@ public class MagazineSection
             case MagazineSectionType.Formula1:
                 this.Header = Graphics.HeaderFormula1;
                 break;
-
             case MagazineSectionType.Entertainment:
                 this.Header = Graphics.HeaderEntertainment;
                 break;
-
+            case MagazineSectionType.TVScheduleBBC1:
+                this.PromoFooter = "BBC2 tonight coming up next >>>";
+                break;
+            case MagazineSectionType.TVScheduleBBC2:
+                this.PromoFooter = "BBC4 tonight coming up next >>>";
+                break;
+            case MagazineSectionType.TVScheduleBBC4:
+                this.PromoFooter = "Entertainment news up next >>>";
+                break;
 
             default:
                 break;

@@ -1,3 +1,5 @@
+using System.Globalization;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using API.Architecture;
 using API.Magazine;
@@ -22,12 +24,14 @@ public class TeletextPageSchedule : ITeletextPageSchedule
     #region Public Methods
     public List<StringBuilder> CreateSchedule(MagazineSectionType sectionName)
     {
+        MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
+
         // Create a two page schedule for each channel
         StringBuilder page1 = new();
-        int endTime = CreatePage(page1, sectionName, 1800, false); // Find first show on or immediately after the start time
+        int endTime = CreateSinglePage(page1, section, 1800, false); // Find first show on or immediately after the start time
 
         StringBuilder page2 = new();
-        CreatePage(page2, sectionName, endTime, true); // Feed the end time from page 1 into the start time of page 2
+        CreateSinglePage(page2, section, endTime, true); // Feed the end time from page 1 into the start time of page 2
 
         return new List<StringBuilder> {page1, page2};
     }
@@ -48,13 +52,13 @@ public class TeletextPageSchedule : ITeletextPageSchedule
             title.Contains("SOUTH EAST TODAY") || title.Contains("WEATHER");
     }
 
-    public int CreatePage(StringBuilder pageSb, MagazineSectionType sectionName, int startTime, bool exactMatch)
+    public int CreateSinglePage(StringBuilder pageSb, MagazineSection section, int startTime, bool exactMatch)
     {
         StringBuilder sb = new();
 
         // Create the appropriate channel header logo
         string ident = Graphics.HeaderTV.ToString();
-        switch(sectionName)
+        switch(section.Name)
         {
             case MagazineSectionType.TVScheduleBBC1:
                 ident = ident.Replace("{ChannelTop}", Utility.BlockGraph("(@ ")).Replace("{ChannelBottom}", Utility.BlockGraph("_@0"));
@@ -69,7 +73,7 @@ public class TeletextPageSchedule : ITeletextPageSchedule
                 break;
         }
 
-        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == sectionName).Feed).Content;
+        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == section.Name).Feed).Content;
         var doc = new HtmlDocument();
         doc.LoadHtml(html);
 
@@ -150,8 +154,18 @@ public class TeletextPageSchedule : ITeletextPageSchedule
         {
             sb.Append("<br>");  
         }
-        sb.Append($"<p><span class=\"paper{(int)Mode7Colour.Blue} ink{(int)Mode7Colour.Yellow}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
 
+        // Display either the standard or bespoke footer (only valid for last page, where we specifically match on the previous page end time)
+        if (exactMatch)
+        {
+            string promoFooter = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
+            sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooter}</span></p>");
+        }
+        else
+        {
+            sb.Append($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
+        }
+        
         // Only now do we now the true timespan. The end time shown is from the show that couldn't fit on this page.
         pageSb.Append(sb.Replace("{TimeSpan}", $"{FormatDisplayTime(actualStartTime)}-{FormatDisplayTime(time)}"));
         return Convert.ToInt32($"{FormatDisplayTime(time)}");

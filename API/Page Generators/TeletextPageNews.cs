@@ -8,7 +8,7 @@ namespace API.PageGenerators;
 
 public interface ITeletextPageNews
 {
-    public List<StringBuilder> CreateNewsSection(MagazineSectionType sectionName);
+    public List<StringBuilder> CreateNewsPage(MagazineSectionType sectionName);
     public StringBuilder CreateNewsInBrief(MagazineSectionType sectionName);
 }
 
@@ -22,7 +22,7 @@ public class TeletextPageNews : ITeletextPageNews
     }
 
     #region Public Methods
-    public List<StringBuilder> CreateNewsSection(MagazineSectionType sectionName)
+    public List<StringBuilder> CreateNewsPage(MagazineSectionType sectionName)
     {
         MagazineSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
         List<StringBuilder> content = new();
