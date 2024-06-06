@@ -46,7 +46,8 @@ public class KindleService : IKindleService
         catch (Exception ex)
         {
             string errorMsg = $"KINDLE BUILD ERROR {ex.Message} {ex.InnerException} {ex.Source} {ex.StackTrace}";
-            Log.Information(errorMsg);
+            Log.Fatal(errorMsg);
+            Log.CloseAndFlush();
             return errorMsg;
         }
     }
