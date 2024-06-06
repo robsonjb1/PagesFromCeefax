@@ -33,7 +33,7 @@ namespace API.Services
         {
             _totalRequests++;
             Console.WriteLine($"New request received {_totalRequests} total.");
-            Log.Information($"New request received {_totalRequests} total.");
+            Log.Information($"New request received {_totalRequests} total serilog.");
 
             lock (l)
             {
