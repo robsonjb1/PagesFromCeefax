@@ -156,24 +156,17 @@ public class TeletextPageWeather : ITeletextPageWeather
         sb.Append(Graphics.HeaderWeather);
         sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">{sectionTitle}</span><span class=\"ink{(int)Mode7Colour.White}\">{sectionPage}/4</p>");
 
-        List<string> bodyLines = new();
-
         // Break body text up into paragraphs
-        string content = $"<p>{sectionText}</p>";
-        bool pageLengthExceeded = false;
-        content = content.Replace(".", ".</p><p>");
-
-        while (content.Contains("<p>") && !pageLengthExceeded)
+        List<string> bodyLines = new();
+        foreach(string line in sectionText.Split(". "))
         {
-            content = content[(content.IndexOf("<p>") + 3)..];
-
-            List<string> newChunk = Utility.ParseParagraph(content);
+            List<string> newChunk = Utility.ParseParagraph(line);
 
             if (newChunk.Count > 0)
             {
                 if (bodyLines.Count + newChunk.Count > 16)
                 {
-                    pageLengthExceeded = true;
+                    break;
                 }
                 else
                 {

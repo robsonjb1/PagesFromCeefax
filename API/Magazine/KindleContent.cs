@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Text;
 using API.Architecture;
 using HtmlAgilityPack;
+using Serilog;
 
 namespace API.Magazine;
 
@@ -56,6 +57,7 @@ public class KindleContent : IKindleContent
                     Uri u = new Uri(href);
                     if(!SpectatorArticles.Exists(z=> z.ArticleUri == u))
                     {
+                        Log.Information($"Found new article at: {u}");
                         SpectatorArticles.Add(new SpectatorArticle(u));
                         UrlCache.Add(new CachedUrl(u));
                     }
@@ -68,6 +70,8 @@ public class KindleContent : IKindleContent
     {
         try
         {
+            Log.Information($"Parsing article article at: {a.ArticleUri}");
+
             string articleHtml = UrlCache.Find(z => z.Location == a.ArticleUri).Content;
             HtmlDocument doc = new();
             doc.LoadHtml(articleHtml);
@@ -81,7 +85,7 @@ public class KindleContent : IKindleContent
             a.PublishDate = $"{publishDate.DayOfWeek} {publishDate.Day} {publishDate.Date.ToString("MMMM")} {publishDate.Year}";
             a.PublishTime = $"{publishDate.Hour:00}:{publishDate.Minute:00}";
             a.Author = $"{author}";
-    
+
             var avatarNode = doc.DocumentNode.SelectNodes("//a[@class='writers-link entry-header__author']/img");
             if(avatarNode != null)
             {
