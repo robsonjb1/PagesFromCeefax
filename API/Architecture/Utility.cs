@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using System.Text.RegularExpressions;
 using API.Magazine;
 
@@ -121,7 +121,6 @@ namespace API.Architecture
             // Double spaces
             html = Regex.Replace(html, @"[ ]{2,}", @" ");
 
-            /*
             // Line
             html = html.Replace("â€”", " - ");
             // Pound
@@ -136,8 +135,7 @@ namespace API.Architecture
             html = html.Replace("&#x27;", "'");
             // Ampersand
             html = html.Replace("&amp;", "&");
-            */
-
+        
             return html.Trim();
         }
 
