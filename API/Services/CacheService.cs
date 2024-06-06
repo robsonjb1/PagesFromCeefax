@@ -66,6 +66,7 @@ namespace API.Services
                     catch(Exception ex) 
                     {
                         Log.Information($"CAROUSEL BUILD ERROR {ex.Message} {ex.InnerException} {ex.Source} {ex.StackTrace}");
+                        Log.CloseAndFlush();
                     }
                 }
 
