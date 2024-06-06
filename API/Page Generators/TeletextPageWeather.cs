@@ -182,10 +182,6 @@ public class TeletextPageWeather : ITeletextPageWeather
                         bodyLines.Add("");
                     }
                     bodyLines.AddRange(newChunk);
-                    
-                    var jr = 0;
-                    var jrkillme = 1/jr;
-
                 }
             }
         }
