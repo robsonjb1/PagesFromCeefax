@@ -6,6 +6,7 @@ using API.Architecture;
 using API.Magazine;
 using System.Diagnostics;
 using API.PageGenerators;
+using Serilog;
 
 namespace API.Services;
 
@@ -44,7 +45,9 @@ public class KindleService : IKindleService
         }
         catch (Exception ex)
         {
-            return $"{ex.Message} {ex.InnerException} {ex.StackTrace}";
+            string errorMsg = $"KINDLE BUILD ERROR {ex.Message} {ex.InnerException} {ex.Source} {ex.StackTrace}";
+            Log.Information(errorMsg);
+            return errorMsg;
         }
     }
  
