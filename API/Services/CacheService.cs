@@ -39,27 +39,34 @@ namespace API.Services
                 var content = _currentCarousel.Get<string>("carousel");
                 if (content is null)
                 {
-                    _totalCarousels++;
-                    Log.Information($"Building new carousel ({_totalCarousels} total)");
+                    try
+                    {
+                        _totalCarousels++;
+                        Log.Information($"Building new carousel ({_totalCarousels} total)");
 
-                    var sw = new Stopwatch();
-                    sw.Start();
+                        var sw = new Stopwatch();
+                        sw.Start();
 
-                    // Instantiate objects required to build cache
-                    CeefaxContent mc = new(_config);
-                    TeletextPageWeather tw = new(mc);
-                    TeletextPageNews tn = new(mc);
-                    TeletextPageMarkets tm = new(mc);
-                    TeletextPageSchedule ts = new(mc);
+                        // Instantiate objects required to build cache
+                        CeefaxContent mc = new(_config);
+                        TeletextPageWeather tw = new(mc);
+                        TeletextPageNews tn = new(mc);
+                        TeletextPageMarkets tm = new(mc);
+                        TeletextPageSchedule ts = new(mc);
+                        
+                        CarouselService cs = new(tn, tw, tm, ts);
+
+                        content = cs.GetCarousel();
                     
-                    CarouselService cs = new(tn, tw, tm, ts);
+                        _lastBuilt = Utility.ConvertToUKTime(DateTime.UtcNow);
+                        _buildTime = sw.ElapsedMilliseconds;
 
-                    content = cs.GetCarousel();
-                   
-                    _lastBuilt = Utility.ConvertToUKTime(DateTime.UtcNow);
-                    _buildTime = sw.ElapsedMilliseconds;
-
-                    _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(_config.ServiceContentExpiryMins));
+                        _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(_config.ServiceContentExpiryMins));
+                    }
+                    catch(Exception ex) 
+                    {
+                        Log.Information($"CAROUSEL BUILD ERROR {ex.Message} {ex.InnerException} {ex.Source} {ex.StackTrace}");
+                    }
                 }
 
                 return content

@@ -82,7 +82,7 @@ public class CarouselService : ICarouselService
         }
         catch(Exception ex) 
         {
-            Log.Information($"CAROUSEL BUILD ERROR {ex.Message} {ex.Source} {ex.StackTrace}");
+            Log.Information($"CAROUSEL BUILD ERROR {ex.Message} {ex.InnerException} {ex.Source} {ex.StackTrace}");
         }
         return DisplayHtml.ToString();
     }
