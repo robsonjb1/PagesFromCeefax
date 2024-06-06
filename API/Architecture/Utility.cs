@@ -45,8 +45,7 @@ namespace API.Architecture
         public static List<string> ParseParagraph(string content, int lineLength, int firstLineOverride, bool addFullStop)
         {
             List<string> rows = new();
-            //content += "</p>";  // In case there isn't already an ending </p>
-            content = Utility.CleanHTML(content);//[..content.IndexOf("</p>")]);
+            content = Utility.CleanHTML(content);
 
             // Ensure a final full stop or question mark
             if(addFullStop
@@ -63,39 +62,30 @@ namespace API.Architecture
 
             String[] words = content.Split(' ');
             string currentLine = "";
-            bool invalidText = false;
             int effectiveLineLength = firstLineOverride;
             
             foreach (string currentWord in words)
             {
-           //     if (currentWord.ToUpper() == "JAVASCRIPT" || currentWord.ToUpper() == "(CSS)")
-           //     {
-           //         invalidText = true;
-           //     }
-
-                if (!invalidText)
+                if ((currentLine.Length >= effectiveLineLength) ||
+                    ((currentLine.Length + currentWord.Length) >= effectiveLineLength))
                 {
-                    if ((currentLine.Length >= effectiveLineLength) ||
-                        ((currentLine.Length + currentWord.Length) >= effectiveLineLength))
+                    if(effectiveLineLength != lineLength)
                     {
-                        if(effectiveLineLength != lineLength)
-                        {
-                            currentLine += string.Join("", Enumerable.Repeat("&nbsp;", firstLineOverride - currentLine.Length)) + " x/y";
-                        }
-
-                        rows.Add(CleanHTML(currentLine));
-                        currentLine = "";
-                        effectiveLineLength = lineLength;
+                        currentLine += string.Join("", Enumerable.Repeat("&nbsp;", firstLineOverride - currentLine.Length)) + " x/y";
                     }
 
-                    if (currentLine.Length > 0)
-                    {
-                        currentLine += " " + currentWord;
-                    }
-                    else
-                    {
-                        currentLine += currentWord;
-                    }
+                    rows.Add(CleanHTML(currentLine));
+                    currentLine = "";
+                    effectiveLineLength = lineLength;
+                }
+
+                if (currentLine.Length > 0)
+                {
+                    currentLine += " " + currentWord;
+                }
+                else
+                {
+                    currentLine += currentWord;
                 }
             }
 
@@ -104,14 +94,7 @@ namespace API.Architecture
                 rows.Add(CleanHTML(currentLine));
             }
 
-            //if (invalidText || currentLine.EndsWith(":") || currentLine.EndsWith("&hellip;"))
-            //{
-            //    return new List<string>();
-            //}
-            //else
-            //{
-                return rows;
-            //}
+            return rows;
         }
                 
         public static string CleanHTML(string html)
