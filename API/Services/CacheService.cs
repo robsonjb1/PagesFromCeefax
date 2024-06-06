@@ -3,6 +3,7 @@ using API.Architecture;
 using API.Magazine;
 using API.PageGenerators;
 using Microsoft.Extensions.Caching.Memory;
+using Serilog;
 
 namespace API.Services
 {
@@ -32,6 +33,7 @@ namespace API.Services
         {
             _totalRequests++;
             Console.WriteLine($"New request received {_totalRequests} total.");
+            Log.Information($"New request received {_totalRequests} total.");
 
             lock (l)
             {
