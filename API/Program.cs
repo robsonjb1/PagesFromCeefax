@@ -2,16 +2,13 @@
 using API.Extensions;
 using API.Services;
 using Microsoft.Extensions.FileProviders;
-
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateBootstrapLogger();
  
-Log.Information("Starting PFC service serilog");
-
-Console.WriteLine("Starting PFC service");
+Log.Information("Starting PFC service");
 
 try
 {
