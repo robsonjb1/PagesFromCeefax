@@ -39,6 +39,7 @@ public class KindleNews : IKindleNews
         c.AppendLine($"<li><a href='#s{count++}'>Cartoons</a></li>");
         c.AppendLine("</ol><mbp:pagebreak />");
 
+/*
         // Start of The Register
         // Build index
         c.AppendLine($"<div id='r0'><center><img width='100%' src='data:image/png;base64,{_kc.RegisterLogoBase64}'>");
@@ -49,7 +50,7 @@ public class KindleNews : IKindleNews
             c.AppendLine($"<li><a href='#r{count++}'>{article.Section}: {article.Headline}</a><br>{article.Byline}</li>");
         }
         c.AppendLine("</ol><mbp:pagebreak />");
-        
+*/        
         // Spectator content
         count = 1;
         foreach(var article in _kc.SpectatorArticles.FindAll(z=>z.IsValid).Take(maxArticles))
@@ -81,7 +82,7 @@ public class KindleNews : IKindleNews
             c.AppendLine($"<h2><i>{cartoon.Caption}</i></h2>");
             c.AppendLine("</center></div><mbp:pagebreak>");
         }
-
+/*
         // The Register content
         count = 1;
         foreach(var article in _kc.RegisterArticles.FindAll(z=>z.IsValid).Take(maxArticles))
@@ -95,7 +96,7 @@ public class KindleNews : IKindleNews
 
             count++;
         }
-
+*/
         // File stats
         c.AppendLine($"File size: {c.Length.ToString("#,##0")} characters.<br>");
         c.AppendLine($"Local timestamp (UTC): {DateTime.UtcNow.ToString()}<br>");

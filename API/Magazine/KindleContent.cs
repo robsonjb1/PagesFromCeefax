@@ -29,7 +29,7 @@ public class KindleContent : IKindleContent
         // Visit each article and retrieve the full details, including article and author images
         GetSpectatorArticleList(@"https://www.spectator.co.uk/").Wait();
         GetSpectatorCartoonList(@"https://www.spectator.co.uk/illustrations/").Wait();
-        GetRegisterArticleList(@"https://www.theregister.com/").Wait();
+        //GetRegisterArticleList(@"https://www.theregister.com/").Wait();
 
         // Process the URL cache
         ProcessUrlCache().Wait();
@@ -37,13 +37,13 @@ public class KindleContent : IKindleContent
         // Parse story content
         Parallel.ForEach(SpectatorArticles, a => ReadSpectatorArticle(a));
         Parallel.ForEach(SpectatorCartoons, c => ReadSpectatorCartoon(c));
-        Parallel.ForEach(RegisterArticles, r => ReadRegisterArticle(r));
+        //Parallel.ForEach(RegisterArticles, r => ReadRegisterArticle(r));
 
         // Get Spectator logo image
         SpectatorLogoBase64 = Task.Run(async () => await ImageUrlToBase64(new Uri("https://logos-download.com/wp-content/uploads/2016/10/The_Spectator_logo_text_wordmark.png"))).Result;
 
         // Get The Register logo image
-        RegisterLogoBase64 = Task.Run(async () => await ImageUrlToBase64(new Uri("https://www.theregister.com/design_picker/1fea2ae01c5036112a295123c3cc9c56eb28836a/graphics/std/red_logo_sans_strapline.png"))).Result;
+        //RegisterLogoBase64 = Task.Run(async () => await ImageUrlToBase64(new Uri("https://www.theregister.com/design_picker/1fea2ae01c5036112a295123c3cc9c56eb28836a/graphics/std/red_logo_sans_strapline.png"))).Result;
     }
 
     private async Task GetSpectatorArticleList(string root)
