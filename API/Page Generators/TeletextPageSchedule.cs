@@ -48,7 +48,7 @@ public class TeletextPageSchedule : ITeletextPageSchedule
 
     private bool OnlyShowHeadline(string title)
     {
-        return title.Contains("BBC NEWS") || title.Contains("BBC WEEKEND NEWS") || title.Contains("NEWSNIGHT") ||
+        return title.Contains("BBC NEWS") || title.Contains("BBC WEEKEND NEWS") ||
             title.Contains("SOUTH EAST TODAY") || title.Contains("WEATHER");
     }
 
