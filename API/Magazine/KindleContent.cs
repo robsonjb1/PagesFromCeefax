@@ -10,38 +10,45 @@ public interface IKindleContent
 {
     public List<SpectatorArticle> SpectatorArticles { get; set; }
     public List<SpectatorCartoon> SpectatorCartoons { get; set; }
-    public string SpectatorLogoBase64 {get; set;}
+    public string SpectatorLogoBase64 { get; set; }
+    public List<RegisterArticle> RegisterArticles { get; set; }
+    public string RegisterLogoBase64 { get; set; }
 }
 
 public class KindleContent : IKindleContent
 {
     public List<SpectatorArticle> SpectatorArticles { get; set; } = new();
     public List<SpectatorCartoon> SpectatorCartoons { get; set; } = new();
-    public string SpectatorLogoBase64 { get; set;} = String.Empty;
+    public string SpectatorLogoBase64 { get; set; } = String.Empty;
+    public List<RegisterArticle> RegisterArticles { get; set; } = new();
+    public string RegisterLogoBase64 { get; set; } = String.Empty;
     private List<CachedUrl> UrlCache { get; set; } = new();
     
     public KindleContent()
     {
         // Visit each article and retrieve the full details, including article and author images
-        GetArticleList(@"https://www.spectator.co.uk/").Wait();
-        
-        // Visit each cartoon and retrieve the full details
-        GetCartoonList(@"https://www.spectator.co.uk/illustrations/").Wait();
-        
+        GetSpectatorArticleList(@"https://www.spectator.co.uk/").Wait();
+        GetSpectatorCartoonList(@"https://www.spectator.co.uk/illustrations/").Wait();
+        GetRegisterArticleList(@"https://www.theregister.com/").Wait();
+
         // Process the URL cache
         ProcessUrlCache().Wait();
 
         // Parse story content
-        Parallel.ForEach(SpectatorArticles, a => ReadArticle(a));
-        Parallel.ForEach(SpectatorCartoons, c => ReadCartoon(c));
+        Parallel.ForEach(SpectatorArticles, a => ReadSpectatorArticle(a));
+        Parallel.ForEach(SpectatorCartoons, c => ReadSpectatorCartoon(c));
+        Parallel.ForEach(RegisterArticles, r => ReadRegisterArticle(r));
 
         // Get Spectator logo image
         SpectatorLogoBase64 = Task.Run(async () => await ImageUrlToBase64(new Uri("https://logos-download.com/wp-content/uploads/2016/10/The_Spectator_logo_text_wordmark.png"))).Result;
+
+        // Get The Register logo image
+        RegisterLogoBase64 = Task.Run(async () => await ImageUrlToBase64(new Uri("https://www.theregister.com/design_picker/1fea2ae01c5036112a295123c3cc9c56eb28836a/graphics/std/red_logo_sans_strapline.png"))).Result;
     }
 
-    private async Task GetArticleList(string specRoot)
+    private async Task GetSpectatorArticleList(string root)
     {
-        string rootHtml = await FetchPageAsync(new Uri(specRoot)).Result.httpResponse.Content.ReadAsStringAsync();
+        string rootHtml = await FetchPageAsync(new Uri(root)).Result.httpResponse.Content.ReadAsStringAsync();
         HtmlDocument doc = new();
         doc.LoadHtml(rootHtml);
 
@@ -57,7 +64,6 @@ public class KindleContent : IKindleContent
                     Uri u = new Uri(href);
                     if(!SpectatorArticles.Exists(z=> z.ArticleUri == u))
                     {
-                        Log.Information($"Found new article at: {u}");
                         SpectatorArticles.Add(new SpectatorArticle(u));
                         UrlCache.Add(new CachedUrl(u));
                     }
@@ -66,12 +72,10 @@ public class KindleContent : IKindleContent
         }
     }
 
-    private async void ReadArticle(SpectatorArticle a)
+    private async void ReadSpectatorArticle(SpectatorArticle a)
     {
         try
         {
-            Log.Information($"Parsing article article at: {a.ArticleUri}");
-
             string articleHtml = UrlCache.Find(z => z.Location == a.ArticleUri).Content;
             HtmlDocument doc = new();
             doc.LoadHtml(articleHtml);
@@ -123,7 +127,7 @@ public class KindleContent : IKindleContent
         }
     }
 
-    private async void ReadCartoon(SpectatorCartoon c)
+    private async void ReadSpectatorCartoon(SpectatorCartoon c)
     {
         try
         {
@@ -142,9 +146,9 @@ public class KindleContent : IKindleContent
         }
     }
 
-    private async Task GetCartoonList(string specRoot)
+    private async Task GetSpectatorCartoonList(string root)
     {
-        string rootHtml = await FetchPageAsync(new Uri(specRoot)).Result.httpResponse.Content.ReadAsStringAsync();
+        string rootHtml = await FetchPageAsync(new Uri(root)).Result.httpResponse.Content.ReadAsStringAsync();
         HtmlDocument doc = new();
         doc.LoadHtml(rootHtml);
 
@@ -160,8 +164,73 @@ public class KindleContent : IKindleContent
             }
         }
     }
+   
+    private async Task GetRegisterArticleList(string root)
+    {
+        string rootHtml = await FetchPageAsync(new Uri(root)).Result.httpResponse.Content.ReadAsStringAsync();
+        HtmlDocument doc = new();
+        doc.LoadHtml(rootHtml);
 
-     private async Task ProcessUrlCache()
+        // Parse index page and construct article list
+        var tags = doc.DocumentNode.SelectNodes("//article");
+        if(tags != null)
+        {
+            foreach (var tag in tags)
+            {               
+                string href = tag.SelectSingleNode(".//a").Attributes["href"].Value;
+                if(href.StartsWith("/")) 
+                {
+                    href = "https://www.theregister.com" + href;
+                }
+                Uri u = new Uri(href);
+                if (!RegisterArticles.Exists(z=> z.ArticleUri == u))
+                {
+                    RegisterArticles.Add(new RegisterArticle(u));
+                    UrlCache.Add(new CachedUrl(u));
+                }
+            }
+        }
+    }
+
+    private void ReadRegisterArticle(RegisterArticle a)
+    {
+        try
+        {
+            string articleHtml = UrlCache.Find(z => z.Location == a.ArticleUri).Content;
+            HtmlDocument doc = new();
+            doc.LoadHtml(articleHtml);
+
+            var articleRoot = doc.DocumentNode.SelectSingleNode("//article");
+            a.Headline = articleRoot.SelectSingleNode(".//h1").InnerText.Trim();
+            a.Byline = articleRoot.SelectSingleNode(".//h2").InnerText.Trim();
+            a.Section = articleRoot.SelectSingleNode(".//h4").InnerText.Trim().ToUpper();
+            a.PublishDate = Convert.ToDateTime(articleHtml.Substring(articleHtml.IndexOf("\"datePublished\":\"") + 17, 19));
+            
+            var body = articleRoot.SelectNodes(".//p");
+            StringBuilder lines = new StringBuilder();
+            foreach (var p in body)
+            {
+                if(p.ParentNode.Name == "blockquote")
+                {
+                    lines.AppendLine("<b><i><center>" + p.OuterHtml + "</center></i></b>");
+                }
+                else
+                {
+                    if(p.ParentNode.GetAttributeValue("class", "") != "tip_off_widget")
+                    {
+                        lines.AppendLine(p.OuterHtml);
+                    }
+                }
+            }
+            a.StoryHtml = $"<p><b>{a.PublishDate.DayOfWeek}, {a.PublishDate.Hour.ToString().PadLeft(2, '0')}:{a.PublishDate.Minute.ToString().PadLeft(2, '0')}</b>. {lines.ToString().Substring(3)}"; 
+        }
+        catch
+        {
+            a.IsValid = false;
+        }
+    }
+
+    private async Task ProcessUrlCache()
     {
         try
         {

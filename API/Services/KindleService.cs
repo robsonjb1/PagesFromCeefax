@@ -32,7 +32,7 @@ public class KindleService : IKindleService
             s.Start();
 
             KindleContent c = new KindleContent();
-            KindleSpectator ks = new KindleSpectator(c);
+            KindleNews ks = new KindleNews(c);
             string filename = ks.Generate();
 
             // Send e-mail to Kindle?
