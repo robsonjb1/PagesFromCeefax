@@ -29,8 +29,7 @@ public class KindleNews : IKindleNews
         c.AppendLine(".body_container p:first-of-type {margin-top: 10px; margin-bottom: 10px;} </style></head><body>");
         
         // Start of Spectator
-        c.AppendLine($"<div id='s0'><center><img width='100%' src='data:image/png;base64,{_kc.SpectatorLogoBase64}'>");
-        c.AppendLine($"</center><ol>");
+        c.AppendLine($"<div id='s0'><ol>");
         int count = 1;
         foreach(var article in _kc.SpectatorArticles.FindAll(z=>z.IsValid).Take(maxArticles))
         {
@@ -100,7 +99,7 @@ public class KindleNews : IKindleNews
         // File stats
         c.AppendLine($"File size: {c.Length.ToString("#,##0")} characters.<br>");
         c.AppendLine($"Local timestamp (UTC): {DateTime.UtcNow.ToString()}<br>");
-        c.AppendLine("<br><a href='#0'>Return to front page</a>");
+        c.AppendLine("<br><a href='#s0'>Return to front page</a>");
         c.AppendLine("<mbp:pagebreak>");
 
         // Closing
