@@ -12,6 +12,7 @@
         public string SpecHost { get; set; }    
         public int SpecPort { get; set; }
         public bool SpecEnableSsl { get; set; }   
+        public string SpecSessionCookie { get; set; }
     }
 
     public class SystemConfig : ISystemConfig
@@ -26,5 +27,6 @@
         public string SpecHost { get; set; }    
         public int SpecPort { get; set; }
         public bool SpecEnableSsl { get; set; }   
+        public string SpecSessionCookie { get; set; }
     }
 }

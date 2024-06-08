@@ -14,7 +14,7 @@ public class SpectatorArticle(Uri ArticleUri)
     public Uri? ImageUri{ get; set; }
     public string StoryHtml { get; set; } = String.Empty;
     public string ImageBase64 { get; set; } = String.Empty;
-    public bool IsValid {get; set; } = true;
+    public bool IsValid {get; set; } = false;
 
 #pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
 

@@ -1,5 +1,6 @@
 using System.IO.Compression;
 using System.Text;
+using API.Architecture;
 using API.Magazine;
 
 namespace API.PageGenerators;
@@ -31,11 +32,19 @@ public class KindleNews : IKindleNews
         // Start of Spectator
         c.AppendLine($"<div id='s0'><ol>");
         int count = 1;
-        foreach(var article in _kc.SpectatorArticles.FindAll(z=>z.IsValid).Take(maxArticles))
+        foreach(var article in _kc.SpectatorArticles.Take(maxArticles))
         {
-            c.AppendLine($"<li><a href='#s{count++}'>{article.Headline}</a><br>{article.Author}</li>");
+            if(article.IsValid)
+            {
+                c.AppendLine($"<li><a href='#s{count++}'>{article.Headline}</a><br>{article.Author}</li>");
+            }
+            else
+            {   
+                // Still list article for further investigation later
+                c.AppendLine($"<li>ERROR! {article.Headline}<br>{article.Author}</li>");
+            }
         }
-        c.AppendLine($"<li><a href='#s{count++}'>Cartoons</a></li>");
+        //c.AppendLine($"<li><a href='#s{count++}'>Cartoons</a></li>");
         c.AppendLine("</ol><mbp:pagebreak />");
 
 /*
@@ -106,7 +115,7 @@ public class KindleNews : IKindleNews
         c.AppendLine("</div></body></html>");
 
         // Output file
-        string filename = $"Kindle {DateTime.Now.DayOfWeek}.htm";
+        string filename = $"Spectator {DateTime.Now.DayOfWeek} {DateTime.Now.Hour.ToString().PadLeft(2, '0')}{DateTime.Now.Minute.ToString().PadLeft(2, '0')}.htm";
 
         if (Directory.Exists("spectemp")) { Directory.Delete("spectemp", true); }
         Directory.CreateDirectory("spectemp");

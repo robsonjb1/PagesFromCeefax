@@ -29,7 +29,8 @@ try
         SpecName = builder.Configuration["SpecName"],
         SpecHost = builder.Configuration["SpecHost"],
         SpecPort = Convert.ToInt32(builder.Configuration["SpecPort"]),
-        SpecEnableSsl = Convert.ToBoolean(builder.Configuration["SpecEnableSsl"])
+        SpecEnableSsl = Convert.ToBoolean(builder.Configuration["SpecEnableSsl"]),
+        SpecSessionCookie = builder.Configuration["SpecSessionCookie"]
     });
     builder.Services.AddSingleton<ICacheService, CacheService>();
     builder.Services.AddSingleton<IKindleService, KindleService>();

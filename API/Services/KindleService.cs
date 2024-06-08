@@ -18,6 +18,7 @@ public interface IKindleService
 public class KindleService : IKindleService
 {
     private readonly ISystemConfig _config;
+    private readonly Object l = new();
 
     public KindleService(ISystemConfig config)
     {
@@ -27,21 +28,24 @@ public class KindleService : IKindleService
     public string Publish(string email)
     {
         try
-        {
-            Stopwatch s = new Stopwatch();
-            s.Start();
-
-            KindleContent c = new KindleContent();
-            KindleNews ks = new KindleNews(c);
-            string filename = ks.Generate();
-
-            // Send e-mail to Kindle?
-            if(email == _config.SpecFromAddress)
+        {  
+            lock (l)
             {
-                SendEMail(filename);
+                Stopwatch s = new Stopwatch();
+                s.Start();
+
+                KindleContent c = new KindleContent(_config);
+                KindleNews kn = new KindleNews(c);
+                string filename = kn.Generate();
+
+                // Send e-mail to Kindle?
+                if(email == _config.SpecFromAddress)
+                {
+                    SendEMail(filename);
+                }
+                
+                return $"Done in {Math.Round(s.ElapsedMilliseconds / 1000d)} seconds.";
             }
-            
-            return $"Done in {Math.Round(s.ElapsedMilliseconds / 1000d)} seconds.";
         }
         catch (Exception ex)
         {

@@ -23,20 +23,24 @@ public class KindleContent : IKindleContent
     public List<RegisterArticle> RegisterArticles { get; set; } = new();
     public string RegisterLogoBase64 { get; set; } = String.Empty;
     private List<CachedUrl> UrlCache { get; set; } = new();
-    
-    public KindleContent()
+    private ISystemConfig _config;
+ 
+    public KindleContent(ISystemConfig config)
     {
+        _config = config;
+
         // Visit each article and retrieve the full details, including article and author images
         GetSpectatorArticleList(@"https://www.spectator.co.uk/").Wait();
-        GetSpectatorCartoonList(@"https://www.spectator.co.uk/illustrations/").Wait();
+        //GetSpectatorCartoonList(@"https://www.spectator.co.uk/illustrations/").Wait();
         //GetRegisterArticleList(@"https://www.theregister.com/").Wait();
 
         // Process the URL cache
-        ProcessUrlCache().Wait();
-
+        //ProcessUrlCache().Wait();
+        UrlCache.ForEach(u => u.Content = FetchPageAsync(u.Location).Result.httpResponse.Content.ReadAsStringAsync().Result);
+        
         // Parse story content
-        Parallel.ForEach(SpectatorArticles, a => ReadSpectatorArticle(a));
-        Parallel.ForEach(SpectatorCartoons, c => ReadSpectatorCartoon(c));
+        SpectatorArticles.ForEach(a => ReadSpectatorArticle(a));
+        //Parallel.ForEach(SpectatorCartoons, c => ReadSpectatorCartoon(c));
         //Parallel.ForEach(RegisterArticles, r => ReadRegisterArticle(r));
 
         // Get Spectator logo image
@@ -72,7 +76,7 @@ public class KindleContent : IKindleContent
         }
     }
 
-    private async void ReadSpectatorArticle(SpectatorArticle a)
+    private void ReadSpectatorArticle(SpectatorArticle a)
     {
         try
         {
@@ -82,7 +86,7 @@ public class KindleContent : IKindleContent
 
             a.Headline = doc.DocumentNode.SelectNodes("//meta[@property='og:title']")[0].GetAttributeValue("content", String.Empty);
             a.ImageUri = new Uri(doc.DocumentNode.SelectNodes("//meta[@property='og:image']")[0].GetAttributeValue("content", String.Empty));
-            a.ImageBase64 = await ImageUrlToBase64(a.ImageUri);
+            a.ImageBase64 = ImageUrlToBase64(a.ImageUri).Result;
 
             string author = doc.DocumentNode.SelectNodes("//meta[@name='author']")[0].GetAttributeValue("content", String.Empty);
             DateTime publishDate = Convert.ToDateTime(doc.DocumentNode.SelectNodes("//meta[@property='article:published_time']")[0].GetAttributeValue("content", String.Empty));
@@ -94,7 +98,7 @@ public class KindleContent : IKindleContent
             if(avatarNode != null)
             {
                 a.AvatarUri = new Uri(avatarNode[0].GetAttributeValue("src", String.Empty));
-                a.AvatarBase64 = await ImageUrlToBase64(a.AvatarUri);
+                a.AvatarBase64 = ImageUrlToBase64(a.AvatarUri).Result;
             }
     
             var body = doc.DocumentNode.SelectNodes("//div[@class='entry-content']//p");
@@ -111,7 +115,7 @@ public class KindleContent : IKindleContent
                     if(lines.Length == 0)
                     {
                         // Display the dateline in the first paragraph
-                        lines.AppendLine(p.OuterHtml.Replace("<p>", $"<p><b>{a.PublishDate[..a.PublishDate.IndexOf(" ")]}, {a.PublishTime}. </b>"));
+                        lines.AppendLine(p.OuterHtml.Replace("<p>", $"<p><b>{a.PublishDate[..a.PublishDate.IndexOf(" ")]}. </b>"));
                     }
                     else
                     {
@@ -119,11 +123,13 @@ public class KindleContent : IKindleContent
                     }
                 }
             }
-            a.StoryHtml = lines.ToString();      
+        
+            a.StoryHtml = lines.ToString(); 
+            a.IsValid = true;     
         }
         catch
         {
-            a.IsValid = false;
+            Log.Error($"Exception occured processing article {a.ArticleUri}");
         }
     }
 
@@ -248,11 +254,20 @@ public class KindleContent : IKindleContent
 
             foreach (var (location, httpResponse) in responses)
             {
+                if(httpResponse.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    Console.WriteLine($"Received status code {httpResponse.StatusCode} for {location}");
+                }
+
                 // Extract the message body and update the Url cache
                 var item = UrlCache.Find(l => l.Location == location);
                 if (item is not null)
                 {
                     item.Content = await httpResponse.Content.ReadAsStringAsync();
+                }
+                else
+                {
+                    Console.WriteLine($"Could not find {location} in UrlCache");
                 }
             }
         }
@@ -262,9 +277,11 @@ public class KindleContent : IKindleContent
         }
     }
 
-    private static async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
+    private async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
     {
         var client = new HttpClient();
+        client.DefaultRequestHeaders.Add("Cookie", _config.SpecSessionCookie);
+       
         var content = await client.GetAsync(location);
         return (location, content);
     }
