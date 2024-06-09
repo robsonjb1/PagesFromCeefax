@@ -36,6 +36,25 @@ namespace API.Architecture
             return TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, cstZone);
         }
 
+        public static string GetDaySuffix(DateTime dt)
+        {
+            switch (dt.Day)
+            {
+                case 1:
+                case 21:
+                case 31:
+                    return "st";
+                case 2:
+                case 22:
+                    return "nd";
+                case 3:
+                case 23:
+                    return "rd";
+                default:
+                    return "th";
+            }
+        }
+
         // Mixture of string parsing utilities and graphics character handling
         public static List<string> ParseParagraph(string content)
         {

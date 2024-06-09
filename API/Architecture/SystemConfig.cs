@@ -4,14 +4,14 @@
     {
         public string OpenWeatherApiKey { get; set; }
         public int ServiceContentExpiryMins { get; set; }
-        public string SpecFromAddress { get; set; }
-        public string SpecFromUsername { get; set; }
-        public string SpecFromPassword { get; set; }
-        public string SpecToAddress { get; set; }   
-        public string SpecName { get; set; }
-        public string SpecHost { get; set; }    
-        public int SpecPort { get; set; }
-        public bool SpecEnableSsl { get; set; }   
+        public string KindleFromAddress { get; set; }
+        public string KindleFromUsername { get; set; }
+        public string KindleFromPassword { get; set; }
+        public string KindleToAddress { get; set; }   
+        public string KindleName { get; set; }
+        public string KindleHost { get; set; }    
+        public int KindlePort { get; set; }
+        public bool KindleEnableSsl { get; set; }   
         public string SpecSessionCookie { get; set; }
     }
 
@@ -19,14 +19,14 @@
     {
         public string OpenWeatherApiKey { get; set; }
         public int ServiceContentExpiryMins { get; set; }
-        public string SpecFromAddress { get; set; }
-        public string SpecFromUsername { get; set; }
-        public string SpecFromPassword { get; set; }
-        public string SpecToAddress { get; set; }   
-        public string SpecName { get; set; }
-        public string SpecHost { get; set; }    
-        public int SpecPort { get; set; }
-        public bool SpecEnableSsl { get; set; }   
+        public string KindleFromAddress { get; set; }
+        public string KindleFromUsername { get; set; }
+        public string KindleFromPassword { get; set; }
+        public string KindleToAddress { get; set; }   
+        public string KindleName { get; set; }
+        public string KindleHost { get; set; }    
+        public int KindlePort { get; set; }
+        public bool KindleEnableSsl { get; set; }   
         public string SpecSessionCookie { get; set; }
     }
 }

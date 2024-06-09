@@ -7,14 +7,14 @@ namespace API.Magazine;
 public interface ICeefaxContent
 {
     public List<NewsStory> StoryList { get; set; }
-    public List<CachedUrl> UrlCache { get; set; }
+    public List<CachedUri> UrlCache { get; set; }
     public List<CeefaxSection> Sections { get; set; }
 }
 
 public class CeefaxContent : ICeefaxContent
 {
     public List<NewsStory> StoryList { get; set; } = new();
-    public List<CachedUrl> UrlCache { get; set; } = new();
+    public List<CachedUri> UrlCache { get; set; } = new();
     public List<CeefaxSection> Sections { get; set; } = new();
 
     private readonly ISystemConfig _config;
@@ -53,7 +53,7 @@ public class CeefaxContent : ICeefaxContent
         AddWeatherTempSection(CeefaxSectionType.WeatherTempTruro, "Truro");
 
         // Add each section's feed URL to URL cache
-        Sections.ForEach(z => UrlCache.Add(new CachedUrl(z.Feed)));
+        Sections.ForEach(z => UrlCache.Add(new CachedUri(z.Feed)));
 
         // Process the URL cache (first time)
         ProcessUrlCache().Wait();
@@ -65,7 +65,7 @@ public class CeefaxContent : ICeefaxContent
         ProcessUrlCache().Wait();
 
         // Parse all stories
-        StoryList.ForEach(z => z.AddBody(UrlCache.Find(l => l.Location == z.Link).Content));
+        StoryList.ForEach(z => z.AddBody(UrlCache.Find(l => l.Location == z.Link).ContentString));
     }
 
     private void AddWeatherTempSection(CeefaxSectionType section, string city)
@@ -78,10 +78,10 @@ public class CeefaxContent : ICeefaxContent
         try
         {
             var client = new HttpClient();
-            var results = new List<CachedUrl>();
+            var results = new List<CachedUri>();
 
             var requests = UrlCache
-                .FindAll(l => l.Content == null)
+                .FindAll(l => l.ContentString == null)
                 .Select(z => FetchPageAsync(z.Location!))
                 .ToList();
 
@@ -95,7 +95,7 @@ public class CeefaxContent : ICeefaxContent
                 var item = UrlCache.Find(l => l.Location == location);
                 if (item is not null)
                 {
-                    item.Content = await httpResponse.Content.ReadAsStringAsync();
+                    item.ContentString = await httpResponse.Content.ReadAsStringAsync();
                 }
             }
         }
@@ -107,7 +107,7 @@ public class CeefaxContent : ICeefaxContent
 
     private void ProcessRSSFeed(CeefaxSection section)
     {
-        TextReader tr = new StringReader(UrlCache.Find(l => l.Location == section.Feed).Content);
+        TextReader tr = new StringReader(UrlCache.Find(l => l.Location == section.Feed).ContentString);
         SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
 
         int storyCount = 0;
@@ -119,7 +119,7 @@ public class CeefaxContent : ICeefaxContent
                 StoryList.Add(new NewsStory(section.Name, item.Title.Text.Trim() + ".", item.Links[0].Uri));
 
                 // Add story link to the URL cache to be retrieved later
-                UrlCache.Add(new CachedUrl(item.Links[0].Uri));
+                UrlCache.Add(new CachedUri(item.Links[0].Uri));
             
                 storyCount++;
             }

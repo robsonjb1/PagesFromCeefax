@@ -42,7 +42,7 @@ public class NewsStory
             
             foreach (var l in storyText)
             {
-				    if (l != String.Empty)
+			    if (l != String.Empty)
                 {
                     List<string> newChunk = Utility.ParseParagraph(l);
 

@@ -73,7 +73,7 @@ public class TeletextPageSchedule : ITeletextPageSchedule
                 break;
         }
 
-        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == section.Name).Feed).Content;
+        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == section.Name).Feed).ContentString;
         var doc = new HtmlDocument();
         doc.LoadHtml(html);
 

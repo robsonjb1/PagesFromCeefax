@@ -23,7 +23,7 @@ public class TeletextPageWeather : ITeletextPageWeather
     {
         _mc = mc;
 
-        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == CeefaxSectionType.WeatherForecast).Feed).Content;
+        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == CeefaxSectionType.WeatherForecast).Feed).ContentString;
         var doc = new HtmlDocument();
         doc.LoadHtml(html);
 
@@ -232,7 +232,7 @@ public class TeletextPageWeather : ITeletextPageWeather
         string json = String.Empty;
         try
         {
-            json = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == section).Feed).Content;
+            json = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == section).Feed).ContentString;
             OpenWeather dto = JsonSerializer.Deserialize<OpenWeather>(json);
             return Convert.ToInt32(dto.main.temp);
         }

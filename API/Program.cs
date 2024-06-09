@@ -22,14 +22,14 @@ try
     {
         OpenWeatherApiKey = builder.Configuration["OpenWeatherApiKey"],
         ServiceContentExpiryMins = Convert.ToInt32(builder.Configuration["ServiceContentExpiryMins"]),
-        SpecFromAddress = builder.Configuration["SpecFromAddress"],
-        SpecFromUsername = builder.Configuration["SpecFromUsername"],
-        SpecFromPassword = builder.Configuration["SpecFromPassword"],
-        SpecToAddress = builder.Configuration["SpecToAddress"],
-        SpecName = builder.Configuration["SpecName"],
-        SpecHost = builder.Configuration["SpecHost"],
-        SpecPort = Convert.ToInt32(builder.Configuration["SpecPort"]),
-        SpecEnableSsl = Convert.ToBoolean(builder.Configuration["SpecEnableSsl"]),
+        KindleFromAddress = builder.Configuration["KindleFromAddress"],
+        KindleFromUsername = builder.Configuration["KindleFromUsername"],
+        KindleFromPassword = builder.Configuration["KindleFromPassword"],
+        KindleToAddress = builder.Configuration["KindleToAddress"],
+        KindleName = builder.Configuration["KindleName"],
+        KindleHost = builder.Configuration["KindleHost"],
+        KindlePort = Convert.ToInt32(builder.Configuration["KindlePort"]),
+        KindleEnableSsl = Convert.ToBoolean(builder.Configuration["KindleEnableSsl"]),
         SpecSessionCookie = builder.Configuration["SpecSessionCookie"]
     });
     builder.Services.AddSingleton<ICacheService, CacheService>();
@@ -47,7 +47,7 @@ try
 
     app.MapGet("/kindle/{email}", (IKindleService ks, string email) =>
     {
-        return ks.Publish(email);
+        return ks.PublishKindle(email);
     });
 
     app.UseFileServer(new FileServerOptions

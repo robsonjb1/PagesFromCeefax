@@ -25,7 +25,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
 
     private MarketData GetMarketData()
     {
-        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == CeefaxSectionType.Markets).Feed).Content;
+        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == CeefaxSectionType.Markets).Feed).ContentString;
         var doc = new HtmlDocument();
         doc.LoadHtml(html);
 

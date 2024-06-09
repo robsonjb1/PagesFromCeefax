@@ -1,8 +1,9 @@
 ﻿namespace API.Architecture;
 
-public class CachedUrl
+public class CachedUri
 {
     public Uri Location { get; }
-    public string Content { get; set; }
-    public CachedUrl(Uri location) => this.Location = location;
+    public string ContentString { get; set; }
+    public byte[] ContentBytes { get; set; }
+    public CachedUri(Uri location) => this.Location = location;
 }

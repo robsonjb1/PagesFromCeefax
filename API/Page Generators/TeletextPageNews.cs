@@ -49,7 +49,7 @@ public class TeletextPageNews : ITeletextPageNews
         CeefaxSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
         StringBuilder sb = new();
 
-        TextReader tr = new StringReader(_mc.UrlCache.Find(l => l.Location == _mc.Sections.Find(z => z.Name == sectionName)!.Feed)!.Content!);
+        TextReader tr = new StringReader(_mc.UrlCache.Find(l => l.Location == _mc.Sections.Find(z => z.Name == sectionName)!.Feed)!.ContentString!);
         SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
 
         sb.Append(section.Header);

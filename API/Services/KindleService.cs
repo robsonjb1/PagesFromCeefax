@@ -12,7 +12,7 @@ namespace API.Services;
 
 public interface IKindleService
 {
-    public string Publish(string email);
+    public string PublishKindle(string email);
 }
 
 public class KindleService : IKindleService
@@ -25,28 +25,25 @@ public class KindleService : IKindleService
         _config = config;
     }
 
-    public string Publish(string email)
+    public string PublishKindle(string email)
     {
         try
-        {  
+        {
             lock (l)
             {
                 Stopwatch s = new Stopwatch();
                 s.Start();
 
-                KindleContent c = new KindleContent(_config);
-                KindleNews kn = new KindleNews(c);
-                string filename = kn.Generate();
+                // Clear temporary working directory
+                if (Directory.Exists("KindleTemp")) { Directory.Delete("KindleTemp", true); }
+                Directory.CreateDirectory("KindleTemp"); ;
 
-                // Send e-mail to Kindle?
-                if(email == _config.SpecFromAddress)
-                {
-                    SendEMail(filename);
-                }
-                
+                PublishSpectator(email);
+                PublishThurrott(email);
+
                 return $"Done in {Math.Round(s.ElapsedMilliseconds / 1000d)} seconds.";
             }
-        }
+        }    
         catch (Exception ex)
         {
             string errorMsg = $"KINDLE BUILD ERROR {ex.Message} {ex.InnerException} {ex.Source} {ex.StackTrace}";
@@ -55,26 +52,53 @@ public class KindleService : IKindleService
             return errorMsg;
         }
     }
+
+
+    public void PublishSpectator(string email)
+    {
+        SpectatorContent c = new SpectatorContent(_config);
+        SpectatorNews sn = new SpectatorNews(c);
+        string filename = sn.Generate();
+
+        // Send e-mail to Kindle?
+        if(email == _config.KindleFromAddress)
+        {
+            SendEMail(filename);
+        }
+    }
+
+    public void PublishThurrott(string email)
+    {
+        ThurrottContent c = new ThurrottContent(_config);
+        ThurrottNews tn = new ThurrottNews(c);
+        string filename = tn.Generate();
+
+        // Send e-mail to Kindle?
+        if(email == _config.KindleFromAddress)
+        {
+            SendEMail(filename);
+        }            
+    }
  
     private void SendEMail(string filename)
     {
         var smtp = new SmtpClient
         {
-            Host = _config.SpecHost,
-            Port = _config.SpecPort,
-            EnableSsl = _config.SpecEnableSsl,
+            Host = _config.KindleHost,
+            Port = _config.KindlePort,
+            EnableSsl = _config.KindleEnableSsl,
             DeliveryMethod = SmtpDeliveryMethod.Network,
             UseDefaultCredentials = false,
-            Credentials = new NetworkCredential(_config.SpecFromUsername, _config.SpecFromPassword)
+            Credentials = new NetworkCredential(_config.KindleFromUsername, _config.KindleFromPassword)
         };
 
         Attachment attachment = new Attachment(filename);
         using (var message = new MailMessage(
-            new MailAddress(_config.SpecFromAddress, _config.SpecName),
-            new MailAddress(_config.SpecToAddress, _config.SpecName)
+            new MailAddress(_config.KindleFromAddress, _config.KindleName),
+            new MailAddress(_config.KindleToAddress, _config.KindleName)
         )
         {
-            Subject = "Spectator upload",
+            Subject = "Kindle upload",
             Body = ""
         })
         {
