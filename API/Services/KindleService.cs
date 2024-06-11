@@ -2,9 +2,9 @@
 
 using System.Net;
 using System.Net.Mail;
+using System.Diagnostics;
 using API.Architecture;
 using API.Magazine;
-using System.Diagnostics;
 using API.PageGenerators;
 using Serilog;
 

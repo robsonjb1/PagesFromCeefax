@@ -22,6 +22,7 @@ public class Graphics
     public readonly static StringBuilder HeaderTop40Singles = new();
     public readonly static StringBuilder HeaderTV = new();
     public readonly static StringBuilder HeaderMarkets = new();
+    public readonly static StringBuilder HeaderShares = new();
     public readonly static StringBuilder HeaderWeather = new();
     public readonly static StringBuilder HeaderLinks = new();
     public readonly static StringBuilder HeaderTravel = new();
@@ -33,7 +34,6 @@ public class Graphics
     public readonly static StringBuilder PromoTV = new();
     public readonly static StringBuilder PromoNews = new();
     public readonly static StringBuilder PromoTeletext = new();
-    public readonly static StringBuilder PromoCeefax = new();
     public readonly static StringBuilder PromoLinks = new();
     public readonly static StringBuilder PromoChristmas = new();
 
@@ -115,12 +115,16 @@ public class Graphics
         HeaderMarkets.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"paper2 ink7\">" + Utility.BlockGraph("   @jj5@k5@k4@k4@1j5bs@   ") + "</span></p>");
         HeaderMarkets.AppendLine("<p>" + Utility.BlockGraph("\"£££\"£££\"£££ ") + "<span class=\"ink2\">" + Utility.BlockGraph("///,--.,-.,-.,-.,.-.-,,///") + "</span></p>");
 
+        HeaderShares.AppendLine("<p>" + Utility.BlockGraph("j£3kj£3kj£3k ") + "<span class=\"paper2 ink7\">" + Utility.BlockGraph("    |,$| |h<l4|,|h<$|,$   ") + "</span></p>");
+        HeaderShares.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"paper2 ink7\">" + Utility.BlockGraph("    s{5@£@j7k5@£}jw1s{5   ") + "</span></p>");
+        HeaderShares.AppendLine("<p>" + Utility.BlockGraph("\"£££\"£££\"£££ ") + "<span class=\"ink2\">" + Utility.BlockGraph("////,,.,/,-.-.,/,-,.,,.///") + "</span></p>");
+
         HeaderHeadlines.AppendLine("<p>" + Utility.BlockGraph("j£3kj£3kj£3k ") + "<span class=\"paper1 ink6\">" + Utility.BlockGraph("  h4|h<h<|h<th4h4xl0|$|,  ") + "</span></p>");
         HeaderHeadlines.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"paper1 ink6\">" + Utility.BlockGraph("  j7@jwj7@ju?juj5@j5@1s@  ") + "</span></p>");
         HeaderHeadlines.AppendLine("<p>" + Utility.BlockGraph("\"£££\"£££\"£££ ") + "<span class=\"ink1\">" + Utility.BlockGraph("//-.,-,-.,-,.-,-.,-.,.,,//") + "</span></p>");
 
 
-        PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                    _4_~@|@}        ") + "</span><span class=\"ink7\">1/4</span></p>");
+        PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                    _4_~@|@}        ") + "</span><span class=\"ink7\">1/5</span></p>");
         PromoMap.AppendLine("<p>[LINE1]<span class=\"ink4\">" + Utility.SepGraph(" _?0~[FF]%") + "</span></p>");
         PromoMap.AppendLine("<p>[LINE2]<span class=\"ink4\">" + Utility.SepGraph(" j*@@@@@y||t") + "</span></p>");
         PromoMap.AppendLine("<p>[LINE3]<span class=\"ink4\">" + Utility.SepGraph("  ({@@@@@@@?") + "</span></p>");
@@ -314,28 +318,28 @@ public class Graphics
         PromoTeletext.AppendLine("<p><span class=\"ink6 indent\">IS CALLED</span><span class=\"ink2\">" + Utility.BlockGraph("      ") + "</span><span class=\"paper2 ink7\">&nbsp;&nbsp;4&nbsp;5&nbsp;6&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;</p>");
         PromoTeletext.AppendLine("<p><span class=\"ink7 indent\">CEEFAX</span><span class=\"ink2\">" + Utility.BlockGraph("         ") + "</span><span class=\"paper2 ink7\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;</p>");
 
-        PromoCeefax.AppendLine("<p><span class=\"ink7\">" + Utility.BlockGraph("<,,4<,,4<,,4") + "</span>");
-        PromoCeefax.AppendLine("<span class=\"paper1 ink6\">&nbsp;&nbsp;" + Utility.BlockGraph("|<,h|,$|<,h|,$x<lth| |4") + "&nbsp;</span></p>");
-        PromoCeefax.AppendLine("<p><span class=\"ink7\">" + Utility.BlockGraph("5b(55b(55j|5") + "</span>");
-        PromoCeefax.AppendLine("<span class=\"paper1 ink6\">&nbsp;&nbsp;" + Utility.BlockGraph("@5 j@,$@=,j@,$@=n@b@,@1") + "&nbsp;</span></p>");
-        PromoCeefax.AppendLine("<p><span class=\"ink7\">" + Utility.BlockGraph("urp5urp5urp5") + "</span>");
-        PromoCeefax.AppendLine("<span class=\"paper1 ink6\">&nbsp;&nbsp;" + Utility.BlockGraph("/-,*/,$/-,*/  /%*/*/ /%") + "&nbsp;</span></p>");
-        PromoCeefax.AppendLine("<br>");
-        PromoCeefax.AppendLine("<p><span class=\"ink2\">" + Utility.BlockGraph("h,,,,,,,,|4       ") + "</span><span>" + Utility.BlockGraph("j       ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("||||<||||||") + "</span></p>");
-        PromoCeefax.Append("<p><span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"paper5\">" + Utility.BlockGraph("  $,l ") + "</span><span class=\"ink2\">");
-        PromoCeefax.AppendLine(Utility.BlockGraph(" w5 ") + "</span><span>" + Utility.BlockGraph("5  (0 h  8! 0 ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("@@@?!+7£@@@") + "</span></p>");
-        PromoCeefax.Append("<p><span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"paper5\">" + Utility.BlockGraph("    \" ") + "</span><span class=\"ink2\">");
-        PromoCeefax.Append(Utility.BlockGraph(" }5 ") + "</span><span>" + Utility.BlockGraph("5 d0 ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("|||tp "));
-        PromoCeefax.Append("</span><span>" + Utility.BlockGraph("£  ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("@@ ") + "</span><span>" + Utility.BlockGraph("$1 "));
-        PromoCeefax.Append("</span><span class=\"ink3\">" + Utility.BlockGraph("% ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("?o@") + "</span></p>");
-        PromoCeefax.Append("<p><span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("@@@@ ") + "</span><span>" + Utility.BlockGraph(",,,,,% "));
-        PromoCeefax.Append("</span><span class=\"ink5\">" + Utility.BlockGraph("l|") + "</span><span class=\"paper5 ink6\">" + Utility.BlockGraph("  x|t   "));
-        PromoCeefax.Append("</span><span class=\"ink3\">" + Utility.BlockGraph("  @? ") + "</span><span>" + Utility.BlockGraph("1$   ") + "</span><span class=\"ink3\">");
-        PromoCeefax.AppendLine(Utility.BlockGraph("%j@") + "</span></p>");
-        PromoCeefax.Append("<p><span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("//// ") + "</span><span class=\"ink1\">");
-        PromoCeefax.AppendLine(Utility.BlockGraph("wwww@5 ") + "</span><span>" + Utility.BlockGraph(",$x@@@@@t0  ") + "</span><span class=\"ink1\">" + Utility.BlockGraph("/!        /") + "</span></p>");
-        PromoCeefax.Append("<p><span class=\"ink2\">" + Utility.BlockGraph("\"£££££ ") + "</span><span class=\"ink1\">" + Utility.BlockGraph("/.../% ") + "</span><span>");
-        PromoCeefax.AppendLine(Utility.BlockGraph("\"££££///'£") + "</span></p>");
+        // PromoCeefax.AppendLine("<p><span class=\"ink7\">" + Utility.BlockGraph("<,,4<,,4<,,4") + "</span>");
+        // PromoCeefax.AppendLine("<span class=\"paper1 ink6\">&nbsp;&nbsp;" + Utility.BlockGraph("|<,h|,$|<,h|,$x<lth| |4") + "&nbsp;</span></p>");
+        // PromoCeefax.AppendLine("<p><span class=\"ink7\">" + Utility.BlockGraph("5b(55b(55j|5") + "</span>");
+        // PromoCeefax.AppendLine("<span class=\"paper1 ink6\">&nbsp;&nbsp;" + Utility.BlockGraph("@5 j@,$@=,j@,$@=n@b@,@1") + "&nbsp;</span></p>");
+        // PromoCeefax.AppendLine("<p><span class=\"ink7\">" + Utility.BlockGraph("urp5urp5urp5") + "</span>");
+        // PromoCeefax.AppendLine("<span class=\"paper1 ink6\">&nbsp;&nbsp;" + Utility.BlockGraph("/-,*/,$/-,*/  /%*/*/ /%") + "&nbsp;</span></p>");
+        // PromoCeefax.AppendLine("<br>");
+        // PromoCeefax.AppendLine("<p><span class=\"ink2\">" + Utility.BlockGraph("h,,,,,,,,|4       ") + "</span><span>" + Utility.BlockGraph("j       ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("||||<||||||") + "</span></p>");
+        // PromoCeefax.Append("<p><span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"paper5\">" + Utility.BlockGraph("  $,l ") + "</span><span class=\"ink2\">");
+        // PromoCeefax.AppendLine(Utility.BlockGraph(" w5 ") + "</span><span>" + Utility.BlockGraph("5  (0 h  8! 0 ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("@@@?!+7£@@@") + "</span></p>");
+        // PromoCeefax.Append("<p><span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"paper5\">" + Utility.BlockGraph("    \" ") + "</span><span class=\"ink2\">");
+        // PromoCeefax.Append(Utility.BlockGraph(" }5 ") + "</span><span>" + Utility.BlockGraph("5 d0 ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("|||tp "));
+        // PromoCeefax.Append("</span><span>" + Utility.BlockGraph("£  ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("@@ ") + "</span><span>" + Utility.BlockGraph("$1 "));
+        // PromoCeefax.Append("</span><span class=\"ink3\">" + Utility.BlockGraph("% ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("?o@") + "</span></p>");
+        // PromoCeefax.Append("<p><span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("@@@@ ") + "</span><span>" + Utility.BlockGraph(",,,,,% "));
+        // PromoCeefax.Append("</span><span class=\"ink5\">" + Utility.BlockGraph("l|") + "</span><span class=\"paper5 ink6\">" + Utility.BlockGraph("  x|t   "));
+        // PromoCeefax.Append("</span><span class=\"ink3\">" + Utility.BlockGraph("  @? ") + "</span><span>" + Utility.BlockGraph("1$   ") + "</span><span class=\"ink3\">");
+        // PromoCeefax.AppendLine(Utility.BlockGraph("%j@") + "</span></p>");
+        // PromoCeefax.Append("<p><span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("//// ") + "</span><span class=\"ink1\">");
+        // PromoCeefax.AppendLine(Utility.BlockGraph("wwww@5 ") + "</span><span>" + Utility.BlockGraph(",$x@@@@@t0  ") + "</span><span class=\"ink1\">" + Utility.BlockGraph("/!        /") + "</span></p>");
+        // PromoCeefax.Append("<p><span class=\"ink2\">" + Utility.BlockGraph("\"£££££ ") + "</span><span class=\"ink1\">" + Utility.BlockGraph("/.../% ") + "</span><span>");
+        // PromoCeefax.AppendLine(Utility.BlockGraph("\"££££///'£") + "</span></p>");
 
         //LogoSunny[0] = "<span class=\"ink6\">" + Utility.BlockGraph("     j") + "</span>";
         //LogoSunny[1] = "<span class=\"ink6\">" + Utility.BlockGraph("  (0 h  8! 0") + "</span>";

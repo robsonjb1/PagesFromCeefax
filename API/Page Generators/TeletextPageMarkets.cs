@@ -1,7 +1,6 @@
 using System.Text;
 using API.Architecture;
 using API.Magazine;
-using HtmlAgilityPack;
 
 namespace API.PageGenerators;
 
@@ -12,89 +11,52 @@ public interface ITeletextPageMarkets
 
 public class TeletextPageMarkets : ITeletextPageMarkets
 {
-    private readonly ICeefaxContent _mc;
-    private readonly MarketData _md;
+    private readonly ICeefaxContent _cc;
+    private readonly IMarketData _md;
     
-    public TeletextPageMarkets(ICeefaxContent mc)
+    public TeletextPageMarkets(ICeefaxContent cc, IMarketData md)
     {
-        _mc = mc;
-        _md = GetMarketData();
+        _cc = cc;
+        _md = md;
     }
 
     #region Public Methods
 
-    private MarketData GetMarketData()
-    {
-        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == CeefaxSectionType.Markets).Feed).ContentString;
-        var doc = new HtmlDocument();
-        doc.LoadHtml(html);
-
-        MarketData md = new();
-        var markets = doc.DocumentNode.SelectNodes("//tr[@class='ssrcss-xw0taf-EntryRow eohkjht10']");
-
-        foreach (var market in markets)
-        {
-            string name = market.SelectSingleNode(".//div[@class='ssrcss-14tpdky-EntryName eohkjht9']")?.InnerText.Trim();
-            string movement = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[1]")?.InnerText.Trim();
-            string value = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]")?.InnerText.Trim();
-            if(market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]/span[1]") != null)
-            {
-                value = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]/span[1]")?.InnerText.Trim();
-            }
-
-				if (double.TryParse(value, out double n))
-				{
-					value = n.ToString("#,##0.00");
-				}
-
-            bool closed = market.SelectSingleNode(".//span[@class='ssrcss-12gx7m0-MarketStatus eohkjht1']")?.InnerText.Trim().ToUpper() == "CLOSED";
-            
-            if (name != null)
-            {
-                md.Markets.Add(new MarketRecord()
-                {
-                    Name = name,
-                    Movement = (movement.StartsWith("0") ? String.Concat("=", movement) : movement.Replace("−", "-")),
-                    Value = value.Replace("&euro;", "€"),
-                    Closed = closed
-                });
-            }
-        }
-
-        return md;
-    }
-
+   
     public StringBuilder CreateMarketsPage()
     {
         StringBuilder sb = new();
-        sb.Append(Graphics.HeaderMarkets);
+        if(_md.IsValid)             // Only construct the page if we have valid data
+        {
+            sb.Append(Graphics.HeaderMarkets);
 
-        sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">UK MARKETS</span></p>");
-        sb.Append(OutputMarket("FTSE 100"));
-        sb.Append(OutputMarket("FTSE 250"));
-        sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">=======================================</span></p>");
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">UK MARKETS</span></p>");
+            sb.Append(OutputMarket("FTSE 100"));
+            sb.Append(OutputMarket("FTSE 250"));
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">=======================================</span></p>");
 
-        sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">EUROPE MARKETS</span></p>");
-        sb.Append(OutputMarket("AEX"));
-        sb.Append(OutputMarket("DAX"));
-        sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">=======================================</span></p>");
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">EUROPE MARKETS</span></p>");
+            sb.Append(OutputMarket("AEX"));
+            sb.Append(OutputMarket("DAX"));
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">=======================================</span></p>");
 
-        sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">US MARKETS</span></p>");
-        sb.Append(OutputMarket("Dow Jones"));
-        sb.Append(OutputMarket("Nasdaq"));
-        sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">=======================================</span></p>");
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">US MARKETS</span></p>");
+            sb.Append(OutputMarket("Dow Jones"));
+            sb.Append(OutputMarket("Nasdaq"));
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">=======================================</span></p>");
 
-        sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">ASIA MARKETS</span></p>");
-        sb.Append(OutputMarket("Hang Seng"));
-        sb.Append(OutputMarket("Nikkei 225"));
-        sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">=======================================</span></p>");
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">ASIA MARKETS</span></p>");
+            sb.Append(OutputMarket("Hang Seng"));
+            sb.Append(OutputMarket("Nikkei 225"));
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">=======================================</span></p>");
 
-        sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">CURRENCIES</span></p>");
-        sb.Append(OutputCurrency("EUR"));
-        sb.Append(OutputCurrency("USD"));
+            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">CURRENCIES</span></p>");
+            sb.Append(OutputCurrency("EUR"));
+            sb.Append(OutputCurrency("USD"));
 
-        // Display footer
-        Utility.FooterText(sb, _mc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
+            // Display footer
+            Utility.FooterText(sb, _cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
+        }
 
         return sb;
     }

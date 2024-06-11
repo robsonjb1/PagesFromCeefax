@@ -1,20 +1,22 @@
-﻿using System.ServiceModel.Syndication;
+﻿using System.IO.Compression;
+using System.ServiceModel.Syndication;
 using System.Xml;
 using API.Architecture;
+using API.DataTransferObjects;
 
 namespace API.Magazine;
 
 public interface ICeefaxContent
 {
     public List<NewsStory> StoryList { get; set; }
-    public List<CachedUri> UrlCache { get; set; }
+    public List<CachedUri> UriCache { get; set; }
     public List<CeefaxSection> Sections { get; set; }
 }
 
 public class CeefaxContent : ICeefaxContent
 {
     public List<NewsStory> StoryList { get; set; } = new();
-    public List<CachedUri> UrlCache { get; set; } = new();
+    public List<CachedUri> UriCache { get; set; } = new();
     public List<CeefaxSection> Sections { get; set; } = new();
 
     private readonly ISystemConfig _config;
@@ -38,49 +40,48 @@ public class CeefaxContent : ICeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Golf, new Uri("http://feeds.bbci.co.uk/sport/golf/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Formula1, new Uri("http://feeds.bbci.co.uk/sport/formula1/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Entertainment, new Uri("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherForecast, new Uri("https://www.bbc.co.uk/weather")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Weather, new Uri("https://www.bbc.co.uk/weather")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.bbc.co.uk/news/business/market-data")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.SharesRising, new Uri("https://www.hl.co.uk/shares/stock-market-summary/ftse-100/risers")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.SharesFalling, new Uri("https://www.hl.co.uk/shares/stock-market-summary/ftse-100/fallers")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC1, new Uri("https://www.bbc.co.uk/schedules/p00fzl6x")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));
-                  
-        AddWeatherTempSection(CeefaxSectionType.WeatherTempLondon, "London");
-        AddWeatherTempSection(CeefaxSectionType.WeatherTempBelfast, "Belfast");
-        AddWeatherTempSection(CeefaxSectionType.WeatherTempCardiff, "Cardiff");
-        AddWeatherTempSection(CeefaxSectionType.WeatherTempEdinburgh, "Edinburgh");
-        AddWeatherTempSection(CeefaxSectionType.WeatherTempLerwick, "Lerwick");
-        AddWeatherTempSection(CeefaxSectionType.WeatherTempManchester, "Manchester");
-        AddWeatherTempSection(CeefaxSectionType.WeatherTempTruro, "Truro");
-
+        
         // Add each section's feed URL to URL cache
-        Sections.ForEach(z => UrlCache.Add(new CachedUri(z.Feed)));
+        Sections.ForEach(z => UriCache.Add(new CachedUri(z.Feed)));
 
+        // Add the weather API requests to the URL cache
+        SystemConfig.WeatherCities.ForEach(c => AddWeatherAPIUriToCache(c));
+        
         // Process the URL cache (first time)
-        ProcessUrlCache().Wait();
+        ProcessUriCache().Wait();
 
         // Process feeds to determine which full text stories to display
         Sections.FindAll(z => z.TotalStories > 0).ForEach(z => ProcessRSSFeed(z));
         
         // Process the URL cache (second time, now all story URL's are in)
-        ProcessUrlCache().Wait();
+        ProcessUriCache().Wait();
 
         // Parse all stories
-        StoryList.ForEach(z => z.AddBody(UrlCache.Find(l => l.Location == z.Link).ContentString));
+        StoryList.ForEach(z => z.AddBody(UriCache.Find(l => l.Location == z.Link).ContentString));
     }
 
-    private void AddWeatherTempSection(CeefaxSectionType section, string city)
+    private void AddWeatherAPIUriToCache(string city)
     {
-        Sections.Add(new CeefaxSection(section, new Uri($"https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={_config.OpenWeatherApiKey}")));
+        UriCache.Add(new CachedUri(
+            new Uri($"https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={_config.OpenWeatherApiKey}"),
+            city));
     }
 
-    private async Task ProcessUrlCache()
+    private async Task ProcessUriCache()
     {
         try
         {
             var client = new HttpClient();
             var results = new List<CachedUri>();
 
-            var requests = UrlCache
+            var requests = UriCache
                 .FindAll(l => l.ContentString == null)
                 .Select(z => FetchPageAsync(z.Location!))
                 .ToList();
@@ -92,7 +93,7 @@ public class CeefaxContent : ICeefaxContent
             foreach (var (location, httpResponse) in responses)
             {
                 // Extract the message body and update the Url cache
-                var item = UrlCache.Find(l => l.Location == location);
+                var item = UriCache.Find(l => l.Location == location);
                 if (item is not null)
                 {
                     item.ContentString = await httpResponse.Content.ReadAsStringAsync();
@@ -107,7 +108,7 @@ public class CeefaxContent : ICeefaxContent
 
     private void ProcessRSSFeed(CeefaxSection section)
     {
-        TextReader tr = new StringReader(UrlCache.Find(l => l.Location == section.Feed).ContentString);
+        TextReader tr = new StringReader(UriCache.Find(l => l.Location == section.Feed).ContentString);
         SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
 
         int storyCount = 0;
@@ -119,7 +120,7 @@ public class CeefaxContent : ICeefaxContent
                 StoryList.Add(new NewsStory(section.Name, item.Title.Text.Trim() + ".", item.Links[0].Uri));
 
                 // Add story link to the URL cache to be retrieved later
-                UrlCache.Add(new CachedUri(item.Links[0].Uri));
+                UriCache.Add(new CachedUri(item.Links[0].Uri));
             
                 storyCount++;
             }

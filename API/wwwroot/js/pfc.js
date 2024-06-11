@@ -49,14 +49,12 @@
             $('#clock').text(('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2) + '/' + ('0' + now.getSeconds()).slice(-2));
 
             // Do we need to refresh the magazine ? (takes place every 30 minutes)
-
             if (now - magazineRequestTime > (30 * 60 * 1000)) {
                 magazineRequestTime = now;
                 lastPageRefresh = now;
                 transitionSecond = -1; // do not do a regular refresh until the new carousel is loaded
               
                 // Switch back to loading page
-
                 $('#page' + previousPage).hide();
                 previousPage = 0;
                 $('#magazineLoading').slideDown(300);
@@ -69,7 +67,6 @@
             }
 
             // Change page if we've hit the transition second, or it has been at least a minute since the last refresh
-
             if (currentSeconds == transitionSecond || (now - lastPageRefresh > 60 * 1000)) {
                 // Turn off the ticker
                 pageTicking = false;
@@ -105,7 +102,6 @@
     }
 
     // Page initialisation
-
     $(window).load(function () {
         // Default control values
         $('#page').attr('class', 'view');
@@ -121,7 +117,6 @@
 
         // Start clock and transition timer
         timer();
-
     });
 
     function getNewCarousel() {
@@ -129,7 +124,6 @@
         magazineRequestTime = new Date();
         $('#magazineContent').load("/carousel", function () {
             var magazineReceiveTime = new Date();
-
             var actualWait = (magazineReceiveTime - magazineRequestTime) / 1000;
             if (actualWait >= loadingPageDuration) {
                 // More than 15 seconds have passed, so move to the first page straight away
@@ -142,6 +136,14 @@
 
             // We now know how many pages are in the carousel
             pagesInCarousel = $('#totalPages').html();
+
+            // If any data object could not be initialised, sections will be missing so display the red page indicator
+            isValid = $('#isValid').html();
+            if(isValid === "False")
+            {
+                $('#selectedPage').removeClass("ink7");
+                $('#selectedPage').addClass("ink2");
+            }
         });
     }
 
@@ -151,21 +153,30 @@
 var musicOn = false;
 
 function toggleMusic() {
+    var now = new Date();
+
+    var minutes = now.getMinutes();
+    var hours = now.getHours();
+    var seconds = now.getSeconds();
+    var month = now.getMonth();
+
+    // Select track and position
+    var track = 0;
+    position = ((hours * 60 * 60) + (minutes * 60) + seconds) % (3 * 60 * 60);      // Full track is 3 hours long
+
+    if (month == 11) { // December Christmas
+        track = 1;
+        position = ((hours * 60 * 60) + (minutes * 60) + seconds) % (1 * 60 * 60);  // Full track is 1 hour long
+    }
+
     if (!musicOn) {
-        var now = new Date();
-
-        var minutes = now.getMinutes();
-        var hours = now.getHours();
-        var seconds = now.getSeconds();
-
-        position = ((hours * 60 * 60) + (minutes * 60) + seconds) % (3 * 60 * 60);
-        $('audio')[0].play();
-        $('audio')[0].currentTime = position;
+        $('audio')[track].play();
+        $('audio')[track].currentTime = position;
         $('#imgPlay').attr("style", "display:none");
         $('#imgPause').attr("style", "display:inline");
     }
     else {
-        $('audio')[0].pause();
+        $('audio')[track].pause();
         $('#imgPlay').attr("style", "display:inline");
         $('#imgPause').attr("style", "display:none");
     }

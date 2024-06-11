@@ -7,24 +7,24 @@ using HtmlAgilityPack;
 
 namespace API.PageGenerators;
 
-public interface ITeletextPageSchedule
+public interface ITeletextPageTV
 {
     public List<StringBuilder> CreateSchedule(CeefaxSectionType sectionName);
 }
 
-public class TeletextPageSchedule : ITeletextPageSchedule
+public class TeletextPageTV : ITeletextPageTV
 {
-    private readonly ICeefaxContent _mc;
+    private readonly ICeefaxContent _cc;
 
-    public TeletextPageSchedule(ICeefaxContent mc)
+    public TeletextPageTV(ICeefaxContent cc)
     {
-        _mc = mc;
+        _cc = cc;
     }
 
     #region Public Methods
     public List<StringBuilder> CreateSchedule(CeefaxSectionType sectionName)
     {
-        CeefaxSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
+        CeefaxSection section = _cc.Sections.Find(z => z.Name == sectionName)!;
 
         // Create a two page schedule for each channel
         StringBuilder page1 = new();
@@ -73,7 +73,7 @@ public class TeletextPageSchedule : ITeletextPageSchedule
                 break;
         }
 
-        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == section.Name).Feed).ContentString;
+        string html = _cc.UriCache.First(l => l.Location == _cc.Sections.First(z => z.Name == section.Name).Feed).ContentString;
         var doc = new HtmlDocument();
         doc.LoadHtml(html);
 
@@ -152,14 +152,13 @@ public class TeletextPageSchedule : ITeletextPageSchedule
         // Ensure we pad any remaining lines until we get to the footer position
         Utility.PadLines(sb, 18-lineCount);
         
-        // Display footer
-        Utility.FooterText(sb, section);
+        // Display either the standard or bespoke footer (only valid for last page, where we specifically match on the previous page end time)
+        Utility.FooterText(sb, section, exactMatch);
         
         // Only now do we now the true timespan. The end time shown is from the show that couldn't fit on this page.
         pageSb.Append(sb.Replace("{TimeSpan}", $"{FormatDisplayTime(actualStartTime)}-{FormatDisplayTime(time)}"));
         return Convert.ToInt32($"{FormatDisplayTime(time)}");
     }
-
     
     #endregion
 }

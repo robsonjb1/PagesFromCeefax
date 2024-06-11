@@ -14,22 +14,22 @@ public interface ITeletextPageNews
 
 public class TeletextPageNews : ITeletextPageNews
 {
-    private readonly ICeefaxContent _mc;
+    private readonly ICeefaxContent _cc;
 
-    public TeletextPageNews(ICeefaxContent mc)
+    public TeletextPageNews(ICeefaxContent cc)
     {
-        _mc = mc;
+        _cc = cc;
     }
 
     #region Public Methods
     public List<StringBuilder> CreateNewsPage(CeefaxSectionType sectionName)
     {
-        CeefaxSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
+        CeefaxSection section = _cc.Sections.Find(z => z.Name == sectionName)!;
         List<StringBuilder> content = new();
 
         // Loop through each story and generate a news page
         int storyCount = 1;
-        foreach (NewsStory story in _mc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body.Count > 0))
+        foreach (NewsStory story in _cc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body.Count > 0))
         {
             content.Add(CreateNewsPage(section, story,
             isLastStory: storyCount == section.TotalStories));
@@ -46,10 +46,10 @@ public class TeletextPageNews : ITeletextPageNews
 
     public StringBuilder CreateNewsInBrief(CeefaxSectionType sectionName)
     {
-        CeefaxSection section = _mc.Sections.Find(z => z.Name == sectionName)!;
+        CeefaxSection section = _cc.Sections.Find(z => z.Name == sectionName)!;
         StringBuilder sb = new();
 
-        TextReader tr = new StringReader(_mc.UrlCache.Find(l => l.Location == _mc.Sections.Find(z => z.Name == sectionName)!.Feed)!.ContentString!);
+        TextReader tr = new StringReader(_cc.UriCache.Find(l => l.Location == _cc.Sections.Find(z => z.Name == sectionName)!.Feed)!.ContentString!);
         SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
 
         sb.Append(section.Header);
@@ -58,7 +58,7 @@ public class TeletextPageNews : ITeletextPageNews
         int rows = 0;
         foreach (SyndicationItem item in feed.Items)
         {
-            if (!_mc.StoryList.Exists(z => z.Link == item.Links[0].Uri)
+            if (!_cc.StoryList.Exists(z => z.Link == item.Links[0].Uri)
                 && !item.Title.Text.Contains("VIDEO:", StringComparison.CurrentCulture)
                 && item.Summary is not null)
             {
@@ -87,7 +87,7 @@ public class TeletextPageNews : ITeletextPageNews
                     
                     // Add this to the global list of stories, it will never have summary content because the feed URL is
                     // never visited - but it will stop other news in brief sections picking up the same article
-                    _mc.StoryList.Add(new NewsStory(sectionName, "NEWS IN BRIEF - DO NOT DISPLAY", item.Links[0].Uri));
+                    _cc.StoryList.Add(new NewsStory(sectionName, "NEWS IN BRIEF - DO NOT DISPLAY", item.Links[0].Uri));
                 }
             }
         }

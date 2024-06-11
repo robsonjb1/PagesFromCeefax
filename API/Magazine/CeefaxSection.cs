@@ -32,7 +32,11 @@ public class CeefaxSection
             case CeefaxSectionType.TVScheduleBBC1:
             case CeefaxSectionType.TVScheduleBBC2:
             case CeefaxSectionType.TVScheduleBBC4:
-            case CeefaxSectionType.WeatherForecast:
+            case CeefaxSectionType.Weather:
+            case CeefaxSectionType.WeatherForecast1:
+            case CeefaxSectionType.WeatherForecast2:
+            case CeefaxSectionType.WeatherForecast3:
+            case CeefaxSectionType.WeatherWorld:
                 this.HeadingCol = Mode7Colour.Yellow;
                 this.PromoPaper = Mode7Colour.Blue;
                 this.PromoInk = Mode7Colour.Yellow;
@@ -40,6 +44,9 @@ public class CeefaxSection
 
             case CeefaxSectionType.Business:
             case CeefaxSectionType.Markets:
+            case CeefaxSectionType.Shares:
+            case CeefaxSectionType.SharesRising:
+            case CeefaxSectionType.SharesFalling:
                 this.HeadingCol = Mode7Colour.Yellow;
                 this.PromoPaper = Mode7Colour.Red;
                 this.PromoInk = Mode7Colour.White;
@@ -80,14 +87,14 @@ public class CeefaxSection
                 break;
 
             case CeefaxSectionType.Markets:
-            case CeefaxSectionType.WeatherForecast:
-            case CeefaxSectionType.WeatherTempBelfast:
-            case CeefaxSectionType.WeatherTempCardiff:
-            case CeefaxSectionType.WeatherTempEdinburgh:
-            case CeefaxSectionType.WeatherTempLerwick:
-            case CeefaxSectionType.WeatherTempLondon:
-            case CeefaxSectionType.WeatherTempManchester:
-            case CeefaxSectionType.WeatherTempTruro:
+            case CeefaxSectionType.Shares:
+            case CeefaxSectionType.SharesRising:
+            case CeefaxSectionType.SharesFalling:
+            case CeefaxSectionType.Weather:
+            case CeefaxSectionType.WeatherForecast1:
+            case CeefaxSectionType.WeatherForecast2:
+            case CeefaxSectionType.WeatherForecast3:
+            case CeefaxSectionType.WeatherWorld:
             case CeefaxSectionType.TVScheduleBBC1:
             case CeefaxSectionType.TVScheduleBBC2:
             case CeefaxSectionType.TVScheduleBBC4:
@@ -98,7 +105,6 @@ public class CeefaxSection
                 this.TotalStories = 2;
                 break;
         }
-
 
         // Initialise header banner and promo footer text
         switch (Name)
@@ -152,6 +158,10 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Formula1:
                 this.Header = Graphics.HeaderFormula1;
+                break;
+            case CeefaxSectionType.TVScheduleBBC4:
+                this.Header = Graphics.HeaderGolf;
+                this.PromoFooter = "Entertainment news coming up next >>";
                 break;
             case CeefaxSectionType.Entertainment:
                 this.Header = Graphics.HeaderEntertainment;

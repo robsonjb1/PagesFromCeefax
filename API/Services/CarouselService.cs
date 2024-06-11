@@ -7,28 +7,29 @@ namespace API.Services;
 
 public interface ICarouselService
 {
-    public string GetCarousel();
+    public string GetCarousel(bool errorsDetected);
 }
 
 public class CarouselService : ICarouselService
 {
-    public int MaxPages { get; set; } = 0;
-    private readonly StringBuilder DisplayHtml = new();
+    private int _totalPages { get; set; } = 0;
+    private readonly StringBuilder _displayHtml = new();
+    private ITeletextPageWeather _tw;
+    private ITeletextPageNews _tn;
+    private ITeletextPageMarkets _tm;
+    private ITeletextPageShares _ts;
+    private ITeletextPageTV _tt;
    
-    public ITeletextPageWeather _tw;
-    public ITeletextPageNews _tn;
-    public ITeletextPageMarkets _tm;
-    public ITeletextPageSchedule _ts;
-   
-    public CarouselService(ITeletextPageNews tn, ITeletextPageWeather tw, ITeletextPageMarkets tm, ITeletextPageSchedule ts)
+    public CarouselService(ITeletextPageNews tn, ITeletextPageWeather tw, ITeletextPageMarkets tm, ITeletextPageShares ts, ITeletextPageTV tt)
     {
         _tw = tw;
         _tn = tn;
         _tm = tm;
         _ts = ts;
+        _tt = tt;
     }
 
-    public string GetCarousel()
+    public string GetCarousel(bool isValid)
     {
         try
         {
@@ -43,8 +44,11 @@ public class CarouselService : ICarouselService
             BuildTeletextPage(_tn.CreateNewsPage(CeefaxSectionType.Science));
             BuildTeletextPage(_tn.CreateNewsPage(CeefaxSectionType.Technology));
             BuildTeletextPage(_tn.CreateNewsPage(CeefaxSectionType.Sussex));
+
+            // Business section
             BuildTeletextPage(_tn.CreateNewsPage(CeefaxSectionType.Business));
             BuildTeletextPage(_tm.CreateMarketsPage());
+            BuildTeletextPage(_ts.CreateSharesPage());
 
             // Sports section
             BuildTeletextPage(Graphics.PromoSport);
@@ -58,47 +62,55 @@ public class CarouselService : ICarouselService
             // Weather section
             BuildTeletextPage(Graphics.PromoWeather);
             BuildTeletextPage(_tw.CreateWeatherMap());
-            BuildTeletextPage(_tw.CreateWeatherPage(WeatherSubPage.Today));
-            BuildTeletextPage(_tw.CreateWeatherPage(WeatherSubPage.Tomorrow));
-            BuildTeletextPage(_tw.CreateWeatherPage(WeatherSubPage.Outlook));
-
+            BuildTeletextPage(_tw.CreateWeatherPage(CeefaxSectionType.WeatherForecast1));
+            BuildTeletextPage(_tw.CreateWeatherPage(CeefaxSectionType.WeatherForecast2));
+            BuildTeletextPage(_tw.CreateWeatherPage(CeefaxSectionType.WeatherForecast3));
+            BuildTeletextPage(_tw.CreateWeatherWorld());
+            
             // Entertainment section
             BuildTeletextPage(Graphics.PromoTV);
-            BuildTeletextPage(_ts.CreateSchedule(CeefaxSectionType.TVScheduleBBC1));
-            BuildTeletextPage(_ts.CreateSchedule(CeefaxSectionType.TVScheduleBBC2));
-            BuildTeletextPage(_ts.CreateSchedule(CeefaxSectionType.TVScheduleBBC4));
+            BuildTeletextPage(_tt.CreateSchedule(CeefaxSectionType.TVScheduleBBC1));
+            BuildTeletextPage(_tt.CreateSchedule(CeefaxSectionType.TVScheduleBBC2));
+            BuildTeletextPage(_tt.CreateSchedule(CeefaxSectionType.TVScheduleBBC4));
             BuildTeletextPage(_tn.CreateNewsPage(CeefaxSectionType.Entertainment));
 
             // Close
             BuildTeletextPage(Graphics.PromoLinks);
+            if(DateTime.Now.Month == 12) {
+                BuildTeletextPage(Graphics.PromoChristmas);
+            }
 
             // Insert stats
-            DisplayHtml.AppendLine("<!-- The service started on: {PFC_SERVICESTART} and has built a total of {PFC_TOTALCAROUSELS} carousel(s). -->");
-            DisplayHtml.AppendLine("<!-- The service has served {PFC_TOTALREQUESTS} request(s) since starting. -->");
-            DisplayHtml.AppendLine("<!-- The latest carousel is: {PFC_TIMESTAMP} taking {PFC_BUILDTIME}ms to build. -->");
+            _displayHtml.AppendLine("<!-- The service started on: {PFC_SERVICESTART} and has built a total of {PFC_TOTALCAROUSELS} carousel(s). -->");
+            _displayHtml.AppendLine("<!-- The service has served {PFC_TOTALREQUESTS} request(s) since starting. -->");
+            _displayHtml.AppendLine("<!-- The latest carousel is: {PFC_TIMESTAMP} taking {PFC_BUILDTIME}ms to build. -->");
             
             // The number of total pages is required javascript page cycler
-            DisplayHtml.AppendLine($"<div id='totalPages' style='display:none'>{MaxPages}</div>");
+            _displayHtml.AppendLine($"<div id='totalPages' style='display:none'>{_totalPages}</div>");
+            _displayHtml.AppendLine($"<div id='isValid' style='display:none'>{isValid}</div>");
         }
         catch(Exception ex) 
         {
             Log.Fatal($"CAROUSEL BUILD ERROR {ex.Message} {ex.InnerException} {ex.Source} {ex.StackTrace}");
             Log.CloseAndFlush();
         }
-        return DisplayHtml.ToString();
+        return _displayHtml.ToString();
     }
 
     #region Private Methods
     private void BuildTeletextPage(StringBuilder newPage)
     {
-        MaxPages++;
+        if(newPage.Length > 0)    // The page will not render if it's data object could not be created
+        {
+            _totalPages++;
 
-        // Generate the <div> enclosure that contains the individual page
-        DisplayHtml.AppendLine($"<div id=\"page{MaxPages}\" style=\"display:none\">");
-        DisplayHtml.Append(newPage);
+            // Generate the <div> enclosure that contains the individual page
+            _displayHtml.AppendLine($"<div id=\"page{_totalPages}\" style=\"display:none\">");
+            _displayHtml.Append(newPage);
 
-        DisplayHtml.Append("<div class=\"pageBreak\"><br><br><br></div>");
-        DisplayHtml.Append("</div>");
+            _displayHtml.Append("<div class=\"pageBreak\"><br><br><br></div>");
+            _displayHtml.Append("</div>");
+        }
     }
 
     private void BuildTeletextPage(List<StringBuilder> newPages)
@@ -107,4 +119,3 @@ public class CarouselService : ICarouselService
     }
     #endregion
 }
-

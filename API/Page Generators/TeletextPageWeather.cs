@@ -1,83 +1,40 @@
-﻿using System.Diagnostics;
+﻿using System.IO.Compression;
 using System.Text;
-using System.Text.Json;
 using API.Architecture;
-using API.DataTransferObjects;
 using API.Magazine;
-using HtmlAgilityPack;
 
 namespace API.PageGenerators;
 
 public interface ITeletextPageWeather
 {
     public StringBuilder CreateWeatherMap();
-    public StringBuilder CreateWeatherPage(WeatherSubPage page);
+    public StringBuilder CreateWeatherPage(CeefaxSectionType page);
+    public StringBuilder CreateWeatherWorld();
 }
 
 public class TeletextPageWeather : ITeletextPageWeather
 {
-    private readonly WeatherData _wd;
-    private readonly ICeefaxContent _mc;
+    private readonly IWeatherData _wd;
+    private readonly ICeefaxContent _cc;
 
-    public TeletextPageWeather(ICeefaxContent mc)
+    public TeletextPageWeather(ICeefaxContent cc, IWeatherData wd)
     {
-        _mc = mc;
-
-        string html = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == CeefaxSectionType.WeatherForecast).Feed).ContentString;
-        var doc = new HtmlDocument();
-        doc.LoadHtml(html);
-
-        _wd = new()
-        {
-            TodayTitle = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[1]").InnerText,
-            TomorrowTitle = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[2]").InnerText,
-            OutlookTitle = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[3]").InnerText,
-
-            TodayText = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[1]/parent::p/following-sibling::p").InnerText,
-            TomorrowText = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[2]/parent::p/following-sibling::p").InnerText,
-            OutlookText = doc.DocumentNode.SelectSingleNode("(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[3]/parent::p/following-sibling::p").InnerText,
-
-            LastRefreshUTC = DateTime.UtcNow
-        };
-
-        try
-        {
-            _wd.Temperatures.Add("London", GetTempFromApiResponse(CeefaxSectionType.WeatherTempLondon));
-            _wd.Temperatures.Add("Cardiff", GetTempFromApiResponse(CeefaxSectionType.WeatherTempCardiff));
-            _wd.Temperatures.Add("Manchester", GetTempFromApiResponse(CeefaxSectionType.WeatherTempManchester));
-            _wd.Temperatures.Add("Edinburgh", GetTempFromApiResponse(CeefaxSectionType.WeatherTempEdinburgh));
-            _wd.Temperatures.Add("Belfast", GetTempFromApiResponse(CeefaxSectionType.WeatherTempBelfast));
-            _wd.Temperatures.Add("Lerwick", GetTempFromApiResponse(CeefaxSectionType.WeatherTempLerwick));
-            _wd.Temperatures.Add("Truro", GetTempFromApiResponse(CeefaxSectionType.WeatherTempTruro));
-        }
-        catch (OpenWeatherParseException ex)
-        {
-            if (Debugger.IsAttached)
-            {
-                throw;
-            }
-            else
-            {
-                // Silent fail. We will continue even if we have no spot temperatures.
-                // In this case, the weather map will not be shown.
-                Console.WriteLine($"{ex.Message} {ex.Source}");
-            }
-        }
+        _cc = cc;
+        _wd = wd;
     }
 
     #region Public Methods
     public StringBuilder CreateWeatherMap()
     {
-        CeefaxSection section = _mc.Sections.Find(z => z.Name == CeefaxSectionType.WeatherForecast);
         StringBuilder sb = new();
-
-        // Only create the map if we have temperatures for all locations
-        if (_wd.Temperatures.Count > 0)
+        if(_wd.IsValid)             // Only construct the page if we have valid data
         {
+            CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
+        
             sb.Append($"<p><span class=\"paper{(int)Mode7Colour.Blue} ink{(int)Mode7Colour.White}\">&nbsp;&nbsp;Data: BBC Weather Centre/Met Office&nbsp;&nbsp;</span></p>");
 
             string map = Graphics.PromoMap.ToString();
-            string summaryText = _wd.TodayText;
+            string summaryText = _wd.Forecasts[1].Body;
             if (summaryText.Contains('.'))
             {
                 summaryText = summaryText[..(summaryText.IndexOf(".") + 1)];
@@ -105,13 +62,13 @@ public class TeletextPageWeather : ITeletextPageWeather
             }
 
             // Insert temperatures
-            map = map.Replace("[AA]", FormatWeatherString(_wd.Temperatures["London"]))
-                .Replace("[BB]", FormatWeatherString(_wd.Temperatures["Cardiff"]))
-                .Replace("[CC]", FormatWeatherString(_wd.Temperatures["Manchester"]))
-                .Replace("[DD]", FormatWeatherString(_wd.Temperatures["Edinburgh"]))
-                .Replace("[EE]", FormatWeatherString(_wd.Temperatures["Belfast"]))
-                .Replace("[FF]", FormatWeatherString(_wd.Temperatures["Lerwick"]))
-                .Replace("[GG]", FormatWeatherString(_wd.Temperatures["Truro"]))
+            map = map.Replace("[AA]", FormatWeatherString(_wd.Temperatures["London"].CurrentTemp))
+                .Replace("[BB]", FormatWeatherString(_wd.Temperatures["Cardiff"].CurrentTemp))
+                .Replace("[CC]", FormatWeatherString(_wd.Temperatures["Manchester"].CurrentTemp))
+                .Replace("[DD]", FormatWeatherString(_wd.Temperatures["Edinburgh"].CurrentTemp))
+                .Replace("[EE]", FormatWeatherString(_wd.Temperatures["Belfast"].CurrentTemp))
+                .Replace("[FF]", FormatWeatherString(_wd.Temperatures["Lerwick"].CurrentTemp))
+                .Replace("[GG]", FormatWeatherString(_wd.Temperatures["Truro"].CurrentTemp))
                 .Replace("[TTT]", Utility.ConvertToUKTime(_wd.LastRefreshUTC).ToString("HH:mm"));
 
             sb.Append(map);
@@ -121,125 +78,155 @@ public class TeletextPageWeather : ITeletextPageWeather
         return sb;
     }
 
-    public StringBuilder CreateWeatherPage(WeatherSubPage page)
+    public StringBuilder CreateWeatherPage(CeefaxSectionType page)
     {
-        CeefaxSection section = _mc.Sections.Find(z => z.Name == CeefaxSectionType.WeatherForecast);
         StringBuilder sb = new();
-
-        string sectionTitle = String.Empty;
-        string sectionText = String.Empty;
-        int sectionPage = 0;
-
-        switch (page)
+        if(_wd.IsValid)             // Only construct the page if we have valid data
         {
-            case WeatherSubPage.Today:
-                sectionTitle = _wd.TodayTitle;
-                sectionText = _wd.TodayText;
-                sectionPage = 2;
-                break;
-            case WeatherSubPage.Tomorrow:
-                sectionTitle = _wd.TomorrowTitle;
-                sectionText = _wd.TomorrowText;
-                sectionPage = 3;
-                break;
-            case WeatherSubPage.Outlook:
-                sectionTitle = _wd.OutlookTitle;
-                sectionText = _wd.OutlookText;
-                sectionPage = 4;
-                break;
-            default:
-                break;
-        }
-
-        sectionTitle = sectionTitle.ToUpper() + string.Join("", Enumerable.Repeat("&nbsp;", 36 - sectionTitle.Length));
-
-        sb.Append(Graphics.HeaderWeather);
-        sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">{sectionTitle}</span><span class=\"ink{(int)Mode7Colour.White}\">{sectionPage}/4</p>");
-
-        // Break body text up into paragraphs
-        List<string> bodyLines = new();
-        foreach(string line in sectionText.Split(". "))
-        {
-            List<string> newChunk = Utility.ParseParagraph(line);
-
-            if (newChunk.Count > 0)
+            CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
+            
+            int forecastNo = 0;
+            switch (page)
             {
-                if (bodyLines.Count + newChunk.Count > 16)
-                {
+                case CeefaxSectionType.WeatherForecast1:
+                    forecastNo = 1;
                     break;
-                }
-                else
-                {
-                    if (bodyLines.Count > 0)
-                    {
-                        bodyLines.Add("");
-                    }
-                    bodyLines.AddRange(newChunk);
-                }
+                case CeefaxSectionType.WeatherForecast2:
+                    forecastNo = 2;
+                    break;
+                case CeefaxSectionType.WeatherForecast3:
+                    forecastNo = 3;
+                    break;
+                default:
+                    break;
             }
-        }
 
-        bool firstLine = true;
-        foreach (string line in bodyLines)
-        {
-            sb.AppendLine($"<p><span class=\"ink{(firstLine ? (int)Mode7Colour.White : (int)Mode7Colour.Cyan)} indent\">{line}</span></p>");
-            if (line == String.Empty)
+            string sectionTitle = _wd.Forecasts[forecastNo].Title.ToUpper() + string.Join("", Enumerable.Repeat("&nbsp;", 36 - _wd.Forecasts[forecastNo].Title.Length));
+            string sectionText = _wd.Forecasts[forecastNo].Body;
+
+            sb.Append(Graphics.HeaderWeather);
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">{sectionTitle}</span><span class=\"ink{(int)Mode7Colour.White}\">{forecastNo+1}/5</p>");
+
+            // Break body text up into paragraphs
+            List<string> bodyLines = new();
+            foreach(string line in sectionText.Split(". "))
             {
-                firstLine = false;
+                List<string> newChunk = Utility.ParseParagraph(line);
+
+                if (newChunk.Count > 0)
+                {
+                    if (bodyLines.Count + newChunk.Count > 16)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        if (bodyLines.Count > 0)
+                        {
+                            bodyLines.Add("");
+                        }
+                        bodyLines.AddRange(newChunk);
+                    }
+                }
             }
+
+            bool firstLine = true;
+            foreach (string line in bodyLines)
+            {
+                sb.AppendLine($"<p><span class=\"ink{(firstLine ? (int)Mode7Colour.White : (int)Mode7Colour.Cyan)} indent\">{line}</span></p>");
+                if (line == String.Empty)
+                {
+                    firstLine = false;
+                }
+            }
+
+            // Optionally display met office notice
+            int lastLine = 18;
+            if (bodyLines.Count <= 15)
+            {
+                lastLine = 15;
+            }
+
+            Utility.PadLines(sb, lastLine - bodyLines.Count);
+
+            if (lastLine == 15)
+            {
+                sb.AppendLine("<br>");
+                sb.Append($"<p><span class=\"ink{(int)Mode7Colour.Green}\">Data: BBC Weather Centre/Met Office</span></p>");
+                sb.AppendLine("<br>");
+            }
+
+            Utility.FooterText(sb, section);
         }
-
-        // Optionally display met office notice
-        int lastLine = 18;
-        if (bodyLines.Count <= 15)
-        {
-            lastLine = 15;
-        }
-
-        Utility.PadLines(sb, lastLine - bodyLines.Count);
-
-        if (lastLine == 15)
-        {
-            sb.AppendLine("<br>");
-            sb.Append($"<p><span class=\"ink{(int)Mode7Colour.Green}\">Data: BBC Weather Centre/Met Office</span></p>");
-            sb.AppendLine("<br>");
-        }
-
-        Utility.FooterText(sb, section);
-
         return sb;
     }
+
+    public StringBuilder CreateWeatherWorld()
+    {
+        StringBuilder sb = new();
+        if(_wd.IsValid)             // Only construct the page if we have valid data
+        {
+            CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
+
+            sb.Append(Graphics.HeaderWeather);
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">WORLD CITIES{string.Join("", Enumerable.Repeat("&nbsp;", 24))}</span><span class=\"ink{(int)Mode7Colour.White}\">5/5</p>");
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Green} indent\">{string.Join("", Enumerable.Repeat("&nbsp;", 15))}min max");
+            
+            OutputWorldCity(sb, "San Francisco", Mode7Colour.White);
+            OutputWorldCity(sb, "New York", Mode7Colour.Cyan);
+            OutputWorldCity(sb, "London", Mode7Colour.White);
+            OutputWorldCity(sb, "Manchester", Mode7Colour.Cyan);
+            OutputWorldCity(sb, "Edinburgh", Mode7Colour.White);
+            OutputWorldCity(sb, "Paris", Mode7Colour.Cyan);
+            OutputWorldCity(sb, "Madrid", Mode7Colour.White);
+            OutputWorldCity(sb, "Munich", Mode7Colour.Cyan);
+            OutputWorldCity(sb, "Krakow", Mode7Colour.White);
+            OutputWorldCity(sb, "Cape Town", Mode7Colour.Cyan);
+            OutputWorldCity(sb, "Chennai", Mode7Colour.White);
+            OutputWorldCity(sb, "Singapore", Mode7Colour.Cyan);
+            OutputWorldCity(sb, "Tokyo", Mode7Colour.White);
+            OutputWorldCity(sb, "Sydney", Mode7Colour.Cyan);
+            OutputWorldCity(sb, "Wellington", Mode7Colour.White);
+            
+            Utility.PadLines(sb, 2);
+            Utility.FooterText(sb, section);
+        }
+        return sb;
+    }
+
     #endregion
 
     #region Private Methods
-    private static string FormatWeatherString(int temperature)
+    private void OutputWorldCity(StringBuilder sb, string city, Mode7Colour colour)
+    {
+        // City name
+        sb.AppendLine($"<p><span class=\"ink{(int)colour} indent\">{city}{string.Join("", Enumerable.Repeat("&nbsp;", 13 - city.Length))}");
+        
+        // Max/min temperatures
+        sb.Append($"{FormatWeatherString(_wd.Temperatures[city].MinTemp, colour)}");
+        sb.AppendLine($"{FormatWeatherString(_wd.Temperatures[city].MaxTemp, colour)}");
+        
+        // Conditions
+        string description = _wd.Temperatures[city].Description;
+        description = description.Substring(0, 1).ToUpper() + description.Substring(1);         // Upper case first letter
+        description = description.Length > 16 ? description.Substring(0, 16) : description;     // Ensure 16 characters max
+        
+        sb.AppendLine(description);
+        sb.AppendLine("</span></p>");
+    }
+    private string FormatWeatherString(int temperature, Mode7Colour colour = Mode7Colour.White)
     {
         string str = temperature.ToString();
         if (temperature >= 0)
         {
-            str = $"<span class=\"ink{(int)Mode7Colour.White}\">&nbsp;" + ((str.Length == 1) ? "&nbsp;" : "") + str + "&nbsp;</span>";
+            str = $"<span class=\"ink{(int)colour}\">&nbsp;" + ((str.Length == 1) ? "&nbsp;" : "") + str + "&nbsp;</span>";
         }
         else
         {
-            str = $"<span class=\"ink{(int)Mode7Colour.White}\">" + ((str.Length == 2) ? "&nbsp;" : "") + str + "&nbsp;</span>";
+            str = $"<span class=\"ink{(int)colour}\">" + ((str.Length == 2) ? "&nbsp;" : "") + str + "&nbsp;</span>";
         }
 
         return str;
-    }
-
-    private int GetTempFromApiResponse(CeefaxSectionType section)
-    {
-        string json = String.Empty;
-        try
-        {
-            json = _mc.UrlCache.First(l => l.Location == _mc.Sections.First(z => z.Name == section).Feed).ContentString;
-            OpenWeather dto = JsonSerializer.Deserialize<OpenWeather>(json);
-            return Convert.ToInt32(dto.main.temp);
-        }
-        catch (Exception ex)
-        {
-            throw new OpenWeatherParseException(json, ex);
-        }
     }
     #endregion
 }

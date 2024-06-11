@@ -16,15 +16,15 @@ public enum CeefaxSectionType
     Formula1,
     Entertainment,
     Sussex,
-    WeatherForecast,
-    WeatherTempLondon,
-    WeatherTempBelfast,
-    WeatherTempCardiff,
-    WeatherTempManchester,
-    WeatherTempEdinburgh,
-    WeatherTempLerwick,
-    WeatherTempTruro,
+    Weather,
+    WeatherForecast1,
+    WeatherForecast2,
+    WeatherForecast3,
+    WeatherWorld,
     Markets,
+    Shares,
+    SharesRising,
+    SharesFalling,
     TVScheduleBBC1,
     TVScheduleBBC2,
     TVScheduleBBC4
@@ -39,11 +39,4 @@ public enum Mode7Colour
     Cyan = 5,
     Yellow = 6,
     White = 7
-}
-
-public enum WeatherSubPage
-{
-    Today,
-    Tomorrow,
-    Outlook
 }
