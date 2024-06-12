@@ -15,23 +15,26 @@ public interface ITeletextPageTV
 public class TeletextPageTV : ITeletextPageTV
 {
     private readonly ICeefaxContent _cc;
+    private readonly ITVListingData _ld;
 
-    public TeletextPageTV(ICeefaxContent cc)
+    public TeletextPageTV(ICeefaxContent cc, ITVListingData listings)
     {
         _cc = cc;
+        _ld = listings;
     }
 
     #region Public Methods
-    public List<StringBuilder> CreateSchedule(CeefaxSectionType sectionName)
+    public List<StringBuilder> CreateSchedule(CeefaxSectionType channel)
     {
-        CeefaxSection section = _cc.Sections.Find(z => z.Name == sectionName)!;
-
-        // Create a two page schedule for each channel
         StringBuilder page1 = new();
-        int endTime = CreateSinglePage(page1, section, 1800, false); // Find first show on or immediately after the start time
-
         StringBuilder page2 = new();
-        CreateSinglePage(page2, section, endTime, true); // Feed the end time from page 1 into the start time of page 2
+       
+        if(_ld.IsValid)             // Only construct the page if we have valid data
+        {
+            // Create a two page schedule for each channel
+            int endTime = CreateSinglePage(page1, channel, 1800, false); // Find first show on or immediately after the start time
+            CreateSinglePage(page2, channel, endTime, true); // Feed the end time from page 1 into the start time of page 2
+        }
 
         return new List<StringBuilder> {page1, page2};
     }
@@ -52,13 +55,14 @@ public class TeletextPageTV : ITeletextPageTV
             title.Contains("SOUTH EAST TODAY") || title.Contains("WEATHER");
     }
 
-    public int CreateSinglePage(StringBuilder pageSb, CeefaxSection section, int startTime, bool exactMatch)
+    public int CreateSinglePage(StringBuilder pageSb, CeefaxSectionType channel, int startTime, bool exactMatch)
     {
         StringBuilder sb = new();
+        CeefaxSection section = _cc.Sections.Find(z => z.Name == channel)!;
 
         // Create the appropriate channel header logo
         string ident = Graphics.HeaderTV.ToString();
-        switch(section.Name)
+        switch(channel)
         {
             case CeefaxSectionType.TVScheduleBBC1:
                 ident = ident.Replace("{ChannelTop}", Utility.BlockGraph("(@ ")).Replace("{ChannelBottom}", Utility.BlockGraph("_@0"));
@@ -73,47 +77,34 @@ public class TeletextPageTV : ITeletextPageTV
                 break;
         }
 
-        string html = _cc.UriCache.First(l => l.Location == _cc.Sections.First(z => z.Name == section.Name).Feed).ContentString;
-        var doc = new HtmlDocument();
-        doc.LoadHtml(html);
-
-        string day = doc.DocumentNode.SelectSingleNode("//time").InnerText.Trim();
-        day = day.Substring(0, day.IndexOf(" ")).ToUpper();
-        sb.Append(ident.Replace("{DayOfWeek}", string.Join("", Enumerable.Repeat("&nbsp;", 15 - day.Length)) + day));
-                   
-        var shows = doc.DocumentNode.SelectNodes("//div[@class='programme__body']");
+        ChannelSchedule schedule = _ld.Schedules.Find(z => z.Channel == channel);
+        
+        sb.Append(ident.Replace("{DayOfWeek}", string.Join("", Enumerable.Repeat("&nbsp;", 15 - schedule.Day.Length)) + schedule.Day));
         
         bool startListing = false;
         int lineCount = 0;
-        string time = "";
         string actualStartTime = "";        // The time of the first show found at or after the supplied time
+        string timeOfLastPageEntry = "";
 
-        foreach (var show in shows)
+        foreach (var show in schedule.Listings)
         {
-            time = show.SelectSingleNode(".//a/@aria-label").GetAttributeValue("aria-label", "").Trim();
-            // Example format = '1 Jun 11:30: Simply Nigella, Episode 6'
-            var temp = time.Split(' ')[2].Split(':');
-            time = temp[0] + ':' + temp[1];
-            
-            int comboTime = Convert.ToInt32(FormatDisplayTime(time));
+            int comboTime = Convert.ToInt32(FormatDisplayTime(show.StartTime));
             
             if(((!exactMatch && comboTime >= startTime) || (exactMatch && comboTime == startTime))
                 && actualStartTime == String.Empty)
             {
                 startListing = true;
-                actualStartTime = time;
+                actualStartTime = show.StartTime;
             }            
 
             if(startListing)
             {
-                string title = show.SelectSingleNode(".//span[contains(@class, 'programme__title')]")?.InnerText.Trim().ToUpper();
-                var titleLines = Utility.ParseParagraph(title, 34, 34, false);
-                
-                string body = show.SelectSingleNode(".//p[contains(@class, 'programme__synopsis')]/span")?.InnerText.Trim();
-                var bodyLines = Utility.ParseParagraph(body, 34, 34, false);
-        
+                var titleLines = Utility.ParseParagraph(show.Title, 34, 34, false);
+                var bodyLines = Utility.ParseParagraph(show.Description, 34, 34, false);
+                timeOfLastPageEntry = show.StartTime;
+
                 // Don't show a description for news or weather
-                if(OnlyShowHeadline(title))
+                if(OnlyShowHeadline(show.Title))
                 {
                     bodyLines = new List<string>();
                 }
@@ -127,7 +118,7 @@ public class TeletextPageTV : ITeletextPageTV
                 lineCount = lineCount + titleLines.Count + bodyLines.Count;
 
                 sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">");
-                sb.AppendLine($"{FormatDisplayTime(time)} </span><span class=\"ink{(int)Mode7Colour.White}\">{titleLines[0]}</span>");
+                sb.AppendLine($"{FormatDisplayTime(show.StartTime)} </span><span class=\"ink{(int)Mode7Colour.White}\">{titleLines[0]}</span>");
                 sb.AppendLine("</span></p>");
                 
                 // Output show title
@@ -156,8 +147,8 @@ public class TeletextPageTV : ITeletextPageTV
         Utility.FooterText(sb, section, exactMatch);
         
         // Only now do we now the true timespan. The end time shown is from the show that couldn't fit on this page.
-        pageSb.Append(sb.Replace("{TimeSpan}", $"{FormatDisplayTime(actualStartTime)}-{FormatDisplayTime(time)}"));
-        return Convert.ToInt32($"{FormatDisplayTime(time)}");
+        pageSb.Append(sb.Replace("{TimeSpan}", $"{FormatDisplayTime(actualStartTime)}-{FormatDisplayTime(timeOfLastPageEntry)}"));
+        return Convert.ToInt32($"{FormatDisplayTime(timeOfLastPageEntry)}");
     }
     
     #endregion

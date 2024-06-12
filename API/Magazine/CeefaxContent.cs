@@ -1,8 +1,6 @@
-﻿using System.IO.Compression;
-using System.ServiceModel.Syndication;
+﻿using System.ServiceModel.Syndication;
 using System.Xml;
 using API.Architecture;
-using API.DataTransferObjects;
 
 namespace API.Magazine;
 
@@ -42,8 +40,6 @@ public class CeefaxContent : ICeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Entertainment, new Uri("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Weather, new Uri("https://www.bbc.co.uk/weather")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.bbc.co.uk/news/business/market-data")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.SharesRising, new Uri("https://www.hl.co.uk/shares/stock-market-summary/ftse-100/risers")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.SharesFalling, new Uri("https://www.hl.co.uk/shares/stock-market-summary/ftse-100/fallers")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC1, new Uri("https://www.bbc.co.uk/schedules/p00fzl6x")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));

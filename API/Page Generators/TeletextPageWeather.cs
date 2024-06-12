@@ -170,7 +170,7 @@ public class TeletextPageWeather : ITeletextPageWeather
 
             sb.Append(Graphics.HeaderWeather);
             sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">WORLD CITIES{string.Join("", Enumerable.Repeat("&nbsp;", 24))}</span><span class=\"ink{(int)Mode7Colour.White}\">5/5</p>");
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Green} indent\">{string.Join("", Enumerable.Repeat("&nbsp;", 15))}min max");
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Green} indent\">{string.Join("", Enumerable.Repeat("&nbsp;", 15))}max min");
             
             OutputWorldCity(sb, "San Francisco", Mode7Colour.White);
             OutputWorldCity(sb, "New York", Mode7Colour.Cyan);
@@ -203,8 +203,8 @@ public class TeletextPageWeather : ITeletextPageWeather
         sb.AppendLine($"<p><span class=\"ink{(int)colour} indent\">{city}{string.Join("", Enumerable.Repeat("&nbsp;", 13 - city.Length))}");
         
         // Max/min temperatures
-        sb.Append($"{FormatWeatherString(_wd.Temperatures[city].MinTemp, colour)}");
-        sb.AppendLine($"{FormatWeatherString(_wd.Temperatures[city].MaxTemp, colour)}");
+        sb.Append($"{FormatWeatherString(_wd.Temperatures[city].MaxTemp, colour)}");
+        sb.AppendLine($"{FormatWeatherString(_wd.Temperatures[city].MinTemp, colour)}");
         
         // Conditions
         string description = _wd.Temperatures[city].Description;
