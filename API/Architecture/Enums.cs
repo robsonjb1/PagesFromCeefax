@@ -14,6 +14,7 @@ public enum CeefaxSectionType
     Tennis,
     Golf,
     Formula1,
+    Standings,
     Entertainment,
     Sussex,
     Weather,
@@ -22,9 +23,6 @@ public enum CeefaxSectionType
     WeatherForecast3,
     WeatherWorld,
     Markets,
-    Shares,
-    SharesRising,
-    SharesFalling,
     TVScheduleBBC1,
     TVScheduleBBC2,
     TVScheduleBBC4

@@ -18,12 +18,14 @@ public class CarouselService : ICarouselService
     private ITeletextPageNews _tn;
     private ITeletextPageMarkets _tm;
     private ITeletextPageTV _tt;
+    private ITeletextPageStanding _ts;
    
-    public CarouselService(ITeletextPageNews tn, ITeletextPageWeather tw, ITeletextPageMarkets tm, ITeletextPageTV tt)
+    public CarouselService(ITeletextPageNews tn, ITeletextPageMarkets tm, ITeletextPageStanding ts, ITeletextPageWeather tw, ITeletextPageTV tt)
     {
-        _tw = tw;
         _tn = tn;
         _tm = tm;
+        _ts = ts;
+        _tw = tw;
         _tt = tt;
     }
 
@@ -55,6 +57,7 @@ public class CarouselService : ICarouselService
             BuildTeletextPage(_tn.CreateNewsPage(CeefaxSectionType.Tennis));
             BuildTeletextPage(_tn.CreateNewsPage(CeefaxSectionType.Golf));
             BuildTeletextPage(_tn.CreateNewsPage(CeefaxSectionType.Formula1));
+            BuildTeletextPage(_ts.CreateStandingsPage());
 
             // Weather section
             BuildTeletextPage(Graphics.PromoWeather);

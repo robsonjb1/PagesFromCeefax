@@ -4,40 +4,41 @@ using Serilog;
 
 namespace API.Magazine;
 
-public record ShareRecord
+public record StandingRecord
 {
     public string Name { get; set; }
-    public double Price { get; set; }
-    public double Movement { get; set; }
+    public int Wins { get; set; }
+    public int Points { get; set; }
 }
 
-public interface IShareData
+public interface IStandingData
 {
-    public List<ShareRecord> Shares { get; set; }
+    public List<StandingRecord> Drivers { get; set; }
+    public List<StandingRecord> Teams { get; set; }
     public bool IsValid { get; set; }
 }
 
-public class ShareData : IShareData
+public class StandingsData : IStandingData
 {
-    public List<ShareRecord> Shares { get; set; } = new();
+    public List<StandingRecord> Drivers { get; set; } = new();
+    public List<StandingRecord> Teams { get; set; } = new();
     public bool IsValid { get; set; } = false;
 
     private readonly ICeefaxContent _cc;
 
-    public ShareData(ICeefaxContent cc)
+    public StandingsData(ICeefaxContent cc)
     {
         _cc = cc;
 
         try
         {
-            ParseSharePage(CeefaxSectionType.SharesRising);
-            ParseSharePage(CeefaxSectionType.SharesFalling);
-
+            ParseSharePage(CeefaxSectionType.Standings);
+            
             IsValid = true;
         }
-        catch (OpenWeatherParseException ex)
+        catch (Exception ex)
         {
-            Log.Fatal($"SHAREDATA BUILD ERROR {ex.Message} {ex.InnerException} {ex.Source} {ex.StackTrace}");
+            Log.Fatal($"STANDINGDATA BUILD ERROR {ex.Message} {ex.InnerException} {ex.Source} {ex.StackTrace}");
             Log.CloseAndFlush();
         }
     }

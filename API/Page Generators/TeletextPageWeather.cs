@@ -170,7 +170,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
 
             sb.Append(Graphics.HeaderWeather);
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">WORLD CITIES (US/EUROPE/ROW){string.Join("", Enumerable.Repeat("&nbsp;", 8))}</span><span class=\"ink{(int)Mode7Colour.White}\">5/5</p>");
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">WORLD CITIES (US/EUROPE/WORLD){string.Join("", Enumerable.Repeat("&nbsp;", 6))}</span><span class=\"ink{(int)Mode7Colour.White}\">5/5</p>");
             sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Green} indent\">{string.Join("", Enumerable.Repeat("&nbsp;", 15))}max min");
             
             OutputWorldCity(sb, "San Francisco", Mode7Colour.White);
@@ -192,7 +192,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             OutputWorldCity(sb, "Sydney", Mode7Colour.White);
             OutputWorldCity(sb, "Wellington", Mode7Colour.Cyan);
             
-            Utility.PadLines(sb, 2);
+            sb.AppendLine("<br>");
             Utility.FooterText(sb, section);
         }
         return sb;

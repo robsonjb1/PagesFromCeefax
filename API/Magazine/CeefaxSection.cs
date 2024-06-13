@@ -44,9 +44,6 @@ public class CeefaxSection
 
             case CeefaxSectionType.Business:
             case CeefaxSectionType.Markets:
-            case CeefaxSectionType.Shares:
-            case CeefaxSectionType.SharesRising:
-            case CeefaxSectionType.SharesFalling:
                 this.HeadingCol = Mode7Colour.Yellow;
                 this.PromoPaper = Mode7Colour.Red;
                 this.PromoInk = Mode7Colour.White;
@@ -58,6 +55,7 @@ public class CeefaxSection
             case CeefaxSectionType.Tennis:
             case CeefaxSectionType.Golf:
             case CeefaxSectionType.Formula1:
+            case CeefaxSectionType.Standings:
                 this.HeadingCol = Mode7Colour.Green;
                 this.PromoPaper = Mode7Colour.Blue;
                 this.PromoInk = Mode7Colour.Yellow;
@@ -87,9 +85,7 @@ public class CeefaxSection
                 break;
 
             case CeefaxSectionType.Markets:
-            case CeefaxSectionType.Shares:
-            case CeefaxSectionType.SharesRising:
-            case CeefaxSectionType.SharesFalling:
+            case CeefaxSectionType.Standings:
             case CeefaxSectionType.Weather:
             case CeefaxSectionType.WeatherForecast1:
             case CeefaxSectionType.WeatherForecast2:
