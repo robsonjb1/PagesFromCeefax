@@ -42,7 +42,7 @@ public class WeatherData : IWeatherData
             var doc = new HtmlDocument();
             doc.LoadHtml(html);
 
-            for(int i=1; i<=3; i++) { AddForecast(doc, i); }
+            for(int i=0; i<=3; i++) { AddForecast(doc, i); }
             
             LastRefreshUTC = DateTime.UtcNow;
             SystemConfig.WeatherCities.ForEach(z => Temperatures.Add(z, GetTempFromApiResponse(cc, z)));
@@ -59,8 +59,8 @@ public class WeatherData : IWeatherData
     private void AddForecast(HtmlDocument doc, int forecastNo)
     {
         Forecasts[forecastNo] = new Forecast() {
-            Title = doc.DocumentNode.SelectSingleNode($"(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[{forecastNo}]").InnerText,
-            Body = doc.DocumentNode.SelectSingleNode($"(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[{forecastNo}]/parent::p/following-sibling::p").InnerText
+            Title = doc.DocumentNode.SelectSingleNode($"(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[{forecastNo+1}]")?.InnerText,
+            Body = doc.DocumentNode.SelectSingleNode($"(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[{forecastNo+1}]/parent::p/following-sibling::p")?.InnerText
         };
     }
 

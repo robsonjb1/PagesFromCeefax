@@ -34,7 +34,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             sb.Append($"<p><span class=\"paper{(int)Mode7Colour.Blue} ink{(int)Mode7Colour.White}\">&nbsp;&nbsp;Data: BBC Weather Centre/Met Office&nbsp;&nbsp;</span></p>");
 
             string map = Graphics.PromoMap.ToString();
-            string summaryText = _wd.Forecasts[1].Body;
+            string summaryText = _wd.Forecasts[0].Body;
             if (summaryText.Contains('.'))
             {
                 summaryText = summaryText[..(summaryText.IndexOf(".") + 1)];
@@ -86,16 +86,17 @@ public class TeletextPageWeather : ITeletextPageWeather
             CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
             
             int forecastNo = 0;
+            int offset = _wd.Forecasts[3].Body != null ? 1 : 0; // Show the last three forecasts
             switch (page)
             {
                 case CeefaxSectionType.WeatherForecast1:
-                    forecastNo = 1;
+                    forecastNo = 0 + offset;
                     break;
                 case CeefaxSectionType.WeatherForecast2:
-                    forecastNo = 2;
+                    forecastNo = 1 + offset;
                     break;
                 case CeefaxSectionType.WeatherForecast3:
-                    forecastNo = 3;
+                    forecastNo = 2 + offset;
                     break;
                 default:
                     break;
