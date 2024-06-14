@@ -72,7 +72,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         {
             sb.Append($"<p><span class=\"indent ink{(int)Mode7Colour.White}\">");
             sb.Append(mr.Name.PadHtmlLeft(14));
-            sb.Append(mr.Value.PadHtmlLeft(9));
+            sb.Append(mr.Value.PadHtmlRight(9));
             if (mr.Movement.StartsWith('-'))
             {
                 sb.Append($"<span class=\"ink{(int)Mode7Colour.Red}\">");
