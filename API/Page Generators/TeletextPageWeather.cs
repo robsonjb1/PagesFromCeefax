@@ -105,7 +105,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             string sectionText = _wd.Forecasts[forecastNo].Body;
 
             sb.Append(Graphics.HeaderWeather);
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">{sectionTitle}</span><span class=\"ink{(int)Mode7Colour.White}\">{forecastNo+1}/5</p>");
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">{sectionTitle}</span><span class=\"ink{(int)Mode7Colour.White}\">{forecastNo+2-offset}/5</p>");
 
             // Break body text up into paragraphs
             List<string> bodyLines = new();
@@ -218,7 +218,7 @@ public class TeletextPageWeather : ITeletextPageWeather
         sb.AppendLine(description);
         sb.AppendLine("</span></p>");
     }
-    private string FormatWeatherString(int temperature, Mode7Colour colour = Mode7Colour.White)
+    private static string FormatWeatherString(int temperature, Mode7Colour colour = Mode7Colour.White)
     {
         string str = temperature.ToString();
         if (temperature >= 0)
