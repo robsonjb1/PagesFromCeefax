@@ -33,7 +33,7 @@ public class TeletextPageStandings : ITeletextPageStanding
             sb.Append(Graphics.HeaderFormula1);
             sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">DRIVER STANDINGS</span>");
             sb.AppendLine($"<span class=\"ink{(int)Mode7Colour.Green} indent\">{"wins points".PadHtmlRight(22)}");
-            foreach(var d in _sd.Drivers.Take(7))
+            foreach(var d in _sd.Drivers.Take(8))
             {
                 if (count % 2 == 0)
                 { sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.White}\">"); }
@@ -47,7 +47,7 @@ public class TeletextPageStandings : ITeletextPageStanding
             sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">CONSTRUCTOR STANDINGS</p>");
             
             count=0;
-            foreach(var d in _sd.Constructors.Take(7))
+            foreach(var d in _sd.Constructors.Take(8))
             {
                 if (count % 2 == 0)
                 { sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.White}\">"); }
@@ -57,8 +57,6 @@ public class TeletextPageStandings : ITeletextPageStanding
                 sb.AppendLine($"{d.Team.PadHtmlLeft(30)}{d.Wins.PadHtmlRight(2)} {d.Points.PadHtmlRight(6)}</p>");
                 count++;
             }
-        
-            sb.AppendLine("<br>");
             Utility.FooterText(sb, section);
         }
 

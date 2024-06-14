@@ -51,14 +51,14 @@ public class TeletextPageWeather : ITeletextPageWeather
             int j = 1;
             foreach (string line in mapLines)
             {
-                string replacement = $"<span class=\"ink{(int)summaryColour} indent\">" + line.PadRight(18).Replace(" ", "&nbsp;") + "</span>";
+                string replacement = $"<span class=\"ink{(int)summaryColour} indent\">" + line.PadHtmlRight(18) + "</span>";
                 map = map.Replace("[LINE" + j.ToString() + "]", replacement);
                 j++;
             }
             // Padding for any remaining lines
             for (int k = j; k <= 7; k++)
             {
-                map = map.Replace("[LINE" + k.ToString() + "]", $"<span class=\"ink{(int)Mode7Colour.White} indent\">" + String.Join("", Enumerable.Repeat("&nbsp;", 18)) + "</span>");
+                map = map.Replace("[LINE" + k.ToString() + "]", $"<span class=\"ink{(int)Mode7Colour.White} indent\">{"".PadHtmlLeft(18)}</span>");
             }
 
             // Insert temperatures
@@ -102,7 +102,7 @@ public class TeletextPageWeather : ITeletextPageWeather
                     break;
             }
 
-            string sectionTitle = _wd.Forecasts[forecastNo].Title.ToUpper() + string.Join("", Enumerable.Repeat("&nbsp;", 36 - _wd.Forecasts[forecastNo].Title.Length));
+            string sectionTitle = _wd.Forecasts[forecastNo].Title.ToUpper().PadHtmlLeft(36);
             string sectionText = _wd.Forecasts[forecastNo].Body;
 
             sb.Append(Graphics.HeaderWeather);
@@ -170,8 +170,10 @@ public class TeletextPageWeather : ITeletextPageWeather
             CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
 
             sb.Append(Graphics.HeaderWeather);
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">WORLD CITIES (EUROPE/US/WORLD){string.Join("", Enumerable.Repeat("&nbsp;", 6))}</span><span class=\"ink{(int)Mode7Colour.White}\">5/5</p>");
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Green} indent\">{string.Join("", Enumerable.Repeat("&nbsp;", 15))}max min");
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">WORLD CITIES{string.Join("", Enumerable.Repeat("&nbsp;", 23))}</span>");
+            sb.Append("<span class=\"ink{(int)Mode7Colour.White}\">5/5</p>");
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">(EUROPE)</span>");
+            sb.Append($"<span class=\"ink{(int)Mode7Colour.Green} indent\">{"max min conditions".PadHtmlRight(24)}</span></p>");
             
             OutputWorldCity(sb, "London", Mode7Colour.White);
             OutputWorldCity(sb, "Edinburgh", Mode7Colour.Cyan);
@@ -180,11 +182,11 @@ public class TeletextPageWeather : ITeletextPageWeather
             OutputWorldCity(sb, "Munich", Mode7Colour.White);
             OutputWorldCity(sb, "Krakow", Mode7Colour.Cyan);
 
-            sb.AppendLine("<br>");
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">(US)</span></p>");
             OutputWorldCity(sb, "San Francisco", Mode7Colour.White);
             OutputWorldCity(sb, "New York", Mode7Colour.Cyan);          
             
-            sb.AppendLine("<br>");
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">(WORLD)</span></p>");
             OutputWorldCity(sb, "Cape Town", Mode7Colour.White);
             OutputWorldCity(sb, "Chennai", Mode7Colour.Cyan);
             OutputWorldCity(sb, "Singapore", Mode7Colour.White);
@@ -204,7 +206,7 @@ public class TeletextPageWeather : ITeletextPageWeather
     private void OutputWorldCity(StringBuilder sb, string city, Mode7Colour colour)
     {
         // City name
-        sb.AppendLine($"<p><span class=\"ink{(int)colour} indent\">{city}{string.Join("", Enumerable.Repeat("&nbsp;", 13 - city.Length))}");
+        sb.AppendLine($"<p><span class=\"ink{(int)colour} indent\">{city.PadHtmlLeft(13)}");
         
         // Max/min temperatures
         sb.Append($"{FormatWeatherString(_wd.Temperatures[city].MaxTemp, colour)}");
