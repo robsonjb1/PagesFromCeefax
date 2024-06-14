@@ -24,21 +24,21 @@ public class CeefaxContent : ICeefaxContent
         _config = config;
 
         // Initialise magazine sections
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Home, new Uri("http://feeds.bbci.co.uk/news/uk/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.World, new Uri("http://feeds.bbci.co.uk/news/world/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Politics, new Uri("http://feeds.bbci.co.uk/news/politics/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Science, new Uri("http://feeds.bbci.co.uk/news/science_and_environment/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Technology, new Uri("http://feeds.bbci.co.uk/news/technology/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Business, new Uri("http://feeds.bbci.co.uk/news/business/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Sussex, new Uri("http://feeds.bbci.co.uk/news/england/sussex/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Football, new Uri("http://feeds.bbci.co.uk/sport/football/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Rugby, new Uri("http://feeds.bbci.co.uk/sport/rugby-union/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Cricket, new Uri("http://feeds.bbci.co.uk/sport/cricket/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Tennis, new Uri("http://feeds.bbci.co.uk/sport/tennis/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Golf, new Uri("http://feeds.bbci.co.uk/sport/golf/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Formula1, new Uri("http://feeds.bbci.co.uk/sport/formula1/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Home, new Uri("https://feeds.bbci.co.uk/news/uk/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.World, new Uri("https://feeds.bbci.co.uk/news/world/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Politics, new Uri("https://feeds.bbci.co.uk/news/politics/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Science, new Uri("https://feeds.bbci.co.uk/news/science_and_environment/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Technology, new Uri("https://feeds.bbci.co.uk/news/technology/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Business, new Uri("https://feeds.bbci.co.uk/news/business/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Sussex, new Uri("https://feeds.bbci.co.uk/news/england/sussex/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Football, new Uri("https://feeds.bbci.co.uk/sport/football/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Rugby, new Uri("https://feeds.bbci.co.uk/sport/rugby-union/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Cricket, new Uri("https://feeds.bbci.co.uk/sport/cricket/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Tennis, new Uri("https://feeds.bbci.co.uk/sport/tennis/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Golf, new Uri("https://feeds.bbci.co.uk/sport/golf/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Formula1, new Uri("https://feeds.bbci.co.uk/sport/formula1/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Standings, new Uri("https://www.bbc.co.uk/sport/formula1/standings")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Entertainment, new Uri("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Entertainment, new Uri("https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Weather, new Uri("https://www.bbc.co.uk/weather")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.bbc.co.uk/news/business/market-data")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC1, new Uri("https://www.bbc.co.uk/schedules/p00fzl6x")));
@@ -51,13 +51,13 @@ public class CeefaxContent : ICeefaxContent
         // Add the weather API requests to the URL cache
         SystemConfig.WeatherCities.ForEach(c => AddWeatherAPIUriToCache(c));
         
-        // Process the URL cache (first time)
+        // Process the UR cache (first time)
         ProcessUriCache().Wait();
 
         // Process feeds to determine which full text stories to display
         Sections.FindAll(z => z.TotalStories > 0).ForEach(z => ProcessRSSFeed(z));
         
-        // Process the URL cache (second time, now all story URL's are in)
+        // Process the URI cache (second time, now all story URL's are in)
         ProcessUriCache().Wait();
 
         // Parse all stories

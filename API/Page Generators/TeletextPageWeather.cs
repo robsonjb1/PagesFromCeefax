@@ -170,19 +170,19 @@ public class TeletextPageWeather : ITeletextPageWeather
             CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
 
             sb.Append(Graphics.HeaderWeather);
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">WORLD CITIES (US/EUROPE/WORLD){string.Join("", Enumerable.Repeat("&nbsp;", 6))}</span><span class=\"ink{(int)Mode7Colour.White}\">5/5</p>");
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">WORLD CITIES (EUROPE/US/WORLD){string.Join("", Enumerable.Repeat("&nbsp;", 6))}</span><span class=\"ink{(int)Mode7Colour.White}\">5/5</p>");
             sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Green} indent\">{string.Join("", Enumerable.Repeat("&nbsp;", 15))}max min");
             
-            OutputWorldCity(sb, "San Francisco", Mode7Colour.White);
-            OutputWorldCity(sb, "New York", Mode7Colour.Cyan);
-
-            sb.AppendLine("<br>");
             OutputWorldCity(sb, "London", Mode7Colour.White);
             OutputWorldCity(sb, "Edinburgh", Mode7Colour.Cyan);
             OutputWorldCity(sb, "Paris", Mode7Colour.White);
             OutputWorldCity(sb, "Madrid", Mode7Colour.Cyan);
             OutputWorldCity(sb, "Munich", Mode7Colour.White);
             OutputWorldCity(sb, "Krakow", Mode7Colour.Cyan);
+
+            sb.AppendLine("<br>");
+            OutputWorldCity(sb, "San Francisco", Mode7Colour.White);
+            OutputWorldCity(sb, "New York", Mode7Colour.Cyan);          
             
             sb.AppendLine("<br>");
             OutputWorldCity(sb, "Cape Town", Mode7Colour.White);

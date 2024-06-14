@@ -10,9 +10,32 @@ namespace API.Architecture
         public static void PadLines(StringBuilder sb, int totalLines)
         {
             for(int i=0; i<totalLines; i++)  
-            {
-                sb.Append("<br>");  
-            }
+            { sb.Append("<br>"); }
+        }
+
+        public static string PadHtmlLeft(this string text, int maxChars)
+        {
+            if(text.Length >= maxChars)
+            { return text[..maxChars]; }
+            else
+            { return text + string.Join("", Enumerable.Repeat("&nbsp;", maxChars - text.Length)); }
+        }
+
+        public static string PadHtmlRight(this string text, int maxChars)
+        {
+            if(text.Length >= maxChars)
+            { return text[..maxChars]; }
+            else
+            { return string.Join("", Enumerable.Repeat("&nbsp;", maxChars - text.Length)) + text; }
+        }
+
+        public static string PadHtmlRight(this int number, int maxChars)
+        {
+            string text = number.ToString();
+            if(text.Length >= maxChars)
+            { return text[..maxChars]; }
+            else
+            { return string.Join("", Enumerable.Repeat("&nbsp;", maxChars - text.Length)) + text;       }
         }
 
         // Output standard footer text
