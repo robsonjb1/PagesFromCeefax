@@ -31,8 +31,9 @@ public class TeletextPageStandings : ITeletextPageStanding
         {
             int count = 0;
             sb.Append(Graphics.HeaderFormula1);
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">DRIVER STANDINGS</span>");
-            sb.AppendLine($"<span class=\"ink{(int)Mode7Colour.Green} indent\">{"wins points".PadHtmlRight(22)}");
+            string driverHeading = $"DRIVER STANDINGS (ROUND {_sd.Drivers.Sum(z => z.Wins)})";
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">{driverHeading.PadHtmlLeft(27)}</span>");
+            sb.AppendLine($"<span class=\"ink{(int)Mode7Colour.Green} indent\">wins points</span></p>");
             foreach(var d in _sd.Drivers.Take(8))
             {
                 if (count % 2 == 0)
@@ -40,7 +41,7 @@ public class TeletextPageStandings : ITeletextPageStanding
                 else
                 { sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Cyan}\">"); } 
       
-                sb.Append($"{d.Name.PadHtmlLeft(16)} {d.Team.PadHtmlLeft(12)} {d.Wins.PadHtmlRight(2)} {d.Points.PadHtmlRight(6)}</p>");
+                sb.Append($"{d.Name.PadHtmlLeft(17)} {d.Team.PadHtmlLeft(12)}{d.Wins.PadHtmlRight(2)} {d.Points.PadHtmlRight(6)}</p>");
                 count++;
             }
             sb.AppendLine("<br>");

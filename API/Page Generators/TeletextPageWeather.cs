@@ -36,7 +36,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             string summaryText = _wd.Forecasts[0].Body;
             if (summaryText.Contains('.'))
             {
-                summaryText = summaryText[..(summaryText.IndexOf(".") + 1)];
+                summaryText = summaryText[..(summaryText.IndexOf('.') + 1)];
             }
 
             List<string> mapLines = Utility.ParseParagraph(summaryText, 18, 18, true);
@@ -169,10 +169,9 @@ public class TeletextPageWeather : ITeletextPageWeather
             CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
 
             sb.Append(Graphics.HeaderWeather);
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">WORLD CITIES{string.Join("", Enumerable.Repeat("&nbsp;", 23))}</span>");
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">WORLD CITIES (EUROPE/US/OTHER){string.Join("", Enumerable.Repeat("&nbsp;", 5))}</span>");
             sb.Append("<span class=\"ink{(int)Mode7Colour.White}\">5/5</p>");
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">(EUROPE)</span>");
-            sb.Append($"<span class=\"ink{(int)Mode7Colour.Green} indent\">{"max min conditions".PadHtmlRight(24)}</span></p>");
+            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Green} indent\">{"max min conditions".PadHtmlRight(33)}</span></p>");
             
             OutputWorldCity(sb, "London", Mode7Colour.White);
             OutputWorldCity(sb, "Edinburgh", Mode7Colour.Cyan);
@@ -181,11 +180,11 @@ public class TeletextPageWeather : ITeletextPageWeather
             OutputWorldCity(sb, "Munich", Mode7Colour.White);
             OutputWorldCity(sb, "Krakow", Mode7Colour.Cyan);
 
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">(US)</span></p>");
+            sb.AppendLine("<br>");
             OutputWorldCity(sb, "San Francisco", Mode7Colour.White);
             OutputWorldCity(sb, "New York", Mode7Colour.Cyan);          
             
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">(WORLD)</span></p>");
+            sb.AppendLine($"<br>");
             OutputWorldCity(sb, "Cape Town", Mode7Colour.White);
             OutputWorldCity(sb, "Chennai", Mode7Colour.Cyan);
             OutputWorldCity(sb, "Singapore", Mode7Colour.White);
@@ -213,8 +212,8 @@ public class TeletextPageWeather : ITeletextPageWeather
         
         // Conditions
         string description = _wd.Temperatures[city].Description;
-        description = description.Substring(0, 1).ToUpper() + description.Substring(1);         // Upper case first letter
-        description = description.Length > 16 ? description.Substring(0, 16) : description;     // Ensure 16 characters max
+        description = description[..1].ToUpper() + description[1..];         // Upper case first letter
+        description = description.Length > 16 ? description[..16] : description;     // Ensure 16 characters max
         
         sb.AppendLine(description);
         sb.AppendLine("</span></p>");

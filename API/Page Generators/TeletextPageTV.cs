@@ -76,7 +76,7 @@ public class TeletextPageTV : ITeletextPageTV
 
         ChannelSchedule schedule = _ld.Schedules.Find(z => z.Channel == channel);
         
-        sb.Append(ident.Replace("{DayOfWeek}", string.Join("", Enumerable.Repeat("&nbsp;", 15 - schedule.Day.Length)) + schedule.Day));
+        sb.Append(ident.Replace("{DayOfWeek}", schedule.Day.PadHtmlRight(15)));
         
         bool startListing = false;
         int lineCount = 0;

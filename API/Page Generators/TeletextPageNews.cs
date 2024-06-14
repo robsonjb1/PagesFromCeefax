@@ -62,7 +62,7 @@ public class TeletextPageNews : ITeletextPageNews
                 && !item.Title.Text.Contains("VIDEO:", StringComparison.CurrentCulture)
                 && item.Summary is not null)
             {
-                List<string> title = Utility.ParseParagraph(item.Title.Text.Trim() + ".");
+                List<string> title = Utility.ParseParagraph(item.Title.Text);
                 List<string> summary = Utility.ParseParagraph(item.Summary.Text);
                 if (rows + title.Count + summary.Count < 18)
                 {

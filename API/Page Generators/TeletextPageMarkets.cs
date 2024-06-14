@@ -71,9 +71,9 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         if(mr != null)
         {
             sb.Append($"<p><span class=\"indent ink{(int)Mode7Colour.White}\">");
-            sb.Append(mr.Name.PadRight(14, ' ').Replace(" ", "&nbsp;"));
-            sb.Append(mr.Value.PadLeft(9, ' ').Replace(" ", "&nbsp;"));
-            if (mr.Movement.StartsWith("-"))
+            sb.Append(mr.Name.PadHtmlLeft(14));
+            sb.Append(mr.Value.PadHtmlLeft(9));
+            if (mr.Movement.StartsWith('-'))
             {
                 sb.Append($"<span class=\"ink{(int)Mode7Colour.Red}\">");
             }
@@ -97,10 +97,10 @@ public class TeletextPageMarkets : ITeletextPageMarkets
 
         if (mr != null)
         {
-            sb.Append($"<p><span class=\"indent ink{(int)Mode7Colour.White}\">{currency.PadRight(16, ' ').Replace(" ", "&nbsp")}");
-            sb.Append(mr.Value.PadRight(9, ' ').Replace(" ", "&nbsp;"));
+            sb.Append($"<p><span class=\"indent ink{(int)Mode7Colour.White}\">{currency.PadHtmlLeft(16)}");
+            sb.Append(mr.Value.PadHtmlLeft(9));
 
-            if (mr.Movement.StartsWith("-"))
+            if (mr.Movement.StartsWith('-'))
             {
                 sb.Append($"<span class=\"ink{(int)Mode7Colour.Red}\">");
             }
@@ -108,8 +108,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             {
                 sb.Append($"<span class=\"ink{(int)Mode7Colour.Green}\">");
             }
-            sb.Append(mr.Movement);
-            sb.Append("</span></p>");
+            sb.Append($"{mr.Movement}</span></p>");
         }
 
         return sb;
