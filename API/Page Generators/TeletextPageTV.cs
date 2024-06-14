@@ -1,9 +1,6 @@
-using System.Globalization;
-using System.Reflection.PortableExecutable;
 using System.Text;
 using API.Architecture;
 using API.Magazine;
-using HtmlAgilityPack;
 
 namespace API.PageGenerators;
 

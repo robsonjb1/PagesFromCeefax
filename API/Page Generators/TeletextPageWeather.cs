@@ -1,5 +1,4 @@
-﻿using System.IO.Compression;
-using System.Text;
+﻿using System.Text;
 using API.Architecture;
 using API.Magazine;
 
@@ -51,7 +50,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             int j = 1;
             foreach (string line in mapLines)
             {
-                string replacement = $"<span class=\"ink{(int)summaryColour} indent\">" + line.PadHtmlRight(18) + "</span>";
+                string replacement = $"<span class=\"ink{(int)summaryColour} indent\">" + line.PadHtmlLeft(18) + "</span>";
                 map = map.Replace("[LINE" + j.ToString() + "]", replacement);
                 j++;
             }
