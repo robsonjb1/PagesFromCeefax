@@ -43,9 +43,9 @@ public class Graphics
         HeaderPolitics.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"paper1 ink6\">" + Utility.BlockGraph("   j7£ju@ju0@ @ @ju0s{5   ") + "</span></p>");
         HeaderPolitics.AppendLine("<p>" + Utility.BlockGraph("\"£££\"£££\"£££ ") + "<span class=\"ink1\">" + Utility.BlockGraph("///-./-,,-,.,/,/,-,.,,.///") + "</span></p>");
 
-        HeaderHome.AppendLine("<p>" + Utility.BlockGraph("j£3kj£3kj£3k ") + "<span class=\"paper1 ink6\">" + Utility.BlockGraph("      h4h4|,|h<<|h<$      ") + "</span></p>");
-        HeaderHome.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"paper1 ink6\">" + Utility.BlockGraph("      j7k5@p@j55@jw1      ") + "</span></p>");
-        HeaderHome.AppendLine("<p>" + Utility.BlockGraph("\"£££\"£££\"£££ ") + "<span class=\"ink1\">" + Utility.BlockGraph("//////-.-.,,,-..,-,.//////") + "</span></p>");
+        HeaderHome.AppendLine("<p><span class=\"paper0 ink7 indent\">" + Utility.BlockGraph("j£3kj£3kj£3k ") + "</span><span class=\"paper1 ink6\">" + Utility.BlockGraph("      h4h4|,|h<<|h<$      ") + "</span></p>");
+        HeaderHome.AppendLine("<p><span class=\"paper0 ink7 indent\">" + Utility.BlockGraph("j $kj $kj 'k ") + "</span><span class=\"paper1 ink6\">" + Utility.BlockGraph("      j7k5@p@j55@jw1      ") + "</span></p>");
+        HeaderHome.AppendLine("<p><span class=\"paper0 ink7 indent\">" + Utility.BlockGraph("\"£££\"£££\"£££ ") + "</span><span class=\"paper0 ink1\">" + Utility.BlockGraph("//////-.-.,,,-..,-,.//////") + "</span></p>");
 
         HeaderSussex.AppendLine("<p>" + Utility.BlockGraph("j£3kj£3kj£3k ") + "<span class=\"paper1 ink6\">" + Utility.BlockGraph("     x,$|h4x,$x,$|,h4|    ") + "</span></p>");
         HeaderSussex.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"paper1 ink6\">" + Utility.BlockGraph("     s{%oz%s{%s{%@sh7}    ") + "</span></p>");

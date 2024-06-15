@@ -6,8 +6,8 @@ namespace API.Architecture
 {
     public static class Utility
     {
-        // Line padding
-        public static void PadLines(StringBuilder sb, int totalLines)
+        // Line padding extension methods
+        public static void PadLines(this StringBuilder sb, int totalLines)
         {
             for(int i=0; i<totalLines; i++)  
             { sb.Append("<br>"); }
@@ -38,17 +38,33 @@ namespace API.Architecture
             { return string.Join("", Enumerable.Repeat("&nbsp;", maxChars - text.Length)) + text;       }
         }
 
+        public static void LineBreak(this StringBuilder sb, Mode7Colour colour)
+        {
+            sb.AppendLineColour("<sup>_______________________________________________</sup>", colour);
+        }
+
+        public static void AppendLineColour(this StringBuilder sb, string text, Mode7Colour foreColour, Mode7Colour? backColour = null)
+        {
+            string optionalBg = backColour.HasValue ? $"paper{(int)backColour}" : String.Empty;
+            sb.AppendLine($"<p><span class=\"indent ink{(int)foreColour} {optionalBg}\">{text}</span></p>");
+        }
+
+        public static string LineColourFragment(string text, Mode7Colour foreColour)
+        {
+            return $"<span class=\"ink{(int)foreColour}\">{text}</span>";
+        }
+
         // Output standard footer text
-        public static void FooterText(StringBuilder sb, CeefaxSection section, bool overrideDefault = false)
+        public static void FooterText(this StringBuilder sb, CeefaxSection section, bool overrideDefault = false)
         {
             if (overrideDefault && section.PromoFooter is not null)
             {
                 string promoFooter = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
-                sb.AppendLine($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooter}</span></p>");
+                sb.AppendLine($"<p><span class=\"indent paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooter}</span></p>");
             }
             else
             {
-                sb.AppendLine($"<p><span class=\"paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
+                sb.AppendLine($"<p><span class=\"ident paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
             }
         }
 
@@ -148,11 +164,16 @@ namespace API.Architecture
 
             // Line
             html = html.Replace("â€”", " - ");
+            html = html.Replace("–", "-");
+
             // Pound
             html = html.Replace("Â£", "£");
             // Euro
             html = html.Replace("â‚¬", "€");
             // Open/closing quotes
+            html = html.Replace("“", "\"");
+            html = html.Replace("”", "\"");
+            
             html = html.Replace("â€œ", "'");
             html = html.Replace("â€™", "'");
             html = html.Replace("â€", "'");

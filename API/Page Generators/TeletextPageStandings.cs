@@ -32,33 +32,29 @@ public class TeletextPageStandings : ITeletextPageStanding
             int count = 0;
             sb.Append(Graphics.HeaderFormula1);
             string driverHeading = $"DRIVER STANDINGS (ROUND {_sd.Drivers.Sum(z => z.Wins)})";
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">{driverHeading.PadHtmlLeft(27)}</span>");
-            sb.AppendLine($"<span class=\"ink{(int)Mode7Colour.Green} indent\">wins points</span></p>");
+            sb.AppendLineColour($"{driverHeading.PadHtmlLeft(28)}{Utility.LineColourFragment("wins points", Mode7Colour.Green)}", Mode7Colour.Yellow);
+            
+            // Drivers
             foreach(var d in _sd.Drivers.Take(8))
             {
-                if (count % 2 == 0)
-                { sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.White}\">"); }
-                else
-                { sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Cyan}\">"); } 
-      
-                sb.Append($"{d.Name.PadHtmlLeft(17)} {d.Team.PadHtmlLeft(12)}{d.Wins.PadHtmlRight(2)} {d.Points.PadHtmlRight(6)}</p>");
+                sb.AppendLineColour($"{d.Name.PadHtmlLeft(17)} {d.Team.PadHtmlLeft(12)}{d.Wins.PadHtmlRight(2)} {d.Points.PadHtmlRight(6)}",
+                    (count % 2 == 0) ? Mode7Colour.White : Mode7Colour.Cyan);
+
                 count++;
             }
-            sb.AppendLine("<br>");
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">CONSTRUCTOR STANDINGS</p>");
-            
+            sb.LineBreak(Mode7Colour.Blue);
+            sb.AppendLineColour($"{"CONSTRUCTOR STANDINGS".PadHtmlLeft(28)}{Utility.LineColourFragment("wins points", Mode7Colour.Green)}", Mode7Colour.Yellow);
+
+            // Constructors
             count=0;
             foreach(var d in _sd.Constructors.Take(8))
             {
-                if (count % 2 == 0)
-                { sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.White}\">"); }
-                else
-                { sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Cyan}\">"); } 
+                sb.AppendLineColour($"{d.Team.PadHtmlLeft(30)}{d.Wins.PadHtmlRight(2)} {d.Points.PadHtmlRight(6)}",
+                    (count % 2 == 0) ? Mode7Colour.White : Mode7Colour.Cyan);
 
-                sb.AppendLine($"{d.Team.PadHtmlLeft(30)}{d.Wins.PadHtmlRight(2)} {d.Points.PadHtmlRight(6)}</p>");
                 count++;
             }
-            Utility.FooterText(sb, section);
+            sb.FooterText(section);
         }
 
         return sb;

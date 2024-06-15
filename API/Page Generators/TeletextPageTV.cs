@@ -46,7 +46,7 @@ public class TeletextPageTV : ITeletextPageTV
         }
     }
 
-    private bool OnlyShowHeadline(string title)
+    private static bool OnlyShowHeadline(string title)
     {
         return title.Contains("BBC NEWS") || title.Contains("BBC WEEKEND NEWS") ||
             title.Contains("SOUTH EAST TODAY") || title.Contains("WEATHER");
@@ -113,35 +113,28 @@ public class TeletextPageTV : ITeletextPageTV
                 }
 
                 lineCount = lineCount + titleLines.Count + bodyLines.Count;
-
-                sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">");
-                sb.AppendLine($"{FormatDisplayTime(show.StartTime)} </span><span class=\"ink{(int)Mode7Colour.White}\">{titleLines[0]}</span>");
-                sb.AppendLine("</span></p>");
                 
                 // Output show title
+                sb.AppendLineColour($"{FormatDisplayTime(show.StartTime)} {Utility.LineColourFragment(titleLines[0], Mode7Colour.White)}", Mode7Colour.Yellow);
+                
                 if(titleLines.Count > 1)
                 {
                     for(int i = 1; i < titleLines.Count; i++) 
                     {
-                        sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.White} indent\">");
-                        sb.AppendLine($"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{titleLines[i]}</span></p>");
+                        sb.AppendLineColour($"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{titleLines[i]}", Mode7Colour.White);
                     }
                 }
                 
                 // Show description
-                for(int i = 0; i < bodyLines.Count; i++) 
-                {
-                    sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Cyan} indent\">");
-                    sb.AppendLine($"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{bodyLines[i]}</span></p>");
-                }
+                bodyLines.ForEach(b => sb.AppendLineColour($"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{b}", Mode7Colour.Cyan));
             }
         }
 
         // Ensure we pad any remaining lines until we get to the footer position
-        Utility.PadLines(sb, 18-lineCount);
+        sb.PadLines(18-lineCount);
         
         // Display either the standard or bespoke footer (only valid for last page, where we specifically match on the previous page end time)
-        Utility.FooterText(sb, section, exactMatch);
+        sb.FooterText(section, exactMatch);
         
         // Only now do we now the true timespan. The end time shown is from the show that couldn't fit on this page.
         pageSb.Append(sb.Replace("{TimeSpan}", $"{FormatDisplayTime(actualStartTime)}-{FormatDisplayTime(timeOfLastPageEntry)}"));

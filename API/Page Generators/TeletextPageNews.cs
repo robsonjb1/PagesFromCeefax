@@ -1,3 +1,4 @@
+using System.Security.Principal;
 using System.ServiceModel.Syndication;
 using System.Text;
 using System.Xml;
@@ -53,7 +54,7 @@ public class TeletextPageNews : ITeletextPageNews
         SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
 
         sb.Append(section.Header);
-        sb.AppendLine($"<p><span class=\"indent ink{(int)section.HeadingCol!}\">OTHER NEWS IN BRIEF...</span></p>");
+        sb.AppendLineColour("OTHER NEWS IN BRIEF...", section.HeadingCol);
 
         int rows = 0;
         foreach (SyndicationItem item in feed.Items)
@@ -73,16 +74,11 @@ public class TeletextPageNews : ITeletextPageNews
                     }
 
                     // Title
-                    foreach (string line in title)
-                    {
-                        sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.White} indent\">{line}</span></p>");
-                    }
-
+                    title.ForEach(l => sb.AppendLineColour(l, Mode7Colour.White));
+                    
                     // Summary
-                    foreach (string line in summary)
-                    {
-                        sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Cyan} indent\">{line}</span></p>");
-                    }
+                    summary.ForEach(l => sb.AppendLineColour(l, Mode7Colour.Cyan));
+                    
                     rows += summary.Count + title.Count;
                     
                     // Add this to the global list of stories, it will never have summary content because the feed URL is
@@ -93,10 +89,10 @@ public class TeletextPageNews : ITeletextPageNews
         }
 
         // Pad lines to the end
-        Utility.PadLines(sb, 18 - rows);
+        sb.PadLines(18 - rows);
         
         // Display bespoke footer
-        Utility.FooterText(sb, section, true);
+        sb.FooterText(section, true);
 
         return sb;
     }
@@ -112,11 +108,8 @@ public class TeletextPageNews : ITeletextPageNews
         Mode7Colour bodyCol = Mode7Colour.White;
 
         // Headline
-        foreach (string line in story.Headline)
-        {
-            sb.AppendLine($"<p><span class=\"ink{(int)section.HeadingCol!} indent\">{line}</span></p>");
-        }
-
+        story.Headline.ForEach(l => sb.AppendLineColour(l, section.HeadingCol));
+        
         // Story
         foreach (string line in story.Body)
         {
@@ -131,15 +124,15 @@ public class TeletextPageNews : ITeletextPageNews
             }
             else
             {
-                sb.AppendLine($"<p><span class=\"ink{(int)bodyCol} indent\">{line}</span></p>");
+                sb.AppendLineColour(line, bodyCol);
             }
         }
 
         // Pad lines to the end
-        Utility.PadLines(sb, 20 - story.Headline.Count - story.Body.Count);
+        sb.PadLines(20 - story.Headline.Count - story.Body.Count);
 
         // Display footer
-        Utility.FooterText(sb, section, isLastStory && !section.HasNewsInBrief);
+        sb.FooterText(section, isLastStory && !section.HasNewsInBrief);
 
         return sb;
     }

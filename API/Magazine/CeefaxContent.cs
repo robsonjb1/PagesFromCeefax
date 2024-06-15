@@ -114,7 +114,7 @@ public class CeefaxContent : ICeefaxContent
             // Only add the story if not already present, and is not marked as a 'live' scrolling story
             if (!StoryList.Exists(z => z.Link == item.Links[0].Uri) && (storyCount < section.TotalStories) && !item.Links[0].Uri.ToString().Contains("/live/"))
             {
-                StoryList.Add(new NewsStory(section.Name, item.Title.Text.Trim() + ".", item.Links[0].Uri));
+                StoryList.Add(new NewsStory(section.Name, item.Title.Text.Trim(), item.Links[0].Uri));
 
                 // Add story link to the URL cache to be retrieved later
                 UriCache.Add(new CachedUri(item.Links[0].Uri));

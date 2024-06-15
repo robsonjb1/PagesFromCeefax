@@ -30,32 +30,32 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         {
             sb.Append(Graphics.HeaderMarkets);
 
-            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">UK MARKETS</span></p>");
+            sb.AppendLineColour("UK MARKETS", Mode7Colour.Yellow);
             sb.Append(OutputMarket("FTSE 100"));
             sb.Append(OutputMarket("FTSE 250"));
-            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">_______________________________________</span></p>");
+            sb.LineBreak(Mode7Colour.Red);
 
-            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">EUROPE MARKETS</span></p>");
+            sb.AppendLineColour("EUROPE MARKETS", Mode7Colour.Yellow);
             sb.Append(OutputMarket("AEX"));
             sb.Append(OutputMarket("DAX"));
-            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">_______________________________________</span></p>");
-
-            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">US MARKETS</span></p>");
+            sb.LineBreak(Mode7Colour.Red);
+           
+            sb.AppendLineColour("US MARKETS", Mode7Colour.Yellow);
             sb.Append(OutputMarket("Dow Jones"));
             sb.Append(OutputMarket("Nasdaq"));
-            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">_______________________________________</span></p>");
-
-            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">ASIA MARKETS</span></p>");
+            sb.LineBreak(Mode7Colour.Red);
+           
+            sb.AppendLineColour("ASIA MARKETS", Mode7Colour.Yellow);
             sb.Append(OutputMarket("Hang Seng"));
             sb.Append(OutputMarket("Nikkei 225"));
-            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Red}\">_______________________________________</span></p>");
-
-            sb.AppendLine($"<p><span class=\"indent ink{(int)Mode7Colour.Yellow}\">CURRENCIES</span></p>");
+            sb.LineBreak(Mode7Colour.Red);
+           
+            sb.AppendLineColour("CURRENCIES", Mode7Colour.Yellow);
             sb.Append(OutputCurrency("EUR"));
             sb.Append(OutputCurrency("USD"));
 
             // Display footer
-            Utility.FooterText(sb, _cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
+            sb.FooterText(_cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
         }
 
         return sb;
@@ -70,21 +70,12 @@ public class TeletextPageMarkets : ITeletextPageMarkets
 
         if(mr != null)
         {
-            sb.Append($"<p><span class=\"indent ink{(int)Mode7Colour.White}\">");
-            sb.Append(mr.Name.PadHtmlLeft(14));
-            sb.Append(mr.Value.PadHtmlRight(9));
-            if (mr.Movement.StartsWith('-'))
-            {
-                sb.Append($"<span class=\"ink{(int)Mode7Colour.Red}\">");
-            }
-            else
-            {
-                sb.Append($"<span class=\"ink{(int)Mode7Colour.Green}\">");
-            }
-            sb.Append($"&nbsp;&nbsp;{mr.Movement}");
-            sb.Append($"</span><span class=\"ink{(int)Mode7Colour.Cyan}\">");
-            sb.Append(mr.Closed ? "&nbsp;&nbsp;Closed" : "");
-            sb.Append("</span></p>");
+            string partMovement = Utility.LineColourFragment($"&nbsp;&nbsp;{mr.Movement}", 
+                mr.Movement.StartsWith('-') ? Mode7Colour.Red : Mode7Colour.Green);
+
+            string partClosed = Utility.LineColourFragment(mr.Closed ? "&nbsp;&nbsp;Closed" : "", Mode7Colour.Cyan);
+
+            sb.AppendLineColour($"{mr.Name.PadHtmlLeft(14)}{mr.Value.PadHtmlRight(9)}{partMovement}{partClosed}", Mode7Colour.White);
         }
 
         return sb;
@@ -97,18 +88,10 @@ public class TeletextPageMarkets : ITeletextPageMarkets
 
         if (mr != null)
         {
-            sb.Append($"<p><span class=\"indent ink{(int)Mode7Colour.White}\">{currency.PadHtmlLeft(16)}");
-            sb.Append(mr.Value.PadHtmlLeft(9));
+            string partMovement = Utility.LineColourFragment($"&nbsp;&nbsp;{mr.Movement}", 
+                mr.Movement.StartsWith('-') ? Mode7Colour.Red : Mode7Colour.Green);
 
-            if (mr.Movement.StartsWith('-'))
-            {
-                sb.Append($"<span class=\"ink{(int)Mode7Colour.Red}\">");
-            }
-            else
-            {
-                sb.Append($"<span class=\"ink{(int)Mode7Colour.Green}\">");
-            }
-            sb.Append($"{mr.Movement}</span></p>");
+            sb.AppendLineColour($"{currency.PadHtmlLeft(14)}{mr.Value.PadHtmlRight(9)}{partMovement}", Mode7Colour.White);
         }
 
         return sb;

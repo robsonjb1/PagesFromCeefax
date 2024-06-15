@@ -30,8 +30,7 @@ public class TeletextPageWeather : ITeletextPageWeather
         {
             CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
         
-            sb.Append($"<p><span class=\"paper{(int)Mode7Colour.Blue} ink{(int)Mode7Colour.White}\">&nbsp;&nbsp;Data: BBC Weather Centre/Met Office&nbsp;&nbsp;</span></p>");
-
+            sb.AppendLineColour("&nbsp;&nbsp;Data: BBC Weather Centre/Met Office&nbsp;&nbsp;", Mode7Colour.White, Mode7Colour.Blue);
             string map = Graphics.PromoMap.ToString();
             string summaryText = _wd.Forecasts[0].Body;
             if (summaryText.Contains('.'))
@@ -133,7 +132,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             bool firstLine = true;
             foreach (string line in bodyLines)
             {
-                sb.AppendLine($"<p><span class=\"ink{(firstLine ? (int)Mode7Colour.White : (int)Mode7Colour.Cyan)} indent\">{line}</span></p>");
+                sb.AppendLineColour(line, firstLine ? Mode7Colour.White : Mode7Colour.Cyan);
                 if (line == String.Empty)
                 {
                     firstLine = false;
@@ -152,11 +151,11 @@ public class TeletextPageWeather : ITeletextPageWeather
             if (lastLine == 15)
             {
                 sb.AppendLine("<br>");
-                sb.Append($"<p><span class=\"ink{(int)Mode7Colour.Green}\">Data: BBC Weather Centre/Met Office</span></p>");
+                sb.AppendLineColour("Data: BBC Weather Centre/Met Office", Mode7Colour.Green);
                 sb.AppendLine("<br>");
             }
 
-            Utility.FooterText(sb, section);
+            sb.FooterText(section);
         }
         return sb;
     }
@@ -169,22 +168,21 @@ public class TeletextPageWeather : ITeletextPageWeather
             CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
 
             sb.Append(Graphics.HeaderWeather);
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">WORLD CITIES (EUROPE/US/OTHER){string.Join("", Enumerable.Repeat("&nbsp;", 5))}</span>");
-            sb.Append("<span class=\"ink{(int)Mode7Colour.White}\">5/5</p>");
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Green} indent\">{"max min conditions".PadHtmlRight(33)}</span></p>");
+            sb.AppendLineColour($"WORLD CITIES (US/EUROPE/OTHER){Utility.LineColourFragment("5/5".PadHtmlRight(9), Mode7Colour.White)}", Mode7Colour.Yellow);
+            sb.AppendLineColour($"max min conditions".PadHtmlRight(33), Mode7Colour.Green);
             
+            OutputWorldCity(sb, "San Francisco", Mode7Colour.White);
+            OutputWorldCity(sb, "New York", Mode7Colour.Cyan);         
+            
+            sb.LineBreak(Mode7Colour.Blue);           
             OutputWorldCity(sb, "London", Mode7Colour.White);
             OutputWorldCity(sb, "Edinburgh", Mode7Colour.Cyan);
             OutputWorldCity(sb, "Paris", Mode7Colour.White);
             OutputWorldCity(sb, "Madrid", Mode7Colour.Cyan);
             OutputWorldCity(sb, "Munich", Mode7Colour.White);
             OutputWorldCity(sb, "Krakow", Mode7Colour.Cyan);
-
-            sb.AppendLine("<br>");
-            OutputWorldCity(sb, "San Francisco", Mode7Colour.White);
-            OutputWorldCity(sb, "New York", Mode7Colour.Cyan);          
             
-            sb.AppendLine($"<br>");
+            sb.LineBreak(Mode7Colour.Blue);           
             OutputWorldCity(sb, "Cape Town", Mode7Colour.White);
             OutputWorldCity(sb, "Chennai", Mode7Colour.Cyan);
             OutputWorldCity(sb, "Singapore", Mode7Colour.White);
@@ -193,7 +191,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             OutputWorldCity(sb, "Wellington", Mode7Colour.Cyan);
             
             sb.AppendLine("<br>");
-            Utility.FooterText(sb, section);
+            sb.FooterText(section);
         }
         return sb;
     }
@@ -204,30 +202,29 @@ public class TeletextPageWeather : ITeletextPageWeather
     private void OutputWorldCity(StringBuilder sb, string city, Mode7Colour colour)
     {
         // City name
-        sb.AppendLine($"<p><span class=\"ink{(int)colour} indent\">{city.PadHtmlLeft(13)}");
+        string partCity = city.PadHtmlLeft(13);
         
-        // Max/min temperatures
-        sb.Append($"{FormatWeatherString(_wd.Temperatures[city].MaxTemp, colour)}");
-        sb.AppendLine($"{FormatWeatherString(_wd.Temperatures[city].MinTemp, colour)}");
+        // City max/min temperatures
+        string partTemps = FormatWeatherString(_wd.Temperatures[city].MaxTemp, colour) +
+            FormatWeatherString(_wd.Temperatures[city].MinTemp, colour);   
         
-        // Conditions
-        string description = _wd.Temperatures[city].Description;
-        description = description[..1].ToUpper() + description[1..];         // Upper case first letter
-        description = description.Length > 16 ? description[..16] : description;     // Ensure 16 characters max
+        // City conditions
+        string partConditions = _wd.Temperatures[city].Description;
+        partConditions = partConditions[..1].ToUpper() + partConditions[1..];                   // Upper case first letter
+        partConditions = partConditions.Length > 16 ? partConditions[..16] : partConditions;    // Ensure 16 characters max
         
-        sb.AppendLine(description);
-        sb.AppendLine("</span></p>");
+        sb.AppendLineColour($"{partCity} {partTemps} {partConditions}", colour);
     }
     private static string FormatWeatherString(int temperature, Mode7Colour colour = Mode7Colour.White)
     {
         string str = temperature.ToString();
         if (temperature >= 0)
         {
-            str = $"<span class=\"ink{(int)colour}\">&nbsp;" + ((str.Length == 1) ? "&nbsp;" : "") + str + "&nbsp;</span>";
+            str = Utility.LineColourFragment("&nbsp;" + ((str.Length == 1) ? "&nbsp;" : "") + str + "&nbsp;", colour);
         }
         else
         {
-            str = $"<span class=\"ink{(int)colour}\">" + ((str.Length == 2) ? "&nbsp;" : "") + str + "&nbsp;</span>";
+            str = Utility.LineColourFragment("&nbsp;" + ((str.Length == 2) ? "&nbsp;" : "") + str + "&nbsp;", colour);
         }
 
         return str;
