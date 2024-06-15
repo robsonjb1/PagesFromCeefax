@@ -3,8 +3,7 @@
 *.mp3
 api/obj/*
 api/bin/*
-api/spectemp/*
-api/speczip/*
+api/kindletemp/*
 carouseltests/obj/*
 carouseltests/bin/*
 .vscode

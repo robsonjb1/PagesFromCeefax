@@ -117,8 +117,8 @@ public class ThurrottContent : IThurrottContent
     private async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
     {
         var client = new HttpClient();
-        //client.DefaultRequestHeaders.Add("Cookie", _config.SpecSessionCookie);
-       
+        client.DefaultRequestHeaders.Add("Cookie", _config.ThurrottSessionCookie);
+
         var content = await client.GetAsync(location);
         return (location, content);
     }

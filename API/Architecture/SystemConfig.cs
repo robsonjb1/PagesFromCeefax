@@ -13,6 +13,7 @@
         public int KindlePort { get; set; }
         public bool KindleEnableSsl { get; set; }   
         public string SpecSessionCookie { get; set; }
+        public string ThurrottSessionCookie { get; set; }
     }
 
     public class SystemConfig : ISystemConfig
@@ -33,5 +34,6 @@
         public int KindlePort { get; set; }
         public bool KindleEnableSsl { get; set; }   
         public string SpecSessionCookie { get; set; }
+        public string ThurrottSessionCookie { get; set; }
     }
 }

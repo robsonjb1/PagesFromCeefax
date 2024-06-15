@@ -27,7 +27,6 @@ Header, section, footer, aside {
 html {
 	font-family: 'bbcmode7', 'courier new', 'courier', sans-serif;
 	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
 	color: #ffffff;
 }
 
