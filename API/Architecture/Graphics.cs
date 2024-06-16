@@ -59,7 +59,7 @@ public class Graphics
         HeaderSciTech.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"paper1 ink6\">" + Utility.BlockGraph("   s{%opj5£ @ @s*u0@k5    ") + "</span></p>");
         HeaderSciTech.AppendLine("<p>" + Utility.BlockGraph("\"£££\"£££\"£££ ") + "<span class=\"ink1\">" + Utility.BlockGraph("///,,/-,-.//,/,,/,.,-.////") + "</span></p>");
 
-        HeaderBusiness.AppendLine("<p>" + Utility.BlockGraph("j£3kj£3kj£3k ") + "<span class=\"ink7\">" + Utility.BlockGraph("   |l4|h4|,$|_<th<h<,h<,  ") + "</span></p>");
+        HeaderBusiness.AppendLine("<p>" + Utility.BlockGraph("j£3kj£3kj£3k ") + "<span class=\"ink7 paper2\">" + Utility.BlockGraph("|l4|h4|,$|_<th<h<,h<,") + "</span></p>");
         HeaderBusiness.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"ink7 paper2\">" + Utility.BlockGraph("@{4oz%s{5@j5@jwbs@bs@") + "</span></p>");
         HeaderBusiness.AppendLine("<p>" + Utility.BlockGraph("\"£££\"£££\"£££ ") + "<span class=\"ink2\">" + Utility.BlockGraph("///,,.-,/,,.,-.,-,-,,-,,//") + "</span></p>");
 
