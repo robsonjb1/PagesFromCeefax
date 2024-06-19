@@ -101,13 +101,13 @@ public class SpectatorContent : ISpectatorContent
             
             foreach (var p in body)
             {
+if(p.SelectNodes(".//img") == null && p.SelectNodes(".//iframe") == null) // Ignore inline images
+                {
                 if(p.ParentNode.Name == "blockquote")
                 {
                     lines.AppendLine("<p><b><i><center>" + p.OuterHtml.Replace("<p>", "").Replace("</p>", "") + "</center></i></b></p>");
                 }
                 else
-                {
-if(p.SelectNodes(".//img") == null && p.SelectNodes(".//iframe") == null) // Ignore inline images
                 {
                     if(lines.Length == 0)
                     {
