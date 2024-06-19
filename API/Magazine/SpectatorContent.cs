@@ -107,6 +107,8 @@ public class SpectatorContent : ISpectatorContent
                 }
                 else
                 {
+if(p.SelectNodes(".//img") == null && p.SelectNodes(".//iframe") == null) // Ignore inline images
+                {
                     if(lines.Length == 0)
                     {
                         // Display the dateline in the first paragraph
@@ -117,6 +119,7 @@ public class SpectatorContent : ISpectatorContent
                         lines.AppendLine(p.OuterHtml);
                     }
                 }
+}
             }
         
             a.StoryHtml = lines.ToString(); 
