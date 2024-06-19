@@ -21,6 +21,7 @@ function render(time) {
     }
   }
 
+ctx.scale(3, 2);
   ctx.putImageData(imgData, 0, 0);
   
   requestAnimationFrame(render);
