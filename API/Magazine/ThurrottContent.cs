@@ -91,7 +91,7 @@ public class ThurrottContent : IThurrottContent
             
             foreach (var p in body)
             {
-                if(p.SelectNodes(".//img") == null) // Ignore inline images
+                if(p.SelectNodes(".//img") == null && p.SelectNodes(".//iframe") == null) // Ignore inline images
                 {
                     if(lines.Length == 0)
                     {
