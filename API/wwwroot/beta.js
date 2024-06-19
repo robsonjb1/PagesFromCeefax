@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 
 function render(time) {
   canvas.width = 480; 
-  canvas.height = 720; 
+  canvas.height = 600;
 
   var imgData = ctx.createImageData(480, 480);
 
