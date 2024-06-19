@@ -2,8 +2,8 @@ const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
 function render(time) {
-  canvas.width = 480; 
-  canvas.height = 480; 
+  //canvas.width = 480; 
+  //canvas.height = 480; 
 
   var imgData = ctx.createImageData(480, 480);
 
