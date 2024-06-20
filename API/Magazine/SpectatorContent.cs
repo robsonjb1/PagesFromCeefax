@@ -101,25 +101,25 @@ public class SpectatorContent : ISpectatorContent
             
             foreach (var p in body)
             {
-if(p.SelectNodes(".//img") == null && p.SelectNodes(".//iframe") == null) // Ignore inline images
-                {
                 if(p.ParentNode.Name == "blockquote")
                 {
                     lines.AppendLine("<p><b><i><center>" + p.OuterHtml.Replace("<p>", "").Replace("</p>", "") + "</center></i></b></p>");
                 }
                 else
                 {
-                    if(lines.Length == 0)
+                    if(p.SelectNodes(".//img") == null && p.SelectNodes(".//iframe") == null) // Ignore inline images
                     {
-                        // Display the dateline in the first paragraph
-                        lines.AppendLine(p.OuterHtml.Replace("<p>", $"<p><b>{a.PublishDate}. </b>"));
-                    }
-                    else
-                    {
-                        lines.AppendLine(p.OuterHtml);
+                        if(lines.Length == 0)
+                        {
+                            // Display the dateline in the first paragraph
+                            lines.AppendLine(p.OuterHtml.Replace("<p>", $"<p><b>{a.PublishDate}. </b>"));
+                        }
+                        else
+                        {
+                            lines.AppendLine(p.OuterHtml);
+                        }
                     }
                 }
-}
             }
         
             a.StoryHtml = lines.ToString(); 
