@@ -9,7 +9,7 @@
 
     function render(time) {
     canvas.width = 480; 
-    canvas.height = 600;
+    canvas.height = 480;
 
     var imgData = ctx.createImageData(480, 480);
     var charNo = 0;
@@ -18,7 +18,7 @@
     {
       for(var xCol = 0; xCol < 40; xCol++)
       {
-        idPtr = (xCol * 4 * 12) + (yCol * 40 * 4 * 12 * 24);
+        idPtr = (xCol * 4 * 12) + (yCol * 40 * 4 * 12 * 20);
 
         for(var yPos = 0; yPos < 20; yPos++)
         {
@@ -41,41 +41,14 @@
       }
     }
 
+    ctx.scale(2, 3);
     ctx.putImageData(imgData, 0, 0);
-    //ctx.scale(2, 3);
-
+    
     requestAnimationFrame(render);
     }
     requestAnimationFrame(render);
-
-    function makeCharsDemo() {
-      return new Uint8Array([
-          // 'a'
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0,
-          0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
-          0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
-          0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-          0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1,
-          0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1,
-          0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-          0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-      ]);
-    }
-   
-    var charSmoothed = makeSmoothedChars(makeChars());
-   
+  
+    var charSmoothed = makeSmoothedChars(makeChars());  
 
     });
   })();
