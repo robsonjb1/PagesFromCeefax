@@ -119,3 +119,19 @@ function makeGraphicChars(charData, sep)
 
     return graphicData;
 }
+
+function insertPageHeader(charData)
+{
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var now = new Date();
+
+    const header = " P152   CEEFAX 1 152 " + days[now.getDay()] + ' ' + ('0' + now.getDate()).slice(-2) + ' ' + months[now.getMonth()] + 
+        String.fromCharCode(3) +
+        ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2) + '/' + ('0' + now.getSeconds()).slice(-2);
+
+    for(var i=0; i<header.length; i++)
+    {
+        charData[i] = header.charCodeAt(i);
+    }
+}
