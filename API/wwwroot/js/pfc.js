@@ -29,7 +29,7 @@
             if (pageTickerInterval < 0) {
                 pageTickerInterval = 10;
                 pageTickerNo++;
-                if (Math.floor((Math.random() * 10) == 1)) {
+                if (Math.floor((Math.random() * 10)) == 1) {
                     pageTickerNo++; // Randomly skip a page, makes the ticker look less uniform
                 }
                 if (pageTickerNo > 199) {

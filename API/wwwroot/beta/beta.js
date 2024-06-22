@@ -6,13 +6,16 @@
 
   const canvas = document.querySelector('canvas');
   const ctx = canvas.getContext('2d');
+  canvas.width = 480; 
+  canvas.height = 480;
 
-  prevCol = bgCol = holdChar = 0;
-  col = 7;
-  sep = holdOff = gfx = heldChar = false;
-  dbl = oldDbl = secondHalfOfDouble = wasDbl = false;
-  flash = flashOn = false;
-  flashTime = 0;
+  var prevCol = bgCol = holdChar = 0;
+  var col = 7;
+  var sep = holdOff = gfx = heldChar = false;
+  var dbl = oldDbl = secondHalfOfDouble = wasDbl = false;
+  var lastRefresh = false;
+  var newPage = 1;
+  var pageCycle = 100;
 
   var charSmoothed = makeSmoothedChars(getChars());
   var charGraphics = makeGraphicChars(getChars(), false);
@@ -20,78 +23,83 @@
   var testPage = getTestPage();
 
   function render(time) {
-    canvas.width = 480; 
-    canvas.height = 480;
-
-    var imgData = ctx.createImageData(480, 480);
-    insertPageHeader(testPage);
-
-    var charPos = 0;
-    if (++flashTime === 64) flashTime = 0;
-    flashOn = flashTime < 16;
-
-    // Render page
-    for(var yCol = 0; yCol < 24; yCol++)
-    {
-        col = 7;
-        bg = 0;
-        holdChar = false;
-        heldChar = 0x20;
-        nextGlyphs = heldGlyphs = charSmoothed;
-        flash = sep = gfx = dbl = false;
-        
-        if (secondHalfOfDouble) {
-            secondHalfOfDouble = false;
-        } else {
-            secondHalfOfDouble = wasDbl;
-        }
-        wasDbl = false;
-
-        for(var xCol = 0; xCol < 40; xCol++)
-        {
-            idPtr = (xCol * 4 * 12) + (yCol * 40 * 4 * 12 * 20);
-
-            oldDbl = dbl;
-            prevCol = col;
-            curGlyphs = nextGlyphs;
-            data = testPage[charPos++];
-
-            if (data < 0x20) {
-                data = handleControlCode(data);
-            } else if (gfx) {
-                heldChar = data;
-                heldGlyphs = curGlyphs;
-            }
-
-            // Displayable character, map to character definitions
-            var charDef = (flash && flashOn) || (secondHalfOfDouble && !dbl) ? 0 : data - 32;
+    if(!lastRefresh || newPage != 24 || time - lastRefresh >= 200) {
+        lastRefresh = time;
+        newPage = newPage >= 24 ? 24 : newPage+2;
             
-            for(var yPos = 0; yPos < 20; yPos++)
+        var imgData = ctx.createImageData(480, 480);
+        insertPageHeader(testPage, pageCycle);
+        
+        if(newPage == 24)
+        {
+            pageCycle = (pageCycle > 190) ? 100 : pageCycle + ((Math.floor((Math.random() * 10)) == 1) ? 2 : 1);
+        }
+
+        var charPos = 0;
+     
+        // Render page
+        for(var yCol = 0; yCol < newPage; yCol++)
+        {
+            col = 7;
+            bg = 0;
+            holdChar = false;
+            heldChar = 0x20;
+            nextGlyphs = heldGlyphs = charSmoothed;
+            sep = gfx = dbl = false;
+            
+            if (secondHalfOfDouble) {
+                secondHalfOfDouble = false;
+            } else {
+                secondHalfOfDouble = wasDbl;
+            }
+            wasDbl = false;
+
+            for(var xCol = 0; xCol < 40; xCol++)
             {
-                actualY = dbl ? Math.floor(yPos / 2) + (secondHalfOfDouble ? 10 : 0) : yPos;
-                for(var xPos = 0; xPos < 12; xPos++)
+                idPtr = (xCol * 4 * 12) + (yCol * 40 * 4 * 12 * 20);
+
+                oldDbl = dbl;
+                prevCol = col;
+                curGlyphs = nextGlyphs;
+                data = testPage[charPos++];
+
+                if (data < 0x20) {
+                    data = handleControlCode(data);
+                } else if (gfx) {
+                    heldChar = data;
+                    heldGlyphs = curGlyphs;
+                }
+
+                // Displayable character, map to character definitions
+                var charDef = (secondHalfOfDouble && !dbl) ? 0 : data - 32;
+                
+                for(var yPos = 0; yPos < 20; yPos++)
                 {
-                    let setPixel = curGlyphs[(charDef * 240) + (12 * actualY) + xPos] == 1;
-                    imgData.data[idPtr] = setPixel ? getRGB_Red(prevCol) : getRGB_Red(bg);
-                    imgData.data[idPtr+1] = setPixel ? getRGB_Green(prevCol) : getRGB_Green(bg);
-                    imgData.data[idPtr+2] = setPixel ? getRGB_Blue(prevCol) : getRGB_Blue(bg);
-                    imgData.data[idPtr+3] = setPixel || (!setPixel && bg != 0) ? 255 : 0;
-                    idPtr = idPtr + 4;
+                    actualY = dbl ? Math.floor(yPos / 2) + (secondHalfOfDouble ? 10 : 0) : yPos;
+                    for(var xPos = 0; xPos < 12; xPos++)
+                    {
+                        let setPixel = curGlyphs[(charDef * 240) + (12 * actualY) + xPos] == 1;
+                        imgData.data[idPtr] = setPixel ? getRGB_Red(prevCol) : getRGB_Red(bg);
+                        imgData.data[idPtr+1] = setPixel ? getRGB_Green(prevCol) : getRGB_Green(bg);
+                        imgData.data[idPtr+2] = setPixel ? getRGB_Blue(prevCol) : getRGB_Blue(bg);
+                        imgData.data[idPtr+3] = setPixel || (!setPixel && bg != 0) ? 255 : 0;
+                        idPtr = idPtr + 4;
+                    }
+                    
+                    idPtr = idPtr + (4 * 39 * 12);      
                 }
                 
-                idPtr = idPtr + (4 * 39 * 12);      
-            }
-            
-            if (holdOff) {
-                holdChar = false;
-                heldChar = 32;
+                if (holdOff) {
+                    holdChar = false;
+                    heldChar = 32;
+                }
             }
         }
+
+        ctx.scale(2, 3);
+        ctx.putImageData(imgData, 0, 0);
     }
-
-    ctx.scale(2, 3);
-    ctx.putImageData(imgData, 0, 0);
-
+    
     requestAnimationFrame(render);
   }
   
@@ -123,13 +131,6 @@
             gfx = false;
             col = data;
             setNextChars();
-            break;
-
-        case 8:
-            flash = true;
-            break;
-        case 9:
-            flash = false;
             break;
 
         case 12:
