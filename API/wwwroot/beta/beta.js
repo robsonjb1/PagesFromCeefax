@@ -71,10 +71,11 @@
                 actualY = dbl ? Math.floor(yPos / 2) + (secondHalfOfDouble ? 10 : 0) : yPos;
                 for(var xPos = 0; xPos < 12; xPos++)
                 {
-                    imgData.data[idPtr] = curGlyphs[(charDef * 240) + (12 * actualY) + xPos] == 1 ? getRGB_Red(prevCol) : getRGB_Red(bg);
-                    imgData.data[idPtr+1] = curGlyphs[(charDef * 240) + (12 * actualY) + xPos] == 1 ? getRGB_Green(prevCol) : getRGB_Green(bg);
-                    imgData.data[idPtr+2] = curGlyphs[(charDef * 240) + (12 * actualY) + xPos] == 1 ? getRGB_Blue(prevCol) : getRGB_Blue(bg);
-                    imgData.data[idPtr+3] = 255;
+                    let setPixel = curGlyphs[(charDef * 240) + (12 * actualY) + xPos] == 1;
+                    imgData.data[idPtr] = setPixel ? getRGB_Red(prevCol) : getRGB_Red(bg);
+                    imgData.data[idPtr+1] = setPixel ? getRGB_Green(prevCol) : getRGB_Green(bg);
+                    imgData.data[idPtr+2] = setPixel ? getRGB_Blue(prevCol) : getRGB_Blue(bg);
+                    imgData.data[idPtr+3] = setPixel || (!setPixel && bg != 0) ? 255 : 0;
                     idPtr = idPtr + 4;
                 }
                 

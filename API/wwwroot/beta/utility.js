@@ -8,7 +8,7 @@ function getRGB_Red(col)
         case 3:
         case 5:
         case 7:
-            return 220;
+            return 255;
         default: 
             return 0;
     }
@@ -22,7 +22,7 @@ function getRGB_Green(col)
         case 3:
         case 6:
         case 7:
-            return 220;
+            return 255;
         default: 
             return 0;
     }
@@ -36,7 +36,7 @@ function getRGB_Blue(col)
         case 5:
         case 6:
         case 7:
-            return 220;
+            return 255;
         default: 
             return 0;
     }

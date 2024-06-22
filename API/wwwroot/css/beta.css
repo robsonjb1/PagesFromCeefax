@@ -1,0 +1,277 @@
+﻿/* fonts */
+@font-face {
+	font-family: 'bbcmode7';
+	src: url('../fonts/bbcmode7.woff') format('woff'),
+	     url('../fonts/bbcmode7.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* reset */
+*, *:before, *:after {
+	margin: 0;
+	padding: 0;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+Header, section, footer, aside {
+	display: block;
+}
+
+/* general styles */
+html {
+	font-family: 'bbcmode7', 'courier new', 'courier', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	color: #ffffff;
+}
+
+body {
+	background-color: black;
+}
+
+Header {
+	position: absolute;
+	top: -1000px;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+audio {
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+#controls {
+    text-align: center;
+	    color: white;
+	font-size: .7em;
+	background-color: black;	
+}
+
+/* main page container */
+#container {
+	font-size: 1.25em;
+	width: 100%;
+	height: 52.85em;
+	background: #000000 url('../img/background.jpg') center top no-repeat;
+	background-size: auto 100%;
+	margin: -6em 0 0 0;
+	padding: 8em 0 0 0;
+	position: relative;
+	overflow: hidden;
+}
+
+/* content bit */
+#page {
+	font-size: 1em;
+	line-height: 1.23;
+	display: table;
+	margin: 0 auto 0 auto;
+	-webkit-transform: scale(1.2,1);
+	-moz-transform: scale(1.2,1);
+	-ms-transform: scale(1.2,1);
+	-o-transform: scale(1.2,1);
+	transform: scale(1.2,1);
+	cursor: default;
+	letter-spacing: 0px;
+}
+#page.view {
+	-webkit-transform: scale(1.2,1) perspective(1000px) rotateX(0.1deg) translateZ(1px);
+	-moz-transform: scale(1.2,1) perspective(1000px) rotateX(0.1deg) translateZ(1px);
+	-ms-transform: scale(1.2,1) perspective(1000px) rotateX(0.1deg) translateZ(1px);
+	-o-transform: scale(1.2,1) perspective(1000px) rotateX(0.1deg) translateZ(1px);
+	transform: scale(1.2,1) perspective(1000px) rotateX(0.1deg) translateZ(1px);
+}
+#page span, #page a {
+	display: inline;
+	vertical-align: top;
+}
+#page #pageContent {
+	position: relative;
+}
+#page.view #pageContent span {
+	border: none;
+	margin: 0;
+}
+
+/* scanline/shading overlay */
+#overlay, #overlaySvg {
+	width: 52.2em;
+	height: 39.2em;
+	position: absolute;
+	top: 5.2em;
+	left: 50%;
+	margin: 0 0 0 -25.6em;
+	pointer-events: none;
+}
+#overlay {
+	background: url('../img/overlay.png') no-repeat;
+	background-size: 100% 100%;
+}
+
+/* black cover */
+#loading {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000000;
+}
+
+/* colours etc. */
+.off {
+	visibility: hidden;
+}
+.ink0 {
+	color: rgb(56,56,56);
+}
+.ink1 {
+	color: rgb(40,40,255);
+}
+.ink2 {
+	color: rgb(255,16,16);
+}
+.ink3 {
+	color: rgb(255,0,255);
+}
+.ink4 {
+	color: rgb(0,255,0);
+}
+.ink5 {
+	color: rgb(0,255,255);
+}
+.ink6 {
+	color: rgb(255,255,0);
+}
+.ink7 {
+	color: rgb(255,255,255);
+}
+.paper0 {
+	background-color: transparent;
+}
+.paper1 {
+	background-color: rgb(40,40,255);
+}
+.paper2 {
+	background-color: rgb(255,16,16);
+}
+.paper3 {
+	background-color: rgb(255,0,255);
+}
+.paper4 {
+	background-color: rgb(0,255,0);
+}
+.paper5 {
+	background-color: rgb(0,255,255);
+}
+.paper6 {
+	background-color: rgb(255,255,0);
+}
+.paper7 {
+	background-color: rgb(255,255,255);
+}
+.indent {
+    margin-left: 1px;
+}
+.noindent {
+    margin-left: 0px;
+}
+
+
+p.doubleHeight {
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transform: scale(1,2);
+	-moz-transform: scale(1,2);
+	-ms-transform: scale(1,2);
+	-o-transform: scale(1,2);
+	transform: scale(1,2);
+}
+p.doubleHeight + p {
+	visibility: hidden;
+}
+
+.material-icons.md-40 {
+	font-size: 30px;
+}
+
+
+/* size adjustments */
+
+
+@media only screen {
+	#container {
+		font-size: 1.125em;
+	}
+	#magazineCanvas {
+		width: 525px;
+	}
+}
+@media only screen and (max-width:63.9em)  {
+	#container {
+		font-size: 1em;
+	}
+	#magazineCanvas {
+		width: 450px;
+	}
+}
+@media only screen and (max-width:47.9em)  {
+	#container {
+		font-size: 0.91em;
+	}
+	#magazineCanvas {
+		width: 400px;
+	}
+}
+@media only screen and (max-width:40em)  {
+	#container {
+		font-size: 0.75em;
+	}
+	#magazineCanvas {
+		width: 350px;
+	}
+}
+
+
+
+/* adjustments to vertical position */
+@media only screen and (min-width:64em) and (max-width:80em) and (min-height:45em) {
+	#container {
+		margin-top: -3em;
+	}
+}
+@media only screen and (min-width:80em) and (min-height:50em) {
+	#container {
+		margin-top: -3em;
+	}
+}
+@media only screen and (min-width:80em) and (min-height:60em) {
+	#container {
+		margin-top: 0;
+	}
+}
+@media only screen and (max-aspect-ratio:10/10) {
+	#container {
+		margin-top: 0;
+	}
+}
+
+/* adjustments for ultra low vertical position */
+@media only screen and (max-height:35em) {
+	#container {
+		margin-top: -3.5em;
+        font-size: .80em;
+	}
+}

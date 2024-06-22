@@ -1,0 +1,90 @@
+﻿<!--
+
+ pagesfromceefax.azurewebsites.net
+
+ Jason Robson
+ Twitter @pfceefax
+ https://github.com/robsonjb1/PagesFromCeefax
+
+ Attributions:
+ - Displays news stories gathered from the BBC public RSS feeds
+
+ - Font based on http://fontstruct.com/fontstructions/show/825647
+     (I added in the necessary teletext 3x2 block graphics characters)
+
+ - Header artwork was taken from REAL Ceefax pages using the BeebEm BBC Micro emulator (which supports Teletext adapters)
+     and used a 'digital' feed of Teletext from some time in 2006.
+
+ - Background TV image using licensed stock art imagery purchased from shutterstock.com
+
+ - Overall concept inspired by Matt Round's Jellytext (mattround.com)
+
+ - The audio was taken from the following YouTube video (attribution unknown)
+ -   https://www.youtube.com/watch?v=JU8P5G-GM_g
+
+ - Site developed using Microsoft Visual Code (Mac)
+
+ - Hosted using Microsoft Azure
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pages from Ceefax - Today's news at yesterday's pace</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+    <meta name="apple-mobile-web-app-title" content="Pages from Ceefax" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <meta name="description" value="A tribute to the in-vision Teletext service Ceefax, familiar to British TV viewers for over 30 years." />
+
+    <script src="../js/jquery.min.js"></script>
+    
+    <script src="chardefs.js"></script>
+    <script src="testpage.js"></script>
+    <script src="utility.js"></script>
+    <script src="beta.js"></script>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="../css/beta.css" />
+    <link rel="icon" type="image/png" href="favicon16x16.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon-72x72.png">
+</head>
+
+<body>
+    <!-- Twitter follow button -->
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+
+    <audio>
+        <source src="../audio/pfc-low.mp3" type="audio/mp3" />
+    </audio>
+
+    <audio>
+        <source src="../audio/pfc-xmas.mp3" type="audio/mp3" />
+    </audio>
+
+    <div id="container">
+        <div id="page">
+            <canvas id="magazineCanvas"></canvas>
+        </div>
+
+        <div id="overlay"></div>
+    </div>
+
+    <div id="controls">
+        <br />...Background Music...<br />
+        <a href="javascript:toggleMusic()"><span id="imgPlay" class="material-icons md-40">play_arrow</span></a>
+        <a href="javascript:toggleMusic()"><span id="imgPause" class="material-icons md-40" style="display:none">pause</span></a>
+        <br />
+        <br />
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://pagesfromceefax.azurewebsites.net" data-via="pfceefax">Tweet</a>
+        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+
+        <a href="https://twitter.com/pfceefax" class="twitter-follow-button" data-show-count="false">Follow @pfceefax</a>
+    </div>
+
+</body>
+</html>
