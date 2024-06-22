@@ -56,7 +56,6 @@ function makeSmoothedChars(charData)
                 var sourcePixel = charData[(charNo * 60) + (row * 6) + pixel];
                 var destPos = (charNo * 240) + (row * 24) + (pixel * 2);
 
-                // Write 2x2 block
                 solidBlock(smoothedData, destPos, 2, 2, sourcePixel, false);
             }
         }
@@ -71,14 +70,13 @@ function makeSmoothedChars(charData)
                 // Detect a diagonal
                 if((smoothedData[sourcePos] == 1                 
                     && smoothedData[sourcePos+1] == 0           // 1 0
-                    && smoothedData[sourcePos+12] == 0           // 0 1
+                    && smoothedData[sourcePos+12] == 0          // 0 1
                     && smoothedData[sourcePos+13] == 1          
                 ) || (smoothedData[sourcePos] == 0                 
                     && smoothedData[sourcePos+1] == 1           // 0 1
-                    && smoothedData[sourcePos+12] == 1           // 1 0
+                    && smoothedData[sourcePos+12] == 1          // 1 0
                     && smoothedData[sourcePos+13] == 0          
                 )) {
-                    // Write 2x2 block
                     solidBlock(smoothedData, sourcePos, 2, 2, 1, false);
                 }
             }
@@ -94,7 +92,7 @@ function solidBlock(graphicData, startPos, width, height, val, sep)
     {
         for(var yPos=0; yPos<height; yPos++)
         {
-            // Separated graphics miss the left and bottom rows
+            // Separated graphics miss the left and bottom sides
             graphicData[startPos + xPos + (12 * yPos)] = val && (!sep || xPos > 0) && (!sep || yPos<height-1) ? 1 : 0;
         }
     }
