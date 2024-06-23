@@ -30,6 +30,7 @@ public class Graphics
     // Transitional screens
     public readonly static StringBuilder PromoMap = new();
     public readonly static StringBuilder PromoWeather = new();
+    public readonly static StringBuilder PromoBusiness = new();
     public readonly static StringBuilder PromoSport = new();
     public readonly static StringBuilder PromoTV = new();
     public readonly static StringBuilder PromoNews = new();
@@ -145,6 +146,30 @@ public class Graphics
         PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                        t@@@@@@@@@@@'") + "</span></p>");
         PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                 [GG]@@@@@@@@?s///?!") + "</span></p>"); // h
         PromoMap.AppendLine("<p><span class=\"ink4 indent\">" + Utility.SepGraph("                   8?' \"'     \"") + "</span></p>");
+
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("  @wwwwwwwwwwwwww@@    j@1*z@2%_z}?g   ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("  jo@@@@@@@@/????o@    \"£.£££(, £{co7_ ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("  $(\"@@@@@@@b5555{@              _-6%44") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("  oqh4?/?/??>-=l=.@               ! zuu") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("   +tx5q55555555u3@                )_~o") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("    kdm/}|}|}}}~}|@      p p0       *)!") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("    j_0h/@@@@@@@@@@    _~@@@@@t      _!") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("    **%  /////////     j@@@@@@@4       ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink6 paper1\">" + Utility.BlockGraph("  @sj5@k5@{5@k5@£jw!") + "</span><span class=\"ink5 paper1\">" + Utility.BlockGraph("  _0£o?£sro}       ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink6 paper1\">" + Utility.BlockGraph("  @ j5@j5@j5@j5@pju0") + "</span><span class=\"ink5 paper1\">" + Utility.BlockGraph("     \"@\"££o@4      ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink6 paper1\">" + Utility.BlockGraph("     pp0pp_0 _0pp0") + "</span><span class=\"ink5 paper1\">" + Utility.BlockGraph("     9 h@ty|~@}      ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink6 paper1\">" + Utility.BlockGraph("     @j5@$j5pj5/l4") + "</span><span class=\"ink5 paper1\">" + Utility.BlockGraph("       z@@@@@@@?0    ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink6 paper1\">" + Utility.BlockGraph("     /*%/,*-/.%,.%") + "</span><span class=\"ink5 paper1\">" + Utility.BlockGraph("     _ ooo@@@@@?%    ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("   $p@o/@@@@@@@@@@       j@@@@@@@ $    ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("     ?|s@@@@@@@@@@         £s@@@@u     ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("   a@)r@@@@@@@@@y@       _x@@@@@@@     ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("   8£|~@@@@@@@@@@        j@@@@?@@@     ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("  \"px@@@@@@@@@@@£         £gsx~@?!     ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("  (\"@@@@@@@@@@@@           j@@@7       ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("  (@@@@@@@@@@@@            j@?!        ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("   l@@@@@@@@@@         $ ($ !      h@@}") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink6 paper1\">&nbsp;&nbsp;&nbsp;Follows in a moment... </span><span class=\"ink5 paper1\">" + Utility.BlockGraph("4        @@@ ") + "</span></p>");
+        PromoBusiness.AppendLine("<p><span class=\"ink5 paper1\">" + Utility.BlockGraph("                                   @@5 ") + "</span></p>");
 
 
         PromoWeather.AppendLine("<p><span class=\"ink5\">" + Utility.SepGraph("@@@@@@@@@@@@@@@@@@@4@46j4@44@@@@@@@@@@@") + "</span></p>");

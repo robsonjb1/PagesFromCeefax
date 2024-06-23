@@ -46,6 +46,7 @@ public class CarouselService : ICarouselService
             BuildTeletextPage(_tn.CreateNewsPage(CeefaxSectionType.Sussex));
 
             // Business section
+            BuildTeletextPage(Graphics.PromoBusiness);
             BuildTeletextPage(_tn.CreateNewsPage(CeefaxSectionType.Business));
             BuildTeletextPage(_tm.CreateMarketsPage());
            

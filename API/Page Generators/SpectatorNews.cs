@@ -20,6 +20,7 @@ public class SpectatorNews : ISpectatorNews
     public string Generate()
     {
         const int maxArticles = 50;
+        const int maxImageSize = 2*1024*1024; // 2mb limit on image sizes;
        
         // Header
         StringBuilder c = new StringBuilder();
@@ -56,7 +57,7 @@ public class SpectatorNews : ISpectatorNews
             c.AppendLine($"<h2>{article.Headline}</h2>");  
             c.AppendLine($"<p><i>By {article.Author}. Skip to <a href='#s{count-1}'>previous</a> or <a href='#s{count+1}'>next</a>.</i></p></div>");
             
-            if(article.ImageUri != null && article.ImageBase64 != String.Empty)
+            if(article.ImageUri != null && article.ImageBase64 != String.Empty && article.ImageBase64.Length < maxImageSize)
             {
                 c.AppendLine($"<img class='articleimage' src='data:image/{getMimeType(article.ImageUri)};base64,{article.ImageBase64}'>");
             }
