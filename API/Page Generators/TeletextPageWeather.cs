@@ -49,14 +49,14 @@ public class TeletextPageWeather : ITeletextPageWeather
             int j = 1;
             foreach (string line in mapLines)
             {
-                string replacement = $"<span class=\"ink{(int)summaryColour} indent\">" + line.PadHtmlLeft(18) + "</span>";
+                string replacement = $"<span class=\"ink{(int)summaryColour} indent\">" + line.PadHtmlLeft(19) + "</span>";
                 map = map.Replace("[LINE" + j.ToString() + "]", replacement);
                 j++;
             }
             // Padding for any remaining lines
             for (int k = j; k <= 7; k++)
             {
-                map = map.Replace("[LINE" + k.ToString() + "]", $"<span class=\"ink{(int)Mode7Colour.White} indent\">{"".PadHtmlLeft(18)}</span>");
+                map = map.Replace("[LINE" + k.ToString() + "]", $"<span class=\"ink{(int)Mode7Colour.White} indent\">{"".PadHtmlLeft(19)}</span>");
             }
 
             // Insert temperatures
