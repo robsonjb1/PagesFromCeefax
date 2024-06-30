@@ -142,3 +142,12 @@ audio {
 		width: 350px;
 	}
 }
+@media only screen and (max-width:30em)  {
+	#container {
+		font-size: 0.6em;
+	}
+	#magazineCanvas {
+		width: 300px;
+	}
+}
+
