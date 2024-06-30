@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using System.Transactions;
 using API.Architecture;
 using API.PageGenerators;
 using Serilog;
@@ -56,7 +55,7 @@ public class CarouselService
             BuildTeletextPage(_tm.CreateMarketsPage());
            
             // Sports section
-            //BuildTeletextPage(Graphics.PromoSport);
+            BuildTeletextPage(Graphics.PromoSport);
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Football));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Rugby));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Cricket));
@@ -83,7 +82,7 @@ public class CarouselService
             // Close
             BuildTeletextPage(Graphics.PromoLinks);
             if(DateTime.Now.Month == 12) {
-            //    BuildTeletextPage(Graphics.PromoChristmas);
+                BuildTeletextPage(Graphics.PromoChristmas);
             }            
         }
         catch(Exception ex) 
@@ -112,7 +111,7 @@ public class CarouselService
                 for(int i = 0; i < 40; i++)
                 {
                     int ascii = (int)chars[i];
-                    if(ascii > 127)
+                    if(ascii > 127) // We can't display this character
                     {
                         ascii = 128;
                         page.IsValid = false;
