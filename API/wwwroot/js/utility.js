@@ -93,7 +93,7 @@ function solidBlock(graphicData, startPos, width, height, val, sep)
         for(var yPos=0; yPos<height; yPos++)
         {
             // Separated graphics miss the left and bottom sides
-            graphicData[startPos + xPos + (12 * yPos)] = val && (!sep || xPos > 0) && (!sep || yPos<height-1) ? 1 : 0;
+            graphicData[startPos + xPos + (12 * yPos)] = val && (!sep || xPos > 1) && (!sep || yPos<height-2) ? 1 : 0;
         }
     }
 }
@@ -118,18 +118,35 @@ function makeGraphicChars(charData, sep)
     return graphicData;
 }
 
-function insertPageHeader(charData, pageCycle)
+function insertPageHeader(carouselIsValid, pageIsValid, charData, pageCycle, musicOn)
 {
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     var now = new Date();
-
+ 
     const header = ' P152   CEEFAX 1 ' + pageCycle.toString() + ' ' + days[now.getDay()] + ' ' + ('0' + now.getDate()).slice(-2) + ' ' + months[now.getMonth()] + 
         String.fromCharCode(3) +
         ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2) + '/' + ('0' + now.getSeconds()).slice(-2);
 
-    for(var i=0; i<header.length; i++)
-    {
-        charData[i] = header.charCodeAt(i);
-    }
+    for(var i=0; i<header.length; i++) charData[i] = header.charCodeAt(i);
+    
+    charData[0] = pageIsValid ? 32 : 1; // Set red page number if invalid
+    charData[5] = carouselIsValid ? 7 : 1; // Set red page number if invalid
+    charData[16] = 7; // Set white text for the remainder
+
+    // Insert Fastext buttons
+    const footer = " Music " + (musicOn ? "Off" : "On ") + "  Previous   Next    Twitter/X";
+    
+    for(var i=0; i<footer.length; i++) charData[960+i] = footer.charCodeAt(i);
+    charData[960] = 1; // Red
+    charData[970] = 2; // Green
+    charData[982] = 3; // Yellow
+    charData[989] = 6; // Cyan
+}
+
+function getCursorPosition(canvas, ev) {
+    var rect = canvas.getBoundingClientRect()
+    var x = ev.clientX - rect.left
+    var y = ev.clientY - rect.top
+    return {x, y};
 }

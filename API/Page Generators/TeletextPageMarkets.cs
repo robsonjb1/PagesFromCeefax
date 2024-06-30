@@ -30,27 +30,27 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         {
             sb.Append(Graphics.HeaderMarkets);
 
-            sb.AppendLineColour("UK MARKETS", Mode7Colour.Yellow);
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]UK MARKETS");
             sb.Append(OutputMarket("FTSE 100"));
             sb.Append(OutputMarket("FTSE 250"));
-            sb.LineBreak(Mode7Colour.Red);
+            sb.LineBreak(TeletextControl.AlphaRed);
 
-            sb.AppendLineColour("EUROPE MARKETS", Mode7Colour.Yellow);
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]EUROPE MARKETS");
             sb.Append(OutputMarket("AEX"));
             sb.Append(OutputMarket("DAX"));
-            sb.LineBreak(Mode7Colour.Red);
-           
-            sb.AppendLineColour("US MARKETS", Mode7Colour.Yellow);
+            sb.LineBreak(TeletextControl.AlphaRed);
+
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]US MARKETS");
             sb.Append(OutputMarket("Dow Jones"));
             sb.Append(OutputMarket("Nasdaq"));
-            sb.LineBreak(Mode7Colour.Red);
+            sb.LineBreak(TeletextControl.AlphaRed);
            
-            sb.AppendLineColour("ASIA MARKETS", Mode7Colour.Yellow);
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]ASIA MARKETS");
             sb.Append(OutputMarket("Hang Seng"));
             sb.Append(OutputMarket("Nikkei 225"));
-            sb.LineBreak(Mode7Colour.Red);
-           
-            sb.AppendLineColour("CURRENCIES", Mode7Colour.Yellow);
+            sb.LineBreak(TeletextControl.AlphaRed);
+
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]CURRENCIES");
             sb.Append(OutputCurrency("EUR"));
             sb.Append(OutputCurrency("USD"));
 
@@ -70,12 +70,11 @@ public class TeletextPageMarkets : ITeletextPageMarkets
 
         if(mr != null)
         {
-            string partMovement = Utility.LineColourFragment($"&nbsp;&nbsp;{mr.Movement}", 
-                mr.Movement.StartsWith('-') ? Mode7Colour.Red : Mode7Colour.Green);
+            TeletextControl colour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
+            string partMovement = $"[{colour}] {mr.Movement}";
+            string partClosed = $"[{TeletextControl.AlphaCyan}]{(mr.Closed ? " Closed" : "")}";
 
-            string partClosed = Utility.LineColourFragment(mr.Closed ? "&nbsp;&nbsp;Closed" : "", Mode7Colour.Cyan);
-
-            sb.AppendLineColour($"{mr.Name.PadHtmlLeft(14)}{mr.Value.PadHtmlRight(9)}{partMovement}{partClosed}", Mode7Colour.White);
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{mr.Name.PadRightWithTrunc(14)}{mr.Value.PadLeftWithTrunc(9)}{partMovement}{partClosed}");
         }
 
         return sb;
@@ -88,10 +87,10 @@ public class TeletextPageMarkets : ITeletextPageMarkets
 
         if (mr != null)
         {
-            string partMovement = Utility.LineColourFragment($"&nbsp;&nbsp;{mr.Movement}", 
-                mr.Movement.StartsWith('-') ? Mode7Colour.Red : Mode7Colour.Green);
-
-            sb.AppendLineColour($"{currency.PadHtmlLeft(14)}{mr.Value.PadHtmlRight(9)}{partMovement}", Mode7Colour.White);
+            TeletextControl colour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
+            string partMovement = $"[{colour}] {mr.Movement}";
+            
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{currency.PadRightWithTrunc(14)}{mr.Value.PadLeftWithTrunc(9)}{partMovement}");
         }
 
         return sb;

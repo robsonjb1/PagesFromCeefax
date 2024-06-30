@@ -1,6 +1,5 @@
 ﻿<!--
-
- pagesfromceefax.azurewebsites.net
+ pagesfromceefax.com
 
  Jason Robson
  Twitter @pfceefax
@@ -9,15 +8,10 @@
  Attributions:
  - Displays news stories gathered from the BBC public RSS feeds
 
- - Font based on http://fontstruct.com/fontstructions/show/825647
-     (I added in the necessary teletext 3x2 block graphics characters)
-
  - Header artwork was taken from REAL Ceefax pages using the BeebEm BBC Micro emulator (which supports Teletext adapters)
      and used a 'digital' feed of Teletext from some time in 2006.
 
  - Background TV image using licensed stock art imagery purchased from shutterstock.com
-
- - Overall concept inspired by Matt Round's Jellytext (mattround.com)
 
  - The audio was taken from the following YouTube video (attribution unknown)
  -   https://www.youtube.com/watch?v=JU8P5G-GM_g
@@ -25,7 +19,6 @@
  - Site developed using Microsoft Visual Code (Mac)
 
  - Hosted using Microsoft Azure
-
 -->
 
 <!DOCTYPE html>
@@ -41,19 +34,15 @@
 
     <meta name="description" value="A tribute to the in-vision Teletext service Ceefax, familiar to British TV viewers for over 30 years." />
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/pfc.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64621910-1"></script>
-    <script>window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-64621910-1');</script>
-
+    <script src="./js/jquery.3.7.1.min.js"></script>
+    <script src="./js/chardefs.js"></script>
+    <script src="./js/testpage.js"></script>
+    <script src="./js/loadingpage.js"></script>
+    <script src="./js/utility.js"></script>
+    <script src="./js/pfc.js"></script>
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <link rel="icon" type="image/png" href="favicon16x16.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon-72x72.png">
 </head>
@@ -63,71 +52,30 @@
     <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
 
     <audio>
-        <source src="audio/pfc-low.mp3" type="audio/mp3" />
+        <source src="./audio/pfc-low.mp3" type="audio/mp3" />
     </audio>
 
     <audio>
-        <source src="audio/pfc-xmas.mp3" type="audio/mp3" />
+        <source src="./audio/pfc-xmas.mp3" type="audio/mp3" />
     </audio>
 
     <div id="container">
         <div id="page">
-            <div id="pageTop">
-                <span id="headerCeefax"><span id="selectedPage" class="ink7 indent"></span>&nbsp;&nbsp;&nbsp;<span id="selectedChannel"></span>&nbsp;<span id="pageTicker"></span> <span class="ink7" id="date"></span> <span class="ink6 paper0" id="clock"></span></span>
-            </div>
-
-            <div id="magazineContent">
-            </div>
-
-            <div id="magazineLoading" style="display:none">
-                <br />
-                <p class="doubleHeight">
-                    <span class="paper1 ink7">&nbsp;&nbsp;&nbsp;&nbsp;YOU ARE WATCHING ITEMS OF NEWS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                </p>
-                <br />
-                <p class="doubleHeight">
-                    <span class="paper1 ink7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND INFORMATION FROM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                </p>
-                <br />
-                <br />
-                <p><span class="paper1 ink6">&nbsp;&nbsp;&nbsp;&nbsp;&#xE23C;&#xE21C;&#xE20C;&#xE20C;&#xE22C;&#xE214;&nbsp;&nbsp;&nbsp;&nbsp;&#xE20C;&#xE23C;&#xE23C;&#xE23C;&#xE23C;&#xE214;&nbsp;&nbsp;&nbsp;&nbsp;&#xE20C;&#xE23C;&#xE23C;&#xE23C;&#xE23C;&#xE214;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-                <p><span class="paper1 ink6">&nbsp;&nbsp;&nbsp;&nbsp;&#xE23F;&#xE215;&#xE22A;&#xE23D;&#xE23E;&#xE215;&#xE21F;&#xE20F;&#xE20F;&#xE22F;&#xE215;&#xE215;&#xE208;&#xE20C;&#xE23E;&#xE215;&#xE21F;&#xE20F;&#xE20F;&#xE22F;&#xE215;&#xE215;&#xE208;&#xE204;&#xE22A;&#xE215;&#xE217;&#xE22B;&#xE217;&#xE22B;&#xE215;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-                <p><span class="paper1 ink6">&nbsp;&nbsp;&nbsp;&nbsp;&#xE23F;&#xE235;&#xE232;&#xE233;&#xE23B;&#xE215;&#xE215;&#xE222;&#xE233;&#xE23F;&#xE215;&#xE235;&#xE232;&#xE233;&#xE23B;&#xE215;&#xE215;&#xE222;&#xE233;&#xE23F;&#xE215;&#xE235;&#xE23A;&#xE235;&#xE23A;&#xE215;&#xE217;&#xE228;&#xE214;&#xE22B;&#xE215;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-                <p><span class="paper1 ink6">&nbsp;&nbsp;&nbsp;&nbsp;&#xE203;&#xE203;&#xE203;&#xE203;&#xE203;&#xE231;&#xE23D;&#xE23C;&#xE23C;&#xE23E;&#xE215;&#xE203;&#xE203;&#xE203;&#xE203;&#xE231;&#xE23D;&#xE23E;&#xE23F;&#xE23F;&#xE215;&#xE203;&#xE203;&#xE203;&#xE203;&#xE231;&#xE23D;&#xE23E;&#xE23D;&#xE23E;&#xE215;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-                <p class="doubleHeight">
-                    <span class="paper1 ink7">&nbsp;&nbsp;THE BBC'S TELETEXT SERVICE 1974-2012&nbsp;</span>
-                </p>
-                <br />
-                <br />
-                <p><span class="paper1 ink6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This site is a tribute to the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-                <p><span class="paper1 ink5">&nbsp;&nbsp;in-vision</span><span class="paper1 ink6"> service, often shown late&nbsp;&nbsp;</span></p>
-                <p><span class="paper1 ink6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at night to British TV viewers.&nbsp;&nbsp;&nbsp;</span></p>
-                <br />
-                <p><span class="paper1 ink7">&nbsp;&nbsp;So enjoy life in a slower lane with &nbsp;</span></p>
-                <p><span class="paper1 ink7">&nbsp;&nbsp;a little light music and some </span><span class="paper1 ink4">*NEW*&nbsp;&nbsp;</span></p>
-                <br />
-                <p class="doubleHeight">
-                    <span class="paper1 ink5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... PAGES FROM CEEFAX ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                </p>
-                <br />
-            </div>
+            <canvas id="magazineCanvas"></canvas>
         </div>
 
         <div id="overlay"></div>
-
     </div>
-
+<!--
     <div id="controls">
-        <br />...Background Music...<br />
-        <a href="javascript:toggleMusic()"><span id="imgPlay" class="material-icons md-40">play_arrow</span></a>
-        <a href="javascript:toggleMusic()"><span id="imgPause" class="material-icons md-40" style="display:none">pause</span></a>
-        <br />
-        <br />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://pagesfromceefax.azurewebsites.net" data-via="pfceefax">Tweet</a>
+        <a href="javascript:ToggleMusic()"><span id="imgPlay" class="material-icons md-40">play_arrow</span></a>
+        <a href="javascript:ToggleMusic()"><span id="imgPause" class="material-icons md-40" style="display:none">pause</span></a>
+        <br /><br />
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://pagesfromceefax.azurewebsites.net" data-via="pfceefax"></a>
         <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
 
-        <a href="https://twitter.com/pfceefax" class="twitter-follow-button" data-show-count="false">Follow @pfceefax</a>
+        <a href="https://twitter.com/pfceefax" class="twitter-follow-button" data-show-count="false"></a>
     </div>
-
+-->
 </body>
 </html>

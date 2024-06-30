@@ -32,25 +32,25 @@ public class TeletextPageStandings : ITeletextPageStanding
             int count = 0;
             sb.Append(Graphics.HeaderFormula1);
             string driverHeading = $"DRIVER STANDINGS (ROUND {_sd.Drivers.Sum(z => z.Wins)})";
-            sb.AppendLineColour($"{driverHeading.PadHtmlLeft(28)}{Utility.LineColourFragment("wins points", Mode7Colour.Green)}", Mode7Colour.Yellow);
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{driverHeading.PadRightWithTrunc(27)}[{TeletextControl.AlphaGreen}]wins points");
             
             // Drivers
             foreach(var d in _sd.Drivers.Take(8))
             {
-                sb.AppendLineColour($"{d.Name.PadHtmlLeft(17)} {d.Team.PadHtmlLeft(12)}{d.Wins.PadHtmlRight(2)} {d.Points.PadHtmlRight(6)}",
-                    (count % 2 == 0) ? Mode7Colour.White : Mode7Colour.Cyan);
-
+                TeletextControl col = (count % 2 == 0) ? TeletextControl.AlphaWhite : TeletextControl.AlphaCyan;
+                sb.AppendLine($"[{col}]{d.Name.PadRightWithTrunc(17)} {d.Team.PadRightWithTrunc(12)}{d.Wins.PadLeftWithTrunc(2)} {d.Points.PadLeftWithTrunc(6)}");
+                
                 count++;
             }
-            sb.LineBreak(Mode7Colour.Blue);
-            sb.AppendLineColour($"{"CONSTRUCTOR STANDINGS".PadHtmlLeft(28)}{Utility.LineColourFragment("wins points", Mode7Colour.Green)}", Mode7Colour.Yellow);
+            sb.LineBreak(TeletextControl.AlphaBlue);
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{"CONSTRUCTOR STANDINGS".PadRightWithTrunc(27)}[{TeletextControl.AlphaGreen}]wins points");
 
             // Constructors
             count=0;
             foreach(var d in _sd.Constructors.Take(8))
             {
-                sb.AppendLineColour($"{d.Team.PadHtmlLeft(30)}{d.Wins.PadHtmlRight(2)} {d.Points.PadHtmlRight(6)}",
-                    (count % 2 == 0) ? Mode7Colour.White : Mode7Colour.Cyan);
+                TeletextControl col = (count % 2 == 0) ? TeletextControl.AlphaWhite : TeletextControl.AlphaCyan;
+                sb.AppendLine($"[{col}]{d.Team.PadRightWithTrunc(30)}{d.Wins.PadLeftWithTrunc(2)} {d.Points.PadLeftWithTrunc(6)}");
 
                 count++;
             }

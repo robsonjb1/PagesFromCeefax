@@ -10,10 +10,10 @@ public class CeefaxSection
     public readonly int TotalStories;
     public readonly bool HasNewsInBrief = false;
     public readonly StringBuilder Header;
-    public readonly Mode7Colour HeadingCol;
+    public readonly TeletextControl HeadingCol;
     public readonly string PromoFooter;
-    public readonly Mode7Colour PromoPaper;
-    public readonly Mode7Colour PromoInk;
+    public readonly TeletextControl PromoBackground;
+    public readonly TeletextControl PromoCol;
 
     public CeefaxSection(CeefaxSectionType Name, Uri Feed)
     {
@@ -37,16 +37,17 @@ public class CeefaxSection
             case CeefaxSectionType.WeatherForecast2:
             case CeefaxSectionType.WeatherForecast3:
             case CeefaxSectionType.WeatherWorld:
-                this.HeadingCol = Mode7Colour.Yellow;
-                this.PromoPaper = Mode7Colour.Blue;
-                this.PromoInk = Mode7Colour.Yellow;
+                this.HeadingCol = TeletextControl.AlphaYellow;
+                this.PromoBackground = TeletextControl.AlphaBlue;
+                
+                this.PromoCol = TeletextControl.AlphaYellow;
                 break;
 
             case CeefaxSectionType.Business:
             case CeefaxSectionType.Markets:
-                this.HeadingCol = Mode7Colour.Yellow;
-                this.PromoPaper = Mode7Colour.Red;
-                this.PromoInk = Mode7Colour.White;
+                this.HeadingCol = TeletextControl.AlphaYellow;
+                this.PromoBackground = TeletextControl.AlphaRed;
+                this.PromoCol = TeletextControl.AlphaWhite;
                 break;
 
             case CeefaxSectionType.Football:
@@ -56,15 +57,15 @@ public class CeefaxSection
             case CeefaxSectionType.Golf:
             case CeefaxSectionType.Formula1:
             case CeefaxSectionType.Standings:
-                this.HeadingCol = Mode7Colour.Green;
-                this.PromoPaper = Mode7Colour.Blue;
-                this.PromoInk = Mode7Colour.Yellow;
+                this.HeadingCol = TeletextControl.AlphaGreen;
+                this.PromoBackground = TeletextControl.AlphaBlue;
+                this.PromoCol = TeletextControl.AlphaYellow;
                 break;
 
             case CeefaxSectionType.Entertainment:
-                this.HeadingCol = Mode7Colour.Yellow;
-                this.PromoPaper = Mode7Colour.Magenta;
-                this.PromoInk = Mode7Colour.Yellow;
+                this.HeadingCol = TeletextControl.AlphaYellow;
+                this.PromoBackground = TeletextControl.AlphaMagenta;
+                this.PromoCol = TeletextControl.AlphaYellow;
                 break;
 
             default:

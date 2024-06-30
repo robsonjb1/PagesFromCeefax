@@ -7,21 +7,26 @@ using Serilog;
 
 namespace API.Services
 {
+    public class CarouselDelivery
+    {
+        public TeletextCarousel Carousel { get; set; }
+        public int TotalCarousels { get; set; } = 0;
+        public int TotalRequests { get; set; } = 0;
+        public DateTime LastBuilt { get; set; }
+        public int BuildTimeSeconds {get; set; }
+    }
+
     public interface ICacheService
     {
-        public string GetMagazine();
+        public CarouselDelivery GetCarousel();
     }
 
     public class CacheService : ICacheService
     {
-        private readonly IMemoryCache _currentCarousel = new MemoryCache(new MemoryCacheOptions());
+        private readonly IMemoryCache _cacheCarousel = new MemoryCache(new MemoryCacheOptions());
         private readonly Object l = new();
-        private int _totalCarousels = 0;
-        private int _totalRequests = 0;
         private readonly DateTime _serviceStart = Utility.ConvertToUKTime(DateTime.UtcNow);
-        private DateTime _lastBuilt = Utility.ConvertToUKTime(DateTime.UtcNow);
-        private long _buildTime = 0;
-
+        private CarouselDelivery _cd = new();
         private readonly ISystemConfig _config;
 
         public CacheService(ISystemConfig config)
@@ -29,20 +34,20 @@ namespace API.Services
             _config = config;
         }
 
-        public string GetMagazine()
+        public CarouselDelivery GetCarousel()
         {
-            _totalRequests++;
-            Log.Information($"New request received ({_totalRequests} total)");
+            _cd.TotalRequests++;
+            Log.Information($"New request received ({_cd.TotalRequests} total)");
 
             lock (l)
             {
-                var content = _currentCarousel.Get<string>("carousel");
+                var content = _cacheCarousel.Get<TeletextCarousel>("carousel");
                 if (content is null)
                 {
                     try
                     {
-                        _totalCarousels++;
-                        Log.Information($"Building new carousel ({_totalCarousels} total)");
+                        _cd.TotalCarousels++;
+                        Log.Information($"Building new carousel ({_cd.TotalCarousels} total)");
 
                         var sw = new Stopwatch();
                         sw.Start();
@@ -53,20 +58,20 @@ namespace API.Services
                         IStandingData standingData = new StandingsData(cc);
                         IWeatherData weatherData = new WeatherData(cc);
                         ITVListingData listingData = new TVListingData(cc);
-
+                        
                         CarouselService cs = new(
                             new TeletextPageNews(cc),
                             new TeletextPageMarkets(cc, marketData),
                             new TeletextPageStandings(cc, standingData),
                             new TeletextPageWeather(cc, weatherData),
                             new TeletextPageTV(cc, listingData));
-                            
-                        content = cs.GetCarousel(marketData.IsValid && standingData.IsValid && weatherData.IsValid && listingData.IsValid);
-                    
-                        _lastBuilt = Utility.ConvertToUKTime(DateTime.UtcNow);
-                        _buildTime = sw.ElapsedMilliseconds;
+                        
+                        _cd.Carousel = cs.Carousel;
+                        _cd.Carousel.IsValid = marketData.IsValid && standingData.IsValid && weatherData.IsValid && listingData.IsValid;
+                        _cd.LastBuilt = Utility.ConvertToUKTime(DateTime.UtcNow);
+                        _cd.BuildTimeSeconds = Convert.ToInt32(sw.ElapsedMilliseconds / 1000);
 
-                        _currentCarousel.Set("carousel", content, TimeSpan.FromMinutes(_config.ServiceContentExpiryMins));
+                        _cacheCarousel.Set("carousel", _cd.Carousel, TimeSpan.FromMinutes(_config.ServiceContentExpiryMins));
                     }
                     catch(Exception ex) 
                     {
@@ -75,12 +80,7 @@ namespace API.Services
                     }
                 }
 
-                return content
-                    .Replace("{PFC_TOTALCAROUSELS}", _totalCarousels.ToString())
-                    .Replace("{PFC_TOTALREQUESTS}", _totalRequests.ToString())
-                    .Replace("{PFC_SERVICESTART}", _serviceStart.DayOfWeek.ToString()[..3] + _serviceStart.ToString(" dd MMM HH:mm/ss"))
-                    .Replace("{PFC_TIMESTAMP}", _lastBuilt.DayOfWeek.ToString()[..3] + _lastBuilt.ToString(" dd MMM HH:mm/ss"))
-                    .Replace("{PFC_BUILDTIME}", _buildTime.ToString("#,#0"));
+                return _cd;
             }
         }
     }

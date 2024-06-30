@@ -69,8 +69,8 @@ public class TVListingData : ITVListingData
                 time = String.Concat(temp[0], ':', temp[1]);
 
                 listing.StartTime = time;
-                listing.Title = show.SelectSingleNode(".//span[contains(@class, 'programme__title')]")?.InnerText.Trim().ToUpper();
-                listing.Description = show.SelectSingleNode(".//p[contains(@class, 'programme__synopsis')]/span")?.InnerText.Trim();
+                listing.Title = Utility.CleanHTML(show.SelectSingleNode(".//span[contains(@class, 'programme__title')]")?.InnerText).ToUpper();
+                listing.Description = Utility.CleanHTML(show.SelectSingleNode(".//p[contains(@class, 'programme__synopsis')]/span")?.InnerText);
     
                 schedule.Listings.Add(listing);
             }

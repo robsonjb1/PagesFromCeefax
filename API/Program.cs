@@ -43,7 +43,7 @@ try
 
     app.MapGet("/carousel", (ICacheService cs) =>
     {
-        return Results.Extensions.NoCache(cs.GetMagazine());
+        return Results.Extensions.NoCache(cs.GetCarousel());
     });
 
     app.MapGet("/kindle/{email}", (IKindleService ks, string email) =>

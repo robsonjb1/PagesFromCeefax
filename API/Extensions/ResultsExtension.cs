@@ -1,22 +1,24 @@
-﻿namespace API.Extensions;
+﻿using API.Services;
+
+namespace API.Extensions;
 
 static class ResultsExtensions
 {
-    public static IResult NoCache(this IResultExtensions resultExtensions, string html)
+    public static IResult NoCache(this IResultExtensions resultExtensions, CarouselDelivery cd)
     {
         ArgumentNullException.ThrowIfNull(resultExtensions);
 
-        return new NoCacheResult(html);
+        return new NoCacheResult(cd);
     }
 }
 
 class NoCacheResult : IResult
 {
-    private readonly string _html;
+    private readonly CarouselDelivery _cd;
 
-    public NoCacheResult(string html)
+    public NoCacheResult(CarouselDelivery cd)
     {
-        _html = html;
+        _cd = cd;
     }
 
     public Task ExecuteAsync(HttpContext httpContext)
@@ -26,6 +28,6 @@ class NoCacheResult : IResult
         httpContext.Response.Headers["Expires"] = "-1";
         httpContext.Response.Headers["Pragma"] = "no-cache";
 
-        return httpContext.Response.WriteAsync(_html);
+        return httpContext.Response.WriteAsJsonAsync(_cd);
     }
 }

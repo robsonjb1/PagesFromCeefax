@@ -58,7 +58,7 @@ public class MarketData : IMarketData
                     {
                         Name = name,
                         Movement = movement.StartsWith("0") ? String.Concat("=", movement) : movement.Replace("−", "-"),
-                        Value = value.Replace("&euro;", "€"),
+                        Value = value.Replace("€", "E"),
                         Closed = closed
                     });
                 }

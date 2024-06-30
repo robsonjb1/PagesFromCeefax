@@ -1,52 +1,63 @@
-﻿
 (function () {
+    // Page initialisation
+    $(window).on("load", function () {
 
-    // Timing loop
-    var currentSeconds = -1;
-    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    // Canvas
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 480; 
+    canvas.height = 500;
+
+    canvas.addEventListener('click', function(ev) {
+        var {x, y} = getCursorPosition(canvas, ev);
+        canvasWidth = $('#magazineCanvas').width();
+        canvasHeight = $('#magazineCanvas').height();
+
+        if(y > canvasHeight * 0.95)
+        {        
+            if(x < canvasWidth * 0.3) ToggleMusic();
+            if(x >= canvasWidth * 0.3 && x < canvasWidth * 0.6) { debugOffset--; MoveNextPage(); }
+            if(x >= canvasWidth * 0.6 && x < canvasWidth * 0.9) { debugOffset++; MoveNextPage(); }
+            if(x >= canvasWidth * 0.9) window.open("https://x.com/pfceefax");
+        }
+    });
+
+    // Carousel state
+    var currentSeconds = transitionSecond = -1;
     var magazineRequestTime;
-    var previousPage = 0;
-    var currentPage = 0;
-
-    var pagesInCarousel = 1;
-    var transitionSecond = -1;
+    var currentPage = pagesInCarousel = debugOffset = 0;
+    
     var loadingPageDuration = 10;
     var pageDuration = 27;
 
-    var pageTickerNo = 153;
+    var pageTickerNo = 100;
     var pageTicking = true;
-    var pageTickerInterval = 0;
     var lastPageRefresh = new Date();
+    var pageIsValid = carouselIsValid = true; 
+    var pageBuffer = getLoadingPage();  // getTestPage();
+    var carousel = null;
+    var musicOn = false;
 
-    function timer() {
-        var now = new Date();
-
-        // Cycle the page ticker
-        if (pageTicking) {
-            pageTickerInterval--;
-
-            if (pageTickerInterval < 0) {
-                pageTickerInterval = 10;
-                pageTickerNo++;
-                if (Math.floor((Math.random() * 10)) == 1) {
-                    pageTickerNo++; // Randomly skip a page, makes the ticker look less uniform
-                }
-                if (pageTickerNo > 199) {
-                    pageTickerNo = 100;
-                }
-                $('#pageTicker').text(pageTickerNo);
-            }
-        }
-
-        var s = now.getSeconds();
-        if (s != currentSeconds) {
-            // Update clock
-
-            currentSeconds = s;
-
-            $('#date').text(days[now.getDay()] + ' ' + ('0' + now.getDate()).slice(-2) + ' ' + months[now.getMonth()]);
-            $('#clock').text(('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2) + '/' + ('0' + now.getSeconds()).slice(-2));
+    // Render state
+    var prevCol = bgCol = holdChar = 0;
+    var col = 7;
+    var sep = holdOff = gfx = heldChar = false;
+    var dbl = oldDbl = secondHalfOfDouble = wasDbl = false;
+    var flash = flashOn = false;
+    var flashTime = lineLimit = 0;
+    var lastLineRefresh = false;
+    
+    // Character definitions
+    var charSmoothed = makeSmoothedChars(getChars());
+    var charGraphics = makeGraphicChars(getChars(), false);
+    var charSeparated = makeGraphicChars(getChars(), true);
+  
+    // Functions
+    function render(time) {
+        if(!lastLineRefresh || lineLimit != 25 || time - lastLineRefresh >= 200) {
+            // Change page if we've hit the transition second, or it has been at least a minute since the last refresh
+            var now = new Date();
+            currentSeconds = now.getSeconds();
 
             // Do we need to refresh the magazine ? (takes place every 30 minutes)
             if (now - magazineRequestTime > (30 * 60 * 1000)) {
@@ -55,167 +66,278 @@
                 transitionSecond = -1; // do not do a regular refresh until the new carousel is loaded
               
                 // Switch back to loading page
-                $('#page' + previousPage).hide();
-                previousPage = 0;
-                $('#magazineLoading').slideDown(300);
+                pageBuffer = getLoadingPage();
 
                 // Turn on the page ticker
                 pageTicking = true;
+                lineLimit = 0; // Force new page redraw    
 
                 // Refresh magazine
                 getNewCarousel();
             }
 
-            // Change page if we've hit the transition second, or it has been at least a minute since the last refresh
             if (currentSeconds == transitionSecond || (now - lastPageRefresh > 60 * 1000)) {
                 // Turn off the ticker
                 pageTicking = false;
+                pageTickerNo = 152;
 
                 // Move to next page
-                currentPage = 1 + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration) % pagesInCarousel);
-                transitionSecond = (now.getSeconds() + pageDuration) % 60;
-                lastPageRefresh = now;
+                MoveNextPage();
+            }
 
-                if ($('#page' + currentPage).length > 0) {
-                    if (previousPage == 0) {
-                        // Hide loading page
-                        $('#magazineLoading').hide();
+            // Line drawing
+            lastLineRefresh = time;
+            lineLimit = lineLimit >= 25 ? 25 : lineLimit+2;
+                
+            var imgData = ctx.createImageData(480, 500);
+            insertPageHeader(carouselIsValid, pageIsValid, pageBuffer, pageTickerNo, musicOn);
+            
+            if(pageTicking && lineLimit >= 25)
+            {
+                pageTickerNo = (pageTickerNo > 190) ? 100 : pageTickerNo + ((Math.floor((Math.random() * 10)) == 1) ? 2 : 1);
+            }
+
+            var charPos = 0;
+            if (++flashTime === 8) flashTime = 0;  // 3:1 flash ratio.
+            flashOn = flashTime < 2;
+
+            // Render page
+            for(var yCol = 0; yCol < lineLimit; yCol++)
+            {
+                col = 7;
+                bg = 0;
+                holdChar = false;
+                heldChar = 0x20;
+                nextGlyphs = heldGlyphs = charSmoothed;
+                sep = gfx = dbl = flash = false;
+                secondHalfOfDouble = secondHalfOfDouble ? false : wasDbl;
+                wasDbl = false;
+                
+                for(var xCol = 0; xCol < 40; xCol++)
+                {
+                    idPtr = (xCol * 4 * 12) + (yCol * 40 * 4 * 12 * 20);
+
+                    oldDbl = dbl;
+                    prevCol = col;
+                    curGlyphs = nextGlyphs;
+                    prevFlash = flash;
+                    data = pageBuffer[charPos++];
+
+                    if (data < 0x20) {
+                        data = handleControlCode(data);
+                    } else if (gfx) {
+                        heldChar = data;
+                        heldGlyphs = curGlyphs;
+                    } else if (data == 128) // A marked invalid character (will flag invalid page)
+                    {
+                        data = 63; // Display as ?
                     }
-                    else {
-                        $('#page' + previousPage).hide();
+
+                    // Displayable character, map to character definitions
+                    var charDef = (prevFlash && flashOn) || (secondHalfOfDouble && !dbl) ? 0 : data - 32;
+                    for(var yPos = 0; yPos < 20; yPos++)
+                    {
+                        actualY = dbl ? Math.floor(yPos / 2) + (secondHalfOfDouble ? 10 : 0) : yPos;
+                        for(var xPos = 0; xPos < 12; xPos++)
+                        {
+                            let setPixel = curGlyphs[(charDef * 240) + (12 * actualY) + xPos] == 1;
+                            imgData.data[idPtr] = setPixel ? getRGB_Red(prevCol) : getRGB_Red(bg);
+                            imgData.data[idPtr+1] = setPixel ? getRGB_Green(prevCol) : getRGB_Green(bg);
+                            imgData.data[idPtr+2] = setPixel ? getRGB_Blue(prevCol) : getRGB_Blue(bg);
+                            imgData.data[idPtr+3] = setPixel || (!setPixel && bg != 0) ? 255 : 0;
+                            idPtr = idPtr + 4;
+                        }
+                        
+                        idPtr = idPtr + (4 * 39 * 12);      
                     }
-
-                    // Slide down page
-                    $('#page' + currentPage).slideDown(300);
-                    $('#pageTicker').text("152");
-
-                    previousPage = currentPage;
-                }
-                else {
-                    // There's a problem - so force request the magazine content again
-                    magazineRequestTime = 0;
+                    
+                    if (holdOff) {
+                        holdChar = false;
+                        heldChar = 32;
+                    }
                 }
             }
+
+            ctx.putImageData(imgData, 0, 0);
         }
 
-        requestAnimationFrame(timer);
+        requestAnimationFrame(render);
     }
 
-    // Page initialisation
-    $(window).load(function () {
-        // Default control values
-        $('#page').attr('class', 'view');
-        $('#selectedPage').text("P152");
-        $('#selectedChannel').text("CEEFAX 1");
-        $('#imgPause').attr("style", "display:none");
-        $('#pageBreak').attr("style", "display:none");
+    function setNextChars()
+    {
+        if (gfx) {
+            if (sep) {
+                nextGlyphs = charSeparated;
+            } else {
+                nextGlyphs = charGraphics;
+            }
+        } else {
+            nextGlyphs = charSmoothed;
+        }
+    }
 
-        // Display loading page
-        window.setTimeout(function () { $('#magazineLoading').slideDown(300) }, 500);
+    function handleControlCode(data)
+    {
+        holdOff = false;
+        switch (data) 
+        {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+                gfx = false;
+                col = data;
+                setNextChars();
+                break;
+            case 8:
+                flash = true;
+                break;
+            case 9:
+                flash = false;
+                break;
 
-        getNewCarousel();
+            case 12:
+            case 13:
+                dbl = !!(data & 1);
+                if (dbl) wasDbl = true;
+                break;
 
-        // Start clock and transition timer
-        timer();
-    });
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+            case 21:
+            case 22:
+            case 23:
+                gfx = true;
+                col = data & 7;
+                setNextChars();
+                break;
+            case 24:
+                col = prevCol = bg;
+                break;
+            case 25:
+                sep = false;
+                setNextChars();
+                break;
+            case 26:
+                sep = true;
+                setNextChars();
+                break;
+            case 28:
+                bg = 0;
+                break;
+            case 29:
+                bg = col;
+                break;
+            case 30:
+                holdChar = true;
+                break;
+            case 31:
+                holdOff = true;
+                break;
+        }
+
+        if (holdChar && dbl === oldDbl) {
+            data = heldChar;
+            if (data >= 0x40 && data < 0x60) data = 0x20;
+            curGlyphs = heldGlyphs;
+        } else {
+            heldChar = 0x20;
+            data = 0x20;
+        }
+
+        return data;
+    }
 
     function getNewCarousel() {
         // Mark the time we first requested the magazine
         magazineRequestTime = new Date();
-        $('#magazineContent').load("/carousel", function () {
-            var magazineReceiveTime = new Date();
-            var actualWait = (magazineReceiveTime - magazineRequestTime) / 1000;
-            if (actualWait >= loadingPageDuration) {
-                // More than 15 seconds have passed, so move to the first page straight away
-                transitionSecond = (magazineReceiveTime.getSeconds() + 1) % 60;
-            }
-            else {
-                // Magazine received before 15 seconds have passed, so calculate the correct transition second
-                transitionSecond = (magazineRequestTime.getSeconds() + loadingPageDuration) % 60;
-            }
-
-            // We now know how many pages are in the carousel
-            pagesInCarousel = $('#totalPages').html();
-
-            // If any data object could not be initialised, sections will be missing so display the red page indicator
-            isValid = $('#isValid').html();
-            if(isValid === "False")
-            {
-                $('#selectedPage').removeClass("ink7");
-                $('#selectedPage').addClass("ink2");
+       
+        // Request the carousel
+        $.ajax ({
+            dataType: 'json',
+            url: "./carousel",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                carousel = data.carousel;
+                carouselIsValid = carousel.isValid;
+                pagesInCarousel = carousel.totalPages;
+                
+                var magazineReceiveTime = new Date();
+                var actualWait = (magazineReceiveTime - magazineRequestTime) / 1000;
+                if (actualWait >= loadingPageDuration) {
+                    // More than 15 seconds have passed, so move to the first page straight away
+                    transitionSecond = (magazineReceiveTime.getSeconds() + 1) % 60;
+                }
+                else {
+                    // Magazine received before 15 seconds have passed, so calculate the correct transition second
+                    transitionSecond = (magazineRequestTime.getSeconds() + loadingPageDuration) % 60;
+                }
             }
         });
     }
 
-})();
-
-// Support for background music
-var musicOn = false;
-
-function toggleMusic() {
-    var now = new Date();
-
-    var minutes = now.getMinutes();
-    var hours = now.getHours();
-    var seconds = now.getSeconds();
-    var month = now.getMonth();
-
-    // Select track and position
-    var track = 0;
-    position = ((hours * 60 * 60) + (minutes * 60) + seconds) % (3 * 60 * 60);      // Full track is 3 hours long
-
-    if (month == 11) { // December Christmas
-        track = 1;
-        position = ((hours * 60 * 60) + (minutes * 60) + seconds) % (1 * 60 * 60);  // Full track is 1 hour long
+    function MoveNextPage() {
+        var now = new Date();
+        transitionSecond = (now.getSeconds() + pageDuration) % 60;
+        lastPageRefresh = now;
+        currentPage = (debugOffset + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration))) % pagesInCarousel;
+        pageBuffer = carousel.content[currentPage].data;
+        pageIsValid = carousel.content[currentPage].isValid;
+        lineLimit = 0; // Force new page redraw    
     }
 
-    if (!musicOn) {
-        $('audio')[track].play();
-        $('audio')[track].currentTime = position;
-        $('#imgPlay').attr("style", "display:none");
-        $('#imgPause').attr("style", "display:inline");
-    }
-    else {
-        $('audio')[track].pause();
-        $('#imgPlay').attr("style", "display:inline");
-        $('#imgPause').attr("style", "display:none");
-    }
-
-    musicOn = !musicOn;
-}
-
-
-/* Modernizr 2.6.2 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-fontface-backgroundsize-csstransforms-inlinesvg-cssclasses-teststyles-testprop-testallprops-domprefixes-css_pointerevents
- */
-; window.Modernizr = function (a, b, c) { function z(a) { j.cssText = a } function A(a, b) { return z(prefixes.join(a + ";") + (b || "")) } function B(a, b) { return typeof a === b } function C(a, b) { return !!~("" + a).indexOf(b) } function D(a, b) { for (var d in a) { var e = a[d]; if (!C(e, "-") && j[e] !== c) return b == "pfx" ? e : !0 } return !1 } function E(a, b, d) { for (var e in a) { var f = b[a[e]]; if (f !== c) return d === !1 ? a[e] : B(f, "function") ? f.bind(d || b) : f } return !1 } function F(a, b, c) { var d = a.charAt(0).toUpperCase() + a.slice(1), e = (a + " " + n.join(d + " ") + d).split(" "); return B(b, "string") || B(b, "undefined") ? D(e, b) : (e = (a + " " + o.join(d + " ") + d).split(" "), E(e, b, c)) } var d = "2.6.2", e = {}, f = !0, g = b.documentElement, h = "modernizr", i = b.createElement(h), j = i.style, k, l = {}.toString, m = "Webkit Moz O ms", n = m.split(" "), o = m.toLowerCase().split(" "), p = { svg: "http://www.w3.org/2000/svg" }, q = {}, r = {}, s = {}, t = [], u = t.slice, v, w = function (a, c, d, e) { var f, i, j, k, l = b.createElement("div"), m = b.body, n = m || b.createElement("body"); if (parseInt(d, 10)) while (d--) j = b.createElement("div"), j.id = e ? e[d] : h + (d + 1), l.appendChild(j); return f = ["&#173;", '<style id="s', h, '">', a, "</style>"].join(""), l.id = h, (m ? l : n).innerHTML += f, n.appendChild(l), m || (n.style.background = "", n.style.overflow = "hidden", k = g.style.overflow, g.style.overflow = "hidden", g.appendChild(n)), i = c(l, a), m ? l.parentNode.removeChild(l) : (n.parentNode.removeChild(n), g.style.overflow = k), !!i }, x = {}.hasOwnProperty, y; !B(x, "undefined") && !B(x.call, "undefined") ? y = function (a, b) { return x.call(a, b) } : y = function (a, b) { return b in a && B(a.constructor.prototype[b], "undefined") }, Function.prototype.bind || (Function.prototype.bind = function (b) { var c = this; if (typeof c != "function") throw new TypeError; var d = u.call(arguments, 1), e = function () { if (this instanceof e) { var a = function () { }; a.prototype = c.prototype; var f = new a, g = c.apply(f, d.concat(u.call(arguments))); return Object(g) === g ? g : f } return c.apply(b, d.concat(u.call(arguments))) }; return e }), q.backgroundsize = function () { return F("backgroundSize") }, q.csstransforms = function () { return !!F("transform") }, q.fontface = function () { var a; return w('@font-face {font-family:"font";src:url("https://")}', function (c, d) { var e = b.getElementById("smodernizr"), f = e.sheet || e.styleSheet, g = f ? f.cssRules && f.cssRules[0] ? f.cssRules[0].cssText : f.cssText || "" : ""; a = /src/i.test(g) && g.indexOf(d.split(" ")[0]) === 0 }), a }, q.inlinesvg = function () { var a = b.createElement("div"); return a.innerHTML = "<svg/>", (a.firstChild && a.firstChild.namespaceURI) == p.svg }; for (var G in q) y(q, G) && (v = G.toLowerCase(), e[v] = q[G](), t.push((e[v] ? "" : "no-") + v)); return e.addTest = function (a, b) { if (typeof a == "object") for (var d in a) y(a, d) && e.addTest(d, a[d]); else { a = a.toLowerCase(); if (e[a] !== c) return e; b = typeof b == "function" ? b() : b, typeof f != "undefined" && f && (g.className += " " + (b ? "" : "no-") + a), e[a] = b } return e }, z(""), i = k = null, e._version = d, e._domPrefixes = o, e._cssomPrefixes = n, e.testProp = function (a) { return D([a]) }, e.testAllProps = F, e.testStyles = w, g.className = g.className.replace(/(^|\s)no-js(\s|$)/, "$1$2") + (f ? " js " + t.join(" ") : ""), e }(this, this.document), Modernizr.addTest("pointerevents", function () { var a = document.createElement("x"), b = document.documentElement, c = window.getComputedStyle, d; return "pointerEvents" in a.style ? (a.style.pointerEvents = "auto", a.style.pointerEvents = "x", b.appendChild(a), d = c && c(a, "").pointerEvents === "auto", b.removeChild(a), !!d) : !1 });
-
-
-// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
-// requestAnimationFrame polyfill by Erik MÃ¶ller. fixes from Paul Irish and Tino Zijdel
-// MIT license
-(function () {
-    var lastTime = 0;
-    var vendors = ['ms', 'moz', 'webkit', 'o'];
-    for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame']
-								   || window[vendors[x] + 'CancelRequestAnimationFrame'];
+    // Event handlers
+    window.onkeydown = function(key) {  
+        if(key.keyCode === 39) {  
+            debugOffset++;          // Right arrow
+            MoveNextPage();
+        };  
+        if(key.keyCode === 38) {  
+            debugOffset = 0;        // Up arrow
+            MoveNextPage();
+        };  
+        if(key.keyCode === 37) {  
+            debugOffset--;          // Left arrow
+            MoveNextPage();
+        };  
     }
 
-    if (!window.requestAnimationFrame)
-        window.requestAnimationFrame = function (callback, element) {
-            var currTime = new Date().getTime();
-            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function () { callback(currTime + timeToCall); },
-			  timeToCall);
-            lastTime = currTime + timeToCall;
-            return id;
-        };
+    // Support for background music
+    function ToggleMusic() {
+        var now = new Date();
 
-    if (!window.cancelAnimationFrame)
-        window.cancelAnimationFrame = function (id) {
-            clearTimeout(id);
-        };
-}());
+        var minutes = now.getMinutes();
+        var hours = now.getHours();
+        var seconds = now.getSeconds();
+        var month = now.getMonth();
+
+        // Select track and position
+        var track = 0;
+        position = ((hours * 60 * 60) + (minutes * 60) + seconds) % (3 * 60 * 60);      // Full track is 3 hours long
+
+        if (month == 11) { // December Christmas
+            track = 1;
+            position = ((hours * 60 * 60) + (minutes * 60) + seconds) % (1 * 60 * 60);  // Full track is 1 hour long
+        }
+        if (!musicOn) {
+            $('audio')[track].play();
+            $('audio')[track].currentTime = position;
+        }
+        else {
+            $('audio')[track].pause();
+        }
+
+        musicOn = !musicOn;
+    }
+
+    // Start the emulation
+    requestAnimationFrame(render);
+    getNewCarousel();   
+  });
+  })();

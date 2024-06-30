@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using API.Magazine;
 
@@ -6,65 +7,130 @@ namespace API.Architecture
 {
     public static class Utility
     {
+        // New function needs to trim line, convert to char array and explode [] enumerations, pad to 40 chars if less than, but return more than if thats what there is
+        // Leave any chars > 127 as well, as this will be picked up later too
+
+        public static char[] ConvertToCharArray(string line)
+        {
+            bool readingToken = false;
+            string token = string.Empty;
+
+            char[] input = line.ToCharArray();
+            List<char> output = new();
+            
+            for(int i=0; i<line.Length; i++)
+            {
+                if(line[i] == '[')
+                {
+                    readingToken = true;
+                    token = String.Empty;
+                }
+                else
+                {
+                    if(readingToken) 
+                    {
+                        token += line[i];
+                    }
+                }
+
+                if(line[i] == ']')
+                {
+                    readingToken = false;
+                    token = token[..^1];    // Strip off final ]
+                    bool success = Enum.TryParse(token, out TeletextControl controlChar);
+                    output.Add(success ? Convert.ToChar((int)controlChar) : Convert.ToChar(128));   // Use 128 to denote an invalid token, will be picked up by client app                    
+                }
+                else
+                {
+                    if(!readingToken)
+                    {
+                        if(line[i] == Convert.ToChar(8201))
+                        {
+                            output.Add(' ');
+                            break;
+                        }
+
+                        switch(line[i])
+                        {
+                            case '£':
+                                output.Add(Convert.ToChar((int)TeletextControl.Pound));
+                                break;
+                            case '’':
+                            case '‘':
+                                output.Add('\'');
+                                break;
+                            case '¬':
+                                output.Add(Convert.ToChar((int)TeletextControl.Block));
+                                break;
+                            case '_':
+                                output.Add(Convert.ToChar(96));
+                                break;
+                            default:
+                                output.Add(line[i]);
+                                break;
+                        }           
+                    }
+                }
+            }
+            
+            // Pad to 40 characters
+            while(output.Count < 40)
+            {
+                output.Add(Convert.ToChar(0));
+            }
+
+            return output.ToArray();
+        }
+
+
         // Line padding extension methods
         public static void PadLines(this StringBuilder sb, int totalLines)
         {
             for(int i=0; i<totalLines; i++)  
-            { sb.Append("<br>"); }
+            { sb.AppendLine(String.Empty); }
         }
 
-        public static string PadHtmlLeft(this string text, int maxChars)
+        public static string PadLeftWithTrunc(this string text, int maxChars)
         {
             if(text.Length >= maxChars)
             { return text[..maxChars]; }
             else
-            { return text + string.Join("", Enumerable.Repeat("&nbsp;", maxChars - text.Length)); }
+            { return text.PadLeft(maxChars); }
         }
 
-        public static string PadHtmlRight(this string text, int maxChars)
+        public static string PadRightWithTrunc(this string text, int maxChars)
         {
             if(text.Length >= maxChars)
             { return text[..maxChars]; }
             else
-            { return string.Join("", Enumerable.Repeat("&nbsp;", maxChars - text.Length)) + text; }
+            { return text.PadRight(maxChars); }
         }
 
-        public static string PadHtmlRight(this int number, int maxChars)
+        public static string PadLeftWithTrunc(this int number, int maxChars)
         {
             string text = number.ToString();
             if(text.Length >= maxChars)
             { return text[..maxChars]; }
             else
-            { return string.Join("", Enumerable.Repeat("&nbsp;", maxChars - text.Length)) + text;       }
+            { return text.PadLeft(maxChars); }
         }
 
-        public static void LineBreak(this StringBuilder sb, Mode7Colour colour)
+        public static void LineBreak(this StringBuilder sb, TeletextControl colour)
         {
-            sb.AppendLineColour("<sup>_______________________________________________</sup>", colour);
-        }
-
-        public static void AppendLineColour(this StringBuilder sb, string text, Mode7Colour foreColour, Mode7Colour? backColour = null)
-        {
-            string optionalBg = backColour.HasValue ? $"paper{(int)backColour}" : String.Empty;
-            sb.AppendLine($"<p><span class=\"indent ink{(int)foreColour} {optionalBg}\">{text}</span></p>");
-        }
-
-        public static string LineColourFragment(string text, Mode7Colour foreColour)
-        {
-            return $"<span class=\"ink{(int)foreColour}\">{text}</span>";
-        }
+            sb.AppendLine($"[{colour}]{new string('_', 39)}");
+        }      
 
         // Output standard footer text
         public static void FooterText(this StringBuilder sb, CeefaxSection section, bool overrideDefault = false)
         {
+            sb.Append($"[{section.PromoBackground}][{TeletextControl.NewBackground}][{section.PromoCol}]");
             if (overrideDefault && section.PromoFooter is not null)
             {
-                string promoFooter = section.PromoFooter + string.Join("", Enumerable.Repeat("&nbsp;", 37 - section.PromoFooter.Length));
-                sb.AppendLine($"<p><span class=\"indent paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;{promoFooter}</span></p>");
+                sb.AppendLine(section.PromoFooter);
             }
             else
             {
-                sb.AppendLine($"<p><span class=\"ident paper{(int)section.PromoPaper!} ink{(int)section.PromoInk!}\">&nbsp;&nbsp;More from CEEFAX in a moment >>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>");
+                sb.AppendLine("More from CEEFAX in a moment >>>");
             }
         }
 
@@ -102,20 +168,20 @@ namespace API.Architecture
 
         public static List<string> ParseParagraph(string content, int lineLength, int firstLineOverride, bool addFullStop)
         {
-            List<string> rows = new();
+            List<string> rows = [];
             content = Utility.CleanHTML(content);
 
             // Ensure a final full stop or question mark
             if(addFullStop
-                && !content.EndsWith(".") 
-                && !content.EndsWith("?")
-                && !content.EndsWith("”")
-                && !content.EndsWith("\"")
-                && !content.EndsWith("'")
-                && !content.EndsWith(">")
+                && !content.EndsWith('.') 
+                && !content.EndsWith('?')
+                && !content.EndsWith('”')
+                && !content.EndsWith('"')
+                && !content.EndsWith('\'')
+                && !content.EndsWith('>')
                 && content.Length > 0)
             {
-                content = content + ".";
+                content += ".";
             }
 
             String[] words = content.Split(' ');
@@ -129,7 +195,7 @@ namespace API.Architecture
                 {
                     if(effectiveLineLength != lineLength)
                     {
-                        currentLine += string.Join("", Enumerable.Repeat("&nbsp;", firstLineOverride - currentLine.Length)) + " x/y";
+                        currentLine += currentLine.PadRightWithTrunc(firstLineOverride - currentLine.Length) + " x/y";
                     }
 
                     rows.Add(CleanHTML(currentLine));
@@ -164,12 +230,14 @@ namespace API.Architecture
 
             // Line
             html = html.Replace("â€”", " - ");
-            html = html.Replace("–", "-");
+            html = html.Replace('–', Convert.ToChar(TeletextControl.LongLine));
 
             // Pound
-            html = html.Replace("Â£", "£");
+            //html = html.Replace("Â£", "£");
+            html = html.Replace('£', Convert.ToChar(TeletextControl.Pound));
+            
             // Euro
-            html = html.Replace("â‚¬", "€");
+            html = html.Replace("â‚¬", "E");
             // Open/closing quotes
             html = html.Replace("“", "\"");
             html = html.Replace("”", "\"");
@@ -179,6 +247,9 @@ namespace API.Architecture
             html = html.Replace("â€", "'");
             html = html.Replace("\\\"", "'");
             html = html.Replace("&#x27;", "'");
+            html = html.Replace("[", "(");
+            html = html.Replace("]", ")");
+                       
             // Ampersand
             html = html.Replace("&amp;", "&");
         

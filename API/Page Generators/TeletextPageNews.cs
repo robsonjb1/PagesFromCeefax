@@ -9,7 +9,7 @@ namespace API.PageGenerators;
 
 public interface ITeletextPageNews
 {
-    public List<StringBuilder> CreateNewsPage(CeefaxSectionType sectionName);
+    public List<StringBuilder> CreateNewsSection(CeefaxSectionType sectionName);
     public StringBuilder CreateNewsInBrief(CeefaxSectionType sectionName);
 }
 
@@ -23,7 +23,7 @@ public class TeletextPageNews : ITeletextPageNews
     }
 
     #region Public Methods
-    public List<StringBuilder> CreateNewsPage(CeefaxSectionType sectionName)
+    public List<StringBuilder> CreateNewsSection(CeefaxSectionType sectionName)
     {
         CeefaxSection section = _cc.Sections.Find(z => z.Name == sectionName)!;
         List<StringBuilder> content = new();
@@ -54,7 +54,7 @@ public class TeletextPageNews : ITeletextPageNews
         SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
 
         sb.Append(section.Header);
-        sb.AppendLineColour("OTHER NEWS IN BRIEF...", section.HeadingCol);
+        sb.AppendLine($"[{section.HeadingCol}]OTHER NEWS IN BRIEF...");
 
         int rows = 0;
         foreach (SyndicationItem item in feed.Items)
@@ -70,14 +70,14 @@ public class TeletextPageNews : ITeletextPageNews
                     if (rows > 0)
                     {
                         rows++;
-                        sb.Append("<br>");
+                        sb.AppendLine(String.Empty);
                     }
 
                     // Title
-                    title.ForEach(l => sb.AppendLineColour(l, Mode7Colour.White));
+                    title.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaWhite}]{l}"));
                     
                     // Summary
-                    summary.ForEach(l => sb.AppendLineColour(l, Mode7Colour.Cyan));
+                    summary.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaCyan}]{l}"));
                     
                     rows += summary.Count + title.Count;
                     
@@ -105,10 +105,10 @@ public class TeletextPageNews : ITeletextPageNews
         sb.Append(section.Header);
 
         bool firstParagraph = true;
-        Mode7Colour bodyCol = Mode7Colour.White;
+        TeletextControl bodyCol = TeletextControl.AlphaWhite;
 
         // Headline
-        story.Headline.ForEach(l => sb.AppendLineColour(l, section.HeadingCol));
+        story.Headline.ForEach(l => sb.AppendLine($"[{section.HeadingCol}]{l}"));
         
         // Story
         foreach (string line in story.Body)
@@ -117,14 +117,14 @@ public class TeletextPageNews : ITeletextPageNews
             {
                 if (!firstParagraph)
                 {
-                    sb.AppendLine("<br>");
-                    bodyCol = Mode7Colour.Cyan;
+                    sb.AppendLine(String.Empty);
+                    bodyCol = TeletextControl.AlphaCyan;
                 }
                 firstParagraph = false;
             }
             else
             {
-                sb.AppendLineColour(line, bodyCol);
+                sb.AppendLine($"[{bodyCol}]{line}");
             }
         }
 

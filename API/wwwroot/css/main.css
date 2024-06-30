@@ -1,12 +1,4 @@
-﻿/* fonts */
-@font-face {
-	font-family: 'bbcmode7';
-	src: url('../fonts/bbcmode7.woff') format('woff'),
-	     url('../fonts/bbcmode7.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
+﻿
 /* reset */
 *, *:before, *:after {
 	margin: 0;
@@ -24,12 +16,6 @@ Header, section, footer, aside {
 }
 
 /* general styles */
-html {
-	font-family: 'bbcmode7', 'courier new', 'courier', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	color: #ffffff;
-}
-
 body {
 	background-color: black;
 }
@@ -52,8 +38,9 @@ audio {
 #controls {
     text-align: center;
 	    color: white;
-	font-size: .7em;
+	font-size: .8em;
 	background-color: black;	
+	margin-top: 10px;
 }
 
 /* main page container */
@@ -117,157 +104,41 @@ audio {
 	background-size: 100% 100%;
 }
 
-/* black cover */
-#loading {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #000000;
-}
-
-/* colours etc. */
-.off {
-	visibility: hidden;
-}
-.ink0 {
-	color: rgb(56,56,56);
-}
-.ink1 {
-	color: rgb(40,40,255);
-}
-.ink2 {
-	color: rgb(255,16,16);
-}
-.ink3 {
-	color: rgb(255,0,255);
-}
-.ink4 {
-	color: rgb(0,255,0);
-}
-.ink5 {
-	color: rgb(0,255,255);
-}
-.ink6 {
-	color: rgb(255,255,0);
-}
-.ink7 {
-	color: rgb(255,255,255);
-}
-.paper0 {
-	background-color: transparent;
-}
-.paper1 {
-	background-color: rgb(40,40,255);
-}
-.paper2 {
-	background-color: rgb(255,16,16);
-}
-.paper3 {
-	background-color: rgb(255,0,255);
-}
-.paper4 {
-	background-color: rgb(0,255,0);
-}
-.paper5 {
-	background-color: rgb(0,255,255);
-}
-.paper6 {
-	background-color: rgb(255,255,0);
-}
-.paper7 {
-	background-color: rgb(255,255,255);
-}
-.indent {
-    margin-left: 1px;
-}
-.noindent {
-    margin-left: 0px;
-}
-
-
-p.doubleHeight {
-	-webkit-transform-origin: 0 0;
-	-moz-transform-origin: 0 0;
-	-ms-transform-origin: 0 0;
-	-o-transform-origin: 0 0;
-	transform-origin: 0 0;
-	-webkit-transform: scale(1,2);
-	-moz-transform: scale(1,2);
-	-ms-transform: scale(1,2);
-	-o-transform: scale(1,2);
-	transform: scale(1,2);
-}
-p.doubleHeight + p {
-	visibility: hidden;
-}
-
 .material-icons.md-40 {
 	font-size: 30px;
 }
 
+
 /* size adjustments */
-
-
-@media only screen and (max-width:79.9em)  {
+@media only screen {
+	#container {
+		font-size: 1.5em;
+	}
+	#magazineCanvas {
+		width: 700px;
+	}
+}
+@media only screen and (max-width:80em)  {
 	#container {
 		font-size: 1.125em;
+	}
+	#magazineCanvas {
+		width: 525px;
 	}
 }
 @media only screen and (max-width:63.9em)  {
 	#container {
 		font-size: 1em;
 	}
-}
-@media only screen and (max-width:47.9em)  {
-	#container {
-		font-size: 0.91em;
+	#magazineCanvas {
+		width: 450px;
 	}
 }
 @media only screen and (max-width:40em)  {
 	#container {
 		font-size: 0.75em;
 	}
-}
-@media only screen and (max-width:30em)  {
-	#container {
-		font-size: 0.6em;
-	}
-}
-@media only screen and (max-width:25em)  {
-	#container {
-		font-size: 0.55em;
-	}
-}
-
-
-/* adjustments to vertical position */
-@media only screen and (min-width:64em) and (max-width:80em) and (min-height:45em) {
-	#container {
-		margin-top: -3em;
-	}
-}
-@media only screen and (min-width:80em) and (min-height:50em) {
-	#container {
-		margin-top: -3em;
-	}
-}
-@media only screen and (min-width:80em) and (min-height:60em) {
-	#container {
-		margin-top: 0;
-	}
-}
-@media only screen and (max-aspect-ratio:10/10) {
-	#container {
-		margin-top: 0;
-	}
-}
-
-/* adjustments for ultra low vertical position */
-@media only screen and (max-height:35em) {
-	#container {
-		margin-top: -3.5em;
-        font-size: .80em;
+	#magazineCanvas {
+		width: 350px;
 	}
 }

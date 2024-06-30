@@ -30,7 +30,7 @@ public class TeletextPageWeather : ITeletextPageWeather
         {
             CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
         
-            sb.AppendLineColour("&nbsp;&nbsp;Data: BBC Weather Centre/Met Office&nbsp;&nbsp;", Mode7Colour.White, Mode7Colour.Blue);
+            sb.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaWhite}]Data: BBC Weather Centre/Met Office");
             string map = Graphics.PromoMap.ToString();
             string summaryText = _wd.Forecasts[0].Body;
             if (summaryText.Contains('.'))
@@ -40,33 +40,33 @@ public class TeletextPageWeather : ITeletextPageWeather
 
             List<string> mapLines = Utility.ParseParagraph(summaryText, 18, 18, true);
 
-            Mode7Colour summaryColour = Mode7Colour.Yellow;
-            if (DateTime.Now.Hour >= 18 || DateTime.Now.Hour <= 6)
+            TeletextControl summaryColour = TeletextControl.AlphaYellow;
+            if (Utility.ConvertToUKTime(DateTime.UtcNow).Hour >= 18 || Utility.ConvertToUKTime(DateTime.UtcNow).Hour <= 6)
             {
-                summaryColour = Mode7Colour.Cyan;
+                summaryColour = TeletextControl.AlphaCyan;
             }
 
             int j = 1;
             foreach (string line in mapLines)
             {
-                string replacement = $"<span class=\"ink{(int)summaryColour} indent\">" + line.PadHtmlLeft(19) + "</span>";
+                string replacement = $"[{summaryColour}]{line.PadRightWithTrunc(18)}";
                 map = map.Replace("[LINE" + j.ToString() + "]", replacement);
                 j++;
             }
             // Padding for any remaining lines
             for (int k = j; k <= 7; k++)
             {
-                map = map.Replace("[LINE" + k.ToString() + "]", $"<span class=\"ink{(int)Mode7Colour.White} indent\">{"".PadHtmlLeft(19)}</span>");
+                map = map.Replace("[LINE" + k.ToString() + "]", $"[{TeletextControl.AlphaWhite}]                 ");
             }
 
             // Insert temperatures
-            map = map.Replace("[AA]", FormatWeatherString(_wd.Temperatures["London"].CurrentTemp))
-                .Replace("[BB]", FormatWeatherString(_wd.Temperatures["Cardiff"].CurrentTemp))
-                .Replace("[CC]", FormatWeatherString(_wd.Temperatures["Manchester"].CurrentTemp))
-                .Replace("[DD]", FormatWeatherString(_wd.Temperatures["Edinburgh"].CurrentTemp))
-                .Replace("[EE]", FormatWeatherString(_wd.Temperatures["Belfast"].CurrentTemp))
-                .Replace("[FF]", FormatWeatherString(_wd.Temperatures["Lerwick"].CurrentTemp))
-                .Replace("[GG]", FormatWeatherString(_wd.Temperatures["Truro"].CurrentTemp))
+            map = map.Replace("[AA]", FormatWeatherString(_wd.Temperatures["London"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+                .Replace("[BB]", FormatWeatherString(_wd.Temperatures["Cardiff"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+                .Replace("[CC]", FormatWeatherString(_wd.Temperatures["Manchester"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+                .Replace("[DD]", FormatWeatherString(_wd.Temperatures["Edinburgh"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+                .Replace("[EE]", FormatWeatherString(_wd.Temperatures["Belfast"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+                .Replace("[FF]", FormatWeatherString(_wd.Temperatures["Lerwick"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+                .Replace("[GG]", FormatWeatherString(_wd.Temperatures["Truro"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
                 .Replace("[TTT]", Utility.ConvertToUKTime(_wd.LastRefreshUTC).ToString("HH:mm"));
 
             sb.Append(map);
@@ -100,11 +100,11 @@ public class TeletextPageWeather : ITeletextPageWeather
                     break;
             }
 
-            string sectionTitle = _wd.Forecasts[forecastNo].Title.ToUpper().PadHtmlLeft(36);
+            string sectionTitle = _wd.Forecasts[forecastNo].Title.ToUpper().PadRightWithTrunc(35);
             string sectionText = _wd.Forecasts[forecastNo].Body;
 
             sb.Append(Graphics.HeaderWeather);
-            sb.AppendLine($"<p><span class=\"ink{(int)Mode7Colour.Yellow} indent\">{sectionTitle}</span><span class=\"ink{(int)Mode7Colour.White}\">{forecastNo+2-offset}/5</p>");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{sectionTitle}[{TeletextControl.AlphaWhite}]{forecastNo+2-offset}/5");
 
             // Break body text up into paragraphs
             List<string> bodyLines = new();
@@ -122,7 +122,7 @@ public class TeletextPageWeather : ITeletextPageWeather
                     {
                         if (bodyLines.Count > 0)
                         {
-                            bodyLines.Add("");
+                            bodyLines.Add(String.Empty);
                         }
                         bodyLines.AddRange(newChunk);
                     }
@@ -132,7 +132,8 @@ public class TeletextPageWeather : ITeletextPageWeather
             bool firstLine = true;
             foreach (string line in bodyLines)
             {
-                sb.AppendLineColour(line, firstLine ? Mode7Colour.White : Mode7Colour.Cyan);
+                sb.AppendLine($"[{(firstLine ? TeletextControl.AlphaWhite : TeletextControl.AlphaCyan)}]{line}");
+
                 if (line == String.Empty)
                 {
                     firstLine = false;
@@ -150,9 +151,9 @@ public class TeletextPageWeather : ITeletextPageWeather
 
             if (lastLine == 15)
             {
-                sb.AppendLine("<br>");
-                sb.AppendLineColour("Data: BBC Weather Centre/Met Office", Mode7Colour.Green);
-                sb.AppendLine("<br>");
+                sb.AppendLine(String.Empty);
+                sb.AppendLine($"[{TeletextControl.AlphaGreen}]Data: BBC Weather Centre/Met Office");
+                sb.AppendLine(String.Empty);
             }
 
             sb.FooterText(section);
@@ -168,29 +169,29 @@ public class TeletextPageWeather : ITeletextPageWeather
             CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
 
             sb.Append(Graphics.HeaderWeather);
-            sb.AppendLineColour($"WORLD CITIES (US/EUROPE/OTHER){Utility.LineColourFragment("5/5".PadHtmlRight(9), Mode7Colour.White)}", Mode7Colour.Yellow);
-            sb.AppendLineColour($"max min conditions".PadHtmlRight(33), Mode7Colour.Green);
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]WORLD CITIES (US/EUROPE/OTHER)[{TeletextControl.AlphaWhite}]     5/5");
+            sb.AppendLine($"[{TeletextControl.AlphaGreen}]               max min conditions");
             
-            OutputWorldCity(sb, "San Francisco", Mode7Colour.White);
-            OutputWorldCity(sb, "New York", Mode7Colour.Cyan);         
+            OutputWorldCity(sb, "San Francisco", TeletextControl.AlphaWhite);
+            OutputWorldCity(sb, "New York", TeletextControl.AlphaCyan);      
             
-            sb.LineBreak(Mode7Colour.Blue);           
-            OutputWorldCity(sb, "London", Mode7Colour.White);
-            OutputWorldCity(sb, "Edinburgh", Mode7Colour.Cyan);
-            OutputWorldCity(sb, "Paris", Mode7Colour.White);
-            OutputWorldCity(sb, "Madrid", Mode7Colour.Cyan);
-            OutputWorldCity(sb, "Munich", Mode7Colour.White);
-            OutputWorldCity(sb, "Krakow", Mode7Colour.Cyan);
+            sb.LineBreak(TeletextControl.AlphaBlue);           
+            OutputWorldCity(sb, "London", TeletextControl.AlphaWhite);
+            OutputWorldCity(sb, "Edinburgh", TeletextControl.AlphaCyan);
+            OutputWorldCity(sb, "Paris", TeletextControl.AlphaWhite);
+            OutputWorldCity(sb, "Madrid", TeletextControl.AlphaCyan);
+            OutputWorldCity(sb, "Munich", TeletextControl.AlphaWhite);
+            OutputWorldCity(sb, "Krakow", TeletextControl.AlphaCyan);
             
-            sb.LineBreak(Mode7Colour.Blue);           
-            OutputWorldCity(sb, "Cape Town", Mode7Colour.White);
-            OutputWorldCity(sb, "Chennai", Mode7Colour.Cyan);
-            OutputWorldCity(sb, "Singapore", Mode7Colour.White);
-            OutputWorldCity(sb, "Tokyo", Mode7Colour.Cyan);
-            OutputWorldCity(sb, "Sydney", Mode7Colour.White);
-            OutputWorldCity(sb, "Wellington", Mode7Colour.Cyan);
+            sb.LineBreak(TeletextControl.AlphaBlue);           
+            OutputWorldCity(sb, "Cape Town", TeletextControl.AlphaWhite);
+            OutputWorldCity(sb, "Chennai", TeletextControl.AlphaCyan);
+            OutputWorldCity(sb, "Singapore", TeletextControl.AlphaWhite);
+            OutputWorldCity(sb, "Tokyo", TeletextControl.AlphaCyan);
+            OutputWorldCity(sb, "Sydney", TeletextControl.AlphaWhite);
+            OutputWorldCity(sb, "Wellington", TeletextControl.AlphaCyan);
             
-            sb.AppendLine("<br>");
+            sb.AppendLine(String.Empty);
             sb.FooterText(section);
         }
         return sb;
@@ -199,10 +200,10 @@ public class TeletextPageWeather : ITeletextPageWeather
     #endregion
 
     #region Private Methods
-    private void OutputWorldCity(StringBuilder sb, string city, Mode7Colour colour)
+    private void OutputWorldCity(StringBuilder sb, string city, TeletextControl colour)
     {
         // City name
-        string partCity = city.PadHtmlLeft(13);
+        string partCity = city.PadRightWithTrunc(13);
         
         // City max/min temperatures
         string partTemps = FormatWeatherString(_wd.Temperatures[city].MaxTemp, colour) +
@@ -213,20 +214,13 @@ public class TeletextPageWeather : ITeletextPageWeather
         partConditions = partConditions[..1].ToUpper() + partConditions[1..];                   // Upper case first letter
         partConditions = partConditions.Length > 16 ? partConditions[..16] : partConditions;    // Ensure 16 characters max
         
-        sb.AppendLineColour($"{partCity} {partTemps} {partConditions}", colour);
+        sb.AppendLine($"[{colour}]{partCity} {partTemps} {partConditions}");
     }
-    private static string FormatWeatherString(int temperature, Mode7Colour colour = Mode7Colour.White)
+    private static string FormatWeatherString(int temperature, TeletextControl startCol = TeletextControl.AlphaWhite, TeletextControl endCol = TeletextControl.AlphaWhite)
     {
         string str = temperature.ToString();
-        if (temperature >= 0)
-        {
-            str = Utility.LineColourFragment("&nbsp;" + ((str.Length == 1) ? "&nbsp;" : "") + str + "&nbsp;", colour);
-        }
-        else
-        {
-            str = Utility.LineColourFragment("&nbsp;" + ((str.Length == 2) ? "&nbsp;" : "") + str + "&nbsp;", colour);
-        }
-
+        str = $"[{startCol}]{((str.Length == 1) ? " " : "")}{str}[{endCol}]";
+        
         return str;
     }
     #endregion

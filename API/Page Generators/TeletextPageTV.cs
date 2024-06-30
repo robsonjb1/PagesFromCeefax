@@ -62,13 +62,13 @@ public class TeletextPageTV : ITeletextPageTV
         switch(channel)
         {
             case CeefaxSectionType.TVScheduleBBC1:
-                ident = ident.Replace("{ChannelTop}", Utility.BlockGraph("(@ ")).Replace("{ChannelBottom}", Utility.BlockGraph("_@0"));
+                ident = ident.Replace("{ChannelTop}", "(¬ ").Replace("{ChannelBottom}", "_¬0");
                 break;
             case CeefaxSectionType.TVScheduleBBC2:
-                ident = ident.Replace("{ChannelTop}", Utility.BlockGraph("bs@")).Replace("{ChannelBottom}", Utility.BlockGraph("jup"));
+                ident = ident.Replace("{ChannelTop}", "bs¬").Replace("{ChannelBottom}", "jup");
                 break;
             case CeefaxSectionType.TVScheduleBBC4:
-                ident = ident.Replace("{ChannelTop}", Utility.BlockGraph("@h4")).Replace("{ChannelBottom}", Utility.BlockGraph("£k7"));
+                ident = ident.Replace("{ChannelTop}", "¬h4").Replace("{ChannelBottom}", "£k7");
                 break;
             default:
                 break;
@@ -76,7 +76,7 @@ public class TeletextPageTV : ITeletextPageTV
 
         ChannelSchedule schedule = _ld.Schedules.Find(z => z.Channel == channel);
         
-        sb.Append(ident.Replace("{DayOfWeek}", schedule.Day.PadHtmlRight(15)));
+        sb.Append(ident.Replace("{DayOfWeek}", schedule.Day.PadLeftWithTrunc(15)));
         
         bool startListing = false;
         int lineCount = 0;
@@ -115,18 +115,18 @@ public class TeletextPageTV : ITeletextPageTV
                 lineCount = lineCount + titleLines.Count + bodyLines.Count;
                 
                 // Output show title
-                sb.AppendLineColour($"{FormatDisplayTime(show.StartTime)} {Utility.LineColourFragment(titleLines[0], Mode7Colour.White)}", Mode7Colour.Yellow);
+                sb.AppendLine($"[{TeletextControl.AlphaYellow}]{FormatDisplayTime(show.StartTime)}[{TeletextControl.AlphaWhite}]{titleLines[0]}");
                 
                 if(titleLines.Count > 1)
                 {
                     for(int i = 1; i < titleLines.Count; i++) 
                     {
-                        sb.AppendLineColour($"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{titleLines[i]}", Mode7Colour.White);
+                        sb.AppendLine($"[{TeletextControl.AlphaWhite}]     {titleLines[i]}");
                     }
                 }
                 
                 // Show description
-                bodyLines.ForEach(b => sb.AppendLineColour($"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{b}", Mode7Colour.Cyan));
+                bodyLines.ForEach(b => sb.AppendLine($"[{TeletextControl.AlphaCyan}]     {b}"));
             }
         }
 
