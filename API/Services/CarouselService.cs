@@ -74,7 +74,7 @@ public class CarouselService
             BuildTeletextPage(_tw.CreateWeatherWorld());
             
             // Entertainment section
-            //BuildTeletextPage(Graphics.PromoTV);
+            BuildTeletextPage(Graphics.PromoTV);
             BuildTeletextPage(_tt.CreateSchedule(CeefaxSectionType.TVScheduleBBC1));
             BuildTeletextPage(_tt.CreateSchedule(CeefaxSectionType.TVScheduleBBC2));
             BuildTeletextPage(_tt.CreateSchedule(CeefaxSectionType.TVScheduleBBC4));
