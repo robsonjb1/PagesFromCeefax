@@ -89,16 +89,8 @@
 
             // Line drawing
             lastLineRefresh = time;
-            if(lineLimit >= 25)
-            {
-                lineLimit = 1;
-            }
-            if(lineLimit != 1)
-            {
-                lineLimit += 2;
-            }
-            
-            //var imgData = ctx.createImageData(480, 500);
+            lineLimit = lineLimit >= 25 ? 25 : lineLimit+2;
+                
             insertPageHeader(carouselIsValid, pageIsValid, pageBuffer, pageTickerNo, musicOn);
             
             if(pageTicking && lineLimit >= 25)
@@ -298,7 +290,8 @@
         currentPage = (debugOffset + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration))) % pagesInCarousel;
         pageBuffer = carousel.content[currentPage].data;
         pageIsValid = carousel.content[currentPage].isValid;
-        lineLimit = 0; // Force new page redraw    
+        lineLimit = 0; // Force new page redraw
+        imgData = ctx.createImageData(480, 500); // Blank the screen
     }
 
     // Event handlers
@@ -343,7 +336,6 @@
         }
 
         musicOn = !musicOn;
-        lineLimit = 0;
     }
 
     // Start the emulation
