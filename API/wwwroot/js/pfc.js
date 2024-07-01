@@ -4,9 +4,11 @@
 
     // Canvas
     const canvas = document.querySelector('canvas');
-    const ctx = canvas.getContext('2d');
     canvas.width = 480; 
     canvas.height = 500;
+    
+    const ctx = canvas.getContext('2d');
+    var imgData = ctx.createImageData(480, 500);
 
     canvas.addEventListener('click', function(ev) {
         var {x, y} = getCursorPosition(canvas, ev);
@@ -87,9 +89,16 @@
 
             // Line drawing
             lastLineRefresh = time;
-            lineLimit = lineLimit >= 25 ? 25 : lineLimit+2;
-                
-            var imgData = ctx.createImageData(480, 500);
+            if(lineLimit >= 25)
+            {
+                lineLimit = 1;
+            }
+            if(lineLimit != 1)
+            {
+                lineLimit += 2;
+            }
+            
+            //var imgData = ctx.createImageData(480, 500);
             insertPageHeader(carouselIsValid, pageIsValid, pageBuffer, pageTickerNo, musicOn);
             
             if(pageTicking && lineLimit >= 25)
@@ -334,6 +343,7 @@
         }
 
         musicOn = !musicOn;
+        lineLimit = 0;
     }
 
     // Start the emulation
