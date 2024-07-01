@@ -8,19 +8,19 @@
     canvas.height = 500;
     
     const ctx = canvas.getContext('2d');
-    var imgData = ctx.createImageData(480, 500);
+    var imgData = ctx.createImageData(canvas.width, canvas.height);
 
     canvas.addEventListener('click', function(ev) {
         var {x, y} = getCursorPosition(canvas, ev);
         canvasWidth = $('#magazineCanvas').width();
         canvasHeight = $('#magazineCanvas').height();
 
-        if(y > canvasHeight * 0.95)
+        if(y > canvasHeight * 0.95) // User as selected the bottom row
         {        
-            if(x < canvasWidth * 0.3) ToggleMusic();
-            if(x >= canvasWidth * 0.3 && x < canvasWidth * 0.6) { debugOffset--; MoveNextPage(); }
-            if(x >= canvasWidth * 0.6 && x < canvasWidth * 0.9) { debugOffset++; MoveNextPage(); }
-            if(x >= canvasWidth * 0.9) window.open("https://x.com/pfceefax");
+            if(x < canvasWidth * 0.3) ToggleMusic();                                                    // Red
+            if(x >= canvasWidth * 0.3 && x < canvasWidth * 0.6) { debugOffset--; MoveNextPage(); }      // Green
+            if(x >= canvasWidth * 0.6 && x < canvasWidth * 0.9) { debugOffset++; MoveNextPage(); }      // Yellow
+            if(x >= canvasWidth * 0.9) window.open("https://x.com/pfceefax");                           // Cyan
         }
     });
 
@@ -31,7 +31,6 @@
     
     var loadingPageDuration = 10;
     var pageDuration = 27;
-
     var pageTickerNo = 100;
     var pageTicking = true;
     var lastPageRefresh = new Date();
@@ -46,8 +45,8 @@
     var sep = holdOff = gfx = heldChar = false;
     var dbl = oldDbl = secondHalfOfDouble = wasDbl = false;
     var flash = flashOn = false;
-    var flashTime = lineLimit = 0;
-    var lastLineRefresh = false;
+    var flashTime = rowLimit = 0;
+    var lastRowRefresh = false;
     
     // Character definitions
     var charSmoothed = makeSmoothedChars(getChars());
@@ -56,7 +55,7 @@
   
     // Functions
     function render(time) {
-        if(!lastLineRefresh || lineLimit != 25 || time - lastLineRefresh >= 200) {
+        if(!lastRowRefresh || rowLimit != 25 || time - lastRowRefresh >= 250) { // Refresh screen every quarter second
             // Change page if we've hit the transition second, or it has been at least a minute since the last refresh
             var now = new Date();
             currentSeconds = now.getSeconds();
@@ -67,12 +66,10 @@
                 lastPageRefresh = now;
                 transitionSecond = -1; // do not do a regular refresh until the new carousel is loaded
               
-                // Switch back to loading page
+                // Switch back to loading page and turn on page ticker
                 pageBuffer = getLoadingPage();
-
-                // Turn on the page ticker
                 pageTicking = true;
-                lineLimit = 0; // Force new page redraw    
+                rowLimit = 0; // Force new page redraw    
 
                 // Refresh magazine
                 getNewCarousel();
@@ -87,15 +84,15 @@
                 MoveNextPage();
             }
 
-            // Line drawing
-            lastLineRefresh = time;
-            lineLimit = lineLimit >= 25 ? 25 : lineLimit+2;
+            // Determine number of rows to draw
+            lastRowRefresh = time;
+            rowLimit = rowLimit >= 25 ? 25 : rowLimit+2;
                 
             insertPageHeader(carouselIsValid, pageIsValid, pageBuffer, pageTickerNo, musicOn);
             
-            if(pageTicking && lineLimit >= 25)
+            if(pageTicking && rowLimit >= 25)
             {
-                pageTickerNo = (pageTickerNo > 190) ? 100 : pageTickerNo + ((Math.floor((Math.random() * 10)) == 1) ? 2 : 1);
+                pageTickerNo = (pageTickerNo > 190) ? 100 : pageTickerNo + ((Math.floor((Math.random() * 10)) == 1) ? 2 : 1); // Increment ticker with a random delay to make less uniform
             }
 
             var charPos = 0;
@@ -103,7 +100,7 @@
             flashOn = flashTime < 2;
 
             // Render page
-            for(var yCol = 0; yCol < lineLimit; yCol++)
+            for(var yCol = 0; yCol < rowLimit; yCol++)
             {
                 col = 7;
                 bg = 0;
@@ -117,7 +114,6 @@
                 for(var xCol = 0; xCol < 40; xCol++)
                 {
                     idPtr = (xCol * 4 * 12) + (yCol * 40 * 4 * 12 * 20);
-
                     oldDbl = dbl;
                     prevCol = col;
                     curGlyphs = nextGlyphs;
@@ -131,7 +127,7 @@
                         heldGlyphs = curGlyphs;
                     } else if (data == 128) // A marked invalid character (will flag invalid page)
                     {
-                        data = 63; // Display as ?
+                        data = 63; // Display as question mark (?)
                     }
 
                     // Displayable character, map to character definitions
@@ -290,22 +286,22 @@
         currentPage = (debugOffset + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration))) % pagesInCarousel;
         pageBuffer = carousel.content[currentPage].data;
         pageIsValid = carousel.content[currentPage].isValid;
-        lineLimit = 0; // Force new page redraw
-        imgData = ctx.createImageData(480, 500); // Blank the screen
+        rowLimit = 0; // Force new page redraw
+        imgData = ctx.createImageData(canvas.width, canvas.height); // Blank the screen
     }
 
     // Event handlers
     window.onkeydown = function(key) {  
-        if(key.keyCode === 39) {  
-            debugOffset++;          // Right arrow
+        if(key.keyCode === 37) {  
+            debugOffset--;          // Left arrow
             MoveNextPage();
         };  
         if(key.keyCode === 38) {  
             debugOffset = 0;        // Up arrow
             MoveNextPage();
         };  
-        if(key.keyCode === 37) {  
-            debugOffset--;          // Left arrow
+        if(key.keyCode === 39) {  
+            debugOffset++;          // Right arrow
             MoveNextPage();
         };  
     }
@@ -313,7 +309,6 @@
     // Support for background music
     function ToggleMusic() {
         var now = new Date();
-
         var minutes = now.getMinutes();
         var hours = now.getHours();
         var seconds = now.getSeconds();
@@ -323,7 +318,7 @@
         var track = 0;
         position = ((hours * 60 * 60) + (minutes * 60) + seconds) % (3 * 60 * 60);      // Full track is 3 hours long
 
-        if (month == 11) { // December Christmas
+        if (month == 11) { // December for Christmas
             track = 1;
             position = ((hours * 60 * 60) + (minutes * 60) + seconds) % (1 * 60 * 60);  // Full track is 1 hour long
         }
