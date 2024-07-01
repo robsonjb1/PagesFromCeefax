@@ -286,7 +286,7 @@
         pageBuffer = carousel.content[currentPage].data;
         pageIsValid = carousel.content[currentPage].isValid;
         rowLimit = 1; // Force new page redraw
-        imgData = ctx.createImageData(canvas.width, canvas.height); // Blank the screen
+        for(var i=3+(40*20*4); i<40*20*12*24*4; i+=4) imgData.data[i] = 0;   // Blank the screen (only lines 2 to 24, keep header and Fastext buttons)
     }
 
     // Event handlers
