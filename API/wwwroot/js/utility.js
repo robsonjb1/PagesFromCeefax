@@ -127,7 +127,7 @@ function insertPageHeader(carouselIsValid, pageIsValid, charData, pageCycle, mus
     const header = ' P152   CEEFAX 1 ' + pageCycle.toString() + ' ' + days[now.getDay()] + ' ' + ('0' + now.getDate()).slice(-2) + ' ' + months[now.getMonth()] + 
         String.fromCharCode(3) +
         ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2) + '/' + ('0' + now.getSeconds()).slice(-2);
-
+    
     for(var i=0; i<header.length; i++) charData[i] = header.charCodeAt(i);
     
     charData[0] = pageIsValid ? 32 : 1; // Set red page number if invalid

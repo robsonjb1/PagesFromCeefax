@@ -45,7 +45,7 @@
     var sep = holdOff = gfx = heldChar = false;
     var dbl = oldDbl = secondHalfOfDouble = wasDbl = false;
     var flash = flashOn = false;
-    var flashTime = rowLimit = 0;
+    var flashTime = rowLimit = 1;
     var lastRowRefresh = false;
     
     // Character definitions
@@ -69,7 +69,7 @@
                 // Switch back to loading page and turn on page ticker
                 pageBuffer = getLoadingPage();
                 pageTicking = true;
-                rowLimit = 0; // Force new page redraw    
+                rowLimit = 1; // Force new page redraw    
 
                 // Refresh magazine
                 getNewCarousel();
@@ -87,19 +87,18 @@
             // Determine number of rows to draw
             lastRowRefresh = time;
             rowLimit = rowLimit >= 25 ? 25 : rowLimit+2;
-                
-            insertPageHeader(carouselIsValid, pageIsValid, pageBuffer, pageTickerNo, musicOn);
             
-            if(pageTicking && rowLimit >= 25)
-            {
-                pageTickerNo = (pageTickerNo > 190) ? 100 : pageTickerNo + ((Math.floor((Math.random() * 10)) == 1) ? 2 : 1); // Increment ticker with a random delay to make less uniform
-            }
-
+            // Increment ticker with a random delay to make less uniform
+            if(pageTicking && rowLimit >= 25) pageTickerNo = (pageTickerNo > 190) ? 100 : pageTickerNo + ((Math.floor((Math.random() * 10)) == 1) ? 2 : 1); 
+            
             var charPos = 0;
             if (++flashTime === 8) flashTime = 0;  // 3:1 flash ratio.
             flashOn = flashTime < 2;
 
-            // Render page
+            // Render page, initialise header and double height flags
+            insertPageHeader(carouselIsValid, pageIsValid, pageBuffer, pageTickerNo, musicOn);
+            dbl = oldDbl = secondHalfOfDouble = wasDbl = false;
+
             for(var yCol = 0; yCol < rowLimit; yCol++)
             {
                 col = 7;
@@ -286,7 +285,7 @@
         currentPage = (debugOffset + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration))) % pagesInCarousel;
         pageBuffer = carousel.content[currentPage].data;
         pageIsValid = carousel.content[currentPage].isValid;
-        rowLimit = 0; // Force new page redraw
+        rowLimit = 1; // Force new page redraw
         imgData = ctx.createImageData(canvas.width, canvas.height); // Blank the screen
     }
 
