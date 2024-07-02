@@ -1,4 +1,4 @@
-﻿namespace API.Architecture
+namespace API.Architecture
 {
     public interface ISystemConfig
     {
@@ -21,7 +21,7 @@
         public static List<string> WeatherCities {
             get { return new List<string> { "London", "Belfast", "Cardiff", "Edinburgh", "Lerwick", "Manchester", "Truro",
                 "Paris", "Madrid", "Munich", "Krakow", "Cape Town", "Chennai", "Singapore", "Tokyo", "Sydney", "Wellington",
-                "San Francisco", "New York" };}
+                "San Francisco,US", "New York,US" };}
         }
         public string OpenWeatherApiKey { get; set; }
         public int ServiceContentExpiryMins { get; set; }
