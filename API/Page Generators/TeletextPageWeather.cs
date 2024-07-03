@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 using API.Architecture;
 using API.Magazine;
 
@@ -172,8 +172,8 @@ public class TeletextPageWeather : ITeletextPageWeather
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]WORLD CITIES (US/EUROPE/OTHER)[{TeletextControl.AlphaWhite}]     5/5");
             sb.AppendLine($"[{TeletextControl.AlphaGreen}]               max min conditions");
             
-            OutputWorldCity(sb, "San Francisco,CA,US", TeletextControl.AlphaWhite);
-            OutputWorldCity(sb, "New York,NY,US", TeletextControl.AlphaCyan);      
+            OutputWorldCity(sb, "San Francisco", TeletextControl.AlphaWhite);
+            OutputWorldCity(sb, "New York", TeletextControl.AlphaCyan);      
             
             sb.LineBreak(TeletextControl.AlphaBlue);           
             OutputWorldCity(sb, "London", TeletextControl.AlphaWhite);
