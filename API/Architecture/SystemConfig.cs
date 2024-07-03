@@ -21,7 +21,7 @@ namespace API.Architecture
         public static List<string> WeatherCities {
             get { return new List<string> { "London", "Belfast", "Cardiff", "Edinburgh", "Lerwick", "Manchester", "Truro",
                 "Paris", "Madrid", "Munich", "Krakow", "Cape Town", "Chennai", "Singapore", "Tokyo", "Sydney", "Wellington",
-                "San Francisco", "New York" };}
+                "San Francisco,CA,US", "New York,NY,US" };}
         }
         public string OpenWeatherApiKey { get; set; }
         public int ServiceContentExpiryMins { get; set; }
