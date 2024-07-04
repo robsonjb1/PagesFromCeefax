@@ -46,7 +46,7 @@ public class NewsStory
                 {
                     List<string> newChunk = Utility.ParseParagraph(l);
 
-                    if (newChunk.Count > 0)
+                    if (newChunk.Count > 0 && newChunk[0] != "This video can not be played.")
                     {
                         if (Headline.Count + Body.Count + newChunk.Count - 1 > maxLines)
                         {
