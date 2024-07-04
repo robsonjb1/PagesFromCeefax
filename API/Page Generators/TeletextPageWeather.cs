@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using API.Architecture;
 using API.Magazine;
 
@@ -207,7 +207,7 @@ public class TeletextPageWeather : ITeletextPageWeather
         
         // City max/min temperatures
         string partTemps = FormatWeatherString(_wd.Temperatures[city].MaxTemp, colour) +
-            FormatWeatherString(_wd.Temperatures[city].MinTemp, colour);   
+            FormatWeatherString(_wd.Temperatures[city].MinTemp, colour, colour);   
         
         // City conditions
         string partConditions = _wd.Temperatures[city].Description;
