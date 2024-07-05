@@ -20,9 +20,9 @@ import { video } from "./video.js";
 
         if(y > canvasHeight * 0.95) // User as selected the bottom row
         {        
-            if(x < canvasWidth * 0.3) toggleMusic();                                                    // Red
-            if(x >= canvasWidth * 0.3 && x < canvasWidth * 0.6) { debugOffset--; moveNextPage(); }      // Green
-            if(x >= canvasWidth * 0.6 && x < canvasWidth * 0.9) { debugOffset++; moveNextPage(); }      // Yellow
+            if(x < canvasWidth * 0.35) toggleMusic();                                                    // Red
+            if(x >= canvasWidth * 0.35 && x < canvasWidth * 0.7) { debugOffset--; moveNextPage(); }      // Green
+            if(x >= canvasWidth * 0.7 && x < canvasWidth * 0.9) { debugOffset++; moveNextPage(); }      // Yellow
             if(x >= canvasWidth * 0.9) window.open("https://x.com/pfceefax");                           // Cyan
         }
     });
@@ -110,13 +110,14 @@ import { video } from "./video.js";
         charData[16] = 7; // Set white text for the remainder
 
         // Insert Fastext buttons
-        const footer = " Music " + (musicOn ? "On " : "Off") + "  Previous   Next    Twitter/X";
+        const footer = " Music:" + (musicOn ? "On " : "Off") + "   Previous   Next   Contact X";
         
         for(var i=0; i<footer.length; i++) charData[960+i] = footer.charCodeAt(i);
-        charData[960] = 1; // Red
-        charData[970] = 2; // Green
-        charData[982] = 3; // Yellow
-        charData[989] = 6; // Cyan
+        charData[960] = 1;  // Red
+        charData[970] = 2;  // Green
+        charData[982] = 3;  // Yellow
+        charData[989] = 6;  // Cyan
+        charData[998] = 93; // Right Arrow
     }
    
     function getNewCarousel() {
