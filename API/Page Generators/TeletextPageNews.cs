@@ -28,9 +28,9 @@ public class TeletextPageNews : ITeletextPageNews
         CeefaxSection section = _cc.Sections.Find(z => z.Name == sectionName)!;
         List<StringBuilder> content = new();
 
-        // Loop through each story and generate a news page
+        // Loop through each story and generate a news page (excluding commentary articles)
         int storyCount = 1;
-        foreach (NewsStory story in _cc.StoryList.FindAll(z => z.SectionName == sectionName && z.Body.Count > 0))
+        foreach (NewsStory story in _cc.StoryList.FindAll(z => z.SectionName == sectionName && !z.Headline[^1].EndsWith('?') && z.Body.Count > 0))
         {
             content.Add(CreateNewsPage(section, story,
             isLastStory: storyCount == section.TotalStories));
