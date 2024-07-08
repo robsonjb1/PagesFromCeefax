@@ -35,6 +35,7 @@ try
     });
     builder.Services.AddSingleton<ICacheService, CacheService>();
     builder.Services.AddSingleton<IKindleService, KindleService>();
+    builder.Services.AddSingleton<IStreamingService, StreamingService>();
 
     var app = builder.Build();
 
@@ -49,6 +50,11 @@ try
     app.MapGet("/kindle/{email}", (IKindleService ks, string email) =>
     {
         return ks.PublishKindle(email);
+    });
+
+    app.MapGet("/tv/{channel}", (IStreamingService ss, string channel) =>
+    {
+        return Results.Redirect(ss.StreamChannel(channel));
     });
 
     app.UseFileServer(new FileServerOptions
