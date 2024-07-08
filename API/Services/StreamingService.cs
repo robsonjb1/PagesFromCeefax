@@ -48,28 +48,26 @@ public class StreamingService : IStreamingService
         }
     }
 
-    private StreamingMedia[] _media;
+    private List<StreamingMedia> _media = [];
 
     public StreamingService()
     {
-        _media =
-        [
-            new StreamingMedia("1-1 The Way Back", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026632&authkey=!AJioJZNBH-LeSkQ"),
-            new StreamingMedia("1-2 Space Fall", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026640&authkey=!ABSBTXNSxJsJBjA"),
-            new StreamingMedia("1-3 Cygnus Alpha", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026642&authkey=!AOtW963EiDftwT4"),
-            new StreamingMedia("1-4 Time Squad", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026641&authkey=!ABWKQ8xgUIGuzFg"),
-            new StreamingMedia("1-5 The Web", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026643&authkey=!AH-VmWK_dm_Jpt0"),
-            new StreamingMedia("1-6 Seek, Locate, Destroy", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026645&authkey=!ALWgTs15ki1XJ1E"),
-            new StreamingMedia("1-7 Mission to Destiny", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026644&authkey=!AFq61TOifbFDwNo"),
-            new StreamingMedia("1-8 Duel", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026646&authkey=!ANcHcbOEygyp-hs"),
-            new StreamingMedia("1-9 Project Avalon", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026648&authkey=!AOzR7vEul49NO54"),
-            new StreamingMedia("1-10 Breakdown", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026633&authkey=!AKHTooPBmgIsbIE"),
-            new StreamingMedia("1-11 Bounty", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026635&authkey=!AGqCyfco9iBGbpo"),
-            new StreamingMedia("1-12 Deliverance", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026637&authkey=!AGYWM_k5rkcpoLo"),
-            new StreamingMedia("1-13 Orac", "https://onedrive.live.com/embed?resid=6B5874908501F6E4%211026639&authkey=!APM4z5r8uw8TCG8"),
-        ];
+        string listings = File.ReadAllText("./wwwroot/tv/listings.dat");
+        bool first = true;
+        string name = String.Empty;
+        foreach (string entry in listings.Split(Environment.NewLine))
+        {
+            if(first)
+            {
+                name = entry;
+            }
+            else
+            {
+                _media.Add(new StreamingMedia(name, entry));
+            }
+            first = !first;
+        }
     }
-
     public string StreamChannel(string channel)
     {
         DateTime dt = Utility.ConvertToUKTime(DateTime.UtcNow);

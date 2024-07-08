@@ -4,9 +4,5 @@
 api/obj/*
 api/bin/*
 api/kindletemp/*
-carouseltests/obj/*
-carouseltests/bin/*
 .vscode
 appsettings.development.json
-appsettings.test.json
-
