@@ -19,13 +19,13 @@ public class StreamingService : IStreamingService
     }
 
     private List<StreamingMedia> _media = [];
-    private ISystemConfig _config;
+    private readonly ISystemConfig _config;
 
     public StreamingService(ISystemConfig c)
     {
         _config = c;
 
-        string listings = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "listings.txt"));
+        string listings = File.ReadAllText("listings.txt");
         bool first = true;
         string name = String.Empty;
         foreach (string entry in listings.Split(Environment.NewLine))
