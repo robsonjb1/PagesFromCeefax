@@ -31,7 +31,8 @@ try
         KindlePort = Convert.ToInt32(builder.Configuration["KindlePort"]),
         KindleEnableSsl = Convert.ToBoolean(builder.Configuration["KindleEnableSsl"]),
         SpecSessionCookie = builder.Configuration["SpecSessionCookie"],
-        ThurrottSessionCookie = builder.Configuration["ThurrottSessionCookie"]
+        ThurrottSessionCookie = builder.Configuration["ThurrottSessionCookie"],
+        StreamingCode = builder.Configuration["StreamingCode"]
     });
     builder.Services.AddSingleton<ICacheService, CacheService>();
     builder.Services.AddSingleton<IKindleService, KindleService>();

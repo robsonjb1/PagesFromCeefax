@@ -6,4 +6,3 @@ api/bin/*
 api/kindletemp/*
 .vscode
 appsettings.development.json
-api/wwwroot/tv/listings.txt

@@ -14,6 +14,7 @@
         public bool KindleEnableSsl { get; set; }   
         public string SpecSessionCookie { get; set; }
         public string ThurrottSessionCookie { get; set; }
+        public string StreamingCode { get; set; }
     }
 
     public class SystemConfig : ISystemConfig
@@ -35,5 +36,6 @@
         public bool KindleEnableSsl { get; set; }   
         public string SpecSessionCookie { get; set; }
         public string ThurrottSessionCookie { get; set; }
+        public string StreamingCode { get; set; }
     }
 }

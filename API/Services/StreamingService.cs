@@ -19,10 +19,13 @@ public class StreamingService : IStreamingService
     }
 
     private List<StreamingMedia> _media = [];
+    private ISystemConfig _config;
 
-    public StreamingService()
+    public StreamingService(ISystemConfig c)
     {
-        string listings = File.ReadAllText("./wwwroot/tv/listings.txt");
+        _config = c;
+
+        string listings = File.ReadAllText("./listings.txt");
         bool first = true;
         string name = String.Empty;
         foreach (string entry in listings.Split(Environment.NewLine))
@@ -40,11 +43,18 @@ public class StreamingService : IStreamingService
     }
     public string StreamChannel(string channel)
     {
-        DateTime dt = Utility.ConvertToUKTime(DateTime.UtcNow);
+        if(channel == _config.StreamingCode)
+        {
+            DateTime dt = Utility.ConvertToUKTime(DateTime.UtcNow);
 
-        int totalItems = _media.Count();
-        int selectedItem = new Random(dt.Month + dt.Day + dt.Hour).Next(totalItems);
+            int totalItems = _media.Count();
+            int selectedItem = new Random(dt.Month * dt.Day * dt.Hour).Next(totalItems);
 
-        return _media[selectedItem].Url;
+            return _media[selectedItem].Url;
+        }
+        else
+        {
+            return String.Empty;
+        }
     }
 }
