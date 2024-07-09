@@ -25,7 +25,7 @@ public class StreamingService : IStreamingService
     {
         _config = c;
 
-        string listings = File.ReadAllText("./listings.txt");
+        string listings = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "listings.txt"));
         bool first = true;
         string name = String.Empty;
         foreach (string entry in listings.Split(Environment.NewLine))
