@@ -39,7 +39,7 @@ public class KindleService : IKindleService
                 Directory.CreateDirectory("KindleTemp"); ;
 
                 PublishSpectator(email);
-                PublishThurrott(email);
+                //PublishThurrott(email);
 
                 return $"Done in {Math.Round(s.ElapsedMilliseconds / 1000d)} seconds.";
             }

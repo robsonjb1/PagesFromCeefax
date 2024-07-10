@@ -39,10 +39,10 @@ public class SpectatorContent : ISpectatorContent
                 a.ImageBase64 = Convert.ToBase64String(ImageCache.Find(z => z.Location == a.ImageUri).ContentBytes);
             }
 
-            if(a.AvatarUri != null)
-            {
-                a.AvatarBase64 = Convert.ToBase64String(ImageCache.Find(z => z.Location == a.AvatarUri).ContentBytes);
-            }
+            //if(a.AvatarUri != null)
+            //{
+            //    a.AvatarBase64 = Convert.ToBase64String(ImageCache.Find(z => z.Location == a.AvatarUri).ContentBytes);
+            //}
         }
     }
 
