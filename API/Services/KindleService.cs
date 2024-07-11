@@ -39,8 +39,7 @@ public class KindleService : IKindleService
                 Directory.CreateDirectory("KindleTemp"); ;
 
                 PublishSpectator(email);
-                //PublishThurrott(email);
-
+              
                 return $"Done in {Math.Round(s.ElapsedMilliseconds / 1000d)} seconds.";
             }
         }    
@@ -67,19 +66,7 @@ public class KindleService : IKindleService
         }
     }
 
-    public void PublishThurrott(string email)
-    {
-        ThurrottContent c = new ThurrottContent(_config);
-        ThurrottNews tn = new ThurrottNews(c);
-        string filename = tn.Generate();
-
-        // Send e-mail to Kindle?
-        if(email == _config.KindleFromAddress)
-        {
-            SendEMail(filename);
-        }            
-    }
- 
+  
     private void SendEMail(string filename)
     {
         var smtp = new SmtpClient
