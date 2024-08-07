@@ -88,7 +88,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         if (mr != null)
         {
             TeletextControl colour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
-            string partMovement = $"[{colour}] {mr.Movement}";
+            string partMovement = $"[{colour}]  {mr.Movement}";
             
             sb.AppendLine($"[{TeletextControl.AlphaWhite}]{currency.PadRightWithTrunc(14)}{mr.Value.PadLeftWithTrunc(9)}{partMovement}");
         }
