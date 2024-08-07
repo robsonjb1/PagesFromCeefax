@@ -71,7 +71,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         if(mr != null)
         {
             TeletextControl colour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
-            string partMovement = $"[{colour}] {mr.Movement.PadLeftWithTrunc(9)}";
+            string partMovement = $"[{colour}] {mr.Movement.PadLeftWithTrunc(7)}";
             string partClosed = $"[{TeletextControl.AlphaCyan}]{(mr.Closed ? "Closed" : "")}";
 
             sb.AppendLine($"[{TeletextControl.AlphaWhite}]{mr.Name.PadRightWithTrunc(14)}{mr.Value.PadLeftWithTrunc(9)}{partMovement}{partClosed}");
