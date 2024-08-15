@@ -37,7 +37,7 @@ public class MarketData : IMarketData
 
             foreach (var market in markets)
             {
-                string name = market.SelectSingleNode(".//div[@class='ssrcss-14tpdky-EntryName eohkjht9']")?.InnerText.Trim();
+                string name = market.SelectSingleNode(".//div[@class='ssrcss-1932pd1-EntryName eohkjht9']")?.InnerText.Trim();
                 string movement = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[1]")?.InnerText.Trim();
                 string value = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]")?.InnerText.Trim();
                 if(market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]/span[1]") != null)
@@ -50,7 +50,7 @@ public class MarketData : IMarketData
                         value = n.ToString("#,##0.00");
                     }
 
-                bool closed = market.SelectSingleNode(".//span[@class='ssrcss-12gx7m0-MarketStatus eohkjht1']")?.InnerText.Trim().ToUpper() == "CLOSED";
+                bool closed = market.SelectSingleNode(".//span[@class='ssrcss-6tscym-MarketStatus eohkjht1']")?.InnerText.Trim().ToUpper() == "CLOSED";
                 
                 if (name != null)
                 {
