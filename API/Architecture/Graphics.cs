@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 
 namespace API.Architecture;
 
@@ -151,7 +151,7 @@ public class Graphics
         PromoMap.AppendLine($"[LINE4][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}] !'~¬¬¬¬¬¬!");
         PromoMap.AppendLine($"[LINE5][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]  ~o¬¬¬¬w1");
         PromoMap.AppendLine($"[LINE6][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]  ~o¬¬¬¬wq");
-        PromoMap.AppendLine($"[LINE7][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]  j)\"¬[DD]¬}}");
+        PromoMap.AppendLine($"[LINE7][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}] j)\"¬[DD]¬}}");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                p|¬t  x¬¬g¬¬¬¬0");
         PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Current[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]        n[EE]t +\" ¬¬¬¬¬¬");
         PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]temperatures[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]   +¬¬¬¬¬ _4 +¬¬¬¬¬|0");
