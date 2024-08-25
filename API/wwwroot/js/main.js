@@ -63,6 +63,7 @@ import { video } from "./video.js";
                 // Switch back to loading page and turn on page ticker
                 pageBuffer = getLoadingPage();
                 pageTicking = true;
+                debugOffset = 0;
                 rowLimit = 1; // Force new page redraw    
 
                 // Refresh magazine
