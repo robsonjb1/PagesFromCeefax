@@ -144,7 +144,7 @@ public class Graphics
         PromoLoading.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaCyan}][{TeletextControl.DoubleHeight}]    ... PAGES FROM CEEFAX ...");
         PromoLoading.AppendLine(String.Empty);
         
-        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                    _4_~¬|¬}}      [{TeletextControl.AlphaWhite}]1/5");
+        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                     _4_~¬|¬}}      [{TeletextControl.AlphaWhite}]1/5");
         PromoMap.AppendLine($"[LINE1][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]_?0~[FF]%");
         PromoMap.AppendLine($"[LINE2][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]j*¬¬¬¬¬y||t");
         PromoMap.AppendLine($"[LINE3][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}] ({{¬¬¬¬¬¬¬?");
