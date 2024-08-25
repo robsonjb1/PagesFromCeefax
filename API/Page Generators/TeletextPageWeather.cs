@@ -49,7 +49,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             int j = 1;
             foreach (string line in mapLines)
             {
-                string replacement = $"[{summaryColour}]{line.PadRightWithTrunc(18)}";
+                string replacement = $"[{summaryColour}]{line.PadRightWithTrunc(19)}";
                 map = map.Replace("[LINE" + j.ToString() + "]", replacement);
                 j++;
             }
