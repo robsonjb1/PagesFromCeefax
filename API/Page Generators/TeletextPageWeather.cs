@@ -38,7 +38,7 @@ public class TeletextPageWeather : ITeletextPageWeather
                 summaryText = summaryText[..(summaryText.IndexOf('.') + 1)];
             }
 
-            List<string> mapLines = Utility.ParseParagraph(summaryText, 18, 18, true);
+            List<string> mapLines = Utility.ParseParagraph(summaryText, 19, 19, true);
 
             TeletextControl summaryColour = TeletextControl.AlphaYellow;
             if (Utility.ConvertToUKTime(DateTime.UtcNow).Hour >= 18 || Utility.ConvertToUKTime(DateTime.UtcNow).Hour <= 6)
