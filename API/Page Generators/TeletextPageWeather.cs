@@ -56,7 +56,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             // Padding for any remaining lines
             for (int k = j; k <= 7; k++)
             {
-                map = map.Replace("[LINE" + k.ToString() + "]", $"[{TeletextControl.AlphaWhite}]                   ");
+                map = map.Replace("[LINE" + k.ToString() + "]", $"[{TeletextControl.AlphaWhite}]{string(' ', 19)}");
             }
 
             // Insert temperatures
