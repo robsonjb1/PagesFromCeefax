@@ -52,7 +52,7 @@ public class SpectatorNews : ISpectatorNews
             c.AppendLine($"<div id='s{count}'><div class='header_container'>");
             if(article.AvatarBase64 != String.Empty)
             {
-                c.AppendLine($"<img src='data:image/png;base64,{article.AvatarBase64}'>");
+                c.AppendLine($"<img width='100px' src='data:image/png;base64,{article.AvatarBase64}'>");
             }        
             c.AppendLine($"<h2>{article.Headline}</h2>");  
             c.AppendLine($"<p><i>By {article.Author}. Skip to <a href='#s{count-1}'>previous</a> or <a href='#s{count+1}'>next</a>.</i></p></div>");
