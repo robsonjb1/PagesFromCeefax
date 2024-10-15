@@ -90,11 +90,11 @@ public class SpectatorContent : ISpectatorContent
             ImageCache.Add(new CachedUri(a.ImageUri));
 
             var avatarNode = doc.DocumentNode.SelectNodes("//a[@class='writers-link entry-header__author']/img");
-            if(avatarNode != null)
-            {
-                a.AvatarUri = new Uri(avatarNode[0].GetAttributeValue("src", String.Empty));
-                ImageCache.Add(new CachedUri(a.AvatarUri));
-            }
+            //if(avatarNode != null)
+            //{
+            //    a.AvatarUri = new Uri(avatarNode[0].GetAttributeValue("src", String.Empty));
+            //    ImageCache.Add(new CachedUri(a.AvatarUri));
+            //}
     
             var body = doc.DocumentNode.SelectNodes("//div[@class='entry-content']//p");
             StringBuilder lines = new StringBuilder();
