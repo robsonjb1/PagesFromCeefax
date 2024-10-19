@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 using API.Architecture;
 using API.Magazine;
 
@@ -8,7 +8,6 @@ public interface ITeletextPageWeather
 {
     public StringBuilder CreateWeatherMap();
     public StringBuilder CreateWeatherPage(CeefaxSectionType page);
-    public StringBuilder CreateWeatherWorld();
 }
 
 public class TeletextPageWeather : ITeletextPageWeather
@@ -104,7 +103,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             string sectionText = _wd.Forecasts[forecastNo].Body;
 
             sb.Append(Graphics.HeaderWeather);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{sectionTitle}[{TeletextControl.AlphaWhite}]{forecastNo+2-offset}/5");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{sectionTitle}[{TeletextControl.AlphaWhite}]{forecastNo+2-offset}/4");
 
             // Break body text up into paragraphs
             List<string> bodyLines = new();
@@ -160,62 +159,9 @@ public class TeletextPageWeather : ITeletextPageWeather
         }
         return sb;
     }
-
-    public StringBuilder CreateWeatherWorld()
-    {
-        StringBuilder sb = new();
-        if(_wd.IsValid)             // Only construct the page if we have valid data
-        {
-            CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
-
-            sb.Append(Graphics.HeaderWeather);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]WORLD CITIES (US/EUROPE/OTHER)[{TeletextControl.AlphaWhite}]     5/5");
-            sb.AppendLine($"[{TeletextControl.AlphaGreen}]               max min conditions");
-            
-            OutputWorldCity(sb, "San Francisco", TeletextControl.AlphaWhite);
-            OutputWorldCity(sb, "New York", TeletextControl.AlphaCyan);      
-            
-            sb.LineBreak(TeletextControl.AlphaBlue);           
-            OutputWorldCity(sb, "London", TeletextControl.AlphaWhite);
-            OutputWorldCity(sb, "Edinburgh", TeletextControl.AlphaCyan);
-            OutputWorldCity(sb, "Paris", TeletextControl.AlphaWhite);
-            OutputWorldCity(sb, "Madrid", TeletextControl.AlphaCyan);
-            OutputWorldCity(sb, "Munich", TeletextControl.AlphaWhite);
-            OutputWorldCity(sb, "Krakow", TeletextControl.AlphaCyan);
-            
-            sb.LineBreak(TeletextControl.AlphaBlue);           
-            OutputWorldCity(sb, "Cape Town", TeletextControl.AlphaWhite);
-            OutputWorldCity(sb, "Chennai", TeletextControl.AlphaCyan);
-            OutputWorldCity(sb, "Singapore", TeletextControl.AlphaWhite);
-            OutputWorldCity(sb, "Tokyo", TeletextControl.AlphaCyan);
-            OutputWorldCity(sb, "Sydney", TeletextControl.AlphaWhite);
-            OutputWorldCity(sb, "Wellington", TeletextControl.AlphaCyan);
-            
-            sb.AppendLine(String.Empty);
-            sb.FooterText(section);
-        }
-        return sb;
-    }
-
     #endregion
 
     #region Private Methods
-    private void OutputWorldCity(StringBuilder sb, string city, TeletextControl colour)
-    {
-        // City name
-        string partCity = city.PadRightWithTrunc(13);
-        
-        // City max/min temperatures
-        string partTemps = FormatWeatherString(_wd.Temperatures[city].MaxTemp, colour) +
-            FormatWeatherString(_wd.Temperatures[city].MinTemp, colour, colour);   
-        
-        // City conditions
-        string partConditions = _wd.Temperatures[city].Description;
-        partConditions = partConditions[..1].ToUpper() + partConditions[1..];                   // Upper case first letter
-        partConditions = partConditions.Length > 16 ? partConditions[..16] : partConditions;    // Ensure 16 characters max
-        
-        sb.AppendLine($"[{colour}]{partCity} {partTemps} {partConditions}");
-    }
     private static string FormatWeatherString(int temperature, TeletextControl startCol = TeletextControl.AlphaWhite, TeletextControl endCol = TeletextControl.AlphaWhite)
     {
         string str = temperature.ToString();
