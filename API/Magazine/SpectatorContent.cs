@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.RegularExpressions;
 using API.Architecture;
 using HtmlAgilityPack;
 using Serilog;
@@ -101,9 +102,13 @@ public class SpectatorContent : ISpectatorContent
             
             foreach (var p in body)
             {
+                // Remove anchor tags
+                String re = @"<a [^>]+>(.*?)<\/a>";
+                string outputLine = Regex.Replace(p.OuterHtml, re, "$1");
+
                 if(p.ParentNode.Name == "blockquote")
                 {
-                    lines.AppendLine("<p><b><i><center>" + p.OuterHtml.Replace("<p>", "").Replace("</p>", "") + "</center></i></b></p>");
+                    lines.AppendLine("<p><b><i><center>" + outputLine.Replace("<p>", "").Replace("</p>", "") + "</center></i></b></p>");
                 }
                 else
                 {
@@ -112,11 +117,11 @@ public class SpectatorContent : ISpectatorContent
                         if(lines.Length == 0)
                         {
                             // Display the dateline in the first paragraph
-                            lines.AppendLine(p.OuterHtml.Replace("<p>", $"<p><b>{a.PublishDate}. </b>"));
+                            lines.AppendLine(outputLine.Replace("<p>", $"<p><b>{a.PublishDate}. </b>"));
                         }
                         else
                         {
-                            lines.AppendLine(p.OuterHtml);
+                            lines.AppendLine(outputLine);
                         }
                     }
                 }
