@@ -64,7 +64,7 @@ public class SpectatorNews : ISpectatorNews
             c.AppendLine($"<div class='body_container'>{article.StoryHtml}</div>");
             c.AppendLine("<a href='#s0'>Return to front page</a>");
             c.AppendLine("</div><mbp:pagebreak>");
-
+        
             count++;
         }
       

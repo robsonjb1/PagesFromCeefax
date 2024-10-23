@@ -106,6 +106,9 @@ public class SpectatorContent : ISpectatorContent
                 String re = @"<a [^>]+>(.*?)<\/a>";
                 string outputLine = Regex.Replace(p.OuterHtml, re, "$1");
 
+                // Remove Unicode emoji characters
+                outputLine = Regex.Replace(outputLine, @"[^\u0000-\u9999]+", string.Empty);
+
                 if(p.ParentNode.Name == "blockquote")
                 {
                     lines.AppendLine("<p><b><i><center>" + outputLine.Replace("<p>", "").Replace("</p>", "") + "</center></i></b></p>");
