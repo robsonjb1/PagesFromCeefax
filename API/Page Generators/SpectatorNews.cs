@@ -28,7 +28,11 @@ public class SpectatorNews : ISpectatorNews
         c.AppendLine("h2 {margin-top: 0px; margin-bottom: 0px;} .header_container p {margin-top: 5px; margin-bottom: 10px;} .headline_footer {font-size: small;} ");
         c.AppendLine(".body_container p:first-of-type {margin-top: 10px; margin-bottom: 10px;} </style></head><body>");
         
-        // Start of Spectator
+        // Cover image
+        c.AppendLine($"<img src='data:image/jpeg;base64,{_kc.CoverImageBase64}'>");
+        c.AppendLine("<mbp:pagebreak />");
+
+        // Index
         c.AppendLine($"<div id='s0'><ol>");
         int count = 1;
         foreach(var article in _kc.SpectatorArticles.Take(maxArticles))
@@ -45,7 +49,7 @@ public class SpectatorNews : ISpectatorNews
         }
         c.AppendLine("</ol><mbp:pagebreak />");
 
-        // Spectator content
+        // Article content
         count = 1;
         foreach(var article in _kc.SpectatorArticles.FindAll(z=>z.IsValid).Take(maxArticles))
         {

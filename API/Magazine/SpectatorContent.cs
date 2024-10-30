@@ -9,11 +9,13 @@ namespace API.Magazine;
 public interface ISpectatorContent
 {
     public List<SpectatorArticle> SpectatorArticles { get; set; }
+    public string CoverImageBase64 { get; set; }
 }
 
 public class SpectatorContent : ISpectatorContent
 {
     public List<SpectatorArticle> SpectatorArticles { get; set; } = new();
+    public string CoverImageBase64 { get; set; } = String.Empty;
     private List<CachedUri> UrlCache { get; set; } = new();
     private List<CachedUri> ImageCache { get; set; } = new();
     private ISystemConfig _config;
@@ -45,6 +47,41 @@ public class SpectatorContent : ISpectatorContent
                 a.AvatarBase64 = Convert.ToBase64String(ImageCache.Find(z => z.Location == a.AvatarUri).ContentBytes);
             }
         }
+
+        // Attempt to retrieve the current magazine cover image
+        DateTime coverSaturday;
+        DateTime now = DateTime.Now;
+        switch(now.DayOfWeek)
+        {
+            case DayOfWeek.Sunday:
+                coverSaturday = now.AddDays(-1);
+                break;
+            case DayOfWeek.Monday:
+                coverSaturday = now.AddDays(-2);
+                break;
+            case DayOfWeek.Tuesday:
+                coverSaturday = now.AddDays(-3);
+                break;
+            case DayOfWeek.Wednesday:
+                coverSaturday = now.AddDays(-4);
+                break;
+            case DayOfWeek.Thursday:
+                coverSaturday = now.AddDays(2);
+                break;
+            case DayOfWeek.Friday:
+                coverSaturday = now.AddDays(1);
+                break;
+            default:
+                coverSaturday = now;
+                break;
+        }
+
+        string baseUrl = String.Format("https://www.spectator.co.uk/wp-content/uploads/{0}/cover-{1}-issue.jpg",
+          coverSaturday.Year + "/" + coverSaturday.Month.ToString("00"),
+          coverSaturday.Day.ToString("00") + coverSaturday.Month.ToString("00") + coverSaturday.Year
+        );
+
+        CoverImageBase64 = Convert.ToBase64String(FetchPageAsync(new Uri(baseUrl)).Result.httpResponse.Content.ReadAsByteArrayAsync().Result);
     }
 
     private async Task GetSpectatorArticleList(string root)
