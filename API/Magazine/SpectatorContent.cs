@@ -77,7 +77,7 @@ public class SpectatorContent : ISpectatorContent
         }
 
         string baseUrl = String.Format("https://www.spectator.co.uk/wp-content/uploads/{0}/cover-{1}-issue.jpg",
-          now.Year + "/" + now.Month.ToString("00"),
+          coverSaturday.AddDays(-2).Year + "/" + coverSaturday.AddDays(-2).Month.ToString("00"), // The date on which the image would have been uploaded, ie the previous Thursday
           coverSaturday.Day.ToString("00") + coverSaturday.Month.ToString("00") + coverSaturday.Year
         );
 
