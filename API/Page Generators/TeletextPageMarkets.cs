@@ -76,28 +76,28 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             sb.Append(Graphics.HeaderMarkets);
 
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]UK MARKETS[{TeletextControl.AlphaWhite}]                         1/2");
-            sb.Append(OutputMarket(TeletextControl.AlphaWhite, "UKX", "FTSE 100"));
-            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "MCX", "FTSE 250"));
+            sb.Append(OutputMarket("UKX", "FTSE 100"));
+            sb.Append(OutputMarket("MCX", "FTSE 250"));
             sb.LineBreak(TeletextControl.AlphaRed);
 
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]EUROPE MARKETS");
-            sb.Append(OutputMarket(TeletextControl.AlphaWhite, "CAC", "CAC 40"));
-            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "DAX", "DAX"));
+            sb.Append(OutputMarket("CAC", "CAC 40"));
+            sb.Append(OutputMarket("DAX", "DAX"));
             sb.LineBreak(TeletextControl.AlphaRed);
 
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]US MARKETS");
-            sb.Append(OutputMarket(TeletextControl.AlphaWhite, "DJIA", "Dow Jones"));
-            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "COMP", "NASDAQ"));
+            sb.Append(OutputMarket("DJIA", "Dow Jones"));
+            sb.Append(OutputMarket("COMP", "NASDAQ"));
             sb.LineBreak(TeletextControl.AlphaRed);
            
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]ASIA MARKETS");
-            sb.Append(OutputMarket(TeletextControl.AlphaWhite, "HSI", "Hang Seng"));
-            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "NK225", "Nikkei 225"));
+            sb.Append(OutputMarket("HSI", "Hang Seng"));
+            sb.Append(OutputMarket("NK225", "Nikkei 225"));
 
             sb.LineBreak(TeletextControl.AlphaRed);
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]CURRENCIES");
-            sb.Append(OutputCurrency(TeletextControl.AlphaWhite, "EUR"));
-            sb.Append(OutputCurrency(TeletextControl.AlphaCyan, "USD"));
+            sb.Append(OutputCurrency("EUR"));
+            sb.Append(OutputCurrency("USD"));
 
             // Display footer
             sb.FooterText(_cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
@@ -108,7 +108,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
     #endregion
 
     #region Private Methods
-    private StringBuilder OutputMarket(TeletextControl colour, string marketName, string displayName)
+    private StringBuilder OutputMarket(string marketName, string displayName)
     {
         StringBuilder sb = new();
         MarketRecord mr = _md.Markets.FirstOrDefault(z => z.Name == marketName);
@@ -118,13 +118,13 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             TeletextControl rateColour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
             string partMovement = $"[{rateColour}] {mr.Movement.PadLeftWithTrunc(7)}";
           
-            sb.AppendLine($"[{colour}]{displayName.PadRightWithTrunc(18)}{mr.Value.PadLeftWithTrunc(12)}{partMovement}");
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{displayName.PadRightWithTrunc(18)}{mr.Value.PadLeftWithTrunc(12)}{partMovement}");
         }
 
         return sb;
     }
 
-    private StringBuilder OutputCurrency(TeletextControl colour, string currency)
+    private StringBuilder OutputCurrency(string currency)
     {
         StringBuilder sb = new();
         var record = _md.Currencies.list.FirstOrDefault(z => z.FromISO == "GBP" && z.ToISO == currency);
@@ -137,7 +137,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             TeletextControl rateColour = change < 0 ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
             string partMovement = $"[{rateColour}]  {(change >=0 ? "+" : "")}{change}";
             
-            sb.AppendLine($"[{colour}]{currency.PadRightWithTrunc(21)}{rate.ToString().PadLeftWithTrunc(9)}{partMovement}%");
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{currency.PadRightWithTrunc(21)}{rate.ToString().PadLeftWithTrunc(9)}{partMovement}%");
         }
 
         return sb;
