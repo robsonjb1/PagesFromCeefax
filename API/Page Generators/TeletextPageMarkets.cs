@@ -1,12 +1,14 @@
 using System.Text;
 using API.Architecture;
 using API.Magazine;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace API.PageGenerators;
 
 public interface ITeletextPageMarkets
 {
     public StringBuilder CreateMarketsPage();
+    public StringBuilder CreateRisersFallersPage();
 }
 
 public class TeletextPageMarkets : ITeletextPageMarkets
@@ -23,6 +25,49 @@ public class TeletextPageMarkets : ITeletextPageMarkets
     #region Public Methods
 
    
+    public StringBuilder CreateRisersFallersPage()
+    {
+        StringBuilder sb = new();
+        if(_md.IsValid)             // Only construct the page if we have valid data
+        {
+            sb.Append(Graphics.HeaderMarkets);
+        
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]FTSE 100: TOP RISERS[{TeletextControl.AlphaWhite}]               2/2");
+            sb.Append(OutputRiserFallerList(_md.Risers.Take(8).ToList()));
+            sb.LineBreak(TeletextControl.AlphaRed);
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]FTSE 100: TOP FALLERS[{TeletextControl.AlphaWhite}]");
+            sb.Append(OutputRiserFallerList(_md.Fallers.Take(8).OrderBy(z => z.Movement).ToList()));
+            
+            // Display footer
+            sb.FooterText(_cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
+        }
+
+        return sb;
+    }
+
+    private StringBuilder OutputRiserFallerList(List<MarketRecord> companies)
+    {
+        StringBuilder sb = new();
+        TeletextControl colour = TeletextControl.AlphaWhite;
+        foreach(var company in companies)
+        {
+            TeletextControl rateColour = company.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
+            string partMovement = $"[{rateColour}] {company.Movement.PadLeftWithTrunc(7)}";
+          
+            string abbreviatedName = company.Name;
+            if(company.Name.Length > 30)
+            {
+                abbreviatedName = company.Name.Substring(0, 27) + "...";   
+            }
+            sb.AppendLine($"[{colour}]{abbreviatedName.PadRightWithTrunc(30)}{partMovement}");
+
+            // Toggle line colour
+            colour = colour == TeletextControl.AlphaWhite ? TeletextControl.AlphaCyan : TeletextControl.AlphaWhite;
+        }
+
+        return sb;
+    }
+
     public StringBuilder CreateMarketsPage()
     {
         StringBuilder sb = new();
@@ -30,29 +75,29 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         {
             sb.Append(Graphics.HeaderMarkets);
 
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]UK MARKETS");
-            sb.Append(OutputMarket("FTSE 100"));
-            sb.Append(OutputMarket("FTSE 250"));
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]UK MARKETS[{TeletextControl.AlphaWhite}]                         1/2");
+            sb.Append(OutputMarket(TeletextControl.AlphaWhite, "UKX", "FTSE 100"));
+            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "MCX", "FTSE 250"));
             sb.LineBreak(TeletextControl.AlphaRed);
 
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]EUROPE MARKETS");
-            sb.Append(OutputMarket("AEX"));
-            sb.Append(OutputMarket("DAX"));
+            sb.Append(OutputMarket(TeletextControl.AlphaWhite, "CAC", "CAC 40"));
+            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "DAX", "DAX"));
             sb.LineBreak(TeletextControl.AlphaRed);
 
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]US MARKETS");
-            sb.Append(OutputMarket("Dow Jones"));
-            sb.Append(OutputMarket("Nasdaq"));
+            sb.Append(OutputMarket(TeletextControl.AlphaWhite, "DJIA", "Dow Jones"));
+            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "COMP", "NASDAQ"));
             sb.LineBreak(TeletextControl.AlphaRed);
            
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]ASIA MARKETS");
-            sb.Append(OutputMarket("Hang Seng"));
-            sb.Append(OutputMarket("Nikkei 225"));
-            sb.LineBreak(TeletextControl.AlphaRed);
+            sb.Append(OutputMarket(TeletextControl.AlphaWhite, "HSI", "Hang Seng"));
+            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "NK225", "Nikkei 225"));
 
+            sb.LineBreak(TeletextControl.AlphaRed);
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]CURRENCIES");
-            sb.Append(OutputCurrency("EUR"));
-            sb.Append(OutputCurrency("USD"));
+            sb.Append(OutputCurrency(TeletextControl.AlphaWhite, "EUR"));
+            sb.Append(OutputCurrency(TeletextControl.AlphaCyan, "USD"));
 
             // Display footer
             sb.FooterText(_cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
@@ -63,34 +108,36 @@ public class TeletextPageMarkets : ITeletextPageMarkets
     #endregion
 
     #region Private Methods
-    private StringBuilder OutputMarket(string marketName)
+    private StringBuilder OutputMarket(TeletextControl colour, string marketName, string displayName)
     {
         StringBuilder sb = new();
         MarketRecord mr = _md.Markets.FirstOrDefault(z => z.Name == marketName);
 
         if(mr != null)
         {
-            TeletextControl colour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
-            string partMovement = $"[{colour}] {mr.Movement.PadLeftWithTrunc(7)}";
-            string partClosed = $"[{TeletextControl.AlphaCyan}]{(mr.Closed ? "Closed" : "")}";
-
-            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{mr.Name.PadRightWithTrunc(14)}{mr.Value.PadLeftWithTrunc(9)}{partMovement}{partClosed}");
+            TeletextControl rateColour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
+            string partMovement = $"[{rateColour}] {mr.Movement.PadLeftWithTrunc(7)}";
+          
+            sb.AppendLine($"[{colour}]{displayName.PadRightWithTrunc(18)}{mr.Value.PadLeftWithTrunc(12)}{partMovement}");
         }
 
         return sb;
     }
 
-    private StringBuilder OutputCurrency(string currency)
+    private StringBuilder OutputCurrency(TeletextControl colour, string currency)
     {
         StringBuilder sb = new();
-        MarketRecord mr = _md.Markets.FirstOrDefault(z => z.Name.StartsWith("/" + currency));
+        var record = _md.Currencies.list.FirstOrDefault(z => z.FromISO == "GBP" && z.ToISO == currency);
 
-        if (mr != null)
+        if (record != null)
         {
-            TeletextControl colour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
-            string partMovement = $"[{colour}]  {mr.Movement}";
+            double rate = Math.Round(Convert.ToDouble(record.RateCurrent), 4);
+            double change = Math.Round(Convert.ToDouble(record.RateDayChangePercent), 2);
+
+            TeletextControl rateColour = change < 0 ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
+            string partMovement = $"[{rateColour}]  {(change >=0 ? "+" : "")}{change}";
             
-            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{currency.PadRightWithTrunc(14)}{mr.Value.PadLeftWithTrunc(9)}{partMovement}");
+            sb.AppendLine($"[{colour}]{currency.PadRightWithTrunc(21)}{rate.ToString().PadLeftWithTrunc(9)}{partMovement}%");
         }
 
         return sb;

@@ -1,3 +1,6 @@
+using System.Runtime.CompilerServices;
+using System.Text.Json;
+using System.Xml;
 using API.Architecture;
 using HtmlAgilityPack;
 using Serilog;
@@ -9,18 +12,23 @@ public record MarketRecord
     public string Name { get; set; }
     public string Value { get; set; }
     public string Movement { get; set; }
-    public bool Closed { get; set; }
 }
 
 public interface IMarketData
 {
     public List<MarketRecord> Markets { get; set; }
+    public List<MarketRecord> Risers { get; set;}
+    public List<MarketRecord> Fallers { get; set; }
+    public HLCurrencies Currencies { get; set; }
     public bool IsValid { get; set; }
 }
 
 public class MarketData : IMarketData
 {
     public List<MarketRecord> Markets { get; set; } = new();
+    public List<MarketRecord> Risers { get; set; } = new();
+    public List<MarketRecord> Fallers { get; set; } = new();
+    public HLCurrencies Currencies { get; set; } = new();
     public bool IsValid { get; set; } = false;
 
     public MarketData(ICeefaxContent cc) { GetMarketData(cc); }
@@ -33,36 +41,34 @@ public class MarketData : IMarketData
             var doc = new HtmlDocument();
             doc.LoadHtml(html);
 
-            var markets = doc.DocumentNode.SelectNodes("//tr[@class='ssrcss-xw0taf-EntryRow eohkjht10']");
-
+            // Markets
+            var markets = doc.DocumentNode.SelectNodes("//div[contains(@class, 'markets-table-wrap')]//tr");
             foreach (var market in markets)
             {
-                string name = market.SelectSingleNode(".//div[@class='ssrcss-1932pd1-EntryName eohkjht9']")?.InnerText.Trim();
-                string movement = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[1]")?.InnerText.Trim();
-                string value = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]")?.InnerText.Trim();
-                if(market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]/span[1]") != null)
-                {
-                    value = market.SelectSingleNode("(.//div[@class='ssrcss-gastmb-InnerCell eohkjht0'])[2]/span[1]")?.InnerText.Trim();
-                }
-
-                    if (double.TryParse(value, out double n))
-                    {
-                        value = n.ToString("#,##0.00");
-                    }
-
-                bool closed = market.SelectSingleNode(".//span[@class='ssrcss-6tscym-MarketStatus eohkjht1']")?.InnerText.Trim().ToUpper() == "CLOSED";
+                string name = market.GetAttributeValue("data-symbol", "");
+                string value = market.SelectSingleNode($".//td[2]/span")?.InnerText.Trim();
+                string movement = market.SelectSingleNode($".//td[5]/span")?.InnerText.Trim();
                 
-                if (name != null)
+                if (name != String.Empty)
                 {
                     Markets.Add(new MarketRecord()
                     {
                         Name = name,
-                        Movement = movement.StartsWith("0") ? String.Concat("=", movement) : movement.Replace("−", "-"),
-                        Value = value.Replace("€", "E"),
-                        Closed = closed
+                        Movement = movement,
+                        Value = value
                     });
                 }
             }
+
+            // Risers
+            Risers = ParseRiserFallerList(cc, "HLRisers");
+            
+            // Fallers
+            Fallers = ParseRiserFallerList(cc, "HLFallers");
+            
+            // Currencies
+            string json = cc.UriCache.First(l => l.Tag == "HLCurrencies").ContentString;
+            Currencies = JsonSerializer.Deserialize<HLCurrencies>(json);
 
             IsValid = true;
         }
@@ -71,5 +77,33 @@ public class MarketData : IMarketData
             Log.Fatal($"MARKETDATA BUILD ERROR {ex.Message} {ex.InnerException} {ex.Source} {ex.StackTrace}");
             Log.CloseAndFlush();
         }
+    }
+
+    private List<MarketRecord> ParseRiserFallerList(ICeefaxContent cc, string section)
+    {
+        List<MarketRecord> risersFallers = new();
+        string html = cc.UriCache.First(l => l.Tag == section).ContentString;
+        var doc = new HtmlDocument();
+        doc.LoadHtml(html);
+
+        var companies = doc.DocumentNode.SelectNodes("//table[@class='stockTable']/tbody//tr");
+        foreach (var company in companies)
+        {
+            string name = company.SelectSingleNode($".//td[2]/a")?.InnerText.Trim();
+            string value = company.SelectSingleNode($".//td[3]/span")?.InnerText.Trim();
+            string movement = company.SelectSingleNode($".//td[5]/span")?.InnerText.Trim();
+
+            if (name != String.Empty)
+            {
+                risersFallers.Add(new MarketRecord()
+                {
+                    Name = name,
+                    Movement = movement,
+                    Value = value
+                });
+            }
+        }
+
+        return risersFallers;
     }
 }

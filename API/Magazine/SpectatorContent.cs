@@ -9,12 +9,14 @@ namespace API.Magazine;
 public interface ISpectatorContent
 {
     public List<SpectatorArticle> SpectatorArticles { get; set; }
+    public List<SpectatorCartoon> SpectatorCartoons { get; set; }
     public string CoverImageBase64 { get; set; }
 }
 
 public class SpectatorContent : ISpectatorContent
 {
     public List<SpectatorArticle> SpectatorArticles { get; set; } = new();
+    public List<SpectatorCartoon> SpectatorCartoons { get; set; } = new();
     public string CoverImageBase64 { get; set; } = String.Empty;
     private List<CachedUri> UrlCache { get; set; } = new();
     private List<CachedUri> ImageCache { get; set; } = new();
@@ -27,11 +29,15 @@ public class SpectatorContent : ISpectatorContent
         // Visit each article and retrieve the full details, including article and author images
         GetSpectatorArticleList(@"https://www.spectator.co.uk/").Wait();
      
+        // Visit each cartoon and retrieve the full details
+        GetCartoonList(@"https://www.spectator.co.uk/illustrations/").Wait();
+
         // Process the URL article cache (deliberately do this sequentially)
         UrlCache.ForEach(u => u.ContentString = FetchPageAsync(u.Location).Result.httpResponse.Content.ReadAsStringAsync().Result);
         
         // Parse story content
         SpectatorArticles.ForEach(a => ReadSpectatorArticle(a));
+        SpectatorCartoons.ForEach(c => ReadSpectatorCartoon(c));
 
         // Process the URL image cache
         Parallel.ForEach(ImageCache, i => i.ContentBytes = FetchPageAsync(i.Location).Result.httpResponse.Content.ReadAsByteArrayAsync().Result);
@@ -47,6 +53,15 @@ public class SpectatorContent : ISpectatorContent
                 a.AvatarBase64 = Convert.ToBase64String(ImageCache.Find(z => z.Location == a.AvatarUri).ContentBytes);
             }
         }
+
+        foreach(var c in SpectatorCartoons)
+        {
+            if(c.ImageUri != null)
+            {
+                c.ImageBase64 = Convert.ToBase64String(ImageCache.Find(z => z.Location == c.ImageUri).ContentBytes);
+            }
+        }
+        
 
         // Attempt to retrieve the current magazine cover image
         DateTime coverSaturday;
@@ -176,6 +191,41 @@ public class SpectatorContent : ISpectatorContent
         }
     }
     
+    private void ReadSpectatorCartoon(SpectatorCartoon c)
+    {
+        try
+        {
+            string cartoonHtml = UrlCache.Find(z => z.Location == c.CartoonUri).ContentString;
+            HtmlDocument doc = new();
+            doc.LoadHtml(cartoonHtml);
+            c.Caption = doc.DocumentNode.SelectNodes("//meta[@property='og:description']")[0].GetAttributeValue("content", String.Empty);
+            c.Caption = c.Caption.StartsWith("Weekly magazine") ? String.Empty : c.Caption;
+            c.ImageUri = new Uri(doc.DocumentNode.SelectNodes("//meta[@property='og:image']")[0].GetAttributeValue("content", String.Empty));
+            ImageCache.Add(new CachedUri(c.ImageUri));
+        }
+        catch
+        {
+            c.IsValid = false;
+        }
+    }
+    private async Task GetCartoonList(string specRoot)
+    {
+        string rootHtml = await FetchPageAsync(new Uri(specRoot)).Result.httpResponse.Content.ReadAsStringAsync();
+        HtmlDocument doc = new();
+        doc.LoadHtml(rootHtml);
+        // Parse index page and construct article list
+        var tags = doc.DocumentNode.SelectNodes("//a[@class='article__title-link']");
+        if(tags != null)
+        {
+            foreach (var tag in tags)
+            {
+                Uri u = new Uri(tag.Attributes["href"].Value);
+                SpectatorCartoons.Add(new SpectatorCartoon(u));
+                UrlCache.Add(new CachedUri(u));
+            }
+        }
+    }
+
     private async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
     {
         var client = new HttpClient();

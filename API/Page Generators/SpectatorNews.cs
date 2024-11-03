@@ -34,12 +34,12 @@ public class SpectatorNews : ISpectatorNews
 
         // Index
         c.AppendLine($"<div id='s0'><ol>");
-        int count = 1;
+        int articleCount = 1;
         foreach(var article in _kc.SpectatorArticles.Take(maxArticles))
         {
             if(article.IsValid)
             {
-                c.AppendLine($"<li><a href='#s{count++}'>{article.Headline}</a><br><span class='headline_footer'>{article.Author}</span></li>");
+                c.AppendLine($"<li><a href='#s{articleCount++}'>{article.Headline}</a><br><span class='headline_footer'>{article.Author}</span></li>");
             }
             else
             {   
@@ -50,16 +50,17 @@ public class SpectatorNews : ISpectatorNews
         c.AppendLine("</ol><mbp:pagebreak />");
 
         // Article content
-        count = 1;
+        int cartoonCount = 1;
+        articleCount = 1;
         foreach(var article in _kc.SpectatorArticles.FindAll(z=>z.IsValid).Take(maxArticles))
         {
-            c.AppendLine($"<div id='s{count}'><div class='header_container'>");
+            c.AppendLine($"<div id='s{articleCount}'><div class='header_container'>");
             if(article.AvatarBase64 != String.Empty)
             {
                 c.AppendLine($"<img width='100px' src='data:image/png;base64,{article.AvatarBase64}'>");
             }        
             c.AppendLine($"<h2>{article.Headline}</h2>");  
-            c.AppendLine($"<p><i>By {article.Author}. Skip to <a href='#s{count-1}'>previous</a> or <a href='#s{count+1}'>next</a>.</i></p></div>");
+            c.AppendLine($"<p><i>By {article.Author}. Skip to <a href='#s{articleCount-1}'>previous</a> or <a href='#s{articleCount+1}'>next</a>.</i></p></div>");
             
             if(article.ImageUri != null && article.ImageBase64 != String.Empty && article.ImageBase64.Length < maxImageSize)
             {
@@ -69,7 +70,19 @@ public class SpectatorNews : ISpectatorNews
             c.AppendLine("<a href='#s0'>Return to front page</a>");
             c.AppendLine("</div><mbp:pagebreak>");
         
-            count++;
+            if(articleCount % 3 == 0 && _kc.SpectatorCartoons.Count >= cartoonCount)
+            {
+                // Display a cartoon
+                var cartoon = _kc.SpectatorCartoons[cartoonCount-1];
+                c.AppendLine($"<div id='{articleCount}'><br><br><center>");
+                c.AppendLine($"<img src='data:image/{getMimeType(cartoon.CartoonUri)};base64,{cartoon.ImageBase64}'>");
+                c.AppendLine($"<h2><i>{cartoon.Caption}</i></h2>");
+                c.AppendLine("</center></div><mbp:pagebreak>");
+
+                cartoonCount++;
+            }
+
+            articleCount++;
         }
       
         // File stats

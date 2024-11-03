@@ -53,6 +53,7 @@ public class CarouselService
             BuildTeletextPage(Graphics.PromoBusiness);
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Business));
             BuildTeletextPage(_tm.CreateMarketsPage());
+            BuildTeletextPage(_tm.CreateRisersFallersPage());
            
             // Sports section
             BuildTeletextPage(Graphics.PromoSport);

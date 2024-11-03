@@ -40,7 +40,7 @@ public class CeefaxContent : ICeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Standings, new Uri("https://www.bbc.co.uk/sport/formula1/standings")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Entertainment, new Uri("https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Weather, new Uri("https://www.bbc.co.uk/weather")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.bbc.co.uk/news/business/market-data")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.hl.co.uk/shares")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC1, new Uri("https://www.bbc.co.uk/schedules/p00fzl6x")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));
@@ -51,6 +51,11 @@ public class CeefaxContent : ICeefaxContent
         // Add the weather API requests to the URL cache
         SystemConfig.WeatherCities.ForEach(c => AddWeatherAPIUriToCache(c));
         
+        // Add the Hargreaves Lansdown API requests to the URL cache
+        UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/ajax/home/currency-json"), "HLCurrencies"));
+        UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/shares/stock-market-summary/ftse-100/risers"), "HLRisers"));
+        UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/shares/stock-market-summary/ftse-100/fallers"), "HLFallers"));
+
         // Process the UR cache (first time)
         ProcessUriCache().Wait();
 
