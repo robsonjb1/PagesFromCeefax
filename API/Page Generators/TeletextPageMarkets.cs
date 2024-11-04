@@ -155,7 +155,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             TeletextControl rateColour = change < 0 ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
             string partMovement = $"[{rateColour}]  {(change >=0 ? "+" : "")}{change}";
             
-            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{currency.PadRightWithTrunc(21)}{rate.ToString("#.#0").PadLeftWithTrunc(9)}{partMovement}%");
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]GBP/{currency.PadRightWithTrunc(17)}{rate.ToString("#.#0").PadLeftWithTrunc(9)}{partMovement}%");
         }
 
         return sb;
