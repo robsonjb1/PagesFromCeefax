@@ -153,9 +153,9 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             double change = Math.Round(Convert.ToDouble(record.RateDayChangePercent), 2);
 
             TeletextControl rateColour = change < 0 ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
-            string partMovement = $"[{rateColour}]  {(change >=0 ? "+" : "")}{change}";
+            string partMovement = $"[{rateColour}]  {(change >=0 ? "+" : "")}{change:0.00}";
             
-            sb.AppendLine($"[{TeletextControl.AlphaWhite}]GBP/{currency.PadRightWithTrunc(17)}{rate.ToString("#.#0").PadLeftWithTrunc(9)}{partMovement}%");
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]GBP[{TeletextControl.RightArrow}]{currency.PadRightWithTrunc(17)}{rate.ToString("0.00").PadLeftWithTrunc(9)}{partMovement:0.00}%");
         }
 
         return sb;
