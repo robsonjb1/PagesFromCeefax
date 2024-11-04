@@ -20,6 +20,7 @@ public class Graphics
     public readonly static StringBuilder HeaderEntertainment = new();
     public readonly static StringBuilder HeaderTV = new();
     public readonly static StringBuilder HeaderMarkets = new();
+    public readonly static StringBuilder HeaderShares = new();
     public readonly static StringBuilder HeaderWeather = new();
     public readonly static StringBuilder HeaderLinks = new();
     
@@ -65,6 +66,10 @@ public class Graphics
         HeaderMarkets.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}] xll0|l4|l4|h4|$l<h<,");
         HeaderMarkets.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}] ¬jj5¬k5¬k4¬k4¬1j5bs¬");
         HeaderMarkets.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsRed}]///,--.,-.,-.,-.,.-.-,,///");
+
+        HeaderShares.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}]  |,$| |h<l4|,|h<$|,$");
+        HeaderShares.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}]  s{{5¬£¬j7k5¬£}}jw1s{{5");
+        HeaderShares.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsRed}]////,,.,/,-.-.,/,-,.,,.///");
 
         HeaderFootball.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsGreen}] h<h<|h<|(|$|l4|l4| |");
         HeaderFootball.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsGreen}] j7ju¬ju¬ ¬ ¬{{4¬k5¬0¬0");

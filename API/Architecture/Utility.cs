@@ -83,8 +83,11 @@ namespace API.Architecture
         // Line padding extension methods
         public static void PadLines(this StringBuilder sb, int totalLines)
         {
-            for(int i=0; i<totalLines; i++)  
-            { sb.AppendLine(String.Empty); }
+            if(totalLines > 0)
+            {
+                for(int i=0; i<totalLines; i++)  
+                { sb.AppendLine(String.Empty); }
+            }
         }
 
         public static string PadLeftWithTrunc(this string text, int maxChars)

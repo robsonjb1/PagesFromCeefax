@@ -45,7 +45,7 @@ public class MarketData : IMarketData
             var markets = doc.DocumentNode.SelectNodes("//div[contains(@class, 'markets-table-wrap')]//tr");
             foreach (var market in markets)
             {
-                string name = market.GetAttributeValue("data-symbol", "");
+                string name = market.GetAttributeValue("data-symbol", "").Replace("&amp;", "&");
                 string value = market.SelectSingleNode($".//td[2]/span")?.InnerText.Trim();
                 string movement = market.SelectSingleNode($".//td[5]/span")?.InnerText.Trim();
                 
@@ -87,23 +87,25 @@ public class MarketData : IMarketData
         doc.LoadHtml(html);
 
         var companies = doc.DocumentNode.SelectNodes("//table[@class='stockTable']/tbody//tr");
-        if(companies != null) { foreach (var company in companies)
-        {
-            string name = company.SelectSingleNode($".//td[2]/a")?.InnerText.Trim();
-            string value = company.SelectSingleNode($".//td[3]/span")?.InnerText.Trim();
-            string movement = company.SelectSingleNode($".//td[5]/span")?.InnerText.Trim();
-
-            if (name != String.Empty)
+        if(companies != null) 
+        { 
+            foreach (var company in companies)
             {
-                risersFallers.Add(new MarketRecord()
+                string name = company.SelectSingleNode($".//td[2]/a")?.InnerText.Trim().Replace("&amp;", "&");
+                string value = company.SelectSingleNode($".//td[3]/span")?.InnerText.Trim();
+                string movement = company.SelectSingleNode($".//td[5]/span")?.InnerText.Trim();
+
+                if (name != String.Empty)
                 {
-                    Name = name,
-                    Movement = movement,
-                    Value = value
-                });
+                    risersFallers.Add(new MarketRecord()
+                    {
+                        Name = name,
+                        Movement = movement,
+                        Value = value
+                    });
+                }
             }
         }
-}
 
         return risersFallers;
     }
