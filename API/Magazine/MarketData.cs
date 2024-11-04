@@ -87,7 +87,7 @@ public class MarketData : IMarketData
         doc.LoadHtml(html);
 
         var companies = doc.DocumentNode.SelectNodes("//table[@class='stockTable']/tbody//tr");
-        foreach (var company in companies)
+        if(companies != null) { foreach (var company in companies)
         {
             string name = company.SelectSingleNode($".//td[2]/a")?.InnerText.Trim();
             string value = company.SelectSingleNode($".//td[3]/span")?.InnerText.Trim();
@@ -103,6 +103,7 @@ public class MarketData : IMarketData
                 });
             }
         }
+}
 
         return risersFallers;
     }
