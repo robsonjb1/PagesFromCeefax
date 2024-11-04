@@ -32,7 +32,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         {
             sb.Append(Graphics.HeaderShares);
         
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]FTSE 100: TOP RISERS[{TeletextControl.AlphaWhite}]");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]FTSE 250: TOP RISERS[{TeletextControl.AlphaWhite}]");
             sb.Append(OutputRiserFallerList(_md.Risers.Take(8).ToList()));
             if(_md.Risers.Count == 0)
             {
@@ -44,7 +44,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
                 sb.PadLines(8 - _md.Risers.Count); 
             }
             sb.LineBreak(TeletextControl.AlphaRed);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]FTSE 100: TOP FALLERS[{TeletextControl.AlphaWhite}]");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]FTSE 250: TOP FALLERS[{TeletextControl.AlphaWhite}]");
             sb.Append(OutputRiserFallerList(_md.Fallers.Take(8).OrderBy(z => z.Movement).ToList()));
             if(_md.Fallers.Count == 0)
             {
