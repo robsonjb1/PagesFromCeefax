@@ -149,13 +149,13 @@ public class TeletextPageMarkets : ITeletextPageMarkets
 
         if (record != null)
         {
-            double rate = Math.Round(Convert.ToDouble(record.RateCurrent), 2);
+            double rate = Math.Round(Convert.ToDouble(record.RateCurrent), 4);
             double change = Math.Round(Convert.ToDouble(record.RateDayChangePercent), 2);
 
             TeletextControl rateColour = change < 0 ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
             string partMovement = $"[{rateColour}]  {(change >=0 ? "+" : "")}{change:0.00}";
             
-            sb.AppendLine($"[{TeletextControl.AlphaWhite}]GBP[{TeletextControl.RightArrow}]{currency.PadRightWithTrunc(17)}{rate.ToString("0.00").PadLeftWithTrunc(9)}{partMovement:0.00}%");
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]GBP/{currency.PadRightWithTrunc(17)}{rate.ToString("0.0000").PadLeftWithTrunc(9)}{partMovement:0.00}%");
         }
 
         return sb;
