@@ -72,8 +72,9 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         {
             TeletextControl rateColour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
             string partMovement = $"[{rateColour}] {mr.Movement.PadLeftWithTrunc(7)}";
-          
-            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{displayName.PadRightWithTrunc(18)}{mr.Value.PadLeftWithTrunc(12)}{partMovement}");
+            string marketClosed = mr.MarketClosed ? "Closed" : "      ";
+
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{displayName.PadRightWithTrunc(10)} [{TeletextControl.AlphaCyan}]{marketClosed}[{TeletextControl.AlphaWhite}]{mr.Value.PadLeftWithTrunc(11)}{partMovement}");
         }
 
         return sb;

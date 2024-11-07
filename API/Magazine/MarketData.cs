@@ -12,6 +12,7 @@ public record MarketRecord
     public string Name { get; set; }
     public string Value { get; set; }
     public string Movement { get; set; }
+    public bool MarketClosed { get; set;}
 }
 
 public interface IMarketData
@@ -45,19 +46,34 @@ public class MarketData : IMarketData
                 string value = market.SelectSingleNode($".//td[2]/span")?.InnerText.Trim();
                 string movement = market.SelectSingleNode($".//td[5]/span")?.InnerText.Trim();
                 
+                // Get the market close from Yahoo
+                bool marketClosed = true;
+                if(cc.UriCache.Exists(z => z.Tag == $"YH-{name}"))
+                {
+                    if(name == "MCX")
+                    {        
+                        marketClosed = cc.UriCache.FirstOrDefault(l => l.Tag == $"YH-UKX").ContentString.Contains(">At close:");
+                    }
+                    else
+                    {
+                        marketClosed = cc.UriCache.FirstOrDefault(l => l.Tag == $"YH-{name}").ContentString.Contains(">At close:");
+                    }
+                }
+
                 if (name != String.Empty)
                 {
                     Markets.Add(new MarketRecord()
                     {
                         Name = name,
                         Movement = movement,
-                        Value = value
+                        Value = value,
+                        MarketClosed = marketClosed
                     });
                 }
             }
   
             // Currencies
-            string json = cc.UriCache.First(l => l.Tag == "HLCurrencies").ContentString;
+            string json = cc.UriCache.First(l => l.Tag == "HL-Currencies").ContentString;
             Currencies = JsonSerializer.Deserialize<HLCurrencies>(json);
 
             IsValid = true;
@@ -69,34 +85,4 @@ public class MarketData : IMarketData
         }
     }
 
-    private List<MarketRecord> ParseRiserFallerList(ICeefaxContent cc, string section)
-    {
-        List<MarketRecord> risersFallers = new();
-        string html = cc.UriCache.First(l => l.Tag == section).ContentString;
-        var doc = new HtmlDocument();
-        doc.LoadHtml(html);
-
-        var companies = doc.DocumentNode.SelectNodes("//table[@class='stockTable']/tbody//tr");
-        if(companies != null) 
-        { 
-            foreach (var company in companies)
-            {
-                string name = company.SelectSingleNode($".//td[2]/a")?.InnerText.Trim().Replace("&amp;", "&");
-                string value = company.SelectSingleNode($".//td[3]/span")?.InnerText.Trim();
-                string movement = company.SelectSingleNode($".//td[5]/span")?.InnerText.Trim();
-
-                if (name != String.Empty)
-                {
-                    risersFallers.Add(new MarketRecord()
-                    {
-                        Name = name,
-                        Movement = movement,
-                        Value = value
-                    });
-                }
-            }
-        }
-
-        return risersFallers;
-    }
 }

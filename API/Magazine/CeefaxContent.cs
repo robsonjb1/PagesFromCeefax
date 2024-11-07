@@ -1,4 +1,5 @@
-﻿using System.ServiceModel.Syndication;
+﻿using System.Net;
+using System.ServiceModel.Syndication;
 using System.Xml;
 using API.Architecture;
 
@@ -52,8 +53,18 @@ public class CeefaxContent : ICeefaxContent
         SystemConfig.WeatherCities.ForEach(c => AddWeatherAPIUriToCache(c));
         
         // Add the Hargreaves Lansdown API currency request to the URL cache
-        UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/ajax/home/currency-json"), "HLCurrencies"));
-      
+        UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/ajax/home/currency-json"), "HL-Currencies"));
+
+        // Add Yahoo requests (market close) to the URL cache
+        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EFTSE/"), "YH-UKX"));
+        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EFTMC/"), "YH-MCX"));
+        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EFCHI/"), "YH-CAC"));
+        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EGDAXI/"), "YH-DAX"));
+        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EDJI/"), "YH-DJIA"));
+        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EIXIC/"), "YH-COMP"));
+        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EHSI/"), "YH-HSI"));
+        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EN225/"), "YH-NK225"));
+
         // Process the UR cache (first time)
         ProcessUriCache().Wait();
 
@@ -129,7 +140,12 @@ public class CeefaxContent : ICeefaxContent
 
     private static async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
     {
-        var client = new HttpClient();
+        var httpHandler = new SocketsHttpHandler() {
+            AutomaticDecompression = DecompressionMethods.GZip
+                                    | DecompressionMethods.Deflate
+        };
+
+        var client = new HttpClient(httpHandler);
         var content = await client.GetAsync(location);
         return (location, content);
     }
