@@ -51,11 +51,9 @@ public class CeefaxContent : ICeefaxContent
         // Add the weather API requests to the URL cache
         SystemConfig.WeatherCities.ForEach(c => AddWeatherAPIUriToCache(c));
         
-        // Add the Hargreaves Lansdown API requests to the URL cache
+        // Add the Hargreaves Lansdown API currency request to the URL cache
         UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/ajax/home/currency-json"), "HLCurrencies"));
-        UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/shares/stock-market-summary/ftse-250/risers"), "HLRisers"));
-        UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/shares/stock-market-summary/ftse-250/fallers"), "HLFallers"));
-
+      
         // Process the UR cache (first time)
         ProcessUriCache().Wait();
 

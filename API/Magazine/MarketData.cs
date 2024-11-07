@@ -17,8 +17,6 @@ public record MarketRecord
 public interface IMarketData
 {
     public List<MarketRecord> Markets { get; set; }
-    public List<MarketRecord> Risers { get; set;}
-    public List<MarketRecord> Fallers { get; set; }
     public HLCurrencies Currencies { get; set; }
     public bool IsValid { get; set; }
 }
@@ -26,8 +24,6 @@ public interface IMarketData
 public class MarketData : IMarketData
 {
     public List<MarketRecord> Markets { get; set; } = new();
-    public List<MarketRecord> Risers { get; set; } = new();
-    public List<MarketRecord> Fallers { get; set; } = new();
     public HLCurrencies Currencies { get; set; } = new();
     public bool IsValid { get; set; } = false;
 
@@ -59,13 +55,7 @@ public class MarketData : IMarketData
                     });
                 }
             }
-
-            // Risers
-            Risers = ParseRiserFallerList(cc, "HLRisers");
-            
-            // Fallers
-            Fallers = ParseRiserFallerList(cc, "HLFallers");
-            
+  
             // Currencies
             string json = cc.UriCache.First(l => l.Tag == "HLCurrencies").ContentString;
             Currencies = JsonSerializer.Deserialize<HLCurrencies>(json);

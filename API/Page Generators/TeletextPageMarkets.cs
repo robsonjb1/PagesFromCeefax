@@ -8,7 +8,6 @@ namespace API.PageGenerators;
 public interface ITeletextPageMarkets
 {
     public StringBuilder CreateMarketsPage();
-    public StringBuilder CreateRisersFallersPage();
 }
 
 public class TeletextPageMarkets : ITeletextPageMarkets
@@ -23,68 +22,6 @@ public class TeletextPageMarkets : ITeletextPageMarkets
     }
 
     #region Public Methods
-
-   
-    public StringBuilder CreateRisersFallersPage()
-    {
-        StringBuilder sb = new();
-        if(_md.IsValid)             // Only construct the page if we have valid data
-        {
-            sb.Append(Graphics.HeaderShares);
-        
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]FTSE 250: TOP RISERS[{TeletextControl.AlphaGreen}]          % change");
-            sb.Append(OutputRiserFallerList(_md.Risers.Take(8).ToList()));
-            if(_md.Risers.Count == 0)
-            {
-                sb.AppendLine($"[{TeletextControl.AlphaWhite}]No share information available.");
-                sb.PadLines(7);
-            }
-            else
-            {   
-                sb.PadLines(8 - _md.Risers.Count); 
-            }
-            sb.LineBreak(TeletextControl.AlphaRed);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]FTSE 250: TOP FALLERS[{TeletextControl.AlphaGreen}]         % change");
-            sb.Append(OutputRiserFallerList(_md.Fallers.Take(8).OrderBy(z => z.Movement).ToList()));
-            if(_md.Fallers.Count == 0)
-            {
-                sb.AppendLine($"[{TeletextControl.AlphaWhite}]No share information available.");
-                sb.PadLines(7);
-            }
-            else
-            {   
-                sb.PadLines(8 - _md.Risers.Count); 
-            }
-                        
-            // Display footer
-            sb.FooterText(_cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
-        }
-
-        return sb;
-    }
-
-    private StringBuilder OutputRiserFallerList(List<MarketRecord> companies)
-    {
-        StringBuilder sb = new();
-        TeletextControl colour = TeletextControl.AlphaWhite;
-        foreach(var company in companies)
-        {
-            TeletextControl rateColour = company.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
-            string partMovement = $" {company.Movement.PadLeftWithTrunc(7).Replace("%", "")}";
-          
-            string abbreviatedName = company.Name.Trim();
-            if(abbreviatedName.Length > 32)
-            {
-                abbreviatedName = company.Name.Substring(0, 29) + "...";   
-            }
-            sb.AppendLine($"[{colour}]{abbreviatedName.PadRightWithTrunc(32)}{partMovement}");
-
-            // Toggle line colour
-            colour = colour == TeletextControl.AlphaWhite ? TeletextControl.AlphaCyan : TeletextControl.AlphaWhite;
-        }
-
-        return sb;
-    }
 
     public StringBuilder CreateMarketsPage()
     {
