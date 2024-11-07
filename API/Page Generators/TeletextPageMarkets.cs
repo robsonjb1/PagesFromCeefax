@@ -32,7 +32,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         {
             sb.Append(Graphics.HeaderShares);
         
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]FTSE 250: TOP RISERS[{TeletextControl.AlphaWhite}]");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]FTSE 250: TOP RISERS[{TeletextControl.AlphaGreen}]          % change");
             sb.Append(OutputRiserFallerList(_md.Risers.Take(8).ToList()));
             if(_md.Risers.Count == 0)
             {
@@ -44,7 +44,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
                 sb.PadLines(8 - _md.Risers.Count); 
             }
             sb.LineBreak(TeletextControl.AlphaRed);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]FTSE 250: TOP FALLERS[{TeletextControl.AlphaWhite}]");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]FTSE 250: TOP FALLERS[{TeletextControl.AlphaGreen}]         % change");
             sb.Append(OutputRiserFallerList(_md.Fallers.Take(8).OrderBy(z => z.Movement).ToList()));
             if(_md.Fallers.Count == 0)
             {
@@ -70,14 +70,14 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         foreach(var company in companies)
         {
             TeletextControl rateColour = company.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
-            string partMovement = $"[{rateColour}] {company.Movement.PadLeftWithTrunc(7)}";
+            string partMovement = $" {company.Movement.PadLeftWithTrunc(7).Replace("%", "")}";
           
-            string abbreviatedName = company.Name;
-            if(company.Name.Length > 30)
+            string abbreviatedName = company.Name.Trim();
+            if(abbreviatedName.Length > 32)
             {
-                abbreviatedName = company.Name.Substring(0, 27) + "...";   
+                abbreviatedName = company.Name.Substring(0, 29) + "...";   
             }
-            sb.AppendLine($"[{colour}]{abbreviatedName.PadRightWithTrunc(30)}{partMovement}");
+            sb.AppendLine($"[{colour}]{abbreviatedName.PadRightWithTrunc(32)}{partMovement}");
 
             // Toggle line colour
             colour = colour == TeletextControl.AlphaWhite ? TeletextControl.AlphaCyan : TeletextControl.AlphaWhite;
