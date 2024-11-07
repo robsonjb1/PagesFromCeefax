@@ -117,7 +117,7 @@ public class CeefaxContent : ICeefaxContent
         foreach (SyndicationItem item in feed.Items)
         {
             // Only add the story if not already present, and is not marked as a 'live' scrolling story
-            if (!StoryList.Exists(z => z.Link == item.Links[0].Uri) && (storyCount < section.TotalStories) && !item.Links[0].Uri.ToString().Contains("/live/"))
+            if (!StoryList.Exists(z => z.Link == item.Links[0].Uri) && (storyCount < section.TotalStories) && !item.Title.Text.StartsWith("Watch:") && !item.Links[0].Uri.ToString().Contains("/live/"))
             {
                 StoryList.Add(new NewsStory(section.Name, item.Title.Text.Trim(), item.Links[0].Uri));
 
