@@ -91,7 +91,12 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             double change = Math.Round(Convert.ToDouble(record.RateDayChangePercent), 2);
 
             TeletextControl rateColour = change < 0 ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
-            string partMovement = $"[{rateColour}]  {(change >=0 ? "+" : "")}{change:0.00}";
+            string changeFormatted = $"{change:0.00}";
+            if(!changeFormatted.StartsWith("-"))
+            {
+                changeFormatted = "+" + changeFormatted;
+            }
+            string partMovement = $"[{rateColour}]  {changeFormatted}";
             
             sb.AppendLine($"[{TeletextControl.AlphaWhite}]GBP/{currency.PadRightWithTrunc(17)}{rate.ToString("0.0000").PadLeftWithTrunc(9)}{partMovement:0.00}%");
         }
