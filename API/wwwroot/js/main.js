@@ -18,7 +18,7 @@ import { video } from "./video.js";
         var canvasWidth = $('#magazineCanvas').width();
         var canvasHeight = $('#magazineCanvas').height();
 
-        if(y > canvasHeight * 0.95) // User as selected the bottom row
+        if(y > canvasHeight * 0.90) // User as selected the bottom row
         {        
             if(x < canvasWidth * 0.35) toggleMusic();                                                    // Red
             if(x >= canvasWidth * 0.35 && x < canvasWidth * 0.7) { debugOffset--; moveNextPage(); }      // Green
