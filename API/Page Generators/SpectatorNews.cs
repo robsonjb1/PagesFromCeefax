@@ -50,7 +50,6 @@ public class SpectatorNews : ISpectatorNews
         c.AppendLine("</ol><mbp:pagebreak />");
 
         // Article content
-        int cartoonCount = 1;
         articleCount = 1;
         foreach(var article in _kc.SpectatorArticles.FindAll(z=>z.IsValid).Take(maxArticles))
         {
@@ -70,16 +69,16 @@ public class SpectatorNews : ISpectatorNews
             c.AppendLine("<a href='#s0'>Return to front page</a>");
             c.AppendLine("</div><mbp:pagebreak>");
         
-            if(articleCount % 3 == 0 && _kc.SpectatorCartoons.Count >= cartoonCount)
+            if(articleCount % 3 == 0)
             {
                 // Display a cartoon
-                var cartoon = _kc.SpectatorCartoons[cartoonCount-1];
+                Random r = new Random();
+                var cartoon = _kc.SpectatorCartoons[r.Next(0, _kc.SpectatorCartoons.Count)];
+                
                 c.AppendLine($"<div id='{articleCount}'><br><br><center>");
                 c.AppendLine($"<img src='data:image/{getMimeType(cartoon.CartoonUri)};base64,{cartoon.ImageBase64}'>");
                 c.AppendLine($"<h2><i>{cartoon.Caption}</i></h2>");
                 c.AppendLine("</center></div><mbp:pagebreak>");
-
-                cartoonCount++;
             }
 
             articleCount++;
