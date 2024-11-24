@@ -369,7 +369,7 @@ class MinZX
         this._cyclecount = 0;
         this._cycleperiod;
 
-        loadRemoteBinaryFile('sna/jetpac.htm', function(data) {
+        loadRemoteBinaryFile('sna/manic miner.htm', function(data) {
             self.loadSNA(data);
         })
         
