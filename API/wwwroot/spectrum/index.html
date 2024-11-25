@@ -1,96 +1,74 @@
-﻿<!--
- pagesfromceefax.com
-
- Jason Robson
- Twitter @pfceefax
- https://github.com/robsonjb1/PagesFromCeefax
-
- Attributions:
- - Displays news stories gathered from the BBC public RSS feeds
-
- - Header artwork was taken from REAL Ceefax pages using the BeebEm BBC Micro emulator (which supports Teletext adapters)
-     and used a 'digital' feed of Teletext from some time in 2006.
-
- - Background TV image using licensed stock art imagery purchased from shutterstock.com
-
- - The audio was taken from the following YouTube video (attribution unknown)
- -   https://www.youtube.com/watch?v=JU8P5G-GM_g
-
- - Hosted using Microsoft Azure
--->
-
+﻿
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>Pages from Ceefax - ZX Spectrum 48K</title>
+    <head>
+        <title>Pages from Ceefax - ZX Spectrum 48K</title>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
-    <meta name="apple-mobile-web-app-title" content="Pages from Ceefax" />
-    <meta name="mobile-web-app-capable" content="yes" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+        <meta name="apple-mobile-web-app-title" content="Pages from Ceefax" />
+        <meta name="mobile-web-app-capable" content="yes" />
 
-    <meta name="description" value="A tribute to the in-vision Teletext service Ceefax, familiar to British TV viewers for over 30 years." />
+        <meta name="description" value="A tribute to the in-vision Teletext service Ceefax, familiar to British TV viewers for over 30 years." />
 
-    <script src="./js/jquery.3.7.1.min.js"></script>
-    <script src="./js/Z80.js"></script>
-    <script src="./js/utils.js"></script>
-    <script src="./js/MinZX.js"></script>
-    <script src="./js/ZXScreen.js"></script>
-    <script src="./js/ZXKeyboard.js"></script>
-    <script src="./js/ZXSound.js"></script>
+        <script src="./js/jquery.3.7.1.min.js"></script>
+        <script src="./js/Z80.js"></script>
+        <script src="./js/utils.js"></script>
+        <script src="./js/MinZX.js"></script>
+        <script src="./js/ZXScreen.js"></script>
+        <script src="./js/ZXKeyboard.js"></script>
+        <script src="./js/ZXSound.js"></script>
 
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="icon" type="image/png" href="favicon16x16.png" />
-    <link rel="apple-touch-icon" href="apple-touch-icon-72x72.png">
-</head>
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="icon" type="image/png" href="favicon16x16.png" />
+        <link rel="apple-touch-icon" href="apple-touch-icon-72x72.png">
+    </head>
 
-<body>
-    <div id="container">
-        <div id="page">
-            <canvas id="magazineCanvas"></canvas>
+    <body>
+        <div id="container">
+            <div id="page">
+                <canvas id="magazineCanvas"></canvas>
+            </div>
+
+            <div id="overlay"></div>
         </div>
-
-        <div id="overlay"></div>
-    </div>
-</body>
+    </body>
 
 
-<script>
-    "use strict";
-    
-    let minzx = null;
-    
-    window.addEventListener('load', function() {
-        // create new instance of MinZX emulator,
-        // using element with id 'zxscr' as canvas,
-        minzx = new MinZX('magazineCanvas');
-     
-        // start emulator
-        minzx.start();
+    <script>
+        "use strict";
+        
+        let minzx = null;
+        
+        window.addEventListener('load', function() {
+            // create new instance of MinZX emulator,
+            // using element with id 'zxscr' as canvas,
+            minzx = new MinZX('magazineCanvas');
+        
+            // start emulator
+            minzx.start();
 
-         // chrome starts AudioContext in suspended state.
-        let resumeOnce = true;
-        function wakeUpAudioInChrome() {
-            if (resumeOnce) {
-                resumeOnce = false;
-                theAudioContext.resume();
+            // chrome starts AudioContext in suspended state.
+            let resumeOnce = true;
+            function wakeUpAudioInChrome() {
+                if (resumeOnce) {
+                    resumeOnce = false;
+                    theAudioContext.resume();
+                }
             }
-        }
 
-        window.addEventListener('click', function(e) {
-            wakeUpAudioInChrome();
+            window.addEventListener('click', function(e) {
+                wakeUpAudioInChrome();
+            });
+
+            window.addEventListener('keydown', function(e) {
+                wakeUpAudioInChrome();
+                if (e.key == 'ArrowUp') minzx.imageUp();
+                if (e.key == 'ArrowDown') minzx.imageDown();
+            });
+        
         });
-
-        window.addEventListener('keydown', function(e) {
-            wakeUpAudioInChrome();
-            if (e.key == 'ArrowUp') minzx.imageUp();
-            if (e.key == 'ArrowDown') minzx.imageDown();
-        });
-       
-    });
-    
-    /**/
-        </script>
-
+        
+    </script>
 </html>

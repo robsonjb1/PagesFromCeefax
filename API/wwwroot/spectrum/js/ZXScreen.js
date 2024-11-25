@@ -20,9 +20,6 @@ class ZXScreen
 {
     constructor(canvasIdForScreen)
     {
-        // initial border color: white
-        this.border = 7;
-
         // create canvas and context
         this.canvas = document.getElementById(canvasIdForScreen);
         this.ctx = this.canvas.getContext('2d');
@@ -30,7 +27,7 @@ class ZXScreen
         this.canvas.height = 192;
 
         // create image data for screeen, with given border
-        this.zxid = new ZXScreenAsImageData(this.ctx, 0, 0);
+        this.zxid = new ZXScreenAsImageData(this.ctx);
     }
 
     update(mem, flashstate)
@@ -43,19 +40,8 @@ class ZXScreen
             scr[i] = mem[off + i];
 
         // generate image data from array, border and flash state
-        this.zxid.putSpectrumImage(scr, this.border, flashstate);
-
-        // set identity transform for removing previous scale factor
-        //this.ctx.setTransform(1, 0, 0, 1, 0, 0);
-
-        // Draw the image data to the canvas at 1:1 scale
-        //this.ctx.fillStyle = 'black';
-        //this.ctx.fillRect(0, 0, 100, 100);
+        this.zxid.putSpectrumImage(scr, flashstate);
         this.ctx.putImageData(this.zxid.imgdata, 0, 0);
-
-        // Draw canvas onto itself using scale factor
-        //this.ctx.scale(this.scale, this.scale);
-        //this.ctx.drawImage(this.canvas, 0, 0);
     }
 }
 
@@ -81,23 +67,14 @@ const zxcolors = [
 
 class ZXScreenAsImageData
 {
-    constructor(ctx, xborder, yborder)
+    constructor(ctx)
     {
-        // if border not present, default to 0
-        this.xborder = xborder ? xborder : 0;
-        this.yborder = yborder ? yborder : 0;
-
         // add border to image data dimensions
         this.width = 256;
         this.height = 192;
 
         // create image data
         this.imgdata = ctx.createImageData(this.width, this.height);
-
-        // fill image with white
-        //let bytecnt = this.width * this.height * 4;
-        //for (let i = 0; i < bytecnt; i++)
-        //    this.imgdata.data[i] = 255;
     }
 
     // accessors fo actual dimensions
@@ -124,7 +101,7 @@ class ZXScreenAsImageData
     // - zxscreen: spectrum screen data (6912 btes),
     // - border: border color
     // - flashinv: indicates if flash attribute is to be inverted now
-    putSpectrumImage(zxscreen, border, flashinv)
+    putSpectrumImage(zxscreen, flashinv)
     {
         // de-interlace zx-screen to a linear bitmap
         const linscr = this.zx_row_adjust(zxscreen);
@@ -139,10 +116,6 @@ class ZXScreenAsImageData
         // calculate where to start for topleft pixel
         idst = 0;
        
-        // calculate how much to advance from the right end of a line
-        // to the left start of the next
-        const idst_extra = 4 * 2 * this.xborder;
-
         // traverse all 24 rows
         for (let row = 0; row < 24; row++)
         {
@@ -193,8 +166,6 @@ class ZXScreenAsImageData
                         }
                     }
                 }
-                // advance to next line
-                idst += idst_extra;
             }
         }
     }
