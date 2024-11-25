@@ -63,6 +63,26 @@ class MinZX
         this._start();
     }
 
+    imageUp()
+    {
+        this._imageIndex++;
+        if(this._imageIndex == this._imageList.length)
+        {
+            this._imageIndex = 0;
+        }
+        this.refreshImage();
+    }
+
+    imageDown()
+    {
+        this._imageIndex--;
+        if(this._imageIndex < 0)
+        {
+            this._imageIndex = this._imageList.length - 1;
+        }
+        this.refreshImage();
+    }
+
     ////////////////////////////////////////////////////////////////////////////////
     // CORE: memory R/W, ports R/W
     ////////////////////////////////////////////////////////////////////////////////
@@ -208,6 +228,14 @@ class MinZX
     ////////////////////////////////////////////////////////////////////////////////
 
     // documentation for SNA format: https://faqwiki.zxnet.co.uk/wiki/SNA_format
+
+    refreshImage()
+    {
+        self = this;
+        loadRemoteBinaryFile('sna/' + this._imageList[this._imageIndex] + '.htm', function(data) {
+            self.loadSNA(data);
+        })
+    }
 
     loadSNA(data)
     {
@@ -369,9 +397,21 @@ class MinZX
         this._cyclecount = 0;
         this._cycleperiod;
 
-        loadRemoteBinaryFile('sna/manic miner.htm', function(data) {
-            self.loadSNA(data);
-        })
+        this._imageIndex = 0;
+        this._imageList = [
+            "Manic Miner",
+            "JetSet",
+            "JetPac",
+            "JetMan",
+            "Atic",
+            "Sabre",
+            "Knight Lore",
+            "Hobbit",
+            "PooL",
+            "zx48"
+        ]
+
+        this.refreshImage();
         
         // load ROM and start animation when ROM loaded
         const self = this;

@@ -23,7 +23,7 @@
 <html lang="en">
 
 <head>
-    <title>Pages from Ceefax - Today's news at yesterday's pace</title>
+    <title>Pages from Ceefax - ZX Spectrum 48K</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
@@ -78,15 +78,15 @@
             }
         }
 
-    window.addEventListener('click', function(e) {
-        wakeUpAudioInChrome();
-    });
+        window.addEventListener('click', function(e) {
+            wakeUpAudioInChrome();
+        });
 
-    window.addEventListener('keydown', function(e) {
-        wakeUpAudioInChrome();
-    });
-
-
+        window.addEventListener('keydown', function(e) {
+            wakeUpAudioInChrome();
+            if (e.key == 'ArrowUp') minzx.imageUp();
+            if (e.key == 'ArrowDown') minzx.imageDown();
+        });
        
     });
     
