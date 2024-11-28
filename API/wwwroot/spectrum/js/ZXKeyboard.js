@@ -23,9 +23,10 @@
 // The key state is active low: 1 for not pressed, 0 for pressed.
 class ZXKeyboard
 {
-    constructor(eventReceiverElement)
+    constructor(eventReceiverElement, controller)
     {
         this.eventReceiverElement = eventReceiverElement;
+        this.controller = controller;
 
         // Table of bytes for key ports, initially all keys unpressed.
         // As keys are active low, all bits initially set to one.
@@ -85,6 +86,74 @@ class ZXKeyboard
     // handler for key events
     _onKey(keyCode, down)
     {
+        // Key mappings
+        var imageName = this.controller._imageList[this.controller._imageIndex].name;
+        if (imageName == 'JetPac')
+        {
+            switch(keyCode)
+            {
+                case 79: // Left O
+                    keyCode = 'B'.charCodeAt();
+                    break;
+                case 80: // Right P
+                    keyCode = 'N'.charCodeAt();
+                    break;
+                case 219: // Fire [
+                    keyCode = 'S'.charCodeAt();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if (imageName == 'Atic')
+        {
+            switch(keyCode)
+            {
+                case 79: // Left O
+                    keyCode = 'Q'.charCodeAt();
+                    break;
+                case 80: // Right P
+                    keyCode = 'W'.charCodeAt();
+                    break;
+                case 81: // Up Q
+                    keyCode = 'R'.charCodeAt();
+                    break;
+                case 65: // Down A
+                    keyCode = 'E'.charCodeAt();
+                    break;
+                case 219: // Fire [
+                    keyCode = 'T'.charCodeAt();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if (imageName == 'Sabre')
+        {
+            switch(keyCode)
+            {
+                case 79: // Left O
+                    keyCode = 'Q'.charCodeAt();
+                    break;
+                case 80: // Right P
+                    keyCode = 'W'.charCodeAt();
+                    break;
+                case 81: // Up Q
+                    keyCode = 'E'.charCodeAt();
+                    break;
+                case 65: // Down A
+                    keyCode = 'R'.charCodeAt();
+                    break;
+                case 219: // Fire [
+                    keyCode = 'T'.charCodeAt();
+                    break;
+                default:
+                    break;
+            }
+        }
+
         // ignore keycodes absent from keycode table
         if (!(keyCode in this.kctable)) return false;
 

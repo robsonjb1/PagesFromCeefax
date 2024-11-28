@@ -31,7 +31,7 @@ class MinZX
         this._screen = new ZXScreen(canvasIdForScreen);
 
         // create keyboard helper object, receiving events from window
-        this._keyb = new ZXKeyboard(window);
+        this._keyb = new ZXKeyboard(window, this);
 
         // create sound helper object
         this._sound = new ZXSoundOutput();
@@ -53,22 +53,18 @@ class MinZX
 
     imageUp()
     {
+        this._imageList[this._imageIndex].data = this.saveSNA();
         this._imageIndex++;
-        if(this._imageIndex == this._imageList.length)
-        {
-            this._imageIndex = 0;
-        }
-        this.refreshImage();
+        if(this._imageIndex == this._imageList.length) { this._imageIndex = 0; }
+        this.loadSNA(this._imageList[this._imageIndex].data);
     }
 
     imageDown()
     {
+        this._imageList[this._imageIndex].data = this.saveSNA();
         this._imageIndex--;
-        if(this._imageIndex < 0)
-        {
-            this._imageIndex = this._imageList.length - 1;
-        }
-        this.refreshImage();
+        if(this._imageIndex < 0) { this._imageIndex = this._imageList.length - 1; }
+        this.loadSNA(this._imageList[this._imageIndex].data);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -217,12 +213,58 @@ class MinZX
 
     // documentation for SNA format: https://faqwiki.zxnet.co.uk/wiki/SNA_format
 
-    refreshImage()
+    loadSNA(data)
     {
-        self = this;
-        loadRemoteBinaryFile('sna/' + this._imageList[this._imageIndex] + '.htm', function(data) {
-            self.loadSNA(data);
-        })
+        // helper for creating word from 2 bytes
+        function mkword(lobyte, hibyte) { return 256*hibyte + lobyte; }
+
+        // helper for loading flags from byte to object. reference: https://www.istvannovak.net/2018/02/01/zx-spectrum-ide-part-5-implementing-z80-instructions-1/
+        function objForByte(b) {
+            let o = {};
+            const flagnames = "CNPXHYZS"; // flag names, bit 0 is C, bit 1 is N... bit 7 is S.
+            for (let i = 0; i < 8; i++)
+                o[flagnames[i]] = (b & (1 << i)) ? 1 : 0;
+            return o;
+        }
+
+        // first 27 bytes hold register state, restore it
+        const state = this.cpu.getState();
+        state.pc = 0x0072;  // RETN in ROM, see SNA documentation
+        state.i       = data[0x00];
+        state.l_prime = data[0x01];
+        state.h_prime = data[0x02];
+        state.e_prime = data[0x03];
+        state.d_prime = data[0x04];
+        state.c_prime = data[0x05];
+        state.b_prime = data[0x06];
+        state.flags_prime = objForByte(data[0x07]);
+        state.a_prime = data[0x08];
+        state.l       = data[0x09];
+        state.h       = data[0x0A];
+        state.e       = data[0x0B];
+        state.d       = data[0x0C];
+        state.c       = data[0x0D];
+        state.b       = data[0x0E];
+        state.iy      = mkword(data[0x0F], data[0x10]);
+        state.ix      = mkword(data[0x11], data[0x12]);
+        state.iff2    = data[0x13];
+        state.r       = data[0x14];
+        state.flags = objForByte(data[0x15]);
+        state.a       = data[0x16];
+        state.sp      = mkword(data[0x17], data[0x18]);
+        state.imode   = data[0x19];
+        this.cpu.setState(state);
+
+        // last byte holds border state
+        this._screen.border  = data[0x1A];
+ 
+        // copy 48KB of data from snapshot to RAM memory
+        const datalen = 0xC000; // 48K
+        const dataoff = 0x1B;   // 27
+        const memoff  = 0x4000;  // 16K
+        for (let i = 0; i < datalen; i++) {
+            this.mem[memoff+i] = data[dataoff+i];
+        }
     }
 
     loadSNA(data)
@@ -284,6 +326,77 @@ class MinZX
         }
     }
 
+    saveSNA()
+    {
+        // CPU state
+        const state = this.cpu.getState();
+        // stack pointer must be in RAM
+        if (state.sp < 0x4000 + 2)
+            return null;
+            
+        // create array for canonic SNAs are 49152 (48KB) + 27 bytes long.
+        const data = new Array(49179);
+
+       // helper for getting low and high bytes from word
+        function lobyte(word) { return  word       & 0xFF; }
+        function hibyte(word) { return (word >> 8) & 0xFF; }
+
+        // helper for loading flags from object to byte.
+        function byteForObj(o) {
+            let b = 0;
+            const flagnames = "CNPXHYZS"; // flag names, bit 0 is C, bit 1 is N... bit 7 is S.
+            for (let i = 0; i < 8; i++)
+                b |= o[flagnames[i]] ? (1 << i) : 0;
+            return b;
+        }
+
+        // first 27 bytes hold register state, save it
+        data[0x00] = state.i;
+        data[0x01] = state.l_prime;
+        data[0x02] = state.h_prime;
+        data[0x03] = state.e_prime;
+        data[0x04] = state.d_prime;
+        data[0x05] = state.c_prime;
+        data[0x06] = state.b_prime;
+        data[0x07] = byteForObj(state.flags_prime);
+        data[0x08] = state.a_prime;
+        data[0x09] = state.l;
+        data[0x0A] = state.h;
+        data[0x0B] = state.e;
+        data[0x0C] = state.d;
+        data[0x0D] = state.c;
+        data[0x0E] = state.b;
+        data[0x0F] = lobyte(state.iy);
+        data[0x10] = hibyte(state.iy);
+        data[0x11] = lobyte(state.ix);
+        data[0x12] = hibyte(state.ix);
+        data[0x13] = state.iff2;
+        data[0x14] = state.r;
+        data[0x15] = byteForObj(state.flags);
+        data[0x16] = state.a;
+        // store stack pointer with value decreased, we will be pushing PC onto stack
+        data[0x17] = lobyte(state.sp - 2);
+        data[0x18] = hibyte(state.sp - 2);
+        data[0x19] = state.imode;
+
+        // last byte holds border state
+        data[0x1A] = this._screen.border;
+ 
+        // copy 48KB of data from RAM memory to snapshot
+        const datalen = 0xC000; // 48K
+        const dataoff = 0x1B;   // 27
+        const memoff  = 0x4000;  // 16K
+        for (let i = 0; i < datalen; i++) {
+            data[dataoff+i] = this.mem[memoff+i];
+        }
+
+        // push PC onto stack (directly to snapshot RAM)
+        data[dataoff - memoff + state.sp - 2] = lobyte(state.pc);
+        data[dataoff - memoff + state.sp - 1] = hibyte(state.pc);
+
+        return data;
+    }
+
     ////////////////////////////////////////////////////////////////////////////////
     // Animation loop and timing
     ////////////////////////////////////////////////////////////////////////////////
@@ -317,24 +430,29 @@ class MinZX
         // game SNA image list
         this._imageIndex = 0;
         this._imageList = [
-            "Manic Miner",
-            "JetSet",
-            "JetPac",
-            "JetMan",
-            "Atic",
-            "Sabre",
-            "Knight Lore",
-            "Hobbit",
-            "Pool",
-            "zx48"
-        ]
+            { name: "Manic Miner" },
+            { name: "JetSet" },
+            { name: "JetPac" },
+            { name: "Atic" },
+            { name: "Sabre" },
+            { name: "Hobbit" },
+            { name: "Pool" },
+            { name: "zx48" }
+        ];
 
-        this.refreshImage();
-        
+        // Load the image SNA files
+        for (let i = 0; i < this._imageList.length; i++)
+        {
+            const self = this;
+            loadRemoteBinaryFile('sna/' + this._imageList[i].name + '.htm', function(data) {
+                self._imageList[i].data = data;
+                if(i==0) { self.loadSNA(data); }
+            });
+        }
+
         // load ROM and start animation when ROM loaded
         const self = this;
         loadRemoteBinaryFile('sna/zx48.htm', function(data) {
-            console.log('Loaded ZX Spectrum ROM: ' + data.length + ' bytes');
             for (let i = 0; i < 0x4000; i++) {
                 self.mem[i] = data[i];
             }
