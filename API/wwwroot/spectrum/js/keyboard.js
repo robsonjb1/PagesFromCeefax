@@ -1,16 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
-/// @file ZXKeyboard.js
-///
-/// @brief Keyboard abstraction for the MinZX 48K Spectrum emulator
-///
-/// @author David Crespo Tascon
-//////
-/// @copyright (c) David Crespo Tascon
-///  This code is released under the MIT license,
-///  a copy of which is available in the associated LICENSE file,
-///  or at http://opensource.org/licenses/MIT
-///////////////////////////////////////////////////////////////////////////////
-
 "use strict";
 
 // references:
@@ -21,7 +8,7 @@
 // The Spectrum has 40 keys, which are read through 8 ports.
 // Every port read produces a byte, but only lower 5 bits are used.
 // The key state is active low: 1 for not pressed, 0 for pressed.
-class ZXKeyboard
+class keyboard
 {
     constructor(eventReceiverElement, controller)
     {

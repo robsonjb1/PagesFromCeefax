@@ -1,4 +1,3 @@
-
 "use strict";
 
 class MinZX
@@ -21,19 +20,13 @@ class MinZX
         // create the Z80 emulator object
         this.cpu = new Z80(core);
 
-        // create a byte array for holding 64 KB of memory
-        // and initialize it to zero
+        // create a byte array for holding 64 KB of memory and initialize it to zero
         this.mem = new Uint8Array(65536);
         for (let i = 0; i < 63336; i++)
             this.mem[i] = 0;
 
-        // create screen helper object
         this._screen = new ZXScreen(canvasIdForScreen);
-
-        // create keyboard helper object, receiving events from window
         this._keyb = new ZXKeyboard(window, this);
-
-        // create sound helper object
         this._sound = new ZXSoundOutput();
 
         // previous sound bit for reacting only to changes in bit
@@ -207,12 +200,8 @@ class MinZX
         return 0;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
-    // Snapshot loading / saving
-    ////////////////////////////////////////////////////////////////////////////////
 
     // documentation for SNA format: https://faqwiki.zxnet.co.uk/wiki/SNA_format
-
     loadSNA(data)
     {
         // helper for creating word from 2 bytes
@@ -337,7 +326,7 @@ class MinZX
         // create array for canonic SNAs are 49152 (48KB) + 27 bytes long.
         const data = new Array(49179);
 
-       // helper for getting low and high bytes from word
+        // helper for getting low and high bytes from word
         function lobyte(word) { return  word       & 0xFF; }
         function hibyte(word) { return (word >> 8) & 0xFF; }
 
@@ -405,14 +394,8 @@ class MinZX
     {
         // cpu frequency, in kHz
         this._cpufreq = 3500;
-        
-        // frame counter
         this._framecount = 0;
-
-        // frame time, in msec (msec is the inverse of kHz)
         this._frametime = 20;
-
-        // previous time stamp, null initially
         this._prevtime = null;
 
         // accumulated time, for emitting interrupt once per frame
@@ -435,12 +418,11 @@ class MinZX
             { name: "JetPac" },
             { name: "Atic" },
             { name: "Sabre" },
-            { name: "Hobbit" },
-            { name: "Pool" },
-            { name: "zx48" }
+            { name: "Knight Lore" },
+            { name: "Hobbit" }
         ];
 
-        // Load the image SNA files
+        // Load the SNA files into the image array
         for (let i = 0; i < this._imageList.length; i++)
         {
             const self = this;
@@ -450,7 +432,7 @@ class MinZX
             });
         }
 
-        // load ROM and start animation when ROM loaded
+        // load OS ROM and start animation when ROM loaded
         const self = this;
         loadRemoteBinaryFile('sna/zx48.htm', function(data) {
             for (let i = 0; i < 0x4000; i++) {
@@ -541,4 +523,24 @@ class MinZX
             this._accumtime -= this._frametime;
         }
     }
+
+    // load from remote URL as Uint8Array passed to callback
+    loadRemoteBinaryFile(url, callback)
+    {
+        let req = new XMLHttpRequest();
+        req.responseType = 'arraybuffer';
+        req.addEventListener('load', function() {
+            if (this.status != 200) {
+                console.error('loadRemoteBinaryFile: error ' + this.status + ' while trying to read url ' + url);
+                callback(null);
+                return;
+            }
+            let arrayBuffer = this.response;
+            let byteArray = new Uint8Array(arrayBuffer);
+            callback(byteArray);
+        });
+        req.open('get', url);
+        req.send();
+    }
+
 }
