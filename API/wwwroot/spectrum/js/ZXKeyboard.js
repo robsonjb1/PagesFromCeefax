@@ -179,31 +179,52 @@ class ZXKeyboard
         }
 
         if (imageName == 'Chuckie')
+        {
+            switch(keyCode)
             {
-                switch(keyCode)
-                {
-                    case 79: // Left O
-                        keyCode = '9'.charCodeAt();
-                        break;
-                    case 80: // Right P
-                        keyCode = '0'.charCodeAt();
-                        break;
-                    case 81: // Up Q
-                        keyCode = '2'.charCodeAt();
-                        break;
-                    case 65: // Down A
-                        keyCode = 'W'.charCodeAt();
-                        break;
-                    case 219: // Fire [
-                        keyCode = 'M'.charCodeAt();
-                        break;
-                    case 90: // Jump Z
-                        keyCode = 'M'.charCodeAt();
-                        break;
-                    default:
-                        break;
-                }
+                case 79: // Left O
+                    keyCode = '9'.charCodeAt();
+                    break;
+                case 80: // Right P
+                    keyCode = '0'.charCodeAt();
+                    break;
+                case 81: // Up Q
+                    keyCode = '2'.charCodeAt();
+                    break;
+                case 65: // Down A
+                    keyCode = 'W'.charCodeAt();
+                    break;
+                case 219: // Fire [
+                    keyCode = 'M'.charCodeAt();
+                    break;
+                case 90: // Jump Z
+                    keyCode = 'M'.charCodeAt();
+                    break;
+                default:
+                    break;
             }
+        }
+
+        if (imageName == 'Pool')
+        {
+            switch(keyCode)
+            {
+                case 79: // Left O
+                    keyCode = 'A'.charCodeAt();
+                    break;
+                case 80: // Right P
+                    keyCode = 'S'.charCodeAt();
+                    break;
+                case 219: // Fire [
+                    keyCode = 13;
+                    break;
+                case 90: // Jump Z
+                    keyCode = 'L'.charCodeAt();
+                    break;
+                default:
+                    break;
+            }
+        }
 
         // ignore keycodes absent from keycode table
         if (!(keyCode in this.kctable)) return false;

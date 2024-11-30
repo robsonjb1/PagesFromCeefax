@@ -422,7 +422,8 @@ class MinZX
             { name: "Sabre" },
             { name: "Knight Lore" },
             { name: "Hobbit" },
-            { name: "Chuckie" }
+            { name: "Chuckie" },
+            { name: "Pool" }
         ];
         this._bannerPeriod = 100;
         this._bannerTime = this._bannerPeriod;
