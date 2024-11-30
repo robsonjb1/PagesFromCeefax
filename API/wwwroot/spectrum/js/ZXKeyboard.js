@@ -164,6 +164,15 @@ class ZXKeyboard
                 case 80: // Right P
                     keyCode = 'X'.charCodeAt();
                     break;
+                case 81: // Up Q
+                    keyCode = 'A'.charCodeAt();
+                    break;
+                case 65: // Down A
+                    keyCode = 0;
+                    break;
+                case 90: // Jump Z
+                    keyCode = 'Q'.charCodeAt();
+                    break;
                 default:
                     break;
             }
