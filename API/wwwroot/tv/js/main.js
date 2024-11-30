@@ -23,7 +23,7 @@
 
         var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
      
-        var cPtr = 0;
+       /* var cPtr = 0;
         for(var yCol = 0; yCol < canvas.height; yCol++)
         {
             for(var xCol = 0; xCol < canvas.width; xCol++)
@@ -39,7 +39,7 @@
                 cPtr+= 4;
             }
         }
-
+*/
         ctx.putImageData(imageData, 0, 0);
 
 

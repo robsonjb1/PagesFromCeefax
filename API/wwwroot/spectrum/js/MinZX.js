@@ -419,7 +419,8 @@ class MinZX
             { name: "Atic" },
             { name: "Sabre" },
             { name: "Knight Lore" },
-            { name: "Hobbit" }
+            { name: "Hobbit" },
+            { name: "Chuckie" }
         ];
 
         // Load the SNA files into the image array
