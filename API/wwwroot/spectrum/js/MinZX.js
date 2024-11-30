@@ -49,6 +49,7 @@ class MinZX
         this._imageList[this._imageIndex].data = this.saveSNA();
         this._imageIndex++;
         if(this._imageIndex == this._imageList.length) { this._imageIndex = 0; }
+        this._bannerTime = this._bannerPeriod;
         this.loadSNA(this._imageList[this._imageIndex].data);
     }
 
@@ -57,6 +58,7 @@ class MinZX
         this._imageList[this._imageIndex].data = this.saveSNA();
         this._imageIndex--;
         if(this._imageIndex < 0) { this._imageIndex = this._imageList.length - 1; }
+        this._bannerTime = this._bannerPeriod;
         this.loadSNA(this._imageList[this._imageIndex].data);
     }
 
@@ -410,7 +412,7 @@ class MinZX
         this._cyclecount = 0;
         this._cycleperiod;
 
-        // game SNA image list
+        // game SNA image list and banner
         this._imageIndex = 0;
         this._imageList = [
             { name: "Manic Miner" },
@@ -422,6 +424,8 @@ class MinZX
             { name: "Hobbit" },
             { name: "Chuckie" }
         ];
+        this._bannerPeriod = 100;
+        this._bannerTime = this._bannerPeriod;
 
         // Load the SNA files into the image array
         for (let i = 0; i < this._imageList.length; i++)
@@ -512,8 +516,9 @@ class MinZX
             }
 
             // redraw screen
-            this._screen.update(this.mem, this._flashstate);
-
+            this._screen.update(this.mem, this._flashstate, this._bannerTime > 0 ? (this._imageIndex + 1) : 0);
+            this._bannerTime-- & 255;
+           
             // emit maskable interrupt to wake up CPU from halted state
             this.cpu.interrupt(false, 0);
 

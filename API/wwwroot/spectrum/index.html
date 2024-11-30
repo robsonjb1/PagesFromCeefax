@@ -30,7 +30,7 @@
             <div id="page">
                 <canvas id="magazineCanvas"></canvas>
             </div>
-
+            <div id="banner"></div>
             <div id="overlay"></div>
         </div>
     </body>
@@ -48,7 +48,7 @@
         
             // start emulator
             minzx.start();
-
+           
             // chrome starts AudioContext in suspended state.
             let resumeOnce = true;
             function wakeUpAudioInChrome() {
@@ -64,11 +64,16 @@
 
             window.addEventListener('keydown', function(e) {
                 wakeUpAudioInChrome();
-                if (e.key == 'ArrowRight') minzx.imageUp();
-                if (e.key == 'ArrowLeft') minzx.imageDown();
+                if (e.key == 'ArrowRight') 
+                {
+                    minzx.imageUp();
+                }
+                if (e.key == 'ArrowLeft') 
+                {
+                    minzx.imageDown();
+                }
             });
-        
         });
-        
+         
     </script>
 </html>

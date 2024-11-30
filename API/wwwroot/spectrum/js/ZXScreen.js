@@ -30,17 +30,17 @@ class ZXScreen
         this.zxid = new ZXScreenAsImageData(this.ctx);
     }
 
-    update(mem, flashstate)
+    update(mem, flashstate, channelOverlay)
     {
         // copy screen memory
         const off = 0x4000;
         const scrlen = 6912;
-        const scr = new Uint8Array(scrlen);
-        for (let i = 0; i < scrlen; i++)
-            scr[i] = mem[off + i];
+        //const scr = new Uint8Array(scrlen);
+        //for (let i = 0; i < scrlen; i++)
+        //    scr[i] = mem[off + i];
 
         // generate image data from array, border and flash state
-        this.zxid.putSpectrumImage(scr, flashstate);
+        this.zxid.putSpectrumImage(mem, flashstate, channelOverlay);
         this.ctx.putImageData(this.zxid.imgdata, 0, 0);
     }
 }
@@ -97,15 +97,43 @@ class ZXScreenAsImageData
         return zxcolors[rgb | bri];
     }
 
+    putChar(linscr, mem, index, char)
+    {
+        const chars = 0x3d00 + (char * 8);      // Copy from Spectrum character ROM
+        var startPos = index + (23 * 32 * 8);   // Start on row 23
+
+        for (var i = 0; i < 8; i++)
+        {
+            linscr[startPos + (i * 32)] = mem[chars + i];
+        }
+        
+        linscr[6144 + index + (23 * 32)] = 64 + 4;   // Attributes for row 23 (bright + green)
+    }
+
+
     // Generate image data for spectrum screen
     // - zxscreen: spectrum screen data (6912 btes),
     // - border: border color
     // - flashinv: indicates if flash attribute is to be inverted now
-    putSpectrumImage(zxscreen, flashinv)
+    putSpectrumImage(mem, flashinv, channelOverlay)
     {
+        
         // de-interlace zx-screen to a linear bitmap
-        const linscr = this.zx_row_adjust(zxscreen);
+        let linscr = this.zx_row_adjust(mem);
 
+        if (channelOverlay > 0)
+        {
+            this.putChar(linscr, mem, 0, 35); // C
+            this.putChar(linscr, mem, 1, 72); // h
+            this.putChar(linscr, mem, 2, 65); // a
+            this.putChar(linscr, mem, 3, 78); // n
+            this.putChar(linscr, mem, 4, 78); // n
+            this.putChar(linscr, mem, 5, 69); // e
+            this.putChar(linscr, mem, 6, 76); // l
+            this.putChar(linscr, mem, 7, 0); // {space}
+            this.putChar(linscr, mem, 8, 16 + channelOverlay);
+        }
+        
         // source and destination indices
         let isrc = 0;
         let idst = 0;
@@ -173,11 +201,7 @@ class ZXScreenAsImageData
     // 'deinterlace' screen rows
     zx_row_adjust(src)
     {
-        // enforce screen size
-        if (src.length != 6912) {
-            console.log("zx_row_adjust: unexpected data length " + src.length);
-            return null;
-        }
+        const off = 0x4000;
 
         // create array for deinterlaced screen
         let dst = new Uint8Array(6912);
@@ -191,16 +215,15 @@ class ZXScreenAsImageData
             let idst = rzx * 32;
             // copy row
             for (let col = 0; col < 32; col++)
-                dst[idst++] = src[isrc++]
+                dst[idst++] = src[off + isrc++]
         }
 
         // copy attributes
         for (let i = 0; i < 768; i++)
         {
-            dst[6144+i] = src[6144+i];
+            dst[6144+i] = src[off + 6144+i];
         }
 
         return dst;
     }
-
 }
