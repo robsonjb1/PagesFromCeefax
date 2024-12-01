@@ -205,21 +205,21 @@ class ZXKeyboard
             }
         }
 
-        if (imageName == 'Pool')
+        if (imageName == 'ScubDive')
         {
             switch(keyCode)
             {
                 case 79: // Left O
-                    keyCode = 'A'.charCodeAt();
+                    keyCode = 'Z'.charCodeAt();
                     break;
                 case 80: // Right P
-                    keyCode = 'S'.charCodeAt();
+                    keyCode = 'X'.charCodeAt();
                     break;
-                case 219: // Fire [
-                    keyCode = 13;
+                case 81: // Up Q
+                    keyCode = 32;
                     break;
-                case 90: // Jump Z
-                    keyCode = 'L'.charCodeAt();
+                case 65: // Down A
+                    keyCode = 17; // Ctrl
                     break;
                 default:
                     break;
