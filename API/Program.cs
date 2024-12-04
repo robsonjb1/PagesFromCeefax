@@ -1,4 +1,5 @@
-﻿using API.Architecture;
+﻿using System;
+using API.Architecture;
 using API.Extensions;
 using API.Services;
 using Microsoft.Extensions.FileProviders;
@@ -57,6 +58,8 @@ try
         RequestPath = "",
         EnableDefaultFiles = true
     });
+
+    app.Urls.Add("http://*:5010");
 
     app.Run();
 }

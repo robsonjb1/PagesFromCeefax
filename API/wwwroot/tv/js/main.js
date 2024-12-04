@@ -9,11 +9,11 @@
     
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
     var video = document.createElement("video");
-    video.src = "media/4-13.m4v";
+    video.src = "http://192.168.1.3:5010/tv/media/4-13 Blake.m4v";
       
     // Functions
     window.addEventListener('click', function(e) {
-        video.currentTime = 60;
+        video.currentTime = 700;
         video.play();  // start playing
         timerTrigger(); //Start rendering
     });
@@ -39,7 +39,7 @@
                 cPtr+= 4;
             }
         }
-*/
+    */
         ctx.putImageData(imageData, 0, 0);
 
 
