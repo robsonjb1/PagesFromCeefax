@@ -59,8 +59,6 @@ try
         EnableDefaultFiles = true
     });
 
-    app.Urls.Add("http://*:5010");
-
     app.Run();
 }
 catch (Exception ex) when (ex.GetType().Name is not "StopTheHostException" && ex.GetType().Name is not "HostAbortedException")
