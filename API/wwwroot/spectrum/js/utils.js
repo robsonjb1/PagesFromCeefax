@@ -31,3 +31,36 @@ function loadRemoteBinaryFile(url, callback)
     req.open('get', url);
     req.send();
 }
+
+function ASCIItoCharIndex(char)
+{
+    if(char >= "A" && char <= "Z")
+    {
+        return 33 + char.charCodeAt() - 65; // 'A' starts at 33
+    }
+
+    if(char >= "a" && char <= "z")
+    {
+        return 65 + char.charCodeAt() - 97; // 'a' starts at 65
+    }
+
+    if(char >= "0" && char <= "9")
+    {
+        return 16 + char.charCodeAt() - 48; // '0' starts at 16
+    }
+
+    switch(char)
+    {
+        case " ":
+            return 0;
+            break;
+        case ":":
+            return 26;
+            break;
+        case "/":
+            return 15;
+            break;
+        default:
+            return 0;
+    }
+}

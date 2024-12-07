@@ -15,11 +15,12 @@
         <script src="./js/jquery.3.7.1.min.js"></script>
         <script src="./js/Z80.js"></script>
         <script src="./js/utils.js"></script>
-        <script src="./js/MinZX.js"></script>
+        <script src="./js/ZXMain.js"></script>
         <script src="./js/ZXScreen.js"></script>
         <script src="./js/ZXKeyboard.js"></script>
         <script src="./js/ZXSound.js"></script>
-
+        <script src="./sna/cat.js"></script>
+      
         <link rel="stylesheet" href="./css/main.css" />
         <link rel="icon" type="image/png" href="favicon16x16.png" />
         <link rel="apple-touch-icon" href="apple-touch-icon-72x72.png">
@@ -39,15 +40,15 @@
     <script>
         "use strict";
         
-        let minzx = null;
-        
+        let main = null;
+
         window.addEventListener('load', function() {
             // create new instance of MinZX emulator,
             // using element with id 'zxscr' as canvas,
-            minzx = new MinZX('magazineCanvas');
+            main = new ZXMain('magazineCanvas', imageCatalogue());
         
             // start emulator
-            minzx.start();
+            main.start();
            
             // chrome starts AudioContext in suspended state.
             let resumeOnce = true;
@@ -66,11 +67,11 @@
                 wakeUpAudioInChrome();
                 if (e.key == 'ArrowRight') 
                 {
-                    minzx.imageUp();
+                    main.imageMove(1);
                 }
                 if (e.key == 'ArrowLeft') 
                 {
-                    minzx.imageDown();
+                    main.imageMove(-1);
                 }
             });
         });

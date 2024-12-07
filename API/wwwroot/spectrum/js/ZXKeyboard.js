@@ -87,7 +87,36 @@ class ZXKeyboard
     _onKey(keyCode, down)
     {
         // Key mappings
-        var imageName = this.controller._imageList[this.controller._imageIndex].name;
+        var image = this.controller._imageCatalogue[this.controller._imageIndex];
+        
+        if (image.mapping)
+        {
+            switch(keyCode)
+            {
+                case 81: // Up Q
+                    keyCode = image.mapping[0].charCodeAt();
+                    break;
+                case 65: // Down A
+                    keyCode = image.mapping[1].charCodeAt();
+                    break;
+                case 79: // Left O
+                    keyCode = image.mapping[2].charCodeAt();
+                    break;
+                case 80: // Right P
+                    keyCode = image.mapping[3].charCodeAt();
+                    break;
+                case 219: // Fire [
+                    keyCode = image.mapping[4].charCodeAt();
+                    break;
+                case 90: // Jump Z
+                    keyCode = image.mapping[5].charCodeAt();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /*
         if (imageName == 'JetPac')
         {
             switch(keyCode)
@@ -225,6 +254,7 @@ class ZXKeyboard
                     break;
             }
         }
+        */
 
         // ignore keycodes absent from keycode table
         if (!(keyCode in this.kctable)) return false;
