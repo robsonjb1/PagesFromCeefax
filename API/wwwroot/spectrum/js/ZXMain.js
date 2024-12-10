@@ -454,5 +454,15 @@ class ZXMain
         if(this._imageIndex < 0) { this._imageIndex = this._imageCatalogue.length - 1; }
         this._bannerTime = this._bannerPeriod;
         this.loadSNA(this._imageCatalogue[this._imageIndex].data);
+
+        // Apply any pokes if required
+        if(this._imageCatalogue[this._imageIndex].poke)
+        {
+            for(let i=0; i<this._imageCatalogue[this._imageIndex].poke.length; i++)
+            {
+                this.mem[this._imageCatalogue[this._imageIndex].poke[i].loc] =
+                    this._imageCatalogue[this._imageIndex].poke[i].val;
+            }
+        }
     }
 }
