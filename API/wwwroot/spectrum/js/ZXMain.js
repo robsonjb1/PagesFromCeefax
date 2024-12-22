@@ -192,10 +192,9 @@ class ZXMain
 
     _start()
     {
-        // cpu frequency, in kHz
-        this._cpufreq = 3500;
+        this._cpufreq = 3500;       // Spectrum clock frequency 3.5mHz
         this._framecount = 0;
-        this._frametime = 20;
+        this._frametime = 20;       // refresh display and run CPU cycles every 20ms
         this._prevtime = null;
 
         // accumulated time, for emitting interrupt once per frame
@@ -225,13 +224,13 @@ class ZXMain
             });
         }
 
-        // load OS ROM and start animation when ROM loaded
+        // Load OS ROM and start emulation once ROM is loaded
         const self = this;
-        loadRemoteBinaryFile('sna/zx48.htm', function(data) {
+        loadRemoteBinaryFile('sna/zx48.sna', function(data) {
             for (let i = 0; i < 0x4000; i++) {
                 self.mem[i] = data[i];
             }
-            // after loading ROM, request first animation frame draw
+            // Request first animation frame draw
             self._requestAnimation();
         });
     }
@@ -246,8 +245,6 @@ class ZXMain
 
     _onAnimationFrame(time)
     {
-        // on first frame, _prevtime is null.
-        // on other frames, _prevtime is time of previous frame.
         if (this._prevtime != null)
         {
             // deltatime is current timestamp minus previous
@@ -258,7 +255,7 @@ class ZXMain
                 deltatime = this._frametime;
 
             // draw frame for given deltatime
-            this._onDrawFrame(time, deltatime);
+            this._onDrawFrame(deltatime);
         }
         // annotate previous time
         this._prevtime = time;
@@ -267,12 +264,11 @@ class ZXMain
         this._requestAnimation();
     }
 
-    _onDrawFrame(time, deltatime)
+    _onDrawFrame(deltatime)
     {
-        // accumulate deltatime (time of previous frame)
         this._accumtime += deltatime;
 
-        // number of cycles for given frequency and frame time
+        // Calculate number of cycles for given frequency and frame time
         this._cycleperiod = this._cpufreq * this._frametime;
 
         // if accumtime exceeds deltatime, we must draw
@@ -447,11 +443,15 @@ class ZXMain
   
     imageMove(delta)
     {
-        // Save the current image, move to the next and display channel banner
+        // Save the current image
         this._imageCatalogue[this._imageIndex].data = this.saveSNA();
+        
+        // Move to next image
         this._imageIndex = this._imageIndex + delta;
         if(this._imageIndex == this._imageCatalogue.length) { this._imageIndex = 0; }
         if(this._imageIndex < 0) { this._imageIndex = this._imageCatalogue.length - 1; }
+        
+        // Display new channel banner
         this._bannerTime = this._bannerPeriod;
         this.loadSNA(this._imageCatalogue[this._imageIndex].data);
 

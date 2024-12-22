@@ -26,7 +26,7 @@ class ZXScreen
         this.canvas.width = 256; 
         this.canvas.height = 192;
 
-        // create image data for screeen, with given border
+        // create image data for screen
         this.zxid = new ZXScreenAsImageData(this.ctx);
     }
 
@@ -106,7 +106,6 @@ class ZXScreenAsImageData
 
     // Generate image data for spectrum screen
     // - zxscreen: spectrum screen data (6912 btes),
-    // - border: border color
     // - flashinv: indicates if flash attribute is to be inverted now
     putSpectrumImage(mem, flashinv, channelOverlay)
     {

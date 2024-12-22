@@ -51,12 +51,13 @@ try
         return ks.PublishKindle(email);
     });
 
-    app.UseFileServer(new FileServerOptions
+    app.UseDefaultFiles();
+    app.UseStaticFiles(new StaticFileOptions
     {
         FileProvider = new PhysicalFileProvider(
             Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
         RequestPath = "",
-        EnableDefaultFiles = true
+        ServeUnknownFileTypes = true
     });
 
     app.Run();
