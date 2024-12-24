@@ -1,376 +1,50 @@
+﻿<!--
+ pagesfromceefax.com
+
+ Jason Robson
+ Twitter @pfceefax
+ https://github.com/robsonjb1/PagesFromCeefax
+
+ Attributions:
+ - Displays news stories gathered from the BBC public RSS feeds
+
+ - Header artwork was taken from REAL Ceefax pages using the BeebEm BBC Micro emulator (which supports Teletext adapters)
+     and used a 'digital' feed of Teletext from some time in 2006.
+
+ - Background TV image using licensed stock art imagery purchased from shutterstock.com
+
+ - The audio was taken from the following YouTube video (attribution unknown)
+ -   https://www.youtube.com/watch?v=JU8P5G-GM_g
+
+ - Hosted using Microsoft Azure
+-->
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Pages from Ceefax - BBC Micro</title>
+
+<head>
+    <title>Pages from Ceefax - Today's news at yesterday's pace</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
     <meta name="apple-mobile-web-app-title" content="Pages from Ceefax" />
-    <meta name="mobile-web-app-capable" content="yes" />
-
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="description" value="A tribute to the in-vision Teletext service Ceefax, familiar to British TV viewers for over 30 years." />
-    
-    <script type="module" src="main.js"></script>
+
     <script src="./lib/jquery.3.7.1.min.js"></script>
-    <script src="./lib/bootstrap.min.js"></script>
-    <script type="module" src="./lib/underscore-esm-min.js"></script>
-
-    <link rel="stylesheet" href="./jsbeeb.css" />
-    <link rel="stylesheet" href="./bootstrap.min.css" />
-  </head>
-
-  <body>
-    <nav id="header-bar" class="navbar navbar-dark bg-dark navbar-expand-sm py-1" role="navigation">
-      <div class="container-fluid">
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav nav mb-1">
-
-            <li class="nav-item dropdown embed-hide">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle"
-                id="navbarReset"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                ><span class="bbc-model">BBC B</span></a
-              >
-              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarReset">
-                <li><a href="index.html?stationId=101&model=B-DFS1.2" class="dropdown-item">101: Model B</a></li>
-                <li><a href="index.html?stationId=102&model=B-DFS1.2Tube&coProcessor=true" class="dropdown-item">102: Model B Tube 6502</a></li>
-                <li><a href="index.html?stationId=103&model=Master" class="dropdown-item">103: Master 128</a></li>
-                <li><a href="index.html?stationId=104&model=MasterTurbo&coProcessor=true" class="dropdown-item">104: Master Turbo</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropdown embed-hide">
-              <a href="#filestore" class="nav-link" data-bs-toggle="modal" data-bs-target="#econetfs">
-                Filestore
-              </a>
-            </li>
-
-            <li class="nav-item dropdown embed-hide">
-              <a href="#discs" class="nav-link" data-bs-toggle="modal" data-bs-target="#discs">
-                Drives
-              </a>
-            </li>
+    <script type="module" src="./main.js"></script>
+    <script src="./js/chardefs.js"></script>
     
-            <div class="modal fade" id="econetfs" tabindex="-1" aria-labelledby="discModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="discModalLabel">Econet File Server</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <label>
-                      Download server drive image (10mb scsi.dat):<br>
-                  
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="download-filestore-link">
-                        Download image
-                      </button>
-                    </label>
-        
-                    <div class="disc">
-                      <label
-                        >Upload a local drive image and restart the file server:
-                        <input class="form-control" type="file" id="fs_load" accept=".dat,application/binary" />
-                      </label>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-        
-            <div class="modal fade" id="discs" tabindex="-1" aria-labelledby="discModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="discModalLabel">Drive Maintenance</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <table width="100%">
-                      <tr>
-                        <td>
-                          Drive selector:<br>
-                          <input type="radio" id="drive0" name="driveSelector" value="0" checked>
-                          <label for="drive0">Drive 0</label><br>
-                          <input type="radio" id="drive1" name="driveSelector" value="1">
-                          <label for="drive1">Drive 1</label><br>  
-                        </td>
-                          <td width="70%" align="right">
-                            <a href="#download-drive" class="btn btn-secondary" id="download-drive-link">Download current drive image</a>
-                          </td>                        
-                        </td>
-                      </tr>
-                    </table> 
-                  <hr>
-                    Library drive images:<br>
-                    <div>
-                      <ul class="duolist" id="disc-list">
-                        <li class="template">
-                          <a href="#"><span class="name"></span></a>
-                        </li>
-                      </ul>
-                    </div>
-                   
-                    <div class="disc">
-                      <table>
-                        <tr><td>
-                          <label
-                            >Load local SSD, DSD or ADL file:
-                            <input type="file" id="disc_load" accept=".ssd,.dsd,.adl,application/binary" />
-                          </label>
-                        </td>                        
-                        </tr>
-                      </table>
-                    </div>
-                                  
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <li class="nav-item dropdown embed-hide">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle"
-                id="navbarReset"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                >Reset</a
-              >
-              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarReset">
-                <li><a href="#" id="soft-reset" class="dropdown-item">Soft reset</a></li>
-                <li><a href="#" id="hard-reset" class="dropdown-item">Hard reset</a></li>
-              </ul>
-            </li>
-            
-          </ul>
-          
-        </div>
-      </div>
-    </nav>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="apple-touch-icon" href="apple-touch-icon-72x72.png">
+</head>
 
-    <div>
-      <div id="outer">
-        <div id="cub-monitor">
-          <img
-            id="cub-monitor-pic"
-            width="896"
-            height="648"
-            src="images/placeholder.png"
-          />
-          <canvas id="screen" width="896" height="600"></canvas>
+<body>
+    <div id="container">
+        <div id="page">
+            <canvas id="bbcCanvas"></canvas>
         </div>
-      </div>
-     
-      <div id="leds">
-        <table>
-          <thead>
-            <tr>
-              <th>caps<br />lock</th>
-              <th>shift<br />lock</th>
-              <th>drive<br />0/2</th>
-              <th>drive<br />1/3</th>
-              <th>econet<br />tx/rx</th>
-              <th id="virtual-mhz-header">virtual<br />MHz</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="red led" id="capslight"></div>
-              </td>
-              <td>
-                <div class="red led" id="shiftlight"></div>
-              </td>
-              <td>
-                <div class="yellow led" id="floppy0"></div>
-              </td>
-              <td>
-                <div class="yellow led" id="floppy1"></div>
-              </td>
-              <td>
-                <div class="yellow led" id="networklight"></div>
-              </td>
-              <td>
-                <div class="virtualMHz"></div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div id="crtc_debug" class="initially-hidden">
-        <div class="crtc_state">
-          <h6 class="dbg">6845 state</h6>
-          <table>
-            <tbody>
-              <tr class="template">
-                <th><span class="register"></span>:</th>
-                <td class="value"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="crtc_regs">
-          <h6 class="dbg">6845 regs</h6>
-          <table>
-            <tbody>
-              <tr class="template">
-                <th><span class="register"></span>:</th>
-                <td class="value"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div id="debug" class="initially-hidden">
-        <div class="debug-container">
-          <form id="goto-mem-addr-form" role="form">
-            <div class="input-group input-group-sm">
-              <span accesskey="m" class="input-group-text" id="mem_addr_text">
-                <span class="accesskey">M</span>em addr:
-              </span>
-              <input
-                type="text"
-                class="form-control form-control-sm goto-addr"
-                placeholder="$0000"
-                aria-label="Memory address"
-                aria-describedby="mem_addr_text"
-              />
-            </div>
-          </form>
-          <div id="memory">
-            <div class="template">
-              <span class="dis_addr">0000</span
-              ><span class="mem_bytes"
-                ><span>11</span> <span>22</span> <span>33</span> <span>44</span> <span>55</span> <span>66</span>
-                <span>77</span> <span>88</span></span
-              ><span class="mem_asc"
-                ><span>A</span><span>A</span><span>A</span><span>A</span><span>A</span><span>A</span><span>A</span
-                ><span>A</span></span
-              >
-            </div>
-          </div>
-        </div>
-        <div class="debug-container">
-          <form role="form" id="goto-dis-addr-form">
-            <div class="input-group input-group-sm">
-              <span accesskey="a" class="input-group-text" id="dis_addr_text"
-                ><span class="accesskey">A</span>ddr:</span
-              >
-              <input
-                type="text"
-                class="form-control form-control-sm goto-addr"
-                placeholder="$0000"
-                aria-label="Disassembly address"
-                aria-describedby="dis_addr_text"
-              />
-            </div>
-          </form>
-          <div id="disassembly">
-            <div class="template dis_elem">
-              <span class="bp_gutter"></span><span class="dis_addr">0000</span><span class="instr_bytes">11 22 33</span
-              ><span class="instr_asc">ABC</span><span class="disassembly">LDA (&amp;70), X</span>
-            </div>
-          </div>
-        </div>
-        <div id="registers">
-          <div>
-            <span class="flag" id="cpu6502_flag_c">C</span><span class="flag" id="cpu6502_flag_z">Z</span
-            ><span class="flag" id="cpu6502_flag_i">I</span><span class="flag" id="cpu6502_flag_d">D</span
-            ><span class="flag" id="cpu6502_flag_v">V</span><span class="flag" id="cpu6502_flag_n">N</span>
-          </div>
-          <div><span class="register">A</span>: <span id="cpu6502_a">00</span></div>
-          <div><span class="register">X</span>: <span id="cpu6502_x">00</span></div>
-          <div><span class="register">Y</span>: <span id="cpu6502_y">00</span></div>
-          <div><span class="register">S</span>: <span id="cpu6502_s">00</span></div>
-          <div><span class="register">PC</span>: <span id="cpu6502_pc">0000</span></div>
-        </div>
-      </div>
-      <div id="hardware_debug" class="initially-hidden">
-        <div class="via_regs" id="sysvia">
-          <h6 class="dbg">System VIA</h6>
-          <table>
-            <tbody>
-              <tr class="template">
-                <th><span class="register"></span>:</th>
-                <td class="value"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="via_regs" id="uservia">
-          <h6 class="dbg">User VIA</h6>
-          <table>
-            <tbody>
-              <tr class="template">
-                <th><span class="register"></span>:</th>
-                <td class="value"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="discs" tabindex="-1" aria-labelledby="discModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="discModalLabel">Load disc image</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <ul id="disc-list">
-              <li class="template">
-                <a href="#"><span class="name"></span></a> - <span class="description"></span>
-              </li>
-            </ul>
-            To load a custom disc image, get an SSD, DSD, ADF, ADM or ADL file and load it below. Search the web, or
-            check somewhere like
-            <a href="http://www.bbcmicrogames.com/GettingStarted.html">here</a> for these. Be aware the images are
-            usually stored in a ZIP file, and you'll need to unzip first.
-            <div class="disc">
-              <label
-                >Load local SSD, DSD, ADF, ADM or ADL file:
-                <input type="file" id="disc_load" accept=".ssd,.dsd,.adf,.adm,.adl,application/binary" />
-              </label>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="error-dialog" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="errorModalLabel">An error occurred - sorry!</h5>
-          </div>
-          <div class="modal-body">
-            <div>While <span class="context"></span>:</div>
-            <div class="error"></div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-   
-    </div>
-  </body>
+        <div id="overlay"></div>
+    </div>    
+</body>
 </html>
