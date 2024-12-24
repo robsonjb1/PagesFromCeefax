@@ -29,7 +29,8 @@ export class jrvideo {
         this.nextGlyphs = this.charSmoothed;
         this.heldGlyphs = this.charSmoothed;  
         this.curGlyphs = this.charSmoothed;    
-        
+        this.cursorPos = 0;
+        this.cursorOn = true;        
     }
 
     // Teletext rendering utilities
@@ -155,8 +156,8 @@ export class jrvideo {
     redraw(ctx, pageBuffer, imgData, rowLimit)
     {
         // Screen refresh initialisation
-        if (++this.flashTime === 8) this.flashTime = 0;  // 3:1 flash ratio.
-        this.flashOn = this.flashTime < 2;
+        if (++this.flashTime === 23) this.flashTime = 0;  // 3:1 flash ratio.
+        this.flashOn = this.flashTime < 9;
         let charPos = 0;
 
         this.dbl = this.oldDbl = this.secondHalfOfDouble = this.wasDbl = false;
@@ -220,6 +221,28 @@ export class jrvideo {
                 if (this.holdOff) {
                     this.holdChar = false;
                     this.heldChar = 32;
+                }
+            }
+        }
+
+        // Is the cursor flashing?
+        if(this.cursorOn && this.flashOn)
+        {
+            idPtr = (this.cursorPos * 4 * 12) + (18 * 4 * 40 * 12);
+            for(let i=0; i<26; i++)
+            {
+                imgData.data[idPtr] = 255;
+                imgData.data[idPtr+1] = 255;
+                imgData.data[idPtr+2] = 255;
+                imgData.data[idPtr+3] = 255;
+                
+                if(i == 12)
+                {
+                    idPtr = idPtr + (4 * 39 * 12);    
+                }
+                else
+                { 
+                    idPtr+=4;
                 }
             }
         }

@@ -165,11 +165,7 @@ var screen = new jrvideo();
 const $screen = $("#bbcCanvas");
 const canvas = new canvasLib.Canvas($screen[0]);
 video = new Video(model.isMaster, canvas.fb32, function paint(minx, miny, maxx, maxy) {
-    frames++;
-    if (frames < frameSkip) return;
-    frames = 0;
-
-    // jr update screen
+      // jr update screen
     // Canvas
     const canvas = $("#bbcCanvas")[0];
     canvas.width = 480; 
@@ -841,9 +837,8 @@ function draw(now) {
     // part of jsbeeb at this time.
     // We need need to paint per odd number of frames so that interlace
     // modes, i.e. MODE 7, still look ok.
-    const frameSkipCount = speedy ? 9 : 0;
-    video.frameSkipCount = frameSkipCount;
-
+    video.frameSkipCount = 2;
+    
     // We use setTimeout instead of requestAnimationFrame in two cases:
     // a) We're trying to run as fast as possible.
     // b) Tape is playing, normal speed but backgrounded tab should run.
