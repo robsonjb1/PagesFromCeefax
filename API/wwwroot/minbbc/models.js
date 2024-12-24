@@ -73,6 +73,15 @@ export const allModels = [
         beebSwram,
         WD1770
     ),
+    new Model(
+        "103: Model B Teletext",
+        ["BBCTELETEXT"],
+        ["os.rom"],
+        true,
+        false,
+        beebSwram,
+        WD1770
+    ),
     new Model("103: BBC Master 128", ["Master"], ["master/mos3.20"], false, true, masterSwram, WD1770, null),
     new Model("104: BBC Master Turbo", ["MasterTurbo"], ["master/mos3.20"], false, true, masterSwram, WD1770, null),
     new Model("Tube65c02", [], ["tube/6502Tube.rom"], false, false), // Although this can not be explicitly selected as a model, it is required by the configuration builder later
