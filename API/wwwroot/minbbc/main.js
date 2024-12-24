@@ -162,17 +162,37 @@ const MaxCyclesPerFrame = clocksPerSecond / 10;
 
 var screen = new jrvideo();
 
-let tryGl = false;
-if (parsedQuery.glEnabled !== undefined) {
-    tryGl = parsedQuery.glEnabled === "true";
-}
-const $screen = $("#canvas");
-const canvas = tryGl ? canvasLib.bestCanvas($screen[0]) : new canvasLib.Canvas($screen[0]);
+const $screen = $("#bbcCanvas");
+const canvas = new canvasLib.Canvas($screen[0]);
 video = new Video(model.isMaster, canvas.fb32, function paint(minx, miny, maxx, maxy) {
     frames++;
     if (frames < frameSkip) return;
     frames = 0;
-//    canvas.paint(minx, miny, maxx, maxy);
+
+    // jr update screen
+    // Canvas
+    const canvas = $("#bbcCanvas")[0];
+    canvas.width = 480; 
+    canvas.height = 500;
+    
+    var offset = ((processor.video.regs[12] * 256) + processor.video.regs[13]) - 0x2800;
+    if(offset >= 0)
+    {
+        offset = 0x7c00 + offset;
+        const ctx = canvas.getContext('2d');
+        var imgData = ctx.createImageData(canvas.width, canvas.height);
+
+        let pageBuffer = new Uint8Array(40 * 25);
+        for(var i=0; i<40*25; i++)
+        {
+            if((offset + i) > 0x7fff) {
+                offset = 0x7c00 - i;
+            }
+            pageBuffer[i] = processor.readmem((offset + i));
+        }
+
+        screen.redraw(ctx, pageBuffer, imgData, 25);
+    }
 });
 if (parsedQuery.fakeVideo !== undefined) video = new FakeVideo();
 
@@ -183,8 +203,6 @@ let lastCtrlLocation = 1;
 let lastAltLocation = 1;
 
 dbgr = new Debugger(video);
-
-$(".initially-hidden").removeClass("initially-hidden");
 
 function keyCode(evt) {
     const ret = evt.which || evt.charCode || evt.keyCode;
@@ -864,30 +882,7 @@ function draw(now) {
             stepEmuWhenPaused = false;
         }
 
-        // jr update screen
-        // Canvas
-        const canvas = $("#bbcCanvas")[0];
-        canvas.width = 480; 
-        canvas.height = 500;
-        
-        var offset = ((processor.video.regs[12] * 256) + processor.video.regs[13]) - 0x2800;
-        if(offset >= 0)
-        {
-            offset = 0x7c00 + offset;
-            const ctx = canvas.getContext('2d');
-            var imgData = ctx.createImageData(canvas.width, canvas.height);
-
-            let pageBuffer = new Uint8Array(40 * 25);
-            for(var i=0; i<40*25; i++)
-            {
-                if((offset + i) > 0x7fff) {
-                    offset = 0x7c00 - i;
-                }
-                pageBuffer[i] = processor.readmem((offset + i));
-            }
-
-            screen.redraw(ctx, pageBuffer, imgData, 25);
-        }
+       
     }
     last = now;
 }

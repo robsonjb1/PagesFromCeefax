@@ -1,5 +1,4 @@
 "use strict";
-import { Teletext } from "./teletext.js";
 import * as utils from "./utils.js";
 
 const VDISPENABLE = 1 << 0,
@@ -47,7 +46,7 @@ class Ula {
             if (newMode !== this.video.ulaMode) {
                 this.video.ulaMode = newMode;
             }
-            this.video.teletextMode = !!(val & 2);
+            this.video.teletextMode = true;//!!(val & 2);
         }
     }
 }
@@ -187,11 +186,11 @@ export class Video {
         this.pixelsPerChar = 8;
         this.halfClock = false;
         this.ulaMode = 0;
-        this.teletextMode = false;
+        this.teletextMode = true;
         this.displayEnableSkew = 0;
         this.ulaPal = utils.makeFast32(new Uint32Array(16));
         this.actualPal = new Uint8Array(16);
-        this.teletext = new Teletext();
+        //this.teletext = new Teletext();
         this.cursorOn = false;
         this.cursorOff = false;
         this.cursorOnThisFrame = false;
@@ -489,7 +488,7 @@ export class Video {
         if (this.interlacedSyncAndVideo && this.frameCount & 1) {
             externalScanline++;
         }
-        this.teletext.setRA0(!!(externalScanline & 1));
+        //this.teletext.setRA0(!!(externalScanline & 1));
     }
 
     handleHSync() {
@@ -534,7 +533,7 @@ export class Video {
         // for scanline tracking, so keep it apprised.
         const mask = HDISPENABLE | VDISPENABLE | USERDISPENABLE;
         const disptmg = (this.dispEnabled & mask) === mask;
-        this.teletext.setDISPTMG(disptmg);
+        //this.teletext.setDISPTMG(disptmg);
     }
 
     dispEnableSet(flag) {
@@ -635,7 +634,7 @@ export class Video {
 
             if (vSyncStarting || vSyncEnding) {
                 this.sysvia.setVBlankInt(this.inVSync);
-                this.teletext.setDEW(this.inVSync);
+                //this.teletext.setDEW(this.inVSync);
             }
 
             // TODO: this will be cleaner if we rework skew to have fetch
@@ -646,7 +645,7 @@ export class Video {
                 const dat = this.readVideoMem();
                 if (insideBorder) {
                     if (this.teletextMode) {
-                        this.teletext.fetchData(dat);
+                    //    this.teletext.fetchData(dat);
                     }
 
                     // Check cursor start.
@@ -680,9 +679,9 @@ export class Video {
 
                     if ((this.dispEnabled & EVERYTHINGENABLED) === EVERYTHINGENABLED) {
                         if (this.teletextMode) {
-                            this.teletext.render(this.fb32, offset);
+                        //    this.teletext.render(this.fb32, offset);
                             if (doubledLines) {
-                                this.teletext.render(this.fb32, offset + 1024);
+                        //        this.teletext.render(this.fb32, offset + 1024);
                             }
                         } else {
                             this.blitFb(dat, offset, this.pixelsPerChar, doubledLines);

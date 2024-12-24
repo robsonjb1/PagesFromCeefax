@@ -5,8 +5,8 @@ export class Canvas {
     constructor(canvas) {
         this.ctx = canvas.getContext("2d");
         if (this.ctx === null) throw new Error("Unable to get a 2D context");
-        //this.ctx.fillStyle = "black";
-        //this.ctx.fillRect(0, 0, 1024, 625);
+        this.ctx.fillStyle = "black";
+        this.ctx.fillRect(0, 0, 1024, 625);
         this.backBuffer = window.document.createElement("canvas");
         this.backBuffer.width = 1024;
         this.backBuffer.height = 625;
@@ -20,8 +20,8 @@ export class Canvas {
     paint(minx, miny, maxx, maxy) {
         const width = maxx - minx;
         const height = maxy - miny;
-    //    this.backCtx.putImageData(this.imageData, 0, 0, minx, miny, width, height);
-    //    this.ctx.drawImage(this.backBuffer, minx, miny, width, height, 0, 0, this.canvasWidth, this.canvasHeight);
+        this.backCtx.putImageData(this.imageData, 0, 0, minx, miny, width, height);
+        this.ctx.drawImage(this.backBuffer, minx, miny, width, height, 0, 0, this.canvasWidth, this.canvasHeight);
     }
 }
 
