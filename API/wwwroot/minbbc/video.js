@@ -141,9 +141,9 @@ function table4bppOffset(ulamode, byte) {
 ////////////////////
 // The video class
 export class Video {
-    constructor(isMaster, fb32_param, paint_ext_param) {
+    constructor(isMaster, paint_ext_param) {
         this.isMaster = isMaster;
-        this.fb32 = utils.makeFast32(fb32_param);
+        this.fb32 = utils.makeFast32(1000);
         this.collook = utils.makeFast32(
             new Uint32Array([
                 0xff000000, 0xff0000ff, 0xff00ff00, 0xff00ffff, 0xffff0000, 0xffff00ff, 0xffffff00, 0xffffffff,
@@ -238,8 +238,6 @@ export class Video {
         this.ula = new Ula(this);
 
         this.reset(null);
-        //this.clearPaintBuffer();
-        //this.paint();
     }
 
     reset(cpu, via) {
@@ -248,28 +246,9 @@ export class Video {
         if (via) via.cb2changecallback = this.cb2changed.bind(this);
     }
 
-    paint() {
-        this.paint_ext(this.leftBorder, this.topBorder, 1024 - this.rightBorder, 625 - this.bottomBorder);
-    }
-
-    clearPaintBuffer() {
-        const fb32 = this.fb32;
-        if (this.interlacedSyncAndVideo || !this.doubledScanlines) {
-            let line = this.frameCount & 1;
-            while (line < 625) {
-                const start = line * 1024;
-                fb32.fill(0, start, start + 1024);
-                line += 2;
-            }
-        } else {
-            fb32.fill(0);
-        }
-    }
-
     paintAndClear() {
         if (this.dispEnabled & FRAMESKIPENABLE) {
-            this.paint();
-            this.clearPaintBuffer();
+            this.paint_ext();
         }
         this.dispEnabled &= ~FRAMESKIPENABLE;
         let enable = FRAMESKIPENABLE;
@@ -761,19 +740,4 @@ export class Video {
             }
         } // matches while
     }
-}
-
-export class FakeVideo {
-    constructor() {
-        this.ula = this.crtc = {
-            read: function () {
-                return 0xff;
-            },
-            write: utils.noop,
-        };
-        this.regs = new Uint8Array(32);
-    }
-    reset() {}
-    polltime() {}
-    setScreenAdd() {}
 }

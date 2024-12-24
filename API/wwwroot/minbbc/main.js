@@ -1,5 +1,5 @@
 import * as utils from "./utils.js";
-import { FakeVideo, Video } from "./video.js";
+import { Video } from "./video.js";
 import { Debugger } from "./web/debug.js";
 import { Cpu6502 } from "./6502.js";
 import { Cmos } from "./cmos.js";
@@ -156,12 +156,8 @@ const MaxCyclesPerFrame = clocksPerSecond / 10;
 
 var screen = new jrvideo();
 
-const $screen = $("#bbcCanvas");
-const canvas = new canvasLib.Canvas($screen[0]);
-video = new Video(model.isMaster, canvas.fb32, function paint(minx, miny, maxx, maxy) {
-      // jr update screen
-    // Canvas
-    const canvas = $("#bbcCanvas")[0];
+const canvas = $("#bbcCanvas")[0];
+video = new Video(model.isMaster, function paint() {
     canvas.width = 480; 
     canvas.height = 500;
     
@@ -186,7 +182,6 @@ video = new Video(model.isMaster, canvas.fb32, function paint(minx, miny, maxx, 
         screen.redraw(ctx, pageBuffer, imgData, cursorPos, processor.video.regs[10]);
     }
 });
-if (parsedQuery.fakeVideo !== undefined) video = new FakeVideo();
 
 const audioHandler = new AudioHandler($("#audio-warning"), audioFilterFreq, audioFilterQ, noSeek);
 
