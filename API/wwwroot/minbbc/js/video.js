@@ -29,8 +29,6 @@ export class jrvideo {
         this.nextGlyphs = this.charSmoothed;
         this.heldGlyphs = this.charSmoothed;  
         this.curGlyphs = this.charSmoothed;    
-        this.cursorPos = 0;
-        this.cursorOn = true;        
     }
 
     // Teletext rendering utilities
@@ -153,16 +151,17 @@ export class jrvideo {
     }
 
     // Main redraw routine
-    redraw(ctx, pageBuffer, imgData, rowLimit)
+    redraw(ctx, pageBuffer, imgData, cursorPos, cursorType)
     {
         // Screen refresh initialisation
-        if (++this.flashTime === 23) this.flashTime = 0;  // 3:1 flash ratio.
-        this.flashOn = this.flashTime < 9;
+        var fastBlink = (cursorType & 32) == 0;
+        if (++this.flashTime >= (fastBlink ? 8 : 22)) this.flashTime = 0;  // 3:1 flash ratio.
+        this.flashOn = this.flashTime < (fastBlink ? 4 : 9);
         let charPos = 0;
 
         this.dbl = this.oldDbl = this.secondHalfOfDouble = this.wasDbl = false;
 
-        for(var yCol = 0; yCol < rowLimit; yCol++)
+        for(var yCol = 0; yCol < 25; yCol++)
         {
             // Initialise row
             this.col = 7;
@@ -211,7 +210,7 @@ export class jrvideo {
                         imgData.data[idPtr] = setPixel ? this.getRGB_Red(this.prevCol) : this.getRGB_Red(this.bg);
                         imgData.data[idPtr+1] = setPixel ? this.getRGB_Green(this.prevCol) : this.getRGB_Green(this.bg);
                         imgData.data[idPtr+2] = setPixel ? this.getRGB_Blue(this.prevCol) : this.getRGB_Blue(this.bg);
-                        imgData.data[idPtr+3] = setPixel || (!setPixel && this.bg != 0) ? 255 : 0;
+                        imgData.data[idPtr+3] = (setPixel & this.col != 0) || (!setPixel && this.bg != 0) ? 255 : 0;
                         idPtr = idPtr + 4;
                     }
                     
@@ -225,20 +224,25 @@ export class jrvideo {
             }
         }
 
-        // Is the cursor flashing?
-        if(this.cursorOn && this.flashOn)
+        // Is the cursor flashing? (bit 6 of 6845 register 10)
+        if((cursorType & 64) && this.flashOn)
         {
-            idPtr = (this.cursorPos * 4 * 12) + (18 * 4 * 40 * 12);
-            for(let i=0; i<26; i++)
+            let cursorY = Math.floor(cursorPos / 40);
+            let cursorX = cursorPos - (cursorY * 40);
+
+            idPtr = cursorY * 4 * 12 * 20 * 40;
+            idPtr += cursorX * 4 * 12;
+            idPtr += (4 * 40 * 12 * 18) + 4;
+            for(let i=0; i<22; i++)
             {
                 imgData.data[idPtr] = 255;
                 imgData.data[idPtr+1] = 255;
                 imgData.data[idPtr+2] = 255;
                 imgData.data[idPtr+3] = 255;
                 
-                if(i == 12)
+                if(i == 10)
                 {
-                    idPtr = idPtr + (4 * 39 * 12);    
+                    idPtr = idPtr + (4 * 39 * 12) + 8;    
                 }
                 else
                 { 

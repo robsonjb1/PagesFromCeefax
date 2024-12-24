@@ -172,6 +172,8 @@ video = new Video(model.isMaster, canvas.fb32, function paint(minx, miny, maxx, 
     canvas.height = 500;
     
     var offset = ((processor.video.regs[12] * 256) + processor.video.regs[13]) - 0x2800;
+    var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - 0x2800 - offset;
+
     if(offset >= 0)
     {
         offset = 0x7c00 + offset;
@@ -187,7 +189,7 @@ video = new Video(model.isMaster, canvas.fb32, function paint(minx, miny, maxx, 
             pageBuffer[i] = processor.readmem((offset + i));
         }
 
-        screen.redraw(ctx, pageBuffer, imgData, 25);
+        screen.redraw(ctx, pageBuffer, imgData, cursorPos, processor.video.regs[10]);
     }
 });
 if (parsedQuery.fakeVideo !== undefined) video = new FakeVideo();
