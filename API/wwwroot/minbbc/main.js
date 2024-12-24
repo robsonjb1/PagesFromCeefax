@@ -670,9 +670,7 @@ $("#soft-reset").click(function (event) {
 });
 
 function guessModelFromUrl() {
-    if (window.location.hostname.indexOf("bbc") === 0) return "B-DFS1.2";
-    if (window.location.hostname.indexOf("master") === 0) return "Master";
-    return "B-DFS1.2";
+    return "BBCDFS";
 }
 
 const startPromise = Promise.all([audioHandler.initialise(), processor.initialise()]).then(function () {
