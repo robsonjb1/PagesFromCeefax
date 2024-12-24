@@ -14,9 +14,6 @@ import { jrvideo } from "./js/video.js";
 let processor;
 let video;
 let dbgr;
-let frames = 0;
-let frameSkip = 0;
-let syncLights;
 let running;
 let model;
 let availableImages;
@@ -51,9 +48,6 @@ let audioFilterQ = 5;
 let stationId = 101;
 
 if (queryString) {
-    if (queryString[queryString.length - 1] === "/")
-        // workaround for shonky python web server
-        queryString = queryString.substring(0, queryString.length - 1);
     queryString.split("&").forEach(function (keyval) {
         const keyAndVal = keyval.split("=");
         const key = decodeURIComponent(keyAndVal[0]);
@@ -148,8 +142,8 @@ config.setModel(parsedQuery.model || guessModelFromUrl());
 config.setKeyLayout(keyLayout);
 config.set65c02(parsedQuery.coProcessor);
 config.setEconet(true);
-config.setMusic5000(true);
 config.setTeletext(true);
+config.setMusic5000(true);
 
 model = config.model;
 
@@ -394,36 +388,6 @@ function setDiscImage(drive, name) {
     updateUrl();
 }
 
-function loadSCSIFile(file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        processor.filestore.scsi = utils.stringToUint8Array(e.target.result);
-
-        processor.filestore.PC = 0x400;
-        processor.filestore.SP = 0xff;
-        processor.filestore.A = 1;
-        processor.filestore.emulationSpeed = 0;
-
-        // Reset any open receive blocks
-        processor.econet.receiveBlocks = [];
-        processor.econet.nextReceiveBlockNumber = 1;
-
-        $fsModal.hide();
-    };
-    reader.readAsBinaryString(file);
-}
-
-const $cub = $("#cub-monitor");
-$cub.on("mousemove mousedown mouseup", function (evt) {
-    audioHandler.tryResume();
-    if (document.activeElement !== document.body) document.activeElement.blur();
-    const cubOffset = $cub.offset();
-    const screenOffset = $screen.offset();
-    const x = (evt.offsetX - cubOffset.left + screenOffset.left) / $screen.width();
-    const y = (evt.offsetY - cubOffset.top + screenOffset.top) / $screen.height();
-    if (processor.touchScreen) processor.touchScreen.onMouse(x, y, evt.buttons);
-    evt.preventDefault();
-});
 
 $(window).blur(function () {
     if (processor.sysvia) processor.sysvia.clearKeys();
@@ -533,7 +497,6 @@ function sendRawKeyboardToBBC(keysToSend, checkCapsAndShiftLocks) {
 
 function autoboot(image) {
     const BBC = utils.BBC;
-
     console.log("Autobooting disc");
     utils.noteEvent("init", "autoboot", image);
 
@@ -717,30 +680,6 @@ function guessModelFromUrl() {
     return "B-DFS1.2";
 }
 
-function Light(name) {
-    const dom = $("#" + name);
-    let on = false;
-    this.update = function (val) {
-        if (val === on) return;
-        on = val;
-        dom.toggleClass("on", on);
-    };
-}
-
-const caps = new Light("capslight");
-const shift = new Light("shiftlight");
-const floppy0 = new Light("floppy0");
-const floppy1 = new Light("floppy1");
-const network = new Light("networklight");
-
-syncLights = function () {
-    caps.update(processor.sysvia.capsLockLight);
-    shift.update(processor.sysvia.shiftLockLight);
-    floppy0.update(processor.fdc.motorOn[0]);
-    floppy1.update(processor.fdc.motorOn[1]);
-    network.update(processor.econet.activityLight());
-};
-
 const startPromise = Promise.all([audioHandler.initialise(), processor.initialise()]).then(function () {
     // Ideally would start the loads first. But their completion needs the FDC from the processor
     const imageLoads = [];
@@ -787,37 +726,6 @@ startPromise.then(
 
 let last = 0;
 
-function VirtualSpeedUpdater() {
-    this.cycles = 0;
-    this.time = 0;
-    this.v = $(".virtualMHz");
-    this.header = $("#virtual-mhz-header");
-    this.speedy = false;
-
-    this.update = function (cycles, time, speedy) {
-        this.cycles += cycles;
-        this.time += time;
-        this.speedy = speedy;
-    };
-
-    this.display = function () {
-        // MRG would be nice to graph instantaneous speed to get some idea where the time goes.
-        if (this.cycles) {
-            const thisMHz = this.cycles / this.time / 1000;
-            this.v.text(thisMHz.toFixed(1));
-            if (this.cycles >= 10 * 2 * 1000 * 1000) {
-                this.cycles = this.time = 0;
-            }
-            this.header.css("color", this.speedy ? "red" : "white");
-        }
-        setTimeout(this.display.bind(this), 3333);
-    };
-
-    this.display();
-}
-
-const virtualSpeedUpdater = new VirtualSpeedUpdater();
-
 function draw(now) {
     if (!running) {
         last = 0;
@@ -829,28 +737,10 @@ function draw(now) {
     }
 
     const motorOn = processor.acia.motorOn;
-    const discOn = processor.fdc.motorOn[0] || processor.fdc.motorOn[1];
     const speedy = fastAsPossible || (fastTape && motorOn);
-    const useTimeout = speedy || motorOn || discOn;
-    const timeout = speedy ? 0 : 1000.0 / 50;
-
-    // In speedy mode, we still run all the state machines accurately
-    // but we paint less often because painting is the most expensive
-    // part of jsbeeb at this time.
-    // We need need to paint per odd number of frames so that interlace
-    // modes, i.e. MODE 7, still look ok.
-    video.frameSkipCount = 2;
     
-    // We use setTimeout instead of requestAnimationFrame in two cases:
-    // a) We're trying to run as fast as possible.
-    // b) Tape is playing, normal speed but backgrounded tab should run.
-    if (useTimeout) {
-        window.setTimeout(draw, timeout);
-    } else {
-        window.requestAnimationFrame(draw);
-    }
-
-    syncLights();
+    window.requestAnimationFrame(draw);
+   
     if (last !== 0) {
         let cycles;
         if (!speedy) {
@@ -867,7 +757,6 @@ function draw(now) {
                 stop(true);
             }
             const end = performance.now();
-            virtualSpeedUpdater.update(cycles, end - now, speedy);
         } catch (e) {
             running = false;
             utils.noteEvent("exception", "thrown", e.stack);

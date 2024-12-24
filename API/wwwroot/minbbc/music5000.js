@@ -194,14 +194,3 @@ export class Music5000 {
         }
     }
 }
-
-export class FakeMusic5000 {
-    constructor() {
-        this.reset = function () {};
-        this.polltime = function () {};
-        this.read = function () {
-            return 0;
-        };
-        this.write = function () {};
-    }
-}

@@ -155,8 +155,8 @@ export class jrvideo {
     {
         // Screen refresh initialisation
         var fastBlink = (cursorType & 32) == 0;
-        if (++this.flashTime >= (fastBlink ? 8 : 22)) this.flashTime = 0;  // 3:1 flash ratio.
-        this.flashOn = this.flashTime < (fastBlink ? 4 : 9);
+        if (++this.flashTime >= (fastBlink ? 12 : 32)) this.flashTime = 0;  // 3:1 flash ratio.
+        this.flashOn = this.flashTime < (fastBlink ? 6 : 12);
         let charPos = 0;
 
         this.dbl = this.oldDbl = this.secondHalfOfDouble = this.wasDbl = false;
@@ -230,9 +230,8 @@ export class jrvideo {
             let cursorY = Math.floor(cursorPos / 40);
             let cursorX = cursorPos - (cursorY * 40);
 
-            idPtr = cursorY * 4 * 12 * 20 * 40;
-            idPtr += cursorX * 4 * 12;
-            idPtr += (4 * 40 * 12 * 18) + 4;
+            idPtr = (cursorY * 4 * 12 * 20 * 40) + (cursorX * 4 * 12); // Move to start of cursor char
+            idPtr += (4 * 40 * 12 * 18) + 4; // Move down to start cursor line
             for(let i=0; i<22; i++)
             {
                 imgData.data[idPtr] = 255;
@@ -242,7 +241,7 @@ export class jrvideo {
                 
                 if(i == 10)
                 {
-                    idPtr = idPtr + (4 * 39 * 12) + 8;    
+                    idPtr = idPtr + (4 * 39 * 12) + 8; // Move down one row
                 }
                 else
                 { 

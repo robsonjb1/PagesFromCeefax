@@ -56,8 +56,8 @@ const masterSwram = [
 ];
 export const allModels = [
     new Model(
-        "101: Model B",
-        ["B-DFS1.2"],
+        "101: Model B DFS",
+        ["BBCDFS"],
         ["os.rom", "BASIC.ROM", "b/DFS-2.26.rom"],
         true,
         false,
@@ -65,9 +65,9 @@ export const allModels = [
         WD1770
     ),
     new Model(
-        "102: Model B Tube 6502",
-        ["B-DFS1.2Tube"],
-        ["os.rom", "BASIC.ROM", "b/DFS-2.26.rom", "b/ANFS-4.18.rom", "b/ADFS-1.30.rom"],
+        "102: Model B ANFS",
+        ["BBCANFS"],
+        ["os.rom", "BASIC.ROM", "b/DFS-2.26.rom", "b/ANFS-4.18.rom"],
         true,
         false,
         beebSwram,

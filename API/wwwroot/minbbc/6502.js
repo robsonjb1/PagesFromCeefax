@@ -1166,11 +1166,11 @@ export class Cpu6502 extends Base6502 {
         this.teletextAdaptor.polltime(cycles);
         this.music5000.polltime(cycles);
 
-        //let donmi = this.econet.polltime(cycles);
-        //if (donmi && this.econet.econetNMIEnabled) {
-        //    this.NMI(true);
-        //}
-        //this.filestore.polltime(cycles);
+        let donmi = this.econet.polltime(cycles);
+        if (donmi && this.econet.econetNMIEnabled) {
+            this.NMI(true);
+        }
+        this.filestore.polltime(cycles);
     }
 
     execute(numCyclesToRun) {
