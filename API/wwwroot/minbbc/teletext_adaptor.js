@@ -4,7 +4,7 @@ import * as utils from "./utils.js";
 
 // Code ported from Beebem (C to .js) by Jason Robson
 const TELETEXT_IRQ = 5;
-const TELETEXT_UPDATE_FREQ = 45000;
+const TELETEXT_UPDATE_FREQ = 50000;
 
 /*
 
@@ -176,60 +176,63 @@ export class TeletextAdaptor {
     }
 
     update() {
-        if (this.curPos >= this.streamLength) {
-            this.curPos = 0;
-        }
-
-        const offset = this.curPos;//this.currentFrame * TELETEXT_FRAME_SIZE + 2 * 42;
-
-        this.teletextStatus &= 0x0f;
-        this.teletextStatus |= 0xd0; // data ready so latch INT, DOR, and FSYN
-
-        if (this.teletextEnable) {
-            // Copy current stream position into the frame buffer
-            
-            for (let i = 0; i < 4; ++i) {
-                if (this.streamData[offset + i * 42] !== 0) {
-                    this.frameBuffer[i][0] = 0x67;
-                    for (let j = 0; j < 42; j++) {
-                        this.frameBuffer[i][j+1] = this.streamData[offset + (i * 42) + j];
-                    }
-
-                    if((this.frameBuffer[i][1] === 0x15) && (this.frameBuffer[i][2] === 0xEA))      // Signature of the BSDP (magazine 8, packet 30)
-                    {
-                        let timeNow = new Date(Date.now());
-                        this.frameBuffer[i][16] = this.deham(timeNow.getHours());        // Hours
-                        this.frameBuffer[i][17] = this.deham(timeNow.getMinutes());      // Minutes
-                        this.frameBuffer[i][18] = this.deham(timeNow.getSeconds());      // Seconds
-                    
-                        // Date
-                        var today = new Date(); //set any date
-                        var julian = Math.floor((today / 86400000) - (today.getTimezoneOffset() / 1440) + 2440587.5 - 2400000.5);
-                        
-                        // Add one to each digit (quirk of broadcast to avoid runs of all 0's or 1's)
-                        var julian2 = "0";
-                        for(let i=0; i<julian.toString().length; i++) {
-                            julian2 += (parseInt(julian.toString()[i]) + 1).toString()[0];
-                        }
-                        
-                        // Convert BCD
-                        this.frameBuffer[i][13] = Number("0x" + julian2.substring(0, 2));
-                        this.frameBuffer[i][14] = Number("0x" + julian2.substring(2, 4));
-                        this.frameBuffer[i][15] = Number("0x" + julian2.substring(4, 6));
-                    }
-
-                } else {
-                    this.frameBuffer[i][0] = 0x00;
-                }
-
+        if(this.streamLength > 0)
+        {
+            if (this.curPos >= this.streamLength) {
+                this.curPos = 0;
             }
+
+            const offset = this.curPos;//this.currentFrame * TELETEXT_FRAME_SIZE + 2 * 42;
+
+            this.teletextStatus &= 0x0f;
+            this.teletextStatus |= 0xd0; // data ready so latch INT, DOR, and FSYN
+
+            if (this.teletextEnable) {
+                // Copy current stream position into the frame buffer
+                
+                for (let i = 0; i < 4; ++i) {
+                    if (this.streamData[offset + i * 42] !== 0) {
+                        this.frameBuffer[i][0] = 0x67;
+                        for (let j = 0; j < 42; j++) {
+                            this.frameBuffer[i][j+1] = this.streamData[offset + (i * 42) + j];
+                        }
+
+                        if((this.frameBuffer[i][1] === 0x15) && (this.frameBuffer[i][2] === 0xEA))      // Signature of the BSDP (magazine 8, packet 30)
+                        {
+                            let timeNow = new Date(Date.now());
+                            this.frameBuffer[i][16] = this.deham(timeNow.getHours());        // Hours
+                            this.frameBuffer[i][17] = this.deham(timeNow.getMinutes());      // Minutes
+                            this.frameBuffer[i][18] = this.deham(timeNow.getSeconds());      // Seconds
+                        
+                            // Date
+                            var today = new Date(); //set any date
+                            var julian = Math.floor((today / 86400000) - (today.getTimezoneOffset() / 1440) + 2440587.5 - 2400000.5);
+                            
+                            // Add one to each digit (quirk of broadcast to avoid runs of all 0's or 1's)
+                            var julian2 = "0";
+                            for(let i=0; i<julian.toString().length; i++) {
+                                julian2 += (parseInt(julian.toString()[i]) + 1).toString()[0];
+                            }
+                            
+                            // Convert BCD
+                            this.frameBuffer[i][13] = Number("0x" + julian2.substring(0, 2));
+                            this.frameBuffer[i][14] = Number("0x" + julian2.substring(2, 4));
+                            this.frameBuffer[i][15] = Number("0x" + julian2.substring(4, 6));
+                        }
+
+                    } else {
+                        this.frameBuffer[i][0] = 0x00;
+                    }
+
+                }
+            }
+        
+            this.currentFrame++;
+            this.curPos = this.curPos + (42 * 4);
+
+            this.rowPtr = 0x00;
+            this.colPtr = 0x00;
         }
-
-        this.currentFrame++;
-        this.curPos = this.curPos + (42 * 4);
-
-        this.rowPtr = 0x00;
-        this.colPtr = 0x00;
 
         if (this.teletextInts) {
             this.cpu.interrupt |= 1 << TELETEXT_IRQ;

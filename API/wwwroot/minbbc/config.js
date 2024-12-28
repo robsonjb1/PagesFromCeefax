@@ -71,7 +71,7 @@ export class Config {
         enabled = !!enabled;
         $("#hasTeletextAdaptor").prop("checked", enabled);
         this.model.hasTeletextAdaptor = enabled;
-        this.addRemoveROM("ats-3.0.rom", enabled);
+        this.addRemoveROM("ATS-3.0.rom", enabled);
     }
 
     setDropdownText(modelName) {
