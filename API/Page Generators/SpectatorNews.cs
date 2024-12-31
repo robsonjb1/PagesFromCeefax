@@ -20,7 +20,7 @@ public class SpectatorNews : ISpectatorNews
     public string Generate()
     {
         const int maxArticles = 50;
-        const int maxImageSize = 2*1024*1024; // 2mb limit on image sizes;
+        const int maxImageSize = 1*1024*1024; // 2mb limit on image sizes;
        
         // Header
         StringBuilder c = new StringBuilder();

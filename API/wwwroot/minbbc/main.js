@@ -46,6 +46,7 @@ let stepEmuWhenPaused = false;
 let audioFilterFreq = 7000;
 let audioFilterQ = 5;
 let stationId = 101;
+let selectedDrive = 0;
 
 if (queryString) {
     queryString.split("&").forEach(function (keyval) {
@@ -330,10 +331,27 @@ function keyDown(evt) {
         // window in addition to passing the keypress along to the beeb.
         processor.sysvia.keyDown(keyCode(evt), evt.shiftKey);
         evt.preventDefault();
+    } else if (code === utils.keyCodes.K1 && evt.ctrlKey) {
+        selectedDrive = 0;
+    } else if (code === utils.keyCodes.K2 && evt.ctrlKey) {
+        selectedDrive = 1;
+    } else if (code === utils.keyCodes.D && evt.ctrlKey) {
+        const a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+   
+        const blob = new Blob([processor.fdc.drives[selectedDrive].data], {
+                type: "application/octet-stream",
+            }),
+            url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = processor.fdc.drives[selectedDrive].name;
+        a.click();
+        window.URL.revokeObjectURL(url);
     } else {
         processor.sysvia.keyDown(keyCode(evt), evt.shiftKey);
         evt.preventDefault();
-    }
+    } 
 }
 
 function keyUp(evt) {
@@ -522,6 +540,9 @@ function updateUrl() {
 const $errorDialog = $("#error-dialog");
 
 function showError(context, error) {
+    console.log(context);
+    console.log(error);
+    
     $errorDialog.find(".context").text(context);
     $errorDialog.find(".error").text(error);
     $errorDialogModal.show();
@@ -672,6 +693,28 @@ $("#soft-reset").click(function (event) {
 function guessModelFromUrl() {
     return "BBCDFS";
 }
+
+document.addEventListener('dragover', (e) => {
+    e.preventDefault()
+});
+document.addEventListener('drop', (e) => {
+    e.preventDefault();    
+   
+    const reader = new FileReader();
+    const fileName = e.dataTransfer.files[0].name;
+    reader.readAsArrayBuffer(e.dataTransfer.files[0]);
+    reader.onload = function (event) {
+        // Either load a .t42 teletext stream, or a disk image into drive 1
+        if(fileName.toUpperCase().endsWith(".T42"))
+        {
+            processor.teletextAdaptor.loadUserChannelStream(fileName, event.target.result);
+        }
+        else
+        {
+            processor.fdc.loadDisc(selectedDrive, disc.discFor(processor.fdc, fileName, new Uint8Array(event.target.result)));
+        }
+    };    
+})
 
 const startPromise = Promise.all([audioHandler.initialise(), processor.initialise()]).then(function () {
     // Ideally would start the loads first. But their completion needs the FDC from the processor

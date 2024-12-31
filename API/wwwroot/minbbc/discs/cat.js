@@ -5,7 +5,12 @@ export function starCat() {
         {
             name: "Music 5000 (DFS)",
             desc: "The Music 5000 system disk and demo songs.",
-            file: "5000mstr36008.ssd",
+            file: "Music5000.dsd",
+        },
+        {
+            name: "Data",
+            desc: "Data",
+            file: "Data.dsd",
         },
         {
             name: "BBC Welcome (DFS)",

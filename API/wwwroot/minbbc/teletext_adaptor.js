@@ -40,8 +40,6 @@ export class TeletextAdaptor {
         this.teletextInts = false;
         this.teletextEnable = false;
         this.channel = 0;
-        this.currentFrame = 0;
-        this.totalFrames = 0;
         this.rowPtr = 0x00;
         this.colPtr = 0x00;
         this.frameBuffer = new Array(16).fill(0).map(() => new Array(64).fill(0));
@@ -49,22 +47,35 @@ export class TeletextAdaptor {
         this.pollCount = 0;
         this.curPos = 0;
         this.streamLength = 0;
+        this.linesPerFrame = 16;
     }
 
     reset(hard) {
         if (hard) {
             console.log("Teletext adaptor: initialisation");
-            this.loadChannelStream(this.channel);
+            this.loadDefaultChannelStream();
         }
     }
 
-    loadChannelStream(channel) {
-        console.log("Teletext adaptor: switching to channel " + channel);
+    loadUserChannelStream(filename, data) {
+        console.log("Teletext adaptor: loading channel stream " + filename + ", size " + data.byteLength);
+      
+        this.streamData = new Uint8Array(data);
+        this.streamLength = data.byteLength;
+        this.curPos = 0;
+        this.linesPerFrame = filename.toUpperCase().includes(".F4.") ? 4 : filename.toUpperCase().includes(".F6.") ? 6 : filename.toUpperCase().includes(".F8.") ? 8 : 16;
+    }
+
+    loadDefaultChannelStream() {
+        const filename="BBC1 2006-01-22.t42";    // The default feed
+        console.log("Teletext adaptor: loading default channel stream " + filename);
+
         const teletextRef = this;
-        utils.loadData("teletext/txt" + channel + ".dat").then(function (data) {
+        utils.loadData("teletext/" + filename).then(function (data) {
             teletextRef.streamData = data;
             teletextRef.streamLength = data.length;
-            teletextRef.curPos = 42*7500;
+            teletextRef.curPos = 0;
+            teletextRef.linesPerFrame = 16;
         });
     }
 
@@ -101,8 +112,8 @@ export class TeletextAdaptor {
                 }
                 this.teletextEnable = (value & 0x04) === 0x04;
                 if ((value & 0x03) !== this.channel && this.teletextEnable) {
+                    // Don't actually change channel, just store
                     this.channel = value & 0x03;
-                    this.loadChannelStream(this.channel);
                 }
                 break;
 
@@ -137,7 +148,7 @@ export class TeletextAdaptor {
         }
     }
 
-
+/*
     deham(char)
     {
         let i = parseInt(char);
@@ -174,6 +185,7 @@ export class TeletextAdaptor {
         
         return 0;
     }
+*/
 
     update() {
         if(this.streamLength > 0)
@@ -189,49 +201,52 @@ export class TeletextAdaptor {
 
             if (this.teletextEnable) {
                 // Copy current stream position into the frame buffer
-                
-                for (let i = 0; i < 4; ++i) {
-                    if (this.streamData[offset + i * 42] !== 0) {
-                        this.frameBuffer[i][0] = 0x67;
-                        for (let j = 0; j < 42; j++) {
-                            this.frameBuffer[i][j+1] = this.streamData[offset + (i * 42) + j];
-                        }
-
-                        if((this.frameBuffer[i][1] === 0x15) && (this.frameBuffer[i][2] === 0xEA))      // Signature of the BSDP (magazine 8, packet 30)
-                        {
-                            let timeNow = new Date(Date.now());
-                            this.frameBuffer[i][16] = this.deham(timeNow.getHours());        // Hours
-                            this.frameBuffer[i][17] = this.deham(timeNow.getMinutes());      // Minutes
-                            this.frameBuffer[i][18] = this.deham(timeNow.getSeconds());      // Seconds
-                        
-                            // Date
-                            var today = new Date(); //set any date
-                            var julian = Math.floor((today / 86400000) - (today.getTimezoneOffset() / 1440) + 2440587.5 - 2400000.5);
-                            
-                            // Add one to each digit (quirk of broadcast to avoid runs of all 0's or 1's)
-                            var julian2 = "0";
-                            for(let i=0; i<julian.toString().length; i++) {
-                                julian2 += (parseInt(julian.toString()[i]) + 1).toString()[0];
-                            }
-                            
-                            // Convert BCD
-                            this.frameBuffer[i][13] = Number("0x" + julian2.substring(0, 2));
-                            this.frameBuffer[i][14] = Number("0x" + julian2.substring(2, 4));
-                            this.frameBuffer[i][15] = Number("0x" + julian2.substring(4, 6));
-                        }
-
-                    } else {
-                        this.frameBuffer[i][0] = 0x00;
+                for (let i = 0; i < this.linesPerFrame; i++) {
+                    this.frameBuffer[i][0] = 0x67;
+                    for (let j = 0; j < 42; j++) {
+                        this.frameBuffer[i][j+1] = this.streamData[offset + (i * 42) + j];
                     }
 
+                    /*
+                    if((this.frameBuffer[i][1] === 0x15) && (this.frameBuffer[i][2] === 0xEA))      // Signature of the BSDP (magazine 8, packet 30)
+                    {
+                        let timeNow = new Date(Date.now());
+                        this.frameBuffer[i][16] = this.deham(timeNow.getHours());        // Hours
+                        this.frameBuffer[i][17] = this.deham(timeNow.getMinutes());      // Minutes
+                        this.frameBuffer[i][18] = this.deham(timeNow.getSeconds());      // Seconds
+                    
+                        // Date
+                        var today = new Date(); //set any date
+                        var julian = Math.floor((today / 86400000) - (today.getTimezoneOffset() / 1440) + 2440587.5 - 2400000.5);
+                        
+                        // Add one to each digit (quirk of broadcast to avoid runs of all 0's or 1's)
+                        var julian2 = "0";
+                        for(let i=0; i<julian.toString().length; i++) {
+                            julian2 += (parseInt(julian.toString()[i]) + 1).toString()[0];
+                        }
+                        
+                        // Convert BCD
+                        this.frameBuffer[i][13] = Number("0x" + julian2.substring(0, 2));
+                        this.frameBuffer[i][14] = Number("0x" + julian2.substring(2, 4));
+                        this.frameBuffer[i][15] = Number("0x" + julian2.substring(4, 6));
+                    }
+                    */
                 }
-            }
-        
-            this.currentFrame++;
-            this.curPos = this.curPos + (42 * 4);
 
-            this.rowPtr = 0x00;
-            this.colPtr = 0x00;
+                if(this.linesPerFrame < 16)
+                {
+                    for (let i=this.linesPerFrame; i < 16; i++)
+                    {
+                        this.frameBuffer[i][0] = 0;
+                    }
+                }
+
+                this.currentFrame++;
+                this.curPos = this.curPos + (42 * this.linesPerFrame);
+
+                this.rowPtr = 0x00;
+                this.colPtr = 0x00;
+            }
         }
 
         if (this.teletextInts) {
