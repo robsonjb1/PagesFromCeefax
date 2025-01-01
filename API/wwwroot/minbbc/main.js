@@ -326,11 +326,6 @@ function keyDown(evt) {
         utils.noteEvent("keyboard", "press", "break");
         processor.setReset(true);
         evt.preventDefault();
-    } else if (code === utils.keyCodes.B && evt.ctrlKey) {
-        // Ctrl-B turns on the printer, so we open a printer output
-        // window in addition to passing the keypress along to the beeb.
-        processor.sysvia.keyDown(keyCode(evt), evt.shiftKey);
-        evt.preventDefault();
     } else if (code === utils.keyCodes.K1 && evt.ctrlKey) {
         selectedDrive = 0;
     } else if (code === utils.keyCodes.K2 && evt.ctrlKey) {
@@ -348,8 +343,14 @@ function keyDown(evt) {
         a.download = processor.fdc.drives[selectedDrive].name;
         a.click();
         window.URL.revokeObjectURL(url);
+    } else if (code === utils.keyCodes.B && evt.ctrlKey) {
+        processor.setReset(true);
+        evt.preventDefault();
+    } else if (code === utils.keyCodes.E && evt.ctrlKey) {
+        processor.sysvia.keyDown(utils.keyCodes.ESCAPE, evt.shiftKey);
+        evt.preventDefault();
     } else {
-        processor.sysvia.keyDown(keyCode(evt), evt.shiftKey);
+        processor.sysvia.keyDown(code, evt.shiftKey);
         evt.preventDefault();
     } 
 }
@@ -357,7 +358,11 @@ function keyDown(evt) {
 function keyUp(evt) {
     if (document.activeElement.id === "paste-text") return;
     // Always let the key ups come through. That way we don't cause sticky keys in the debugger.
-    const code = keyCode(evt);
+    let code = keyCode(evt);
+    if(code === utils.keyCodes.E && evt.ctrlKey)
+    {
+        code = utils.keyCodes.ESCAPE;
+    }
     if (processor && processor.sysvia) processor.sysvia.keyUp(code);
     if (!running) return;
     if (evt.altKey) {
@@ -366,7 +371,7 @@ function keyUp(evt) {
             handler(false, code);
             evt.preventDefault();
         }
-    } else if (code === utils.keyCodes.F12 || code === utils.keyCodes.BREAK) {
+    } else if (code === utils.keyCodes.F12 || code === utils.keyCodes.BREAK || (code === utils.keyCodes.B && evt.ctrlKey )) {
         processor.setReset(false);
     }
     evt.preventDefault();
