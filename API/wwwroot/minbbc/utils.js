@@ -794,12 +794,7 @@ export function bench() {
 }
 
 export function noteEvent(category, type, label) {
-    if (!runningInNode && window.location.origin === "https://bbc.godbolt.org") {
-        // Only note events on the public site
-        /*global ga*/
-        ga("send", "event", category, type, label);
-    }
-    console.log("event noted:", category, type, label);
+    console.log("Event noted:", category);
 }
 
 let baseUrl = "";

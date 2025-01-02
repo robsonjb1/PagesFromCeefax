@@ -2,13 +2,10 @@ import * as utils from "./utils.js";
 import { Video } from "./video.js";
 import { Debugger } from "./web/debug.js";
 import { Cpu6502 } from "./6502.js";
-import { Cmos } from "./cmos.js";
 import * as disc from "./fdc.js";
 import { starCat } from "./discs/cat.js";
-import * as canvasLib from "./canvas.js";
 import { Config } from "./config.js";
 import { AudioHandler } from "./web/audio-handler.js";
-import { Econet } from "./econet.js";
 import { jrvideo } from "./js/video.js";
 
 let processor;
@@ -142,7 +139,6 @@ const config = new Config();
 config.setModel(parsedQuery.model || guessModelFromUrl());
 config.setKeyLayout(keyLayout);
 config.set65c02(parsedQuery.coProcessor);
-config.setEconet(true);
 config.setTeletext(true);
 config.setMusic5000(true);
 
@@ -291,16 +287,6 @@ function keyPress(evt) {
     if (handled) evt.preventDefault();
 }
 
-emuKeyHandlers[utils.keyCodes.S] = function (down) {
-    if (down) {
-        utils.noteEvent("keyboard", "press", "S");
-        stop(true);
-    }
-};
-emuKeyHandlers[utils.keyCodes.R] = function (down) {
-    if (down) window.location.reload();
-};
-
 function keyDown(evt) {
     audioHandler.tryResume();
     if (document.activeElement.id === "paste-text") return;
@@ -312,25 +298,18 @@ function keyDown(evt) {
             handler(true, code);
             evt.preventDefault();
         }
-    } else if (code === utils.keyCodes.HOME && evt.ctrlKey) {
-        utils.noteEvent("keyboard", "press", "home");
-        stop(true);
-    } else if (code === utils.keyCodes.INSERT && evt.ctrlKey) {
-        utils.noteEvent("keyboard", "press", "insert");
-        fastAsPossible = !fastAsPossible;
-    } else if (code === utils.keyCodes.END && evt.ctrlKey) {
-        utils.noteEvent("keyboard", "press", "end");
-        pauseEmu = true;
-        stop(false);
     } else if (code === utils.keyCodes.F12 || code === utils.keyCodes.BREAK) {
-        utils.noteEvent("keyboard", "press", "break");
+        utils.noteEvent("BREAK pressed");
         processor.setReset(true);
         evt.preventDefault();
     } else if (code === utils.keyCodes.K1 && evt.ctrlKey) {
+        utils.noteEvent("Drive 0 selected");
         selectedDrive = 0;
     } else if (code === utils.keyCodes.K2 && evt.ctrlKey) {
+        utils.noteEvent("Drive 1 selected");
         selectedDrive = 1;
     } else if (code === utils.keyCodes.D && evt.ctrlKey) {
+        utils.noteEvent("Downloading contents of drive " + selectedDrive);
         const a = document.createElement("a");
         document.body.appendChild(a);
         a.style = "display: none";
@@ -344,10 +323,12 @@ function keyDown(evt) {
         a.click();
         window.URL.revokeObjectURL(url);
     } else if (code === utils.keyCodes.B && evt.ctrlKey) {
+        utils.noteEvent("User initiated CTRL+BREAK");
         processor.setReset(true);
         evt.preventDefault();
     } else if (code === utils.keyCodes.E && evt.ctrlKey) {
         processor.sysvia.keyDown(utils.keyCodes.ESCAPE, evt.shiftKey);
+        utils.noteEvent("User initiated ESCAPE");
         evt.preventDefault();
     } else {
         processor.sysvia.keyDown(code, evt.shiftKey);
@@ -420,41 +401,13 @@ document.onkeydown = keyDown;
 document.onkeypress = keyPress;
 document.onkeyup = keyUp;
 
-window.onbeforeunload = function () {
-    if (running && processor.sysvia.hasAnyKeyDown()) {
-        return (
-            "It seems like you're still using the emulator. If you're in Chrome, it's impossible for jsbeeb to prevent some shortcuts (like ctrl-W) from performing their default behaviour (e.g. closing the window).\n" +
-            "As a workarond, create an 'Application Shortcut' from the Tools menu.  When jsbeeb runs as an application, it *can* prevent ctrl-W from closing the window."
-        );
-    }
-};
-
-const econet = new Econet(stationId);
-const cmos = new Cmos(
-    {
-        load: function () {
-            if (window.localStorage.cmosRam) {
-                return JSON.parse(window.localStorage.cmosRam);
-            }
-            return null;
-        },
-        save: function (data) {
-            window.localStorage.cmosRam = JSON.stringify(data);
-        },
-    },
-    model.cmosOverride,
-    econet
-);
-
 processor = new Cpu6502(
     model,
     dbgr,
     video,
     audioHandler.soundChip,
     model.hasMusic5000 ? audioHandler.music5000 : null,
-    cmos,
-    emulationConfig,
-    econet
+    emulationConfig
 );
 
 function sendRawKeyboardToBBC(keysToSend, checkCapsAndShiftLocks) {
@@ -602,22 +555,6 @@ function loadDiscImage(discImage) {
     });
 }
 
-$("#disc_load").on("change", function (evt) {
-    if (evt.target.files.length === 0) return;
-    utils.noteEvent("local", "click"); // NB no filename here
-    const file = evt.target.files[0];
-    loadHTMLFile(file);
-    evt.target.value = ""; // clear so if the user picks the same file again after a reset we get a "change"
-});
-
-$("#fs_load").on("change", function (evt) {
-    if (evt.target.files.length === 0) return;
-    utils.noteEvent("local", "click"); // NB no filename here
-    const file = evt.target.files[0];
-    loadSCSIFile(file);
-    evt.target.value = ""; // clear so if the user picks the same file again after a reset we get a "change"
-});
-
 function anyModalsVisible() {
     return $(".modal:visible").length !== 0;
 }
@@ -672,19 +609,6 @@ $("#download-drive-link").on("click", function () {
     window.URL.revokeObjectURL(url);
 });
 
-$("#download-filestore-link").on("click", function () {
-    const a = document.createElement("a");
-    document.body.appendChild(a);
-    a.style = "display: none";
-
-    const blob = new Blob([processor.filestore.scsi], { type: "application/octet-stream" }),
-        url = window.URL.createObjectURL(blob);
-    a.href = url;
-    a.download = "scsi.dat";
-    a.click();
-    window.URL.revokeObjectURL(url);
-});
-
 $("#hard-reset").click(function (event) {
     processor.reset(true);
     event.preventDefault();
@@ -716,7 +640,7 @@ document.addEventListener('drop', (e) => {
         }
         else
         {
-            processor.fdc.loadDisc(selectedDrive, disc.discFor(processor.fdc, fileName, new Uint8Array(event.target.result)));
+            processor.fdc.loadDisc(selectedDrive, disc.discFor(processor.fdc, fileName, new Uint8Array(event.target.result)), fileName);
         }
     };    
 })
@@ -727,13 +651,13 @@ const startPromise = Promise.all([audioHandler.initialise(), processor.initialis
     if (discImage)
         imageLoads.push(
             loadDiscImage(discImage).then(function (disc) {
-                processor.fdc.loadDisc(0, disc);
+                processor.fdc.loadDisc(0, disc, discImage);
             })
         );
     if (secondDiscImage)
         imageLoads.push(
             loadDiscImage(secondDiscImage).then(function (disc) {
-                processor.fdc.loadDisc(1, disc);
+                processor.fdc.loadDisc(1, disc, secondDiscImage);
             })
         );
 
@@ -777,8 +701,7 @@ function draw(now) {
         now = window.performance.now();
     }
 
-    const motorOn = processor.acia.motorOn;
-    const speedy = fastAsPossible || (fastTape && motorOn);
+    const speedy = fastAsPossible;
     
     window.requestAnimationFrame(draw);
    
@@ -800,7 +723,7 @@ function draw(now) {
             const end = performance.now();
         } catch (e) {
             running = false;
-            utils.noteEvent("exception", "thrown", e.stack);
+            utils.noteEvent(e.stack);
             dbgr.debug(processor.pc);
             throw e;
         }

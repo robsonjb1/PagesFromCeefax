@@ -415,7 +415,7 @@ function via(cpu, irq) {
     return self;
 }
 
-export function SysVia(cpu, video, soundChip, cmos, isMaster, initialLayout, getGamepads) {
+export function SysVia(cpu, video, soundChip, isMaster, initialLayout, getGamepads) {
     const self = via(cpu, 0x01);
 
     self.IC32 = 0;
@@ -555,8 +555,6 @@ export function SysVia(cpu, video, soundChip, cmos, isMaster, initialLayout, get
 
         video.setScreenAdd((self.IC32 & 16 ? 2 : 0) | (self.IC32 & 32 ? 1 : 0));
 
-        if (isMaster) cmos.writeControl(portbpins, self.portapins, self.IC32);
-
         // Updating IC32 may have enabled peripherals attached to port A.
         self.recalculatePortAPins();
     };
@@ -567,7 +565,6 @@ export function SysVia(cpu, video, soundChip, cmos, isMaster, initialLayout, get
         // If either keyboard or CMOS pulls a given pin low, it "wins"
         // vs. via output.
         let busval = 0xff;
-        if (isMaster) busval &= cmos.read(self.IC32);
         self.portapins &= busval;
         self.updateKeys();
     };

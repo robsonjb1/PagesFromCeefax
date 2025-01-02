@@ -2,13 +2,8 @@
 import * as utils from "./utils.js";
 import * as opcodes from "./6502.opcodes.js";
 import * as via from "./via.js";
-import { Acia } from "./acia.js";
-import { Serial } from "./serial.js";
-import { Tube } from "./tube.js";
-import { Adc } from "./adc.js";
 import { Scheduler } from "./scheduler.js";
 import { TeletextAdaptor } from "./teletext_adaptor.js";
-import { Filestore } from "./filestore.js";
 
 const signExtend = utils.signExtend;
 
@@ -356,92 +351,6 @@ class Base6502 {
     }
 }
 
-class Tube6502 extends Base6502 {
-    constructor(model, cpu) {
-        super(model);
-
-        this.cycles = 0;
-        this.romPaged = true;
-        this.memory = new Uint8Array(65536);
-        this.rom = new Uint8Array(4096);
-        this.p = new Flags();
-
-        this.tube = new Tube(cpu, this);
-    }
-    reset(hard) {
-        this.romPaged = true;
-        this.pc = this.readmem(0xfffc) | (this.readmem(0xfffd) << 8);
-        this.p.i = true;
-        this.tube.reset(hard);
-    }
-    readmem(offset) {
-        if ((offset & 0xfff8) === 0xfef8) {
-            if ((offset & 7) === 0) {
-                this.romPaged = false;
-            }
-            return this.tube.parasiteRead(offset);
-        }
-        if (this.romPaged && (offset & 0xf000) === 0xf000) {
-            return this.rom[offset & 0xfff];
-        }
-        return this.memory[offset & 0xffff];
-    }
-    readmemZpStack(offset) {
-        return this.memory[offset & 0xffff];
-    }
-    writemem(addr, b) {
-        if ((addr & 0xfff8) === 0xfef8) {
-            return this.tube.parasiteWrite(addr, b);
-        }
-        this.memory[addr & 0xffff] = b;
-    }
-    writememZpStack(addr, b) {
-        this.memory[addr & 0xffff] = b;
-    }
-    polltime(cycles) {
-        this.cycles -= cycles;
-    }
-    polltimeAddr(cycles) {
-        this.polltime(cycles);
-    }
-    read(addr) {
-        return this.tube.hostRead(addr);
-    }
-    write(addr, b) {
-        this.tube.hostWrite(addr, b);
-    }
-    execute(cycles) {
-        this.cycles += cycles * 2;
-        if (this.cycles < 3) return;
-        while (this.cycles > 0) {
-            const opcode = this.readmem(this.pc);
-            this.incpc();
-            this.runner.run(opcode);
-            if (this.takeInt) this.brk(true);
-        }
-    }
-    async loadOs() {
-        console.log("Loading tube rom from roms/" + this.model.os);
-        const tubeRom = this.rom;
-        const data = await utils.loadData("roms/" + this.model.os);
-        const len = data.length;
-
-        let offset = this.model.name === "Tube65c102" ? 0 : 2048;
-        for (let i = 0; i < len; ++i) {
-            tubeRom[i + offset] = data[i];
-        }
-    }
-}
-
-class FakeTube {
-    read() {
-        return 0xfe;
-    }
-    write() {}
-    execute() {}
-    reset() {}
-}
-
 class FakeUserPort {
     write() {}
     read() {
@@ -500,10 +409,9 @@ class DebugHook {
 }
 
 export class Cpu6502 extends Base6502 {
-    constructor(model, dbgr, video_, soundChip_, music5000_, cmos, config, econet_) {
+    constructor(model, dbgr, video_, soundChip_, music5000_, config) {
         super(model);
         this.config = fixUpConfig(config);
-        this.cmos = cmos;
         this.debugger = dbgr;
 
         this.video = video_;
@@ -529,10 +437,8 @@ export class Cpu6502 extends Base6502 {
         this.cpuMultiplier = this.config.cpuMultiplier;
         this.videoCyclesBatch = this.config.videoCyclesBatch | 0;
         this.peripheralCyclesPerSecond = 2 * 1000 * 1000;
-        this.tube = model.tube ? new Tube6502(model.tube, this) : new FakeTube();
         this.JimPageSel = 0;
-        this.econet = econet_;
-
+       
         this.peripheralCycles = 0;
         this.videoCycles = 0;
 
@@ -663,23 +569,6 @@ export class Cpu6502 extends Base6502 {
         return addr >= 0xfc00 && addr < 0xff00 && (addr < 0xfe00 || this.FEslowdown[(addr >>> 5) & 7]);
     }
 
-    handleEconetStationId() {
-        this.econet.econetNMIEnabled = false;
-        return this.econet.stationId;
-    }
-
-    handleEconetNMIEnable() {
-        if (!this.econet.econetNMIEnabled) {
-            // was off
-            this.econet.econetNMIEnabled = true;
-            if (this.econet.ADLC.status1 & 128) {
-                // irq pending
-                this.NMI(true); // delayed NMI asserted
-            }
-        }
-        return 0xff;
-    }
-
     readDevice(addr) {
         if (this.model.isMaster && this.acccon & 0x40) {
             // TST bit of ACCCON
@@ -694,24 +583,6 @@ export class Cpu6502 extends Base6502 {
 
             if ((this.JimPageSel & 0xf0) === 0x30 && (addr & 0xff00) === 0xfd00) {
                 return this.music5000.read(this.JimPageSel, addr);
-            }
-        }
-
-        if (this.econet) {
-            if ((!this.model.isMaster && addr === 0xfe20) || (this.model.isMaster && addr === 0xfe3c)) {
-                if (!this.econet.econetNMIEnabled) {
-                    // was off
-                    this.econet.econetNMIEnabled = true;
-                    if (this.econet.ADLC.status1 & 128) {
-                        // irq pending
-                        this.NMI(true); // delayed NMI asserted
-                    }
-                }
-            }
-
-            if ((!this.model.isMaster && addr === 0xfe18) || (this.model.isMaster && addr === 0xfe38)) {
-                this.econet.econetNMIEnabled = false;
-                return this.econet.stationId;
             }
         }
 
@@ -744,14 +615,15 @@ export class Cpu6502 extends Base6502 {
                 return this.crtc.read(addr);
             case 0xfe08:
             case 0xfe0c:
-                return this.acia.read(addr);
+            //    return this.acia.read(addr);
             case 0xfe10:
             case 0xfe14:
-                return this.serial.read(addr);
+            //    return this.serial.read(addr);
             case 0xfe18:
-                return this.model.isMaster ? this.adconverter.read(addr) : this.handleEconetStationId();
+            //   return this.model.isMaster ? this.adconverter.read(addr) : this.handleEconetStationId();
+                return 42;
             case 0xfe20:
-                if (!this.model.isMaster) return this.handleEconetNMIEnable();
+            //    if (!this.model.isMaster) return this.handleEconetNMIEnable();
                 break;
             case 0xfe24:
             case 0xfe28:
@@ -764,10 +636,10 @@ export class Cpu6502 extends Base6502 {
                 if (this.model.isMaster) return this.acccon;
                 break;
             case 0xfe38:
-                if (this.model.isMaster) return this.handleEconetStationId();
+            //    if (this.model.isMaster) return this.handleEconetStationId();
                 break;
             case 0xfe3c:
-                if (this.model.isMaster) return this.handleEconetNMIEnable();
+            //    if (this.model.isMaster) return this.handleEconetNMIEnable();
                 break;
             case 0xfe40:
             case 0xfe44:
@@ -798,10 +670,6 @@ export class Cpu6502 extends Base6502 {
                 if (!this.model.isMaster) return this.fdc.read(addr);
                 break;
             case 0xfea0:
-                // Econet status register
-                if (this.econet) {
-                    return this.econet.readRegister(addr & 3);
-                }
                 break;
             case 0xfec0:
             case 0xfec4:
@@ -811,7 +679,7 @@ export class Cpu6502 extends Base6502 {
             case 0xfed4:
             case 0xfed8:
             case 0xfedc:
-                if (!this.model.isMaster) return this.adconverter.read(addr);
+//                if (!this.model.isMaster) return this.adconverter.read(addr);
                 break;
             case 0xfee0:
             case 0xfee4:
@@ -821,7 +689,7 @@ export class Cpu6502 extends Base6502 {
             case 0xfef4:
             case 0xfef8:
             case 0xfefc:
-                return this.tube.read(addr);
+//                return this.tube.read(addr);
         }
         if (addr >= 0xfc00 && addr < 0xfe00) return 0xff;
         return addr >>> 8;
@@ -881,13 +749,6 @@ export class Cpu6502 extends Base6502 {
             }
         }
 
-        if (this.econet) {
-            if (addr >= 0xfea0 && addr < 0xfebf) {
-                this.econet.writeRegister(addr & 3, b);
-                return;
-            }
-        }
-
         switch (addr & ~0x0003) {
             case 0xfc10:
                 if (this.model.hasTeletextAdaptor) return this.teletextAdaptor.write(addr - 0xfc10, b);
@@ -917,13 +778,13 @@ export class Cpu6502 extends Base6502 {
                 return this.crtc.write(addr, b);
             case 0xfe08:
             case 0xfe0c:
-                return this.acia.write(addr, b);
+            //    return this.acia.write(addr, b);
             case 0xfe10:
             case 0xfe14:
-                return this.serial.write(addr, b);
+            //    return this.serial.write(addr, b);
             case 0xfe18:
-                if (this.model.isMaster) return this.adconverter.write(addr, b);
-                if (!this.model.isMaster && this.econet) this.econet.econetNMIEnabled = false;
+            //    if (this.model.isMaster) return this.adconverter.write(addr, b);
+            //    if (!this.model.isMaster && this.econet) this.econet.econetNMIEnabled = false;
                 break;
             case 0xfe20:
                 return this.ula.write(addr, b);
@@ -946,7 +807,7 @@ export class Cpu6502 extends Base6502 {
                 }
                 return this.romSelect(b);
             case 0xfe38:
-                if (this.model.isMaster && this.econet) this.econet.econetNMIEnabled = false;
+            //    if (this.model.isMaster && this.econet) this.econet.econetNMIEnabled = false;
                 break;
             case 0xfe3c:
                 if (!this.model.isMaster) {
@@ -989,7 +850,7 @@ export class Cpu6502 extends Base6502 {
             case 0xfed4:
             case 0xfed8:
             case 0xfedc:
-                if (!this.model.isMaster) return this.adconverter.write(addr, b);
+            //    if (!this.model.isMaster) return this.adconverter.write(addr, b);
                 break;
             case 0xfee0:
             case 0xfee4:
@@ -999,7 +860,7 @@ export class Cpu6502 extends Base6502 {
             case 0xfef4:
             case 0xfef8:
             case 0xfefc:
-                return this.tube.write(addr, b);
+            //    return this.tube.write(addr, b);
         }
     }
 
@@ -1101,25 +962,19 @@ export class Cpu6502 extends Base6502 {
                 this,
                 this.video,
                 this.soundChip,
-                this.cmos,
                 this.model.isMaster,
                 this.config.keyLayout,
                 this.config.getGamepads
             );
             this.uservia = via.UserVia(this, this.model.isMaster, this.config.userPort);
             if (this.config.printerPort) this.uservia.ca2changecallback = this.config.printerPort.outputStrobe;
-            this.acia = new Acia(this, this.soundChip.toneGenerator, this.scheduler, this.touchScreen);
-            this.serial = new Serial(this.acia);
             this.fdc = new this.model.Fdc(this, this.scheduler);
             this.crtc = this.video.crtc;
             this.ula = this.video.ula;
-            this.adconverter = new Adc(this.sysvia, this.scheduler);
             this.teletextAdaptor = new TeletextAdaptor(this);
-            this.filestore = new Filestore(this, this.econet);
             this.sysvia.reset(hard);
             this.uservia.reset(hard);
         }
-        this.tube.reset(hard);
         if (hard) {
             this.targetCycles = 0;
             this.currentCycles = 0;
@@ -1136,10 +991,6 @@ export class Cpu6502 extends Base6502 {
         this.music5000.reset(hard);
         if (hard) {
             this.soundChip.reset(hard);
-            if (this.econet) {
-                this.econet.reset();
-                this.filestore.reset();
-            }
         }
     }
 
@@ -1162,15 +1013,8 @@ export class Cpu6502 extends Base6502 {
         this.sysvia.polltime(cycles);
         this.uservia.polltime(cycles);
         this.scheduler.polltime(cycles);
-        //this.tube.execute(cycles);
         this.teletextAdaptor.polltime(cycles);
         this.music5000.polltime(cycles);
-
-        let donmi = this.econet.polltime(cycles);
-        if (donmi && this.econet.econetNMIEnabled) {
-            this.NMI(true);
-        }
-        this.filestore.polltime(cycles);
     }
 
     execute(numCyclesToRun) {
@@ -1205,9 +1049,6 @@ export class Cpu6502 extends Base6502 {
     async initialise() {
         if (this.model.os.length) {
             await this.loadOs.apply(this, this.model.os);
-        }
-        if (this.model.tube) {
-            await this.tube.loadOs();
         }
         this.reset(true);
         this.debugger.setCpu(this);

@@ -3,9 +3,8 @@ import * as utils from "./utils.js";
 
 const DiscTimeSlice = 16 * 16;
 
-export function load(name) {
-    console.log("Loading disc from " + name); // todo support zip files
-    return utils.loadData(name);
+export function load(name, fileName) {
+    return utils.loadData(name, fileName);
 }
 
 export function emptySsd(fdc) {
