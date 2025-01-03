@@ -48,6 +48,8 @@ export class TeletextAdaptor {
         this.curPos = 0;
         this.streamLength = 0;
         this.linesPerFrame = 16;
+        this.carouselRequestTime = 0;
+        this.carousel = 0;
     }
 
     reset(hard) {
@@ -74,7 +76,7 @@ export class TeletextAdaptor {
         utils.loadData("teletext/" + filename).then(function (data) {
             teletextRef.streamData = data;
             teletextRef.streamLength = data.length;
-            teletextRef.curPos = 0;
+            teletextRef.curPos = 42 * 310;
             teletextRef.linesPerFrame = 16;
         });
     }
@@ -112,7 +114,6 @@ export class TeletextAdaptor {
                 }
                 this.teletextEnable = (value & 0x04) === 0x04;
                 if ((value & 0x03) !== this.channel && this.teletextEnable) {
-                    // Don't actually change channel, just store
                     this.channel = value & 0x03;
                 }
                 break;
@@ -143,109 +144,136 @@ export class TeletextAdaptor {
                 this.update();
             } else {
                 // Grace period before we start up again
-                this.pollCount = -TELETEXT_UPDATE_FREQ * 10;
+                this.pollCount = -TELETEXT_UPDATE_FREQ * 20;
             }
+        }
+
+        const now = new Date();
+      
+        // Do we need to refresh the magazine ? (takes place every 30 minutes)
+        if (now - this.carouselRequestTime > (30 * 1000)) {
+            this.carouselRequestTime = now;
+            
+            // Refresh magazine
+            this.getNewCarousel();
         }
     }
 
-/*
+    getNewCarousel() {
+        // Mark the time we first requested the magazine
+        this.carouselRequestTime = new Date();
+        
+        // Request the carousel
+        $.ajax ({
+            dataType: 'json',
+            url: "../carousel",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                this.carousel = data.carousel;
+                console.log("Teletext adaptor: New carousel received");
+            }
+        });
+    }
+
     deham(char)
     {
         let i = parseInt(char);
 
-        if (i >= 0 && i <= 9)
-        {
-            return i+17;
-        }
-
-        if (i >= 10 && i <= 19)
-        {
-            return i+23;
-        }
-
-        if (i >= 20 && i <= 29)
-        {
-            return i+29;
-        }
-
-        if (i >= 30 && i <= 39)
-        {
-            return i+35;
-        }
-        
-        if (i >= 40 && i <= 49)
-        {
-            return i+41;
-        }
-                    
-        if (i >= 50 && i <= 59)
-        {
-            return i+47;
-        }
+        if (i >= 0 && i <= 9) { return i+17; }
+        if (i >= 10 && i <= 19) { return i+23; }
+        if (i >= 20 && i <= 29) { return i+29; }
+        if (i >= 30 && i <= 39) { return i+35; }
+        if (i >= 40 && i <= 49) { return i+41; }
+        if (i >= 50 && i <= 59) { return i+47; }
         
         return 0;
     }
-*/
 
     update() {
-        if(this.streamLength > 0)
-        {
+        if(this.streamLength > 0) {
             if (this.curPos >= this.streamLength) {
                 this.curPos = 0;
             }
-
-            const offset = this.curPos;//this.currentFrame * TELETEXT_FRAME_SIZE + 2 * 42;
 
             this.teletextStatus &= 0x0f;
             this.teletextStatus |= 0xd0; // data ready so latch INT, DOR, and FSYN
 
             if (this.teletextEnable) {
-                // Copy current stream position into the frame buffer
-                for (let i = 0; i < this.linesPerFrame; i++) {
-                    this.frameBuffer[i][0] = 0x67;
-                    for (let j = 0; j < 42; j++) {
-                        this.frameBuffer[i][j+1] = this.streamData[offset + (i * 42) + j];
-                    }
-
-                    /*
-                    if((this.frameBuffer[i][1] === 0x15) && (this.frameBuffer[i][2] === 0xEA))      // Signature of the BSDP (magazine 8, packet 30)
-                    {
-                        let timeNow = new Date(Date.now());
-                        this.frameBuffer[i][16] = this.deham(timeNow.getHours());        // Hours
-                        this.frameBuffer[i][17] = this.deham(timeNow.getMinutes());      // Minutes
-                        this.frameBuffer[i][18] = this.deham(timeNow.getSeconds());      // Seconds
-                    
-                        // Date
-                        var today = new Date(); //set any date
-                        var julian = Math.floor((today / 86400000) - (today.getTimezoneOffset() / 1440) + 2440587.5 - 2400000.5);
-                        
-                        // Add one to each digit (quirk of broadcast to avoid runs of all 0's or 1's)
-                        var julian2 = "0";
-                        for(let i=0; i<julian.toString().length; i++) {
-                            julian2 += (parseInt(julian.toString()[i]) + 1).toString()[0];
-                        }
-                        
-                        // Convert BCD
-                        this.frameBuffer[i][13] = Number("0x" + julian2.substring(0, 2));
-                        this.frameBuffer[i][14] = Number("0x" + julian2.substring(2, 4));
-                        this.frameBuffer[i][15] = Number("0x" + julian2.substring(4, 6));
-                    }
-                    */
-                }
-
-                if(this.linesPerFrame < 16)
+                if(this.channel == 0)
                 {
-                    for (let i=this.linesPerFrame; i < 16; i++)
-                    {
+                    // Copy current stream position into the frame buffer
+                    for (let i = 0; i < this.linesPerFrame; i++) {
+                        this.frameBuffer[i][0] = 0x67;
+                        for (let j = 0; j < 42; j++) {
+                            this.frameBuffer[i][j+1] = this.streamData[this.curPos + (i * 42) + j];
+                        }
+                    }
+
+                    if(this.linesPerFrame < 16) {
+                        // Mark unused rows
+                        for (let i=this.linesPerFrame; i < 16; i++) {
+                            this.frameBuffer[i][0] = 0;
+                        }
+                    }
+
+                    this.currentFrame++;
+                    this.curPos = this.curPos + (42 * this.linesPerFrame);
+                    this.rowPtr = 0x00;
+                    this.colPtr = 0x00;
+                }
+                else
+                {
+                    // Write header packet for p100
+                    const zeroPacket = [0x67, 2, 21, 73, 115, 21, 21, 21, 21, 21, 21, 67, 69, 69, 70, 193, 88, 32, 49, 32, 49, 181, 50, 32]
+                    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                    const now = new Date();
+
+                    for(let i=0; i<zeroPacket.length; i++) {
+                        this.frameBuffer[0][i] = zeroPacket[i];
+                    }
+                                    
+                    const dateTime = days[now.getDay()] + ' ' + ('0' + now.getDate()).slice(-2) + ' ' + months[now.getMonth()] + 
+                        String.fromCharCode(3) +
+                        ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2) + '/' + ('0' + now.getSeconds()).slice(-2);
+
+                    for (let i=0; i<dateTime.length; i++) {
+                        this.frameBuffer[0][i+24] = dateTime.charCodeAt(i);
+                    }
+                    
+                    // Write BDSP
+                    const BDSPPacket = [0x67, 21, 234, 21, 21, 21, 234, 234, 234, 94, 95, 246, 129, 22, 72, 104, 25, 37, 57,
+                        21, 21, 21, 21, 194, 194, 67, 32, 79, 206, 69, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32];
+
+                    for(let j=0; j<BDSPPacket.length; j++) {
+                        this.frameBuffer[1][j] = BDSPPacket[j];
+                    }
+
+                    let timeNow = new Date(Date.now());
+                    this.frameBuffer[1][16] = this.deham(timeNow.getHours());        // Hours
+                    this.frameBuffer[1][17] = this.deham(timeNow.getMinutes());      // Minutes
+                    this.frameBuffer[1][18] = this.deham(timeNow.getSeconds());      // Seconds
+                
+                    // Date
+                    var today = new Date(); //set any date
+                    var julian = Math.floor((today / 86400000) - (today.getTimezoneOffset() / 1440) + 2440587.5 - 2400000.5);
+                    
+                    // Add one to each digit (quirk of broadcast to avoid runs of all 0's or 1's)
+                    var julian2 = "0";
+                    for(let i=0; i<julian.toString().length; i++) {
+                        julian2 += (parseInt(julian.toString()[i]) + 1).toString()[0];
+                    }
+                    
+                    // Convert BCD
+                    this.frameBuffer[1][13] = Number("0x" + julian2.substring(0, 2));
+                    this.frameBuffer[1][14] = Number("0x" + julian2.substring(2, 4));
+                    this.frameBuffer[1][15] = Number("0x" + julian2.substring(4, 6));
+                    
+                    // Mark unused rows to 16
+                    for (let i=2; i < 16; i++) {
                         this.frameBuffer[i][0] = 0;
                     }
                 }
-
-                this.currentFrame++;
-                this.curPos = this.curPos + (42 * this.linesPerFrame);
-
-                this.rowPtr = 0x00;
-                this.colPtr = 0x00;
             }
         }
 

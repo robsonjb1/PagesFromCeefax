@@ -166,7 +166,6 @@ import { video } from "./video.js";
         var y = ev.clientY - rect.top
         return {x, y};
     }
-
    
     // Support for background music
     function toggleMusic() {

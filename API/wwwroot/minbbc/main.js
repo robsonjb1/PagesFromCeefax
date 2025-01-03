@@ -746,8 +746,7 @@ let wasPreviouslyRunning = false;
 function handleVisibilityChange() {
     if (document.visibilityState === "hidden") {
         wasPreviouslyRunning = running;
-        const keepRunningWhenHidden = processor.acia.motorOn || processor.fdc.motorOn[0] || processor.fdc.motorOn[1];
-        if (running && !keepRunningWhenHidden) {
+        if (running) {
             stop(false);
         }
     } else {
