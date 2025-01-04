@@ -161,15 +161,13 @@ video = new Video(model.isMaster, function paint() {
     var offset = ((processor.video.regs[12] * 256) + processor.video.regs[13]) - 0x2800;
     var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - 0x2800 - offset;
 
-    if(offset >= 0)
-    {
+    if(offset >= 0) {
         offset = 0x7c00 + offset;
         const ctx = canvas.getContext('2d');
         var imgData = ctx.createImageData(canvas.width, canvas.height);
 
         let pageBuffer = new Uint8Array(40 * 25);
-        for(var i=0; i<40*25; i++)
-        {
+        for(var i=0; i<40*25; i++) {
             if((offset + i) > 0x7fff) {
                 offset = 0x7c00 - i;
             }
@@ -740,23 +738,6 @@ function draw(now) {
 function run() {
     window.requestAnimationFrame(draw);
 }
-
-let wasPreviouslyRunning = false;
-
-function handleVisibilityChange() {
-    if (document.visibilityState === "hidden") {
-        wasPreviouslyRunning = running;
-        if (running) {
-            stop(false);
-        }
-    } else {
-        if (wasPreviouslyRunning) {
-            go();
-        }
-    }
-}
-
-document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
 function go() {
     audioHandler.unmute();

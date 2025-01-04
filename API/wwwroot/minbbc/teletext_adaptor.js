@@ -1,37 +1,23 @@
 "use strict";
-
 import * as utils from "./utils.js";
 
-// Code ported from Beebem (C to .js) by Jason Robson
 const TELETEXT_IRQ = 5;
 const TELETEXT_UPDATE_FREQ = 50000;
 
-/*
+// Hammed two-byte codes referencing a page number starting from 100
+const pageRefs = [21,21,2,21,73,21,94,21,100,21,115,21,56,21,47,21,208,21,199,21,21,2,2,2,73,2,94,2,100,2,115,2,56,2,
+    47,2,208,2,199,2,21,73,2,73,73,73,94,73,100,73,115,73,56,73,47,73,208,73,199,73,21,94,2,94,73,94,94,94,100,94,115,94,56,94,
+    47,94,208,94,199,94,21,100,2,100,73,100,94,100,100,100,115,100,56,100,47,100,208,100,199,100,21,115,2,115,73,115,94,115,100,
+    115,115,115,56,115,47,115,208,115,199,115,21,56];
 
-Offset  Description                 Access  
-+00     Status register             R/W
-+01     Row register
-+02     Data register
-+03     Clear status register
+// Hammed two-byte codes referencing a packet number starting from packet 0
+const packetRefs = [199,21,2,2,199,2,2,73,199,73,2,94,199,94,2,100,199,100,2,115,199,115,2,56,
+    199,56,2,47,199,47,2,208,199,208,2,199,199,199,2,140,199,140,2,155,199,155,2,161];
 
-Status register:
-  Read
-   Bits     Function
-   0-3      Link settings
-   4        FSYN (Latches high on Field sync)
-   5        DEW (Data entry window)
-   6        DOR (Latches INT on end of DEW)
-   7        INT (latches high on end of DEW)
-  
-  Write
-   Bits     Function
-   0-1      Channel select
-   2        Teletext Enable
-   3        Enable Interrupts
-   4        Enable AFC (and mystery links A)
-   5        Mystery links B
-
-*/
+// Example packet 0 header row (which will be updated later)
+const zeroPacket = [0x67, 2, 21, 21, 21, 21, 21, 21, 21, 21, 21, 67, 69, 69, 70, 193, 88, 32, 49, 32, 49, 181, 50, 32]
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export class TeletextAdaptor {
     constructor(cpu) {
@@ -49,7 +35,9 @@ export class TeletextAdaptor {
         this.streamLength = 0;
         this.linesPerFrame = 16;
         this.carouselRequestTime = 0;
-        this.carousel = 0;
+        this.carousel = null;
+        this.currentPFCpage = 0;
+        this.carouselFrameSequence = 0;
     }
 
     reset(hard) {
@@ -134,7 +122,6 @@ export class TeletextAdaptor {
         }
     }
 
-    // Attempt to emulate the TV broadcast
     polltime(cycles) {
         this.pollCount += cycles;
         if (this.pollCount > TELETEXT_UPDATE_FREQ) {
@@ -148,10 +135,9 @@ export class TeletextAdaptor {
             }
         }
 
+        // Do we need to refresh the PFC magazine ? (takes place every 30 minutes)
         const now = new Date();
-      
-        // Do we need to refresh the magazine ? (takes place every 30 minutes)
-        if (now - this.carouselRequestTime > (30 * 1000)) {
+        if (now - this.carouselRequestTime > (30 * 60 * 1000)) {
             this.carouselRequestTime = now;
             
             // Refresh magazine
@@ -164,12 +150,13 @@ export class TeletextAdaptor {
         this.carouselRequestTime = new Date();
         
         // Request the carousel
+        let self = this;
         $.ajax ({
             dataType: 'json',
             url: "../carousel",
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-                this.carousel = data.carousel;
+                self.carousel = data.carousel;
                 console.log("Teletext adaptor: New carousel received");
             }
         });
@@ -187,6 +174,13 @@ export class TeletextAdaptor {
         if (i >= 50 && i <= 59) { return i+47; }
         
         return 0;
+    }
+
+    markUnusedFrameRows(start, finish)
+    {
+        for (let i=start; i < finish; i++) {
+            this.frameBuffer[i][0] = 0;
+        }
     }
 
     update() {
@@ -210,10 +204,7 @@ export class TeletextAdaptor {
                     }
 
                     if(this.linesPerFrame < 16) {
-                        // Mark unused rows
-                        for (let i=this.linesPerFrame; i < 16; i++) {
-                            this.frameBuffer[i][0] = 0;
-                        }
+                        this.markUnusedFrameRows(this.linesPerFrame, 16);
                     }
 
                     this.currentFrame++;
@@ -223,55 +214,104 @@ export class TeletextAdaptor {
                 }
                 else
                 {
-                    // Write header packet for p100
-                    const zeroPacket = [0x67, 2, 21, 73, 115, 21, 21, 21, 21, 21, 21, 67, 69, 69, 70, 193, 88, 32, 49, 32, 49, 181, 50, 32]
-                    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-                    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-                    const now = new Date();
+                    if (this.carousel != null) {
+                        if(this.carouselFrameSequence == 0) {
+                            const now = new Date();
 
-                    for(let i=0; i<zeroPacket.length; i++) {
-                        this.frameBuffer[0][i] = zeroPacket[i];
-                    }
-                                    
-                    const dateTime = days[now.getDay()] + ' ' + ('0' + now.getDate()).slice(-2) + ' ' + months[now.getMonth()] + 
-                        String.fromCharCode(3) +
-                        ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2) + '/' + ('0' + now.getSeconds()).slice(-2);
+                            // Write header packet for the current page
+                            for(let i=0; i<zeroPacket.length; i++) {
+                                this.frameBuffer[0][i] = zeroPacket[i];
+                            }
+                                        
+                            // Insert page number into header packet
+                            this.frameBuffer[0][3] = pageRefs[this.currentPFCpage * 2];             // Encoded page number byte 1
+                            this.frameBuffer[0][4] = pageRefs[(this.currentPFCpage * 2) + 1];       // Encoded page number byte 2
+                            this.frameBuffer[0][21] = 48 + Math.floor(this.currentPFCpage / 10);    // Displayable tens
+                            this.frameBuffer[0][22] = 48 + this.currentPFCpage % 10;                // Displayable units
+                            
+                            // Update date and time
+                            const dateTime = days[now.getDay()] + ' ' + ('0' + now.getDate()).slice(-2) + ' ' + months[now.getMonth()] + 
+                                String.fromCharCode(3) +
+                                ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2) + '/' + ('0' + now.getSeconds()).slice(-2);
 
-                    for (let i=0; i<dateTime.length; i++) {
-                        this.frameBuffer[0][i+24] = dateTime.charCodeAt(i);
-                    }
-                    
-                    // Write BDSP
-                    const BDSPPacket = [0x67, 21, 234, 21, 21, 21, 234, 234, 234, 94, 95, 246, 129, 22, 72, 104, 25, 37, 57,
-                        21, 21, 21, 21, 194, 194, 67, 32, 79, 206, 69, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32];
+                            for (let i=0; i<dateTime.length; i++) {
+                                this.frameBuffer[0][i+24] = dateTime.charCodeAt(i);
+                            }
+                            
+                            // Write BDSP
+                            const BDSPPacket = [0x67, 21, 234, 21, 21, 21, 234, 234, 234, 94, 95, 246, 129, 22, 72, 104, 25, 37, 57,
+                                21, 21, 21, 21, 194, 194, 67, 32, 79, 206, 69, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32];
 
-                    for(let j=0; j<BDSPPacket.length; j++) {
-                        this.frameBuffer[1][j] = BDSPPacket[j];
-                    }
+                            for(let j=0; j<BDSPPacket.length; j++) {
+                                this.frameBuffer[1][j] = BDSPPacket[j];
+                            }
 
-                    let timeNow = new Date(Date.now());
-                    this.frameBuffer[1][16] = this.deham(timeNow.getHours());        // Hours
-                    this.frameBuffer[1][17] = this.deham(timeNow.getMinutes());      // Minutes
-                    this.frameBuffer[1][18] = this.deham(timeNow.getSeconds());      // Seconds
-                
-                    // Date
-                    var today = new Date(); //set any date
-                    var julian = Math.floor((today / 86400000) - (today.getTimezoneOffset() / 1440) + 2440587.5 - 2400000.5);
-                    
-                    // Add one to each digit (quirk of broadcast to avoid runs of all 0's or 1's)
-                    var julian2 = "0";
-                    for(let i=0; i<julian.toString().length; i++) {
-                        julian2 += (parseInt(julian.toString()[i]) + 1).toString()[0];
-                    }
-                    
-                    // Convert BCD
-                    this.frameBuffer[1][13] = Number("0x" + julian2.substring(0, 2));
-                    this.frameBuffer[1][14] = Number("0x" + julian2.substring(2, 4));
-                    this.frameBuffer[1][15] = Number("0x" + julian2.substring(4, 6));
-                    
-                    // Mark unused rows to 16
-                    for (let i=2; i < 16; i++) {
-                        this.frameBuffer[i][0] = 0;
+                            let timeNow = new Date(Date.now());
+                            this.frameBuffer[1][16] = this.deham(timeNow.getHours());    
+                            this.frameBuffer[1][17] = this.deham(timeNow.getMinutes());  
+                            this.frameBuffer[1][18] = this.deham(timeNow.getSeconds());  
+                        
+                            // Date
+                            var today = new Date(); 
+                            var julian = Math.floor((today / 86400000) - (today.getTimezoneOffset() / 1440) + 2440587.5 - 2400000.5);
+                            
+                            // Add one to each digit (quirk of broadcast to avoid runs of all 0's or 1's)
+                            var julian2 = "0";
+                            for(let i=0; i<julian.toString().length; i++) {
+                                julian2 += (parseInt(julian.toString()[i]) + 1).toString()[0];
+                            }
+                            
+                            // Convert BCD
+                            this.frameBuffer[1][13] = Number("0x" + julian2.substring(0, 2));
+                            this.frameBuffer[1][14] = Number("0x" + julian2.substring(2, 4));
+                            this.frameBuffer[1][15] = Number("0x" + julian2.substring(4, 6));
+
+                            this.markUnusedFrameRows(2, 16);
+                        }
+
+                        // Write page content
+                        if(this.carouselFrameSequence == 1)
+                        {
+                            // Output page rows 1 to 16
+                            for (let i=0; i<16; i++) {
+                                this.frameBuffer[i][0] = 0x67;
+                                this.frameBuffer[i][1] = packetRefs[i*2];
+                                this.frameBuffer[i][2] = packetRefs[(i*2)+1];
+                                for (let j=0; j<40; j++) {
+                                    this.frameBuffer[i][j+3] = this.carousel.content[this.currentPFCpage].data[40 + ((i*40)+j)]; // Skip first row as it is blank
+                                }
+                            }
+                        }
+                        
+                        if(this.carouselFrameSequence == 2)
+                        {
+                            // Output remaining page rows 17 to 24
+                            for (let i=16; i<25; i++) {
+                                this.frameBuffer[i-16][0] = 0x67;
+                                this.frameBuffer[i-16][1] = packetRefs[i*2];
+                                this.frameBuffer[i-16][2] = packetRefs[(i*2)+1];
+                                for (let j=0; j<40; j++) {
+                                    this.frameBuffer[i-16][j+3] = this.carousel.content[this.currentPFCpage].data[40 + ((i*40)+j)];
+                                }
+                            }
+
+                            this.markUnusedFrameRows(8, 16);
+                        }
+
+                        if(this.carouselFrameSequence == 3) { // Used to slow down the counter, frame 3 is intentionally blank
+                            this.markUnusedFrameRows(0, 16);
+                        }
+
+                        // Update for the next frame
+                        this.carouselFrameSequence++;
+                        if(this.carouselFrameSequence == 4) {
+                            this.carouselFrameSequence = 0;
+                            this.currentPFCpage++;
+                            if(this.currentPFCpage == this.carousel.totalPages)
+                            {
+                                this.currentPFCpage = 0;
+                            }
+                        }
                     }
                 }
             }
