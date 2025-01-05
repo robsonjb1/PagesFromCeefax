@@ -125,7 +125,7 @@ export class TeletextAdaptor {
     polltime(cycles) {
         this.pollCount += cycles;
         if (this.pollCount > TELETEXT_UPDATE_FREQ) {
-            this.pollCount = 0;
+            this.pollCount -= TELETEXT_UPDATE_FREQ;
             // Don't flood the processor with teletext interrupts during a reset
             if (this.cpu.resetLine) {
                 this.update();
@@ -193,7 +193,7 @@ export class TeletextAdaptor {
             this.teletextStatus |= 0xd0; // data ready so latch INT, DOR, and FSYN
 
             if (this.teletextEnable) {
-                if(this.channel == 0)
+                if(this.channel === 0)
                 {
                     // Copy current stream position into the frame buffer
                     for (let i = 0; i < this.linesPerFrame; i++) {
@@ -215,7 +215,7 @@ export class TeletextAdaptor {
                 else
                 {
                     if (this.carousel != null) {
-                        if(this.carouselFrameSequence == 0) {
+                        if(this.carouselFrameSequence === 0) {
                             const now = new Date();
 
                             // Write header packet for the current page
@@ -270,7 +270,7 @@ export class TeletextAdaptor {
                         }
 
                         // Write page content
-                        if(this.carouselFrameSequence == 1)
+                        if(this.carouselFrameSequence === 1)
                         {
                             // Output page rows 1 to 16
                             for (let i=0; i<16; i++) {
@@ -283,7 +283,7 @@ export class TeletextAdaptor {
                             }
                         }
                         
-                        if(this.carouselFrameSequence == 2)
+                        if(this.carouselFrameSequence === 2)
                         {
                             // Output remaining page rows 17 to 24
                             for (let i=16; i<25; i++) {
@@ -298,16 +298,16 @@ export class TeletextAdaptor {
                             this.markUnusedFrameRows(8, 16);
                         }
 
-                        if(this.carouselFrameSequence == 3) { // Used to slow down the counter, frame 3 is intentionally blank
+                        if(this.carouselFrameSequence === 3) { // Used to slow down the counter, frame 3 is intentionally blank
                             this.markUnusedFrameRows(0, 16);
                         }
 
                         // Update for the next frame
                         this.carouselFrameSequence++;
-                        if(this.carouselFrameSequence == 4) {
+                        if(this.carouselFrameSequence === 4) {
                             this.carouselFrameSequence = 0;
                             this.currentPFCpage++;
-                            if(this.currentPFCpage == this.carousel.totalPages)
+                            if(this.currentPFCpage === this.carousel.totalPages)
                             {
                                 this.currentPFCpage = 0;
                             }

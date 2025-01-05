@@ -643,7 +643,7 @@ document.addEventListener('drop', (e) => {
     };    
 })
 
-const startPromise = Promise.all([audioHandler.initialise(), processor.initialise()]).then(function () {
+const startPromise = Promise.all([processor.initialise()]).then(function () {
     // Ideally would start the loads first. But their completion needs the FDC from the processor
     const imageLoads = [];
     if (discImage)
@@ -702,7 +702,7 @@ function draw(now) {
     const speedy = fastAsPossible;
     
     window.requestAnimationFrame(draw);
-   
+    audioHandler.soundChip.catchUp();
     if (last !== 0) {
         let cycles;
         if (!speedy) {
