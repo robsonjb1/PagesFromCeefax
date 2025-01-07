@@ -150,6 +150,51 @@ export class jrvideo {
         return graphicData;
     }
 
+    highResRedraw(offset, ctx, imgData, processor)
+    {
+        let idPtr = 0;
+        let counter = 0;
+
+        for (let memLoc = 0; memLoc < 0x5000; memLoc++) {
+            let byte = processor.readmem(0x3000 + offset + memLoc);
+
+            for (let c=7; c>=0; c--) {
+                imgData.data[idPtr] = (byte & (1<<c)) !==0 ? 255 : 0;
+                imgData.data[idPtr+1] = (byte & (1<<c)) !==0 ? 255 : 0;
+                imgData.data[idPtr+2] = (byte & (1<<c)) !==0 ? 255 : 0;
+                imgData.data[idPtr+3] = (byte & (1<<c)) !==0 ? 255 : 0;
+                idPtr+=4;
+            }
+
+            // Move to start of next row
+            idPtr -= 8 * 4;
+            idPtr += 640 * 4;
+            counter++;
+
+            // Move to top of next column
+            if(counter % 8 === 0) {
+                idPtr -= (640 * 8) * 4;
+                idPtr += (8 * 4);
+            }
+
+            // Move to start of next line
+            if(counter % (8 * 80) === 0) {
+                idPtr += (640 * 8) * 4;
+                idPtr -= (8 * 4);
+
+                idPtr -= 632 * 4;
+            }
+
+            if((0x3000 + offset + memLoc) === 0x7fff) {
+                offset = offset - 0x5000;
+            }
+           
+        }
+
+        // Write screen to the canvas
+        ctx.putImageData(imgData, 0, 0);
+    }
+
     // Main redraw routine
     redraw(ctx, pageBuffer, imgData, cursorPos, cursorType)
     {

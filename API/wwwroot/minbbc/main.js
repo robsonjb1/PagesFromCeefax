@@ -154,14 +154,19 @@ const MaxCyclesPerFrame = clocksPerSecond / 10;
 var screen = new jrvideo();
 
 const canvas = $("#bbcCanvas")[0];
+const highResCanvas = $("#highResCanvas")[0];
 video = new Video(model.isMaster, function paint() {
-    canvas.width = 480; 
-    canvas.height = 500;
-    
-    var offset = ((processor.video.regs[12] * 256) + processor.video.regs[13]) - 0x2800;
-    var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - 0x2800 - offset;
+    if(processor.video.teletextMode)
+    {
+        var offset = ((processor.video.regs[12] * 256) + processor.video.regs[13]) - 0x2800;
+        var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - 0x2800 - offset;
 
-    if(offset >= 0) {
+        $("#highResCanvas").hide();
+        $("#bbcCanvas").show();
+
+        canvas.width = 480; 
+        canvas.height = 500;
+    
         offset = 0x7c00 + offset;
         const ctx = canvas.getContext('2d');
         var imgData = ctx.createImageData(canvas.width, canvas.height);
@@ -175,6 +180,23 @@ video = new Video(model.isMaster, function paint() {
         }
 
         screen.redraw(ctx, pageBuffer, imgData, cursorPos, processor.video.regs[10]);
+    
+    }
+    else
+    {
+        var offset = ((processor.video.regs[12] * 256) + processor.video.regs[13]) - 0x600;
+        var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - offset;
+
+        $("#highResCanvas").show();
+        $("#bbcCanvas").hide();
+
+        highResCanvas.width = 640; 
+        highResCanvas.height = 256;
+
+        const ctx = highResCanvas.getContext('2d');
+        var imgData = ctx.createImageData(highResCanvas.width, highResCanvas.height);
+
+        screen.highResRedraw(offset * 8, ctx, imgData, processor);
     }
 });
 

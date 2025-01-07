@@ -46,7 +46,7 @@ class Ula {
             if (newMode !== this.video.ulaMode) {
                 this.video.ulaMode = newMode;
             }
-            this.video.teletextMode = true;//!!(val & 2);
+            this.video.teletextMode = !!(val & 2);
         }
     }
 }

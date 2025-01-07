@@ -137,12 +137,19 @@ audio {
 	#bbcCanvas {
 		width: 350px;
 	}
+	#highResCanvas {
+		width: 380px;
+		height: 350px;
+	}
 }
 @media only screen and (max-width:30em)  {
 	#container {
 		font-size: 0.6em;
 	}
 	#bbcCanvas {
+		width: 300px;
+	}
+	#highResCanvas {
 		width: 300px;
 	}
 }
