@@ -185,7 +185,7 @@ video = new Video(model.isMaster, function paint() {
     else
     {
         var offset = ((processor.video.regs[12] * 256) + processor.video.regs[13]) - 0x600;
-        var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - offset;
+        var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - 0x600 - offset;
 
         $("#highResCanvas").show();
         $("#bbcCanvas").hide();
@@ -196,7 +196,7 @@ video = new Video(model.isMaster, function paint() {
         const ctx = highResCanvas.getContext('2d');
         var imgData = ctx.createImageData(highResCanvas.width, highResCanvas.height);
 
-        screen.highResRedraw(offset * 8, ctx, imgData, processor);
+        screen.highResRedraw(offset * 8, ctx, imgData, cursorPos, processor);
     }
 });
 

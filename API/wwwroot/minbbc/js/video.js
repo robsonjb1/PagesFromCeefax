@@ -150,8 +150,28 @@ export class jrvideo {
         return graphicData;
     }
 
-    highResRedraw(offset, ctx, imgData, processor)
+    getRed(pal)
     {
+        return (pal & 1) === 0 ? 255 : 0;
+    }
+
+    getGreen(pal)
+    {
+        return (pal & 2) === 0 ? 255 : 0;
+    }
+
+    getBlue(pal)
+    {
+        return (pal & 4) === 0 ? 255 : 0;
+    }
+
+    highResRedraw(offset, ctx, imgData, cursorPos, processor)
+    {
+        // Screen refresh initialisation
+        var fastBlink = (processor.video.regs[10] & 32) == 0;
+        if (++this.flashTime >= (fastBlink ? 12 : 32)) this.flashTime = 0;  // 3:1 flash ratio.
+        this.flashOn = this.flashTime < (fastBlink ? 6 : 12);
+        
         let idPtr = 0;
         let counter = 0;
 
@@ -159,10 +179,15 @@ export class jrvideo {
             let byte = processor.readmem(0x3000 + offset + memLoc);
 
             for (let c=7; c>=0; c--) {
-                imgData.data[idPtr] = (byte & (1<<c)) !==0 ? 255 : 0;
-                imgData.data[idPtr+1] = (byte & (1<<c)) !==0 ? 255 : 0;
-                imgData.data[idPtr+2] = (byte & (1<<c)) !==0 ? 255 : 0;
-                imgData.data[idPtr+3] = (byte & (1<<c)) !==0 ? 255 : 0;
+                let red = (byte & (1<<c)) !==0 ? this.getRed(processor.video.actualPal[8]) : this.getRed(processor.video.actualPal[0]);
+                let green = (byte & (1<<c)) !==0 ? this.getGreen(processor.video.actualPal[8]) : this.getGreen(processor.video.actualPal[0]);
+                let blue = (byte & (1<<c)) !==0 ? this.getBlue(processor.video.actualPal[8]) : this.getBlue(processor.video.actualPal[0]);
+
+                imgData.data[idPtr] = red;
+                imgData.data[idPtr+1] = green;
+                imgData.data[idPtr+2] = blue;
+                imgData.data[idPtr+3] = red+green+blue > 0 ? 255 : 0; // transparency
+                
                 idPtr+=4;
             }
 
@@ -189,6 +214,25 @@ export class jrvideo {
                 offset = offset - 0x5000;
             }
            
+        }
+
+        // Is the cursor flashing? (bit 6 of 6845 register 10)
+        if(([processor.video.regs[10]] & 64) && this.flashOn)
+        {
+            let cursorY = Math.floor(cursorPos / 80);
+            let cursorX = cursorPos - (cursorY * 80);
+
+            idPtr = (cursorY * 4 * 8 * 8 * 80) + (cursorX * 4 * 8); // Move to start of cursor char
+            idPtr += (4 * 80 * 8 * 7); // Move down to start cursor line
+            for(let i=0; i<8; i++)
+            {
+                imgData.data[idPtr] = 255;
+                imgData.data[idPtr+1] = 255;
+                imgData.data[idPtr+2] = 255;
+                imgData.data[idPtr+3] = 255;
+               
+                idPtr+=4;
+            }
         }
 
         // Write screen to the canvas

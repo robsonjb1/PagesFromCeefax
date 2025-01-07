@@ -113,6 +113,10 @@ audio {
 	#bbcCanvas {
 		width: 700px;
 	}
+	#highResCanvas {
+		width: 700px;
+		height: 700px;
+	}
 }
 @media only screen and (max-width:80em)  {
 	#container {
@@ -121,6 +125,10 @@ audio {
 	#bbcCanvas {
 		width: 525px;
 	}
+	#highResCanvas {
+		width: 525px;
+		height: 525px;
+	}
 }
 @media only screen and (max-width:63.9em)  {
 	#container {
@@ -128,6 +136,10 @@ audio {
 	}
 	#bbcCanvas {
 		width: 450px;
+	}
+	#highResCanvas {
+		width: 475px;
+		height: 475px;
 	}
 }
 @media only screen and (max-width:40em)  {
@@ -138,7 +150,7 @@ audio {
 		width: 350px;
 	}
 	#highResCanvas {
-		width: 380px;
+		width: 350px;
 		height: 350px;
 	}
 }
