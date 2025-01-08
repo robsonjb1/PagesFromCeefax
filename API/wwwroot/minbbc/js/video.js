@@ -29,6 +29,8 @@ export class jrvideo {
         this.nextGlyphs = this.charSmoothed;
         this.heldGlyphs = this.charSmoothed;  
         this.curGlyphs = this.charSmoothed;    
+
+        this.actual2bitColour = new Uint8Array([0, 2, 8, 10]); 
     }
 
     // Teletext rendering utilities
@@ -166,7 +168,7 @@ export class jrvideo {
     }
 
     highResRedraw(offset, ctx, imgData, cursorPos, processor)
-    {
+    {   
         // Screen refresh initialisation
         var fastBlink = (processor.video.regs[10] & 32) == 0;
         if (++this.flashTime >= (fastBlink ? 12 : 32)) this.flashTime = 0;  // 3:1 flash ratio.
@@ -174,21 +176,53 @@ export class jrvideo {
         
         let idPtr = 0;
         let counter = 0;
-
+       
         for (let memLoc = 0; memLoc < 0x5000; memLoc++) {
             let byte = processor.readmem(0x3000 + offset + memLoc);
 
-            for (let c=7; c>=0; c--) {
-                let red = (byte & (1<<c)) !==0 ? this.getRed(processor.video.actualPal[8]) : this.getRed(processor.video.actualPal[0]);
-                let green = (byte & (1<<c)) !==0 ? this.getGreen(processor.video.actualPal[8]) : this.getGreen(processor.video.actualPal[0]);
-                let blue = (byte & (1<<c)) !==0 ? this.getBlue(processor.video.actualPal[8]) : this.getBlue(processor.video.actualPal[0]);
+            if(processor.video.ulaMode === 3)
+            {
+                // MODE 0
+                for (let c=7; c>=0; c--) {
+                    let red = (byte & (1<<c)) !==0 ? this.getRed(processor.video.actualPal[8]) : this.getRed(processor.video.actualPal[0]);
+                    let green = (byte & (1<<c)) !==0 ? this.getGreen(processor.video.actualPal[8]) : this.getGreen(processor.video.actualPal[0]);
+                    let blue = (byte & (1<<c)) !==0 ? this.getBlue(processor.video.actualPal[8]) : this.getBlue(processor.video.actualPal[0]);
 
-                imgData.data[idPtr] = red;
-                imgData.data[idPtr+1] = green;
-                imgData.data[idPtr+2] = blue;
-                imgData.data[idPtr+3] = red+green+blue > 0 ? 255 : 0; // transparency
-                
-                idPtr+=4;
+                    imgData.data[idPtr] = red;
+                    imgData.data[idPtr+1] = green;
+                    imgData.data[idPtr+2] = blue;
+                    imgData.data[idPtr+3] = red+green+blue > 0 ? 255 : 0; // transparency
+
+                    idPtr+=4;
+                }
+            }
+
+            if(processor.video.ulaMode === 2)
+            {
+                // MODE 1
+                for (let c=3; c>=0; c--)
+                {
+                    let colour = this.actual2bitColour[((byte & (1<<c)) !==0 ? 1 : 0) + ((byte & (1<<(c+4))) !==0 ? 2 : 0)];
+                    
+                    let red = this.getRed(processor.video.actualPal[colour]);
+                    let green = this.getGreen(processor.video.actualPal[colour]);
+                    let blue = this.getBlue(processor.video.actualPal[colour]);
+               
+                    // Get the two bit chunk of colour for the pixel
+                    // Map the colour to an actualPal colour
+                    // Determine the R,G,B components
+                    // Write TWO pixels of that colour, set transparency if black
+                    
+                    for (let i=0; i<2; i++)
+                    {
+                        imgData.data[idPtr] = red;
+                        imgData.data[idPtr+1] = green;
+                        imgData.data[idPtr+2] = blue;
+                        imgData.data[idPtr+3] = red+green+blue > 0 ? 255 : 0; // transparency
+
+                        idPtr+=4;
+                    }
+                }
             }
 
             // Move to start of next row
@@ -226,12 +260,15 @@ export class jrvideo {
             idPtr += (4 * 80 * 8 * 7); // Move down to start cursor line
             for(let i=0; i<8; i++)
             {
-                imgData.data[idPtr] = 255;
-                imgData.data[idPtr+1] = 255;
-                imgData.data[idPtr+2] = 255;
-                imgData.data[idPtr+3] = 255;
-               
-                idPtr+=4;
+                for(let j=0; j<((processor.video.ulaMode === 2) ? 2 : 1); j++)
+                {
+                    imgData.data[idPtr] = 255;
+                    imgData.data[idPtr+1] = 255;
+                    imgData.data[idPtr+2] = 255;
+                    imgData.data[idPtr+3] = 255;
+                
+                    idPtr+=4;
+                }
             }
         }
 
