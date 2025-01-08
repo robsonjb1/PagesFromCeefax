@@ -180,7 +180,7 @@ export class jrvideo {
         for (let memLoc = 0; memLoc < 0x5000; memLoc++) {
             let byte = processor.readmem(0x3000 + offset + memLoc);
 
-            if(processor.video.ulaMode === 3)
+            if((processor.video.ulaMode === 3) || (processor.video.ulaMode === 2 && processor.video.pixelsPerChar === 16))
             {
                 // MODE 0
                 for (let c=7; c>=0; c--) {
@@ -197,7 +197,7 @@ export class jrvideo {
                 }
             }
 
-            if(processor.video.ulaMode === 2)
+            if(processor.video.ulaMode === 2 && processor.video.pixelsPerChar === 8)
             {
                 // MODE 1
                 for (let c=3; c>=0; c--)
@@ -208,6 +208,63 @@ export class jrvideo {
                     let green = this.getGreen(processor.video.actualPal[colour]);
                     let blue = this.getBlue(processor.video.actualPal[colour]);
                
+                    // Get the two bit chunk of colour for the pixel
+                    // Map the colour to an actualPal colour
+                    // Determine the R,G,B components
+                    // Write TWO pixels of that colour, set transparency if black
+                    
+                    for (let i=0; i<2; i++)
+                    {
+                        imgData.data[idPtr] = red;
+                        imgData.data[idPtr+1] = green;
+                        imgData.data[idPtr+2] = blue;
+                        imgData.data[idPtr+3] = red+green+blue > 0 ? 255 : 0; // transparency
+
+                        idPtr+=4;
+                    }
+                }
+            }
+
+            if(processor.video.ulaMode === 1)
+            {
+                // MODE 2
+                for (let c=1; c>=0; c--)
+                {
+                    let colour = ((byte & (1<<c)) !==0 ? 1 : 0) + ((byte & (1<<(c+2))) !==0 ? 2 : 0)
+                            + ((byte & (1<<(c+4))) !==0 ? 4 : 0) + ((byte & (1<<(c+6))) !==0 ? 8 : 0);
+                    
+                    let red = this.getRed(processor.video.actualPal[colour]);
+                    let green = this.getGreen(processor.video.actualPal[colour]);
+                    let blue = this.getBlue(processor.video.actualPal[colour]);
+                
+                    // Get the two bit chunk of colour for the pixel
+                    // Map the colour to an actualPal colour
+                    // Determine the R,G,B components
+                    // Write TWO pixels of that colour, set transparency if black
+                    
+                    for (let i=0; i<4; i++)
+                    {
+                        imgData.data[idPtr] = red;
+                        imgData.data[idPtr+1] = green;
+                        imgData.data[idPtr+2] = blue;
+                        imgData.data[idPtr+3] = red+green+blue > 0 ? 255 : 0; // transparency
+
+                        idPtr+=4;
+                    }
+                }
+            }
+
+            if(processor.video.ulaMode === 2 && processor.video.pixelsPerChar === 16)
+            {
+                // MODE 4
+                for (let c=3; c>=0; c--)
+                {
+                    let colour = this.actual2bitColour[((byte & (1<<c)) !==0 ? 1 : 0) + ((byte & (1<<(c+4))) !==0 ? 2 : 0)];
+                    
+                    let red = this.getRed(processor.video.actualPal[colour]);
+                    let green = this.getGreen(processor.video.actualPal[colour]);
+                    let blue = this.getBlue(processor.video.actualPal[colour]);
+                
                     // Get the two bit chunk of colour for the pixel
                     // Map the colour to an actualPal colour
                     // Determine the R,G,B components
@@ -260,7 +317,7 @@ export class jrvideo {
             idPtr += (4 * 80 * 8 * 7); // Move down to start cursor line
             for(let i=0; i<8; i++)
             {
-                for(let j=0; j<((processor.video.ulaMode === 2) ? 2 : 1); j++)
+                for(let j=0; j<((processor.video.ulaMode === 2) ? 2 : (processor.video.ulaMode === 1) ? 4 : 1); j++)
                 {
                     imgData.data[idPtr] = 255;
                     imgData.data[idPtr+1] = 255;
