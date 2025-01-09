@@ -167,157 +167,190 @@ export class jrvideo {
         return (pal & 4) === 0 ? 255 : 0;
     }
 
-    highResRedraw(offset, ctx, imgData, cursorPos, processor)
+    getScreenMode(processor)
+    {
+        if(processor.video.ulaMode === 1 && processor.video.pixelsPerChar === 16) {
+            return 5;
+        }
+        
+        if(processor.video.ulaMode === 2 && processor.video.pixelsPerChar === 16) {
+            return 4;
+        }
+
+        if(processor.video.ulaMode === 1 && processor.video.pixelsPerChar === 8) {
+            return 2;
+        }
+
+        if(processor.video.ulaMode === 2 && processor.video.pixelsPerChar === 8) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    getScreenStart(screenMode)
+    {
+        switch(screenMode)
+        {
+            case 0:
+            case 1:
+            case 2: 
+                return 0x3000;
+            case 4:
+            case 5:
+                return 0x5800;
+            default:
+                return 0x3000;
+        }
+    }
+
+    getScreenOffset(screenMode)
+    {
+        switch(screenMode)
+        {
+            case 0:
+            case 1:
+            case 2:
+                return 0x600;
+            case 4:
+            case 5:
+                return 0xB00;
+            default:
+                return 0x600;
+        }
+    }
+
+    getPixelsPerByte(screenMode)
+    {
+        switch(screenMode)
+        {
+            case 0:
+            case 1:
+            case 2:
+                return 8;
+            case 4:
+            case 5:
+                return 16;
+            default:
+                return 8;
+        }
+    }
+
+    plotPixel(imgData, idPtr, colour)
+    {
+        imgData.data[idPtr] = this.getRed(colour);
+        imgData.data[idPtr+1] = this.getGreen(colour);
+        imgData.data[idPtr+2] = this.getBlue(colour);
+        imgData.data[idPtr+3] = this.getRed(colour) + this.getGreen(colour) + this.getBlue(colour) > 0 ? 255 : 0; // transparency
+
+        return idPtr+4;
+    }
+
+    graphicsModeRedraw(ctx, imgData, processor)
     {   
         // Screen refresh initialisation
         var fastBlink = (processor.video.regs[10] & 32) == 0;
         if (++this.flashTime >= (fastBlink ? 12 : 32)) this.flashTime = 0;  // 3:1 flash ratio.
         this.flashOn = this.flashTime < (fastBlink ? 6 : 12);
         
+        let screenMode = this.getScreenMode(processor);
+        let screenStart = this.getScreenStart(screenMode);
+        let screenSize = 0x8000 - screenStart;
+        var offset = (((processor.video.regs[12] * 256) + processor.video.regs[13]) - this.getScreenOffset(screenMode)) * 8;
+        var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - this.getScreenOffset(screenMode) - (offset / 8);
         let idPtr = 0;
-        let counter = 0;
-       
-        for (let memLoc = 0; memLoc < 0x5000; memLoc++) {
-            let byte = processor.readmem(0x3000 + offset + memLoc);
+        let lineCount = 0;
+      
+        for (let memLoc = 0; memLoc < screenSize; memLoc++) {
+            let byte = processor.readmem(screenStart + offset + memLoc);
 
-            if((processor.video.ulaMode === 3) || (processor.video.ulaMode === 2 && processor.video.pixelsPerChar === 16))
-            {
-                // MODE 0
+            if(screenMode === 0) {
                 for (let c=7; c>=0; c--) {
-                    let red = (byte & (1<<c)) !==0 ? this.getRed(processor.video.actualPal[8]) : this.getRed(processor.video.actualPal[0]);
-                    let green = (byte & (1<<c)) !==0 ? this.getGreen(processor.video.actualPal[8]) : this.getGreen(processor.video.actualPal[0]);
-                    let blue = (byte & (1<<c)) !==0 ? this.getBlue(processor.video.actualPal[8]) : this.getBlue(processor.video.actualPal[0]);
+                    let colour = processor.video.actualPal[byte & (1<<c) ? 8 : 0];
 
-                    imgData.data[idPtr] = red;
-                    imgData.data[idPtr+1] = green;
-                    imgData.data[idPtr+2] = blue;
-                    imgData.data[idPtr+3] = red+green+blue > 0 ? 255 : 0; // transparency
-
-                    idPtr+=4;
+                    idPtr = this.plotPixel(imgData, idPtr, colour);
                 }
             }
 
-            if(processor.video.ulaMode === 2 && processor.video.pixelsPerChar === 8)
-            {
-                // MODE 1
-                for (let c=3; c>=0; c--)
-                {
-                    let colour = this.actual2bitColour[((byte & (1<<c)) !==0 ? 1 : 0) + ((byte & (1<<(c+4))) !==0 ? 2 : 0)];
+            if(screenMode === 1) {
+                for (let c=3; c>=0; c--) {
+                    let colour = processor.video.actualPal[this.actual2bitColour[((byte & (1<<c)) ? 1 : 0) + ((byte & (1<<(c+4))) ? 2 : 0)]];
                     
-                    let red = this.getRed(processor.video.actualPal[colour]);
-                    let green = this.getGreen(processor.video.actualPal[colour]);
-                    let blue = this.getBlue(processor.video.actualPal[colour]);
-               
-                    // Get the two bit chunk of colour for the pixel
-                    // Map the colour to an actualPal colour
-                    // Determine the R,G,B components
-                    // Write TWO pixels of that colour, set transparency if black
-                    
-                    for (let i=0; i<2; i++)
-                    {
-                        imgData.data[idPtr] = red;
-                        imgData.data[idPtr+1] = green;
-                        imgData.data[idPtr+2] = blue;
-                        imgData.data[idPtr+3] = red+green+blue > 0 ? 255 : 0; // transparency
+                    // Two pixel width
+                    idPtr = this.plotPixel(imgData, idPtr, colour);
+                    idPtr = this.plotPixel(imgData, idPtr, colour);
+                }
+            }
 
-                        idPtr+=4;
+            if(screenMode === 2) {
+                for (let c=1; c>=0; c--) {
+                    let colour = processor.video.actualPal[((byte & (1<<c)) !==0 ? 1 : 0) + ((byte & (1<<(c+2))) !==0 ? 2 : 0)
+                            + ((byte & (1<<(c+4))) !==0 ? 4 : 0) + ((byte & (1<<(c+6))) !==0 ? 8 : 0)];
+                  
+                    // Four pixel width per bit
+                    for (let i=0; i<4; i++) {
+                        idPtr = this.plotPixel(imgData, idPtr, colour);
                     }
                 }
             }
 
-            if(processor.video.ulaMode === 1)
-            {
-                // MODE 2
-                for (let c=1; c>=0; c--)
-                {
-                    let colour = ((byte & (1<<c)) !==0 ? 1 : 0) + ((byte & (1<<(c+2))) !==0 ? 2 : 0)
-                            + ((byte & (1<<(c+4))) !==0 ? 4 : 0) + ((byte & (1<<(c+6))) !==0 ? 8 : 0);
-                    
-                    let red = this.getRed(processor.video.actualPal[colour]);
-                    let green = this.getGreen(processor.video.actualPal[colour]);
-                    let blue = this.getBlue(processor.video.actualPal[colour]);
-                
-                    // Get the two bit chunk of colour for the pixel
-                    // Map the colour to an actualPal colour
-                    // Determine the R,G,B components
-                    // Write TWO pixels of that colour, set transparency if black
-                    
-                    for (let i=0; i<4; i++)
-                    {
-                        imgData.data[idPtr] = red;
-                        imgData.data[idPtr+1] = green;
-                        imgData.data[idPtr+2] = blue;
-                        imgData.data[idPtr+3] = red+green+blue > 0 ? 255 : 0; // transparency
+            if(screenMode === 4) {
+                for (let c=7; c>=0; c--) {
+                    let colour = processor.video.actualPal[byte & (1<<c) ? 8 : 0];
+                   
+                    // Two pixel width per bit
+                    idPtr = this.plotPixel(imgData, idPtr, colour);
+                    idPtr = this.plotPixel(imgData, idPtr, colour);
+                }
+            }    
 
-                        idPtr+=4;
+            if(screenMode === 5) {
+                for (let c=3; c>=0; c--) {
+                    let colour = processor.video.actualPal[this.actual2bitColour[((byte & (1<<c)) !==0 ? 1 : 0) + ((byte & (1<<(c+4))) !==0 ? 2 : 0)]];
+                    
+                    // Four pixel width per bit
+                    for (let i=0; i<4; i++) {
+                        idPtr = this.plotPixel(imgData, idPtr, colour);
                     }
                 }
             }
 
-            if(processor.video.ulaMode === 2 && processor.video.pixelsPerChar === 16)
-            {
-                // MODE 4
-                for (let c=3; c>=0; c--)
-                {
-                    let colour = this.actual2bitColour[((byte & (1<<c)) !==0 ? 1 : 0) + ((byte & (1<<(c+4))) !==0 ? 2 : 0)];
-                    
-                    let red = this.getRed(processor.video.actualPal[colour]);
-                    let green = this.getGreen(processor.video.actualPal[colour]);
-                    let blue = this.getBlue(processor.video.actualPal[colour]);
-                
-                    // Get the two bit chunk of colour for the pixel
-                    // Map the colour to an actualPal colour
-                    // Determine the R,G,B components
-                    // Write TWO pixels of that colour, set transparency if black
-                    
-                    for (let i=0; i<2; i++)
-                    {
-                        imgData.data[idPtr] = red;
-                        imgData.data[idPtr+1] = green;
-                        imgData.data[idPtr+2] = blue;
-                        imgData.data[idPtr+3] = red+green+blue > 0 ? 255 : 0; // transparency
-
-                        idPtr+=4;
-                    }
-                }
-            }
-
-            // Move to start of next row
-            idPtr -= 8 * 4;
+            // Move to start of next line for the current character
+            idPtr -= this.getPixelsPerByte(screenMode) * 4;
             idPtr += 640 * 4;
-            counter++;
+            lineCount++;
 
-            // Move to top of next column
-            if(counter % 8 === 0) {
+            if(lineCount % 8 === 0) {
+                // Advance one character, move pointer up and to the right
                 idPtr -= (640 * 8) * 4;
-                idPtr += (8 * 4);
+                idPtr += (this.getPixelsPerByte(screenMode) * 4);
             }
 
-            // Move to start of next line
-            if(counter % (8 * 80) === 0) {
-                idPtr += (640 * 8) * 4;
-                idPtr -= (8 * 4);
+            // Move to start of next character row
+            if(lineCount % (8 * (640 / this.getPixelsPerByte(screenMode))) === 0) {
+                idPtr += (639 * 8) * 4;
 
                 idPtr -= 632 * 4;
             }
 
-            if((0x3000 + offset + memLoc) === 0x7fff) {
-                offset = offset - 0x5000;
-            }
-           
+            if((screenStart + offset + memLoc) === 0x7fff) {
+                offset = offset - screenSize;
+            }  
         }
 
         // Is the cursor flashing? (bit 6 of 6845 register 10)
-        if(([processor.video.regs[10]] & 64) && this.flashOn)
+        if((processor.video.regs[10] & 64) && processor.video.regs[11] && this.flashOn)
         {
-            let cursorY = Math.floor(cursorPos / 80);
-            let cursorX = cursorPos - (cursorY * 80);
+            let cursorY = Math.floor(cursorPos / (640 / this.getPixelsPerByte(screenMode)));
+            let cursorX = cursorPos - (cursorY * (640 / this.getPixelsPerByte(screenMode)));
 
-            idPtr = (cursorY * 4 * 8 * 8 * 80) + (cursorX * 4 * 8); // Move to start of cursor char
+            idPtr = (cursorY * 4 * 8 * 8 * 80) + (cursorX * 4 * this.getPixelsPerByte(screenMode)); // Move to start of cursor char
             idPtr += (4 * 80 * 8 * 7); // Move down to start cursor line
             for(let i=0; i<8; i++)
             {
-                for(let j=0; j<((processor.video.ulaMode === 2) ? 2 : (processor.video.ulaMode === 1) ? 4 : 1); j++)
+                let cursorWidth = (screenMode === 5 ? 4 : (screenMode === 2 ? 4 : (screenMode === 1 ? 2 : (screenMode === 4 ? 2 : 1))));
+
+                for(let j=0; j<cursorWidth; j++)
                 {
                     imgData.data[idPtr] = 255;
                     imgData.data[idPtr+1] = 255;
@@ -333,15 +366,28 @@ export class jrvideo {
         ctx.putImageData(imgData, 0, 0);
     }
 
-    // Main redraw routine
-    redraw(ctx, pageBuffer, imgData, cursorPos, cursorType)
+    // Teletext redraw routine
+    teletextRedraw(ctx, imgData, processor)
     {
         // Screen refresh initialisation
+        var offset = ((processor.video.regs[12] * 256) + processor.video.regs[13]) - 0x2800;
+        var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - 0x2800 - offset;
+        var cursorType = processor.video.regs[10];
         var fastBlink = (cursorType & 32) == 0;
         if (++this.flashTime >= (fastBlink ? 12 : 32)) this.flashTime = 0;  // 3:1 flash ratio.
         this.flashOn = this.flashTime < (fastBlink ? 6 : 12);
         let charPos = 0;
 
+        // Read screen memory
+        offset = 0x7c00 + offset;
+        let pageBuffer = new Uint8Array(40 * 25);
+        for(var i=0; i<40*25; i++) {
+            if((offset + i) > 0x7fff) {
+                offset = 0x7c00 - i;
+            }
+            pageBuffer[i] = processor.readmem((offset + i));
+        }
+       
         this.dbl = this.oldDbl = this.secondHalfOfDouble = this.wasDbl = false;
 
         for(var yCol = 0; yCol < 25; yCol++)

@@ -158,35 +158,19 @@ const highResCanvas = $("#highResCanvas")[0];
 video = new Video(model.isMaster, function paint() {
     if(processor.video.teletextMode)
     {
-        var offset = ((processor.video.regs[12] * 256) + processor.video.regs[13]) - 0x2800;
-        var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - 0x2800 - offset;
-
         $("#highResCanvas").hide();
         $("#bbcCanvas").show();
 
         canvas.width = 480; 
         canvas.height = 500;
-    
-        offset = 0x7c00 + offset;
-        const ctx = canvas.getContext('2d');
-        var imgData = ctx.createImageData(canvas.width, canvas.height);
 
-        let pageBuffer = new Uint8Array(40 * 25);
-        for(var i=0; i<40*25; i++) {
-            if((offset + i) > 0x7fff) {
-                offset = 0x7c00 - i;
-            }
-            pageBuffer[i] = processor.readmem((offset + i));
-        }
-
-        screen.redraw(ctx, pageBuffer, imgData, cursorPos, processor.video.regs[10]);
+        const ctx = bbcCanvas.getContext('2d');
+        var imgData = ctx.createImageData(bbcCanvas.width, bbcCanvas.height);
     
+        screen.teletextRedraw(ctx, imgData, processor);
     }
     else
     {
-        var offset = ((processor.video.regs[12] * 256) + processor.video.regs[13]) - 0x600;
-        var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - 0x600 - offset;
-
         $("#highResCanvas").show();
         $("#bbcCanvas").hide();
 
@@ -196,7 +180,7 @@ video = new Video(model.isMaster, function paint() {
         const ctx = highResCanvas.getContext('2d');
         var imgData = ctx.createImageData(highResCanvas.width, highResCanvas.height);
 
-        screen.highResRedraw(offset * 8, ctx, imgData, cursorPos, processor);
+        screen.graphicsModeRedraw(ctx, imgData, processor);
     }
 });
 
