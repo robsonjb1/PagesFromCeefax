@@ -169,6 +169,14 @@ export class jrvideo {
 
     getScreenMode(processor)
     {
+        if(processor.readmem(0x355) === 6) {
+            return 6;
+        }
+
+        if(processor.readmem(0x355) === 3) {
+            return 3;
+        }
+
         if(processor.video.ulaMode === 1 && processor.video.pixelsPerChar === 16) {
             return 5;
         }
@@ -196,11 +204,13 @@ export class jrvideo {
             case 1:
             case 2: 
                 return 0x3000;
+            case 3:
+                return 0x4000;
             case 4:
             case 5:
                 return 0x5800;
-            default:
-                return 0x3000;
+            case 6:
+                return 0x6000;
         }
     }
 
@@ -212,11 +222,13 @@ export class jrvideo {
             case 1:
             case 2:
                 return 0x600;
+            case 3:
+                return 0x800;
             case 4:
             case 5:
                 return 0xB00;
-            default:
-                return 0x600;
+            case 6:
+                return 0xC00;
         }
     }
 
@@ -227,12 +239,12 @@ export class jrvideo {
             case 0:
             case 1:
             case 2:
+            case 3:
                 return 8;
             case 4:
             case 5:
+            case 6:
                 return 16;
-            default:
-                return 8;
         }
     }
 
@@ -261,7 +273,7 @@ export class jrvideo {
         let idPtr = 0;
         let lineCount = 0;
       
-        for (let memLoc = 0; memLoc < screenSize; memLoc++) {
+        for (let memLoc = 0; memLoc < screenSize - (screenMode === 6 ? 0xc0 : 0) - (screenMode === 3 ? 0x180 : 0); memLoc++) {
             let byte = processor.readmem(screenStart + offset + memLoc);
 
             if(screenMode === 0) {
@@ -294,6 +306,14 @@ export class jrvideo {
                 }
             }
 
+            if(screenMode === 3) {
+                for (let c=7; c>=0; c--) {
+                    let colour = processor.video.actualPal[byte & (1<<c) ? 8 : 0];
+
+                    idPtr = this.plotPixel(imgData, idPtr, colour);
+                }
+            }
+
             if(screenMode === 4) {
                 for (let c=7; c>=0; c--) {
                     let colour = processor.video.actualPal[byte & (1<<c) ? 8 : 0];
@@ -315,6 +335,16 @@ export class jrvideo {
                 }
             }
 
+            if(screenMode === 6) {
+                for (let c=7; c>=0; c--) {
+                    let colour = processor.video.actualPal[byte & (1<<c) ? 8 : 0];
+                   
+                    // Two pixel width per bit
+                    idPtr = this.plotPixel(imgData, idPtr, colour);
+                    idPtr = this.plotPixel(imgData, idPtr, colour);
+                }
+            }
+
             // Move to start of next line for the current character
             idPtr -= this.getPixelsPerByte(screenMode) * 4;
             idPtr += 640 * 4;
@@ -329,8 +359,13 @@ export class jrvideo {
             // Move to start of next character row
             if(lineCount % (8 * (640 / this.getPixelsPerByte(screenMode))) === 0) {
                 idPtr += (639 * 8) * 4;
-
                 idPtr -= 632 * 4;
+
+                // Mode 3+6 skip 2 rows (characters are 8x10)
+                if(screenMode === 3 || screenMode === 6)
+                {
+                    idPtr += (640 * 2 * 4);
+                }
             }
 
             if((screenStart + offset + memLoc) === 0x7fff) {
@@ -344,11 +379,12 @@ export class jrvideo {
             let cursorY = Math.floor(cursorPos / (640 / this.getPixelsPerByte(screenMode)));
             let cursorX = cursorPos - (cursorY * (640 / this.getPixelsPerByte(screenMode)));
 
-            idPtr = (cursorY * 4 * 8 * 8 * 80) + (cursorX * 4 * this.getPixelsPerByte(screenMode)); // Move to start of cursor char
+            idPtr = (cursorY * 4 * (screenMode === 6 ? 10 : (screenMode === 3 ? 10 : 8)) * 8 * 80) + (cursorX * 4 * this.getPixelsPerByte(screenMode)); // Move to start of cursor char
             idPtr += (4 * 80 * 8 * 7); // Move down to start cursor line
             for(let i=0; i<8; i++)
             {
-                let cursorWidth = (screenMode === 5 ? 4 : (screenMode === 2 ? 4 : (screenMode === 1 ? 2 : (screenMode === 4 ? 2 : 1))));
+                let cursorWidth = (screenMode === 6 ? 2 : (screenMode === 5 ? 4 : (screenMode === 2 ? 4 : 
+                    (screenMode === 3 ? 1 : (screenMode === 1 ? 2 : (screenMode === 4 ? 2 : 1))))));
 
                 for(let j=0; j<cursorWidth; j++)
                 {
