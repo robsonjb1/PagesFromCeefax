@@ -25,107 +25,21 @@ if (typeof starCat === "function") {
         secondDiscImage = availableImages[1].file;
     }
 }
-let queryString = document.location.search.substring(1) + "&" + window.location.hash.substring(1);
 let parsedQuery = {};
 let needsAutoboot = false;
 let autoType = "";
 let keyLayout = window.localStorage.keyLayout || "physical";
 
 const BBC = utils.BBC;
-const keyCodes = utils.keyCodes;
 const emuKeyHandlers = {};
 let cpuMultiplier = 1;
 let fastAsPossible = false;
-let fastTape = false;
 let noSeek = false;
-let pauseEmu = false;
 let stepEmuWhenPaused = false;
 let audioFilterFreq = 7000;
 let audioFilterQ = 5;
-let stationId = 101;
 let selectedDrive = 0;
 
-if (queryString) {
-    queryString.split("&").forEach(function (keyval) {
-        const keyAndVal = keyval.split("=");
-        const key = decodeURIComponent(keyAndVal[0]);
-        let val = null;
-        if (keyAndVal.length > 1) val = decodeURIComponent(keyAndVal[1]);
-        parsedQuery[key] = val;
-
-        // eg KEY.CAPSLOCK=CTRL
-        let bbcKey;
-        if (key.toUpperCase().indexOf("KEY.") === 0) {
-            bbcKey = val.toUpperCase();
-
-            if (BBC[bbcKey]) {
-                const nativeKey = key.substring(4).toUpperCase(); // remove KEY.
-                if (keyCodes[nativeKey]) {
-                    console.log("mapping " + nativeKey + " to " + bbcKey);
-                    utils.userKeymap.push({ native: nativeKey, bbc: bbcKey });
-                } else {
-                    console.log("unknown key: " + nativeKey);
-                }
-            } else {
-                console.log("unknown BBC key: " + val);
-            }
-        } else {
-            switch (key) {
-                case "LEFT":
-                case "RIGHT":
-                case "UP":
-                case "DOWN":
-                case "autoboot":
-                    needsAutoboot = "boot";
-                    break;
-                case "autochain":
-                    needsAutoboot = "chain";
-                    break;
-                case "autorun":
-                    needsAutoboot = "run";
-                    break;
-                case "autotype":
-                    needsAutoboot = "type";
-                    autoType = val;
-                    break;
-                case "keyLayout":
-                    keyLayout = (val + "").toLowerCase();
-                    break;
-                case "disc":
-                case "disc1":
-                    discImage = val;
-                    break;
-                case "rom":
-                    extraRoms.push(val);
-                    break;
-                case "disc2":
-                    secondDiscImage = val;
-                    break;
-                case "embed":
-                    $(".embed-hide").hide();
-                    $("body").css("background-color", "transparent");
-                    break;
-                case "fasttape":
-                    fastTape = true;
-                    break;
-                case "noseek":
-                    noSeek = true;
-                    break;
-                case "audiofilterfreq":
-                    audioFilterFreq = Number(val);
-                    break;
-                case "audiofilterq":
-                    audioFilterQ = Number(val);
-                    break;
-                case "stationId":
-                    stationId = Number(val);
-                    break;
-            }
-        }
-    });
-}
-
-if (parsedQuery.frameSkip) frameSkip = parseInt(parsedQuery.frameSkip);
 
 const emulationConfig = {
     keyLayout: keyLayout,
@@ -136,49 +50,44 @@ const emulationConfig = {
 };
 
 const config = new Config();
-config.setModel(parsedQuery.model || guessModelFromUrl());
+config.setModel("BBCDFS");
 config.setKeyLayout(keyLayout);
 config.set65c02(parsedQuery.coProcessor);
 config.setTeletext(true);
 config.setMusic5000(true);
 
 model = config.model;
-
-if (parsedQuery.cpuMultiplier) {
-    cpuMultiplier = parseFloat(parsedQuery.cpuMultiplier);
-    console.log("CPU multiplier set to " + cpuMultiplier);
-}
 const clocksPerSecond = (cpuMultiplier * 2 * 1000 * 1000) | 0;
 const MaxCyclesPerFrame = clocksPerSecond / 10;
 
 var screen = new jrvideo();
 
-const canvas = $("#bbcCanvas")[0];
-const highResCanvas = $("#highResCanvas")[0];
+const teletextCanvas = $("#teletextCanvas")[0];
+const graphicsCanvas = $("#graphicsCanvas")[0];
 video = new Video(model.isMaster, function paint() {
     if(processor.video.teletextMode)
     {
-        $("#highResCanvas").hide();
-        $("#bbcCanvas").show();
+        $("#graphicsCanvas").hide();
+        $("#teletextCanvas").show();
 
-        canvas.width = 480; 
-        canvas.height = 500;
+        teletextCanvas.width = 480; 
+        teletextCanvas.height = 500;
 
-        const ctx = bbcCanvas.getContext('2d');
-        var imgData = ctx.createImageData(bbcCanvas.width, bbcCanvas.height);
+        const ctx = teletextCanvas.getContext('2d');
+        var imgData = ctx.createImageData(teletextCanvas.width, teletextCanvas.height);
     
         screen.teletextRedraw(ctx, imgData, processor);
     }
     else
     {
-        $("#highResCanvas").show();
-        $("#bbcCanvas").hide();
+        $("#teletextCanvas").hide();
+        $("#graphicsCanvas").show();
+       
+        graphicsCanvas.width = 640; 
+        graphicsCanvas.height = 256;
 
-        highResCanvas.width = 640; 
-        highResCanvas.height = 256;
-
-        const ctx = highResCanvas.getContext('2d');
-        var imgData = ctx.createImageData(highResCanvas.width, highResCanvas.height);
+        const ctx = graphicsCanvas.getContext('2d');
+        var imgData = ctx.createImageData(graphicsCanvas.width, graphicsCanvas.height);
 
         screen.graphicsModeRedraw(ctx, imgData, processor);
     }
@@ -267,33 +176,9 @@ function keyCode(evt) {
     return ret;
 }
 
-function keyPress(evt) {
-    if (document.activeElement.id === "paste-text") return;
-    if (running || (!dbgr.enabled() && !pauseEmu)) return;
-    const code = keyCode(evt);
-    if (dbgr.enabled() && code === 103 /* lower case g */) {
-        dbgr.hide();
-        go();
-        return;
-    }
-    if (pauseEmu) {
-        if (code === 103 /* lower case g */) {
-            pauseEmu = false;
-            go();
-            return;
-        } else if (code === 110 /* lower case n */) {
-            stepEmuWhenPaused = true;
-            go();
-            return;
-        }
-    }
-    const handled = dbgr.keyPress(keyCode(evt));
-    if (handled) evt.preventDefault();
-}
 
 function keyDown(evt) {
     audioHandler.tryResume();
-    if (document.activeElement.id === "paste-text") return;
     if (!running) return;
     const code = keyCode(evt);
     if (evt.altKey) {
@@ -341,7 +226,6 @@ function keyDown(evt) {
 }
 
 function keyUp(evt) {
-    if (document.activeElement.id === "paste-text") return;
     // Always let the key ups come through. That way we don't cause sticky keys in the debugger.
     let code = keyCode(evt);
     if(code === utils.keyCodes.E && evt.ctrlKey)
@@ -362,25 +246,6 @@ function keyUp(evt) {
     evt.preventDefault();
 }
 
-function loadHTMLFile(file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        if ($('input[name="driveSelector"]:checked').val() === "0") {
-            processor.fdc.loadDisc(0, disc.discFor(processor.fdc, file.name, e.target.result));
-            delete parsedQuery.disc;
-            delete parsedQuery.disc1;
-            updateUrl();
-            $discsModal.hide();
-        } else {
-            processor.fdc.loadDisc(1, disc.discFor(processor.fdc, file.name, e.target.result));
-            delete parsedQuery.disc2;
-            updateUrl();
-            $discsModal.hide();
-        }
-    };
-    reader.readAsBinaryString(file);
-}
-
 function setDiscImage(drive, name) {
     delete parsedQuery.disc;
     if (drive === 0) {
@@ -396,13 +261,7 @@ $(window).blur(function () {
     if (processor.sysvia) processor.sysvia.clearKeys();
 });
 
-$("#fs").click(function (event) {
-    $screen[0].requestFullscreen();
-    event.preventDefault();
-});
-
 document.onkeydown = keyDown;
-document.onkeypress = keyPress;
 document.onkeyup = keyUp;
 
 processor = new Cpu6502(
@@ -499,15 +358,9 @@ function updateUrl() {
     window.history.pushState(null, null, url);
 }
 
-const $errorDialog = $("#error-dialog");
-
 function showError(context, error) {
     console.log(context);
     console.log(error);
-    
-    $errorDialog.find(".context").text(context);
-    $errorDialog.find(".error").text(error);
-    $errorDialogModal.show();
 }
 
 function splitImage(image) {
@@ -559,45 +412,6 @@ function loadDiscImage(discImage) {
     });
 }
 
-function anyModalsVisible() {
-    return $(".modal:visible").length !== 0;
-}
-
-let modalSavedRunning = false;
-document.addEventListener("show.bs.modal", function () {
-    if (!anyModalsVisible()) modalSavedRunning = running;
-    if (running) stop(false);
-});
-document.addEventListener("hidden.bs.modal", function () {
-    if (!anyModalsVisible() && modalSavedRunning) {
-        go();
-    }
-});
-
-const discList = $("#disc-list");
-const template = discList.find(".template");
-$.each(availableImages, function (i, image) {
-    const elem = template.clone().removeClass("template").appendTo(discList);
-    elem.find(".name").text(image.name);
-    $(elem).on("click", function () {
-        utils.noteEvent("images", "click", image.file);
-
-        if ($('input[name="driveSelector"]:checked').val() === "0") {
-            setDiscImage(0, image.file);
-            loadDiscImage(parsedQuery.disc1).then(function (disc) {
-                processor.fdc.loadDisc(0, disc);
-            });
-        } else {
-            setDiscImage(1, image.file);
-            loadDiscImage(parsedQuery.disc2).then(function (disc) {
-                processor.fdc.loadDisc(1, disc);
-            });
-        }
-
-        $discsModal.hide();
-    });
-});
-
 $("#download-drive-link").on("click", function () {
     const a = document.createElement("a");
     document.body.appendChild(a);
@@ -612,20 +426,6 @@ $("#download-drive-link").on("click", function () {
     a.click();
     window.URL.revokeObjectURL(url);
 });
-
-$("#hard-reset").click(function (event) {
-    processor.reset(true);
-    event.preventDefault();
-});
-
-$("#soft-reset").click(function (event) {
-    processor.reset(false);
-    event.preventDefault();
-});
-
-function guessModelFromUrl() {
-    return "BBCDFS";
-}
 
 document.addEventListener('dragover', (e) => {
     e.preventDefault()
@@ -670,21 +470,6 @@ const startPromise = Promise.all([processor.initialise()]).then(function () {
 
 startPromise.then(
     function () {
-        switch (needsAutoboot) {
-            case "boot":
-                autoboot(discImage);
-                break;
-            case "type":
-                autoBootType(autoType);
-                break;
-            default:
-                break;
-        }
-
-        if (parsedQuery.patch) {
-            dbgr.setPatch(parsedQuery.patch);
-        }
-
         go();
     },
     function (error) {

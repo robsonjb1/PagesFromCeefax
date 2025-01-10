@@ -110,10 +110,10 @@ audio {
 	#container {
 		font-size: 1.5em;
 	}
-	#bbcCanvas {
+	#teletextCanvas {
 		width: 700px;
 	}
-	#highResCanvas {
+	#graphicsCanvas {
 		width: 700px;
 		height: 700px;
 	}
@@ -122,10 +122,10 @@ audio {
 	#container {
 		font-size: 1.125em;
 	}
-	#bbcCanvas {
+	#teletextCanvas {
 		width: 525px;
 	}
-	#highResCanvas {
+	#graphicsCanvas {
 		width: 525px;
 		height: 525px;
 	}
@@ -134,10 +134,10 @@ audio {
 	#container {
 		font-size: 1em;
 	}
-	#bbcCanvas {
+	#teletextCanvas {
 		width: 450px;
 	}
-	#highResCanvas {
+	#graphicsCanvas {
 		width: 475px;
 		height: 475px;
 	}
@@ -146,10 +146,10 @@ audio {
 	#container {
 		font-size: 0.75em;
 	}
-	#bbcCanvas {
+	#teletextCanvas {
 		width: 350px;
 	}
-	#highResCanvas {
+	#graphicsCanvas {
 		width: 350px;
 		height: 350px;
 	}
@@ -158,10 +158,10 @@ audio {
 	#container {
 		font-size: 0.6em;
 	}
-	#bbcCanvas {
+	#teletextCanvas {
 		width: 300px;
 	}
-	#highResCanvas {
+	#graphicsCanvas {
 		width: 300px;
 	}
 }
