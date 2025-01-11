@@ -26,8 +26,6 @@ if (typeof starCat === "function") {
     }
 }
 let parsedQuery = {};
-let needsAutoboot = false;
-let autoType = "";
 let keyLayout = window.localStorage.keyLayout || "physical";
 
 const BBC = utils.BBC;
@@ -39,7 +37,6 @@ let stepEmuWhenPaused = false;
 let audioFilterFreq = 7000;
 let audioFilterQ = 5;
 let selectedDrive = 0;
-
 
 const emulationConfig = {
     keyLayout: keyLayout,
@@ -246,17 +243,6 @@ function keyUp(evt) {
     evt.preventDefault();
 }
 
-function setDiscImage(drive, name) {
-    delete parsedQuery.disc;
-    if (drive === 0) {
-        parsedQuery.disc1 = name;
-    } else {
-        parsedQuery.disc2 = name;
-    }
-    updateUrl();
-}
-
-
 $(window).blur(function () {
     if (processor.sysvia) processor.sysvia.clearKeys();
 });
@@ -329,35 +315,6 @@ function sendRawKeyboardToBBC(keysToSend, checkCapsAndShiftLocks) {
     });
 }
 
-function autoboot(image) {
-    const BBC = utils.BBC;
-    console.log("Autobooting disc");
-    utils.noteEvent("init", "autoboot", image);
-
-    // Shift-break simulation, hold SHIFT for 1000ms.
-    sendRawKeyboardToBBC([BBC.SHIFT, 1000], false);
-}
-
-function autoBootType(keys) {
-    console.log("Auto typing '" + keys + "'");
-    utils.noteEvent("init", "autochain");
-
-    const bbcKeys = utils.stringToBBCKeys(keys);
-    sendRawKeyboardToBBC([1000].concat(bbcKeys), false);
-}
-
-function updateUrl() {
-    let url = window.location.origin + window.location.pathname;
-    let sep = "?";
-    $.each(parsedQuery, function (key, value) {
-        if (key.length > 0 && value) {
-            url += sep + encodeURIComponent(key) + "=" + encodeURIComponent(value);
-            sep = "&";
-        }
-    });
-    window.history.pushState(null, null, url);
-}
-
 function showError(context, error) {
     console.log(context);
     console.log(error);
@@ -395,16 +352,6 @@ function loadDiscImage(discImage) {
         const discData = unzipped.data;
         discImage = unzipped.name;
         return Promise.resolve(disc.discFor(processor.fdc, discImage, discData));
-    }
-    if (schema === "http" || schema === "https" || schema === "file") {
-        return utils.loadData(schema + "://" + discImage).then(function (discData) {
-            if (/\.zip/i.test(discImage)) {
-                const unzipped = utils.unzipDiscImage(discData);
-                discData = unzipped.data;
-                discImage = unzipped.name;
-            }
-            return disc.discFor(processor.fdc, discImage, discData);
-        });
     }
 
     return disc.load("discs/" + discImage).then(function (discData) {
@@ -520,8 +467,6 @@ function draw(now) {
             stop(false);
             stepEmuWhenPaused = false;
         }
-
-       
     }
     last = now;
 }

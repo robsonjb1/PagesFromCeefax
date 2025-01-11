@@ -169,31 +169,7 @@ export class jrvideo {
 
     getScreenMode(processor)
     {
-        if(processor.readmem(0x355) === 6) {
-            return 6;
-        }
-
-        if(processor.readmem(0x355) === 3) {
-            return 3;
-        }
-
-        if(processor.video.ulaMode === 1 && processor.video.pixelsPerChar === 16) {
-            return 5;
-        }
-        
-        if(processor.video.ulaMode === 2 && processor.video.pixelsPerChar === 16) {
-            return 4;
-        }
-
-        if(processor.video.ulaMode === 1 && processor.video.pixelsPerChar === 8) {
-            return 2;
-        }
-
-        if(processor.video.ulaMode === 2 && processor.video.pixelsPerChar === 8) {
-            return 1;
-        }
-
-        return 0;
+        return (processor.readmem(0x355));
     }
 
     getScreenStart(screenMode)

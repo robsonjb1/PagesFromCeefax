@@ -38,6 +38,8 @@ export class TeletextAdaptor {
         this.carousel = null;
         this.currentPFCpage = 0;
         this.carouselFrameSequence = 0;
+        this.carouselPFCpage = 0;
+        this.carouselPFCpageDelay = 0;
     }
 
     reset(hard) {
@@ -126,12 +128,16 @@ export class TeletextAdaptor {
         this.pollCount += cycles;
         if (this.pollCount > TELETEXT_UPDATE_FREQ) {
             this.pollCount -= TELETEXT_UPDATE_FREQ;
+            
             // Don't flood the processor with teletext interrupts during a reset
-            if (this.cpu.resetLine) {
+            if (this.cpu.resetLine) 
+            {
+                console.log("update");
                 this.update();
             } else {
+                console.log("waiting");
                 // Grace period before we start up again
-                this.pollCount = -TELETEXT_UPDATE_FREQ * 20;
+                this.pollCount = -TELETEXT_UPDATE_FREQ * 10;
             }
         }
 
@@ -193,7 +199,7 @@ export class TeletextAdaptor {
             this.teletextStatus |= 0xd0; // data ready so latch INT, DOR, and FSYN
 
             if (this.teletextEnable) {
-                if(this.channel === 0)
+                if(this.channel === 1)
                 {
                     // Copy current stream position into the frame buffer
                     for (let i = 0; i < this.linesPerFrame; i++) {
@@ -215,6 +221,9 @@ export class TeletextAdaptor {
                 else
                 {
                     if (this.carousel != null) {
+                        // Page 100 will show a cycling PFC page from the rest of the carousel, so hence an effective and current PFC page
+                        var effectivePFCpage = (this.currentPFCpage > 0) ? this.currentPFCpage - 1 : this.carouselPFCpage;
+
                         if(this.carouselFrameSequence === 0) {
                             const now = new Date();
 
@@ -278,7 +287,7 @@ export class TeletextAdaptor {
                                 this.frameBuffer[i][1] = packetRefs[i*2];
                                 this.frameBuffer[i][2] = packetRefs[(i*2)+1];
                                 for (let j=0; j<40; j++) {
-                                    this.frameBuffer[i][j+3] = this.carousel.content[this.currentPFCpage].data[40 + ((i*40)+j)]; // Skip first row as it is blank
+                                    this.frameBuffer[i][j+3] = this.carousel.content[effectivePFCpage].data[40 + ((i*40)+j)]; // Skip first row as it is blank
                                 }
                             }
                         }
@@ -291,10 +300,9 @@ export class TeletextAdaptor {
                                 this.frameBuffer[i-16][1] = packetRefs[i*2];
                                 this.frameBuffer[i-16][2] = packetRefs[(i*2)+1];
                                 for (let j=0; j<40; j++) {
-                                    this.frameBuffer[i-16][j+3] = this.carousel.content[this.currentPFCpage].data[40 + ((i*40)+j)];
+                                    this.frameBuffer[i-16][j+3] = this.carousel.content[effectivePFCpage].data[40 + ((i*40)+j)];
                                 }
                             }
-
                             this.markUnusedFrameRows(8, 16);
                         }
 
@@ -307,9 +315,21 @@ export class TeletextAdaptor {
                         if(this.carouselFrameSequence === 4) {
                             this.carouselFrameSequence = 0;
                             this.currentPFCpage++;
-                            if(this.currentPFCpage === this.carousel.totalPages)
+                            if(this.currentPFCpage > this.carousel.totalPages)
                             {
                                 this.currentPFCpage = 0;
+                                
+                                // Advance to the next PFC page displayed on page 100
+                                if(this.carouselPFCpageDelay === 0)
+                                {
+                                    this.carouselPFCpageDelay = 3;
+                                    this.carouselPFCpage++;
+                                    if(this.carouselPFCpage === this.carousel.totalPages)
+                                    {
+                                        this.carouselPFCpage = 0;
+                                    }
+                                }
+                                this.carouselPFCpageDelay--;
                             }
                         }
                     }
