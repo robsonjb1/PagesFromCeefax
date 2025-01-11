@@ -95,11 +95,11 @@ audio {
 		font-size: 1.5em;
 	}
 	#teletextCanvas {
-		width: 775px;
+		width: 725px;
 	}
 	#graphicsCanvas {
-		width: 775px;
-		height: 775px;
+		width: 750px;
+		height: 750px;
 	}
 }
 
