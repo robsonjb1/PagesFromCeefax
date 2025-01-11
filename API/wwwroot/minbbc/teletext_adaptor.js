@@ -128,16 +128,15 @@ export class TeletextAdaptor {
         this.pollCount += cycles;
         if (this.pollCount > TELETEXT_UPDATE_FREQ) {
             this.pollCount -= TELETEXT_UPDATE_FREQ;
-            
-            // Don't flood the processor with teletext interrupts during a reset
-            if (this.cpu.resetLine) 
-            {
-                console.log("update");
+            if (this.cpu.resetLine && this.cpu.p.i && this.teletextInts) {
                 this.update();
-            } else {
-                console.log("waiting");
+            }
+
+            if (!this.cpu.resetLine) {
                 // Grace period before we start up again
                 this.pollCount = -TELETEXT_UPDATE_FREQ * 10;
+                this.teletextInts = false;
+                this.teletextEnable = false;
             }
         }
 
@@ -335,10 +334,10 @@ export class TeletextAdaptor {
                     }
                 }
             }
-        }
 
-        if (this.teletextInts) {
-            this.cpu.interrupt |= 1 << TELETEXT_IRQ;
+            if (this.teletextInts) {
+                this.cpu.interrupt |= 1 << TELETEXT_IRQ;
+            }
         }
     }
 }
