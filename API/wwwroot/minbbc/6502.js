@@ -409,11 +409,10 @@ class DebugHook {
 }
 
 export class Cpu6502 extends Base6502 {
-    constructor(model, dbgr, video_, soundChip_, music5000_, config) {
+    constructor(model, video_, soundChip_, music5000_, config) {
         super(model);
         this.config = fixUpConfig(config);
-        this.debugger = dbgr;
-
+        
         this.video = video_;
         this.soundChip = soundChip_;
         this.music5000 = music5000_;
@@ -1051,6 +1050,5 @@ export class Cpu6502 extends Base6502 {
             await this.loadOs.apply(this, this.model.os);
         }
         this.reset(true);
-        this.debugger.setCpu(this);
     }
 }

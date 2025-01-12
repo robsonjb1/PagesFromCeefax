@@ -1,6 +1,5 @@
 import * as utils from "./utils.js";
 import { Video } from "./video.js";
-import { Debugger } from "./web/debug.js";
 import { Cpu6502 } from "./6502.js";
 import * as disc from "./fdc.js";
 import { starCat } from "./discs/cat.js";
@@ -10,7 +9,6 @@ import { jrvideo } from "./js/video.js";
 
 let processor;
 let video;
-let dbgr;
 let running;
 let model;
 let availableImages;
@@ -95,8 +93,6 @@ const audioHandler = new AudioHandler($("#audio-warning"), audioFilterFreq, audi
 let lastShiftLocation = 1;
 let lastCtrlLocation = 1;
 let lastAltLocation = 1;
-
-dbgr = new Debugger(video);
 
 function keyCode(evt) {
     const ret = evt.which || evt.charCode || evt.keyCode;
@@ -252,7 +248,6 @@ document.onkeyup = keyUp;
 
 processor = new Cpu6502(
     model,
-    dbgr,
     video,
     audioHandler.soundChip,
     model.hasMusic5000 ? audioHandler.music5000 : null,
@@ -460,7 +455,6 @@ function draw(now) {
         } catch (e) {
             running = false;
             utils.noteEvent(e.stack);
-            dbgr.debug(processor.pc);
             throw e;
         }
         if (stepEmuWhenPaused) {
@@ -484,6 +478,5 @@ function go() {
 function stop(debug) {
     running = false;
     processor.stop();
-    if (debug) dbgr.debug(processor.pc);
     audioHandler.mute();
 };
