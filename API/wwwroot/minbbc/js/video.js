@@ -1,585 +1,743 @@
+"use strict";
+import * as utils from "./utils.js";
 
-export class jrvideo {
-    
-    constructor()
-    {
-        // Character definitions
-        this.charSmoothed = this.makeSmoothedChars(getChars());
-        this.charGraphics = this.makeGraphicChars(getChars(), false);
-        this.charSeparated = this.makeGraphicChars(getChars(), true);
+const VDISPENABLE = 1 << 0,
+    HDISPENABLE = 1 << 1,
+    SKEWDISPENABLE = 1 << 2,
+    SCANLINEDISPENABLE = 1 << 3,
+    USERDISPENABLE = 1 << 4,
+    FRAMESKIPENABLE = 1 << 5,
+    EVERYTHINGENABLED =
+        VDISPENABLE | HDISPENABLE | SKEWDISPENABLE | SCANLINEDISPENABLE | USERDISPENABLE | FRAMESKIPENABLE;
 
-        // Render state, preserved between redraw calls
-        this.prevCol = 0;
-        this.bg = 0;
-        this.holdChar = 0;
-        this.col = 7;
-        this.sep = false;
-        this.holdOff = false;
-        this.gfx = false
-        this.heldChar = false;
-        this.dbl = false;
-        this.oldDbl = false;
-        this.secondHalfOfDouble = false;
-        this.wasDbl = false;
-        this.flash = false;
-        this.flashOn = false;
-        this.flashTime = -1;
-        this.prevFlash = false; 
-        this.lastRowRefresh = false;
-        this.nextGlyphs = this.charSmoothed;
-        this.heldGlyphs = this.charSmoothed;  
-        this.curGlyphs = this.charSmoothed;    
-
-        this.actual2bitColour = new Uint8Array([0, 2, 8, 10]); 
+////////////////////
+// ULA interface
+class Ula {
+    constructor(video) {
+        this.video = video;
     }
-
-    // Teletext rendering utilities
-    getRGB_Red(col)
-    {
-        switch(col)
-        {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-                return 255;
-            default: 
-                return 0;
-        }
-    }
-
-    getRGB_Green(col)
-    {
-        switch(col)
-        {
-            case 2:
-            case 3:
-            case 6:
-            case 7:
-                return 255;
-            default: 
-                return 0;
-        }
-    }
-
-    getRGB_Blue(col)
-    {
-        switch(col)
-        {
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-                return 255;
-            default: 
-                return 0;
-        }
-    }
-
-    makeSmoothedChars(charData)
-    {
-        // Convert the original 6x10 matrix to 12x20 and apply smoothing algorithm
-        var smoothedData = new Uint8Array(12 * 20 * 96);
-
-        for(var charNo=0; charNo<96; charNo++)
-        {
-            for(var row=0; row<10; row++)
-            {
-                for(var pixel=0; pixel<7; pixel++)
-                {
-                    var sourcePixel = charData[(charNo * 60) + (row * 6) + pixel];
-                    var destPos = (charNo * 240) + (row * 24) + (pixel * 2);
-
-                    this.solidBlock(smoothedData, destPos, 2, 2, sourcePixel, false);
-                }
-            }
-
-            // Smooth the character
-            for(var row=0; row<19; row++)
-            {
-                for(var pixel=0; pixel<11; pixel++)
-                {
-                    var sourcePos = (charNo * 240) + (row * 12) + pixel;
-                    
-                    // Detect a diagonal
-                    if((smoothedData[sourcePos] == 1                 
-                        && smoothedData[sourcePos+1] == 0           // 1 0
-                        && smoothedData[sourcePos+12] == 0          // 0 1
-                        && smoothedData[sourcePos+13] == 1          
-                    ) || (smoothedData[sourcePos] == 0                 
-                        && smoothedData[sourcePos+1] == 1           // 0 1
-                        && smoothedData[sourcePos+12] == 1          // 1 0
-                        && smoothedData[sourcePos+13] == 0          
-                    )) {
-                        this.solidBlock(smoothedData, sourcePos, 2, 2, 1, false);
-                    }
-                }
-            }
-        }
-
-        return smoothedData;
-    }
-
-    solidBlock(graphicData, startPos, width, height, val, sep)
-    {
-        for(var xPos = 0; xPos<width; xPos++)
-        {
-            for(var yPos=0; yPos<height; yPos++)
-            {
-                // Separated graphics miss the left and bottom sides
-                graphicData[startPos + xPos + (12 * yPos)] = val && (!sep || xPos > 1) && (!sep || yPos<height-2) ? 1 : 0;
-            }
-        }
-    }
-
-    makeGraphicChars(charData, sep)
-    {
-        // Construct the graphic data using the smoothed chars as a template (as we need to preserve the CAPS alpha chars)
-        var graphicData = this.makeSmoothedChars(charData);
-
-        for(var char=0; char<64; char++)
-        {
-            var startPos = (char * 12 * 20) + (char > 31 ? (32 * 12 * 20) : 0);             // Add offset to skip over the CAPS alpha chars
-
-            this.solidBlock(graphicData, startPos, 6, 6, !!(char & 1), sep);                     // Top left
-            this.solidBlock(graphicData, startPos + 6, 6, 6, !!(char & 2), sep);                 // Top right
-            this.solidBlock(graphicData, startPos + (12 * 6), 6, 8, !!(char & 4), sep);          // Middle left, row is larger at 8 pixels
-            this.solidBlock(graphicData, startPos + (12 * 6) + 6, 6, 8, !!(char & 8), sep);      // Middle right, row is larger at 8 pixels
-            this.solidBlock(graphicData, startPos + (12 * 14), 6, 6, !!(char & 16), sep);        // Bottom left
-            this.solidBlock(graphicData, startPos + (12 * 14) + 6, 6, 6, !!(char & 32), sep);    // Bottom right
-        }
-
-        return graphicData;
-    }
-
-    getRed(pal)
-    {
-        return (pal & 1) === 0 ? 255 : 0;
-    }
-
-    getGreen(pal)
-    {
-        return (pal & 2) === 0 ? 255 : 0;
-    }
-
-    getBlue(pal)
-    {
-        return (pal & 4) === 0 ? 255 : 0;
-    }
-
-    getScreenMode(processor)
-    {
-        return (processor.readmem(0x355));
-    }
-
-    getScreenStart(screenMode)
-    {
-        switch(screenMode)
-        {
-            case 0:
-            case 1:
-            case 2: 
-                return 0x3000;
-            case 3:
-                return 0x4000;
-            case 4:
-            case 5:
-                return 0x5800;
-            case 6:
-                return 0x6000;
-        }
-    }
-
-    getScreenOffset(screenMode)
-    {
-        switch(screenMode)
-        {
-            case 0:
-            case 1:
-            case 2:
-                return 0x600;
-            case 3:
-                return 0x800;
-            case 4:
-            case 5:
-                return 0xB00;
-            case 6:
-                return 0xC00;
-        }
-    }
-
-    getPixelsPerByte(screenMode)
-    {
-        switch(screenMode)
-        {
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-                return 8;
-            case 4:
-            case 5:
-            case 6:
-                return 16;
-        }
-    }
-
-    plotPixel(imgData, idPtr, colour)
-    {
-        imgData.data[idPtr] = this.getRed(colour);
-        imgData.data[idPtr+1] = this.getGreen(colour);
-        imgData.data[idPtr+2] = this.getBlue(colour);
-        imgData.data[idPtr+3] = this.getRed(colour) + this.getGreen(colour) + this.getBlue(colour) > 0 ? 255 : 0; // transparency
-
-        return idPtr+4;
-    }
-
-    graphicsModeRedraw(ctx, imgData, processor)
-    {   
-        // Screen refresh initialisation
-        var fastBlink = (processor.video.regs[10] & 32) == 0;
-        if (++this.flashTime >= (fastBlink ? 12 : 32)) this.flashTime = 0;  // 3:1 flash ratio.
-        this.flashOn = this.flashTime < (fastBlink ? 6 : 12);
-        
-        let screenMode = this.getScreenMode(processor);
-        let screenStart = this.getScreenStart(screenMode);
-        let screenSize = 0x8000 - screenStart;
-        var offset = (((processor.video.regs[12] * 256) + processor.video.regs[13]) - this.getScreenOffset(screenMode)) * 8;
-        var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - this.getScreenOffset(screenMode) - (offset / 8);
-        let idPtr = 0;
-        let lineCount = 0;
-      
-        for (let memLoc = 0; memLoc < screenSize - (screenMode === 6 ? 0xc0 : 0) - (screenMode === 3 ? 0x180 : 0); memLoc++) {
-            let byte = processor.readmem(screenStart + offset + memLoc);
-
-            if(screenMode === 0) {
-                for (let c=7; c>=0; c--) {
-                    let colour = processor.video.actualPal[byte & (1<<c) ? 8 : 0];
-
-                    idPtr = this.plotPixel(imgData, idPtr, colour);
-                }
-            }
-
-            if(screenMode === 1) {
-                for (let c=3; c>=0; c--) {
-                    let colour = processor.video.actualPal[this.actual2bitColour[((byte & (1<<c)) ? 1 : 0) + ((byte & (1<<(c+4))) ? 2 : 0)]];
-                    
-                    // Two pixel width
-                    idPtr = this.plotPixel(imgData, idPtr, colour);
-                    idPtr = this.plotPixel(imgData, idPtr, colour);
-                }
-            }
-
-            if(screenMode === 2) {
-                for (let c=1; c>=0; c--) {
-                    let colour = processor.video.actualPal[((byte & (1<<c)) !==0 ? 1 : 0) + ((byte & (1<<(c+2))) !==0 ? 2 : 0)
-                            + ((byte & (1<<(c+4))) !==0 ? 4 : 0) + ((byte & (1<<(c+6))) !==0 ? 8 : 0)];
-                  
-                    // Four pixel width per bit
-                    for (let i=0; i<4; i++) {
-                        idPtr = this.plotPixel(imgData, idPtr, colour);
-                    }
-                }
-            }
-
-            if(screenMode === 3) {
-                for (let c=7; c>=0; c--) {
-                    let colour = processor.video.actualPal[byte & (1<<c) ? 8 : 0];
-
-                    idPtr = this.plotPixel(imgData, idPtr, colour);
-                }
-            }
-
-            if(screenMode === 4) {
-                for (let c=7; c>=0; c--) {
-                    let colour = processor.video.actualPal[byte & (1<<c) ? 8 : 0];
-                   
-                    // Two pixel width per bit
-                    idPtr = this.plotPixel(imgData, idPtr, colour);
-                    idPtr = this.plotPixel(imgData, idPtr, colour);
-                }
-            }    
-
-            if(screenMode === 5) {
-                for (let c=3; c>=0; c--) {
-                    let colour = processor.video.actualPal[this.actual2bitColour[((byte & (1<<c)) !==0 ? 1 : 0) + ((byte & (1<<(c+4))) !==0 ? 2 : 0)]];
-                    
-                    // Four pixel width per bit
-                    for (let i=0; i<4; i++) {
-                        idPtr = this.plotPixel(imgData, idPtr, colour);
-                    }
-                }
-            }
-
-            if(screenMode === 6) {
-                for (let c=7; c>=0; c--) {
-                    let colour = processor.video.actualPal[byte & (1<<c) ? 8 : 0];
-                   
-                    // Two pixel width per bit
-                    idPtr = this.plotPixel(imgData, idPtr, colour);
-                    idPtr = this.plotPixel(imgData, idPtr, colour);
-                }
-            }
-
-            // Move to start of next line for the current character
-            idPtr -= this.getPixelsPerByte(screenMode) * 4;
-            idPtr += 640 * 4;
-            lineCount++;
-
-            if(lineCount % 8 === 0) {
-                // Advance one character, move pointer up and to the right
-                idPtr -= (640 * 8) * 4;
-                idPtr += (this.getPixelsPerByte(screenMode) * 4);
-            }
-
-            // Move to start of next character row
-            if(lineCount % (8 * (640 / this.getPixelsPerByte(screenMode))) === 0) {
-                idPtr += (639 * 8) * 4;
-                idPtr -= 632 * 4;
-
-                // Mode 3+6 skip 2 rows (characters are 8x10)
-                if(screenMode === 3 || screenMode === 6)
-                {
-                    idPtr += (640 * 2 * 4);
-                }
-            }
-
-            if((screenStart + offset + memLoc) === 0x7fff) {
-                offset = offset - screenSize;
-            }  
-        }
-
-        // Is the cursor flashing? (bit 6 of 6845 register 10)
-        if((processor.video.regs[10] & 64) && processor.video.regs[11] && this.flashOn)
-        {
-            let cursorY = Math.floor(cursorPos / (640 / this.getPixelsPerByte(screenMode)));
-            let cursorX = cursorPos - (cursorY * (640 / this.getPixelsPerByte(screenMode)));
-
-            idPtr = (cursorY * 4 * (screenMode === 6 ? 10 : (screenMode === 3 ? 10 : 8)) * 8 * 80) + (cursorX * 4 * this.getPixelsPerByte(screenMode)); // Move to start of cursor char
-            idPtr += (4 * 80 * 8 * 7); // Move down to start cursor line
-            for(let i=0; i<8; i++)
-            {
-                let cursorWidth = (screenMode === 6 ? 2 : (screenMode === 5 ? 4 : (screenMode === 2 ? 4 : 
-                    (screenMode === 3 ? 1 : (screenMode === 1 ? 2 : (screenMode === 4 ? 2 : 1))))));
-
-                for(let j=0; j<cursorWidth; j++)
-                {
-                    imgData.data[idPtr] = 255;
-                    imgData.data[idPtr+1] = 255;
-                    imgData.data[idPtr+2] = 255;
-                    imgData.data[idPtr+3] = 255;
-                
-                    idPtr+=4;
-                }
-            }
-        }
-
-        // Write screen to the canvas
-        ctx.putImageData(imgData, 0, 0);
-    }
-
-    // Teletext redraw routine
-    teletextRedraw(ctx, imgData, processor)
-    {
-        // Screen refresh initialisation
-        var offset = ((processor.video.regs[12] * 256) + processor.video.regs[13]) - 0x2800;
-        var cursorPos = ((processor.video.regs[14] * 256) + processor.video.regs[15]) - 0x2800 - offset;
-        var cursorType = processor.video.regs[10];
-        var fastBlink = (cursorType & 32) == 0;
-        if (++this.flashTime >= (fastBlink ? 12 : 32)) this.flashTime = 0;  // 3:1 flash ratio.
-        this.flashOn = this.flashTime < (fastBlink ? 6 : 12);
-        let charPos = 0;
-
-        // Read screen memory
-        offset = 0x7c00 + offset;
-        let pageBuffer = new Uint8Array(40 * 25);
-        for(var i=0; i<40*25; i++) {
-            if((offset + i) > 0x7fff) {
-                offset = 0x7c00 - i;
-            }
-            pageBuffer[i] = processor.readmem((offset + i));
-        }
-       
-        this.dbl = this.oldDbl = this.secondHalfOfDouble = this.wasDbl = false;
-
-        for(var yCol = 0; yCol < 25; yCol++)
-        {
-            // Initialise row
-            this.col = 7;
-            this.bg = 0;
-            this.holdChar = false;
-            this.heldChar = 0x20;
-            this.nextGlyphs = this.charSmoothed;
-            this.heldGlyphs = this.charSmoothed;
-            this.sep = false;
-            this.gfx = false;
-            this.dbl = false;
-            this.flash = false;
-            this.secondHalfOfDouble = this.secondHalfOfDouble ? false : this.wasDbl;
-            this.wasDbl = false;
-            
-            for(var xCol = 0; xCol < 40; xCol++)
-            {      
-                this.oldDbl = this.dbl;
-                this.prevCol = this.col;
-                this.curGlyphs = this.nextGlyphs;
-                this.prevFlash = this.flash;
-                
-                var idPtr = (xCol * 4 * 12) + (yCol * 40 * 4 * 12 * 20);
-                var data = pageBuffer[charPos++];
-                
-                if(data >= 128)
-                {
-                    data = data - 128;
-                }
-
-                if (data < 0x20) {
-                    data = this.handleControlCode(data);
-                } else if (this.gfx) {
-                    this.heldChar = data;
-                    this.heldGlyphs = this.curGlyphs;
-                } 
-
-                // Displayable character, map to character definitions
-                var charDef = (this.prevFlash && this.flashOn) || (this.secondHalfOfDouble && !this.dbl) ? 0 : data - 32;
-                for(var yPos = 0; yPos < 20; yPos++)
-                {
-                    var actualY = this.dbl ? Math.floor(yPos / 2) + (this.secondHalfOfDouble ? 10 : 0) : yPos;
-                    for(var xPos = 0; xPos < 12; xPos++)
-                    {
-                        let setPixel = this.curGlyphs[(charDef * 240) + (12 * actualY) + xPos] == 1;
-                        imgData.data[idPtr] = setPixel ? this.getRGB_Red(this.prevCol) : this.getRGB_Red(this.bg);
-                        imgData.data[idPtr+1] = setPixel ? this.getRGB_Green(this.prevCol) : this.getRGB_Green(this.bg);
-                        imgData.data[idPtr+2] = setPixel ? this.getRGB_Blue(this.prevCol) : this.getRGB_Blue(this.bg);
-                        imgData.data[idPtr+3] = (setPixel & this.col != 0) || (!setPixel && this.bg != 0) ? 255 : 0;
-                        idPtr = idPtr + 4;
-                    }
-                    
-                    idPtr = idPtr + (4 * 39 * 12);      
-                }
-                
-                if (this.holdOff) {
-                    this.holdChar = false;
-                    this.heldChar = 32;
-                }
-            }
-        }
-
-        // Is the cursor flashing? (bit 6 of 6845 register 10)
-        if((cursorType & 64) && this.flashOn)
-        {
-            let cursorY = Math.floor(cursorPos / 40);
-            let cursorX = cursorPos - (cursorY * 40);
-
-            idPtr = (cursorY * 4 * 12 * 20 * 40) + (cursorX * 4 * 12); // Move to start of cursor char
-            idPtr += (4 * 40 * 12 * 18) + 4; // Move down to start cursor line
-            for(let i=0; i<22; i++)
-            {
-                imgData.data[idPtr] = 255;
-                imgData.data[idPtr+1] = 255;
-                imgData.data[idPtr+2] = 255;
-                imgData.data[idPtr+3] = 255;
-                
-                if(i == 10)
-                {
-                    idPtr = idPtr + (4 * 39 * 12) + 8; // Move down one row
-                }
-                else
-                { 
-                    idPtr+=4;
-                }
-            }
-        }
-
-        // Write screen to the canvas
-        ctx.putImageData(imgData, 0, 0);
-    }
-
-    setNextChars()
-    {
-        if (this.gfx) {
-            if (this.sep) {
-                this.nextGlyphs = this.charSeparated;
-            } else {
-                this.nextGlyphs = this.charGraphics;
+    write(addr, val) {
+        addr |= 0;
+        val |= 0;
+        if (addr & 1) {
+            const index = (val >>> 4) & 0xf;
+            this.video.actualPal[index] = val & 0xf;
+            let ulaCol = val & 7;
+            if (!(val & 8 && this.video.ulactrl & 1)) ulaCol ^= 7;
+            if (this.video.ulaPal[index] !== this.video.collook[ulaCol]) {
+                this.video.ulaPal[index] = this.video.collook[ulaCol];
             }
         } else {
-            this.nextGlyphs = this.charSmoothed;
+            if ((this.video.ulactrl ^ val) & 1) {
+                // Flash colour has changed.
+                const flashEnabled = !!(val & 1);
+                for (let i = 0; i < 16; ++i) {
+                    let index = this.video.actualPal[i] & 7;
+                    if (!(flashEnabled && this.video.actualPal[i] & 8)) index ^= 7;
+                    if (this.video.ulaPal[i] !== this.video.collook[index]) {
+                        this.video.ulaPal[i] = this.video.collook[index];
+                    }
+                }
+            }
+            this.video.ulactrl = val;
+            this.video.pixelsPerChar = val & 0x10 ? 8 : 16;
+            this.video.halfClock = !(val & 0x10);
+            const newMode = (val >>> 2) & 3;
+            if (newMode !== this.video.ulaMode) {
+                this.video.ulaMode = newMode;
+            }
+            this.video.teletextMode = !!(val & 2);
         }
     }
+}
 
-    handleControlCode(data)
-    {
-        this.holdOff = false;
-        switch (data) 
-        {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-                this.gfx = false;
-                this.col = data;
-                this.setNextChars();
-                break;
-            case 8:
-                this.flash = true;
-                break;
-            case 9:
-                this.flash = false;
-                break;
+////////////////////
+// CRTC interface
+class Crtc {
+    constructor(video) {
+        this.video = video;
+        this.curReg = 0;
+        this.crtcmask = new Uint8Array([
+            0xff, 0xff, 0xff, 0xff, 0x7f, 0x1f, 0x7f, 0x7f, 0xf3, 0x1f, 0x7f, 0x1f, 0x3f, 0xff, 0x3f, 0xff, 0x3f, 0xff,
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        ]);
+    }
+    read(addr) {
+        if (!(addr & 1)) return 0;
+        switch (this.curReg) {
             case 12:
             case 13:
-                this.dbl = !!(data & 1);
-                if (this.dbl) this.wasDbl = true;
-                break;
+            case 14:
+            case 15:
+            case 16:
             case 17:
-            case 18:
-            case 19:
-            case 20:
-            case 21:
-            case 22:
-            case 23:
-                this.gfx = true;
-                this.col = data & 7;
-                this.setNextChars();
-                break;
-            case 24:
-                this.col = this.prevCol = this.bg;
-                break;
-            case 25:
-                this.sep = false;
-                this.setNextChars();
-                break;
-            case 26:
-                this.sep = true;
-                this.setNextChars();
-                break;
-            case 28:
-                this.bg = 0;
-                break;
-            case 29:
-                this.bg = this.col;
-                break;
-            case 30:
-                this.holdChar = true;
-                break;
-            case 31:
-                this.holdOff = true;
-                break;
+                return this.video.regs[this.curReg];
         }
+        return 0;
+    }
+    write(addr, val) {
+        if (addr & 1) {
+            this.video.regs[this.curReg] = val & this.crtcmask[this.curReg];
+            switch (this.curReg) {
+                case 3:
+                    this.video.hpulseWidth = val & 0x0f;
+                    this.video.vpulseWidth = (val & 0xf0) >>> 4;
+                    break;
+                case 8: {
+                    this.video.interlacedSyncAndVideo = (val & 3) === 3;
+                    const skew = (val & 0x30) >>> 4;
+                    if (skew < 3) {
+                        this.video.displayEnableSkew = skew;
+                        this.video.dispEnableSet(USERDISPENABLE);
+                    } else {
+                        this.video.dispEnableClear(USERDISPENABLE);
+                    }
+                    break;
+                }
+                case 14:
+                case 15:
+                    this.video.cursorPos = (this.video.regs[15] | (this.video.regs[14] << 8)) & 0x3fff;
+                    break;
+            }
+        } else this.curReg = val & 31;
+    }
+}
 
-        if (this.holdChar && this.dbl === this.oldDbl) {
-            data = this.heldChar;
-            if (data >= 0x40 && data < 0x60) data = 0x20;
-            this.curGlyphs = this.heldGlyphs;
+////////////////////
+// Misc support functions
+
+function debugCopyFb(dest, src) {
+    for (let i = 0; i < 1024 * 768; ++i) {
+        dest[i] = src[i];
+    }
+}
+
+function lerp1(a, b, alpha) {
+    let val = (b - a) * alpha + a;
+    if (val < 0) val = 0;
+    if (val > 255) val = 255;
+    return val;
+}
+
+function lerp(col1, col2, alpha) {
+    if (alpha < 0) alpha = 0;
+    if (alpha > 1) alpha = 1;
+    const r1 = (col1 >>> 16) & 0xff;
+    const g1 = (col1 >>> 8) & 0xff;
+    const b1 = (col1 >>> 0) & 0xff;
+    const r2 = (col2 >>> 16) & 0xff;
+    const g2 = (col2 >>> 8) & 0xff;
+    const b2 = (col2 >>> 0) & 0xff;
+    const red = lerp1(r1, r2, alpha);
+    const green = lerp1(g1, g2, alpha);
+    const blue = lerp1(b1, b2, alpha);
+    return (red << 16) | (green << 8) | blue;
+}
+
+function table4bppOffset(ulamode, byte) {
+    return (ulamode << 12) | (byte << 4);
+}
+
+////////////////////
+// The video class
+export class Video {
+    constructor(isMaster, paint_ext_param) {
+        this.isMaster = isMaster;
+        this.fb32 = utils.makeFast32(1000);
+        this.collook = utils.makeFast32(
+            new Uint32Array([
+                0xff000000, 0xff0000ff, 0xff00ff00, 0xff00ffff, 0xffff0000, 0xffff00ff, 0xffffff00, 0xffffffff,
+            ])
+        );
+        this.screenAddrAdd = new Uint16Array([0x4000, 0x3000, 0x6000, 0x5800]);
+        this.cursorTable = new Uint8Array([0x00, 0x00, 0x00, 0x80, 0x40, 0x20, 0x20]);
+        this.cursorFlashMask = new Uint8Array([0x00, 0x00, 0x08, 0x10]);
+        this.regs = new Uint8Array(32);
+        this.bitmapX = 0;
+        this.bitmapY = 0;
+        this.oddClock = false;
+        this.frameCount = 0;
+        this.doEvenFrameLogic = false;
+        this.isEvenRender = true;
+        this.lastRenderWasEven = false;
+        this.firstScanline = true;
+        this.inHSync = false;
+        this.inVSync = false;
+        this.hadVSyncThisRow = false;
+        this.checkVertAdjust = false;
+        this.endOfMainLatched = false;
+        this.endOfVertAdjustLatched = false;
+        this.endOfFrameLatched = false;
+        this.inVertAdjust = false;
+        this.inDummyRaster = false;
+        this.hpulseWidth = 0;
+        this.vpulseWidth = 0;
+        this.hpulseCounter = 0;
+        this.vpulseCounter = 0;
+        this.dispEnabled = FRAMESKIPENABLE;
+        this.horizCounter = 0;
+        this.vertCounter = 0;
+        this.scanlineCounter = 0;
+        this.vertAdjustCounter = 0;
+        this.addr = 0;
+        this.lineStartAddr = 0;
+        this.nextLineStartAddr = 0;
+        this.ulactrl = 0;
+        this.pixelsPerChar = 8;
+        this.halfClock = false;
+        this.ulaMode = 0;
+        this.teletextMode = true;
+        this.displayEnableSkew = 0;
+        this.ulaPal = utils.makeFast32(new Uint32Array(16));
+        this.actualPal = new Uint8Array(16);
+        //this.teletext = new Teletext();
+        this.cursorOn = false;
+        this.cursorOff = false;
+        this.cursorOnThisFrame = false;
+        this.cursorDrawIndex = 0;
+        this.cursorPos = 0;
+        this.interlacedSyncAndVideo = false;
+        this.doubledScanlines = true;
+        this.frameSkipCount = 0;
+        this.screenAdd = 0;
+
+        this.topBorder = 12;
+        this.bottomBorder = 13;
+        this.leftBorder = 5 * 16;
+        this.rightBorder = 3 * 16;
+
+        this.paint_ext = paint_ext_param;
+
+        this.debugPrevScreen = null;
+
+        this.table4bpp = (() => {
+            const t = new Uint8Array(4 * 256 * 16);
+            let i, b, temp, left;
+            for (b = 0; b < 256; ++b) {
+                temp = b;
+                for (i = 0; i < 16; ++i) {
+                    left = 0;
+                    if (temp & 2) left |= 1;
+                    if (temp & 8) left |= 2;
+                    if (temp & 32) left |= 4;
+                    if (temp & 128) left |= 8;
+                    t[table4bppOffset(3, b) + i] = left;
+                    temp <<= 1;
+                    temp |= 1;
+                }
+                for (i = 0; i < 16; ++i) {
+                    t[table4bppOffset(2, b) + i] = t[table4bppOffset(3, b) + (i >>> 1)];
+                    t[table4bppOffset(1, b) + i] = t[table4bppOffset(3, b) + (i >>> 2)];
+                    t[table4bppOffset(0, b) + i] = t[table4bppOffset(3, b) + (i >>> 3)];
+                }
+            }
+            return t;
+        })();
+
+        this.crtc = new Crtc(this);
+        this.ula = new Ula(this);
+
+        this.reset(null);
+    }
+
+    reset(cpu, via) {
+        this.cpu = cpu;
+        this.sysvia = via;
+        if (via) via.cb2changecallback = this.cb2changed.bind(this);
+    }
+
+    paintAndClear() {
+        if (this.dispEnabled & FRAMESKIPENABLE) {
+            this.paint_ext();
+        }
+        this.dispEnabled &= ~FRAMESKIPENABLE;
+        let enable = FRAMESKIPENABLE;
+        if (this.frameSkipCount > 1) {
+            if (this.frameCount % this.frameSkipCount) enable = 0;
+        }
+        this.dispEnabled |= enable;
+
+        this.bitmapY = 0;
+        // Interlace even frame fires vsync midway through a scanline.
+        if (!!(this.regs[8] & 1) && !!(this.frameCount & 1)) {
+            this.bitmapY = -1;
+        }
+    }
+
+    debugOffset(x, y) {
+        if (x < 0 || x >= 1024) return -1;
+        if (y < 0 || y >= 768) return -1;
+        return y * 1024 + x;
+    }
+
+    debugPaint() {
+        if (!this.debugPrevScreen) {
+            this.debugPrevScreen = new Uint32Array(1024 * 768);
+        }
+        debugCopyFb(this.debugPrevScreen, this.fb32);
+        const dotSize = 10;
+        for (let y = -dotSize; y <= dotSize; y++) {
+            for (let x = -dotSize; x <= dotSize; ++x) {
+                const dist = Math.sqrt(x * x + y * y) / dotSize;
+                if (dist > 1) continue;
+                const offset = this.debugOffset(this.bitmapX + x, this.bitmapY + y);
+                this.fb32[offset] = lerp(this.fb32[offset], 0xffffff, Math.pow(1 - dist, 2));
+            }
+        }
+        this.paint();
+        debugCopyFb(this.fb32, this.debugPrevScreen);
+    }
+
+    blitFb(dat, destOffset, numPixels, doubledY) {
+        destOffset |= 0;
+        numPixels |= 0;
+        const offset = table4bppOffset(this.ulaMode, dat);
+        const fb32 = this.fb32;
+        const ulaPal = this.ulaPal;
+        const table4bpp = this.table4bpp;
+        if (doubledY) {
+            for (let i = 0; i < numPixels; ++i) {
+                fb32[destOffset + i] = fb32[destOffset + i + 1024] = ulaPal[table4bpp[offset + i]];
+            }
         } else {
-            this.heldChar = 0x20;
-            data = 0x20;
+            for (let i = 0; i < numPixels; ++i) {
+                fb32[destOffset + i] = ulaPal[table4bpp[offset + i]];
+            }
+        }
+    }
+
+    handleCursor(offset) {
+        if (this.cursorOnThisFrame && this.ulactrl & this.cursorTable[this.cursorDrawIndex]) {
+            for (let i = 0; i < this.pixelsPerChar; ++i) {
+                this.fb32[offset + i] ^= 0x00ffffff;
+            }
+            if (this.doubledScanlines && !this.interlacedSyncAndVideo) {
+                for (let i = 0; i < this.pixelsPerChar; ++i) {
+                    this.fb32[offset + 1024 + i] ^= 0x00ffffff;
+                }
+            }
+        }
+        if (++this.cursorDrawIndex === 7) this.cursorDrawIndex = 0;
+    }
+
+    setScreenAdd(viaScreenAdd) {
+        this.screenAdd = this.screenAddrAdd[viaScreenAdd];
+    }
+
+    readVideoMem() {
+        if (this.addr & 0x2000) {
+            // Mode 7 chunky addressing mode if MA13 set.
+            // Address offset by scanline is ignored.
+            // On model B only, there's a quirk for reading 0x3c00.
+            // See: http://www.retrosoftware.co.uk/forum/viewtopic.php?f=73&t=1011
+            let memAddr = this.addr & 0x3ff;
+            if (this.addr & 0x800 || this.isMaster) {
+                memAddr |= 0x7c00;
+            } else {
+                memAddr |= 0x3c00;
+            }
+            return this.cpu.videoRead(memAddr);
+        } else {
+            let addr = (this.scanlineCounter & 0x07) | (this.addr << 3);
+            // Perform screen address wrap around if MA12 set
+            if (this.addr & 0x1000) addr += this.screenAdd;
+            return this.cpu.videoRead(addr & 0x7fff);
+        }
+    }
+
+    endOfFrame() {
+        this.vertCounter = 0;
+        this.firstScanline = true;
+        this.nextLineStartAddr = (this.regs[13] | (this.regs[12] << 8)) & 0x3fff;
+        this.lineStartAddr = this.nextLineStartAddr;
+        this.dispEnableSet(VDISPENABLE);
+        const cursorFlash = (this.regs[10] & 0x60) >>> 5;
+        this.cursorOnThisFrame = cursorFlash === 0 || !!(this.frameCount & this.cursorFlashMask[cursorFlash]);
+        this.lastRenderWasEven = this.isEvenRender;
+        this.isEvenRender = !(this.frameCount & 1);
+        if (!this.inVSync) {
+            this.doEvenFrameLogic = false;
+        }
+    }
+
+    endOfCharacterLine() {
+        this.vertCounter = (this.vertCounter + 1) & 0x7f;
+
+        this.scanlineCounter = 0;
+        this.hadVSyncThisRow = false;
+        this.dispEnableSet(SCANLINEDISPENABLE);
+        this.cursorOn = false;
+        this.cursorOff = false;
+    }
+
+    endOfScanline() {
+        // End of scanline is the most complicated and quirky area of the
+        // 6845. A lot of different states and outcomes are possible.
+        // From the start of the frame, we traverse various states
+        // linearly, with most optional:
+        // - Normal rendering.
+        // - Last scanline of normal rendering (vertical adjust pending).
+        // - Vertical adjust.
+        // - Last scanline of vertical adjust (dummy raster pending).
+        // - Dummy raster. (This is for interlace timing.)
+        this.firstScanline = false;
+
+        if (this.scanlineCounter === this.regs[11]) this.cursorOff = true;
+
+        this.vpulseCounter = (this.vpulseCounter + 1) & 0x0f;
+
+        // Pre-counter increment compares and logic.
+        const r9Hit = this.scanlineCounter === this.regs[9];
+        if (r9Hit) {
+            // An R9 hit always loads a new character row address, even if
+            // we're in vertical adjust!
+            // Note that an R9 hit inside vertical adjust does not further
+            // increment the vertical counter, but entry into vertical
+            // adjust does.
+            this.lineStartAddr = this.nextLineStartAddr;
         }
 
-        return data;
+        // Increment scanline.
+        if (this.interlacedSyncAndVideo) {
+            this.scanlineCounter = (this.scanlineCounter + 2) & 0x1e;
+        } else {
+            this.scanlineCounter = (this.scanlineCounter + 1) & 0x1f;
+        }
+        if (!this.teletextMode) {
+            // Scanlines 8-15 are off but they display again at 16,
+            // mirroring 0-7, and it repeats.
+            const off = (this.scanlineCounter >>> 3) & 1;
+            if (off) {
+                this.dispEnableClear(SCANLINEDISPENABLE);
+            } else {
+                this.dispEnableSet(SCANLINEDISPENABLE);
+            }
+        }
+
+        // Reset scanline if necessary.
+        if (!this.inVertAdjust && r9Hit) {
+            this.endOfCharacterLine();
+        }
+
+        if (this.endOfMainLatched && !this.endOfVertAdjustLatched) {
+            this.inVertAdjust = true;
+        }
+
+        let endOfFrame = false;
+
+        if (this.endOfFrameLatched) {
+            endOfFrame = true;
+        }
+
+        if (this.endOfVertAdjustLatched) {
+            this.inVertAdjust = false;
+            // The "dummy raster" is inserted at the very end of frame,
+            // after vertical adjust, for even interlace frames.
+            // Testing indicates interlace is checked here, a clock before
+            // it is entered or not.
+            // Like vertical adjust, C4=R4+1.
+            if (!!(this.regs[8] & 1) && this.doEvenFrameLogic) {
+                this.inDummyRaster = true;
+                this.endOfFrameLatched = true;
+            } else {
+                endOfFrame = true;
+            }
+        }
+
+        if (endOfFrame) {
+            this.endOfMainLatched = false;
+            this.endOfVertAdjustLatched = false;
+            this.endOfFrameLatched = false;
+            this.inDummyRaster = false;
+
+            this.endOfCharacterLine();
+            this.endOfFrame();
+        }
+
+        this.addr = this.lineStartAddr;
+
+        const cursorStartLine = this.regs[10] & 0x1f;
+        if (this.scanlineCounter === cursorStartLine) this.cursorOn = true;
+
+        // The teletext SAA5050 chip has its CRS pin connected to RA0, so
+        // we need to update it.
+        // The external RA0 value is modified in "interlace sync and video"
+        // mode to be odd for odd interlace frames.
+        let externalScanline = this.scanlineCounter;
+        if (this.interlacedSyncAndVideo && this.frameCount & 1) {
+            externalScanline++;
+        }
+        //this.teletext.setRA0(!!(externalScanline & 1));
+    }
+
+    handleHSync() {
+        this.hpulseCounter = (this.hpulseCounter + 1) & 0x0f;
+        if (this.hpulseCounter === this.hpulseWidth >>> 1) {
+            // Start at -8 because the +8 is added before the pixel render.
+            this.bitmapX = -8;
+
+            // Half-clock horizontal movement
+            if (this.hpulseWidth & 1) {
+                this.bitmapX -= 4;
+            }
+
+            // The CRT vertical beam speed is constant, so this is actually
+            // an approximation that works if hsyncs are spaced evenly.
+            this.bitmapY += 2;
+
+            // If no VSync occurs this frame, go back to the top and force a repaint
+            if (this.bitmapY >= 768) {
+                // Arbitrary moment when TV will give up and start flyback in the absence of an explicit VSync signal
+                this.paintAndClear();
+            }
+        } else if (this.hpulseCounter === (this.regs[3] & 0x0f)) {
+            this.inHSync = false;
+        }
+    }
+
+    cb2changed(level, output) {
+        // Even with no light pen physically attached, the system VIA can
+        // configure CB2 as an output and make the CRTC think it sees a
+        // real light pen pulse.
+        // Triggers on the low -> high CB2 edge.
+        // Needed by Pharaoh's Curse to start.
+        if (level && output) {
+            this.regs[16] = (this.addr >> 8) & 0x3f;
+            this.regs[17] = this.addr & 0xff;
+        }
+    }
+
+    dispEnableChanged() {
+        // The DISPTMG output pin is wired to the SAA5050 teletext chip,
+        // for scanline tracking, so keep it apprised.
+        const mask = HDISPENABLE | VDISPENABLE | USERDISPENABLE;
+        const disptmg = (this.dispEnabled & mask) === mask;
+        //this.teletext.setDISPTMG(disptmg);
+    }
+
+    dispEnableSet(flag) {
+        this.dispEnabled |= flag;
+        this.dispEnableChanged();
+    }
+
+    dispEnableClear(flag) {
+        this.dispEnabled &= ~flag;
+        this.dispEnableChanged();
+    }
+
+    ////////////////////
+    // Main drawing routine
+    polltime(clocks) {
+        while (clocks--) {
+            this.oddClock = !this.oddClock;
+            // Advance CRT beam.
+            this.bitmapX += 8;
+
+            if (this.halfClock && !this.oddClock) {
+                continue;
+            }
+
+            // This emulates the Hitachi 6845SP CRTC.
+            // Other variants have different quirks.
+            // Handle HSync
+            if (this.inHSync) this.handleHSync();
+
+            // Handle delayed display enable due to skew
+            const displayEnablePos = this.displayEnableSkew + (this.teletextMode ? 2 : 0);
+            if (this.horizCounter === displayEnablePos) {
+                this.dispEnableSet(SKEWDISPENABLE);
+            }
+
+            // Latch next line screen address in case we are in the last line of a character row
+            if (this.horizCounter === this.regs[1]) this.nextLineStartAddr = this.addr;
+
+            // Handle end of horizontal displayed.
+            // Make sure to account for display enable skew.
+            // Also, the last scanline character never displays.
+            if (
+                this.horizCounter === this.regs[1] + displayEnablePos ||
+                this.horizCounter === this.regs[0] + displayEnablePos
+            ) {
+                this.dispEnableClear(HDISPENABLE | SKEWDISPENABLE);
+            }
+
+            // Initiate HSync.
+            if (this.horizCounter === this.regs[2] && !this.inHSync) {
+                this.inHSync = true;
+                this.hpulseCounter = 0;
+            }
+
+            // Handle VSync.
+            // Half-line interlace timing is shown nicely in figure 13 here:
+            // http://bitsavers.trailing-edge.com/components/motorola/_dataSheets/6845.pdf
+            // Essentially, on even frames, vsync raise / lower triggers at
+            // the mid-scanline, and then a dummy scanline is also added
+            // at the end of vertical adjust.
+            // Without interlace, frames are 312 scanlines. With interlace,
+            // both odd and even frames are 312.5 scanlines.
+            const isInterlace = !!(this.regs[8] & 1);
+            // TODO: is this off-by-one? b2 uses regs[0]+1.
+            // TODO: does this only hit at the half-scanline or is it a
+            // half-scanline counter that starts when an R7 hit is noticed?
+            const halfR0Hit = this.horizCounter === this.regs[0] >>> 1;
+            const isVsyncPoint = !isInterlace || !this.doEvenFrameLogic || halfR0Hit;
+            let vSyncEnding = false;
+            let vSyncStarting = false;
+            if (this.inVSync && this.vpulseCounter === this.vpulseWidth && isVsyncPoint) {
+                vSyncEnding = true;
+                this.inVSync = false;
+            }
+            if (this.vertCounter === this.regs[7] && !this.inVSync && !this.hadVSyncThisRow && isVsyncPoint) {
+                vSyncStarting = true;
+                this.inVSync = true;
+            }
+
+            // A vsync will initiate at any character and scanline position,
+            // provided there isn't one in progress and provided there
+            // wasn't already one in this character row.
+            // This is an interesting finding, on a real model B.
+            // One further emulated quirk is that in the corner case of a
+            // vsync ending and starting at the same time, the vsync
+            // pulse continues uninterrupted. The vsync pulse counter will
+            // continue counting up and wrap at 16.
+            if (vSyncStarting && !vSyncEnding) {
+                this.hadVSyncThisRow = true;
+                this.vpulseCounter = 0;
+
+                // Avoid intense painting if registers have boot-up or
+                // otherwise small values.
+                if (this.regs[0] && this.regs[4]) {
+                    this.paintAndClear();
+                }
+            }
+
+            if (vSyncStarting || vSyncEnding) {
+                this.sysvia.setVBlankInt(this.inVSync);
+                //this.teletext.setDEW(this.inVSync);
+            }
+
+            // TODO: this will be cleaner if we rework skew to have fetch
+            // independent from render.
+            const insideBorder = (this.dispEnabled & (HDISPENABLE | VDISPENABLE)) === (HDISPENABLE | VDISPENABLE);
+            if ((insideBorder || this.cursorDrawIndex) && this.dispEnabled & FRAMESKIPENABLE) {
+                // Read data from address pointer if both horizontal and vertical display enabled.
+                const dat = this.readVideoMem();
+                if (insideBorder) {
+                    if (this.teletextMode) {
+                    //    this.teletext.fetchData(dat);
+                    }
+
+                    // Check cursor start.
+                    if (
+                        this.addr === this.cursorPos &&
+                        this.cursorOn &&
+                        !this.cursorOff &&
+                        this.horizCounter < this.regs[1]
+                    ) {
+                        this.cursorDrawIndex = 3 - ((this.regs[8] >>> 6) & 3);
+                    }
+                }
+
+                // Render data depending on display enable state.
+                if (this.bitmapX >= 0 && this.bitmapX < 1024 && this.bitmapY < 625) {
+                    let doubledLines = false;
+                    let offset = this.bitmapY;
+                    // There's a painting subtlety here: if we're in an
+                    // interlace mode but R6>R4 then we'll get stuck
+                    // painting just an odd or even frame, so we double up
+                    // scanlines to avoid a ghost half frame.
+                    if (
+                        (this.doubledScanlines && !this.interlacedSyncAndVideo) ||
+                        this.isEvenRender === this.lastRenderWasEven
+                    ) {
+                        doubledLines = true;
+                        offset &= ~1;
+                    }
+
+                    offset = offset * 1024 + this.bitmapX;
+
+                    if ((this.dispEnabled & EVERYTHINGENABLED) === EVERYTHINGENABLED) {
+                        if (this.teletextMode) {
+                        //    this.teletext.render(this.fb32, offset);
+                            if (doubledLines) {
+                        //        this.teletext.render(this.fb32, offset + 1024);
+                            }
+                        } else {
+                            this.blitFb(dat, offset, this.pixelsPerChar, doubledLines);
+                        }
+                    }
+                    if (this.cursorDrawIndex) {
+                        this.handleCursor(offset, doubledLines);
+                    }
+                }
+            }
+
+            // CRTC MA always increments, inside display border or not.
+            this.addr = (this.addr + 1) & 0x3fff;
+
+            // The Hitachi 6845 decides to end (or never enter) vertical
+            // adjust here, one clock after checking whether to enter
+            // vertical adjust.
+            // In a normal frame, this is C0=2.
+            if (this.checkVertAdjust) {
+                this.checkVertAdjust = false;
+                if (this.endOfMainLatched) {
+                    if (this.vertAdjustCounter === this.regs[5]) {
+                        this.endOfVertAdjustLatched = true;
+                    }
+                    this.vertAdjustCounter++;
+                    this.vertAdjustCounter &= 0x1f;
+                }
+            }
+
+            // The Hitachi 6845 appears to latch some form of "last scanline
+            // of the frame" state. As shown by Twisted Brain, changing R9
+            // from 0 to 6 on the last scanline of the frame does not
+            // prevent a new frame from starting.
+            // Testing indicates that the latch is set here at exactly C0=1.
+            // See also: http://www.cpcwiki.eu/forum/programming/crtc-detailed-operation/msg177585/
+            if (this.horizCounter === 1) {
+                if (this.vertCounter === this.regs[4] && this.scanlineCounter === this.regs[9]) {
+                    this.endOfMainLatched = true;
+                    this.vertAdjustCounter = 0;
+                }
+                // The very next cycle (be it on this same scanline or the
+                // next) is used for checking the vertical adjust counter.
+                this.checkVertAdjust = true;
+            }
+
+            // Handle horizontal total.
+            if (this.horizCounter === this.regs[0]) {
+                this.endOfScanline();
+                this.horizCounter = 0;
+                this.dispEnableSet(HDISPENABLE);
+            } else {
+                this.horizCounter = (this.horizCounter + 1) & 0xff;
+            }
+
+            // Handle end of vertical displayed.
+            // The Hitachi 6845 will notice this equality at any character,
+            // including in the middle of a scanline.
+            // An exception is the very first scanline of a frame, where
+            // vertical display is always on.
+            // We do this after the render and various counter increments
+            // because there seems to be a 1 character delay between setting
+            // R6=C4 and display actually stopping.
+            const r6Hit = this.vertCounter === this.regs[6];
+            if (r6Hit && !this.firstScanline && this.dispEnabled & VDISPENABLE) {
+                this.dispEnableClear(VDISPENABLE);
+                // Perhaps surprisingly, this happens here. Both cursor
+                // blink and interlace cease if R6 > R4.
+                this.frameCount++;
+            }
+
+            // Interlace quirk: an even frame appears to need to see
+            // either of an R6 hit or R7 hit in order to activate the
+            // dummy raster.
+            const r7Hit = this.vertCounter === this.regs[7];
+            if (r6Hit || r7Hit) {
+                this.doEvenFrameLogic = !!(this.frameCount & 1);
+            }
+        } // matches while
     }
 }

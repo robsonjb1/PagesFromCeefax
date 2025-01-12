@@ -1,6 +1,5 @@
 // Original 6x10 character definitions
-
-function getChars() {
+export function getChars() {
     return new Uint8Array([
         // 0x20 ' '
         0, 0, 0, 0, 0, 0,

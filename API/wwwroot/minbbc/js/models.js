@@ -58,7 +58,7 @@ export const allModels = [
     new Model(
         "101: Model B DFS",
         ["BBCDFS"],
-        ["os.rom", "BASIC.ROM", "b/DFS-2.26.rom", "b/WWP-1.49.rom"],
+        ["os.rom", "BASIC.ROM", "DFS-2.26.rom", "WWP-1.49.rom", "EDIT.rom", "ADT-1.40.rom"],
         true,
         false,
         beebSwram,

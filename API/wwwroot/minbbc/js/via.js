@@ -415,7 +415,7 @@ function via(cpu, irq) {
     return self;
 }
 
-export function SysVia(cpu, video, soundChip, isMaster, initialLayout, getGamepads) {
+export function SysVia(cpu, video, initialLayout, getGamepads) {
     const self = via(cpu, 0x01);
 
     self.IC32 = 0;
@@ -542,7 +542,6 @@ export function SysVia(cpu, video, soundChip, isMaster, initialLayout, getGamepa
 
     self.portAUpdated = function () {
         self.updateKeys();
-        soundChip.updateSlowDataBus(self.portapins, !(self.IC32 & 1));
     };
 
     self.portBUpdated = function () {

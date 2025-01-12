@@ -2,10 +2,10 @@ import * as utils from "./utils.js";
 import { Video } from "./video.js";
 import { Cpu6502 } from "./6502.js";
 import * as disc from "./fdc.js";
-import { starCat } from "./discs/cat.js";
+import { starCat } from "../discs/cat.js";
 import { Config } from "./config.js";
 import { AudioHandler } from "./audio-handler.js";
-import { jrvideo } from "./js/video.js";
+import { jrvideo } from "./jrvideo.js";
 
 let processor;
 let video;
@@ -30,10 +30,7 @@ const BBC = utils.BBC;
 const emuKeyHandlers = {};
 let cpuMultiplier = 1;
 let fastAsPossible = false;
-let noSeek = false;
 let stepEmuWhenPaused = false;
-let audioFilterFreq = 7000;
-let audioFilterQ = 5;
 let selectedDrive = 0;
 
 const emulationConfig = {
@@ -88,7 +85,7 @@ video = new Video(model.isMaster, function paint() {
     }
 });
 
-const audioHandler = new AudioHandler($("#audio-warning"), audioFilterFreq, audioFilterQ, noSeek);
+const audioHandler = new AudioHandler();
 
 let lastShiftLocation = 1;
 let lastCtrlLocation = 1;
@@ -249,8 +246,7 @@ document.onkeyup = keyUp;
 processor = new Cpu6502(
     model,
     video,
-    audioHandler.soundChip,
-    model.hasMusic5000 ? audioHandler.music5000 : null,
+    audioHandler.music5000,
     emulationConfig
 );
 
@@ -435,7 +431,6 @@ function draw(now) {
     const speedy = fastAsPossible;
     
     window.requestAnimationFrame(draw);
-    audioHandler.soundChip.catchUp();
     if (last !== 0) {
         let cycles;
         if (!speedy) {
@@ -470,7 +465,6 @@ function run() {
 }
 
 function go() {
-    audioHandler.unmute();
     running = true;
     run();
 }
@@ -478,5 +472,4 @@ function go() {
 function stop(debug) {
     running = false;
     processor.stop();
-    audioHandler.mute();
 };

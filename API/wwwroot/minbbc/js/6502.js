@@ -3,7 +3,7 @@ import * as utils from "./utils.js";
 import * as opcodes from "./6502.opcodes.js";
 import * as via from "./via.js";
 import { Scheduler } from "./scheduler.js";
-import { TeletextAdaptor } from "./teletext_adaptor.js";
+import { TeletextAdaptor } from "./teletext-adaptor.js";
 
 const signExtend = utils.signExtend;
 
@@ -409,12 +409,11 @@ class DebugHook {
 }
 
 export class Cpu6502 extends Base6502 {
-    constructor(model, video_, soundChip_, music5000_, config) {
+    constructor(model, video_, music5000_, config) {
         super(model);
         this.config = fixUpConfig(config);
         
         this.video = video_;
-        this.soundChip = soundChip_;
         this.music5000 = music5000_;
         this.memStatOffsetByIFetchBank = new Uint32Array(16); // helps in master map of LYNNE for non-opcode read/writes
         this.memStatOffset = 0;
@@ -956,12 +955,9 @@ export class Cpu6502 extends Base6502 {
             }
             this.videoDisplayPage = 0;
             this.scheduler = new Scheduler();
-            this.soundChip.setScheduler(this.scheduler);
             this.sysvia = via.SysVia(
                 this,
                 this.video,
-                this.soundChip,
-                this.model.isMaster,
                 this.config.keyLayout,
                 this.config.getGamepads
             );
@@ -988,9 +984,6 @@ export class Cpu6502 extends Base6502 {
         this.video.reset(this, this.sysvia, hard);
         this.teletextAdaptor.reset(hard);
         this.music5000.reset(hard);
-        if (hard) {
-            this.soundChip.reset(hard);
-        }
     }
 
     updateKeyLayout() {
