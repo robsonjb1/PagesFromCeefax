@@ -415,7 +415,7 @@ function via(cpu, irq) {
     return self;
 }
 
-export function SysVia(cpu, video, initialLayout, getGamepads) {
+export function SysVia(cpu, video) {
     const self = via(cpu, 0x01);
 
     self.IC32 = 0;
@@ -431,7 +431,7 @@ export function SysVia(cpu, video, initialLayout, getGamepads) {
     self.setKeyLayout = function (map) {
         self.keycodeToRowCol = utils.getKeyMap(map);
     };
-    self.setKeyLayout(initialLayout);
+    self.setKeyLayout("physical");
 
     self.keyboardEnabled = true;
 
@@ -574,7 +574,6 @@ export function SysVia(cpu, video, initialLayout, getGamepads) {
     };
 
     self.getGamepads = function () {
-        if (getGamepads) return getGamepads();
         return null;
     };
 
@@ -600,7 +599,7 @@ export function SysVia(cpu, video, initialLayout, getGamepads) {
     return self;
 }
 
-export function UserVia(cpu, isMaster, userPortPeripheral) {
+export function UserVia(cpu) {
     const self = via(cpu, 0x02);
 
     // nothing connected to user VIA
@@ -613,7 +612,7 @@ export function UserVia(cpu, isMaster, userPortPeripheral) {
     };
 
     self.portBUpdated = function () {
-        userPortPeripheral.write(self.portbpins);
+   //    userPortPeripheral.write(self.portbpins);
     };
 
     self.drivePortA = function () {
@@ -621,7 +620,7 @@ export function UserVia(cpu, isMaster, userPortPeripheral) {
     };
 
     self.drivePortB = function () {
-        self.portbpins &= userPortPeripheral.read();
+    //    self.portbpins &= userPortPeripheral.read();
     };
 
     self.reset();

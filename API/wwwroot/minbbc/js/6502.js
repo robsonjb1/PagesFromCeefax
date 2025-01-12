@@ -4,8 +4,28 @@ import * as opcodes from "./6502.opcodes.js";
 import * as via from "./via.js";
 import { Scheduler } from "./scheduler.js";
 import { TeletextAdaptor } from "./teletext-adaptor.js";
+import { WD1770 } from "./fdc.js";
 
 const signExtend = utils.signExtend;
+
+const beebSwram = [
+    true,
+    true,
+    true,
+    true, // Dunjunz variants. Exile (not picky).
+    true,
+    true,
+    true,
+    true, // Crazee Rider.
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+];
 
 function _set(byte, mask, set) {
     return (byte & ~mask) | (set ? mask : 0);
@@ -73,48 +93,29 @@ class Flags {
 }
 
 class Base6502 {
-    constructor(model) {
-        this.model = model;
+    constructor() {
         this.a = this.x = this.y = this.s = 0;
         this.pc = 0;
-        this.opcodes = model.nmos ? opcodes.Cpu6502(this) : opcodes.Cpu65c12(this);
+        this.opcodes = opcodes.Cpu6502(this);
         this.disassembler = this.opcodes.disassembler;
         this.forceTracing = false;
         this.runner = this.opcodes.runInstruction;
 
-        if (model.nmos) {
-            this.adc = function (addend) {
-                if (!this.p.d) {
-                    this.adcNonBCD(addend);
-                } else {
-                    this.adcBCD(addend);
-                }
-            };
+        this.adc = function (addend) {
+            if (!this.p.d) {
+                this.adcNonBCD(addend);
+            } else {
+                this.adcBCD(addend);
+            }
+        };
 
-            this.sbc = function (subend) {
-                if (!this.p.d) {
-                    this.adcNonBCD(subend ^ 0xff);
-                } else {
-                    this.sbcBCD(subend);
-                }
-            };
-        } else {
-            this.adc = function (addend) {
-                if (!this.p.d) {
-                    this.adcNonBCD(addend);
-                } else {
-                    this.adcBCDcmos(addend);
-                }
-            };
-
-            this.sbc = function (subend) {
-                if (!this.p.d) {
-                    this.adcNonBCD(subend ^ 0xff);
-                } else {
-                    this.sbcBCDcmos(subend);
-                }
-            };
-        }
+        this.sbc = function (subend) {
+            if (!this.p.d) {
+                this.adcNonBCD(subend ^ 0xff);
+            } else {
+                this.sbcBCD(subend);
+            }
+        };
     }
 
     incpc() {
@@ -180,26 +181,14 @@ class Base6502 {
         // for a half-way done BRK instruction.
         this.polltime(4);
         let vector = 0xfffe;
-        if ((this.model.nmos || isIrq) && this.nmi) {
+        if (isIrq && this.nmi) {
             vector = 0xfffa;
             this.nmi = false;
         }
         this.takeInt = false;
         this.pc = this.readmem(vector) | (this.readmem(vector + 1) << 8);
         this.p.i = true;
-        if (this.model.nmos) {
-            this.polltime(3);
-        } else {
-            this.p.d = false;
-            if (isIrq) {
-                this.polltime(3);
-            } else {
-                this.polltime(2);
-                // TODO: check 65c12 BRK interrupt poll timing.
-                this.checkInt();
-                this.polltime(1);
-            }
-        }
+        this.polltime(3);
     }
 
     branch(taken) {
@@ -213,11 +202,7 @@ class Base6502 {
         const newPc = (this.pc + offset) & 0xffff;
         const pageCrossed = !!((this.pc & 0xff00) ^ (newPc & 0xff00));
         this.pc = newPc;
-        if (!this.model.nmos) {
-            this.polltime(2 + pageCrossed);
-            this.checkInt();
-            this.polltime(1);
-        } else if (!pageCrossed) {
+        if (!pageCrossed) {
             this.polltime(1);
             this.checkInt();
             this.polltime(2);
@@ -358,15 +343,6 @@ class FakeUserPort {
     }
 }
 
-function fixUpConfig(config) {
-    if (config === undefined) config = {};
-    if (!config.keyLayout) config.keyLayout = "physical";
-    if (!config.cpuMultiplier) config.cpuMultiplier = 1;
-    if (!config.userPort) config.userPort = new FakeUserPort();
-    if (config.printerPort === undefined) config.printerPort = null;
-    config.extraRoms = config.extraRoms || [];
-    return config;
-}
 
 class DebugHook {
     constructor(cpu, functionName) {
@@ -409,10 +385,8 @@ class DebugHook {
 }
 
 export class Cpu6502 extends Base6502 {
-    constructor(model, video_, music5000_, config) {
-        super(model);
-        this.config = fixUpConfig(config);
-        
+    constructor(video_, music5000_) {
+        super();
         this.video = video_;
         this.music5000 = music5000_;
         this.memStatOffsetByIFetchBank = new Uint32Array(16); // helps in master map of LYNNE for non-opcode read/writes
@@ -432,8 +406,8 @@ export class Cpu6502 extends Base6502 {
         this.oldYArray = new Uint8Array(256);
         this.oldPcIndex = 0;
         this.resetLine = true;
-        this.cpuMultiplier = this.config.cpuMultiplier;
-        this.videoCyclesBatch = this.config.videoCyclesBatch | 0;
+        this.cpuMultiplier = 1;
+        this.videoCyclesBatch = 0;
         this.peripheralCyclesPerSecond = 2 * 1000 * 1000;
         this.JimPageSel = 0;
        
@@ -450,26 +424,13 @@ export class Cpu6502 extends Base6502 {
         return this.oldPcArray[(this.oldPcIndex - index) & 0xff];
     }
 
-    // BBC Master memory map (within ramRomOs array):
-    // 00000 - 08000 -> base 32KB RAM
-    // 08000 - 09000 -> ANDY - 4KB
-    // 09000 - 0b000 -> HAZEL - 8KB
-    // 0b000 - 10000 -> LYNNE - 20KB
     romSelect(b) {
         this.romsel = b;
         const bankOffset = ((b & 15) << 14) + this.romOffset;
         const offset = bankOffset - 0x8000;
         for (let c = 128; c < 192; ++c) this.memLook[c] = this.memLook[256 + c] = offset;
-        const swram = this.model.swram[b & 15] ? 1 : 2;
+        const swram = beebSwram[b & 15] ? 1 : 2;
         for (let c = 128; c < 192; ++c) this.memStat[c] = this.memStat[256 + c] = swram;
-        if (this.model.isMaster && b & 0x80) {
-            // 4Kb RAM (private RAM - ANDY)
-            // Zero offset as 0x8000 mapped to 0x8000
-            for (let c = 128; c < 144; ++c) {
-                this.memLook[c] = this.memLook[256 + c] = 0;
-                this.memStat[c] = this.memStat[256 + c] = 1;
-            }
-        }
     }
 
     writeAcccon(b) {
@@ -568,26 +529,19 @@ export class Cpu6502 extends Base6502 {
     }
 
     readDevice(addr) {
-        if (this.model.isMaster && this.acccon & 0x40) {
-            // TST bit of ACCCON
-            return this.ramRomOs[this.osOffset + (addr & 0x3fff)];
-        }
         addr &= 0xffff;
 
-        if (this.model.hasMusic5000) {
-            if (addr === 0xfcff) {
-                return this.JimPageSel;
-            }
-
-            if ((this.JimPageSel & 0xf0) === 0x30 && (addr & 0xff00) === 0xfd00) {
-                return this.music5000.read(this.JimPageSel, addr);
-            }
+        if (addr === 0xfcff) {
+            return this.JimPageSel;
         }
 
+        if ((this.JimPageSel & 0xf0) === 0x30 && (addr & 0xff00) === 0xfd00) {
+            return this.music5000.read(this.JimPageSel, addr);
+        }
+    
         switch (addr & ~0x0003) {
             case 0xfc10:
-                if (this.model.hasTeletextAdaptor) return this.teletextAdaptor.read(addr - 0xfc10);
-                break;
+                return this.teletextAdaptor.read(addr - 0xfc10);
             case 0xfc20:
             case 0xfc24:
             case 0xfc28:
@@ -613,31 +567,22 @@ export class Cpu6502 extends Base6502 {
                 return this.crtc.read(addr);
             case 0xfe08:
             case 0xfe0c:
-            //    return this.acia.read(addr);
             case 0xfe10:
             case 0xfe14:
-            //    return this.serial.read(addr);
             case 0xfe18:
-            //   return this.model.isMaster ? this.adconverter.read(addr) : this.handleEconetStationId();
                 return 42;
             case 0xfe20:
-            //    if (!this.model.isMaster) return this.handleEconetNMIEnable();
                 break;
             case 0xfe24:
             case 0xfe28:
-                if (this.model.isMaster) return this.fdc.read(addr);
                 break;
             case 0xfe30:
-                if (this.model.isMaster) return this.romsel & 0x8f;
                 break;
             case 0xfe34:
-                if (this.model.isMaster) return this.acccon;
                 break;
             case 0xfe38:
-            //    if (this.model.isMaster) return this.handleEconetStationId();
                 break;
             case 0xfe3c:
-            //    if (this.model.isMaster) return this.handleEconetNMIEnable();
                 break;
             case 0xfe40:
             case 0xfe44:
@@ -665,8 +610,7 @@ export class Cpu6502 extends Base6502 {
             case 0xfe94:
             case 0xfe98:
             case 0xfe9c:
-                if (!this.model.isMaster) return this.fdc.read(addr);
-                break;
+                return this.fdc.read(addr);
             case 0xfea0:
                 break;
             case 0xfec0:
@@ -677,7 +621,6 @@ export class Cpu6502 extends Base6502 {
             case 0xfed4:
             case 0xfed8:
             case 0xfedc:
-//                if (!this.model.isMaster) return this.adconverter.read(addr);
                 break;
             case 0xfee0:
             case 0xfee4:
@@ -735,22 +678,19 @@ export class Cpu6502 extends Base6502 {
     writeDevice(addr, b) {
         b |= 0;
 
-        if (this.model.hasMusic5000) {
-            if (addr === 0xfcff) {
-                this.JimPageSel = b;
-                return;
-            }
-
-            if ((this.JimPageSel & 0xf0) === 0x30 && (addr & 0xff00) === 0xfd00) {
-                this.music5000.write(this.JimPageSel, addr, b);
-                return;
-            }
+        if (addr === 0xfcff) {
+            this.JimPageSel = b;
+            return;
         }
 
+        if ((this.JimPageSel & 0xf0) === 0x30 && (addr & 0xff00) === 0xfd00) {
+            this.music5000.write(this.JimPageSel, addr, b);
+            return;
+        }
+    
         switch (addr & ~0x0003) {
             case 0xfc10:
-                if (this.model.hasTeletextAdaptor) return this.teletextAdaptor.write(addr - 0xfc10, b);
-                break;
+                return this.teletextAdaptor.write(addr - 0xfc10, b);
             case 0xfc20:
             case 0xfc24:
             case 0xfc28:
@@ -776,42 +716,25 @@ export class Cpu6502 extends Base6502 {
                 return this.crtc.write(addr, b);
             case 0xfe08:
             case 0xfe0c:
-            //    return this.acia.write(addr, b);
             case 0xfe10:
             case 0xfe14:
-            //    return this.serial.write(addr, b);
             case 0xfe18:
-            //    if (this.model.isMaster) return this.adconverter.write(addr, b);
-            //    if (!this.model.isMaster && this.econet) this.econet.econetNMIEnabled = false;
                 break;
             case 0xfe20:
                 return this.ula.write(addr, b);
             case 0xfe24:
             case 0xfe28:
-                if (this.model.isMaster) {
-                    return this.fdc.write(addr, b);
-                }
                 return this.ula.write(addr, b);
             case 0xfe2c:
-                if (!this.model.isMaster) {
-                    return this.ula.write(addr, b);
-                }
-                break;
+                return this.ula.write(addr, b);
             case 0xfe30:
                 return this.romSelect(b);
             case 0xfe34:
-                if (this.model.isMaster) {
-                    return this.writeAcccon(b);
-                }
                 return this.romSelect(b);
             case 0xfe38:
-            //    if (this.model.isMaster && this.econet) this.econet.econetNMIEnabled = false;
                 break;
             case 0xfe3c:
-                if (!this.model.isMaster) {
-                    return this.romSelect(b);
-                }
-                break;
+                return this.romSelect(b);
             case 0xfe40:
             case 0xfe44:
             case 0xfe48:
@@ -838,8 +761,7 @@ export class Cpu6502 extends Base6502 {
             case 0xfe94:
             case 0xfe98:
             case 0xfe9c:
-                if (!this.model.isMaster) return this.fdc.write(addr, b);
-                break;
+                return this.fdc.write(addr, b);
             case 0xfec0:
             case 0xfec4:
             case 0xfec8:
@@ -848,7 +770,6 @@ export class Cpu6502 extends Base6502 {
             case 0xfed4:
             case 0xfed8:
             case 0xfedc:
-            //    if (!this.model.isMaster) return this.adconverter.write(addr, b);
                 break;
             case 0xfee0:
             case 0xfee4:
@@ -880,7 +801,7 @@ export class Cpu6502 extends Base6502 {
     }
 
     async loadOs(os) {
-        const extraRoms = Array.prototype.slice.call(arguments, 1).concat(this.config.extraRoms);
+        const extraRoms = Array.prototype.slice.call(arguments, 1);
         os = "roms/" + os;
         console.log("Loading OS from " + os);
         const ramRomOs = this.ramRomOs;
@@ -903,7 +824,7 @@ export class Cpu6502 extends Base6502 {
         for (let i_2 = 0; i_2 < extraRoms.length; ++i_2) {
             // Skip over banks 4-7 (sideways RAM on a Master)
             romIndex--;
-            while (this.model.swram[romIndex]) {
+            while (beebSwram[romIndex]) {
                 romIndex--;
             }
 
@@ -919,28 +840,14 @@ export class Cpu6502 extends Base6502 {
     reset(hard) {
         if (hard) {
             for (let i = 0; i < 16; ++i) this.memStatOffsetByIFetchBank[i] = 0;
-            if (this.model.isMaster) {
-                // On the Master, opcodes exeucting from 0xc000 - 0xdfff
-                // can have optionally have their memory accesses
-                // redirected to shadow RAM.
-                this.memStatOffsetByIFetchBank[0xc] = 256;
-                this.memStatOffsetByIFetchBank[0xd] = 256;
-            }
-            if (!this.model.isTest) {
-                for (let i = 0; i < 128; ++i) this.memStat[i] = this.memStat[256 + i] = 1;
-                for (let i = 128; i < 256; ++i) this.memStat[i] = this.memStat[256 + i] = 2;
-                for (let i = 0; i < 128; ++i) this.memLook[i] = this.memLook[256 + i] = 0;
-                for (let i = 128; i < 192; ++i) this.memLook[i] = this.memLook[256 + i] = this.romOffset - 0x8000;
-                for (let i = 192; i < 256; ++i) this.memLook[i] = this.memLook[256 + i] = this.osOffset - 0xc000;
-
-                for (let i = 0xfc; i < 0xff; ++i) this.memStat[i] = this.memStat[256 + i] = 0;
-            } else {
-                // Test sets everything as RAM.
-                for (let i = 0; i < 256; ++i) {
-                    this.memStat[i] = this.memStat[256 + i] = 1;
-                    this.memLook[i] = this.memLook[256 + i] = 0;
-                }
-            }
+         
+            for (let i = 0; i < 128; ++i) this.memStat[i] = this.memStat[256 + i] = 1;
+            for (let i = 128; i < 256; ++i) this.memStat[i] = this.memStat[256 + i] = 2;
+            for (let i = 0; i < 128; ++i) this.memLook[i] = this.memLook[256 + i] = 0;
+            for (let i = 128; i < 192; ++i) this.memLook[i] = this.memLook[256 + i] = this.romOffset - 0x8000;
+            for (let i = 192; i < 256; ++i) this.memLook[i] = this.memLook[256 + i] = this.osOffset - 0xc000;
+            for (let i = 0xfc; i < 0xff; ++i) this.memStat[i] = this.memStat[256 + i] = 0;
+         
             // DRAM content is not guaranteed to contain any particular
             // value on start up, so we choose values that help avoid
             // bugs in various games.
@@ -957,13 +864,10 @@ export class Cpu6502 extends Base6502 {
             this.scheduler = new Scheduler();
             this.sysvia = via.SysVia(
                 this,
-                this.video,
-                this.config.keyLayout,
-                this.config.getGamepads
+                this.video
             );
-            this.uservia = via.UserVia(this, this.model.isMaster, this.config.userPort);
-            if (this.config.printerPort) this.uservia.ca2changecallback = this.config.printerPort.outputStrobe;
-            this.fdc = new this.model.Fdc(this, this.scheduler);
+            this.uservia = via.UserVia(this);
+            this.fdc = new WD1770(this, this.scheduler);
             this.crtc = this.video.crtc;
             this.ula = this.video.ula;
             this.teletextAdaptor = new TeletextAdaptor(this);
@@ -984,10 +888,6 @@ export class Cpu6502 extends Base6502 {
         this.video.reset(this, this.sysvia, hard);
         this.teletextAdaptor.reset(hard);
         this.music5000.reset(hard);
-    }
-
-    updateKeyLayout() {
-        this.sysvia.setKeyLayout(this.config.keyLayout);
     }
 
     polltimeAddr(cycles, addr) {
@@ -1039,9 +939,7 @@ export class Cpu6502 extends Base6502 {
     }
 
     async initialise() {
-        if (this.model.os.length) {
-            await this.loadOs.apply(this, this.model.os);
-        }
+        await this.loadOs.apply(this, ["OS.rom", "BASIC.ROM", "DFS-2.26.rom", "WWP-1.49.rom", "EDIT.rom", "AMPLE.rom", "ATS-3.0.rom", "ADT-1.40.rom"]);
         this.reset(true);
     }
 }

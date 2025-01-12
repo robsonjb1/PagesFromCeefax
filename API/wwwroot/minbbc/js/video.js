@@ -141,8 +141,7 @@ function table4bppOffset(ulamode, byte) {
 ////////////////////
 // The video class
 export class Video {
-    constructor(isMaster, paint_ext_param) {
-        this.isMaster = isMaster;
+    constructor(paint_ext_param) {
         this.fb32 = utils.makeFast32(1000);
         this.collook = utils.makeFast32(
             new Uint32Array([
@@ -331,7 +330,7 @@ export class Video {
             // On model B only, there's a quirk for reading 0x3c00.
             // See: http://www.retrosoftware.co.uk/forum/viewtopic.php?f=73&t=1011
             let memAddr = this.addr & 0x3ff;
-            if (this.addr & 0x800 || this.isMaster) {
+            if (this.addr & 0x800) {
                 memAddr |= 0x7c00;
             } else {
                 memAddr |= 0x3c00;
