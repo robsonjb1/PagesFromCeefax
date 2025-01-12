@@ -1,5 +1,5 @@
-import { SoundChip } from "../soundchip.js";
-import { Music5000 } from "../music5000.js";
+import { SoundChip } from "./soundchip.js";
+import { Music5000 } from "./music5000.js";
 
 export class AudioHandler {
     constructor(warningNode, audioFilterFreq, audioFilterQ) {
@@ -8,11 +8,11 @@ export class AudioHandler {
          /*global webkitAudioContext*/
          this.audioContext =
          typeof AudioContext !== "undefined"
-             ? new AudioContext()
+             ? new AudioContext({ sampleRate: 500000 })
              : typeof webkitAudioContext !== "undefined"
-               ? new webkitAudioContext()
+               ? new webkitAudioContext({ sampleRate: 500000 })
                : null;
-        this._jsAudioNode = null;
+        this._soundchipWorkletNode = null;
         if (this.audioContext && this.audioContext.audioWorklet) {
             this.soundChip = new SoundChip((buffer, time) => this._onBuffer(buffer, time));
             this._setup(audioFilterFreq, audioFilterQ).then();
@@ -30,16 +30,16 @@ export class AudioHandler {
             this.music5000 = new Music5000((buffer) => this._onBufferMusic5000(buffer));
 
             this.audioContextM5000.audioWorklet.addModule("./music5000-worklet.js").then(() => {
-                this._music5000workletnode = new AudioWorkletNode(this.audioContextM5000, "music5000", {
+                this._music5000workletNode = new AudioWorkletNode(this.audioContextM5000, "music5000", {
                     outputChannelCount: [2],
                 });
-                this._music5000workletnode.connect(this.audioContextM5000.destination);
+                this._music5000workletNode.connect(this.audioContextM5000.destination);
             });
         } 
     }
 
     async _setup(audioFilterFreq, audioFilterQ) {
-        await this.audioContext.audioWorklet.addModule("./web/audio-renderer.js");
+        await this.audioContext.audioWorklet.addModule("./soundchip-worklet.js");
         if (audioFilterFreq !== 0) {
             const filterNode = this.audioContext.createBiquadFilter();
             filterNode.type = "lowpass";
@@ -51,11 +51,10 @@ export class AudioHandler {
             this._audioDestination = this.audioContext.destination;
         }
 
-        this._jsAudioNode = new AudioWorkletNode(this.audioContext, "sound-chip-processor");
-        this._jsAudioNode.connect(this._audioDestination);
-        this._jsAudioNode.port.onmessage = (event) => {
-            const now = Date.now();
-        };
+        this._soundchipWorkletNode = new AudioWorkletNode(this.audioContext, "soundchip", {
+            outputChannelCount: [1],
+        });
+        this._soundchipWorkletNode.connect(this._audioDestination);
     }
 
     // Recent browsers, particularly Safari and Chrome, require a user
@@ -67,11 +66,11 @@ export class AudioHandler {
     }
 
     _onBuffer(buffer) {
-        if (this._jsAudioNode) this._jsAudioNode.port.postMessage({ time: Date.now(), buffer }, [buffer.buffer]);
+        if (this._soundchipWorkletNode) this._soundchipWorkletNode.port.postMessage(buffer);
     }
 
     _onBufferMusic5000(buffer) {
-        if (this._music5000workletnode) this._music5000workletnode.port.postMessage(buffer);
+        if (this._music5000workletNode) this._music5000workletNode.port.postMessage(buffer);
     }
 
     mute() {

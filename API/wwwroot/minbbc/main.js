@@ -5,7 +5,7 @@ import { Cpu6502 } from "./6502.js";
 import * as disc from "./fdc.js";
 import { starCat } from "./discs/cat.js";
 import { Config } from "./config.js";
-import { AudioHandler } from "./web/audio-handler.js";
+import { AudioHandler } from "./audio-handler.js";
 import { jrvideo } from "./js/video.js";
 
 let processor;
