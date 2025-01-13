@@ -7,7 +7,6 @@ import { Music5000 } from "./music5000.js";
 
 let processor;
 let video;
-let running;
 let firstDiscImage = "Music5000.dsd";
 let secondDiscImage = "Data.dsd";
 let selectedDrive = 0;
@@ -197,7 +196,6 @@ function keyUp(evt) {
         code = utils.keyCodes.ESCAPE;
     }
     if (processor && processor.sysvia) processor.sysvia.keyUp(code);
-    if (!running) return;
     if (code === utils.keyCodes.F12 || code === utils.keyCodes.BREAK || (code === utils.keyCodes.B && evt.ctrlKey )) {
         processor.setReset(false);
     }
@@ -282,10 +280,6 @@ startPromise.then(
 let last = 0;
 
 function draw(now) {
-    if (!running) {
-        last = 0;
-        return;
-    }
     now = window.performance.now();
     
     window.requestAnimationFrame(draw);
@@ -300,7 +294,6 @@ function draw(now) {
                 stop();
             }
         } catch (e) {
-            running = false;
             utils.noteEvent(e.stack);
             throw e;
         }
@@ -313,11 +306,9 @@ function run() {
 }
 
 function go() {
-    running = true;
     run();
 }
 
 function stop() {
-    running = false;
     processor.stop();
 };
