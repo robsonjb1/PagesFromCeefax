@@ -2,8 +2,8 @@ import * as utils from "./utils.js";
 import { Video } from "./video.js";
 import { Cpu6502 } from "./6502.js";
 import * as disc from "./fdc.js";
-import { AudioHandler } from "./audio-handler.js";
 import { jrvideo } from "./jrvideo.js";
+import { Music5000 } from "./music5000.js";
 
 let processor;
 let video;
@@ -30,7 +30,6 @@ video = new Video(function paint() {
 
         const ctx = teletextCanvas.getContext('2d');
         var imgData = ctx.createImageData(teletextCanvas.width, teletextCanvas.height);
-    
         screen.teletextRedraw(ctx, imgData, processor);
     }
     else
@@ -43,16 +42,33 @@ video = new Video(function paint() {
 
         const ctx = graphicsCanvas.getContext('2d');
         var imgData = ctx.createImageData(graphicsCanvas.width, graphicsCanvas.height);
-
         screen.graphicsModeRedraw(ctx, imgData, processor);
     }
 });
 
-const audioHandler = new AudioHandler();
+let audioContextM5000 = new AudioContext({ sampleRate: 46875 });
+let music5000 = new Music5000((buffer) => onBufferMusic5000(buffer));
+let music5000workletNode = null;
+
+audioContextM5000.audioWorklet.addModule("./js/music5000-worklet.js").then(() => {
+    music5000workletNode = new AudioWorkletNode(audioContextM5000, "music5000", {
+        outputChannelCount: [2],
+    });
+    music5000workletNode.connect(audioContextM5000.destination);
+});
+
+processor = new Cpu6502(
+    video,
+    music5000
+);
 
 let lastShiftLocation = 1;
 let lastCtrlLocation = 1;
 let lastAltLocation = 1;
+
+function onBufferMusic5000(buffer) {
+    if (music5000workletNode) music5000workletNode.port.postMessage(buffer);
+}
 
 function keyCode(evt) {
     const ret = evt.which || evt.charCode || evt.keyCode;
@@ -130,8 +146,10 @@ function keyCode(evt) {
 }
 
 function keyDown(evt) {
-    audioHandler.tryResume();
-    if (!running) return;
+    if (audioContextM5000) {
+        audioContextM5000.resume();
+    }
+
     const code = keyCode(evt);
     if (code === utils.keyCodes.F12 || code === utils.keyCodes.BREAK) {
         utils.noteEvent("BREAK pressed");
@@ -193,10 +211,6 @@ $(window).blur(function () {
 document.onkeydown = keyDown;
 document.onkeyup = keyUp;
 
-processor = new Cpu6502(
-    video,
-    audioHandler.music5000
-);
 
 function splitImage(image) {
     const match = image.match(/(([^:]+):\/?\/?|[!^|])?(.*)/);
