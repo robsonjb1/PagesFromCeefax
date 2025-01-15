@@ -64,10 +64,11 @@ class Crtc {
     }
 }
 
+
 ////////////////////
 // The video class
 export class Video {
-    constructor(paint_ext_param) {
+    constructor(teletextCanvas_, graphicsCanvas_, display_) {
         this.fb32 = utils.makeFast32(1000);
         this.collook = utils.makeFast32(
             new Uint32Array([
@@ -95,14 +96,6 @@ export class Video {
         this.endOfFrameLatched = false;
         this.inVertAdjust = false;
         this.inDummyRaster = false;
-        this.hpulseWidth = 0;
-        this.vpulseWidth = 0;
-        this.hpulseCounter = 0;
-        this.vpulseCounter = 0;
-        this.horizCounter = 0;
-        this.vertCounter = 0;
-        this.scanlineCounter = 0;
-        this.vertAdjustCounter = 0;
         this.addr = 0;
         this.lineStartAddr = 0;
         this.nextLineStartAddr = 0;
@@ -114,20 +107,22 @@ export class Video {
         this.displayEnableSkew = 0;
         this.ulaPal = utils.makeFast32(new Uint32Array(16));
         this.actualPal = new Uint8Array(16);
-        this.cursorOn = false;
-        this.cursorOff = false;
-        this.cursorOnThisFrame = false;
-        this.cursorDrawIndex = 0;
-        this.cursorPos = 0;
-        this.interlacedSyncAndVideo = false;
-        this.doubledScanlines = true;
         this.frameSkipCount = 0;
         this.screenAdd = 0;
-        this.paint_ext = paint_ext_param;
         this.clockCounter = 0;
 
         this.crtc = new Crtc(this);
         this.ula = new Ula(this);
+
+        this.teletextCanvas = teletextCanvas_;
+        this.graphicsCanvas = graphicsCanvas_;
+        this.display = display_;
+
+        this.teletextCanvas.width = 480; 
+        this.teletextCanvas.height = 500;
+
+        this.graphicsCanvas.width = 640; 
+        this.graphicsCanvas.height = 256;
 
         this.reset(null);
     }
@@ -150,9 +145,27 @@ export class Video {
         {
             this.clockCounter -= 50000;
             this.sysvia.setVBlankInt(true);
-            this.paint_ext();
+
+            if(this.teletextMode)
+            {
+                $(this.graphicsCanvas).hide();
+                $(this.teletextCanvas).show();
+
+                const ctx = this.teletextCanvas.getContext('2d');
+                var imgData = ctx.createImageData(this.teletextCanvas.width, this.teletextCanvas.height);
+                this.display.teletextRedraw(ctx, imgData, this.cpu);
+            }
+            else
+            {
+                $(this.teletextCanvas).hide();
+                $(this.graphicsCanvas).show();
+
+                const ctx = this.graphicsCanvas.getContext('2d');
+                var imgData = ctx.createImageData(this.graphicsCanvas.width, this.graphicsCanvas.height);
+                this.display.graphicsModeRedraw(ctx, imgData, this.cpu);
+            }
+
             this.sysvia.setVBlankInt(false);
         }
-
     }
 }

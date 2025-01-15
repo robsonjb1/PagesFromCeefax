@@ -1,6 +1,6 @@
 import * as chardefs from "./chardefs.js";
 
-export class jrvideo {
+export class Display {
     
     constructor()
     {

@@ -2,49 +2,16 @@ import * as utils from "./utils.js";
 import { Video } from "./video.js";
 import { Cpu6502 } from "./6502.js";
 import * as disc from "./fdc.js";
-import { jrvideo } from "./jrvideo.js";
+import { Display } from "./display.js";
 import { Music5000 } from "./music5000.js";
 
-let processor;
-let video;
-let firstDiscImage = "Music5000.dsd";
-let secondDiscImage = "Data.dsd";
-let selectedDrive = 0;
-
-const clocksPerSecond = (2 * 1000 * 1000) | 0;
-const MaxCyclesPerFrame = clocksPerSecond / 10;
-
-var screen = new jrvideo();
-
+// Initialise screen
+let screen = new Display();
 const teletextCanvas = $("#teletextCanvas")[0];
 const graphicsCanvas = $("#graphicsCanvas")[0];
-video = new Video(function paint() {
-    if(processor.video.teletextMode)
-    {
-        $("#graphicsCanvas").hide();
-        $("#teletextCanvas").show();
+let video = new Video(teletextCanvas, graphicsCanvas, screen);
 
-        teletextCanvas.width = 480; 
-        teletextCanvas.height = 500;
-
-        const ctx = teletextCanvas.getContext('2d');
-        var imgData = ctx.createImageData(teletextCanvas.width, teletextCanvas.height);
-        screen.teletextRedraw(ctx, imgData, processor);
-    }
-    else
-    {
-        $("#teletextCanvas").hide();
-        $("#graphicsCanvas").show();
-       
-        graphicsCanvas.width = 640; 
-        graphicsCanvas.height = 256;
-
-        const ctx = graphicsCanvas.getContext('2d');
-        var imgData = ctx.createImageData(graphicsCanvas.width, graphicsCanvas.height);
-        screen.graphicsModeRedraw(ctx, imgData, processor);
-    }
-});
-
+// Initialise Music 5000
 let audioContextM5000 = new AudioContext({ sampleRate: 46875 });
 let music5000 = new Music5000((buffer) => onBufferMusic5000(buffer));
 let music5000workletNode = null;
@@ -56,7 +23,11 @@ audioContextM5000.audioWorklet.addModule("./js/music5000-worklet.js").then(() =>
     music5000workletNode.connect(audioContextM5000.destination);
 });
 
-processor = new Cpu6502(
+function onBufferMusic5000(buffer) {
+    if (music5000workletNode) music5000workletNode.port.postMessage(buffer);
+}
+
+let processor = new Cpu6502(
     video,
     music5000
 );
@@ -65,9 +36,6 @@ let lastShiftLocation = 1;
 let lastCtrlLocation = 1;
 let lastAltLocation = 1;
 
-function onBufferMusic5000(buffer) {
-    if (music5000workletNode) music5000workletNode.port.postMessage(buffer);
-}
 
 function keyCode(evt) {
     const ret = evt.which || evt.charCode || evt.keyCode;
@@ -249,6 +217,11 @@ document.addEventListener('drop', (e) => {
     };    
 })
 
+// Initialise drives 0 and 1
+let firstDiscImage = "Music5000.dsd";
+let secondDiscImage = "Data.dsd";
+let selectedDrive = 0;
+
 const startPromise = Promise.all([processor.initialise()]).then(function () {
     // Ideally would start the loads first. But their completion needs the FDC from the processor
     const imageLoads = [];
@@ -268,6 +241,7 @@ const startPromise = Promise.all([processor.initialise()]).then(function () {
     return Promise.all(imageLoads);
 });
 
+// Start the emulation
 startPromise.then(
     function () {
         go();
@@ -277,6 +251,8 @@ startPromise.then(
     }
 );
 
+const clocksPerSecond = (2 * 1000 * 1000) | 0;
+const MaxCyclesPerFrame = clocksPerSecond / 10;
 let last = 0;
 
 function draw(now) {

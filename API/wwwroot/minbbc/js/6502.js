@@ -12,11 +12,11 @@ const beebSwram = [
     true,
     true,
     true,
-    true, // Dunjunz variants. Exile (not picky).
+    true, 
     true,
     true,
     true,
-    true, // Crazee Rider.
+    true, 
     false,
     false,
     false,
