@@ -33,7 +33,6 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]UK MARKETS[{TeletextControl.AlphaWhite}]");
             sb.Append(OutputMarket("UKX", "FTSE 100"));
             sb.Append(OutputMarket("MCX", "FTSE 250"));
-            sb.Append(OutputMarket("T1X", "techMARK"));
             sb.LineBreak(TeletextControl.AlphaRed);
 
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]EUROPE MARKETS");
@@ -51,6 +50,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]CURRENCIES/BONDS");
             sb.Append(OutputCurrency("EUR"));
             sb.Append(OutputCurrency("USD"));
+			sb.LineBreak(TeletextControl.AlphaRed);
             sb.Append(OutputMarket("UK-10YRBOND", "UK 10-Year"));
 
             // Display footer
