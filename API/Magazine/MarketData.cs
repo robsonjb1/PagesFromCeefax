@@ -48,7 +48,7 @@ public class MarketData : IMarketData
                 bool marketClosed = true;
                 if(cc.UriCache.Exists(z => z.Tag == $"YH-{name}"))
                 {
-                    if(name == "MCX" || name == "T1X")
+                    if(name == "MCX")
                     {        
                         marketClosed = cc.UriCache.FirstOrDefault(l => l.Tag == $"YH-UKX").ContentString.Contains(">At close:");
                     }
