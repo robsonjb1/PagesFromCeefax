@@ -75,7 +75,7 @@ public class MarketData : IMarketData
             doc.LoadHtml(html);
             string yield = doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'text-5xl/9')]").InnerText;
             double change = Math.Round(Convert.ToDouble(doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'md:text-xl/7')]/span").InnerText), 2);
-            string changeText = (change > 0) ? $"+{change:#.00}%" : $"{change:#.00}%";
+            string changeText = (change > 0) ? $"+{change:0.00}%" : $"{change:0.00}%";
 
             Markets.Add(new MarketRecord()
             {
