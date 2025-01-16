@@ -33,6 +33,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]UK MARKETS[{TeletextControl.AlphaWhite}]");
             sb.Append(OutputMarket("UKX", "FTSE 100"));
             sb.Append(OutputMarket("MCX", "FTSE 250"));
+            sb.Append(OutputMarket("T1X", "techMARK"));
             sb.LineBreak(TeletextControl.AlphaRed);
 
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]EUROPE MARKETS");
@@ -40,19 +41,17 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             sb.Append(OutputMarket("DAX", "DAX"));
             sb.LineBreak(TeletextControl.AlphaRed);
 
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]US MARKETS");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]WORLDWIDE");
             sb.Append(OutputMarket("DJIA", "Dow Jones"));
             sb.Append(OutputMarket("COMP", "NASDAQ"));
-            sb.LineBreak(TeletextControl.AlphaRed);
-           
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]ASIA MARKETS");
             sb.Append(OutputMarket("HSI", "Hang Seng"));
             sb.Append(OutputMarket("NK225", "Nikkei 225"));
 
             sb.LineBreak(TeletextControl.AlphaRed);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]CURRENCIES");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]CURRENCIES/BONDS");
             sb.Append(OutputCurrency("EUR"));
             sb.Append(OutputCurrency("USD"));
+            sb.Append(OutputMarket("UK-10YRBOND", "UK 10-Year"));
 
             // Display footer
             sb.FooterText(_cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
@@ -71,6 +70,13 @@ public class TeletextPageMarkets : ITeletextPageMarkets
         if(mr != null)
         {
             TeletextControl rateColour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
+
+            if(marketName == "UK-10YRBOND")
+            {
+                // Inverse colour
+                rateColour = rateColour == TeletextControl.AlphaRed ? TeletextControl.AlphaGreen : TeletextControl.AlphaRed;
+            }
+
             string partMovement = $"[{rateColour}] {mr.Movement.PadLeftWithTrunc(7)}";
             string marketClosed = mr.MarketClosed ? "Closed" : "      ";
 
@@ -98,7 +104,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             }
             string partMovement = $"[{rateColour}]  {changeFormatted}";
             
-            sb.AppendLine($"[{TeletextControl.AlphaWhite}]GBP/{currency.PadRightWithTrunc(17)}{rate.ToString("0.0000").PadLeftWithTrunc(9)}{partMovement:0.00}%");
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]GBP[{TeletextControl.RightArrow}]{currency.PadRightWithTrunc(17)}{rate.ToString("0.0000").PadLeftWithTrunc(9)}{partMovement:0.00}%");
         }
 
         return sb;

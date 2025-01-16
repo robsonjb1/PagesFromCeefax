@@ -65,6 +65,9 @@ public class CeefaxContent : ICeefaxContent
         UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EHSI/"), "YH-HSI"));
         UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EN225/"), "YH-NK225"));
 
+        // 10-year UK bond yields
+        UriCache.Add(new CachedUri(new Uri("https://uk.investing.com/rates-bonds/uk-10-year-bond-yield-historical-data"), "UK-10YRBOND"));
+
         // Process the UR cache (first time)
         ProcessUriCache().Wait();
 

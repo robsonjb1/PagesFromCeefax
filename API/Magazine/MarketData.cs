@@ -48,7 +48,7 @@ public class MarketData : IMarketData
                 bool marketClosed = true;
                 if(cc.UriCache.Exists(z => z.Tag == $"YH-{name}"))
                 {
-                    if(name == "MCX")
+                    if(name == "MCX" || name == "T1X")
                     {        
                         marketClosed = cc.UriCache.FirstOrDefault(l => l.Tag == $"YH-UKX").ContentString.Contains(">At close:");
                     }
@@ -70,6 +70,21 @@ public class MarketData : IMarketData
                 }
             }
   
+            // UK 10-year bond yields
+            html = cc.UriCache.FirstOrDefault(l => l.Tag == "UK-10YRBOND").ContentString;
+            doc.LoadHtml(html);
+            string yield = doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'text-5xl/9')]").InnerText;
+            double change = Math.Round(Convert.ToDouble(doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'md:text-xl/7')]/span").InnerText), 2);
+            string changeText = (change >= 0) ? $"+{change}%" : $"{change}%";
+
+            Markets.Add(new MarketRecord()
+            {
+                Name = "UK-10YRBOND",
+                Movement = changeText,
+                Value = yield,
+                MarketClosed = false
+            });
+
             // Currencies
             string json = cc.UriCache.First(l => l.Tag == "HL-Currencies").ContentString;
             Currencies = JsonSerializer.Deserialize<HLCurrencies>(json);
