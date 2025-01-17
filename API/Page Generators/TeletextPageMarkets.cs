@@ -51,7 +51,7 @@ public class TeletextPageMarkets : ITeletextPageMarkets
             sb.Append(OutputCurrency("EUR"));
             sb.Append(OutputCurrency("USD"));
 			sb.LineBreak(TeletextControl.AlphaRed);
-            sb.Append(OutputMarket("UK-10YRBOND", "10Yr Yield"));
+            sb.Append(OutputMarket("UK-10YRBOND", "10Y Yield"));
 
             // Display footer
             sb.FooterText(_cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
