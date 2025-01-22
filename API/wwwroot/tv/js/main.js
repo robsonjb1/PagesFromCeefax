@@ -21,7 +21,21 @@ videoContainer = {  // we will add properties as needed
 };
 
 
-let episodeDurations = [3151.4, 3083.44, 3117.8, 1972.68, 1459.05];
+let episodeDurations = [
+    3066.32,
+    2916.08,
+    3110.48,
+    3079.28,
+    2901.20
+];
+
+let episodeUrls = [
+    "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJydU41bkFkbG9hekFZZ2c_ZT1VZXAxSGM/root/content",
+    "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJYdEVZOW1PdWEzSHpQeUE_ZT05YTZNc1Y/root/content",
+    "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJlX3FaQWd4Vm9kdDRZbWc_ZT1SYzJQdDM/root/content",
+    "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJjRDhfREdOZWxrSGVDWHc_ZT13NUZkWmY/root/content",
+    "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJiUTY5YzBsV2hYTEFMMEE_ZT1NUWZkdW0/root/content"
+]
 
 let now = new Date();
 const totalTimes = episodeDurations.reduce((partialSum, a) => partialSum + a, 0);
@@ -47,9 +61,9 @@ for (let i=0; i<episodeDurations.length; i++)
     }
 }
 
-video.src = "./media/episode" + (currentEpisode+1) + ".m4v";
+video.src = episodeUrls[currentEpisode];
 
-video.src = "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJrSHNPN1BRZENuR19CQ1E_ZT01b0xLZFo/root/content";
+video.src = "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJiUTY5YzBsV2hYTEFMMEE_ZT1NUWZkdW0/root/content";
 
 // https://learn.microsoft.com/en-us/graph/api/shares-get?view=graph-rest-1.0&tabs=http#encoding-sharing-urls
 
@@ -67,7 +81,7 @@ function readyToPlayVideo(event){ // this is a referance to the video
 }
 
 function updateCanvas(){
-    //console.log(video.duration);
+    console.log(video.duration);
 
     if(video.currentTime >= video.duration - 1) {
         // Next episode
@@ -78,7 +92,7 @@ function updateCanvas(){
             currentEpisode = 0;
         }
         console.log('Moving to episode ' + currentEpisode + " position 0");
-        video.src = "./media/episode" + (currentEpisode+1) + ".m4v";
+        video.src = episodeUrls[currentEpisode];
         video.play();
     }
 
