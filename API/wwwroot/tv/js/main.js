@@ -63,8 +63,6 @@ for (let i=0; i<episodeDurations.length; i++)
 
 video.src = episodeUrls[currentEpisode];
 
-video.src = "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJiUTY5YzBsV2hYTEFMMEE_ZT1NUWZkdW0/root/content";
-
 // https://learn.microsoft.com/en-us/graph/api/shares-get?view=graph-rest-1.0&tabs=http#encoding-sharing-urls
 
 
