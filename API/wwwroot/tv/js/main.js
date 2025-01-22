@@ -70,16 +70,14 @@ video.oncanplay = readyToPlayVideo; // set the event to the play function that
                                   // can be found below
 function readyToPlayVideo(event){ // this is a referance to the video
     // the video may not match the canvas size so find a scale to fit
-    videoContainer.scale = Math.min(
-                         canvas.width / this.videoWidth, 
-                         canvas.height / this.videoHeight); 
+    
     videoContainer.ready = true;
     // the video can be played so hand it off to the display function
     requestAnimationFrame(updateCanvas);
 }
 
 function updateCanvas(){
-    console.log(video.duration);
+    //console.log(video.duration);
 
     if(video.currentTime >= video.duration - 1) {
         // Next episode
@@ -98,11 +96,7 @@ function updateCanvas(){
     // only draw if loaded and ready
     if(videoContainer !== undefined && videoContainer.ready){ 
         // find the top left of the video on the canvas
-        var scale = videoContainer.scale;
-        var vidH = videoContainer.video.videoHeight;
-        var vidW = videoContainer.video.videoWidth;
-        var top = canvas.height / 2 - (vidH /2 ) * scale;
-        var left = canvas.width / 2 - (vidW /2 ) * scale;
+        
         // now just draw the video the correct size
         ctx.drawImage(videoContainer.video, 0, 0, 500, 500);
   
