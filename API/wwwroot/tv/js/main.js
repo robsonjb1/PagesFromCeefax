@@ -26,7 +26,7 @@ let totalTimes = 0;
 episodeList.forEach((e) => totalTimes += e.length);
 
 // Time into day
-let dayPosition = Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
+let dayPosition = Math.floor(((now.getDate() * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
 let currentEpisode = 0;
 
 // Find out which episode this is
@@ -38,10 +38,25 @@ for (let i=0; i<episodeList.length; i++)
     {
         currentEpisode = i;
         video.currentTime = dayPosition - sum;
-
+        
         video.src = episodeList[currentEpisode].url;
         console.log('Moving to episode ' + currentEpisode + " position " + video.currentTime);
-        console.log(episodeList[i].title);
+        console.log('This episode is', episodeList[i].title);
+
+        const episodeStartTime = new Date(now - (video.currentTime * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+        const nextEpisodeStarts = new Date(now - (video.currentTime * 1000) + (episodeList[currentEpisode].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+        
+        console.log('Next episode starts at', nextEpisodeStarts);
+        console.log('Episode started at', episodeStartTime);
+        let nextEpisodeTemp = currentEpisode + 1;
+        if(nextEpisodeTemp === episodeList.length) {
+            nextEpisodeTemp = 0;
+        }
+        console.log('Next episode is', episodeList[nextEpisodeTemp].title);
+        
+
+
+
         break;
     }
     else
@@ -59,7 +74,7 @@ function readyToPlayVideo(event){ // this is a referance to the video
     // the video may not match the canvas size so find a scale to fit
     
     videoContainer.ready = true;
-    console.log('Episode ready, total length ' + video.duration);
+    console.log('Episode ready to play, total length ' + video.duration);
 
     // the video can be played so hand it off to the display function
     requestAnimationFrame(updateCanvas);
