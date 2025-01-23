@@ -1,14 +1,15 @@
+import { starCat } from "./cat.js";
 
+let episodeList = starCat();
 
-var canvas = document.getElementById("teletextCanvas"); // get the canvas from the page
-
+let canvas = document.getElementById("teletextCanvas"); // get the canvas from the page
 canvas.width = 500; 
 canvas.height = 500;
 
-var ctx = canvas.getContext("2d", { willReadFrequently: true });
+let ctx = canvas.getContext("2d", { willReadFrequently: true });
 
-var videoContainer; // object to hold video and associated info
-var video = document.createElement("video"); // create a video element
+let videoContainer; // object to hold video and associated info
+let video = document.createElement("video"); // create a video element
 
 // the video will now begin to load.
 // As some additional info is needed we will place the video in a
@@ -20,25 +21,9 @@ videoContainer = {  // we will add properties as needed
      ready : false,   
 };
 
-
-let episodeDurations = [
-    3066.32,
-    2916.08,
-    3110.48,
-    3079.28,
-    2901.20
-];
-
-let episodeUrls = [
-    "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJydU41bkFkbG9hekFZZ2c_ZT1VZXAxSGM/root/content",
-    "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJYdEVZOW1PdWEzSHpQeUE_ZT05YTZNc1Y/root/content",
-    "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJlX3FaQWd4Vm9kdDRZbWc_ZT1SYzJQdDM/root/content",
-    "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJjRDhfREdOZWxrSGVDWHc_ZT13NUZkWmY/root/content",
-    "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBdVQyQVlXUWRGaHJ2dFJiUTY5YzBsV2hYTEFMMEE_ZT1NUWZkdW0/root/content"
-]
-
 let now = new Date();
-const totalTimes = episodeDurations.reduce((partialSum, a) => partialSum + a, 0);
+let totalTimes = 0;
+episodeList.forEach((e) => totalTimes += e.length);
 
 // Time into day
 let dayPosition = Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
@@ -46,22 +31,24 @@ let currentEpisode = 0;
 
 // Find out which episode this is
 var sum = 0;
-for (let i=0; i<episodeDurations.length; i++)
+
+for (let i=0; i<episodeList.length; i++)
 {
-    if(sum+episodeDurations[i] > dayPosition)
+    if(sum+episodeList[i].length > dayPosition)
     {
         currentEpisode = i;
         video.currentTime = dayPosition - sum;
+
+        video.src = episodeList[currentEpisode].url;
         console.log('Moving to episode ' + currentEpisode + " position " + video.currentTime);
+        console.log(episodeList[i].title);
         break;
     }
     else
     {
-        sum += episodeDurations[i];
+        sum += episodeList[i].length;
     }
 }
-
-video.src = episodeUrls[currentEpisode];
 
 // https://learn.microsoft.com/en-us/graph/api/shares-get?view=graph-rest-1.0&tabs=http#encoding-sharing-urls
 
@@ -72,23 +59,23 @@ function readyToPlayVideo(event){ // this is a referance to the video
     // the video may not match the canvas size so find a scale to fit
     
     videoContainer.ready = true;
+    console.log('Episode ready, total length ' + video.duration);
+
     // the video can be played so hand it off to the display function
     requestAnimationFrame(updateCanvas);
 }
 
-function updateCanvas(){
-    //console.log(video.duration);
-
+function updateCanvas()
+{
     if(video.currentTime >= video.duration - 1) {
-        // Next episode
-        video.currentTime = 0;
+        // Advance to next episode
         currentEpisode++;
-        if(currentEpisode == episodeDurations.length)
-        {
+        if(currentEpisode == episodeList.length) {
             currentEpisode = 0;
         }
         console.log('Moving to episode ' + currentEpisode + " position 0");
-        video.src = episodeUrls[currentEpisode];
+        video.src = episodeList[currentEpisode].url;
+        video.currentTime = 0;
         video.play();
     }
 
@@ -99,7 +86,7 @@ function updateCanvas(){
         
         // now just draw the video the correct size
         ctx.drawImage(videoContainer.video, 0, 0, 500, 500);
-  
+
         //const imageData = ctx.getImageData(0, 0, 500, 500);
         
         //for(let i=0; i<imageData.data.length; i+=4)
@@ -113,6 +100,7 @@ function updateCanvas(){
             drawPlayIcon();
         }
     }
+
     // all done for display 
     // request the next frame in 1/60th of a second
     requestAnimationFrame(updateCanvas);
