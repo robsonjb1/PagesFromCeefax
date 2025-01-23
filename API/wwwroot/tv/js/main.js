@@ -1,5 +1,5 @@
 import { starCat } from "./cat.js";
-
+alert('test1');
 let episodeList = starCat();
 
 let canvas = document.getElementById("teletextCanvas"); // get the canvas from the page
@@ -8,7 +8,7 @@ canvas.height = 500;
 
 //let ctx = canvas.getContext("2d", { willReadFrequently: true });
 let ctx = canvas.getContext("2d");
-
+alert('test2');
 let videoContainer; //  to hold video and associated info
 let video = document.createElement("video"); // create a video element
 
