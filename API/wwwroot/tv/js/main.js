@@ -6,9 +6,10 @@ let canvas = document.getElementById("teletextCanvas"); // get the canvas from t
 canvas.width = 500; 
 canvas.height = 500;
 
-let ctx = canvas.getContext("2d", { willReadFrequently: true });
+//let ctx = canvas.getContext("2d", { willReadFrequently: true });
+let ctx = canvas.getContext("2d");
 
-let videoContainer; // object to hold video and associated info
+let videoContainer; //  to hold video and associated info
 let video = document.createElement("video"); // create a video element
 
 // the video will now begin to load.
