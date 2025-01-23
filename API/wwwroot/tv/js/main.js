@@ -69,8 +69,11 @@ alert('test6');
 
 // https://learn.microsoft.com/en-us/graph/api/shares-get?view=graph-rest-1.0&tabs=http#encoding-sharing-urls
 
+video.addEventListener('loadedmetadata',function() {
+      readyToPlayVideo();
+});
 
-video.oncanplay = readyToPlayVideo; // set the event to the play function that 
+//video.oncanplay = readyToPlayVideo; // set the event to the play function that 
                                   // can be found below
 
 alert('test7');
