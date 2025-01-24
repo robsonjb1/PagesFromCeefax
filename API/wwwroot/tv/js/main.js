@@ -95,9 +95,9 @@ function selectEpisodePosition()
 
 function updateCanvas()
 {
-    if(video.currentTime >= video.duration) {
+    if(video.currentTime >= video.duration - 1000) {
         // Advance to next episode after one second to ensure the episode tracker picks the right episode
-        setTimeout(selectEpisodePosition, 1000);
+        setTimeout(selectEpisodePosition, 1500);
         video.play();
     }
 
