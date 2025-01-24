@@ -1,6 +1,4 @@
 import { starCat } from "./cat.js";
-import { getTestPage } from "./testpage.js";
-import { teletext } from "./teletext.js";
 
 let episodeList = starCat();
 
@@ -25,53 +23,6 @@ videoContainer = {  // we will add properties as needed
      startPositionTimeStamp : null,
 };
 
-let display = new teletext();
-
-let now = new Date();
-let totalTimes = 0;
-episodeList.forEach((e) => totalTimes += e.length);
-
-// Time into day
-let dayPosition = Math.floor(((now.getDate() * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
-let currentEpisode = 0;
-
-// Find out which episode this is
-var sum = 0;
-
-for (let i=0; i<episodeList.length; i++)
-{
-    if(sum+episodeList[i].length > dayPosition)
-    {
-        currentEpisode = i;
-        video.src = episodeList[currentEpisode].url;
-
-        videoContainer.startPosition = dayPosition - sum;
-        videoContainer.startPositionTimeStamp = now;
-        
-        console.log('Moving to episode ' + currentEpisode + " position " + videoContainer.startPosition);
-        console.log('This episode is', episodeList[i].title);
-
-        const episodeStartTime = new Date(now - (videoContainer.startPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-        const nextEpisodeStarts = new Date(now - (videoContainer.startPosition * 1000) + (episodeList[currentEpisode].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-        
-        console.log('Episode started at', episodeStartTime);
-        let nextEpisodeTemp = currentEpisode + 1;
-        if(nextEpisodeTemp === episodeList.length) {
-            nextEpisodeTemp = 0;
-        }
-        console.log('Next episode is', episodeList[nextEpisodeTemp].title);
-        console.log('Next episode starts at', nextEpisodeStarts);
-
-        break;
-    }
-    else
-    {
-        sum += episodeList[i].length;
-    }
-}
-
-// https://learn.microsoft.com/en-us/graph/api/shares-get?view=graph-rest-1.0&tabs=http#encoding-sharing-urls
-
 video.addEventListener('loadedmetadata',function() {
       readyToPlayVideo();
 });
@@ -89,19 +40,64 @@ function readyToPlayVideo(event){ // this is a referance to the video
     requestAnimationFrame(updateCanvas);
 }
 
+selectEpisodePosition();
+
+function selectEpisodePosition()
+{
+    let now = new Date();
+    let totalTimes = 0;
+    episodeList.forEach((e) => totalTimes += e.length);
+    
+    // Time into day
+    let dayPosition = Math.floor(((now.getDate() * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
+    let currentEpisode = 0;
+    
+    // Find out which episode this is
+    var sum = 0;
+    
+    for (let i=0; i<episodeList.length; i++)
+    {
+        if(sum+episodeList[i].length > dayPosition)
+        {
+            currentEpisode = i;
+            video.src = episodeList[currentEpisode].url;
+    
+            videoContainer.startPosition = dayPosition - sum;
+            videoContainer.startPositionTimeStamp = now;
+            
+            console.log('Moving to episode ' + currentEpisode + " position " + videoContainer.startPosition);
+            console.log('This episode is', episodeList[i].title);
+    
+            const episodeStartTime = new Date(now - (videoContainer.startPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+            const nextEpisodeStarts = new Date(now - (videoContainer.startPosition * 1000) + (episodeList[currentEpisode].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+            
+            console.log('Episode started at', episodeStartTime);
+            let nextEpisodeTemp = currentEpisode + 1;
+            if(nextEpisodeTemp === episodeList.length) {
+                nextEpisodeTemp = 0;
+            }
+            console.log('Next episode is', episodeList[nextEpisodeTemp].title);
+            console.log('Next episode starts at', nextEpisodeStarts);
+    
+            $("#nowTime").text(episodeStartTime);
+            $("#nextTime").text(nextEpisodeStarts);
+            $("#nowTitle").text(episodeList[i].title);
+            $("#nextTitle").text(episodeList[nextEpisodeTemp].title);
+            
+            break;
+        }
+        else
+        {
+            sum += episodeList[i].length;
+        }
+    }
+}
+
 function updateCanvas()
 {
-    if(video.currentTime >= video.duration - 1) {
+    if(video.currentTime >= video.duration) {
         // Advance to next episode
-        currentEpisode++;
-        if(currentEpisode == episodeList.length) {
-            currentEpisode = 0;
-        }
-        console.log('Moving to episode ' + currentEpisode + " position 0");
-        video.src = episodeList[currentEpisode].url;
-        video.currentTime = 0;
-        videoContainer.startPosition = 0;
-        videoContainer.startPositionTimeStamp = new Date();
+        selectEpisodePosition();
 
         video.play();
     }
@@ -110,29 +106,14 @@ function updateCanvas()
 
     // only draw if loaded and ready
     if(videoContainer !== undefined && videoContainer.ready){ 
-        // find the top left of the video on the canvas
         
-        // now just draw the video the correct size
         ctx.drawImage(videoContainer.video, 0, 0, 500, 500);
-
-        //var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        //display.redraw(ctx, getTestPage(), imgData, 24);
-
-        //const imageData = ctx.getImageData(0, 0, 500, 500);
-        //
-        //for(let i=0; i<imageData.data.length; i+=4)
-        //{
-        //    let gamma = imageData.data[i] + imageData.data[i+1] + imageData.data[i+2];
-        //    imageData.data[i+3]=30 + (gamma * 2);
-        //}
-        //ctx.putImageData(imageData, 0, 0);
 
         if(videoContainer.video.paused){ // if not playing show the paused screen 
             drawPlayIcon();
+            $("#nowNext").fadeIn();
         }
     }
-
-    
 
     // all done for display 
     // request the next frame in 1/60th of a second
@@ -147,15 +128,13 @@ function drawPlayIcon(){
      ctx.globalAlpha = 0.75; // partly transparent
      ctx.beginPath(); // create the path for the icon
      var size = (canvas.height / 2) * 0.25;  // the size of the icon
-     ctx.moveTo(canvas.width/2 + size/2, canvas.height / 2); // start at the pointy end
-     ctx.lineTo(canvas.width/2 - size/2, canvas.height / 2 + size);
-     ctx.lineTo(canvas.width/2 - size/2, canvas.height / 2 - size);
+     ctx.moveTo(canvas.width/2 + size, canvas.height / 1.75 - size); // start at the pointy end
+     ctx.lineTo(canvas.width/2 - size, canvas.height / 1.75 + size / 2);
+     ctx.lineTo(canvas.width/2 - size/2.5, canvas.height / 1.75 - size /2);
+     ctx.lineTo(canvas.width/2 - size*1.25, canvas.height / 1.75 - size);
      ctx.closePath();
      ctx.fill();
      ctx.globalAlpha = 1; // restore alpha
-
-     var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-     display.redraw(ctx, getTestPage(), imgData, 24);
 }    
 
 function playPauseClick(){
@@ -164,8 +143,10 @@ function playPauseClick(){
             video.currentTime = videoContainer.startPosition + ((new Date() - videoContainer.startPositionTimeStamp) / 1000);
                            
             videoContainer.video.play();
+            $("#nowNext").fadeOut();
         }else{
             videoContainer.video.pause();
+            $("#nowNext").fadeIn();
         }
     }
 }

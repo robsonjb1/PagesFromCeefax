@@ -35,12 +35,19 @@
     <script type="module" src="./js/main.js"></script>
     
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="apple-touch-icon" href="apple-touch-icon-72x72.png">
 </head>
 
 <body>
     <div id="container">
         <div id="page">
+            <div id="nowNext" class="alert alert-warning initially-hidden">
+                <table class="nowNextTable">
+                    <tr><td><div id="nowCaption">ON NOW</div></td><td><div id="nowTime"></div></td><td><div id="nowTitle"></div></td></tr>
+                    <tr><td><div id="nextCaption">ON NEXT</div></td><td><div id="nextTime"></div></td><td><div id="nextTitle"></div></td></tr>
+                </table>
+            </div>
             <canvas id="teletextCanvas"></canvas>
         </div>
         <div id="overlay"></div>

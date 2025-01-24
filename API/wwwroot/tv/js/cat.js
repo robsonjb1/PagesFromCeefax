@@ -1,5 +1,7 @@
 "use strict";
 
+// https://learn.microsoft.com/en-us/graph/api/shares-get?view=graph-rest-1.0&tabs=http#encoding-sharing-urls
+
 export function starCat() {
     return [
         {

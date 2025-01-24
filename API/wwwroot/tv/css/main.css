@@ -162,3 +162,31 @@ audio {
 		border-radius: 60px;
 	}
 }
+
+/* Now Next banner */
+#nowNext {
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}
+
+.initially-hidden {
+	display: none;
+}
+
+td, th { /* table cells */
+    padding: 10px;
+}
+
+#nowTime {
+	color: brown;
+}
+#nextTime {
+	color: brown;
+}
+#nowCaption {
+	color: blue;
+}
+#nextCaption {
+	color: blue;
+}
