@@ -98,7 +98,7 @@ function updateCanvas()
     // only draw if loaded and ready
     if(videoContainer !== undefined && videoContainer.ready){ 
   
-	  if(video.currentTime >= video.duration - 1000) {
+	  if(video.currentTime >= video.duration - 1) {
  	       // Advance to next episode after one second to ensure the episode tracker picks the right episode
   	      setTimeout(selectEpisodePosition, 1500);
    	     video.play();
