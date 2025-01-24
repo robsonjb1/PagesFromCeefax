@@ -1,4 +1,6 @@
 import { starCat } from "./cat.js";
+import { getTestPage } from "./testpage.js";
+import { teletext } from "./teletext.js";
 
 let episodeList = starCat();
 
@@ -6,8 +8,7 @@ let canvas = document.getElementById("teletextCanvas"); // get the canvas from t
 canvas.width = 500; 
 canvas.height = 500;
 
-//let ctx = canvas.getContext("2d", { willReadFrequently: true });
-let ctx = canvas.getContext("2d");
+let ctx = canvas.getContext("2d", { willReadFrequently: true });
 
 let videoContainer; //  to hold video and associated info
 let video = document.createElement("video"); // create a video element
@@ -17,13 +18,14 @@ let video = document.createElement("video"); // create a video element
 // containing object for convenience
 video.autoPlay = false; // ensure that the video does not auto play
 video.loop = true; // set the video to loop.
-video.disablePictureInPicture = true;
 videoContainer = {  // we will add properties as needed
      video : video,
      ready : false,   
      startPosition : null,
      startPositionTimeStamp : null,
 };
+
+let display = new teletext();
 
 let now = new Date();
 let totalTimes = 0;
@@ -105,6 +107,7 @@ function updateCanvas()
     }
 
     ctx.clearRect(0,0,canvas.width,canvas.height); 
+
     // only draw if loaded and ready
     if(videoContainer !== undefined && videoContainer.ready){ 
         // find the top left of the video on the canvas
@@ -112,8 +115,11 @@ function updateCanvas()
         // now just draw the video the correct size
         ctx.drawImage(videoContainer.video, 0, 0, 500, 500);
 
+        //var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        //display.redraw(ctx, getTestPage(), imgData, 24);
+
         //const imageData = ctx.getImageData(0, 0, 500, 500);
-        
+        //
         //for(let i=0; i<imageData.data.length; i+=4)
         //{
         //    let gamma = imageData.data[i] + imageData.data[i+1] + imageData.data[i+2];
@@ -125,6 +131,8 @@ function updateCanvas()
             drawPlayIcon();
         }
     }
+
+    
 
     // all done for display 
     // request the next frame in 1/60th of a second
@@ -145,6 +153,9 @@ function drawPlayIcon(){
      ctx.closePath();
      ctx.fill();
      ctx.globalAlpha = 1; // restore alpha
+
+     var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+     display.redraw(ctx, getTestPage(), imgData, 24);
 }    
 
 function playPauseClick(){
