@@ -177,7 +177,6 @@ audio {
 td, th { /* table cells */
     padding: 10px;
 }
-
 #nowTime {
 	color: brown;
 }
@@ -185,8 +184,8 @@ td, th { /* table cells */
 	color: brown;
 }
 #nowCaption {
-	color: blue;
+	color: brown;
 }
 #nextCaption {
-	color: blue;
+	color: brown;
 }
