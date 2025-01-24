@@ -95,17 +95,17 @@ function selectEpisodePosition()
 
 function updateCanvas()
 {
-    if(video.currentTime >= video.duration - 1000) {
-        // Advance to next episode after one second to ensure the episode tracker picks the right episode
-        setTimeout(selectEpisodePosition, 1500);
-        video.play();
-    }
-
-    ctx.clearRect(0,0,canvas.width,canvas.height); 
-
     // only draw if loaded and ready
     if(videoContainer !== undefined && videoContainer.ready){ 
-        
+  
+	  if(video.currentTime >= video.duration - 1000) {
+ 	       // Advance to next episode after one second to ensure the episode tracker picks the right episode
+  	      setTimeout(selectEpisodePosition, 1500);
+   	     video.play();
+  	  }
+
+  	  ctx.clearRect(0,0,canvas.width,canvas.height); 
+     
         ctx.drawImage(videoContainer.video, 0, 0, 500, 500);
 
         if(videoContainer.video.paused){ // if not playing show the paused screen 
