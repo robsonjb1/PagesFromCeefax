@@ -20,6 +20,8 @@ video.loop = true; // set the video to loop.
 videoContainer = {  // we will add properties as needed
      video : video,
      ready : false,   
+     startPosition : null,
+     startPositionTimeStamp : null,
 };
 
 let now = new Date();
@@ -37,18 +39,17 @@ for (let i=0; i<episodeList.length; i++)
 {
     if(sum+episodeList[i].length > dayPosition)
     {
-
         currentEpisode = i;
-     video.src = episodeList[currentEpisode].url;
-     
-        video.currentTime = dayPosition - sum;
+        video.src = episodeList[currentEpisode].url;
+
+        videoContainer.startPosition = dayPosition - sum;
+        videoContainer.startPositionTimeStamp = now;
         
-        
-        console.log('Moving to episode ' + currentEpisode + " position " + video.currentTime);
+        console.log('Moving to episode ' + currentEpisode + " position " + videoContainer.startPosition);
         console.log('This episode is', episodeList[i].title);
 
-        const episodeStartTime = new Date(now - (video.currentTime * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-        const nextEpisodeStarts = new Date(now - (video.currentTime * 1000) + (episodeList[currentEpisode].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+        const episodeStartTime = new Date(now - (videoContainer.startPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+        const nextEpisodeStarts = new Date(now - (videoContainer.startPosition * 1000) + (episodeList[currentEpisode].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
         
         console.log('Episode started at', episodeStartTime);
         let nextEpisodeTemp = currentEpisode + 1;
@@ -96,6 +97,9 @@ function updateCanvas()
         console.log('Moving to episode ' + currentEpisode + " position 0");
         video.src = episodeList[currentEpisode].url;
         video.currentTime = 0;
+        videoContainer.startPosition = 0;
+        videoContainer.startPositionTimeStamp = new Date();
+        
         video.play();
     }
 
@@ -144,7 +148,9 @@ function drawPlayIcon(){
 
 function playPauseClick(){
     if(videoContainer !== undefined && videoContainer.ready){
-        if(videoContainer.video.paused){                                 
+        if(videoContainer.video.paused){      
+            video.currentTime = videoContainer.startPosition + ((new Date() - videoContainer.startPositionTimeStamp) / 1000);
+                           
             videoContainer.video.play();
         }else{
             videoContainer.video.pause();
