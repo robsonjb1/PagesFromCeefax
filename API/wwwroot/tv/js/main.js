@@ -39,9 +39,11 @@ for (let i=0; i<episodeList.length; i++)
     {
 
         currentEpisode = i;
+     video.src = episodeList[currentEpisode].url;
+     
         video.currentTime = dayPosition - sum;
         
-        video.src = episodeList[currentEpisode].url;
+        
         console.log('Moving to episode ' + currentEpisode + " position " + video.currentTime);
         console.log('This episode is', episodeList[i].title);
 
