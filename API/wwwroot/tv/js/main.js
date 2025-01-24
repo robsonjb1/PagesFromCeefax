@@ -17,6 +17,7 @@ let video = document.createElement("video"); // create a video element
 // containing object for convenience
 video.autoPlay = false; // ensure that the video does not auto play
 video.loop = true; // set the video to loop.
+video.disablePictureInPicture = true;
 videoContainer = {  // we will add properties as needed
      video : video,
      ready : false,   
@@ -99,7 +100,7 @@ function updateCanvas()
         video.currentTime = 0;
         videoContainer.startPosition = 0;
         videoContainer.startPositionTimeStamp = new Date();
-        
+
         video.play();
     }
 
