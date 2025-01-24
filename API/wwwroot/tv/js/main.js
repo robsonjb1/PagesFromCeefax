@@ -1,5 +1,5 @@
 import { starCat } from "./cat.js";
-alert('test1');
+
 let episodeList = starCat();
 
 let canvas = document.getElementById("teletextCanvas"); // get the canvas from the page
@@ -8,10 +8,10 @@ canvas.height = 500;
 
 //let ctx = canvas.getContext("2d", { willReadFrequently: true });
 let ctx = canvas.getContext("2d");
-alert('test2');
+
 let videoContainer; //  to hold video and associated info
 let video = document.createElement("video"); // create a video element
-alert('test3');
+
 // the video will now begin to load.
 // As some additional info is needed we will place the video in a
 // containing object for convenience
@@ -21,7 +21,7 @@ videoContainer = {  // we will add properties as needed
      video : video,
      ready : false,   
 };
-alert('test4');
+
 let now = new Date();
 let totalTimes = 0;
 episodeList.forEach((e) => totalTimes += e.length);
@@ -37,27 +37,24 @@ for (let i=0; i<episodeList.length; i++)
 {
     if(sum+episodeList[i].length > dayPosition)
     {
-     alert('test5');
+
         currentEpisode = i;
         video.currentTime = dayPosition - sum;
         
         video.src = episodeList[currentEpisode].url;
         console.log('Moving to episode ' + currentEpisode + " position " + video.currentTime);
         console.log('This episode is', episodeList[i].title);
-alert('test6');
+
         const episodeStartTime = new Date(now - (video.currentTime * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
         const nextEpisodeStarts = new Date(now - (video.currentTime * 1000) + (episodeList[currentEpisode].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
         
-        console.log('Next episode starts at', nextEpisodeStarts);
         console.log('Episode started at', episodeStartTime);
         let nextEpisodeTemp = currentEpisode + 1;
         if(nextEpisodeTemp === episodeList.length) {
             nextEpisodeTemp = 0;
         }
         console.log('Next episode is', episodeList[nextEpisodeTemp].title);
-        
-
-
+        console.log('Next episode starts at', nextEpisodeStarts);
 
         break;
     }
@@ -76,10 +73,9 @@ video.addEventListener('loadedmetadata',function() {
 //video.oncanplay = readyToPlayVideo; // set the event to the play function that 
                                   // can be found below
 
-alert('test7');
 function readyToPlayVideo(event){ // this is a referance to the video
     // the video may not match the canvas size so find a scale to fit
-    alert('test8');
+
     videoContainer.ready = true;
     console.log('Episode ready to play, total length ' + video.duration);
 
@@ -153,6 +149,5 @@ function playPauseClick(){
         }
     }
 }
-alert('test9');
+
 canvas.addEventListener("click",playPauseClick);
-alert('test10');
