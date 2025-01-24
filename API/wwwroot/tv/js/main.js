@@ -27,9 +27,6 @@ video.addEventListener('loadedmetadata',function() {
       readyToPlayVideo();
 });
 
-//video.oncanplay = readyToPlayVideo; // set the event to the play function that 
-                                  // can be found below
-
 function readyToPlayVideo(event){ // this is a referance to the video
     // the video may not match the canvas size so find a scale to fit
 
@@ -84,6 +81,9 @@ function selectEpisodePosition()
             $("#nowTitle").text(episodeList[i].title);
             $("#nextTitle").text(episodeList[nextEpisodeTemp].title);
             
+            $("#nowNext").delay(3000).fadeIn();
+            $("#nowNext").delay(5000).fadeOut();
+            
             break;
         }
         else
@@ -111,7 +111,6 @@ function updateCanvas()
 
         if(videoContainer.video.paused){ // if not playing show the paused screen 
             drawPlayIcon();
-            $("#nowNext").fadeIn();
         }
     }
 
