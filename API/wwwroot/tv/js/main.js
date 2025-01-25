@@ -2,88 +2,67 @@ import { starCat } from "./cat.js";
 
 let episodeList = starCat();
 
-let canvas = document.getElementById("teletextCanvas"); // get the canvas from the page
+let canvas = document.getElementById("teletextCanvas");
 canvas.width = 500; 
 canvas.height = 500;
 
 let ctx = canvas.getContext("2d", { willReadFrequently: true });
 
-let videoContainer; //  to hold video and associated info
-let video = document.createElement("video"); // create a video element
+let video = document.createElement("video"); 
+video.autoPlay = false; 
+video.loop = true; 
+video.addEventListener('loadedmetadata',function() {
+    readyToPlayVideo();
+});
 
-// the video will now begin to load.
-// As some additional info is needed we will place the video in a
-// containing object for convenience
-video.autoPlay = false; // ensure that the video does not auto play
-video.loop = true; // set the video to loop.
-videoContainer = {  // we will add properties as needed
+let videoContainer = {
      video : video,
      ready : false,   
      startPosition : null,
      startPositionTimeStamp : null,
+     currentEpisode : 0
 };
 
-video.addEventListener('loadedmetadata',function() {
-      readyToPlayVideo();
-});
-
-function readyToPlayVideo(event){ // this is a referance to the video
-    // the video may not match the canvas size so find a scale to fit
-
-    videoContainer.ready = true;
-    console.log('Episode ready to play, total length ' + video.duration);
-
-    // the video can be played so hand it off to the display function
-    requestAnimationFrame(updateCanvas);
+let captionContainer = {
+    nowTime : null,
+    nextTime : null,
+    nowTitle : null,
+    nextTitle : null
 }
 
-selectEpisodePosition();
+initialiseVideo();
 
-function selectEpisodePosition()
-{
+function initialiseVideo() {
     let now = new Date();
     let totalTimes = 0;
     episodeList.forEach((e) => totalTimes += e.length);
-    
+
     // Time into day
     let dayPosition = Math.floor(((now.getDate() * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
-    let currentEpisode = 0;
-    
+   
     // Find out which episode this is
     var sum = 0;
-    
-    for (let i=0; i<episodeList.length; i++)
-    {
-        if(sum+episodeList[i].length > dayPosition)
-        {
-            currentEpisode = i;
-            video.src = episodeList[currentEpisode].url;
-    
+
+    for (let i=0; i<episodeList.length; i++) {
+        if(sum+episodeList[i].length > dayPosition) {
+            videoContainer.currentEpisode = i;
+            videoContainer.video.src = episodeList[videoContainer.currentEpisode].url;
+            
             videoContainer.startPosition = dayPosition - sum;
             videoContainer.startPositionTimeStamp = now;
+        
+            captionContainer.nowTime = new Date(now.getTime() - (videoContainer.startPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+            captionContainer.nextTime = new Date(now.getTime() - (videoContainer.startPosition * 1000) + (episodeList[videoContainer.currentEpisode].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
             
-            console.log('Moving to episode ' + currentEpisode + " position " + videoContainer.startPosition);
-            console.log('This episode is', episodeList[i].title);
-    
-            const episodeStartTime = new Date(now - (videoContainer.startPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-            const nextEpisodeStarts = new Date(now - (videoContainer.startPosition * 1000) + (episodeList[currentEpisode].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-            
-            console.log('Episode started at', episodeStartTime);
-            let nextEpisodeTemp = currentEpisode + 1;
-            if(nextEpisodeTemp === episodeList.length) {
-                nextEpisodeTemp = 0;
+            let nextEpisode = videoContainer.currentEpisode + 1;
+            if(nextEpisode === episodeList.length) {
+                nextEpisode = 0;
             }
-            console.log('Next episode is', episodeList[nextEpisodeTemp].title);
-            console.log('Next episode starts at', nextEpisodeStarts);
-    
-            $("#nowTime").text(episodeStartTime);
-            $("#nextTime").text(nextEpisodeStarts);
-            $("#nowTitle").text(episodeList[i].title);
-            $("#nextTitle").text(episodeList[nextEpisodeTemp].title);
-            
-            $("#nowNext").delay(3000).fadeIn();
-            $("#nowNext").delay(5000).fadeOut();
-            
+        
+            captionContainer.nowTitle = episodeList[videoContainer.currentEpisode].title;
+            captionContainer.nextTitle = episodeList[nextEpisode].title;
+
+            displayCaption();
             break;
         }
         else
@@ -93,22 +72,61 @@ function selectEpisodePosition()
     }
 }
 
-function updateCanvas()
-{
+function advanceEpisode() {
+    videoContainer.currentEpisode++;
+    if(videoContainer.currentEpisode == episodeList.length) {
+        videoContainer.currentEpisode = 0;
+    }
+    videoContainer.video.src = episodeList[videoContainer.currentEpisode].url;
+    videoContainer.currentTime = 0 ;
+    videoContainer.startPosition = 0;
+    videoContainer.startPositionTimeStamp = new Date();
+
+    let nextEpisode = videoContainer.currentEpisode + 1;
+    if(nextEpisode === episodeList.length) {
+        nextEpisode = 0;
+    }
+    video.play();
+
+    let now = new Date()
+    captionContainer.nowTime = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    captionContainer.nextTime = new Date(now.getTime() + episodeList[videoContainer.currentEpisode].length * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    captionContainer.nowTitle = episodeList[videoContainer.currentEpisode].title;
+    captionContainer.nextTitle = episodeList[nextEpisode].title;
+
+    displayCaption();
+}
+
+function displayCaption() {
+    $("#nowTime").text(captionContainer.nowTime);
+    $("#nextTime").text(captionContainer.nextTime);
+    $("#nowTitle").text(captionContainer.nowTitle);
+    $("#nextTitle").text(captionContainer.nextTitle);
+    
+    $("#nowNext").fadeIn();
+    $("#nowNext").delay(5000).fadeOut();
+}
+
+function readyToPlayVideo(event) { 
+    videoContainer.ready = true;
+    console.log('Episode ready to play, total length ' + video.duration);
+
+    // the video can be played so hand it off to the display function
+    requestAnimationFrame(updateCanvas);
+}
+
+function updateCanvas() {
     // only draw if loaded and ready
-    if(videoContainer !== undefined && videoContainer.ready){ 
-  
-	  if(video.currentTime >= video.duration - 1) {
- 	       // Advance to next episode after one second to ensure the episode tracker picks the right episode
-  	      setTimeout(selectEpisodePosition, 1500);
-   	     video.play();
-  	  }
+    if(videoContainer.ready) { 
+        if(video.currentTime >= video.duration - 1) {
+            // Advance to next episode and update container details
+            advanceEpisode();
+        }
 
-  	  ctx.clearRect(0,0,canvas.width,canvas.height); 
-     
+        ctx.clearRect(0,0,canvas.width,canvas.height); 
         ctx.drawImage(videoContainer.video, 0, 0, 500, 500);
-
-        if(videoContainer.video.paused){ // if not playing show the paused screen 
+        
+        if(videoContainer.video.paused) { 
             drawPlayIcon();
         }
     }
@@ -118,7 +136,7 @@ function updateCanvas()
     requestAnimationFrame(updateCanvas);
 }
 
-function drawPlayIcon(){
+function drawPlayIcon() {
      ctx.fillStyle = "black";  // darken display
      ctx.globalAlpha = 0.5;
      ctx.fillRect(0,0,canvas.width,canvas.height);
@@ -135,11 +153,10 @@ function drawPlayIcon(){
      ctx.globalAlpha = 1; // restore alpha
 }    
 
-function playPauseClick(){
+function playPauseClick() {
     if(videoContainer !== undefined && videoContainer.ready){
         if(videoContainer.video.paused){      
             video.currentTime = videoContainer.startPosition + ((new Date() - videoContainer.startPositionTimeStamp) / 1000);
-                           
             videoContainer.video.play();
             $("#nowNext").fadeOut();
         }else{
