@@ -6,4 +6,4 @@ api/bin/*
 api/kindletemp/*
 .vscode
 appsettings.development.json
-API/wwwroot/tv/media
+API/wwwroot/blakes247/media

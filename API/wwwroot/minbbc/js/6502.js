@@ -336,54 +336,6 @@ class Base6502 {
     }
 }
 
-class FakeUserPort {
-    write() {}
-    read() {
-        return 0xff;
-    }
-}
-
-
-class DebugHook {
-    constructor(cpu, functionName) {
-        this.cpu = cpu;
-        this.functionName = functionName;
-        this.handlers = [];
-    }
-    add(handler) {
-        const self = this;
-        this.handlers.push(handler);
-        if (!this.cpu[this.functionName]) {
-            this.cpu[this.functionName] = function () {
-                for (let i = 0; i < self.handlers.length; ++i) {
-                    const handler = self.handlers[i];
-                    if (handler.apply(handler, arguments)) {
-                        self.cpu.stop();
-                        return true;
-                    }
-                }
-                return false;
-            };
-        }
-        handler.remove = function () {
-            self.remove(handler);
-        };
-        return handler;
-    }
-    remove(handler) {
-        const i = this.handlers.indexOf(handler);
-        if (i < 0) throw "Unable to find debug hook handler";
-        this.handlers = this.handlers.slice(0, i).concat(this.handlers.slice(i + 1));
-        if (this.handlers.length === 0) {
-            this.cpu[this.functionName] = null;
-        }
-    }
-    clear() {
-        this.handlers = [];
-        this.cpu[this.functionName] = null;
-    }
-}
-
 export class Cpu6502 extends Base6502 {
     constructor(video_, music5000_) {
         super();
@@ -413,11 +365,6 @@ export class Cpu6502 extends Base6502 {
        
         this.peripheralCycles = 0;
         this.videoCycles = 0;
-
-        this._debugRead = this._debugWrite = this._debugInstruction = null;
-        this.debugInstruction = new DebugHook(this, "_debugInstruction");
-        this.debugRead = new DebugHook(this, "_debugRead");
-        this.debugWrite = new DebugHook(this, "_debugWrite");
     }
 
     getPrevPc(index) {
@@ -479,13 +426,11 @@ export class Cpu6502 extends Base6502 {
     readmemZpStack(addr) {
         addr &= 0xffff;
         const res = this.ramRomOs[addr];
-        if (this._debugRead) this._debugRead(addr, 0, res);
         return res | 0;
     }
     writememZpStack(addr, b) {
         addr &= 0xffff;
         b |= 0;
-        if (this._debugWrite) this._debugWrite(addr, b);
         this.ramRomOs[addr] = b;
     }
 
@@ -630,7 +575,6 @@ export class Cpu6502 extends Base6502 {
             case 0xfef4:
             case 0xfef8:
             case 0xfefc:
-//                return this.tube.read(addr);
         }
         if (addr >= 0xfc00 && addr < 0xfe00) return 0xff;
         return addr >>> 8;
@@ -645,11 +589,9 @@ export class Cpu6502 extends Base6502 {
         if (this.memStat[this.memStatOffset + (addr >>> 8)]) {
             const offset = this.memLook[this.memStatOffset + (addr >>> 8)];
             const res = this.ramRomOs[offset + addr];
-            if (this._debugRead) this._debugRead(addr, res, offset);
             return res | 0;
         } else {
             const res = this.readDevice(addr);
-            if (this._debugRead) this._debugRead(addr, res, 0);
             return res | 0;
         }
     }
@@ -666,7 +608,6 @@ export class Cpu6502 extends Base6502 {
     writemem(addr, b) {
         addr &= 0xffff;
         b |= 0;
-        if (this._debugWrite) this._debugWrite(addr, b);
         if (this.memStat[this.memStatOffset + (addr >>> 8)] === 1) {
             const offset = this.memLook[this.memStatOffset + (addr >>> 8)];
             this.ramRomOs[offset + addr] = b;
@@ -779,7 +720,6 @@ export class Cpu6502 extends Base6502 {
             case 0xfef4:
             case 0xfef8:
             case 0xfefc:
-            //    return this.tube.write(addr, b);
         }
     }
 

@@ -4,8 +4,8 @@ import { starCat } from "./cat.js";
 let episodeList = starCat();
 
 let canvas = document.getElementById("teletextCanvas");
-canvas.width = 500; 
-canvas.height = 500;
+canvas.width = 600; 
+canvas.height = 600;
 
 let ctx = canvas.getContext("2d", { willReadFrequently: true });
 
@@ -75,7 +75,7 @@ function initialiseVideo() {
 function advanceEpisode() {
     // Move to the start of the next episode
     videoContainer.currentEpisode++;
-    if(videoContainer.currentEpisode == episodeList.length) {
+    if(videoContainer.currentEpisode === episodeList.length) {
         videoContainer.currentEpisode = 0;
     }
     videoContainer.video.src = episodeList[videoContainer.currentEpisode].url;
@@ -125,8 +125,10 @@ function updateCanvas() {
         }
 
         ctx.clearRect(0,0,canvas.width,canvas.height); 
-        ctx.drawImage(videoContainer.video, 0, 0, 500, 500);
-        
+        //ctx.drawImage(videoContainer.video, 120,0,700,500,0,0,500,500);
+        //, 160,0,900,1100,0,0,600,900);
+        ctx.drawImage(videoContainer.video, 0, 0, 600, 600);
+
         if(videoContainer.video.paused) { 
             drawPlayIcon();
         }
