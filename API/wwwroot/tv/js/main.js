@@ -49,7 +49,12 @@ function initialiseVideo() {
     for (let i=0; i<episodeList.length; i++) {
         if(sum + episodeList[i].length > dayPosition) {
             videoContainer.currentEpisode = i;
-            videoContainer.video.src = episodeList[videoContainer.currentEpisode].url;
+
+            // Uncomment when adding new episodes
+            //videoContainer.currentEpisode = 17;
+            //console.log(episodeList[videoContainer.currentEpisode].title);
+
+            videoContainer.video.src = getOneDriveLink(episodeList[videoContainer.currentEpisode].url);
             videoContainer.startPosition = dayPosition - sum;
             videoContainer.startPositionTimeStamp = now;
         
@@ -73,13 +78,18 @@ function initialiseVideo() {
     }
 }
 
+function getOneDriveLink(rawUrl) {
+    let encodedUrl = btoa(rawUrl).replace("=", "").replace("/", "_").replace("+", "-");
+    return "https://api.onedrive.com/v1.0/shares/u!" + encodedUrl + "/root/content";
+}
+
 function advanceEpisode() {
     // Move to the start of the next episode
     videoContainer.currentEpisode++;
     if(videoContainer.currentEpisode === episodeList.length) {
         videoContainer.currentEpisode = 0;
     }
-    videoContainer.video.src = episodeList[videoContainer.currentEpisode].url;
+    videoContainer.video.src = getOneDriveLink(episodeList[videoContainer.currentEpisode].url);
     videoContainer.currentTime = 0;
     videoContainer.startPosition = 0;
     videoContainer.startPositionTimeStamp = new Date();
@@ -128,8 +138,15 @@ function updateCanvas() {
         ctx.clearRect(0,0,canvas.width,canvas.height); 
         //ctx.drawImage(videoContainer.video, 120,0,700,500,0,0,500,500);
         //, 160,0,900,1100,0,0,600,900);
-        ctx.drawImage(videoContainer.video, 0, 0, 600, 600);
 
+        let dp = episodeList[videoContainer.currentEpisode].displayParams;
+        if(dp) {
+            ctx.drawImage(videoContainer.video, dp[0], dp[1], dp[2], dp[3], dp[4], dp[5], dp[6], dp[7]);
+        }
+        else {
+            ctx.drawImage(videoContainer.video, 0, 0, 600, 600);
+        }
+        
         if(videoContainer.video.paused) { 
             drawPlayIcon();
         }
