@@ -38,10 +38,16 @@ initialiseVideo();
 function initialiseVideo() {
     let now = new Date();
     let totalTimes = 0;
+
+    // Shuffle the list using a seed based on the current month and year
+    // Comment out when adding new episodes
+    let seed = now.getMonth() * now.getFullYear();
+    shuffle(episodeList, seed);
+
     episodeList.forEach((e) => totalTimes += e.length);
     console.log('Stream total length ', totalTimes)
 
-    // How far into the episode stream are we based on how far into the current month we are
+    // Select the current episode and time based on how far into the current month we are
     let dayPosition = Math.floor(((now.getDate() * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
    
     // From this position, find out which episode this falls on
@@ -51,7 +57,7 @@ function initialiseVideo() {
             videoContainer.currentEpisode = i;
 
             // Uncomment when adding new episodes
-            //videoContainer.currentEpisode = 17;
+            //videoContainer.currentEpisode = 55;
             //console.log(episodeList[videoContainer.currentEpisode].title);
 
             videoContainer.video.src = getOneDriveLink(episodeList[videoContainer.currentEpisode].url);
@@ -189,3 +195,24 @@ function playPauseClick() {
 }
 
 canvas.addEventListener("click",playPauseClick);
+
+function shuffle(array, seed) {                
+    var m = array.length, t, i;
+        // While there remain elements to shuffle…
+        while (m) {
+            // Pick a remaining element…
+            i = Math.floor(random(seed) * m--);        
+            // And swap it with the current element.
+            t = array[m];
+            array[m] = array[i];
+            array[i] = t;
+            ++seed                                     
+        }
+        return array;
+    }
+
+
+function random(seed) {
+    var x = Math.sin(seed++) * 10000; 
+    return x - Math.floor(x);
+}
