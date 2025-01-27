@@ -788,18 +788,6 @@ export class Cpu6502 extends Base6502 {
             for (let i = 192; i < 256; ++i) this.memLook[i] = this.memLook[256 + i] = this.osOffset - 0xc000;
             for (let i = 0xfc; i < 0xff; ++i) this.memStat[i] = this.memStat[256 + i] = 0;
          
-            // DRAM content is not guaranteed to contain any particular
-            // value on start up, so we choose values that help avoid
-            // bugs in various games.
-            for (let i = 0; i < this.romOffset; ++i) {
-                if (i < 0x100) {
-                    // For Clogger.
-                    this.ramRomOs[i] = 0x00;
-                } else {
-                    // For Eagle Empire.
-                    this.ramRomOs[i] = 0x00; // JR was 0xff;
-                }
-            }
             this.videoDisplayPage = 0;
             this.scheduler = new Scheduler();
             this.sysvia = via.SysVia(

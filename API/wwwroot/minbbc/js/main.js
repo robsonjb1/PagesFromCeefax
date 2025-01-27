@@ -177,7 +177,6 @@ $(window).blur(function () {
 document.onkeydown = keyDown;
 document.onkeyup = keyUp;
 
-
 function splitImage(image) {
     const match = image.match(/(([^:]+):\/?\/?|[!^|])?(.*)/);
     const schema = match[2] || match[1] || "";
@@ -225,18 +224,16 @@ let selectedDrive = 0;
 const startPromise = Promise.all([processor.initialise()]).then(function () {
     // Ideally would start the loads first. But their completion needs the FDC from the processor
     const imageLoads = [];
-    if (firstDiscImage)
-        imageLoads.push(
-            loadDiscImage(firstDiscImage).then(function (disc) {
-                processor.fdc.loadDisc(0, disc, firstDiscImage);
-            })
-        );
-    if (secondDiscImage)
-        imageLoads.push(
-            loadDiscImage(secondDiscImage).then(function (disc) {
-                processor.fdc.loadDisc(1, disc, secondDiscImage);
-            })
-        );
+    imageLoads.push(
+        loadDiscImage(firstDiscImage).then(function (disc) {
+            processor.fdc.loadDisc(0, disc, firstDiscImage);
+        })
+    );
+    imageLoads.push(
+        loadDiscImage(secondDiscImage).then(function (disc) {
+            processor.fdc.loadDisc(1, disc, secondDiscImage);
+        })
+    );
 
     return Promise.all(imageLoads);
 });
