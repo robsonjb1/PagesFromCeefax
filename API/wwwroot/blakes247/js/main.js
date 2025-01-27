@@ -126,8 +126,6 @@ function updateCanvas() {
         }
 
         ctx.clearRect(0,0,canvas.width,canvas.height); 
-        //ctx.drawImage(videoContainer.video, 120,0,700,500,0,0,500,500);
-        //, 160,0,900,1100,0,0,600,900);
         ctx.drawImage(videoContainer.video, 0, 0, 600, 600);
 
         if(videoContainer.video.paused) { 

@@ -57,10 +57,10 @@ function initialiseVideo() {
             videoContainer.currentEpisode = i;
 
             // Uncomment when adding new episodes
-            //videoContainer.currentEpisode = 55;
+            //videoContainer.currentEpisode = 36;
             //console.log(episodeList[videoContainer.currentEpisode].title);
 
-            videoContainer.video.src = getOneDriveLink(episodeList[videoContainer.currentEpisode].url);
+            videoContainer.video.src = getOneDriveLink(videoContainer.currentEpisode);
             videoContainer.startPosition = dayPosition - sum;
             videoContainer.startPositionTimeStamp = now;
         
@@ -84,9 +84,15 @@ function initialiseVideo() {
     }
 }
 
-function getOneDriveLink(rawUrl) {
-    let encodedUrl = btoa(rawUrl).replace("=", "").replace("/", "_").replace("+", "-");
-    return "https://api.onedrive.com/v1.0/shares/u!" + encodedUrl + "/root/content";
+function getOneDriveLink(episodeId) {
+    if(episodeList[episodeId].urlProcessed) {
+        return episodeList[episodeId].urlProcessed;
+    } else
+    {
+        let rawUrl = episodeList[episodeId].url;
+        let encodedUrl = btoa(rawUrl).replace("=", "").replace("/", "_").replace("+", "-");
+        return "https://api.onedrive.com/v1.0/shares/u!" + encodedUrl + "/root/content";
+    }
 }
 
 function advanceEpisode() {
@@ -95,7 +101,7 @@ function advanceEpisode() {
     if(videoContainer.currentEpisode === episodeList.length) {
         videoContainer.currentEpisode = 0;
     }
-    videoContainer.video.src = getOneDriveLink(episodeList[videoContainer.currentEpisode].url);
+    videoContainer.video.src = getOneDriveLink(videoContainer.currentEpisode);
     videoContainer.currentTime = 0;
     videoContainer.startPosition = 0;
     videoContainer.startPositionTimeStamp = new Date();
@@ -142,9 +148,7 @@ function updateCanvas() {
         }
 
         ctx.clearRect(0,0,canvas.width,canvas.height); 
-        //ctx.drawImage(videoContainer.video, 120,0,700,500,0,0,500,500);
-        //, 160,0,900,1100,0,0,600,900);
-
+       
         let dp = episodeList[videoContainer.currentEpisode].displayParams;
         if(dp) {
             ctx.drawImage(videoContainer.video, dp[0], dp[1], dp[2], dp[3], dp[4], dp[5], dp[6], dp[7]);
