@@ -1,8 +1,22 @@
-import { starCat } from "./cat.js";
+import { starCat as blakes7cat} from "./blakes7-cat.js";
+import { starCat as drwhocat} from "./drwho-cat.js";
 
-// Initial setup
-let episodeList = starCat();
 
+// Update channel selector and show catalogue
+let channel = document.location.search.substring(1).slice(-1);
+if(!(channel>='0' && channel<=3))
+{
+    channel = 0;
+}
+
+$('#channel' + channel).addClass('active');
+let episodeList = blakes7cat();
+if(channel === '1')
+{
+    episodeList = drwhocat();
+}
+
+// Set up the canvas
 let canvas = document.getElementById("teletextCanvas");
 canvas.width = 600; 
 canvas.height = 600;
@@ -31,6 +45,7 @@ let captionContainer = {
     nextTitle : null
 }
 
+
 // Start video
 initialiseVideo();
 
@@ -41,11 +56,11 @@ function initialiseVideo() {
 
     // Shuffle the list using a seed based on the current month and year
     // Comment out when adding new episodes
-    let seed = now.getMonth() * now.getFullYear();
-    shuffle(episodeList, seed);
+    //let seed = now.getMonth() * now.getFullYear();
+    //shuffle(episodeList, seed);
 
     episodeList.forEach((e) => totalTimes += e.length);
-    console.log('Stream total length ', totalTimes)
+    console.log('Channel total length ', totalTimes)
 
     // Select the current episode and time based on how far into the current month we are
     let dayPosition = Math.floor(((now.getDate() * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
