@@ -1,5 +1,6 @@
 import { starCat as blakes7cat} from "./blakes7-cat.js";
 import { starCat as drwhocat} from "./drwho-cat.js";
+import { starCat as comedycat} from "./comedy-cat.js";
 
 // Update channel selector and show catalogue
 let channel = document.location.search.substring(1).slice(-1);
@@ -10,9 +11,15 @@ if(!(channel>='0' && channel<=3))
 
 $('#channel' + channel).addClass('active');
 let episodeList = blakes7cat();
-if(channel === '1')
-{
-    episodeList = drwhocat();
+switch(channel) {
+    case '1':
+        episodeList = drwhocat();
+        break;
+    case '2':
+        episodeList = comedycat();
+        break;
+    default:
+        episodeList = blakes7cat();
 }
 
 //episodeList = drwhocat();
