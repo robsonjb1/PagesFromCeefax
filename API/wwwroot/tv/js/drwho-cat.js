@@ -5,9 +5,81 @@
 export function starCat() {
     return [
         {
+            title: "DOCTOR WHO: 75 Robot",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvl9ZG7LU4ruCGDjXA?e=LPZnN4",
+            length: 5890.16,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 76 The Ark in Space",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqU7EvsVJO5btdZRxQ?e=stYzQS",
+            length: 5926.68,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
             title: "DOCTOR WHO: 78 Genesis of the Daleks",
             url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqU8TgXTcDglchyz1g?e=ZZ0efK",
             length: 8561.24,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 79 Revenge of the Cybermen",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqU4P2oKslUsGHf2Eg?e=52fgAd",
+            length: 5796.16,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 82 Pyramids of Mars",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvl-sJDblP2-DGB4CQ?e=C8yc7H",
+            length: 5907.16,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 85 The Seeds of Doom",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvoAYpCzaF8g85XeRQ?e=HOXDBD",
+            length: 8679.24,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 88 The Deadly Assassin",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvl3GPBxmTzti6kE5w?e=C7B73l",
+            length: 5676.44,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 91 The Talons of Weng-Chiang",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvl6Hnbx79di4i7cxA?e=GpwMIu",
+            length: 8635.24,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 92 Horror of Fang Rock",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvoBn0olUuUK_GEhHQ?e=cKh2xh",
+            length: 5719.16,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 93 The Invisible Enemy",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvl_u-9JG42k-dOgLQ?e=9kjBxG",
+            length: 5580.16,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 96 Underworld",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvoChKyGPfOvtA7nFA?e=hzwwY4",
+            length: 5350.16,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 97 The Invasion of Time",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvoDNzKdwdJXNcHiiQ?e=Z2ppTm",
+            length: 8982.24,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 103 The Armageddon Factor",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvoFrmsuAXjGCaXG6w?e=QR5xsf",
+            length: 8892.24,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
@@ -20,6 +92,24 @@ export function starCat() {
             title: "DOCTOR WHO: 105 City of Death",
             url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqVD5aXb1UQ_EZrBJA?e=EleChP",
             length: 5989.16,
+            displayParams: [130, 0, 690, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 106 The Creature from the Pit",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqklukFe8_pSjs7pAA?e=EJW8Hq",
+            length: 5793.16,
+            displayParams: [130, 0, 690, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 107 The Nightmare of Eden",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkjR2hETQTRpzBDAA?e=IaTY3w",
+            length: 5738.16,
+            displayParams: [130, 0, 690, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 108 The Horns of Nimon",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkkjSETZWhQLKfMxw?e=DkEs1B",
+            length: 6054.64,
             displayParams: [130, 0, 690, 820, 0, 0, 600, 900]
         },
         {
@@ -77,9 +167,21 @@ export function starCat() {
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
+            title: "DOCTOR WHO: 118 Kinda",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqdj58TfSchrwBakrw?e=k1EqEc",
+            length: 5920.16,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
             title: "DOCTOR WHO: 119 The Visitation",
             url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqknCxPTtDzluEqjNg?e=MxzTKI",
             length: 5989.16,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 120 Black Orchid",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkmM7VRZ0dU3UgGxQ?e=NcCVMc",
+            length: 2978,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
@@ -95,9 +197,75 @@ export function starCat() {
             displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
         },
         {
+            title: "DOCTOR WHO: 123 Arc of Infinity",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkocbjyrTCz-R_ZZw?e=99XnSC",
+            length: 5908.16,
+            displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 124 Snakedance",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkp2AFGeCVtkpl9Ng?e=u1ENw9",
+            length: 5884.16,
+            displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 125 Mawdyrn Undead",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkrk1-5D0BTScSCkg?e=wzkAer",
+            length: 5861.88,
+            displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 126 Terminus",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqdlf3yUKOpF8tvQ7w?e=81T6jM",
+            length: 5950.16,
+            displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 127 Enlightenment",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqdmTwl3njNKtJJTqQ?e=Nv7m6H",
+            length: 5875.16,
+            displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 128 The King's Demons",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkqM79jsYjOVX6fuw?e=qzxSiO",
+            length: 2983.08,
+            displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
+        },
+        {
             title: "DOCTOR WHO: 129 The Five Doctors",
             url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqU511n3yeBL0Zgqig?e=aB0DFn",
             length: 5423.04,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 130 Warriors of the Deep",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvoJrjl7X7ku0d471w?e=0Kslt6",
+            length: 5848.16,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 131 The Awakening",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvoKocxpvQaXnJSnxQ?e=8WdhDB",
+            length: 3009.08,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 132 Frontios",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvoL7SM6qujQMcRE1w?e=sZkzl1",
+            length: 5894.16,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 133 Resurrection of the Daleks",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvoMyBDqXVTy1ofRUg?e=R9Zdr7",
+            length: 5598.08,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
+        },
+        {
+            title: "DOCTOR WHO: 134 The Planet of Fire",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvoNU1stj6jcNvSZGA?e=6hJSEc",
+            length: 5854.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {

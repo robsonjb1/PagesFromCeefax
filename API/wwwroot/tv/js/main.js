@@ -1,7 +1,6 @@
 import { starCat as blakes7cat} from "./blakes7-cat.js";
 import { starCat as drwhocat} from "./drwho-cat.js";
 
-
 // Update channel selector and show catalogue
 let channel = document.location.search.substring(1).slice(-1);
 if(!(channel>='0' && channel<=3))
@@ -15,6 +14,8 @@ if(channel === '1')
 {
     episodeList = drwhocat();
 }
+
+//episodeList = drwhocat();
 
 // Set up the canvas
 let canvas = document.getElementById("teletextCanvas");
@@ -54,11 +55,6 @@ function initialiseVideo() {
     let now = new Date();
     let totalTimes = 0;
 
-    // Shuffle the list using a seed based on the current month and year
-    // Comment out when adding new episodes
-    //let seed = now.getMonth() * now.getFullYear();
-    //shuffle(episodeList, seed);
-
     episodeList.forEach((e) => totalTimes += e.length);
     console.log('Channel total length ', totalTimes)
 
@@ -69,12 +65,15 @@ function initialiseVideo() {
     var sum = 0;
     for (let i=0; i<episodeList.length; i++) {
         if(sum + episodeList[i].length > dayPosition) {
+            
+        //if(episodeList[i].length == 9999.99)
+        //{
+        //    videoContainer.currentEpisode = i;
+        //    videoContainer.video.src = getOneDriveLink(videoContainer.currentEpisode);
+        //    videoContainer.startPosition = 0;
+        //    console.log(episodeList[videoContainer.currentEpisode].title);
+
             videoContainer.currentEpisode = i;
-
-            // Uncomment when adding new episodes
-            //videoContainer.currentEpisode = 36;
-            //console.log(episodeList[videoContainer.currentEpisode].title);
-
             videoContainer.video.src = getOneDriveLink(videoContainer.currentEpisode);
             videoContainer.startPosition = dayPosition - sum;
             videoContainer.startPositionTimeStamp = now;
@@ -214,24 +213,3 @@ function playPauseClick() {
 }
 
 canvas.addEventListener("click",playPauseClick);
-
-function shuffle(array, seed) {                
-    var m = array.length, t, i;
-        // While there remain elements to shuffle…
-        while (m) {
-            // Pick a remaining element…
-            i = Math.floor(random(seed) * m--);        
-            // And swap it with the current element.
-            t = array[m];
-            array[m] = array[i];
-            array[i] = t;
-            ++seed                                     
-        }
-        return array;
-    }
-
-
-function random(seed) {
-    var x = Math.sin(seed++) * 10000; 
-    return x - Math.floor(x);
-}
