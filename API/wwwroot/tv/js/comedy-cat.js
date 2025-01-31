@@ -249,6 +249,120 @@ export function starCat() {
             url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqVf2pCdWCKbmSsC1g?e=yVqI4U",
             length: 1705.48,
             displayParams: [160, 0, 950, 1100, 0, 0, 600, 900]
-        }
+        },
+        {
+            title: "BLACKADDER: 2-1 Bells",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkiK0pfB9WLpJyKmw?e=u9YQ8c",
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900],
+            length: 1811.882667,
+        },
+        {
+            title: "BLACKADDER: 2-2 Head",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkg1FGz3wgUwYoS6Q?e=cXgEz1",
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900],
+            length: 1605.04,
+        },
+        {
+            title: "BLACKADDER: 2-3 Potato",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkhqiNGtl2LqoaOew?e=RN4qPx",
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900],
+            length: 1804.04,
+        },
+        {
+            title: "BLACKADDER: 2-4 Money",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkdMXMvkCIrKHtnSw?e=HWus7U",
+            length: 1795.72,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900],
+        },
+        {
+            title: "BLACKADDER: 2-5 Beer",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkcig626BmImuhOvA?e=YD7jsx",
+            length: 1753.56,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900],
+        },
+        {
+            title: "BLACKADDER: 2-6 Chains",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkeLKRhLnWxfD9wHw?e=mpunwo",
+            length: 1756.88,
+            displayParams: [120, 0, 720, 820, 0, 0, 600, 900],
+        },
+        {
+            title: "BLACKADDER: 3-1 Dish and Dishonesty",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkX0CwY9krHte72MA?e=k3yqZy",
+            length: 1761.04,
+            displayParams: [160, 0, 680, 830, 0, 0, 600, 900]
+        },
+        {
+            title: "BLACKADDER: 3-2 Ink and Incapability",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkfzAbkUvin6rIPbQ?e=prN7ie",
+            length: 1755.498667,
+            displayParams: [160, 0, 680, 830, 0, 0, 600, 900]
+        },
+        {
+            title: "BLACKADDER: 3-3 Nob and Nobility",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkbTvPbSetbkYfyJg?e=DQrJVf",
+            length: 1791.04,
+            displayParams: [160, 0, 680, 830, 0, 0, 600, 900]
+        },
+        {
+            title: "BLACKADDER: 3-4 Sense and Senility",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkYaztmuipDTiA65w?e=3VhbsH",
+            length: 1595.04,
+            displayParams: [160, 0, 680, 830, 0, 0, 600, 900]
+        },
+        {
+            title: "BLACKADDER: 3-5 Amy and Amiability",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkZ0PtsXpxEwMVQHA?e=LrgEZe",
+            length: 1765.04,
+            displayParams: [160, 0, 680, 830, 0, 0, 600, 900]
+        },
+        {
+            title: "BLACKADDER: 3-6 Duel and Duality",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkaf-DPjZ5s-md_UA?e=kZYbaC",
+            length: 1792.04,
+            displayParams: [160, 0, 680, 830, 0, 0, 600, 900]
+        },
+        {
+            title: "BLACKADDER: Blackadder's Christmas Carol",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkVk6LS2cm2EdscEQ?e=LxuUuX",
+            length: 2595.541333,
+            displayParams: [180, 0, 900, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "BLACKADDER: 4-1 Captain Cook",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkTTsPAYeTS8CrrMA?e=2kES5b",
+            length: 1748.04,
+            displayParams: [130, 0, 700, 800, 0, 0, 600, 900]
+        },
+        {
+            title: "BLACKADDER: 4-2 Corporal Punishment",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkWdky0dvyZx8S-Mw?e=2Or5dS",
+            length: 1761.04,
+            displayParams: [130, 0, 700, 800, 0, 0, 600, 900]
+        },
+        {
+            title: "BLACKADDER: 4-3 Major Star",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkSBYDtYraBGmuceA?e=fZ77Vu",
+            length: 1740.04,
+            displayParams: [130, 0, 700, 800, 0, 0, 600, 900]
+        },
+        {
+            title: "BLACKADDER: 4-4 Private Plane",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkQlj0VrCwbcN9a2w?e=i1Io6m",
+            length: 1732.04,
+            displayParams: [130, 0, 700, 800, 0, 0, 600, 900]
+        },
+        {
+            title: "BLACKADDER: 4-5 General Hospital",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkUxj8q1JXGzbr7HA?e=Q5lBgo",
+            length: 1679.04,
+            displayParams: [130, 0, 700, 800, 0, 0, 600, 900]
+        },
+        {
+            title: "BLACKADDER: 4-6 Goodbyeee",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkRKULBwgnY4dzEYA?e=8pkvYN",
+            length: 1762.04,
+            displayParams: [130, 0, 700, 800, 0, 0, 600, 900]
+        },
     ]
 }

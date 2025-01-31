@@ -22,7 +22,7 @@ switch(channel) {
         episodeList = blakes7cat();
 }
 
-//episodeList = drwhocat();
+//episodeList = comedycat();
 
 // Set up the canvas
 let canvas = document.getElementById("teletextCanvas");
@@ -53,7 +53,6 @@ let captionContainer = {
     nextTitle : null
 }
 
-
 // Start video
 initialiseVideo();
 
@@ -73,8 +72,8 @@ function initialiseVideo() {
     // From this position, find out which episode this falls on
     var sum = 0;
     for (let i=0; i<episodeList.length; i++) {
-        if(sum + episodeList[i].length > dayPosition) {
-            
+        if(sum + episodeList[i].length > dayPosition) {    
+
         //if(episodeList[i].length == 9999.99)
         //{
         //    videoContainer.currentEpisode = i;
