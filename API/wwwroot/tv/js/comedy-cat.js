@@ -253,7 +253,7 @@ export function starCat() {
         {
             title: "BLACKADDER: 2-1 Bells",
             url: "https://1drv.ms/v/s!AuT2AYWQdFhrxqkiK0pfB9WLpJyKmw?e=u9YQ8c",
-            displayParams: [120, 0, 720, 820, 0, 0, 600, 900],
+            displayParams: [170, 0, 950, 1100, 0, 0, 600, 900],
             length: 1811.882667,
         },
         {
