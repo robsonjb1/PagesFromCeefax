@@ -63,7 +63,9 @@ function initialiseVideo() {
     let totalTimes = 0;
 
     episodeList.forEach((e) => totalTimes += e.length);
-    console.log('Channel total length ', totalTimes)
+    let days = Math.floor(totalTimes / 86400, 0);
+    let hours = Math.round((totalTimes - (days * 86400)) / 3600, 1)
+    console.log('Channel total length', days, 'days', hours, 'hours')
 
     // Select the current episode and time based on how far into the current month we are
     let dayPosition = Math.floor(((now.getDate() * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
