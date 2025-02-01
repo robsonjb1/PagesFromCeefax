@@ -364,5 +364,234 @@ export function starCat() {
             length: 1762.04,
             displayParams: [130, 0, 700, 800, 0, 0, 600, 900]
         },
+        {
+            title: "YES MINISTER: 1-1 Open Government",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBtIT_IqQg2f-u2HA?e=UQ5Th9",
+            length: 1739.882667,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 1-2 The Official Visit",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBpA1X630tFZKvaMg?e=PwNlmU",
+            length: 1694.890667,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 1-3 The Economy Drive",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBofiyh6yzkjpR28A?e=dg6fuc",
+            length: 1709.888,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 1-4 Big Brother",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBuFnhzmsZzrqy2EA?e=HYDHyP",
+            length: 1750.890667,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 1-5 The Writing on the Wall",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBsiV7Ws8UoKWfSCg?e=MSyUoF",
+            length: 1658.901333,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 1-6 The Right to Know",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBradvVoz3Z_TyXpg?e=FIXddi",
+            length: 1766.890667,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 1-7 Jobs for the Boys",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBqa-_YOlSTGOYaoQ?e=uRo3hd",
+            length: 1738.901333,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 2-1 The Compassionate Society",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBmAiP_kx3v5bkeQQ?e=oM4eAd",
+            length: 1764.885333,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 2-2 Doing the Honours",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBnPbQXJl9Kzx2oTA?e=PNQPK8",
+            length: 1707.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 2-3 The Death List",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBkxFtMKwxHdW5KYQ?e=Fn5DJU",
+            length: 1766.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 2-4 The Greasy Pole",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBhVrkHsOOeax7O5g?e=gAaCkP",
+            length: 1778.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 2-5 The Devil You Know",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBj7J1OmEOI8BY02g?e=0VZGaR",
+            length: 1779.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 2-6 The Quality of Life",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBlCLFaLHpCotkL0Q?e=TAelvL",
+            length: 1754.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 2-7 A Question of Loyalty",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBil6csUPuSpcSOxw?e=8OryWB",
+            length: 1727.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 3-1 Equal Opportunities",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBbaKMcWmbHNssvEA?e=tRAGBV",
+            length: 1720.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 3-2 The Challenge",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBad1FpwPtfGdNNXg?e=7a0lUq",
+            length: 1822.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 3-3 The Skeleton in the Cupboard",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBc3YbP5iKnJvaHCw?e=2Fc3mL",
+            length: 1810.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 3-4 The Moral Dimension",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBd0n99eHf80Ly2hw?e=8Q11Je",
+            length: 1719.893333,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 3-5 The Bed of Nails",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBeW1fY83axHax5-w?e=YcEfAp",
+            length: 1761.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        }, 
+        {
+            title: "YES MINISTER: 3-6 The Whisky Priest",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBg0_-L5oOFLQjD4w?e=UON8PT",
+            length: 1776.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        }, 
+        {
+            title: "YES MINISTER: 3-7 The Middle-Class Rip-Off",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBZXy1vSfQx_AmN8g?e=9j4Mke",
+            length: 1794.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES MINISTER: 3-8 Party Games",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBfSAt3WhRrunLqJQ?e=kUfymG",
+            length: 3648.88,
+            displayParams: [160, 0, 950, 1050, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 1-1 The Grand Design",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvB5TW1iG2mh429wzw?e=AcJ5sI",
+            length: 1774.933333,
+            displayParams: [160, 0, 960, 1030, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 1-2 The Ministerial Broadcast",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvB7pEr4nrgKeQUTZQ?e=oRk52h",
+            length: 1766.933333,
+            displayParams: [160, 0, 960, 1030, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 1-3 The Smoke Screen",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvB9eXEBRDmcXsZYTw?e=pqRGVf",
+            length: 1767.936,
+            displayParams: [160, 0, 960, 1030, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 1-4 The Key",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvB6jC6WelEg1SN4Tw?e=hL4EHo",
+            length: 1763.925333,
+            displayParams: [160, 0, 960, 1030, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 1-5 A Real Partnership",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvB88hkKoUkBOTgEXw?e=CRJZ13",
+            length: 1795.925333,
+            displayParams: [160, 0, 960, 1030, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 1-6 A Victory for Democracy",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvB4IWfkYQ825MLVXQ?e=PJVyGE",
+            length: 1816.192,
+            displayParams: [0, 0, 740, 870, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 1-7 The Bishops Gambit",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvB-v_bE7luB-dh8Aw?e=nbBYAR",
+            length: 1821.930667,
+            displayParams: [160, 0, 960, 1030, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 1-8 One of Us",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvB3vGPSBUwh4bjFcw?e=Le1vO1",
+            length: 1771.925333,
+            displayParams: [160, 0, 960, 1030, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 2-1 Man Overboard",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvB0TZ_lhVvJRlG-og?e=g4XrcV",
+            length: 1799.936,
+            displayParams: [160, 0, 960, 1030, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 2-2 Official Secrets",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBzKHLQVoPTufZPkg?e=A6okxX",
+            length: 1804.928,
+            displayParams: [160, 0, 960, 1030, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 2-3 A Diplomatic Incident",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvByqiVS5z30h4WP3g?e=x3AWd1",
+            length: 1685.930667,
+            displayParams: [160, 0, 960, 1030, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 2-4 A Conflict of Interest",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBvkmFaBxqUN5YbVQ?e=WR5Cge",
+            length: 1801.941333,
+            displayParams: [160, 0, 960, 1030, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 2-5 Power to the People",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvB2_q5oabbMfHuSOw?e=c1r4iU",
+            length: 1828.928,
+            displayParams: [160, 0, 960, 1030, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 2-6 The Patron of the Arts",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBwJSk-HZCiuHOk9A?e=tVbhlA",
+            length: 1685,
+            displayParams: [0, 0, 750, 850, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 2-7 The National Education Service",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvBxFx5fIY5VlZTxVQ?e=K37YzT",
+            length: 1803.2,
+            displayParams: [0, 0, 750, 850, 0, 0, 600, 900]
+        },
+        {
+            title: "YES PRIME MINISTER: 2-8 The Tangled Web",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvB16D5Yw3fiZD7wwQ?e=rWHFji",
+            length: 1697.192,
+            displayParams: [0, 0, 750, 850, 0, 0, 600, 900]
+        },
+
     ]
 }
