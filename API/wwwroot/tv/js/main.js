@@ -1,6 +1,7 @@
 import { starCat as blakes7cat} from "./blakes7-cat.js";
 import { starCat as drwhocat} from "./drwho-cat.js";
 import { starCat as comedycat} from "./comedy-cat.js";
+import { starCat as totpcat} from "./totp-cat.js";
 
 // Update channel selector and show catalogue
 let channel = document.location.search.substring(1).slice(-1);
@@ -18,11 +19,14 @@ switch(channel) {
     case '2':
         episodeList = comedycat();
         break;
+    case '3':
+        episodeList = totpcat();
+        break;
     default:
         episodeList = blakes7cat();
 }
 
-//episodeList = comedycat();
+//episodeList = totpcat();
 
 // Set up the canvas
 let canvas = document.getElementById("teletextCanvas");
