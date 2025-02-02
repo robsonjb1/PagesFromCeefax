@@ -80,11 +80,11 @@ function initialiseVideo() {
 
         //if(episodeList[i].length == 9999.99)
         //{
-            //videoContainer.currentEpisode = i;
-            //videoContainer.video.src = getOneDriveLink(videoContainer.currentEpisode);
-            //videoContainer.startPosition = 0;
-            //videoContainer.startPositionTimeStamp = now;
-            //console.log(episodeList[videoContainer.currentEpisode].title);
+        //    videoContainer.currentEpisode = i;
+        //    videoContainer.video.src = getOneDriveLink(videoContainer.currentEpisode);
+        //    videoContainer.startPosition = 0;
+        //    videoContainer.startPositionTimeStamp = now;
+        //    console.log(episodeList[videoContainer.currentEpisode].title);
 
             videoContainer.currentEpisode = i;
             videoContainer.video.src = getOneDriveLink(videoContainer.currentEpisode);
