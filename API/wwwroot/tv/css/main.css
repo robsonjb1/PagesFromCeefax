@@ -164,7 +164,7 @@ audio {
 }
 
 /* Now Next banner */
-#nowNext {
+#planner {
 	position: absolute;
 	width: 100%;
 	z-index: 1;
@@ -175,17 +175,9 @@ audio {
 }
 
 td, th { /* table cells */
-    padding: 10px;
+    padding: 5px;
 }
-#nowTime {
+.plannerTime {
 	color: brown;
 }
-#nextTime {
-	color: brown;
-}
-#nowCaption {
-	color: brown;
-}
-#nextCaption {
-	color: brown;
-}
+

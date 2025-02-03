@@ -4,29 +4,17 @@ import { starCat as comedycat} from "./comedy-cat.js";
 import { starCat as totpcat} from "./totp-cat.js";
 
 // Update channel selector and show catalogue
-let channel = document.location.search.substring(1).slice(-1);
-if(!(channel>='0' && channel<=3))
+let selectedChannel = document.location.search.substring(1).slice(-1);
+if(!(selectedChannel >= '0' && selectedChannel <= 3))
 {
-    channel = 0;
+    selectedChannel = 0;
 }
 
-$('#channel' + channel).addClass('active');
-let episodeList = blakes7cat();
-switch(channel) {
-    case '1':
-        episodeList = drwhocat();
-        break;
-    case '2':
-        episodeList = comedycat();
-        break;
-    case '3':
-        episodeList = totpcat();
-        break;
-    default:
-        episodeList = blakes7cat();
-}
-
-//episodeList = totpcat();
+let episodeList = [{}, {}, {}, {}];
+episodeList[0].data = blakes7cat();
+episodeList[1].data = comedycat();
+episodeList[2].data = drwhocat();
+episodeList[3].data = totpcat();
 
 // Set up the canvas
 let canvas = document.getElementById("teletextCanvas");
@@ -44,79 +32,72 @@ video.addEventListener('loadedmetadata',function() {
 
 let videoContainer = {
      video : video,
-     ready : false,   
-     startPosition : null,
-     startPositionTimeStamp : null,
-     currentEpisode : 0
+     ready : false
 };
 
-let captionContainer = {
-    nowTime : null,
-    nextTime : null,
-    nowTitle : null,
-    nextTitle : null
-}
-
 // Start video
-initialiseVideo();
+switchChannel(selectedChannel);
 
 // Functions
-function initialiseVideo() {
-    let now = new Date();
-    let totalTimes = 0;
+function switchChannel(channel)
+{
+    $('#channel' + selectedChannel).removeClass('active');
+    selectedChannel = channel;
+    $('#channel' + selectedChannel).addClass('active');
 
-    episodeList.forEach((e) => totalTimes += e.length);
-    let days = Math.floor(totalTimes / 86400, 0);
-    let hours = Math.round((totalTimes - (days * 86400)) / 3600, 1)
-    console.log('Channel total length', days, 'days', hours, 'hours')
-
-    // Select the current episode and time based on how far into the current month we are
-    let dayPosition = Math.floor(((now.getDate() * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
+    // Update stats for each channel
+    updateChannelStats();
    
-    // From this position, find out which episode this falls on
-    var sum = 0;
-    for (let i=0; i<episodeList.length; i++) {
-        if(sum + episodeList[i].length > dayPosition) {    
+    videoContainer.video.src = episodeList[selectedChannel].source;
+    videoContainer.video.currentTime = episodeList[selectedChannel].currentPosition;
+    
+    let now = new Date();
+    videoContainer.startPosition = episodeList[selectedChannel].currentPosition;
+    videoContainer.startPositionTimeStamp = now;
 
-        //if(episodeList[i].length == 9999.99)
-        //{
-        //    videoContainer.currentEpisode = i;
-        //    videoContainer.video.src = getOneDriveLink(videoContainer.currentEpisode);
-        //    videoContainer.startPosition = 0;
-        //    videoContainer.startPositionTimeStamp = now;
-        //    console.log(episodeList[videoContainer.currentEpisode].title);
+    displayCaption();
+}
 
-            videoContainer.currentEpisode = i;
-            videoContainer.video.src = getOneDriveLink(videoContainer.currentEpisode);
-            videoContainer.startPosition = dayPosition - sum;
-            videoContainer.startPositionTimeStamp = now;
+function updateChannelStats() {
+    let now = new Date();
+
+    for(let channel=0; channel<4; channel++) {
+        let totalTimes = 0;
+
+        episodeList[channel].data.forEach((e) => totalTimes += e.length);
+        let days = Math.floor(totalTimes / 86400, 0);
+        let hours = Math.round((totalTimes - (days * 86400)) / 3600, 1)
+        console.log(`Channel ${channel} total length, ${days} days, ${hours} hours`);
         
-            captionContainer.nowTime = new Date(now.getTime() - (videoContainer.startPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-            captionContainer.nextTime = new Date(now.getTime() - (videoContainer.startPosition * 1000) + (episodeList[videoContainer.currentEpisode].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-            
-            let nextEpisode = videoContainer.currentEpisode + 1;
-            if(nextEpisode === episodeList.length) {
-                nextEpisode = 0;
+        // Select the current episode and time based on how far into the current month we are
+        let dayPosition = Math.floor(((now.getDate() * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
+    
+        // From this position, find out which episode this falls on
+        var sum = 0;
+        for (let i=0; i<episodeList[channel].data.length; i++) {
+            if(sum + episodeList[channel].data[i].length > dayPosition) {    
+                let currentPosition = dayPosition - sum;
+                episodeList[channel].currentPosition = currentPosition;
+                episodeList[channel].startTime = new Date(now.getTime() - (currentPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                episodeList[channel].endTime = new Date(now.getTime() - (currentPosition * 1000) + (episodeList[channel].data[i].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                episodeList[channel].episodeId = i;
+                episodeList[channel].title = episodeList[channel].data[i].title;
+                episodeList[channel].source = getOneDriveLink(channel, i);
+                break;
             }
-        
-            captionContainer.nowTitle = episodeList[videoContainer.currentEpisode].title;
-            captionContainer.nextTitle = episodeList[nextEpisode].title;
-
-            displayCaption();
-            break;
-        }
-        else {
-            sum += episodeList[i].length;
+            else {
+                sum += episodeList[channel].data[i].length;
+            }
         }
     }
 }
 
-function getOneDriveLink(episodeId) {
-    if(episodeList[episodeId].urlProcessed) {
-        return episodeList[episodeId].urlProcessed;
+function getOneDriveLink(channel, episodeId) {
+    if(episodeList[channel].data[episodeId].urlProcessed) {
+        return episodeList[channel].data[episodeId].urlProcessed;
     } else
     {
-        let rawUrl = episodeList[episodeId].url;
+        let rawUrl = episodeList[channel].data[episodeId].url;
         let encodedUrl = btoa(rawUrl).replace("=", "").replace("/", "_").replace("+", "-");
         return "https://api.onedrive.com/v1.0/shares/u!" + encodedUrl + "/root/content";
     }
@@ -124,39 +105,34 @@ function getOneDriveLink(episodeId) {
 
 function advanceEpisode() {
     // Move to the start of the next episode
-    videoContainer.currentEpisode++;
-    if(videoContainer.currentEpisode === episodeList.length) {
-        videoContainer.currentEpisode = 0;
+    episodeList[selectedChannel].episodeId++;
+    if(episodeList[selectedChannel].episodeId == episodeList[selectedChannel].data.length)
+    {
+        episodeList[selectedChannel].episodeId = 0;
     }
-    videoContainer.video.src = getOneDriveLink(videoContainer.currentEpisode);
-    videoContainer.currentTime = 0;
+    
+    let now = new Date();
+    episodeList[selectedChannel].currentPosition = 0;
+    episodeList[selectedChannel].startTime = new Date(now.getTime()).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    episodeList[selectedChannel].endTime = new Date(now.getTime() + (episodeList[selectedChannel].data[i].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    episodeList[selectedChannel].title = episodeList[selectedChannel].data[i].title;
+    episodeList[selectedChannel].source = getOneDriveLink(selectedChannel, i);
+    
+    videoContainer.video.src = episodeList[selectedChannel].source;
+    videoContainer.video.currentTime = 0;
     videoContainer.startPosition = 0;
-    videoContainer.startPositionTimeStamp = new Date();
+    videoContainer.startPositionTimeStamp = now;
 
-    let nextEpisode = videoContainer.currentEpisode + 1;
-    if(nextEpisode === episodeList.length) {
-        nextEpisode = 0;
-    }
-    video.play();
-
-    // Update caption details
-    let now = new Date()
-    captionContainer.nowTime = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    captionContainer.nextTime = new Date(now.getTime() + episodeList[videoContainer.currentEpisode].length * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    captionContainer.nowTitle = episodeList[videoContainer.currentEpisode].title;
-    captionContainer.nextTitle = episodeList[nextEpisode].title;
-
-    displayCaption();
+    videoContainer.video.play();
 }
 
 function displayCaption() {
-    $("#nowTime").text(captionContainer.nowTime);
-    $("#nextTime").text(captionContainer.nextTime);
-    $("#nowTitle").text(captionContainer.nowTitle);
-    $("#nextTitle").text(captionContainer.nextTitle);
-    
-    $("#nowNext").fadeIn();
-    $("#nowNext").delay(5000).fadeOut();
+    for(let i=0; i<4; i++) {
+        $(`#channel${i}time`).text(`${episodeList[i].startTime} - ${episodeList[i].endTime}`);
+        $(`#channel${i}title`).text(episodeList[i].title);
+    }
+
+    $("#planner").fadeToggle();
 }
 
 function readyToPlayVideo(event) { 
@@ -176,7 +152,8 @@ function updateCanvas() {
 
         ctx.clearRect(0,0,canvas.width,canvas.height); 
        
-        let dp = episodeList[videoContainer.currentEpisode].displayParams;
+        let episodeId = episodeList[selectedChannel].episodeId;
+        let dp = episodeList[selectedChannel].data[episodeId].displayParams;
         if(dp) {
             ctx.drawImage(videoContainer.video, dp[0], dp[1], dp[2], dp[3], dp[4], dp[5], dp[6], dp[7]);
         }
@@ -217,12 +194,23 @@ function playPauseClick() {
             // When playing after a pause, advance to where the stream should be now    
             video.currentTime = videoContainer.startPosition + ((new Date() - videoContainer.startPositionTimeStamp) / 1000);
             videoContainer.video.play();
-            $("#nowNext").fadeOut();
+            $("#planner").fadeOut();
         }else{
-            videoContainer.video.pause();
-            $("#nowNext").fadeIn();
+            // Update stats for each channel
+            updateChannelStats();
+            displayCaption();
         }
     }
 }
 
 canvas.addEventListener("click",playPauseClick);
+
+// Wire up channel selection buttons
+for(let i=0; i<4; i++) {
+    $(`#channel${i}`).on('click', function(event) {
+        switchChannel(i);
+        videoContainer.video.play();
+        event.preventDefault();
+    }
+)};
+
