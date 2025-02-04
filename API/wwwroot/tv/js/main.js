@@ -62,6 +62,22 @@ function updateChannelStats() {
     let now = new Date();
 
     for(let channel=0; channel<4; channel++) {
+        // Check for debug episodes
+        let debugChannel = false;
+        for (let i=0; i<episodeList[channel].data.length; i++) {
+            if(episodeList[channel].data[i].length === 9999.99)
+            {
+                debugChannel = true;
+                episodeList[channel].currentPosition = 0;
+                episodeList[channel].startTime = new Date(now.getTime()).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                episodeList[channel].endTime = new Date(now.getTime() + (episodeList[channel].data[i].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                episodeList[channel].episodeId = i;
+                episodeList[channel].title = episodeList[channel].data[i].title;
+                episodeList[channel].source = getOneDriveLink(channel, i);
+                break;
+            }
+        }
+       
         let totalTimes = 0;
 
         episodeList[channel].data.forEach((e) => totalTimes += e.length);
@@ -73,20 +89,22 @@ function updateChannelStats() {
         let dayPosition = Math.floor(((now.getDate() * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
     
         // From this position, find out which episode this falls on
-        var sum = 0;
-        for (let i=0; i<episodeList[channel].data.length; i++) {
-            if(sum + episodeList[channel].data[i].length > dayPosition) {    
-                let currentPosition = dayPosition - sum;
-                episodeList[channel].currentPosition = currentPosition;
-                episodeList[channel].startTime = new Date(now.getTime() - (currentPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-                episodeList[channel].endTime = new Date(now.getTime() - (currentPosition * 1000) + (episodeList[channel].data[i].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-                episodeList[channel].episodeId = i;
-                episodeList[channel].title = episodeList[channel].data[i].title;
-                episodeList[channel].source = getOneDriveLink(channel, i);
-                break;
-            }
-            else {
-                sum += episodeList[channel].data[i].length;
+        if(!debugChannel) {
+            var sum = 0;
+            for (let i=0; i<episodeList[channel].data.length; i++) {
+                if(sum + episodeList[channel].data[i].length > dayPosition) {    
+                    let currentPosition = dayPosition - sum;
+                    episodeList[channel].currentPosition = currentPosition;
+                    episodeList[channel].startTime = new Date(now.getTime() - (currentPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                    episodeList[channel].endTime = new Date(now.getTime() - (currentPosition * 1000) + (episodeList[channel].data[i].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                    episodeList[channel].episodeId = i;
+                    episodeList[channel].title = episodeList[channel].data[i].title;
+                    episodeList[channel].source = getOneDriveLink(channel, i);
+                    break;
+                }
+                else {
+                    sum += episodeList[channel].data[i].length;
+                }
             }
         }
     }
@@ -141,6 +159,7 @@ function displayCaption() {
 function readyToPlayVideo(event) { 
     videoContainer.ready = true;
     console.log('Episode ready to play, total length ' + video.duration);
+    console.log('Episode title', episodeList[selectedChannel].title);
 
     // The video can be played so hand it off to the display function
     requestAnimationFrame(updateCanvas);

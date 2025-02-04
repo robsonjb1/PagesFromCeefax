@@ -592,6 +592,65 @@ export function starCat() {
             length: 1697.192,
             displayParams: [0, 0, 750, 850, 0, 0, 600, 900]
         },
-
+        {
+            title: "FAWLTY TOWERS: 1-1 A Touch of Class",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvpBe4lvSIHR2gh8Lw?e=042rFi",
+            length: 1821.32
+        },
+        {
+            title: "FAWLTY TOWERS: 1-2 The Builders",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvpC5uVOMUiiornmLA?e=qraKPn",
+            length: 1694.2
+        },
+        {
+            title: "FAWLTY TOWERS: 1-3 The Wedding Party",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvpEbjsMBhNXClTJlQ?e=ZvgS39",
+            length: 2000.533333
+        },
+        {
+            title: "FAWLTY TOWERS: 1-4 The Hotel Inspectors",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvpD30c2q5rcMsDrRA?e=uyB3QP",
+            length: 1728.6
+        },
+        {
+            title: "FAWLTY TOWERS: 1-5 Gourmet Night",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvpAeE1U294Oe8vK0w?e=bbPNJZ",
+            length: 1717.12
+        },
+        {
+            title: "FAWLTY TOWERS: 1-6 The Germans",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvpFO9W74Mijl1otWw?e=lyfVOZ",
+            length: 1875.413333
+        },
+        {
+            title: "FAWLTY TOWERS: 2-1 Communication Problems",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvo7O_NNjGvWECc5-w?e=v5IN1i",
+            length: 1884.757333
+        },
+        {
+            title: "FAWLTY TOWERS: 2-2 The Psychiatrist",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvo9CtuGDVr-AvD_Vg?e=uMrYxN",
+            length: 2178.709333
+        },
+        {
+            title: "FAWLTY TOWERS: 2-3 Waldorf Salad",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvo_P1Hjm5EsIHhDKQ?e=3VwG6e",
+            length: 1922.986667
+        },
+        {
+            title: "FAWLTY TOWERS: 2-4 The Kipper and the Corpse",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvo6uizeTaerd8RwdQ?e=0VkBtG",
+            length: 1893.269333
+        },
+        {
+            title: "FAWLTY TOWERS: 2-5 The Anniversary",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvo84MnRDs5bBTMHgg?e=vE2hnb",
+            length: 1747.989333
+        },
+        {
+            title: "FAWLTY TOWERS: 2-6 Basil the Rat",
+            url: "https://1drv.ms/v/s!AuT2AYWQdFhrxvo-T8aibyXZSZ8kjA?e=CNhPQw",
+            length: 2025.045333
+        },
     ]
 }
