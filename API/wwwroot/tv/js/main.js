@@ -105,18 +105,21 @@ function getOneDriveLink(channel, episodeId) {
 
 function advanceEpisode() {
     // Move to the start of the next episode
-    episodeList[selectedChannel].episodeId++;
-    if(episodeList[selectedChannel].episodeId == episodeList[selectedChannel].data.length)
+    let episodeId = episodeList[selectedChannel].episodeId;
+
+    episodeId++;
+    if(episodeId === episodeList[selectedChannel].data.length)
     {
-        episodeList[selectedChannel].episodeId = 0;
+        episodeId = 0;
     }
     
     let now = new Date();
+    episodeList[selectedChannel].episodeId = episodeId;
     episodeList[selectedChannel].currentPosition = 0;
     episodeList[selectedChannel].startTime = new Date(now.getTime()).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    episodeList[selectedChannel].endTime = new Date(now.getTime() + (episodeList[selectedChannel].data[i].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    episodeList[selectedChannel].title = episodeList[selectedChannel].data[i].title;
-    episodeList[selectedChannel].source = getOneDriveLink(selectedChannel, i);
+    episodeList[selectedChannel].endTime = new Date(now.getTime() + (episodeList[selectedChannel].data[episodeId].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    episodeList[selectedChannel].title = episodeList[selectedChannel].data[episodeId].title;
+    episodeList[selectedChannel].source = getOneDriveLink(selectedChannel, episodeId);
     
     videoContainer.video.src = episodeList[selectedChannel].source;
     videoContainer.video.currentTime = 0;
