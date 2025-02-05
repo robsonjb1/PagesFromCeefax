@@ -47,13 +47,14 @@ function switchChannel(channel)
 
     // Update stats for each channel
     updateChannelStats();
-   
+    videoContainer.video.pause();
     videoContainer.video.src = episodeList[selectedChannel].source;
     videoContainer.video.currentTime = episodeList[selectedChannel].currentPosition;
     
     let now = new Date();
     videoContainer.startPosition = episodeList[selectedChannel].currentPosition;
     videoContainer.startPositionTimeStamp = now;
+    videoContainer.video.play();
 
     displayCaption();
 }
@@ -231,7 +232,6 @@ canvas.addEventListener("click",playPauseClick);
 for(let i=0; i<4; i++) {
     $(`#channel${i}`).on('click', function(event) {
         switchChannel(i);
-        videoContainer.video.play();
         event.preventDefault();
     }
 )};
