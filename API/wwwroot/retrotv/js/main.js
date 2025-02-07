@@ -113,10 +113,10 @@ function updateChannelStats() {
 
 function getOneDriveLink(channel, episodeId) {
     if(episodeList[channel].data[episodeId].urlProcessed) {
-        return episodeList[channel].data[episodeId].urlProcessed;
+        return "https://api.onedrive.com/v1.0/shares/" + episodeList[channel].data[episodeId].urlProcessed;
     } else
     {
-        let rawUrl = episodeList[channel].data[episodeId].url;
+        let rawUrl = "https://1drv.ms/v/" + episodeList[channel].data[episodeId].url;
         let encodedUrl = btoa(rawUrl).replace("=", "").replace("/", "_").replace("+", "-");
         return "https://api.onedrive.com/v1.0/shares/u!" + encodedUrl + "/root/content";
     }
