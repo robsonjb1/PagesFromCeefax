@@ -6,6 +6,7 @@ using HtmlAgilityPack;
 using Serilog;
 using SixLabors.ImageSharp.Formats;
 using SixLabors.ImageSharp.Formats.Webp;
+using SixLabors.ImageSharp.Formats.Jpeg;
 
 namespace API.Magazine;
 
@@ -48,13 +49,12 @@ public class SpectatorContent : ISpectatorContent
         {
             if(a.ImageUri != null)
             {
-                // Convert image to webp
+                // Reduce image quality
                 var imageBytes = ImageCache.Find(z => z.Location == a.ImageUri).ContentBytes;
 
                 using var image = SixLabors.ImageSharp.Image.Load(imageBytes);
-                var encoder = (IImageEncoder)new WebpEncoder();
                 using MemoryStream outputStream = new MemoryStream();
-                image.Save(outputStream, encoder);
+                image.Save(outputStream, new JpegEncoder { Quality = 50 });
                 outputStream.Close();
 
                 a.ImageBase64 = Convert.ToBase64String(outputStream.ToArray());                

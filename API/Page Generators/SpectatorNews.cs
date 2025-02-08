@@ -62,7 +62,7 @@ public class SpectatorNews : ISpectatorNews
             
             if(article.ImageUri != null && article.ImageBase64 != String.Empty)
             {
-                c.AppendLine($"<img src='data:image/webp;base64,{article.ImageBase64}'>");
+                c.AppendLine($"<img src='data:image/jpeg;base64,{article.ImageBase64}'>");
             }
             c.AppendLine($"<div class='body_container'>{article.StoryHtml}</div>");
             c.AppendLine("<a href='#s0'>Return to front page</a>");
