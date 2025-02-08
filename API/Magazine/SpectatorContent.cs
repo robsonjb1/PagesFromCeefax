@@ -1,8 +1,11 @@
 using System.Text;
+using System.IO;
 using System.Text.RegularExpressions;
 using API.Architecture;
 using HtmlAgilityPack;
 using Serilog;
+using SixLabors.ImageSharp.Formats;
+using SixLabors.ImageSharp.Formats.Webp;
 
 namespace API.Magazine;
 
@@ -45,7 +48,16 @@ public class SpectatorContent : ISpectatorContent
         {
             if(a.ImageUri != null)
             {
-                a.ImageBase64 = Convert.ToBase64String(ImageCache.Find(z => z.Location == a.ImageUri).ContentBytes);
+                // Convert image to webp
+                var imageBytes = ImageCache.Find(z => z.Location == a.ImageUri).ContentBytes;
+
+                using var image = SixLabors.ImageSharp.Image.Load(imageBytes);
+                var encoder = (IImageEncoder)new WebpEncoder();
+                using MemoryStream outputStream = new MemoryStream();
+                image.Save(outputStream, encoder);
+                outputStream.Close();
+
+                a.ImageBase64 = Convert.ToBase64String(outputStream.ToArray());                
             }
 
             if(a.AvatarUri != null)
