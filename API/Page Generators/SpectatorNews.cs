@@ -48,6 +48,9 @@ public class SpectatorNews : ISpectatorNews
         }
         c.AppendLine("</ol><mbp:pagebreak />");
 
+        // Shuffle the cartoons
+        var cartoonList = _kc.SpectatorCartoons.OrderBy(x=> Random.Shared.Next()).ToList();
+
         // Article content
         articleCount = 1;
         foreach(var article in _kc.SpectatorArticles.FindAll(z=>z.IsValid).Take(maxArticles))
@@ -68,11 +71,10 @@ public class SpectatorNews : ISpectatorNews
             c.AppendLine("<a href='#s0'>Return to front page</a>");
             c.AppendLine("</div><mbp:pagebreak>");
         
-            if(articleCount % 3 == 0)
+            if(articleCount % 2 == 0)
             {
                 // Display a cartoon
-                Random r = new Random();
-                var cartoon = _kc.SpectatorCartoons[r.Next(0, _kc.SpectatorCartoons.Count)];
+                var cartoon = cartoonList[Convert.ToInt32(articleCount / 2) % cartoonList.Count()];
                 
                 c.AppendLine($"<div id='{articleCount}'><br><br><center>");
                 c.AppendLine($"<img src='data:image/{getMimeType(cartoon.CartoonUri)};base64,{cartoon.ImageBase64}'>");

@@ -49,15 +49,7 @@ public class SpectatorContent : ISpectatorContent
         {
             if(a.ImageUri != null)
             {
-                // Reduce image quality
-                var imageBytes = ImageCache.Find(z => z.Location == a.ImageUri).ContentBytes;
-
-                using var image = SixLabors.ImageSharp.Image.Load(imageBytes);
-                using MemoryStream outputStream = new MemoryStream();
-                image.Save(outputStream, new JpegEncoder { Quality = 50 });
-                outputStream.Close();
-
-                a.ImageBase64 = Convert.ToBase64String(outputStream.ToArray());                
+                a.ImageBase64 = ReduceImageQuality(ImageCache.Find(z => z.Location == a.ImageUri).ContentBytes);             
             }
 
             if(a.AvatarUri != null)
@@ -70,7 +62,7 @@ public class SpectatorContent : ISpectatorContent
         {
             if(c.ImageUri != null)
             {
-                c.ImageBase64 = Convert.ToBase64String(ImageCache.Find(z => z.Location == c.ImageUri).ContentBytes);
+                c.ImageBase64 = ReduceImageQuality(ImageCache.Find(z => z.Location == c.ImageUri).ContentBytes);
             }
         }
         
@@ -108,7 +100,18 @@ public class SpectatorContent : ISpectatorContent
           coverSaturday.Day.ToString("00") + coverSaturday.Month.ToString("00") + coverSaturday.Year
         );
 
-        CoverImageBase64 = Convert.ToBase64String(FetchPageAsync(new Uri(baseUrl)).Result.httpResponse.Content.ReadAsByteArrayAsync().Result);
+        CoverImageBase64 = ReduceImageQuality(FetchPageAsync(new Uri(baseUrl)).Result.httpResponse.Content.ReadAsByteArrayAsync().Result);
+    }
+
+    private string ReduceImageQuality(byte[] source)
+    {
+        // Reduce image quality
+        using var image = SixLabors.ImageSharp.Image.Load(source);
+        using MemoryStream outputStream = new MemoryStream();
+        image.Save(outputStream, new JpegEncoder { Quality = 50 });
+        outputStream.Close();
+
+        return Convert.ToBase64String(outputStream.ToArray());  
     }
 
     private async Task GetSpectatorArticleList(string root)
