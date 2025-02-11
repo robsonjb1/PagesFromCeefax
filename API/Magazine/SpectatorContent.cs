@@ -7,6 +7,8 @@ using Serilog;
 using SixLabors.ImageSharp.Formats;
 using SixLabors.ImageSharp.Formats.Webp;
 using SixLabors.ImageSharp.Formats.Jpeg;
+using SixLabors.ImageSharp.Processing;
+using System.Diagnostics;
 
 namespace API.Magazine;
 
@@ -107,6 +109,7 @@ public class SpectatorContent : ISpectatorContent
     {
         // Reduce image quality
         using var image = SixLabors.ImageSharp.Image.Load(source);
+        image.Mutate(z => z.Brightness(1.2f));
         using MemoryStream outputStream = new MemoryStream();
         image.Save(outputStream, new JpegEncoder { Quality = 50 });
         outputStream.Close();
@@ -127,11 +130,15 @@ public class SpectatorContent : ISpectatorContent
             foreach (var tag in tags)
             {
                 string href = tag.Attributes["href"].Value;
-                if(href.Contains("/article/"))
-                {
+                // Strip off any params
+                if(href.Contains('/') && !href.EndsWith('/')) {
+                    href = href[..(href.LastIndexOf('/')+1)];
+                }
+                if(href.Contains("/article/")) {
                     Uri u = new Uri(href);
                     if(!SpectatorArticles.Exists(z=> z.ArticleUri == u))
                     {
+                        Debug.Print(href);
                         SpectatorArticles.Add(new SpectatorArticle(u));
                         UrlCache.Add(new CachedUri(u));
                     }
