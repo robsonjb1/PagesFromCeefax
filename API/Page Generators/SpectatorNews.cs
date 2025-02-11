@@ -68,7 +68,9 @@ public class SpectatorNews : ISpectatorNews
                 c.AppendLine($"<img src='data:image/jpeg;base64,{article.ImageBase64}'>");
             }
             c.AppendLine($"<div class='body_container'>{article.StoryHtml}</div>");
-            c.AppendLine("<a href='#s0'>Return to front page</a>");
+            
+  c.AppendLine($"<p><i>By {article.Author}</i></p>");
+c.AppendLine("<a href='#s0'>Return to front page</a>");
             c.AppendLine("</div><mbp:pagebreak>");
         
             if(articleCount % 2 == 0)
