@@ -5,6 +5,259 @@
 export function starCat() {
     return [
         {
+            title: "TOTP: 1977-01-13",
+            url: "s!AuT2AYWQdFhrxv0N6-StXJZOQsaCzg?e=QttvKh",
+            length: 1732.885333,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-02-24",
+            url: "s!AuT2AYWQdFhrxv0ODYRYVT3OzpnuhA?e=ImUmL8",
+            length: 1777.898667,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-03-17",
+            url: "s!AuT2AYWQdFhrxv0RGXxCRDCoc6uZ9g?e=t16H4q",
+            length: 1767.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-05-05",
+            url: "s!AuT2AYWQdFhrxv0Pf7JIrBGn-R1FYg?e=ixJaDu",
+            length: 1715.882667,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-05-19",
+            url: "s!AuT2AYWQdFhrxv0SJUBNZeibp1xhoA?e=lKZvgm",
+            length: 1748.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-06-02",
+            url: "s!AuT2AYWQdFhrxv0Qutyt53Hw2wYDlg?e=Vqz88U",
+            length: 1678.04,
+            displayParams: [120, 0, 700, 800, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-06-30",
+            url: "s!AuT2AYWQdFhrxv0UTl3MkDrwqkeocQ?e=47I4HE",
+            length: 1612.885333,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-07-28",
+            url: "s!AuT2AYWQdFhrxv0TNAUpYiAAnYTOyA?e=UjEjd2",
+            length: 1781.888,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-09-01",
+            url: "s!AuT2AYWQdFhrxv0WY-pvYPbP8AVXXg?e=DuGlNJ",
+            length: 2670.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-09-29",
+            url: "s!AuT2AYWQdFhrxv0VkS7XqeWhmbgrSg?e=kFRnAt",
+            length: 1631.893333,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-10-27",
+            url: "s!AuT2AYWQdFhrxv0XVKT-gA5Fi69QZQ?e=M3pyST",
+            length: 1767.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-11-03",
+            url: "s!AuT2AYWQdFhrxv0ZBAgS9jXpVvfJXg?e=x1gWP7",
+            length: 1726.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-11-10",
+            url: "s!AuT2AYWQdFhrxv0a7gZdH5KDuyIQLA?e=52ySTE",
+            length: 1733.888,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-11-24",
+            url: "s!AuT2AYWQdFhrxv0Y7thaff4XIPmSvw?e=iQ480S",
+            length: 1745.04,
+            displayParams: [120, 0, 700, 800, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-12-08",
+            url: "s!AuT2AYWQdFhrxv0bXHAaMrHeZAddjA?e=MOTonz",
+            length: 1563.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1977-12-25",
+            url: "s!AuT2AYWQdFhrxv0d3l0_1wZlRJp_pw?e=KyHzf0",
+            length: 2996.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-01-26",
+            url: "s!AuT2AYWQdFhrxv0cXDfyAtnETHI5BA?e=b4gTFT",
+            length: 1779.904,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-02-02",
+            url: "s!AuT2AYWQdFhrxv0edDVmjPMUw7N5cA?e=RXXNIN",
+            length: 1763.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-02-16",
+            url: "s!AuT2AYWQdFhrxv0LGl9eSb2P1tKF0w?e=j8GjW2",
+            length: 1790.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-03-02",
+            url: "s!AuT2AYWQdFhrxv0f5dJOP2Nl_hEgLQ?e=jo8ZLd",
+            length: 1812.885333,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-03-30",
+            url: "s!AuT2AYWQdFhrxv01Bum6T4ciscqBOw?e=woUKeY",
+            length: 1770.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-04-13",
+            url: "s!AuT2AYWQdFhrxv0hRduvn049xJuciQ?e=318vBq",
+            length: 1798.890667,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-05-25",
+            url: "s!AuT2AYWQdFhrxv0iZ_IqgfK6LjjBdw?e=KPKtOo",
+            length: 1746.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-06-08",
+            url: "s!AuT2AYWQdFhrxv0g7tY02U5qWkoe7Q?e=4YhteJ",
+            length: 1822.04,
+            displayParams: [120, 0, 700, 800, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-06-22",
+            url: "s!AuT2AYWQdFhrxv0jLN4yXB-q0b6J7w?e=TJBv2G",
+            length: 1745.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-07-20",
+            url: "s!AuT2AYWQdFhrxv0k1bbblweAhbYHFw?e=hCjUNB",
+            length: 1762.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-08-17",
+            url: "s!AuT2AYWQdFhrxv0l9hQqb9ZjPKNhkw?e=a0p4th",
+            length: 1717.888,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-09-07",
+            url: "s!AuT2AYWQdFhrxv0mx__1L-rlF-n-1w?e=w4VTvl",
+            length: 1753.898667,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-09-21",
+            url: "s!AuT2AYWQdFhrxv0nOTxUSIEC8SKMeA?e=3YXCI7",
+            length: 2205.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-10-19",
+            url: "s!AuT2AYWQdFhrxv0oq2sbv5N49XTeWQ?e=CgUMgl",
+            length: 1764.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-11-16",
+            url: "s!AuT2AYWQdFhrxv0pF899WFtOOskzZg?e=k3f91h",
+            length: 1754.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-11-23",
+            url: "s!AuT2AYWQdFhrxv0qgQKWnXcGyM-bsg?e=Hcw9fP",
+            length: 1780.885333,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-12-14",
+            url: "s!AuT2AYWQdFhrxv00HpKd9sznpYxKGQ?e=RrDnUF",
+            length: 1778.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1978-12-25",
+            url: "s!AuT2AYWQdFhrxv0tnLdB02cT1sTtIA?e=pcl0Pk",
+            length: 3463.936,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+
+        {
+            title: "TOTP: 1979-01-04",
+            url: "s!AuT2AYWQdFhrxv0r4Bjd5DpSVk_7vQ?e=dhmMta",
+            length: 1724.885333,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1979-05-24",
+            url: "s!AuT2AYWQdFhrxv0sNlRCZA0RNyWEQg?e=QGBsqI",
+            length: 1757.888,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1979-07-19",
+            url: "s!AuT2AYWQdFhrxv0v7i7OGtFmOCrrrA?e=8qmD5p",
+            length: 1812.885333,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1979-08-02",
+            url: "s!AuT2AYWQdFhrxv0uj-Y8zF0JR1sdIQ?e=s0khxj",
+            length: 1832.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1979-09-06",
+            url: "s!AuT2AYWQdFhrxv0xLI7Ci1Lma5_2XA?e=tAfPAH",
+            length: 1783.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1979-10-25",
+            url: "s!AuT2AYWQdFhrxv0wyYNV1Em0jf70XQ?e=XoUO05",
+            length: 1764.885333,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1979-11-01",
+            url: "s!AuT2AYWQdFhrxv0yn76PTAkHW8GwBg?e=UNpgXz",
+            length: 1822.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1979-11-29",
+            url: "s!AuT2AYWQdFhrxv0z6IPZuo4E4I4PAg?e=D9iVku",
+            length: 1797.88,
+            displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
+        },
+        {
             title: "TOTP: 1980-01-24",
             url: "s!AuT2AYWQdFhrxvsgCEEq1uUpRNqpVA?e=UNq3A3",
             length: 2307.88,
@@ -422,6 +675,12 @@ export function starCat() {
             title: "TOTP: 1985-01-03",
             url: "s!AuT2AYWQdFhrxvtihvYvyy7Hxf6QSw?e=U1Xnc4",
             length: 2385.898667,
+            displayParams: [160, 0, 960, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1985-02-14",
+            url: "s!AuT2AYWQdFhrxv0M_ZhCooYRG_2zDg?e=9xjffF",
+            length: 2087.88,
             displayParams: [160, 0, 960, 1100, 0, 0, 600, 900]
         },
         {
