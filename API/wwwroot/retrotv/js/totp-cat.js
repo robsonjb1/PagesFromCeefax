@@ -4,6 +4,7 @@
 
 export function starCat() {
     return [
+/*
         {
             title: "TOTP: 1977-01-13",
             url: "s!AuT2AYWQdFhrxv0N6-StXJZOQsaCzg?e=QttvKh",
@@ -257,6 +258,7 @@ export function starCat() {
             length: 1797.88,
             displayParams: [160, 0, 900, 1100, 0, 0, 600, 900]
         },
+*/
         {
             title: "TOTP: 1980-01-24",
             url: "s!AuT2AYWQdFhrxvsgCEEq1uUpRNqpVA?e=UNq3A3",
