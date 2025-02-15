@@ -324,6 +324,18 @@ export function starCat() {
             displayParams: [160, 0, 920, 1100, 0, 0, 600, 900]
         },
         {
+            title: "TOTP: 1981-01-22",
+            url: "s!AuT2AYWQdFhrxvxkbbzFUekq4y_76Q?e=HJY7vx",
+            length: 2243.140499,
+            displayParams: [80, 0, 440, 550, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1981-01-29",
+            url: "s!AuT2AYWQdFhrxvxjCF4yQIkZw3yRfg?e=L0cwP7",
+            length: 2012.21805,
+            displayParams: [80, 0, 440, 550, 0, 0, 600, 900]
+        },
+        {
             title: "TOTP: 1981-02-05",
             url: "s!AuT2AYWQdFhrxvxVo8qivwosZnjiEg?e=s9QGc7",
             length: 2385.88,
@@ -348,16 +360,70 @@ export function starCat() {
             displayParams: [160, 0, 920, 1100, 0, 0, 600, 900]
         },
         {
+            title: "TOTP: 1981-04-30",
+            url: "s!AuT2AYWQdFhrxvxnH8lKr_GwPE2rZQ?e=2CePQG",
+            length: 2132.24,
+            displayParams: [0, 20, 550, 660, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1981-06-04",
+            url: "s!AuT2AYWQdFhrxvxoP0NvuDGaPd3jOw?e=wXA577",
+            length: 1715.96,
+            displayParams: [120, 0, 550, 660, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1981-06-11",
+            url: "s!AuT2AYWQdFhrxvxqW5DUkICM-Gzigg?e=KJMvdR",
+            length: 2171.124422,
+            displayParams: [0, 0, 600, 660, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1981-07-09",
+            url: "s!AuT2AYWQdFhrxvxpOt1Q_LgjS4XZww?e=pGETaU",
+            length: 2081.970794,
+            displayParams: [0, 0, 450, 540, 0, 0, 600, 900]
+        },
+        {
             title: "TOTP: 1981-07-16",
             url: "s!AuT2AYWQdFhrxvss4YZHlzT1ZKGrrw?e=9yltzV",
             length: 1681.898667,
             displayParams: [160, 0, 920, 1100, 0, 0, 600, 900]
         },
         {
+            title: "TOTP: 1981-08-06",
+            url: "s!AuT2AYWQdFhrxvxrBakzIrvRrv5hMw?e=UxGgfR",
+            length: 1910.32,
+            displayParams: [0, 0, 580, 660, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1981-08-13",
+            url: "s!AuT2AYWQdFhrxvxsgqpRgBqlZRAciQ?e=VW5EpW",
+            length: 2075.243,
+            displayParams: [110, 0, 630, 740, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1981-08-20",
+            url: "s!AuT2AYWQdFhrxvxtubaz3ZSmS3MXKg?e=GdT5aJ",
+            length: 1942.805011,
+            displayParams: [0, 0, 580, 660, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1981-09-03",
+            url: "s!AuT2AYWQdFhrxvxuVAKNr9ApxyQVpg?e=V6AwwY",
+            length: 2424.12,
+            displayParams: [20, 0, 600, 700, 0, 0, 600, 900]
+        },
+        {
             title: "TOTP: 1981-09-24",
             url: "s!AuT2AYWQdFhrxvstkTuy6DrBsPi01w?e=DkHLfL",
             length: 1747.04,
             displayParams: [160, 0, 920, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1981-11-05",
+            url: "s!AuT2AYWQdFhrxvxvt4jBEKZ1Mp7RUQ?e=dTEph9",
+            length: 1771.96,
+            displayParams: [120, 0, 600, 700, 0, 0, 600, 900]
         },
         {
             title: "TOTP: 1981-12-03",
