@@ -384,6 +384,12 @@ export function starCat() {
             displayParams: [160, 0, 950, 1100, 0, 0, 600, 900]
         },
         {
+            title: "TOTP: 1982-02-18",
+            url: "s!AuT2AYWQdFhrxv1_fK4ypq8DWJK5Hg?e=WKyWDA",
+            length: 1764.04,
+            displayParams: [160, 0, 950, 1100, 0, 0, 600, 900]
+        },
+        {
             title: "TOTP: 1982-03-18",
             url: "s!AuT2AYWQdFhrxvsywyOh1ytQA9NSng?e=q9aQ5v",
             length: 1770.901333,

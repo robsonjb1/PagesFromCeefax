@@ -66,7 +66,7 @@ function updateChannelStats() {
         // Check for debug episodes
         let debugChannel = false;
         for (let i=0; i<episodeList[channel].data.length; i++) {
-            if(episodeList[channel].data[i].length === 9999.99)
+            if(episodeList[channel].data[i].length === 9999)
             {
                 debugChannel = true;
                 episodeList[channel].currentPosition = 0;
