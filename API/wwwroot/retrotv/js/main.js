@@ -87,7 +87,7 @@ function updateChannelStats() {
         console.log(`Channel ${channel} total length, ${days} days, ${hours} hours`);
         
         // Select the current episode and time based on how far into the current month we are
-        let dayPosition = Math.floor(((now.getDate() * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
+        let dayPosition = Math.floor((((now.getDate()-1) * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
     
         // From this position, find out which episode this falls on
         if(!debugChannel) {
