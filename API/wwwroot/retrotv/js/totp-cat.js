@@ -469,8 +469,8 @@ export function starCat() {
         },
         {
             title: "TOTP: 1983-03-03",
-            url: "s!AuT2AYWQdFhrxvs_BdjNTdqxCK1Nwg?e=qjgY2k",
-            length: 1826.901333,
+            url: "s!AuT2AYWQdFhrxvs_BdjNTdqxCK1Nwg?e=lKETDy",
+            length: 2025.88,
             displayParams: [160, 0, 960, 1100, 0, 0, 600, 900]
         },
         {
@@ -1005,6 +1005,12 @@ export function starCat() {
             title: "TOTP: 1989-02-16",
             url: "s!AuT2AYWQdFhrxvwWnA7u19p7tfl2BQ?e=taOpHM",
             length: 1799.893333,
+            displayParams: [160, 0, 960, 1100, 0, 0, 600, 900]
+        },
+        {
+            title: "TOTP: 1989-03-02",
+            url: "s!AuT2AYWQdFhrxv48tX2T1fsM5FaICQ?e=Nvxitl",
+            length: 1750.88,
             displayParams: [160, 0, 960, 1100, 0, 0, 600, 900]
         },
         {
