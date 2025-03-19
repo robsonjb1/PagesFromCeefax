@@ -59,7 +59,7 @@ public class StandingsData : IStandingData
             string driverName = nodes[2].InnerText;
             string team = nodes[4].InnerText;
             int wins = Convert.ToInt32(nodes[6].InnerText);
-            int points = Convert.ToInt32(nodes[7].InnerText);
+            int points = Convert.ToInt32(nodes[8].InnerText);
             
             Drivers.Add(new StandingRecord() { Name = driverName, Team = team, Points = points, Wins = wins });
         }
