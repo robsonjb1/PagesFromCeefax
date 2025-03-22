@@ -2,10 +2,13 @@ import { starCat as blakes7cat} from "./blakes7-cat.js";
 import { starCat as drwhocat} from "./drwho-cat.js";
 import { starCat as comedycat} from "./comedy-cat.js";
 import { starCat as totpcat} from "./totp-cat.js";
+import { starCat as detectivecat} from "./detective-cat.js";
 
 // Update channel selector and show catalogue
+let maxChannels = 4;
+
 let selectedChannel = document.location.search.substring(1).slice(-1);
-if(!(selectedChannel >= '0' && selectedChannel <= 3))
+if(!(selectedChannel >= '0' && selectedChannel < maxChannels))
 {
     selectedChannel = 0;
 }
@@ -15,6 +18,8 @@ episodeList[0].data = blakes7cat();
 episodeList[1].data = comedycat();
 episodeList[2].data = drwhocat();
 episodeList[3].data = totpcat();
+//episodeList[4].data = detectivecat();
+
 
 // Set up the canvas
 let canvas = document.getElementById("teletextCanvas");
@@ -47,10 +52,10 @@ function switchChannel(channel)
 
     // Update stats for each channel
     updateChannelStats();
+    console.log(episodeList[selectedChannel].title);
     videoContainer.video.pause();
     videoContainer.video.src = episodeList[selectedChannel].source;
     videoContainer.video.currentTime = episodeList[selectedChannel].currentPosition;
-    
     let now = new Date();
     videoContainer.startPosition = episodeList[selectedChannel].currentPosition;
     videoContainer.startPositionTimeStamp = now;
@@ -62,12 +67,11 @@ function switchChannel(channel)
 function updateChannelStats() {
     let now = new Date();
 
-    for(let channel=0; channel<4; channel++) {
+    for(let channel=0; channel<maxChannels; channel++) {
         // Check for debug episodes
         let debugChannel = false;
         for (let i=0; i<episodeList[channel].data.length; i++) {
-            if(episodeList[channel].data[i].length === 9999)
-            {
+            if(episodeList[channel].data[i].length === 9999) {
                 debugChannel = true;
                 episodeList[channel].currentPosition = 0;
                 episodeList[channel].startTime = new Date(now.getTime()).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -112,6 +116,10 @@ function updateChannelStats() {
 }
 
 function getOneDriveLink(channel, episodeId) {
+    if(episodeList[channel].data[episodeId].localUrl) {
+        return "media/" + episodeList[channel].data[episodeId].localUrl;
+    }
+
     if(episodeList[channel].data[episodeId].urlProcessed) {
         return "https://api.onedrive.com/v1.0/shares/" + episodeList[channel].data[episodeId].urlProcessed;
     } else
@@ -149,7 +157,7 @@ function advanceEpisode() {
 }
 
 function displayCaption() {
-    for(let i=0; i<4; i++) {
+    for(let i=0; i<maxChannels; i++) {
         $(`#channel${i}time`).text(`${episodeList[i].startTime} - ${episodeList[i].endTime}`);
         $(`#channel${i}title`).text(episodeList[i].title);
     }
@@ -229,7 +237,7 @@ function playPauseClick() {
 canvas.addEventListener("click",playPauseClick);
 
 // Wire up channel selection buttons
-for(let i=0; i<4; i++) {
+for(let i=0; i<maxChannels; i++) {
     $(`#channel${i}`).on('click', function(event) {
         switchChannel(i);
         event.preventDefault();

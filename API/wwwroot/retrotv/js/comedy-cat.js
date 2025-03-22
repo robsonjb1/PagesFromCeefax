@@ -170,7 +170,7 @@ export function starCat() {
             title: "RED DWARF: 4-5 Dimension Jump",
             url: "s!AuT2AYWQdFhrxqVTc3esBHJEpe68qg?e=Brs4P8",
             length: 1720.32,
-            displayParams: [1705.48]
+            displayParams: [160, 0, 950, 1100, 0, 0, 600, 900]
         },
         {
             title: "RED DWARF: 4-6 Meltdown",
