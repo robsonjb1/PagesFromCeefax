@@ -57,6 +57,8 @@ public class StandingsData : IStandingData
         {
             var nodes = driver.SelectNodes(".//span");
             string driverName = nodes[2].InnerText;
+            driverName = string.Join(" ", driverName.Split().Reverse().Take(2).Reverse()); // Take last two words of name only
+        
             string team = nodes[4].InnerText;
             int wins = Convert.ToInt32(nodes[6].InnerText);
             int points = Convert.ToInt32(nodes[8].InnerText);
