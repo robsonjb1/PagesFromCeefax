@@ -60,8 +60,8 @@ public class StandingsData : IStandingData
             driverName = string.Join(" ", driverName.Split().Reverse().Take(2).Reverse()); // Take last two words of name only
         
             string team = nodes[4].InnerText;
-            int wins = Convert.ToInt32(nodes[6].InnerText);
-            int points = Convert.ToInt32(nodes[8].InnerText);
+            int wins = Convert.ToInt32(nodes[8].InnerText);
+            int points = Convert.ToInt32(nodes[10].InnerText);
             
             Drivers.Add(new StandingRecord() { Name = driverName, Team = team, Points = points, Wins = wins });
         }
@@ -72,8 +72,8 @@ public class StandingsData : IStandingData
         {
             var nodes = constructor.SelectNodes(".//span");
             string team = nodes[2].InnerText;
-            int wins = Convert.ToInt32(nodes[3].InnerText);
-            int points = Convert.ToInt32(nodes[5].InnerText);
+            int wins = Convert.ToInt32(nodes[5].InnerText);
+            int points = Convert.ToInt32(nodes[7].InnerText);
 
             Constructors.Add(new StandingRecord() { Team = team, Points = points, Wins = wins });
         }

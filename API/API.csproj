@@ -5,8 +5,6 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>f12e2095-2ebc-4854-ae06-4b48e0dc4078</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-	<DockerfileTag>pfc-image</DockerfileTag>
   </PropertyGroup>
 
   <ItemGroup>
