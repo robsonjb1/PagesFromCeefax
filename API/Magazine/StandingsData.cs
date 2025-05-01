@@ -52,7 +52,7 @@ public class StandingsData : IStandingData
         doc.LoadHtml(html);
 
         // Drivers
-        var drivers = doc.DocumentNode.SelectNodes("//section[@id='Drivers']//tr[@class='ssrcss-dhlz6k-TableRowBody e1icz100']");
+        var drivers = doc.DocumentNode.SelectNodes("//section[@id='Drivers']//tr[@class='ssrcss-qqhdqi-TableRowBody e1icz100']");
         foreach(var driver in drivers)
         {
             var nodes = driver.SelectNodes(".//span");
@@ -67,7 +67,7 @@ public class StandingsData : IStandingData
         }
 
         // Constructors
-        var constructors = doc.DocumentNode.SelectNodes("//section[@id='Constructors']//tr[@class='ssrcss-dhlz6k-TableRowBody e1icz100']");
+        var constructors = doc.DocumentNode.SelectNodes("//section[@id='Constructors']//tr[@class='ssrcss-qqhdqi-TableRowBody e1icz100']");
         foreach(var constructor in constructors)
         {
             var nodes = constructor.SelectNodes(".//span");

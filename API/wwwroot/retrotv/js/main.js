@@ -116,8 +116,9 @@ function updateChannelStats() {
 }
 
 function getOneDriveLink(channel, episodeId) {
-    if(episodeList[channel].data[episodeId].localUrl) {
-        return "media/" + episodeList[channel].data[episodeId].localUrl;
+
+    if(episodeList[channel].data[episodeId].urlLocal) {
+        return "media/" + episodeList[channel].data[episodeId].urlLocal;
     }
 
     if(episodeList[channel].data[episodeId].urlProcessed) {

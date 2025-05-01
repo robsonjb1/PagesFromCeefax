@@ -6,277 +6,277 @@ export function starCat() {
     return [
         {
             title: "DOCTOR WHO: 74 Planet of the Spiders",
-            url: "s!AuT2AYWQdFhrxvl7CEhXd6TXL_lasg?e=Ii3TBt",
+            urlLocal: "Doctor Who/74 Planet of the Spiders.mp4",
             length: 8842.2,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 75 Robot",
-            url: "s!AuT2AYWQdFhrxvl9ZG7LU4ruCGDjXA?e=LPZnN4",
+            urlLocal: "Doctor Who/75 Robot.mp4",
             length: 5890.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 76 The Ark in Space",
-            url: "s!AuT2AYWQdFhrxqU7EvsVJO5btdZRxQ?e=stYzQS",
+            urlLocal: "Doctor Who/76 The Ark in Space.mp4",
             length: 5926.68,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 78 Genesis of the Daleks",
-            url: "s!AuT2AYWQdFhrxqU8TgXTcDglchyz1g?e=ZZ0efK",
+            urlLocal: "Doctor Who/78 Genesis of the Daleks.mp4",
             length: 8561.24,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 79 Revenge of the Cybermen",
-            url: "s!AuT2AYWQdFhrxqU4P2oKslUsGHf2Eg?e=52fgAd",
+            urlLocal: "Doctor Who/79 Revenge of the Cybermen.mp4",
             length: 5796.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 82 Pyramids of Mars",
-            url: "s!AuT2AYWQdFhrxvl-sJDblP2-DGB4CQ?e=C8yc7H",
+            urlLocal: "Doctor Who/82 Pyramids of Mars.mp4",
             length: 5907.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 85 The Seeds of Doom",
-            url: "s!AuT2AYWQdFhrxvoAYpCzaF8g85XeRQ?e=HOXDBD",
+            urlLocal: "Doctor Who/85 The Seeds of Doom.mp4",
             length: 8679.24,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 88 The Deadly Assassin",
-            url: "s!AuT2AYWQdFhrxvl3GPBxmTzti6kE5w?e=C7B73l",
+            urlLocal: "Doctor Who/88 The Deadly Assassin.mp4",
             length: 5676.44,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 91 The Talons of Weng-Chiang",
-            url: "s!AuT2AYWQdFhrxvl6Hnbx79di4i7cxA?e=GpwMIu",
+            urlLocal: "Doctor Who/91 The Talons of Weng-Chiang.mp4",
             length: 8635.24,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 92 Horror of Fang Rock",
-            url: "s!AuT2AYWQdFhrxvoBn0olUuUK_GEhHQ?e=cKh2xh",
+            urlLocal: "Doctor Who/92 Horror of Fang Rock.mp4",
             length: 5719.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 93 The Invisible Enemy",
-            url: "s!AuT2AYWQdFhrxvl_u-9JG42k-dOgLQ?e=9kjBxG",
+            urlLocal: "Doctor Who/93 The Invisible Enemy.mp4",
             length: 5580.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 96 Underworld",
-            url: "s!AuT2AYWQdFhrxvoChKyGPfOvtA7nFA?e=hzwwY4",
+            urlLocal: "Doctor Who/96 Underworld.mp4",
             length: 5350.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 97 The Invasion of Time",
-            url: "s!AuT2AYWQdFhrxvoDNzKdwdJXNcHiiQ?e=Z2ppTm",
+            urlLocal: "Doctor Who/97 The Invasion of Time.mp4",
             length: 8982.24,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 103 The Armageddon Factor",
-            url: "s!AuT2AYWQdFhrxvoFrmsuAXjGCaXG6w?e=QR5xsf",
+            urlLocal: "Doctor Who/103 The Armageddon Factor.mp4",
             length: 8892.24,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 104 Destiny of the Daleks",
-            url: "s!AuT2AYWQdFhrxqVFxO9ojBwnpc_KIA?e=fgFybS",
+            urlLocal: "Doctor Who/104 Destiny of the Daleks.mp4",
             length: 5995.84,
             displayParams: [130, 0, 690, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 105 City of Death",
-            url: "s!AuT2AYWQdFhrxqVD5aXb1UQ_EZrBJA?e=EleChP",
+            urlLocal: "Doctor Who/105 City of Death.mp4",
             length: 5989.16,
             displayParams: [130, 0, 690, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 106 The Creature from the Pit",
-            url: "s!AuT2AYWQdFhrxqklukFe8_pSjs7pAA?e=EJW8Hq",
+            urlLocal: "Doctor Who/106 The Creature from the Pit.mp4",
             length: 5793.16,
             displayParams: [130, 0, 690, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 107 The Nightmare of Eden",
-            url: "s!AuT2AYWQdFhrxqkjR2hETQTRpzBDAA?e=IaTY3w",
+            urlLocal: "Doctor Who/107 The Nightmare of Eden.mp4",
             length: 5738.16,
             displayParams: [130, 0, 690, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 108 The Horns of Nimon",
-            url: "s!AuT2AYWQdFhrxqkkjSETZWhQLKfMxw?e=DkEs1B",
+            urlLocal: "Doctor Who/108 The Horns of Nimon.mp4",
             length: 6054.64,
             displayParams: [130, 0, 690, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 109 The Leisure Hive",
-            url: "s!AuT2AYWQdFhrxqVC2UOouwbUNGh3KQ?e=QzQnKC",
+            urlLocal: "Doctor Who/109 The Leisure Hive.mp4",
             length: 5224.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 110 Meglos",
-            url: "s!AuT2AYWQdFhrxqVBQFibLQweR4_GVQ?e=RZyS4s",
+            urlLocal: "Doctor Who/110 Meglos.mp4",
             length: 5223.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 111 Full Circle",
-            url: "s!AuT2AYWQdFhrxqdgksJN4GE1H7hp9w?e=uzkqA6",
+            urlLocal: "Doctor Who/111 Full Circle.mp4",
             length: 5570.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 112 State of Decay",
-            url: "s!AuT2AYWQdFhrxqdhLR6AiNqmpvPFuQ?e=g4GsLa",
+            urlLocal: "Doctor Who/112 State of Decay.mp4",
             length: 5693.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 113 Warriors' Gate",
-            url: "s!AuT2AYWQdFhrxqdiFz65nNjxEmySkA?e=RzSqDg",
+            urlLocal: "Doctor Who/113 Warriors' Gate.mp4",
             length: 5636.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 114 The Keeper of Traken",
-            url: "s!AuT2AYWQdFhrxqU_W92BkuUJJOhU3g?e=pk7ojn",
+            urlLocal: "Doctor Who/114 The Keeper of Traken.mp4",
             length: 5874.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 115 Logopolis",
-            url: "s!AuT2AYWQdFhrxqU-01xipXr7FxPetA?e=Up9jaa",
+            urlLocal: "Doctor Who/115 Logopolis.mp4",
             length: 5901.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 116 Castrovalva",
-            url: "s!AuT2AYWQdFhrxqVAj1MSB4s0amqotg?e=RKsKNn",
+            urlLocal: "Doctor Who/116 Castrovalva.mp4",
             length: 5776.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 117 Four to Doomsday",
-            url: "s!AuT2AYWQdFhrxqU9YgwmESaoIHEytg?e=fzr6tt",
+            urlLocal: "Doctor Who/117 Four to Doomsday.mp4",
             length: 5814.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 118 Kinda",
-            url: "s!AuT2AYWQdFhrxqdj58TfSchrwBakrw?e=k1EqEc",
+            urlLocal: "Doctor Who/118 Kinda.mp4",
             length: 5920.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 119 The Visitation",
-            url: "s!AuT2AYWQdFhrxqknCxPTtDzluEqjNg?e=MxzTKI",
+            urlLocal: "Doctor Who/119 The Visitation.mp4",
             length: 5989.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 120 Black Orchid",
-            url: "s!AuT2AYWQdFhrxqkmM7VRZ0dU3UgGxQ?e=NcCVMc",
+            urlLocal: "Doctor Who/120 Black Orchid.mp4",
             length: 2978,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 121 Earthshock",
-            url: "s!AuT2AYWQdFhrxqU3NJoZmb3DQdwaWA?e=SSf8Oo",
+            urlLocal: "Doctor Who/121 Earthshock.mp4",
             length: 5861.16,
             displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 122 Time-Flight",
-            url: "s!AuT2AYWQdFhrxqdkorqKIoqPaILYwg?e=4oOuuu",
+            urlLocal: "Doctor Who/122 Time-Flight.mp4",
             length: 5878.16,
             displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 123 Arc of Infinity",
-            url: "s!AuT2AYWQdFhrxqkocbjyrTCz-R_ZZw?e=99XnSC",
+            urlLocal: "Doctor Who/123 Arc of Infinity.mp4",
             length: 5908.16,
             displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 124 Snakedance",
-            url: "s!AuT2AYWQdFhrxqkp2AFGeCVtkpl9Ng?e=u1ENw9",
+            urlLocal: "Doctor Who/124 Snakedance.mp4",
             length: 5884.16,
             displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 125 Mawdyrn Undead",
-            url: "s!AuT2AYWQdFhrxqkrk1-5D0BTScSCkg?e=wzkAer",
+            urlLocal: "Doctor Who/125 Mawdyrn Undead.mp4",
             length: 5861.88,
             displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 126 Terminus",
-            url: "s!AuT2AYWQdFhrxqdlf3yUKOpF8tvQ7w?e=81T6jM",
+            urlLocal: "Doctor Who/126 Terminus.mp4",
             length: 5950.16,
             displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 127 Enlightenment",
-            url: "s!AuT2AYWQdFhrxqdmTwl3njNKtJJTqQ?e=Nv7m6H",
+            urlLocal: "Doctor Who/127 Enlightenment.mp4",
             length: 5875.16,
             displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 128 The King's Demons",
-            url: "s!AuT2AYWQdFhrxqkqM79jsYjOVX6fuw?e=qzxSiO",
+            urlLocal: "Doctor Who/128 The King's Demons.mp4",
             length: 2983.08,
             displayParams: [120, 0, 710, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 129 The Five Doctors",
-            url: "s!AuT2AYWQdFhrxqU511n3yeBL0Zgqig?e=aB0DFn",
+            urlLocal: "Doctor Who/129 The Five Doctors.mp4",
             length: 5423.04,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 130 Warriors of the Deep",
-            url: "s!AuT2AYWQdFhrxvoJrjl7X7ku0d471w?e=0Kslt6",
+            urlLocal: "Doctor Who/130 Warriors of the Deep.mp4",
             length: 5848.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 131 The Awakening",
-            url: "s!AuT2AYWQdFhrxvoKocxpvQaXnJSnxQ?e=8WdhDB",
+            urlLocal: "Doctor Who/131 The Awakening.mp4",
             length: 3009.08,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 132 Frontios",
-            url: "s!AuT2AYWQdFhrxvoL7SM6qujQMcRE1w?e=sZkzl1",
+            urlLocal: "Doctor Who/132 Frontios.mp4",
             length: 5894.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 133 Resurrection of the Daleks",
-            url: "s!AuT2AYWQdFhrxvoMyBDqXVTy1ofRUg?e=R9Zdr7",
+            urlLocal: "Doctor Who/133 Resurrection of the Daleks.mp4",
             length: 5598.08,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 134 The Planet of Fire",
-            url: "s!AuT2AYWQdFhrxvoNU1stj6jcNvSZGA?e=6hJSEc",
+            urlLocal: "Doctor Who/134 The Planet of Fire.mp4",
             length: 5854.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         },
         {
             title: "DOCTOR WHO: 135 The Caves of Androzani",
-            url: "s!AuT2AYWQdFhrxvoOKVxa_fbK1Btn4g?e=nHKk57",
+            urlLocal: "Doctor Who/135 The Caves of Androzani.mp4",
             length: 5989.16,
             displayParams: [120, 0, 720, 820, 0, 0, 600, 900]
         }

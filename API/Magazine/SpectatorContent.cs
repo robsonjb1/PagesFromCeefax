@@ -107,14 +107,21 @@ public class SpectatorContent : ISpectatorContent
 
     private string ReduceImageQuality(byte[] source)
     {
-        // Reduce image quality
-        using var image = SixLabors.ImageSharp.Image.Load(source);
-        image.Mutate(z => z.Brightness(1.2f));
-        using MemoryStream outputStream = new MemoryStream();
-        image.Save(outputStream, new JpegEncoder { Quality = 50 });
-        outputStream.Close();
+        try
+        {
+            // Reduce image quality
+            using var image = SixLabors.ImageSharp.Image.Load(source);
+            image.Mutate(z => z.Brightness(1.2f));
+            using MemoryStream outputStream = new MemoryStream();
+            image.Save(outputStream, new JpegEncoder { Quality = 50 });
+            outputStream.Close();
 
-        return Convert.ToBase64String(outputStream.ToArray());  
+            return Convert.ToBase64String(outputStream.ToArray());  
+        }
+        catch
+        {
+            return String.Empty;
+        }
     }
 
     private async Task GetSpectatorArticleList(string root)
