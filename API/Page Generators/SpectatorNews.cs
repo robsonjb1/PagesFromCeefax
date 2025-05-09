@@ -97,7 +97,7 @@ public class SpectatorNews : ISpectatorNews
         c.AppendLine("</div></body></html>");
 
         // Output file
-        string filename = $"Spectator {DateTime.Now.DayOfWeek} {DateTime.Now.Hour.ToString().PadLeft(2, '0')}{DateTime.Now.Minute.ToString().PadLeft(2, '0')}.htm";
+        string filename = $"Spectator {DateTime.Now.DayOfWeek} {DateTime.Now.Day.ToString().PadLeft(2, '0')} {DateTime.Now.ToString("MMMM")}.htm";
         
         using (StreamWriter outputFile = new StreamWriter("KindleTemp/" + filename, false, Encoding.UTF8))
         {
