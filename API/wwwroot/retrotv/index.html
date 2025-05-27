@@ -39,28 +39,27 @@
     <link rel="apple-touch-icon" href="apple-touch-icon-72x72.png">
 </head>
 
-<body>
-    <div id="container">
-        <div id="page">
-            <div id="planner" class="alert alert-warning initially-hidden">
-                <table class="plannerTable">
-                    <tr><td><button id='channel0' type="button" class="btn btn-outline-primary">1</button></td>
-                        <td><span class="plannerTime" id="channel0time"></span></td><td><div id="channel0title"></div></td></tr>
-                    <tr><td><button id='channel1' type="button" class="btn btn-outline-primary">2</button></td>
-                        <td><span class="plannerTime" id="channel1time"></span></td><td><div id="channel1title"></div></td></tr>
-                    <tr><td><button id='channel2' type="button" class="btn btn-outline-primary">3</button></td>
-                        <td><span class="plannerTime" id="channel2time"></span></td><td><div id="channel2title"></div></td></tr>
-                    <tr><td><button id='channel3' type="button" class="btn btn-outline-primary">4</button></td>
-                        <td><span class="plannerTime" id="channel3time"></span></td><td><div id="channel3title"></div></td></tr>
-                        <!--
-                    <tr><td><button id='channel4' type="button" class="btn btn-outline-primary">5</button></td>
-                        <td><span class="plannerTime" id="channel4time"></span></td><td><div id="channel4title"></div></td></tr>
-                    -->
-                </table>
-            </div>
-            <canvas id="teletextCanvas"></canvas>
-        </div>
-        <div id="overlay"></div>
-    </div>    
+<body >
+    <div id="planner" class="alert alert-info initially-hidden">
+        <table class="plannerTable">
+            <tr><td><button id='channel0' type="button" class="btn btn-outline-primary">1</button></td>
+                <td><nobr><span class="plannerTime" id="channel0time"></span></nobr></td>
+                <td><div id="channel0title"></div></td>
+            </tr>
+            <tr><td><button id='channel1' type="button" class="btn btn-outline-primary">2</button></td>
+                <td><span class="plannerTime" id="channel1time"></span></td>
+                <td><div id="channel1title"></div></td>
+            </tr>
+            <tr><td><button id='channel2' type="button" class="btn btn-outline-primary">3</button></td>
+                <td><span class="plannerTime" id="channel2time"></span></td>
+                <td><div id="channel2title"></div></td>
+            </tr>
+            <tr><td><button id='channel3' type="button" class="btn btn-outline-primary">4</button></td>
+                <td><span class="plannerTime" id="channel3time"></span></td>
+                <td><div id="channel3title"></div><span class="plannerDescription" id="channel3description"></span></td>
+            </tr>
+        </table>
+    </div>
+    <canvas id="teletextCanvas"></canvas>
 </body>
 </html>

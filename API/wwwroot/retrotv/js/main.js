@@ -1,8 +1,7 @@
-import { starCat as blakes7cat} from "./blakes7-cat.js";
-import { starCat as drwhocat} from "./drwho-cat.js";
-import { starCat as comedycat} from "./comedy-cat.js";
-import { starCat as totpcat} from "./totp-cat.js";
-import { starCat as detectivecat} from "./detective-cat.js";
+import { starCat as ch1cat} from "./cat-channel-1.js";
+import { starCat as ch2cat} from "./cat-channel-2.js";
+import { starCat as ch3cat} from "./cat-channel-3.js";
+import { starCat as ch4cat} from "./cat-channel-4.js";
 
 // Update channel selector and show catalogue
 let maxChannels = 4;
@@ -14,18 +13,13 @@ if(!(selectedChannel >= '0' && selectedChannel < maxChannels))
 }
 
 let episodeList = [{}, {}, {}, {}];
-episodeList[0].data = blakes7cat();
-episodeList[1].data = comedycat();
-episodeList[2].data = drwhocat();
-episodeList[3].data = totpcat();
-//episodeList[4].data = detectivecat();
-
+episodeList[0].data = ch1cat();
+episodeList[1].data = ch2cat();
+episodeList[2].data = ch3cat();
+episodeList[3].data = ch4cat();
 
 // Set up the canvas
 let canvas = document.getElementById("teletextCanvas");
-canvas.width = 600; 
-canvas.height = 600;
-
 let ctx = canvas.getContext("2d", { willReadFrequently: true });
 
 let video = document.createElement("video"); 
@@ -68,67 +62,38 @@ function updateChannelStats() {
     let now = new Date();
 
     for(let channel=0; channel<maxChannels; channel++) {
-        // Check for debug episodes
-        let debugChannel = false;
-        for (let i=0; i<episodeList[channel].data.length; i++) {
-            if(episodeList[channel].data[i].length === 9999) {
-                debugChannel = true;
-                episodeList[channel].currentPosition = 0;
-                episodeList[channel].startTime = new Date(now.getTime()).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-                episodeList[channel].endTime = new Date(now.getTime() + (episodeList[channel].data[i].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-                episodeList[channel].episodeId = i;
-                episodeList[channel].title = episodeList[channel].data[i].title;
-                episodeList[channel].source = getOneDriveLink(channel, i);
-                break;
-            }
-        }
-       
         let totalTimes = 0;
-
         episodeList[channel].data.forEach((e) => totalTimes += e.length);
         let days = Math.floor(totalTimes / 86400, 0);
         let hours = Math.round((totalTimes - (days * 86400)) / 3600, 1)
         console.log(`Channel ${channel} total length, ${days} days, ${hours} hours`);
         
-        // Select the current episode and time based on how far into the current month we are
-        let dayPosition = Math.floor((((now.getDate()-1) * 86400) + (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) % totalTimes);
-    
+        // Select the current episode and time based on seconds since epoch
+        let dayPosition = Math.floor((now.getTime() / 1000) % totalTimes);
+
         // From this position, find out which episode this falls on
-        if(!debugChannel) {
-            var sum = 0;
-            for (let i=0; i<episodeList[channel].data.length; i++) {
-                if(sum + episodeList[channel].data[i].length > dayPosition) {    
-                    let currentPosition = dayPosition - sum;
-                    episodeList[channel].currentPosition = currentPosition;
-                    episodeList[channel].startTime = new Date(now.getTime() - (currentPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-                    episodeList[channel].endTime = new Date(now.getTime() - (currentPosition * 1000) + (episodeList[channel].data[i].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-                    episodeList[channel].episodeId = i;
-                    episodeList[channel].title = episodeList[channel].data[i].title;
-                    episodeList[channel].source = getOneDriveLink(channel, i);
-                    break;
-                }
-                else {
-                    sum += episodeList[channel].data[i].length;
-                }
+        var sum = 0;
+        for (let i=0; i<episodeList[channel].data.length; i++) {
+            if(sum + episodeList[channel].data[i].length > dayPosition) {    
+                let currentPosition = dayPosition - sum;
+                episodeList[channel].currentPosition = currentPosition;
+                episodeList[channel].startTime = new Date(now.getTime() - (currentPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                episodeList[channel].endTime = new Date(now.getTime() - (currentPosition * 1000) + (episodeList[channel].data[i].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                episodeList[channel].episodeId = i;
+                episodeList[channel].title = episodeList[channel].data[i].title;
+                episodeList[channel].description = episodeList[channel].data[i].description;
+                episodeList[channel].source = getFileLink(channel, i);
+                break;
+            }
+            else {
+                sum += episodeList[channel].data[i].length;
             }
         }
     }
 }
 
-function getOneDriveLink(channel, episodeId) {
-
-    if(episodeList[channel].data[episodeId].urlLocal) {
-        return "media/" + episodeList[channel].data[episodeId].urlLocal;
-    }
-
-    if(episodeList[channel].data[episodeId].urlProcessed) {
-        return "https://api.onedrive.com/v1.0/shares/" + episodeList[channel].data[episodeId].urlProcessed;
-    } else
-    {
-        let rawUrl = "https://1drv.ms/v/" + episodeList[channel].data[episodeId].url;
-        let encodedUrl = btoa(rawUrl).replace("=", "").replace("/", "_").replace("+", "-");
-        return "https://api.onedrive.com/v1.0/shares/u!" + encodedUrl + "/root/content";
-    }
+function getFileLink(channel, episodeId) {
+    return episodeList[channel].data[episodeId].urlLocal;
 }
 
 function advanceEpisode() {
@@ -147,7 +112,8 @@ function advanceEpisode() {
     episodeList[selectedChannel].startTime = new Date(now.getTime()).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     episodeList[selectedChannel].endTime = new Date(now.getTime() + (episodeList[selectedChannel].data[episodeId].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     episodeList[selectedChannel].title = episodeList[selectedChannel].data[episodeId].title;
-    episodeList[selectedChannel].source = getOneDriveLink(selectedChannel, episodeId);
+    episodeList[selectedChannel].description = episodeList[selectedChannel].data[episodeId].description;
+    episodeList[selectedChannel].source = getFileLink(selectedChannel, episodeId);
     
     videoContainer.video.src = episodeList[selectedChannel].source;
     videoContainer.video.currentTime = 0;
@@ -161,6 +127,7 @@ function displayCaption() {
     for(let i=0; i<maxChannels; i++) {
         $(`#channel${i}time`).text(`${episodeList[i].startTime} - ${episodeList[i].endTime}`);
         $(`#channel${i}title`).text(episodeList[i].title);
+        $(`#channel${i}description`).text(episodeList[i].description);
     }
 
     $("#planner").fadeToggle();
@@ -181,18 +148,16 @@ function updateCanvas() {
             // Advance to next episode and update container details
             advanceEpisode();
         }
-
-        ctx.clearRect(0,0,canvas.width,canvas.height); 
        
         let episodeId = episodeList[selectedChannel].episodeId;
         let dp = episodeList[selectedChannel].data[episodeId].displayParams;
         if(dp) {
-            ctx.drawImage(videoContainer.video, dp[0], dp[1], dp[2], dp[3], dp[4], dp[5], dp[6], dp[7]);
+            canvas.width = dp[0];
+            canvas.height = dp[1];
+            ctx.clearRect(0,0,canvas.width,canvas.height); 
+            ctx.drawImage(videoContainer.video, 0, 0);
         }
-        else {
-            ctx.drawImage(videoContainer.video, 0, 0, 600, 600);
-        }
-        
+                
         if(videoContainer.video.paused) { 
             drawPlayIcon();
         }

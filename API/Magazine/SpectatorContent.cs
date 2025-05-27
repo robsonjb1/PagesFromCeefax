@@ -178,7 +178,7 @@ public class SpectatorContent : ISpectatorContent
             //    ImageCache.Add(new CachedUri(a.AvatarUri));
             //}
     
-            var body = doc.DocumentNode.SelectNodes("//div[@class='entry-content']//p");
+            var body = doc.DocumentNode.SelectNodes("//div[@class='entry-content article-inline-paywall']//p");
             StringBuilder lines = new StringBuilder();
             
             foreach (var p in body)

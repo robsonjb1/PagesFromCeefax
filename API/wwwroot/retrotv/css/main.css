@@ -104,63 +104,10 @@ audio {
 	background-size: 100% 100%;
 }
 
-
-/* size adjustments */
-@media only screen {
-	#container {
-		font-size: 1.5em;
-	}
-	#teletextCanvas {
-		width: 865px;
-		margin-left: 12px;
-		border: 1px transparent #000;
-		border-radius: 60px;
-	}
-}
-@media only screen and (max-width:80em)  {
-	#container {
-		font-size: 1.125em;
-	}
-	#teletextCanvas {
-		width: 645px;
-		margin-left: 12px;
-		border: 1px transparent #000;
-		border-radius: 60px;
-	}
-}
-
-@media only screen and (max-width:63.9em)  {
-	#container {
-		font-size: 1em;
-	}
-	#teletextCanvas {
-		width: 575px;
-		margin-left: 12px;
-		border: 1px transparent #000;
-		border-radius: 60px;
-	}
-}
-@media only screen and (max-width:40em)  {
-	#container {
-		font-size: 0.75em;
-	}
-	#teletextCanvas {
-		width: 433px;
-		margin-left: 12px;
-		border: 1px transparent #000;
-		border-radius: 50px;
-	}
-}
-@media only screen and (max-width:30em)  {
-	#container {
-		font-size: 0.6em;
-	}
-	#teletextCanvas {
-		width: 350px;
-		margin-left: 12px;
-		border: 1px transparent #000;
-		border-radius: 60px;
-	}
+#teletextCanvas {
+	width: 100%;
+	border: 1px transparent #000;
+	border-radius: 30px;
 }
 
 /* Now Next banner */
@@ -178,6 +125,20 @@ td, th { /* table cells */
     padding: 5px;
 }
 .plannerTime {
-	color: brown;
+	color: yellow;
 }
+.plannerDescription {
+	font-size: small;
+	color: lightblue;
+	vertical-align: top;
+}
+.plannerTitle {
+	vertical-align: top;
+}
+.plannerProgress {
+	font-size: x-small;
+	color: orange;
+	text-align: right;
+}
+
 
