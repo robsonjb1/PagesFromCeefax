@@ -126,6 +126,24 @@ td, th { /* table cells */
 }
 .plannerTime {
 	color: yellow;
+	vertical-align: top;
+}
+.radioPlannerTime {
+	color: yellow;
+	vertical-align: top;
+	text-align: center;
+}
+.plannerStart {
+	color: yellow;
+	vertical-align: top;
+}
+.radioPlannerStart {
+	color: yellow;
+	vertical-align: top;
+}
+.plannerEnd {
+	color: orange;
+	vertical-align: top;
 }
 .plannerDescription {
 	font-size: small;

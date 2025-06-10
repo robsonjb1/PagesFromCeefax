@@ -43,20 +43,22 @@
     <div id="planner" class="alert alert-info initially-hidden">
         <table class="plannerTable">
             <tr><td><button id='channel0' type="button" class="btn btn-outline-primary">1</button></td>
-                <td><nobr><span class="plannerTime" id="channel0time"></span></nobr></td>
-                <td><div id="channel0title"></div></td>
+                <td class="plannerTime"><span class="plannerStart" id="channel0start"></span><span class="plannerEnd" id="channel0end"></span></td>
+                <td class="plannerTitle" ><div id="channel0title"></div></td>
             </tr>
             <tr><td><button id='channel1' type="button" class="btn btn-outline-primary">2</button></td>
-                <td><span class="plannerTime" id="channel1time"></span></td>
-                <td><div id="channel1title"></div></td>
+                <td class="plannerTime"><span class="plannerStart" id="channel1start"></span>
+                    <br><span class="plannerEnd" id="channel1end"></span></td>
+                <td class="plannerTitle" ><div id="channel1title"></div><span class="plannerDescription" id="channel1description"></span></td>
             </tr>
             <tr><td><button id='channel2' type="button" class="btn btn-outline-primary">3</button></td>
-                <td><span class="plannerTime" id="channel2time"></span></td>
-                <td><div id="channel2title"></div></td>
+                <td class="plannerTime"><span class="plannerStart" id="channel2start"></span>
+                    <br><span class="plannerEnd" id="channel2end"></span></td>
+                <td class="plannerTitle" ><div id="channel2title"></div><span class="plannerDescription" id="channel2description"></span></td>
             </tr>
             <tr><td><button id='channel3' type="button" class="btn btn-outline-primary">4</button></td>
-                <td><span class="plannerTime" id="channel3time"></span></td>
-                <td><div id="channel3title"></div><span class="plannerDescription" id="channel3description"></span></td>
+                <td class="radioPlannerTime"><span class="radioPlannerStart">JR RADIO</span></td>
+                <td class="plannerTitle" ><div id="channel3title"></div><span class="plannerDescription" id="channel3description"></span></td>
             </tr>
         </table>
     </div>

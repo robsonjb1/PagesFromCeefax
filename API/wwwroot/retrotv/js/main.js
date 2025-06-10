@@ -7,8 +7,7 @@ import { starCat as ch4cat} from "./cat-channel-4.js";
 let maxChannels = 4;
 
 let selectedChannel = document.location.search.substring(1).slice(-1);
-if(!(selectedChannel >= '0' && selectedChannel < maxChannels))
-{
+if(!(selectedChannel >= '0' && selectedChannel < maxChannels)) {
     selectedChannel = 0;
 }
 
@@ -40,13 +39,22 @@ switchChannel(selectedChannel);
 // Functions
 function switchChannel(channel)
 {
+    // Update stats for each channel to ensure the banner is accurate
+    updateChannelStats();
+    console.log(episodeList[selectedChannel].title);
+
     $('#channel' + selectedChannel).removeClass('active');
     selectedChannel = channel;
     $('#channel' + selectedChannel).addClass('active');
 
-    // Update stats for each channel
-    updateChannelStats();
-    console.log(episodeList[selectedChannel].title);
+    // Is this audio, if so play at 40% volume
+    if(episodeList[selectedChannel].displayParams) {
+        videoContainer.video.volume = 1;
+    }
+    else {
+        videoContainer.video.volume = 0.4;
+    }
+
     videoContainer.video.pause();
     videoContainer.video.src = episodeList[selectedChannel].source;
     videoContainer.video.currentTime = episodeList[selectedChannel].currentPosition;
@@ -56,6 +64,7 @@ function switchChannel(channel)
     videoContainer.video.play();
 
     displayCaption();
+    $("#planner").fadeToggle();
 }
 
 function updateChannelStats() {
@@ -80,9 +89,11 @@ function updateChannelStats() {
                 episodeList[channel].startTime = new Date(now.getTime() - (currentPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
                 episodeList[channel].endTime = new Date(now.getTime() - (currentPosition * 1000) + (episodeList[channel].data[i].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
                 episodeList[channel].episodeId = i;
+                episodeList[channel].perc = Math.floor(100 * (currentPosition / episodeList[channel].data[i].length));
                 episodeList[channel].title = episodeList[channel].data[i].title;
                 episodeList[channel].description = episodeList[channel].data[i].description;
-                episodeList[channel].source = getFileLink(channel, i);
+                episodeList[channel].displayParams = episodeList[channel].data[i].displayParams;                
+                episodeList[channel].source = episodeList[channel].data[i].urlLocal;
                 break;
             }
             else {
@@ -92,15 +103,9 @@ function updateChannelStats() {
     }
 }
 
-function getFileLink(channel, episodeId) {
-    return episodeList[channel].data[episodeId].urlLocal;
-}
-
 function advanceEpisode() {
     // Move to the start of the next episode
-    let episodeId = episodeList[selectedChannel].episodeId;
-
-    episodeId++;
+    let episodeId = episodeList[selectedChannel].episodeId + 1;
     if(episodeId === episodeList[selectedChannel].data.length)
     {
         episodeId = 0;
@@ -109,28 +114,29 @@ function advanceEpisode() {
     let now = new Date();
     episodeList[selectedChannel].episodeId = episodeId;
     episodeList[selectedChannel].currentPosition = 0;
+    episodeList[selectedChannel].perc = 0;
     episodeList[selectedChannel].startTime = new Date(now.getTime()).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     episodeList[selectedChannel].endTime = new Date(now.getTime() + (episodeList[selectedChannel].data[episodeId].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     episodeList[selectedChannel].title = episodeList[selectedChannel].data[episodeId].title;
     episodeList[selectedChannel].description = episodeList[selectedChannel].data[episodeId].description;
-    episodeList[selectedChannel].source = getFileLink(selectedChannel, episodeId);
+    episodeList[selectedChannel].source = episodeList[selectedChannel].data[episodeId].urlLocal;
     
+    videoContainer.video.pause();
     videoContainer.video.src = episodeList[selectedChannel].source;
     videoContainer.video.currentTime = 0;
     videoContainer.startPosition = 0;
     videoContainer.startPositionTimeStamp = now;
-
     videoContainer.video.play();
+
+    displayCaption();
 }
 
 function displayCaption() {
     for(let i=0; i<maxChannels; i++) {
-        $(`#channel${i}time`).text(`${episodeList[i].startTime} - ${episodeList[i].endTime}`);
+        $(`#channel${i}start`).text(`${episodeList[i].startTime} - ${episodeList[i].endTime}`); 
         $(`#channel${i}title`).text(episodeList[i].title);
         $(`#channel${i}description`).text(episodeList[i].description);
     }
-
-    $("#planner").fadeToggle();
 }
 
 function readyToPlayVideo(event) { 
@@ -190,12 +196,14 @@ function playPauseClick() {
         if(videoContainer.video.paused){  
             // When playing after a pause, advance to where the stream should be now    
             video.currentTime = videoContainer.startPosition + ((new Date() - videoContainer.startPositionTimeStamp) / 1000);
+
             videoContainer.video.play();
             $("#planner").fadeOut();
         }else{
             // Update stats for each channel
             updateChannelStats();
             displayCaption();
+            $("#planner").fadeToggle();
         }
     }
 }

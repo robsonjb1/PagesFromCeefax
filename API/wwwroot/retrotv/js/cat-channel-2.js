@@ -142,46 +142,165 @@ return [
    displayParams: [1280, 720]
 },
 {
-   title: "HHGTTG: Episode 1",
-   urlLocal: "media/channel-2/HHGTTG/Episode 1.mp4",
-   length: 1972.68,
+   title: "CATTERICK: Episode 1",
+   urlLocal: "media/channel-2/Catterick/Episode 1.m4v",
+   length: 1698.434,
    description: "",
+   displayParams: [704, 400]
+},
+{
+   title: "CATTERICK: Episode 2",
+   urlLocal: "media/channel-2/Catterick/Episode 2.m4v",
+   length: 1692.434,
+   description: "",
+   displayParams: [704, 400]
+},
+{
+   title: "CATTERICK: Episode 3",
+   urlLocal: "media/channel-2/Catterick/Episode 3.m4v",
+   length: 1703.354,
+   description: "",
+   displayParams: [704, 400]
+},
+{
+   title: "CATTERICK: Episode 4",
+   urlLocal: "media/channel-2/Catterick/Episode 4.m4v",
+   length: 1708.354,
+   description: "",
+   displayParams: [720, 400]
+},
+{
+   title: "CATTERICK: Episode 5",
+   urlLocal: "media/channel-2/Catterick/Episode 5.m4v",
+   length: 1707.834,
+   description: "",
+   displayParams: [720, 400]
+},
+{
+   title: "CATTERICK: Episode 6",
+   urlLocal: "media/channel-2/Catterick/Episode 6.m4v",
+   length: 1659.834,
+   description: "",
+   displayParams: [720, 400]
+},
+{
+   title: "FAWLTY TOWERS: 1-1 A Touch of Class",
+   urlLocal: "media/channel-2/Fawlty Towers/1-1 A Touch of Class.m4v",
+   length: 1821.32,
+   description: "As Basil tries to raise the tone of the hotel, the aristocratic Lord Melbury comes to stay at the hotel. Basil fawns over him at every opportunity, causing himself to neglect or annoy other guests.",
+   displayParams: [464, 368]
+},
+{
+   title: "FAWLTY TOWERS: 1-2 The Builders",
+   urlLocal: "media/channel-2/Fawlty Towers/1-2 The Builders.m4v",
+   length: 1694.2,
+   description: "Maintenance is made on the lobby while the Fawltys are out, but when a misreading causes the incompetent builders to mess it up spectacularly, Basil must try to remedy the situation before Sybil finds out.",
    displayParams: [480, 368]
 },
 {
-   title: "HHGTTG: Episode 2",
-   urlLocal: "media/channel-2/HHGTTG/Episode 2.mp4",
-   length: 2095.16,
-   description: "",
+   title: "FAWLTY TOWERS: 1-3 The Wedding Party",
+   urlLocal: "media/channel-2/Fawlty Towers/1-3 The Wedding Party.m4v",
+   length: 2000.533,
+   description: "Basil gets annoyed when a young, flirtatious couple start \"hanky-pankying\" under his nose and tries to avoid the advances of a female French antique dealer.",
    displayParams: [480, 368]
 },
 {
-   title: "HHGTTG: Episode 3",
-   urlLocal: "media/channel-2/HHGTTG/Episode 3.mp4",
-   length: 1862.44,
-   description: "",
+   title: "FAWLTY TOWERS: 1-4 The Hotel Inspectors",
+   urlLocal: "media/channel-2/Fawlty Towers/1-4 The Hotel Inspectors.m4v",
+   length: 1728.6,
+   description: "When Basil hears of hotel inspectors roaming Torquay incognito, he realises with horror that guests he has been abusing could easily be among them.",
    displayParams: [480, 368]
 },
 {
-   title: "HHGTTG: Episode 4",
-   urlLocal: "media/channel-2/HHGTTG/Episode 4.mp4",
-   length: 1941.04,
-   description: "",
+   title: "FAWLTY TOWERS: 1-5 Gourmet Night",
+   urlLocal: "media/channel-2/Fawlty Towers/1-5 Gourmet Night.m4v",
+   length: 1717.12,
+   description: "In an effort to climb another rung in the social ladder, Basil arranges a gourmet night. Unfortunately, thanks to the chef's alcoholism, Basil must try to get hold of a duck from his friend, André.",
+   displayParams: [480, 384]
+},
+{
+   title: "FAWLTY TOWERS: 1-6 The Germans",
+   urlLocal: "media/channel-2/Fawlty Towers/1-6 The Germans.m4v",
+   length: 1875.413,
+   description: "With Sybil in the hospital with an ingrowing toenail, a moose's head to hang up and some German guests arriving the next day, Basil has his work cut out for him.",
    displayParams: [480, 368]
 },
 {
-   title: "HHGTTG: Episode 5",
-   urlLocal: "media/channel-2/HHGTTG/Episode 5.mp4",
-   length: 1972.4,
-   description: "",
+   title: "FAWLTY TOWERS: 2-1 Communication Problems",
+   urlLocal: "media/channel-2/Fawlty Towers/2-1 Communication Problems.m4v",
+   length: 1884.757,
+   description: "The arrival of the \"guest from hell\" — Mrs. Richards, a rather deaf, domineering and bad-tempered woman — interferes with Basil's attempts to prevent the money he won on a racehorse from being discovered by Sybil.",
    displayParams: [480, 368]
 },
 {
-   title: "HHGTTG: Episode 6",
-   urlLocal: "media/channel-2/HHGTTG/Episode 6.mp4",
-   length: 2144.72,
-   description: "",
+   title: "FAWLTY TOWERS: 2-2 The Psychiatrist",
+   urlLocal: "media/channel-2/Fawlty Towers/2-2 The Psychiatrist.m4v",
+   length: 2178.709,
+   description: "A psychiatrist and his wife come to the hotel for a weekend break, and cannot help but notice the eccentricities of their host, who is perturbed when he discovers their professions.",
    displayParams: [480, 368]
+},
+{
+   title: "FAWLTY TOWERS: 2-3 Waldorf Salad",
+   urlLocal: "media/channel-2/Fawlty Towers/2-3 Waldorf Salad.m4v",
+   length: 1922.986,
+   description: "Basil is not altogether keen on a loud and demanding American guest who demands a higher class of service—and food—than Fawlty Towers is accustomed to providing.",
+   displayParams: [480, 368]
+},
+{
+   title: "FAWLTY TOWERS: 2-4 The Kipper and the Corpse",
+   urlLocal: "media/channel-2/Fawlty Towers/2-4 The Kipper and the Corpse.m4v",
+   length: 1893.269,
+   description: "With no regard to Basil's blood pressure, a guest dies at the hotel and Basil and the staff are left with the unpleasant task of removing the body discreetly.",
+   displayParams: [480, 368]
+},
+{
+   title: "FAWLTY TOWERS: 2-5 The Anniversary",
+   urlLocal: "media/channel-2/Fawlty Towers/2-5 The Anniversary.m4v",
+   length: 1747.989,
+   description: "Basil invites some friends for a surprise wedding anniversary party, but Sybil assumes he has forgotten their anniversary and storms off, leaving her husband and Polly, in disguise, desperately telling the others she is 'ill'...",
+   displayParams: [464, 368]
+},
+{
+   title: "FAWLTY TOWERS: 2-6 Basil the Rat",
+   urlLocal: "media/channel-2/Fawlty Towers/2-6 Basil the Rat.m4v",
+   length: 2025.045,
+   description: "The local health inspector notes and reads out a long list of hygiene infractions which the staff must rectify before his next visit, or else face closure. After Manuel's pet rat escapes from his cage and runs loose in the hotel, the staff must catch it b",
+   displayParams: [480, 368]
+},
+{
+   title: "GONE FISHING: 2020 Christmas Special",
+   urlLocal: "media/channel-2/Gone Fishing/2020 Christmas Special.mp4",
+   length: 3540.06,
+   description: "Bob Mortimer and Paul Whitehouse return to Bob's childhood home of Middlesbrough.",
+   displayParams: [1280, 720]
+},
+{
+   title: "GONE FISHING: 2021 Christmas Special",
+   urlLocal: "media/channel-2/Gone Fishing/2021 Christmas Special.mp4",
+   length: 3544.04,
+   description: "Paul, Bob and Ted the dog travel to the north of England on a quest for an English salmon.",
+   displayParams: [1280, 720]
+},
+{
+   title: "GONE FISHING: 2022 Christmas Special",
+   urlLocal: "media/channel-2/Gone Fishing/2022 Christmas Special.mp4",
+   length: 3553.04,
+   description: "Bob and Paul travel overseas to Norway for their most spectacular fishing adventure yet.",
+   displayParams: [1280, 720]
+},
+{
+   title: "GONE FISHING: 2023 Hogmanay Special",
+   urlLocal: "media/channel-2/Gone Fishing/2023 Hogmanay Special.mp4",
+   length: 3554.36,
+   description: "Bob, Paul and Ted travel to Scotland to celebrate Hogmanay in spectacular style.",
+   displayParams: [1280, 720]
+},
+{
+   title: "GONE FISHING: 2024 Christmas Special",
+   urlLocal: "media/channel-2/Gone Fishing/2024 Christmas Special.mp4",
+   length: 3561.04,
+   description: "To celebrate another year of fishing, Paul and Bob visit the River Lot in France.",
+   displayParams: [1280, 720]
 },
 {
    title: "RED DWARF: 1-1 The End",
@@ -212,8 +331,8 @@ return [
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 1-5 Confidence Paranoia",
-   urlLocal: "media/channel-2/Red Dwarf/1-5 Confidence Paranoia.mp4",
+   title: "RED DWARF: 1-5 Confidence and Paranoia",
+   urlLocal: "media/channel-2/Red Dwarf/1-5 Confidence and Paranoia.mp4",
    length: 1778.04,
    description: "Lister contracts a mutated form of pneumonia - and his hallucinations turn solid.",
    displayParams: [1280, 720]
@@ -630,6 +749,48 @@ return [
    length: 1756.052,
    description: "",
    displayParams: [758, 576]
+},
+{
+   title: "THE HITCHHIKER'S GUIDE TO THE GALAXY: Episode 1",
+   urlLocal: "media/channel-2/The Hitchhiker's Guide to the Galaxy/Episode 1.mp4",
+   length: 1972.68,
+   description: "",
+   displayParams: [480, 368]
+},
+{
+   title: "THE HITCHHIKER'S GUIDE TO THE GALAXY: Episode 2",
+   urlLocal: "media/channel-2/The Hitchhiker's Guide to the Galaxy/Episode 2.mp4",
+   length: 2095.16,
+   description: "",
+   displayParams: [480, 368]
+},
+{
+   title: "THE HITCHHIKER'S GUIDE TO THE GALAXY: Episode 3",
+   urlLocal: "media/channel-2/The Hitchhiker's Guide to the Galaxy/Episode 3.mp4",
+   length: 1862.44,
+   description: "",
+   displayParams: [480, 368]
+},
+{
+   title: "THE HITCHHIKER'S GUIDE TO THE GALAXY: Episode 4",
+   urlLocal: "media/channel-2/The Hitchhiker's Guide to the Galaxy/Episode 4.mp4",
+   length: 1941.04,
+   description: "",
+   displayParams: [480, 368]
+},
+{
+   title: "THE HITCHHIKER'S GUIDE TO THE GALAXY: Episode 5",
+   urlLocal: "media/channel-2/The Hitchhiker's Guide to the Galaxy/Episode 5.mp4",
+   length: 1972.4,
+   description: "",
+   displayParams: [480, 368]
+},
+{
+   title: "THE HITCHHIKER'S GUIDE TO THE GALAXY: Episode 6",
+   urlLocal: "media/channel-2/The Hitchhiker's Guide to the Galaxy/Episode 6.mp4",
+   length: 2144.72,
+   description: "",
+   displayParams: [480, 368]
 },
 {
    title: "YES MINISTER: 1-1 Open Government",
