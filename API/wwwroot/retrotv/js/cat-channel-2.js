@@ -3,6 +3,7 @@ export function starCat() {
 return [
 {
    title: "BLACKADDER: 2-1 Bells",
+   shortName: "2-1 Bells",
    urlLocal: "media/channel-2/Blackadder/2-1 Bells.mp4",
    length: 1811.882,
    description: "Blackadder is struck by Cupid's arrow when he takes on a new servant - a girl named Bob.",
@@ -10,6 +11,7 @@ return [
 },
 {
    title: "BLACKADDER: 2-2 Head",
+   shortName: "2-2 Head",
    urlLocal: "media/channel-2/Blackadder/2-2 Head.mp4",
    length: 1605.04,
    description: "Edmund is appointed lord high executioner and beheads a man early to have some time off.",
@@ -17,6 +19,7 @@ return [
 },
 {
    title: "BLACKADDER: 2-3 Potato",
+   shortName: "2-3 Potato",
    urlLocal: "media/channel-2/Blackadder/2-3 Potato.mp4",
    length: 1804.04,
    description: "Edmund decides to navigate the Cape of Good Hope after Sir Walter Raleigh's success.",
@@ -24,6 +27,7 @@ return [
 },
 {
    title: "BLACKADDER: 2-4 Money",
+   shortName: "2-4 Money",
    urlLocal: "media/channel-2/Blackadder/2-4 Money.mp4",
    length: 1795.72,
    description: "Edmund is in trouble when he is visited by a bishop armed with a red-hot poker.",
@@ -31,6 +35,7 @@ return [
 },
 {
    title: "BLACKADDER: 2-5 Beer",
+   shortName: "2-5 Beer",
    urlLocal: "media/channel-2/Blackadder/2-5 Beer.mp4",
    length: 1753.56,
    description: "Problems arise after an embarrassing incident with a turnip, a feather and a fat aunt.",
@@ -38,6 +43,7 @@ return [
 },
 {
    title: "BLACKADDER: 2-6 Chains",
+   shortName: "2-6 Chains",
    urlLocal: "media/channel-2/Blackadder/2-6 Chains.mp4",
    length: 1756.88,
    description: "The evil Prince Ludwig kidnaps both Blackadder and Lord Melchett.",
@@ -45,6 +51,7 @@ return [
 },
 {
    title: "BLACKADDER: 3-1 Dish and Dishonesty",
+   shortName: "3-1 Dish and Dishonesty",
    urlLocal: "media/channel-2/Blackadder/3-1 Dish and Dishonesty.mp4",
    length: 1761.04,
    description: "Edmund Blackadder Esq, butler to the Prince Regent, tries to get Baldrick elected as an MP",
@@ -52,6 +59,7 @@ return [
 },
 {
    title: "BLACKADDER: 3-2 Ink and Incapability",
+   shortName: "3-2 Ink and Incapability",
    urlLocal: "media/channel-2/Blackadder/3-2 Ink and Incapability.mp4",
    length: 1755.498,
    description: "When Dr Samuel Johnson's dictionary is used for firewood, Edmund must rewrite it.",
@@ -59,6 +67,7 @@ return [
 },
 {
    title: "BLACKADDER: 3-3 Nob and Nobility",
+   shortName: "3-3 Nob and Nobility",
    urlLocal: "media/channel-2/Blackadder/3-3 Nob and Nobility.mp4",
    length: 1791.04,
    description: "Revolution sweeps France and Edmund takes advantage of the Scarlet Pimpernel's popularity.",
@@ -66,6 +75,7 @@ return [
 },
 {
    title: "BLACKADDER: 3-4 Sense and Senility",
+   shortName: "3-4 Sense and Senility",
    urlLocal: "media/channel-2/Blackadder/3-4 Sense and Senility.mp4",
    length: 1595.04,
    description: "George hires two actors to tutor him in public speaking while trying to avoid anarchists.",
@@ -73,6 +83,7 @@ return [
 },
 {
    title: "BLACKADDER: 3-5 Amy and Amiability",
+   shortName: "3-5 Amy and Amiability",
    urlLocal: "media/channel-2/Blackadder/3-5 Amy and Amiability.mp4",
    length: 1765.04,
    description: "Edmund sets out to find the regent a bride with a big dowry.",
@@ -80,6 +91,7 @@ return [
 },
 {
    title: "BLACKADDER: 3-6 Duel and Duality",
+   shortName: "3-6 Duel and Duality",
    urlLocal: "media/channel-2/Blackadder/3-6 Duel and Duality.mp4",
    length: 1792.04,
    description: "The prince is challenged to a duel by the fearsome Duke of Wellington.",
@@ -87,6 +99,7 @@ return [
 },
 {
    title: "BLACKADDER: 4-1 Captain Cook",
+   shortName: "4-1 Captain Cook",
    urlLocal: "media/channel-2/Blackadder/4-1 Captain Cook.mp4",
    length: 1748.04,
    description: "Edmund is sent into no man's land to sketch the German positions.",
@@ -94,6 +107,7 @@ return [
 },
 {
    title: "BLACKADDER: 4-2 Corporal Punishment",
+   shortName: "4-2 Corporal Punishment",
    urlLocal: "media/channel-2/Blackadder/4-2 Corporal Punishment.mp4",
    length: 1761.04,
    description: "Blackadder faces court martial for eating a carrier pigeon.",
@@ -101,6 +115,7 @@ return [
 },
 {
    title: "BLACKADDER: 4-3 Major Star",
+   shortName: "4-3 Major Star",
    urlLocal: "media/channel-2/Blackadder/4-3 Major Star.mp4",
    length: 1740.04,
    description: "The October Revolution in Moscow results in a Charlie Chaplin impression from Baldrick.",
@@ -108,6 +123,7 @@ return [
 },
 {
    title: "BLACKADDER: 4-4 Private Plane",
+   shortName: "4-4 Private Plane",
    urlLocal: "media/channel-2/Blackadder/4-4 Private Plane.mp4",
    length: 1732.04,
    description: "Edmund, George and Baldrick join the Royal Flying Corps.",
@@ -115,6 +131,7 @@ return [
 },
 {
    title: "BLACKADDER: 4-5 General Hospital",
+   shortName: "4-5 General Hospital",
    urlLocal: "media/channel-2/Blackadder/4-5 General Hospital.mp4",
    length: 1679.04,
    description: "Melchett orders Blackadder to unmask a spy working in a hospital.",
@@ -122,20 +139,15 @@ return [
 },
 {
    title: "BLACKADDER: 4-6 Goodbyeee",
+   shortName: "4-6 Goodbyeee",
    urlLocal: "media/channel-2/Blackadder/4-6 Goodbyeee.mp4",
    length: 1762.04,
    description: "Blackadder, George and Baldrick are told they are going over the top the next day.",
    displayParams: [960, 540]
 },
 {
-   title: "BLACKADDER: Blackadder Back and Forth",
-   urlLocal: "media/channel-2/Blackadder/Blackadder Back and Forth.mp4",
-   length: 2015.08,
-   description: "A 21st century Blackadder and servant Baldrick tumble through the past in a time machine.",
-   displayParams: [960, 540]
-},
-{
    title: "BLACKADDER: Blackadder's Christmas Carol",
+   shortName: "Blackadder's Christmas Carol",
    urlLocal: "media/channel-2/Blackadder/Blackadder's Christmas Carol.mp4",
    length: 2595.541,
    description: "Ebenezer Blackadder gets a glimpse of his loathsome ancestors on Christmas Eve, 1850.",
@@ -143,6 +155,7 @@ return [
 },
 {
    title: "CATTERICK: Episode 1",
+   shortName: "Episode 1",
    urlLocal: "media/channel-2/Catterick/Episode 1.m4v",
    length: 1698.434,
    description: "",
@@ -150,6 +163,7 @@ return [
 },
 {
    title: "CATTERICK: Episode 2",
+   shortName: "Episode 2",
    urlLocal: "media/channel-2/Catterick/Episode 2.m4v",
    length: 1692.434,
    description: "",
@@ -157,6 +171,7 @@ return [
 },
 {
    title: "CATTERICK: Episode 3",
+   shortName: "Episode 3",
    urlLocal: "media/channel-2/Catterick/Episode 3.m4v",
    length: 1703.354,
    description: "",
@@ -164,6 +179,7 @@ return [
 },
 {
    title: "CATTERICK: Episode 4",
+   shortName: "Episode 4",
    urlLocal: "media/channel-2/Catterick/Episode 4.m4v",
    length: 1708.354,
    description: "",
@@ -171,6 +187,7 @@ return [
 },
 {
    title: "CATTERICK: Episode 5",
+   shortName: "Episode 5",
    urlLocal: "media/channel-2/Catterick/Episode 5.m4v",
    length: 1707.834,
    description: "",
@@ -178,6 +195,7 @@ return [
 },
 {
    title: "CATTERICK: Episode 6",
+   shortName: "Episode 6",
    urlLocal: "media/channel-2/Catterick/Episode 6.m4v",
    length: 1659.834,
    description: "",
@@ -185,6 +203,7 @@ return [
 },
 {
    title: "FAWLTY TOWERS: 1-1 A Touch of Class",
+   shortName: "1-1 A Touch of Class",
    urlLocal: "media/channel-2/Fawlty Towers/1-1 A Touch of Class.m4v",
    length: 1821.32,
    description: "As Basil tries to raise the tone of the hotel, the aristocratic Lord Melbury comes to stay at the hotel. Basil fawns over him at every opportunity, causing himself to neglect or annoy other guests.",
@@ -192,6 +211,7 @@ return [
 },
 {
    title: "FAWLTY TOWERS: 1-2 The Builders",
+   shortName: "1-2 The Builders",
    urlLocal: "media/channel-2/Fawlty Towers/1-2 The Builders.m4v",
    length: 1694.2,
    description: "Maintenance is made on the lobby while the Fawltys are out, but when a misreading causes the incompetent builders to mess it up spectacularly, Basil must try to remedy the situation before Sybil finds out.",
@@ -199,6 +219,7 @@ return [
 },
 {
    title: "FAWLTY TOWERS: 1-3 The Wedding Party",
+   shortName: "1-3 The Wedding Party",
    urlLocal: "media/channel-2/Fawlty Towers/1-3 The Wedding Party.m4v",
    length: 2000.533,
    description: "Basil gets annoyed when a young, flirtatious couple start \"hanky-pankying\" under his nose and tries to avoid the advances of a female French antique dealer.",
@@ -206,6 +227,7 @@ return [
 },
 {
    title: "FAWLTY TOWERS: 1-4 The Hotel Inspectors",
+   shortName: "1-4 The Hotel Inspectors",
    urlLocal: "media/channel-2/Fawlty Towers/1-4 The Hotel Inspectors.m4v",
    length: 1728.6,
    description: "When Basil hears of hotel inspectors roaming Torquay incognito, he realises with horror that guests he has been abusing could easily be among them.",
@@ -213,6 +235,7 @@ return [
 },
 {
    title: "FAWLTY TOWERS: 1-5 Gourmet Night",
+   shortName: "1-5 Gourmet Night",
    urlLocal: "media/channel-2/Fawlty Towers/1-5 Gourmet Night.m4v",
    length: 1717.12,
    description: "In an effort to climb another rung in the social ladder, Basil arranges a gourmet night. Unfortunately, thanks to the chef's alcoholism, Basil must try to get hold of a duck from his friend, André.",
@@ -220,6 +243,7 @@ return [
 },
 {
    title: "FAWLTY TOWERS: 1-6 The Germans",
+   shortName: "1-6 The Germans",
    urlLocal: "media/channel-2/Fawlty Towers/1-6 The Germans.m4v",
    length: 1875.413,
    description: "With Sybil in the hospital with an ingrowing toenail, a moose's head to hang up and some German guests arriving the next day, Basil has his work cut out for him.",
@@ -227,6 +251,7 @@ return [
 },
 {
    title: "FAWLTY TOWERS: 2-1 Communication Problems",
+   shortName: "2-1 Communication Problems",
    urlLocal: "media/channel-2/Fawlty Towers/2-1 Communication Problems.m4v",
    length: 1884.757,
    description: "The arrival of the \"guest from hell\" — Mrs. Richards, a rather deaf, domineering and bad-tempered woman — interferes with Basil's attempts to prevent the money he won on a racehorse from being discovered by Sybil.",
@@ -234,6 +259,7 @@ return [
 },
 {
    title: "FAWLTY TOWERS: 2-2 The Psychiatrist",
+   shortName: "2-2 The Psychiatrist",
    urlLocal: "media/channel-2/Fawlty Towers/2-2 The Psychiatrist.m4v",
    length: 2178.709,
    description: "A psychiatrist and his wife come to the hotel for a weekend break, and cannot help but notice the eccentricities of their host, who is perturbed when he discovers their professions.",
@@ -241,6 +267,7 @@ return [
 },
 {
    title: "FAWLTY TOWERS: 2-3 Waldorf Salad",
+   shortName: "2-3 Waldorf Salad",
    urlLocal: "media/channel-2/Fawlty Towers/2-3 Waldorf Salad.m4v",
    length: 1922.986,
    description: "Basil is not altogether keen on a loud and demanding American guest who demands a higher class of service—and food—than Fawlty Towers is accustomed to providing.",
@@ -248,6 +275,7 @@ return [
 },
 {
    title: "FAWLTY TOWERS: 2-4 The Kipper and the Corpse",
+   shortName: "2-4 The Kipper and the Corpse",
    urlLocal: "media/channel-2/Fawlty Towers/2-4 The Kipper and the Corpse.m4v",
    length: 1893.269,
    description: "With no regard to Basil's blood pressure, a guest dies at the hotel and Basil and the staff are left with the unpleasant task of removing the body discreetly.",
@@ -255,6 +283,7 @@ return [
 },
 {
    title: "FAWLTY TOWERS: 2-5 The Anniversary",
+   shortName: "2-5 The Anniversary",
    urlLocal: "media/channel-2/Fawlty Towers/2-5 The Anniversary.m4v",
    length: 1747.989,
    description: "Basil invites some friends for a surprise wedding anniversary party, but Sybil assumes he has forgotten their anniversary and storms off, leaving her husband and Polly, in disguise, desperately telling the others she is 'ill'...",
@@ -262,6 +291,7 @@ return [
 },
 {
    title: "FAWLTY TOWERS: 2-6 Basil the Rat",
+   shortName: "2-6 Basil the Rat",
    urlLocal: "media/channel-2/Fawlty Towers/2-6 Basil the Rat.m4v",
    length: 2025.045,
    description: "The local health inspector notes and reads out a long list of hygiene infractions which the staff must rectify before his next visit, or else face closure. After Manuel's pet rat escapes from his cage and runs loose in the hotel, the staff must catch it b",
@@ -269,6 +299,7 @@ return [
 },
 {
    title: "GONE FISHING: 2020 Christmas Special",
+   shortName: "2020 Christmas Special",
    urlLocal: "media/channel-2/Gone Fishing/2020 Christmas Special.mp4",
    length: 3540.06,
    description: "Bob Mortimer and Paul Whitehouse return to Bob's childhood home of Middlesbrough.",
@@ -276,6 +307,7 @@ return [
 },
 {
    title: "GONE FISHING: 2021 Christmas Special",
+   shortName: "2021 Christmas Special",
    urlLocal: "media/channel-2/Gone Fishing/2021 Christmas Special.mp4",
    length: 3544.04,
    description: "Paul, Bob and Ted the dog travel to the north of England on a quest for an English salmon.",
@@ -283,6 +315,7 @@ return [
 },
 {
    title: "GONE FISHING: 2022 Christmas Special",
+   shortName: "2022 Christmas Special",
    urlLocal: "media/channel-2/Gone Fishing/2022 Christmas Special.mp4",
    length: 3553.04,
    description: "Bob and Paul travel overseas to Norway for their most spectacular fishing adventure yet.",
@@ -290,6 +323,7 @@ return [
 },
 {
    title: "GONE FISHING: 2023 Hogmanay Special",
+   shortName: "2023 Hogmanay Special",
    urlLocal: "media/channel-2/Gone Fishing/2023 Hogmanay Special.mp4",
    length: 3554.36,
    description: "Bob, Paul and Ted travel to Scotland to celebrate Hogmanay in spectacular style.",
@@ -297,461 +331,503 @@ return [
 },
 {
    title: "GONE FISHING: 2024 Christmas Special",
+   shortName: "2024 Christmas Special",
    urlLocal: "media/channel-2/Gone Fishing/2024 Christmas Special.mp4",
    length: 3561.04,
    description: "To celebrate another year of fishing, Paul and Bob visit the River Lot in France.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 1-1 The End",
-   urlLocal: "media/channel-2/Red Dwarf/1-1 The End.mp4",
+   title: "RED DWARF:  1-1 The End",
+   shortName: " 1-1 The End",
+   urlLocal: "media/channel-2/Red Dwarf/ 1-1 The End.mp4",
    length: 1800.04,
    description: "Red Dwarf is a mining ship with a crew of 169. Within 24 hours, 168 of them will be dead.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 1-2 Future Echos",
-   urlLocal: "media/channel-2/Red Dwarf/1-2 Future Echos.mp4",
+   title: "RED DWARF:  1-2 Future Echos",
+   shortName: " 1-2 Future Echos",
+   urlLocal: "media/channel-2/Red Dwarf/ 1-2 Future Echos.mp4",
    length: 1729.96,
    description: "Red Dwarf breaks the light barrier and Rimmer sees a death in the future.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 1-3 Balance of Power",
-   urlLocal: "media/channel-2/Red Dwarf/1-3 Balance of Power.mp4",
+   title: "RED DWARF:  1-3 Balance of Power",
+   shortName: " 1-3 Balance of Power",
+   urlLocal: "media/channel-2/Red Dwarf/ 1-3 Balance of Power.mp4",
    length: 1788.08,
    description: "Cult space comedy series. Lister wants to go on a date with a dead console officer.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 1-4 Waiting for God",
-   urlLocal: "media/channel-2/Red Dwarf/1-4 Waiting for God.mp4",
+   title: "RED DWARF:  1-4 Waiting for God",
+   shortName: " 1-4 Waiting for God",
+   urlLocal: "media/channel-2/Red Dwarf/ 1-4 Waiting for God.mp4",
    length: 1708.92,
    description: "Lister 'learns' Cat writing and discovers some startling facts.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 1-5 Confidence and Paranoia",
-   urlLocal: "media/channel-2/Red Dwarf/1-5 Confidence and Paranoia.mp4",
+   title: "RED DWARF:  1-5 Confidence and Paranoia",
+   shortName: " 1-5 Confidence and Paranoia",
+   urlLocal: "media/channel-2/Red Dwarf/ 1-5 Confidence and Paranoia.mp4",
    length: 1778.04,
    description: "Lister contracts a mutated form of pneumonia - and his hallucinations turn solid.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 1-6 Me Squared",
-   urlLocal: "media/channel-2/Red Dwarf/1-6 Me Squared.mp4",
+   title: "RED DWARF:  1-6 Me Squared",
+   shortName: " 1-6 Me Squared",
+   urlLocal: "media/channel-2/Red Dwarf/ 1-6 Me Squared.mp4",
    length: 1764.04,
    description: "Rimmer has discovered how to duplicate himself, and moves in with himself.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 2-1 Kryten",
-   urlLocal: "media/channel-2/Red Dwarf/2-1 Kryten.mp4",
+   title: "RED DWARF:  2-1 Kryten",
+   shortName: " 2-1 Kryten",
+   urlLocal: "media/channel-2/Red Dwarf/ 2-1 Kryten.mp4",
    length: 1695.04,
    description: "Things are fine aboard crashed spaceship Nova 5 until Red Dwarf answers its distress call",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 2-2 Better than Life",
-   urlLocal: "media/channel-2/Red Dwarf/2-2 Better than Life.mp4",
+   title: "RED DWARF:  2-2 Better than Life",
+   shortName: " 2-2 Better than Life",
+   urlLocal: "media/channel-2/Red Dwarf/ 2-2 Better than Life.mp4",
    length: 1767.04,
    description: "Rimmer and Lister find a computer game which plugs directly into the brain.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 2-3 Thanks for the Memory",
-   urlLocal: "media/channel-2/Red Dwarf/2-3 Thanks for the Memory.mp4",
+   title: "RED DWARF:  2-3 Thanks for the Memory",
+   shortName: " 2-3 Thanks for the Memory",
+   urlLocal: "media/channel-2/Red Dwarf/ 2-3 Thanks for the Memory.mp4",
    length: 1703.04,
    description: "Someone's erased four days of the crew's memory, broken Lister's leg and done the jigsaw.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 2-4 Stasis Leak",
-   urlLocal: "media/channel-2/Red Dwarf/2-4 Stasis Leak.mp4",
+   title: "RED DWARF:  2-4 Stasis Leak",
+   shortName: " 2-4 Stasis Leak",
+   urlLocal: "media/channel-2/Red Dwarf/ 2-4 Stasis Leak.mp4",
    length: 1791.04,
    description: "A leak from the suspended animation chamber has created a doorway to the past.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 2-5 Queeg",
-   urlLocal: "media/channel-2/Red Dwarf/2-5 Queeg.mp4",
+   title: "RED DWARF:  2-5 Queeg",
+   shortName: " 2-5 Queeg",
+   urlLocal: "media/channel-2/Red Dwarf/ 2-5 Queeg.mp4",
    length: 1778.36,
    description: "Holly's behaviour begins to endanger the ship so he's replaced by the back-up computer.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 2-6 Parallel Universe",
-   urlLocal: "media/channel-2/Red Dwarf/2-6 Parallel Universe.mp4",
+   title: "RED DWARF:  2-6 Parallel Universe",
+   shortName: " 2-6 Parallel Universe",
+   urlLocal: "media/channel-2/Red Dwarf/ 2-6 Parallel Universe.mp4",
    length: 1703.64,
    description: "Holly devises a faster-than-light drive that sends the crew into a parallel universe.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 3-1 Backwards",
-   urlLocal: "media/channel-2/Red Dwarf/3-1 Backwards.mp4",
+   title: "RED DWARF:  3-1 Backwards",
+   shortName: " 3-1 Backwards",
+   urlLocal: "media/channel-2/Red Dwarf/ 3-1 Backwards.mp4",
    length: 1639.72,
    description: "Lister and Rimmer finally arrive back on earth only to find time is behaving strangely.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 3-2 Marooned",
-   urlLocal: "media/channel-2/Red Dwarf/3-2 Marooned.mp4",
+   title: "RED DWARF:  3-2 Marooned",
+   shortName: " 3-2 Marooned",
+   urlLocal: "media/channel-2/Red Dwarf/ 3-2 Marooned.mp4",
    length: 1714.04,
    description: "Lister and Rimmer are stranded on a moon with only a pot noodle and a tin of dog food.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 3-3 Polymorph",
-   urlLocal: "media/channel-2/Red Dwarf/3-3 Polymorph.mp4",
+   title: "RED DWARF:  3-3 Polymorph",
+   shortName: " 3-3 Polymorph",
+   urlLocal: "media/channel-2/Red Dwarf/ 3-3 Polymorph.mp4",
    length: 1590.56,
    description: "A genetic mutant gets loose aboard the ship, leading to 24 hours of gruesome horror.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 3-4 Bodyswap",
-   urlLocal: "media/channel-2/Red Dwarf/3-4 Bodyswap.mp4",
+   title: "RED DWARF:  3-4 Bodyswap",
+   shortName: " 3-4 Bodyswap",
+   urlLocal: "media/channel-2/Red Dwarf/ 3-4 Bodyswap.mp4",
    length: 1603,
    description: "Rimmer convinces Lister that they should swap bodies for a fortnight.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 3-5 Timeslides",
-   urlLocal: "media/channel-2/Red Dwarf/3-5 Timeslides.mp4",
+   title: "RED DWARF:  3-5 Timeslides",
+   shortName: " 3-5 Timeslides",
+   urlLocal: "media/channel-2/Red Dwarf/ 3-5 Timeslides.mp4",
    length: 1663.28,
    description: "Kryten discovers some developing fluid which prints photographs the crew can walk into.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 3-6 The Last Day",
-   urlLocal: "media/channel-2/Red Dwarf/3-6 The Last Day.mp4",
+   title: "RED DWARF:  3-6 The Last Day",
+   shortName: " 3-6 The Last Day",
+   urlLocal: "media/channel-2/Red Dwarf/ 3-6 The Last Day.mp4",
    length: 1637.72,
    description: "Kryten discovers his in-built expiry date is only 24 hours away.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 4-1 Camille",
-   urlLocal: "media/channel-2/Red Dwarf/4-1 Camille.mp4",
+   title: "RED DWARF:  4-1 Camille",
+   shortName: " 4-1 Camille",
+   urlLocal: "media/channel-2/Red Dwarf/ 4-1 Camille.mp4",
    length: 1602.6,
    description: "Kryten falls in love at first sight but has his heart broken in the process.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 4-2 D.N.A",
-   urlLocal: "media/channel-2/Red Dwarf/4-2 D.N.A.mp4",
+   title: "RED DWARF:  4-2 D.N.A",
+   shortName: " 4-2 D.N.A",
+   urlLocal: "media/channel-2/Red Dwarf/ 4-2 D.N.A.mp4",
    length: 1667.6,
    description: "The crew encounter the ultimate in genetic engineering technology.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 4-3 Justice",
-   urlLocal: "media/channel-2/Red Dwarf/4-3 Justice.mp4",
+   title: "RED DWARF:  4-3 Justice",
+   shortName: " 4-3 Justice",
+   urlLocal: "media/channel-2/Red Dwarf/ 4-3 Justice.mp4",
    length: 1696.36,
    description: "The crew land up in 'Justice World', where a crime's consequences affect the perpetrator.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 4-4 White Hole",
-   urlLocal: "media/channel-2/Red Dwarf/4-4 White Hole.mp4",
+   title: "RED DWARF:  4-4 White Hole",
+   shortName: " 4-4 White Hole",
+   urlLocal: "media/channel-2/Red Dwarf/ 4-4 White Hole.mp4",
    length: 1648.48,
    description: "Holly leaves the crew drifting helplessly towards a white hole. Will Rimmer save the day?",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 4-5 Dimension Jump",
-   urlLocal: "media/channel-2/Red Dwarf/4-5 Dimension Jump.mp4",
+   title: "RED DWARF:  4-5 Dimension Jump",
+   shortName: " 4-5 Dimension Jump",
+   urlLocal: "media/channel-2/Red Dwarf/ 4-5 Dimension Jump.mp4",
    length: 1720.32,
    description: "In a parallel universe, an Arnold Rimmer exists who's charming, popular, brave and modest",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 4-6 Meltdown",
-   urlLocal: "media/channel-2/Red Dwarf/4-6 Meltdown.mp4",
+   title: "RED DWARF:  4-6 Meltdown",
+   shortName: " 4-6 Meltdown",
+   urlLocal: "media/channel-2/Red Dwarf/ 4-6 Meltdown.mp4",
    length: 1583.04,
    description: "A transporter whisks the crew to 'Waxworld' - a theme park where things are going wrong.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 5-1 Holoship",
-   urlLocal: "media/channel-2/Red Dwarf/5-1 Holoship.mp4",
+   title: "RED DWARF:  5-1 Holoship",
+   shortName: " 5-1 Holoship",
+   urlLocal: "media/channel-2/Red Dwarf/ 5-1 Holoship.mp4",
    length: 1671.2,
    description: "Rimmer is transmitted from Red Dwarf to the advanced holoship Enlightenment.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 5-2 The Inquisitor",
-   urlLocal: "media/channel-2/Red Dwarf/5-2 The Inquisitor.mp4",
+   title: "RED DWARF:  5-2 The Inquisitor",
+   shortName: " 5-2 The Inquisitor",
+   urlLocal: "media/channel-2/Red Dwarf/ 5-2 The Inquisitor.mp4",
    length: 1691.76,
    description: "The Inquisitor roams through time, weeding out life's wastrels and deleting the worthless",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 5-3 Terrorform",
-   urlLocal: "media/channel-2/Red Dwarf/5-3 Terrorform.mp4",
+   title: "RED DWARF:  5-3 Terrorform",
+   shortName: " 5-3 Terrorform",
+   urlLocal: "media/channel-2/Red Dwarf/ 5-3 Terrorform.mp4",
    length: 1627.44,
    description: "Rimmer is taken prisoner in his own mind.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 5-4 Quarantine",
-   urlLocal: "media/channel-2/Red Dwarf/5-4 Quarantine.mp4",
+   title: "RED DWARF:  5-4 Quarantine",
+   shortName: " 5-4 Quarantine",
+   urlLocal: "media/channel-2/Red Dwarf/ 5-4 Quarantine.mp4",
    length: 1697.68,
    description: "Rimmer forces the crew to spend 12 weeks in quarantine.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 5-5 Demons and Angels",
-   urlLocal: "media/channel-2/Red Dwarf/5-5 Demons and Angels.mp4",
+   title: "RED DWARF:  5-5 Demons and Angels",
+   shortName: " 5-5 Demons and Angels",
+   urlLocal: "media/channel-2/Red Dwarf/ 5-5 Demons and Angels.mp4",
    length: 1612.12,
    description: "The Red Dwarf crew create good an evil doppelgängers of themselves.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 5-6 Back to Reality",
-   urlLocal: "media/channel-2/Red Dwarf/5-6 Back to Reality.mp4",
+   title: "RED DWARF:  5-6 Back to Reality",
+   shortName: " 5-6 Back to Reality",
+   urlLocal: "media/channel-2/Red Dwarf/ 5-6 Back to Reality.mp4",
    length: 1638.12,
    description: "The crew of Red Dwarf discover an abandoned space ship on an ocean bed.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 6-1 Psirens",
-   urlLocal: "media/channel-2/Red Dwarf/6-1 Psirens.mp4",
+   title: "RED DWARF:  6-1 Psirens",
+   shortName: " 6-1 Psirens",
+   urlLocal: "media/channel-2/Red Dwarf/ 6-1 Psirens.mp4",
    length: 1735.76,
    description: "The crew awake after 200 years in suspended animation to find the ship has been stolen.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 6-2 Legion",
-   urlLocal: "media/channel-2/Red Dwarf/6-2 Legion.mp4",
+   title: "RED DWARF:  6-2 Legion",
+   shortName: " 6-2 Legion",
+   urlLocal: "media/channel-2/Red Dwarf/ 6-2 Legion.mp4",
    length: 1694.8,
    description: "With supplies running low, the crew find themselves dragged to a deserted space station.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 6-3 Gunmen of the Apocalypse",
-   urlLocal: "media/channel-2/Red Dwarf/6-3 Gunmen of the Apocalypse.mp4",
+   title: "RED DWARF:  6-3 Gunmen of the Apocalypse",
+   shortName: " 6-3 Gunmen of the Apocalypse",
+   urlLocal: "media/channel-2/Red Dwarf/ 6-3 Gunmen of the Apocalypse.mp4",
    length: 1730.04,
    description: "Kryten contracts a computer virus, so the crew must enter his electronic mindscape.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 6-4 Emohawk Polymorph II",
-   urlLocal: "media/channel-2/Red Dwarf/6-4 Emohawk Polymorph II.mp4",
+   title: "RED DWARF:  6-4 Emohawk Polymorph II",
+   shortName: " 6-4 Emohawk Polymorph II",
+   urlLocal: "media/channel-2/Red Dwarf/ 6-4 Emohawk Polymorph II.mp4",
    length: 1698.44,
    description: "The crew need replacement engine parts from the fearsome Kinatowi clan.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 6-5 Rimmerworld",
-   urlLocal: "media/channel-2/Red Dwarf/6-5 Rimmerworld.mp4",
+   title: "RED DWARF:  6-5 Rimmerworld",
+   shortName: " 6-5 Rimmerworld",
+   urlLocal: "media/channel-2/Red Dwarf/ 6-5 Rimmerworld.mp4",
    length: 1702,
    description: "After escaping a disintegrating ship, Rimmer's pod is sucked into a wormhole in time.",
    displayParams: [1280, 720]
 },
 {
-   title: "RED DWARF: 6-6 Out of Time",
-   urlLocal: "media/channel-2/Red Dwarf/6-6 Out of Time.mp4",
+   title: "RED DWARF:  6-6 Out of Time",
+   shortName: " 6-6 Out of Time",
+   urlLocal: "media/channel-2/Red Dwarf/ 6-6 Out of Time.mp4",
    length: 1705.48,
    description: "The crew encounter several unreality bubbles.",
    displayParams: [1280, 720]
 },
 {
-   title: "RETRO COMPUTING: Micro Men",
-   urlLocal: "media/channel-2/Retro Computing/Micro Men.mov",
-   length: 5112.2,
-   description: "",
-   displayParams: [480, 272]
+   title: "THE FAST SHOW: 1-1",
+   shortName: "1-1",
+   urlLocal: "media/channel-2/The Fast Show/1-1.mp4",
+   length: 1738.496,
+   description: "The first ever episode of the sketch show.",
+   displayParams: [1280, 720]
 },
 {
-   title: "RETRO COMPUTING: Micro News",
-   urlLocal: "media/channel-2/Retro Computing/Micro News.m4v",
-   length: 1617.84,
-   description: "",
-   displayParams: [480, 272]
+   title: "THE FAST SHOW: 1-2",
+   shortName: "1-2",
+   urlLocal: "media/channel-2/The Fast Show/1-2.mp4",
+   length: 1740.501,
+   description: "Character-based comedy sketches with Paul Whitehouse, Charlie Higson and friends.",
+   displayParams: [1280, 720]
 },
 {
-   title: "RETRO COMPUTING: MTMOTM - At the End of the Line",
-   urlLocal: "media/channel-2/Retro Computing/MTMOTM - At the End of the Line.mp4",
-   length: 1459.05,
-   description: "",
-   displayParams: [764, 576]
+   title: "THE FAST SHOW: 1-3",
+   shortName: "1-3",
+   urlLocal: "media/channel-2/The Fast Show/1-3.mp4",
+   length: 1741.482,
+   description: "Character-based sketch show, featuring Professor Denzil Dexter and the Off Roaders.",
+   displayParams: [1280, 720]
 },
 {
-   title: "RETRO COMPUTING: MTMOTM - Everything Under Control",
-   urlLocal: "media/channel-2/Retro Computing/MTMOTM - Everything Under Control.mp4",
-   length: 1469.055,
-   description: "",
-   displayParams: [768, 576]
+   title: "THE FAST SHOW: 1-4",
+   shortName: "1-4",
+   urlLocal: "media/channel-2/The Fast Show/1-4.mp4",
+   length: 1741.482,
+   description: "Paul Whitehouse and Charlie Higson present some of our favourite comedy characters.",
+   displayParams: [1280, 720]
 },
 {
-   title: "RETRO COMPUTING: MTMOTM - Getting Down to Basics",
-   urlLocal: "media/channel-2/Retro Computing/MTMOTM - Getting Down to Basics.mp4",
-   length: 1455.06,
-   description: "",
-   displayParams: [770, 576]
+   title: "THE FAST SHOW: 1-5",
+   shortName: "1-5",
+   urlLocal: "media/channel-2/The Fast Show/1-5.mp4",
+   length: 1739.498,
+   description: "Featuring Ron Manager, Ed Winchester and Roy and Renee, the train passengers from hell.",
+   displayParams: [1280, 720]
 },
 {
-   title: "RETRO COMPUTING: MTMOTM - Getting Down to Business",
-   urlLocal: "media/channel-2/Retro Computing/MTMOTM - Getting Down to Business.mp4",
-   length: 1465.044,
-   description: "",
-   displayParams: [764, 572]
+   title: "THE FAST SHOW: 1-6",
+   shortName: "1-6",
+   urlLocal: "media/channel-2/The Fast Show/1-6.mp4",
+   length: 1739.04,
+   description: "There's a look at war films in the sketch 'Scenes from the Movies'.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: MTMOTM - Introducing Graphics",
-   urlLocal: "media/channel-2/Retro Computing/MTMOTM - Introducing Graphics.mp4",
-   length: 1439.06,
-   description: "",
-   displayParams: [766, 576]
+   title: "THE FAST SHOW: 2-1",
+   shortName: "2-1",
+   urlLocal: "media/channel-2/The Fast Show/2-1.mp4",
+   length: 1740.04,
+   description: "Competitive Dad and Chris the Crafty Cockney join the familiar comic faces.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: MTMOTM - Keeping a Record",
-   urlLocal: "media/channel-2/Retro Computing/MTMOTM - Keeping a Record.mp4",
-   length: 1455.06,
-   description: "",
-   displayParams: [758, 572]
+   title: "THE FAST SHOW: 2-2",
+   shortName: "2-2",
+   urlLocal: "media/channel-2/The Fast Show/2-2.mp4",
+   length: 1743.04,
+   description: "Featuring an appearance by snooker star Steve Davis.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: MTMOTM - Moving Pictures",
-   urlLocal: "media/channel-2/Retro Computing/MTMOTM - Moving Pictures.mp4",
-   length: 1446.058,
-   description: "",
-   displayParams: [754, 576]
+   title: "THE FAST SHOW: 2-3",
+   shortName: "2-3",
+   urlLocal: "media/channel-2/The Fast Show/2-3.mp4",
+   length: 1756.04,
+   description: "Featuring rare footage of Arthur Atkinson recording his wartime radio show 'How Queer!'.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: MTMOTM - Sounds Interesting",
-   urlLocal: "media/channel-2/Retro Computing/MTMOTM - Sounds Interesting.mp4",
-   length: 1429.055,
-   description: "",
-   displayParams: [766, 576]
+   title: "THE FAST SHOW: 2-4",
+   shortName: "2-4",
+   urlLocal: "media/channel-2/The Fast Show/2-4.mp4",
+   length: 1746.04,
+   description: "Featuring the world's world's worst casino croupier.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: MTMOTM - Strings and Things",
-   urlLocal: "media/channel-2/Retro Computing/MTMOTM - Strings and Things.mp4",
-   length: 1463.06,
-   description: "",
-   displayParams: [758, 576]
+   title: "THE FAST SHOW: 2-5",
+   shortName: "2-5",
+   urlLocal: "media/channel-2/The Fast Show/2-5.mp4",
+   length: 1745.04,
+   description: "Featuring Unlucky Alf, who attempts to propose to his loved one.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: MTMOTM - The Versatile Machine",
-   urlLocal: "media/channel-2/Retro Computing/MTMOTM - The Versatile Machine.mp4",
-   length: 1456.042,
-   description: "",
-   displayParams: [758, 576]
+   title: "THE FAST SHOW: 2-6",
+   shortName: "2-6",
+   urlLocal: "media/channel-2/The Fast Show/2-6.mp4",
+   length: 1743.04,
+   description: "Featuring drama with Monkfish and more music from jazz club.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: MTMOTM Live Special 1",
-   urlLocal: "media/channel-2/Retro Computing/MTMOTM Live Special 1.mp4",
-   length: 6886.058,
-   description: "",
-   displayParams: [766, 576]
+   title: "THE FAST SHOW: 2-7",
+   shortName: "2-7",
+   urlLocal: "media/channel-2/The Fast Show/2-7.mp4",
+   length: 1740.04,
+   description: "The world's crudest salesman visits a fashion show and competitive Dad plays Monoploy.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: MTMOTM Live Special 2",
-   urlLocal: "media/channel-2/Retro Computing/MTMOTM Live Special 2.mp4",
-   length: 3612.052,
-   description: "",
-   displayParams: [764, 576]
+   title: "THE FAST SHOW: 3-1",
+   shortName: "3-1",
+   urlLocal: "media/channel-2/The Fast Show/3-1.mp4",
+   length: 1681.04,
+   description: "Old favourites return, joined by characters like Swiss Toni, Chip Cobb and Dave Angel.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: The Computer Programme - In Control",
-   urlLocal: "media/channel-2/Retro Computing/The Computer Programme - In Control.mp4",
-   length: 1474.047,
-   description: "",
-   displayParams: [764, 576]
+   title: "THE FAST SHOW: 3-2",
+   shortName: "3-2",
+   urlLocal: "media/channel-2/The Fast Show/3-2.mp4",
+   length: 1729.04,
+   description: "Johnny Gosling and Mister Kipling make their first appearances.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: The Computer Programme - It's Happening Now",
-   urlLocal: "media/channel-2/Retro Computing/The Computer Programme - It's Happening Now.mp4",
-   length: 1491.05,
-   description: "",
-   displayParams: [758, 576]
+   title: "THE FAST SHOW: 3-3",
+   shortName: "3-3",
+   urlLocal: "media/channel-2/The Fast Show/3-3.mp4",
+   length: 1734.24,
+   description: "The Suits You Sir tailors take on a young assistant and Unlucky Alf visits a fairground.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: The Computer Programme - It's on the Computer",
-   urlLocal: "media/channel-2/Retro Computing/The Computer Programme - It's on the Computer.mp4",
-   length: 1479.06,
-   description: "",
-   displayParams: [764, 576]
+   title: "THE FAST SHOW: 3-4",
+   shortName: "3-4",
+   urlLocal: "media/channel-2/The Fast Show/3-4.mp4",
+   length: 1735.04,
+   description: "More fast moving character comedy sketches from Paul Whitehouse, Charlie Higson and co.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: The Computer Programme - Just One Thing After Another",
-   urlLocal: "media/channel-2/Retro Computing/The Computer Programme - Just One Thing After Another.mp4",
-   length: 1493.055,
-   description: "",
-   displayParams: [768, 576]
+   title: "THE FAST SHOW: 3-5",
+   shortName: "3-5",
+   urlLocal: "media/channel-2/The Fast Show/3-5.mp4",
+   length: 1737.04,
+   description: "Channel Nine hosts a TV awards ceremony and the Suist You Sir tailors get a comeuppance.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: The Computer Programme - Lets Pretend",
-   urlLocal: "media/channel-2/Retro Computing/The Computer Programme - Lets Pretend.mp4",
-   length: 1472.042,
-   description: "",
-   displayParams: [758, 576]
+   title: "THE FAST SHOW: 3-6",
+   shortName: "3-6",
+   urlLocal: "media/channel-2/The Fast Show/3-6.mp4",
+   length: 1735.04,
+   description: "Unlucky Alf is held hostage by his home appliances.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: The Computer Programme - Moving Pictures",
-   urlLocal: "media/channel-2/Retro Computing/The Computer Programme - Moving Pictures.mp4",
-   length: 1477.055,
-   description: "",
-   displayParams: [762, 576]
+   title: "THE FAST SHOW: 3-7",
+   shortName: "3-7",
+   urlLocal: "media/channel-2/The Fast Show/3-7.mp4",
+   length: 1743.04,
+   description: "Ron Manager is confused by the concept of a female sports anchor person.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: The Computer Programme - Talking to a Machine",
-   urlLocal: "media/channel-2/Retro Computing/The Computer Programme - Talking to a Machine.mp4",
-   length: 1463.06,
-   description: "",
-   displayParams: [766, 576]
+   title: "THE FAST SHOW: 3-8",
+   shortName: "3-8",
+   urlLocal: "media/channel-2/The Fast Show/3-8.mp4",
+   length: 1786.04,
+   description: "The Off Roaders go white-water rafting and Rowley Birkin presents a slide show.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: The Computer Programme - The New Media",
-   urlLocal: "media/channel-2/Retro Computing/The Computer Programme - The New Media.mp4",
-   length: 1452.052,
-   description: "",
-   displayParams: [766, 576]
+   title: "THE FAST SHOW: Christmas Special",
+   shortName: "Christmas Special",
+   urlLocal: "media/channel-2/The Fast Show/Christmas Special.mp4",
+   length: 2506.496,
+   description: "Festive edition of the comedy sketch show.",
+   displayParams: [1280, 720]
 },
 {
-   title: "RETRO COMPUTING: The Computer Programme - The Thinking Machine",
-   urlLocal: "media/channel-2/Retro Computing/The Computer Programme - The Thinking Machine.mp4",
-   length: 1470.058,
-   description: "",
-   displayParams: [768, 576]
+   title: "THE FAST SHOW: Last Fast Show 1",
+   shortName: "Last Fast Show 1",
+   urlLocal: "media/channel-2/The Fast Show/Last Fast Show 1.mp4",
+   length: 2348.04,
+   description: "A festive farewell to the Fast Show begins with a guest appearance by Johnny Depp.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: The Computer Programme - Things to Come",
-   urlLocal: "media/channel-2/Retro Computing/The Computer Programme - Things to Come.mp4",
-   length: 1457.044,
-   description: "",
-   displayParams: [766, 576]
+   title: "THE FAST SHOW: Last Fast Show 2",
+   shortName: "Last Fast Show 2",
+   urlLocal: "media/channel-2/The Fast Show/Last Fast Show 2.mp4",
+   length: 2021.76,
+   description: "Featuring some nice Cuban jazz and Swiss Toni's explanation of fishing.",
+   displayParams: [960, 540]
 },
 {
-   title: "RETRO COMPUTING: The Silicon Factor - And What of the Future",
-   urlLocal: "media/channel-2/Retro Computing/The Silicon Factor - And What of the Future.mp4",
-   length: 2372.052,
-   description: "",
-   displayParams: [734, 570]
-},
-{
-   title: "RETRO COMPUTING: The Silicon Factor - Sink or Swim",
-   urlLocal: "media/channel-2/Retro Computing/The Silicon Factor - Sink or Swim.mp4",
-   length: 2348.052,
-   description: "",
-   displayParams: [752, 568]
-},
-{
-   title: "RETRO COMPUTING: The Silicon Factor - So What's It All about",
-   urlLocal: "media/channel-2/Retro Computing/The Silicon Factor - So What's It All about.mp4",
-   length: 2368.255,
-   description: "",
-   displayParams: [752, 568]
-},
-{
-   title: "RETRO COMPUTING: The Trojan Mouse - Retrospective on the Project",
-   urlLocal: "media/channel-2/Retro Computing/The Trojan Mouse - Retrospective on the Project.mp4",
-   length: 1756.052,
-   description: "",
-   displayParams: [758, 576]
+   title: "THE FAST SHOW: Last Fast Show 3",
+   shortName: "Last Fast Show 3",
+   urlLocal: "media/channel-2/The Fast Show/Last Fast Show 3.mp4",
+   length: 2334.04,
+   description: "The last episode of supposedly the last Fast Show series ever.",
+   displayParams: [960, 540]
 },
 {
    title: "THE HITCHHIKER'S GUIDE TO THE GALAXY: Episode 1",
+   shortName: "Episode 1",
    urlLocal: "media/channel-2/The Hitchhiker's Guide to the Galaxy/Episode 1.mp4",
    length: 1972.68,
    description: "",
@@ -759,6 +835,7 @@ return [
 },
 {
    title: "THE HITCHHIKER'S GUIDE TO THE GALAXY: Episode 2",
+   shortName: "Episode 2",
    urlLocal: "media/channel-2/The Hitchhiker's Guide to the Galaxy/Episode 2.mp4",
    length: 2095.16,
    description: "",
@@ -766,6 +843,7 @@ return [
 },
 {
    title: "THE HITCHHIKER'S GUIDE TO THE GALAXY: Episode 3",
+   shortName: "Episode 3",
    urlLocal: "media/channel-2/The Hitchhiker's Guide to the Galaxy/Episode 3.mp4",
    length: 1862.44,
    description: "",
@@ -773,6 +851,7 @@ return [
 },
 {
    title: "THE HITCHHIKER'S GUIDE TO THE GALAXY: Episode 4",
+   shortName: "Episode 4",
    urlLocal: "media/channel-2/The Hitchhiker's Guide to the Galaxy/Episode 4.mp4",
    length: 1941.04,
    description: "",
@@ -780,6 +859,7 @@ return [
 },
 {
    title: "THE HITCHHIKER'S GUIDE TO THE GALAXY: Episode 5",
+   shortName: "Episode 5",
    urlLocal: "media/channel-2/The Hitchhiker's Guide to the Galaxy/Episode 5.mp4",
    length: 1972.4,
    description: "",
@@ -787,6 +867,7 @@ return [
 },
 {
    title: "THE HITCHHIKER'S GUIDE TO THE GALAXY: Episode 6",
+   shortName: "Episode 6",
    urlLocal: "media/channel-2/The Hitchhiker's Guide to the Galaxy/Episode 6.mp4",
    length: 2144.72,
    description: "",
@@ -794,6 +875,7 @@ return [
 },
 {
    title: "YES MINISTER: 1-1 Open Government",
+   shortName: "1-1 Open Government",
    urlLocal: "media/channel-2/Yes Minister/1-1 Open Government.mp4",
    length: 1739.882,
    description: "First episode of the acclaimed sitcom about a hapless British government minister.",
@@ -801,6 +883,7 @@ return [
 },
 {
    title: "YES MINISTER: 1-2 The Official Visit",
+   shortName: "1-2 The Official Visit",
    urlLocal: "media/channel-2/Yes Minister/1-2 The Official Visit.mp4",
    length: 1694.89,
    description: "Hacker recognises a visiting head of an African nation as an old friend.",
@@ -808,6 +891,7 @@ return [
 },
 {
    title: "YES MINISTER: 1-3 The Economy Drive",
+   shortName: "1-3 The Economy Drive",
    urlLocal: "media/channel-2/Yes Minister/1-3 The Economy Drive.mp4",
    length: 1709.888,
    description: "Jim Hacker wants to implement some cost-cutting initiatives; Sir Humphrey does not.",
@@ -815,6 +899,7 @@ return [
 },
 {
    title: "YES MINISTER: 1-4 Big Brother",
+   shortName: "1-4 Big Brother",
    urlLocal: "media/channel-2/Yes Minister/1-4 Big Brother.mp4",
    length: 1750.89,
    description: "Jim tries to implement a privacy safeguard for a new national computer database.",
@@ -822,6 +907,7 @@ return [
 },
 {
    title: "YES MINISTER: 1-5 The Writing on the Wall",
+   shortName: "1-5 The Writing on the Wall",
    urlLocal: "media/channel-2/Yes Minister/1-5 The Writing on the Wall.mp4",
    length: 1658.901,
    description: "Jim Hacker MP and Sir Humphrey learn of a plan that threatens them both.",
@@ -829,6 +915,7 @@ return [
 },
 {
    title: "YES MINISTER: 1-6 The Right to Know",
+   shortName: "1-6 The Right to Know",
    urlLocal: "media/channel-2/Yes Minister/1-6 The Right to Know.mp4",
    length: 1766.89,
    description: "Should ministers ever be kept in the dark? Jim Hacker is not so sure.",
@@ -836,6 +923,7 @@ return [
 },
 {
    title: "YES MINISTER: 1-7 Jobs for the Boys",
+   shortName: "1-7 Jobs for the Boys",
    urlLocal: "media/channel-2/Yes Minister/1-7 Jobs for the Boys.mp4",
    length: 1738.901,
    description: "Sir Humphrey is being very evasive about a departmental project that has run into trouble.",
@@ -843,6 +931,7 @@ return [
 },
 {
    title: "YES MINISTER: 2-1 The Compassionate Society",
+   shortName: "2-1 The Compassionate Society",
    urlLocal: "media/channel-2/Yes Minister/2-1 The Compassionate Society.mp4",
    length: 1764.885,
    description: "Minister for administrative affairs Jim Hacker struggles to cut administrative staff.",
@@ -850,6 +939,7 @@ return [
 },
 {
    title: "YES MINISTER: 2-2 Doing the Honours",
+   shortName: "2-2 Doing the Honours",
    urlLocal: "media/channel-2/Yes Minister/2-2 Doing the Honours.mp4",
    length: 1707.88,
    description: "Sir Humphrey retaliates when Hacker plans to block honours for spendthrift civil servants.",
@@ -857,6 +947,7 @@ return [
 },
 {
    title: "YES MINISTER: 2-3 The Death List",
+   shortName: "2-3 The Death List",
    urlLocal: "media/channel-2/Yes Minister/2-3 The Death List.mp4",
    length: 1766.88,
    description: "Hacker learns that his department supplies the government with its surveillance equipment.",
@@ -864,6 +955,7 @@ return [
 },
 {
    title: "YES MINISTER: 2-4 The Greasy Pole",
+   shortName: "2-4 The Greasy Pole",
    urlLocal: "media/channel-2/Yes Minister/2-4 The Greasy Pole.mp4",
    length: 1778.88,
    description: "Jim Hacker finds himself in the middle of a row over a chemical corporation's new factory.",
@@ -871,6 +963,7 @@ return [
 },
 {
    title: "YES MINISTER: 2-5 The Devil You Know",
+   shortName: "2-5 The Devil You Know",
    urlLocal: "media/channel-2/Yes Minister/2-5 The Devil You Know.mp4",
    length: 1779.88,
    description: "Rumours of a cabinet reshuffle force Jim Hacker to take drastic action to keep his post.",
@@ -878,6 +971,7 @@ return [
 },
 {
    title: "YES MINISTER: 2-6 The Quality of Life",
+   shortName: "2-6 The Quality of Life",
    urlLocal: "media/channel-2/Yes Minister/2-6 The Quality of Life.mp4",
    length: 1754.88,
    description: "Having promised to save a city farm from closure, Hacker calls on Sir Humphrey for help.",
@@ -885,6 +979,7 @@ return [
 },
 {
    title: "YES MINISTER: 2-7 A Question of Loyalty",
+   shortName: "2-7 A Question of Loyalty",
    urlLocal: "media/channel-2/Yes Minister/2-7 A Question of Loyalty.mp4",
    length: 1727.88,
    description: "Jim and Sir Humphrey appear before a select committee looking into government expenditure.",
@@ -892,6 +987,7 @@ return [
 },
 {
    title: "YES MINISTER: 3-1 Equal Opportunities",
+   shortName: "3-1 Equal Opportunities",
    urlLocal: "media/channel-2/Yes Minister/3-1 Equal Opportunities.mp4",
    length: 1720.88,
    description: "Jim Hacker wants more women in higher governmental posts, but Sir Humphrey does not agree.",
@@ -899,6 +995,7 @@ return [
 },
 {
    title: "YES MINISTER: 3-2 The Challenge",
+   shortName: "3-2 The Challenge",
    urlLocal: "media/channel-2/Yes Minister/3-2 The Challenge.mp4",
    length: 1822.88,
    description: "Jim Hacker is interrogated on local civil defence by a tenacious television interviewer.",
@@ -906,6 +1003,7 @@ return [
 },
 {
    title: "YES MINISTER: 3-3 The Skeleton in the Cupboard",
+   shortName: "3-3 The Skeleton in the Cupboard",
    urlLocal: "media/channel-2/Yes Minister/3-3 The Skeleton in the Cupboard.mp4",
    length: 1810.88,
    description: "A normally efficient local council is late with some paperwork.",
@@ -913,6 +1011,7 @@ return [
 },
 {
    title: "YES MINISTER: 3-4 The Moral Dimension",
+   shortName: "3-4 The Moral Dimension",
    urlLocal: "media/channel-2/Yes Minister/3-4 The Moral Dimension.mp4",
    length: 1719.893,
    description: "Jim Hacker has to balance conflicting moral demands when he travels to Qumran.",
@@ -920,6 +1019,7 @@ return [
 },
 {
    title: "YES MINISTER: 3-5 The Bed of Nails",
+   shortName: "3-5 The Bed of Nails",
    urlLocal: "media/channel-2/Yes Minister/3-5 The Bed of Nails.mp4",
    length: 1761.88,
    description: "Jim is handed responsibility for developing an integrated national transport policy.",
@@ -927,6 +1027,7 @@ return [
 },
 {
    title: "YES MINISTER: 3-6 The Whisky Priest",
+   shortName: "3-6 The Whisky Priest",
    urlLocal: "media/channel-2/Yes Minister/3-6 The Whisky Priest.mp4",
    length: 1776.88,
    description: "Jim is made aware of information regarding the sale of British arms to terrorist groups.",
@@ -934,6 +1035,7 @@ return [
 },
 {
    title: "YES MINISTER: 3-7 The Middle-Class Rip-Off",
+   shortName: "3-7 The Middle-Class Rip-Off",
    urlLocal: "media/channel-2/Yes Minister/3-7 The Middle-Class Rip-Off.mp4",
    length: 1794.88,
    description: "Jim Hacker supports the sale of an art gallery to help fund an ailing local football club.",
@@ -941,6 +1043,7 @@ return [
 },
 {
    title: "YES MINISTER: 3-8 Party Games",
+   shortName: "3-8 Party Games",
    urlLocal: "media/channel-2/Yes Minister/3-8 Party Games.mp4",
    length: 3648.88,
    description: "The seasonal festivities are overshadowed by rumours of a cabinet reshuffle.",
@@ -948,6 +1051,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 1-1 The Grand Design",
+   shortName: "1-1 The Grand Design",
    urlLocal: "media/channel-2/Yes Prime Minister/1-1 The Grand Design.mp4",
    length: 1774.933,
    description: "Jim Hacker discovers some interesting facts about the UK's defence system.",
@@ -955,6 +1059,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 1-2 The Ministerial Broadcast",
+   shortName: "1-2 The Ministerial Broadcast",
    urlLocal: "media/channel-2/Yes Prime Minister/1-2 The Ministerial Broadcast.mp4",
    length: 1766.933,
    description: "Hacker prepares to make his first broadcast as prime minister.",
@@ -962,6 +1067,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 1-3 The Smoke Screen",
+   shortName: "1-3 The Smoke Screen",
    urlLocal: "media/channel-2/Yes Prime Minister/1-3 The Smoke Screen.mp4",
    length: 1767.936,
    description: "Jim Hacker threatens smokers with tax rises as part of a ploy to get around the Treasury.",
@@ -969,6 +1075,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 1-4 The Key",
+   shortName: "1-4 The Key",
    urlLocal: "media/channel-2/Yes Prime Minister/1-4 The Key.mp4",
    length: 1763.925,
    description: "The PM's political advisor tells Jim that he is letting Humphrey become too dominant.",
@@ -976,6 +1083,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 1-5 A Real Partnership",
+   shortName: "1-5 A Real Partnership",
    urlLocal: "media/channel-2/Yes Prime Minister/1-5 A Real Partnership.mp4",
    length: 1795.925,
    description: "The government runs into a financial crisis just as MPs are due for a pay rise.",
@@ -983,6 +1091,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 1-6 A Victory for Democracy",
+   shortName: "1-6 A Victory for Democracy",
    urlLocal: "media/channel-2/Yes Prime Minister/1-6 A Victory for Democracy.m4v",
    length: 1816.192,
    description: "Hacker has difficulty discovering if the Foreign Office is there to carry out government policy or vice versa.",
@@ -990,6 +1099,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 1-7 The Bishops Gambit",
+   shortName: "1-7 The Bishops Gambit",
    urlLocal: "media/channel-2/Yes Prime Minister/1-7 The Bishops Gambit.mp4",
    length: 1821.93,
    description: "Jim is not keen on the candidates for a bishopric, and Humphrey has someone else in mind.",
@@ -997,6 +1107,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 1-8 One of Us",
+   shortName: "1-8 One of Us",
    urlLocal: "media/channel-2/Yes Prime Minister/1-8 One of Us.mp4",
    length: 1771.925,
    description: "The late former head of MI5 is confirmed as a Russian spy who was cleared by Sir Humphrey.",
@@ -1004,6 +1115,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 2-1 Man Overboard",
+   shortName: "2-1 Man Overboard",
    urlLocal: "media/channel-2/Yes Prime Minister/2-1 Man Overboard.mp4",
    length: 1799.936,
    description: "Jim backs the relocation of military units to make the unemployment figures look better.",
@@ -1011,6 +1123,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 2-2 Official Secrets",
+   shortName: "2-2 Official Secrets",
    urlLocal: "media/channel-2/Yes Prime Minister/2-2 Official Secrets.mp4",
    length: 1804.928,
    description: "The press learns of Hacker's attempts to suppress a chapter of his predecessor's memoirs.",
@@ -1018,6 +1131,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 2-3 A Diplomatic Incident",
+   shortName: "2-3 A Diplomatic Incident",
    urlLocal: "media/channel-2/Yes Prime Minister/2-3 A Diplomatic Incident.mp4",
    length: 1685.93,
    description: "Jim discovers the French plan to gain political advantage over the Channel Tunnel borders.",
@@ -1025,6 +1139,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 2-4 A Conflict of Interest",
+   shortName: "2-4 A Conflict of Interest",
    urlLocal: "media/channel-2/Yes Prime Minister/2-4 A Conflict of Interest.mp4",
    length: 1801.941,
    description: "Jim and Sir Humphrey clash over who should become the new governor of the Bank of England.",
@@ -1032,6 +1147,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 2-5 Power to the People",
+   shortName: "2-5 Power to the People",
    urlLocal: "media/channel-2/Yes Prime Minister/2-5 Power to the People.mp4",
    length: 1828.928,
    description: "Jim Hacker meets a local councillor who has some radical ideas about local government.",
@@ -1039,6 +1155,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 2-6 The Patron of the Arts",
+   shortName: "2-6 The Patron of the Arts",
    urlLocal: "media/channel-2/Yes Prime Minister/2-6 The Patron of the Arts.mp4",
    length: 1682.922,
    description: "Sir Humphrey tells a friend in the arts that the government is planning to cut grants.",
@@ -1046,6 +1163,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 2-7 The National Education Service",
+   shortName: "2-7 The National Education Service",
    urlLocal: "media/channel-2/Yes Prime Minister/2-7 The National Education Service.mp4",
    length: 1800.938,
    description: "Hacker's decision to abolish the Department of Education and Science appals Sir Humphrey.",
@@ -1053,6 +1171,7 @@ return [
 },
 {
    title: "YES PRIME MINISTER: 2-8 The Tangled Web",
+   shortName: "2-8 The Tangled Web",
    urlLocal: "media/channel-2/Yes Prime Minister/2-8 The Tangled Web.mp4",
    length: 1694.88,
    description: "Hacker denies that MPs' phones are tapped, only to be told by Sir Humphrey that they are.",

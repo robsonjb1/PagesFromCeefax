@@ -2,20 +2,25 @@ import { starCat as ch1cat} from "./cat-channel-1.js";
 import { starCat as ch2cat} from "./cat-channel-2.js";
 import { starCat as ch3cat} from "./cat-channel-3.js";
 import { starCat as ch4cat} from "./cat-channel-4.js";
+import { starCat as ch5cat} from "./cat-channel-5.js";
+import { starCat as ch6cat} from "./cat-channel-6.js";
+
 
 // Update channel selector and show catalogue
-let maxChannels = 4;
+let maxChannels = 6;
 
 let selectedChannel = document.location.search.substring(1).slice(-1);
 if(!(selectedChannel >= '0' && selectedChannel < maxChannels)) {
     selectedChannel = 0;
 }
 
-let episodeList = [{}, {}, {}, {}];
+let episodeList = [{}, {}, {}, {}, {}, {}];
 episodeList[0].data = ch1cat();
 episodeList[1].data = ch2cat();
 episodeList[2].data = ch3cat();
 episodeList[3].data = ch4cat();
+episodeList[4].data = ch5cat();
+episodeList[5].data = ch6cat();
 
 // Set up the canvas
 let canvas = document.getElementById("teletextCanvas");
@@ -23,7 +28,7 @@ let ctx = canvas.getContext("2d", { willReadFrequently: true });
 
 let video = document.createElement("video"); 
 video.autoPlay = false; 
-video.loop = true; 
+video.loop = false; 
 video.addEventListener('loadedmetadata',function() {
     readyToPlayVideo();
 });
@@ -55,19 +60,17 @@ function switchChannel(channel)
         videoContainer.video.volume = 0.4;
     }
 
-    videoContainer.video.pause();
     videoContainer.video.src = episodeList[selectedChannel].source;
     videoContainer.video.currentTime = episodeList[selectedChannel].currentPosition;
-    let now = new Date();
     videoContainer.startPosition = episodeList[selectedChannel].currentPosition;
-    videoContainer.startPositionTimeStamp = now;
+    videoContainer.startPositionTimeStamp = new Date();
     videoContainer.video.play();
 
     displayCaption();
     $("#planner").fadeToggle();
 }
 
-function updateChannelStats() {
+function updateChannelStats(advanceOffset = false) {
     let now = new Date();
 
     for(let channel=0; channel<maxChannels; channel++) {
@@ -78,12 +81,14 @@ function updateChannelStats() {
         console.log(`Channel ${channel} total length, ${days} days, ${hours} hours`);
         
         // Select the current episode and time based on seconds since epoch
-        let dayPosition = Math.floor((now.getTime() / 1000) % totalTimes);
+        let dayPosition = Math.floor(((now.getTime() / 1000) + (advanceOffset ? 1 : 0)) % totalTimes);
 
         // From this position, find out which episode this falls on
         var sum = 0;
         for (let i=0; i<episodeList[channel].data.length; i++) {
             if(sum + episodeList[channel].data[i].length > dayPosition) {    
+                let nextEpisodeId = (i == episodeList[channel].data.length - 1) ? 0 : i + 1;
+                
                 let currentPosition = dayPosition - sum;
                 episodeList[channel].currentPosition = currentPosition;
                 episodeList[channel].startTime = new Date(now.getTime() - (currentPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -92,6 +97,7 @@ function updateChannelStats() {
                 episodeList[channel].perc = Math.floor(100 * (currentPosition / episodeList[channel].data[i].length));
                 episodeList[channel].title = episodeList[channel].data[i].title;
                 episodeList[channel].description = episodeList[channel].data[i].description;
+                episodeList[channel].upNext = episodeList[channel].data[nextEpisodeId].shortName;                
                 episodeList[channel].displayParams = episodeList[channel].data[i].displayParams;                
                 episodeList[channel].source = episodeList[channel].data[i].urlLocal;
                 break;
@@ -105,27 +111,12 @@ function updateChannelStats() {
 
 function advanceEpisode() {
     // Move to the start of the next episode
-    let episodeId = episodeList[selectedChannel].episodeId + 1;
-    if(episodeId === episodeList[selectedChannel].data.length)
-    {
-        episodeId = 0;
-    }
-    
-    let now = new Date();
-    episodeList[selectedChannel].episodeId = episodeId;
-    episodeList[selectedChannel].currentPosition = 0;
-    episodeList[selectedChannel].perc = 0;
-    episodeList[selectedChannel].startTime = new Date(now.getTime()).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    episodeList[selectedChannel].endTime = new Date(now.getTime() + (episodeList[selectedChannel].data[episodeId].length * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    episodeList[selectedChannel].title = episodeList[selectedChannel].data[episodeId].title;
-    episodeList[selectedChannel].description = episodeList[selectedChannel].data[episodeId].description;
-    episodeList[selectedChannel].source = episodeList[selectedChannel].data[episodeId].urlLocal;
-    
-    videoContainer.video.pause();
+    updateChannelStats(true);
+   
     videoContainer.video.src = episodeList[selectedChannel].source;
     videoContainer.video.currentTime = 0;
     videoContainer.startPosition = 0;
-    videoContainer.startPositionTimeStamp = now;
+    videoContainer.startPositionTimeStamp = new Date();
     videoContainer.video.play();
 
     displayCaption();
@@ -136,6 +127,7 @@ function displayCaption() {
         $(`#channel${i}start`).text(`${episodeList[i].startTime} - ${episodeList[i].endTime}`); 
         $(`#channel${i}title`).text(episodeList[i].title);
         $(`#channel${i}description`).text(episodeList[i].description);
+        $(`#channel${i}upNext`).text("Up next: " + episodeList[i].upNext);
     }
 }
 
@@ -150,7 +142,7 @@ function readyToPlayVideo(event) {
 
 function updateCanvas() {
     if(videoContainer.ready) { 
-        if(video.currentTime >= video.duration - 1) {
+        if(video.ended) {
             // Advance to next episode and update container details
             advanceEpisode();
         }
@@ -196,7 +188,6 @@ function playPauseClick() {
         if(videoContainer.video.paused){  
             // When playing after a pause, advance to where the stream should be now    
             video.currentTime = videoContainer.startPosition + ((new Date() - videoContainer.startPositionTimeStamp) / 1000);
-
             videoContainer.video.play();
             $("#planner").fadeOut();
         }else{
@@ -208,7 +199,7 @@ function playPauseClick() {
     }
 }
 
-canvas.addEventListener("click",playPauseClick);
+canvas.addEventListener("click", playPauseClick);
 
 // Wire up channel selection buttons
 for(let i=0; i<maxChannels; i++) {
