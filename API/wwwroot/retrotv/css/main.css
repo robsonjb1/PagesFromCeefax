@@ -112,6 +112,7 @@ audio {
 
 /* Now Next banner */
 #planner {
+	margin-top: auto;
 	position: absolute;
 	width: 100%;
 	z-index: 1;
