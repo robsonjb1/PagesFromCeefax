@@ -3,24 +3,21 @@ import { starCat as ch2cat} from "./cat-channel-2.js";
 import { starCat as ch3cat} from "./cat-channel-3.js";
 import { starCat as ch4cat} from "./cat-channel-4.js";
 import { starCat as ch5cat} from "./cat-channel-5.js";
-import { starCat as ch6cat} from "./cat-channel-6.js";
-
 
 // Update channel selector and show catalogue
-let maxChannels = 6;
+let maxChannels = 5;
 
 let selectedChannel = document.location.search.substring(1).slice(-1);
 if(!(selectedChannel >= '0' && selectedChannel < maxChannels)) {
     selectedChannel = 0;
 }
 
-let episodeList = [{}, {}, {}, {}, {}, {}];
+let episodeList = [{}, {}, {}, {}, {}];
 episodeList[0].data = ch1cat();
 episodeList[1].data = ch2cat();
 episodeList[2].data = ch3cat();
 episodeList[3].data = ch4cat();
 episodeList[4].data = ch5cat();
-episodeList[5].data = ch6cat();
 
 // Set up the canvas
 let canvas = document.getElementById("teletextCanvas");

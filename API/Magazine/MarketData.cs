@@ -43,21 +43,7 @@ public class MarketData : IMarketData
                 string name = market.GetAttributeValue("data-symbol", "").Replace("&amp;", "&");
                 string value = market.SelectSingleNode($".//td[2]/span")?.InnerText.Trim();
                 string movement = market.SelectSingleNode($".//td[5]/span")?.InnerText.Trim();
-                
-                // Get the market close from Yahoo
-                bool marketClosed = false;
-                /*if(cc.UriCache.Exists(z => z.Tag == $"YH-{name}"))
-                {
-                    if(name == "MCX")
-                    {        
-                        marketClosed = cc.UriCache.FirstOrDefault(l => l.Tag == $"YH-UKX").ContentString.Contains("Market Open.");
-                    }
-                    else
-                    {
-                        marketClosed = cc.UriCache.FirstOrDefault(l => l.Tag == $"YH-{name}").ContentString.Contains("Market Open.");
-                    }
-                }
-*/
+              
                 if (name != String.Empty)
                 {
                     Markets.Add(new MarketRecord()
@@ -65,7 +51,7 @@ public class MarketData : IMarketData
                         Name = name,
                         Movement = movement,
                         Value = value,
-                        MarketClosed = marketClosed
+                        MarketClosed = false
                     });
                 }
             }

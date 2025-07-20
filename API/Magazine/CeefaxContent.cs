@@ -55,16 +55,6 @@ public class CeefaxContent : ICeefaxContent
         // Add the Hargreaves Lansdown API currency request to the URL cache
         UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/ajax/home/currency-json"), "HL-Currencies"));
 
-        // Add Yahoo requests (market close) to the URL cache
-        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EFTSE/"), "YH-UKX"));
-        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EFTMC/"), "YH-MCX"));
-        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EFCHI/"), "YH-CAC"));
-        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EGDAXI/"), "YH-DAX"));
-        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EDJI/"), "YH-DJIA"));
-        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EIXIC/"), "YH-COMP"));
-        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EHSI/"), "YH-HSI"));
-        UriCache.Add(new CachedUri(new Uri("https://finance.yahoo.com/quote/%5EN225/"), "YH-NK225"));
-
         // 10-year UK bond yields
         UriCache.Add(new CachedUri(new Uri("https://uk.investing.com/rates-bonds/uk-10-year-bond-yield-historical-data"), "UK-10YRBOND"));
 
