@@ -874,6 +874,182 @@ return [
    displayParams: [480, 368]
 },
 {
+   title: "THE LEAGUE OF GENTLEMEN: 1-1 Welcome to Royston Vasey",
+   shortName: "1-1 Welcome to Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/1-1 Welcome to Royston Vasey.mp4",
+   length: 1783.04,
+   description: "Outsider Benjamin arrives in town. Pauline is angered a job seeker has a job interview.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 1-2 The Road to Royston Vasey",
+   shortName: "1-2 The Road to Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/1-2 The Road to Royston Vasey.mp4",
+   length: 1768.04,
+   description: "Butcher Hilary Briss has something sinister in his sausages.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 1-3 Nightmare in Royston Vasey",
+   shortName: "1-3 Nightmare in Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/1-3 Nightmare in Royston Vasey.mp4",
+   length: 1761.04,
+   description: "Mr Chinnery has an accident with a tortoise while Benjamin is appalled by his uncle.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 1-4 The Beast of Royston Vasey",
+   shortName: "1-4 The Beast of Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/1-4 The Beast of Royston Vasey.mp4",
+   length: 1741.04,
+   description: "The schoolchildren of Royston Vasey get a visit from the Legz Akimbo Theatre Company.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 1-5 Love Comes to Royston Vasey",
+   shortName: "1-5 Love Comes to Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/1-5 Love Comes to Royston Vasey.mp4",
+   length: 1737.04,
+   description: "Mike and Cheryl may have made a mistake in asking Geoff to be their best man.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 1-6 Escape from Royston Vasey",
+   shortName: "1-6 Escape from Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/1-6 Escape from Royston Vasey.mp4",
+   length: 1740.04,
+   description: "Mr Chinnery has some bad luck with a calving cow while Tubbs and Edward receive a visitor.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 2-1 Destination Royston Vasey",
+   shortName: "2-1 Destination Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/2-1 Destination Royston Vasey.mp4",
+   length: 1728.04,
+   description: "Papa Lazarou's unusual circus comes to Royston Vasey while Pauline faces the dole.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 2-2 Lust for Royston Vasey",
+   shortName: "2-2 Lust for Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/2-2 Lust for Royston Vasey.mp4",
+   length: 1734.04,
+   description: "A German exchange teacher arrives in Royston Vasey.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 2-3 A Plague on Royston Vasey",
+   shortName: "2-3 A Plague on Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/2-3 A Plague on Royston Vasey.mp4",
+   length: 1753.96,
+   description: "Les McQueen is once again reminiscing about his rock and roll past.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 2-4 Death in Royston Vasey",
+   shortName: "2-4 Death in Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/2-4 Death in Royston Vasey.mp4",
+   length: 1794.04,
+   description: "Geoff, Mike and Brian get lost on the way to a plastics convention.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 2-5 Anarchy in Royston Vasey",
+   shortName: "2-5 Anarchy in Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/2-5 Anarchy in Royston Vasey.mp4",
+   length: 1743.04,
+   description: "Tubbs and Edward leave the sanctuary of the local shop as they seek a bride for David.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 2-6 Royston Vasey and the Monster from Hell",
+   shortName: "2-6 Royston Vasey and the Monster from Hell",
+   urlLocal: "media/channel-2/The League of Gentlemen/2-6 Royston Vasey and the Monster from Hell.mp4",
+   length: 1771.04,
+   description: "The epidemic claims a distinguished victim, and Legz Akimbo misjudge the public mood.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 3 Christmas Special",
+   shortName: "3 Christmas Special",
+   urlLocal: "media/channel-2/The League of Gentlemen/3 Christmas Special.mp4",
+   length: 3375.04,
+   description: "Vicar Bernice has an unforgettable Christmas Eve when she listens to tales from the locals",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 3-1 The Lesbian and the Monkey",
+   shortName: "3-1 The Lesbian and the Monkey",
+   urlLocal: "media/channel-2/The League of Gentlemen/3-1 The Lesbian and the Monkey.mp4",
+   length: 1802.04,
+   description: "Pauline struggles to adapt to society after leaving prison while Babs throws a party.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 3-2 The One-Armed Man is King",
+   shortName: "3-2 The One-Armed Man is King",
+   urlLocal: "media/channel-2/The League of Gentlemen/3-2 The One-Armed Man is King.mp4",
+   length: 1754.04,
+   description: "Joke Shop proprietor Lance has an under-the-counter arm transplant.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 3-3 Turn Again Geoff Tipps",
+   shortName: "3-3 Turn Again Geoff Tipps",
+   urlLocal: "media/channel-2/The League of Gentlemen/3-3 Turn Again Geoff Tipps.mp4",
+   length: 1689.04,
+   description: "Geoff heads to London to fulfil his dream of becoming a stand-up comedian.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 3-4 The Medusa Touch",
+   shortName: "3-4 The Medusa Touch",
+   urlLocal: "media/channel-2/The League of Gentlemen/3-4 The Medusa Touch.mp4",
+   length: 1591.04,
+   description: "Bed and Breakfast proprietors Alvin and Sunny host a voyage of auto-erotic discovery.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 3-5 Beauty and the Beast Or Come into My Parlour",
+   shortName: "3-5 Beauty and the Beast Or Come into My Parlour",
+   urlLocal: "media/channel-2/The League of Gentlemen/3-5 Beauty and the Beast Or Come into My Parlour.mp4",
+   length: 1736.04,
+   description: "Judee Levinson's beauty salon proves to be a great success, thanks to Charlie's talents.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: 3-6 How the Elephant Got It's Trunk",
+   shortName: "3-6 How the Elephant Got It's Trunk",
+   urlLocal: "media/channel-2/The League of Gentlemen/3-6 How the Elephant Got It's Trunk.mp4",
+   length: 1729.04,
+   description: "When Vinnie goes AWOL, Reenie is forced to take on a new volunteer at the charity shop.",
+   displayParams: [960, 540]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: Specials 1 - Return to Royston Vasey",
+   shortName: "Specials 1 - Return to Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/Specials 1 - Return to Royston Vasey.mp4",
+   length: 1723.56,
+   description: "Familiar faces return to Royston Vasey, settling old scores and digging up old friends.",
+   displayParams: [1280, 720]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: Specials 2 - Save Royston Vasey",
+   shortName: "Specials 2 - Save Royston Vasey",
+   urlLocal: "media/channel-2/The League of Gentlemen/Specials 2 - Save Royston Vasey.mp4",
+   length: 1718.4,
+   description: "Royston Vasey is threatened by boundary changes that will erase the town from the map.",
+   displayParams: [1280, 720]
+},
+{
+   title: "THE LEAGUE OF GENTLEMEN: Specials 3 - Royston Vasey Mon Amour",
+   shortName: "Specials 3 - Royston Vasey Mon Amour",
+   urlLocal: "media/channel-2/The League of Gentlemen/Specials 3 - Royston Vasey Mon Amour.mp4",
+   length: 1807.52,
+   description: "The local authorities, the local paper and the local police all play their part.",
+   displayParams: [1280, 720]
+},
+{
    title: "YES MINISTER: 1-1 Open Government",
    shortName: "1-1 Open Government",
    urlLocal: "media/channel-2/Yes Minister/1-1 Open Government.mp4",

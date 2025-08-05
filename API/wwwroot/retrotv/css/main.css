@@ -125,6 +125,9 @@ audio {
 td, th { /* table cells */
     padding: 5px;
 }
+.plannerTable {
+	font-size:smaller;
+}
 .plannerTime {
 	color: yellow;
 	vertical-align: top;
@@ -147,7 +150,7 @@ td, th { /* table cells */
 	vertical-align: top;
 }
 .plannerDescription {
-	font-size: small;
+	font-size: smaller;
 	color: lightblue;
 	vertical-align: top;
 }

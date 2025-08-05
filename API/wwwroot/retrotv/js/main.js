@@ -3,21 +3,23 @@ import { starCat as ch2cat} from "./cat-channel-2.js";
 import { starCat as ch3cat} from "./cat-channel-3.js";
 import { starCat as ch4cat} from "./cat-channel-4.js";
 import { starCat as ch5cat} from "./cat-channel-5.js";
+import { starCat as ch6cat} from "./cat-channel-6.js";
 
 // Update channel selector and show catalogue
-let maxChannels = 5;
+let maxChannels = 6;
 
 let selectedChannel = document.location.search.substring(1).slice(-1);
 if(!(selectedChannel >= '0' && selectedChannel < maxChannels)) {
     selectedChannel = 0;
 }
 
-let episodeList = [{}, {}, {}, {}, {}];
+let episodeList = [{}, {}, {}, {}, {}, {}];
 episodeList[0].data = ch1cat();
 episodeList[1].data = ch2cat();
 episodeList[2].data = ch3cat();
 episodeList[3].data = ch4cat();
 episodeList[4].data = ch5cat();
+episodeList[5].data = ch6cat();
 
 // Set up the canvas
 let canvas = document.getElementById("teletextCanvas");
@@ -75,7 +77,7 @@ function updateChannelStats(advanceOffset = false) {
         episodeList[channel].data.forEach((e) => totalTimes += e.length);
         let days = Math.floor(totalTimes / 86400, 0);
         let hours = Math.round((totalTimes - (days * 86400)) / 3600, 1)
-        console.log(`Channel ${channel} total length, ${days} days, ${hours} hours`);
+        console.log(`Channel ${channel+1} total length, ${days} days, ${hours} hours`);
         
         // Select the current episode and time based on seconds since epoch
         let dayPosition = Math.floor(((now.getTime() / 1000) + (advanceOffset ? 1 : 0)) % totalTimes);
@@ -125,6 +127,7 @@ function displayCaption() {
         $(`#channel${i}title`).text(episodeList[i].title);
         $(`#channel${i}description`).text(episodeList[i].description);
         $(`#channel${i}upNext`).text("Up next: " + episodeList[i].upNext);
+        $(`#channel${i}progress`).css("width", episodeList[i].perc + "%");
     }
 }
 

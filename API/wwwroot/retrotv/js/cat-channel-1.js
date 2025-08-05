@@ -633,4 +633,36 @@ return [
    description: "Who is taking the Doctor out of time and placing him in the Death Zone on Gallifrey?",
    displayParams: [960, 540]
 },
+{
+   title: "THE UNEARTHLY HISTORY OF SCIENCE FICTION: 1 Space",
+   shortName: "1 Space",
+   urlLocal: "media/channel-1/The Unearthly History of Science Fiction/1 Space.mp4",
+   length: 3551.84,
+   description: "Dominic Sandbrook looks at science fiction's enduring fascination with outer space.",
+   displayParams: [1280, 720]
+},
+{
+   title: "THE UNEARTHLY HISTORY OF SCIENCE FICTION: 2 Invasion",
+   shortName: "2 Invasion",
+   urlLocal: "media/channel-1/The Unearthly History of Science Fiction/2 Invasion.mp4",
+   length: 3538.12,
+   description: "A look at sci-fi's obsession with alien invasion, from all-out assault to hidden threats.",
+   displayParams: [1280, 720]
+},
+{
+   title: "THE UNEARTHLY HISTORY OF SCIENCE FICTION: 3 Robots",
+   shortName: "3 Robots",
+   urlLocal: "media/channel-1/The Unearthly History of Science Fiction/3 Robots.mp4",
+   length: 3530.64,
+   description: "Dominic Sandbrook explores science fiction's obsession with robots.",
+   displayParams: [1280, 720]
+},
+{
+   title: "THE UNEARTHLY HISTORY OF SCIENCE FICTION: 4 Time",
+   shortName: "4 Time",
+   urlLocal: "media/channel-1/The Unearthly History of Science Fiction/4 Time.mp4",
+   length: 3545.4,
+   description: "Dominic Sandbrook explores science fiction's most alluring theme - time travel.",
+   displayParams: [1280, 720]
+},
 ]}
