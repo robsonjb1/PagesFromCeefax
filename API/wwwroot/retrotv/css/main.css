@@ -110,12 +110,21 @@ audio {
 	border-radius: 30px;
 }
 
+#videoCanvas {
+	width: 100%;
+	border: 1px transparent #000;
+	border-radius: 30px;
+}
+
 /* Now Next banner */
 #planner {
 	margin-top: auto;
 	position: absolute;
+	bottom: 0;
+    left: 0;
+    right: 0;
 	width: 100%;
-	z-index: 1;
+	z-index: 2;
 }
 
 .initially-hidden {
@@ -127,29 +136,39 @@ td, th { /* table cells */
 }
 .plannerTable {
 	font-size:smaller;
+	margin-top: -10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
 }
 .plannerTime {
 	color: yellow;
 	vertical-align: top;
+	text-align: left;
 }
 .radioPlannerTime {
 	color: yellow;
 	vertical-align: top;
 	text-align: center;
+	font-size: large;
+}
+.plannerButton {
+	width: 75px !important;
 }
 .plannerStart {
 	color: yellow;
-	vertical-align: top;
-}
-.radioPlannerStart {
-	color: yellow;
-	vertical-align: top;
-}
-.plannerEnd {
-	color: orange;
+	font-size: smaller;
 	vertical-align: top;
 }
 .plannerDescription {
+	font-size: smaller;
+	color: lightblue;
+	vertical-align: top;
+}
+.speakerMute {
+	font-size: larger;
+	color: lightblue;
+}
+.plannerRadioDescription {
 	font-size: smaller;
 	color: lightblue;
 	vertical-align: top;
@@ -158,9 +177,30 @@ td, th { /* table cells */
 	vertical-align: top;
 }
 .plannerProgress {
-	font-size: x-small;
-	color: orange;
-	text-align: right;
+	height: 5px !important;
+	opacity: 75%;
 }
-
+.progress {
+	background-color: #aaa;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+#pfcOverlay {
+	margin-top: auto;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: -100px;
+	bottom: 10px;
+	width: 100%;
+	z-index: 1;
+}
+#pfcFrame {
+	width: 100%;
+	height: 100%;
+}
+.groupTwo {
+	display: none;
+}
 
