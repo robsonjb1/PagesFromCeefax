@@ -62,5 +62,10 @@ export function starCat() {
             desc: "",
             file: "KillerGorilla.ssd",
         },
+        {
+            name: "Data",
+            desc: "",
+            file: "Data.dsd",
+        },
     ];
 }
