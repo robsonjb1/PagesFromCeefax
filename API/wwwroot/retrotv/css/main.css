@@ -136,7 +136,7 @@ td, th { /* table cells */
 }
 .plannerTable {
 	font-size:smaller;
-	margin-top: -10px;
+	margin-top: 10px;
 	margin-left: 10px;
 	margin-bottom: 10px;
 }
@@ -149,7 +149,7 @@ td, th { /* table cells */
 	color: yellow;
 	vertical-align: top;
 	text-align: center;
-	font-size: large;
+	font-size: medium;
 }
 .plannerButton {
 	width: 75px !important;
@@ -165,8 +165,12 @@ td, th { /* table cells */
 	vertical-align: top;
 }
 .speakerMute {
-	font-size: larger;
+	font-size: large;
 	color: lightblue;
+}
+.speakerIconBox {
+	margin-top: 0px;
+	width: 5px;
 }
 .plannerRadioDescription {
 	font-size: smaller;
@@ -203,4 +207,22 @@ td, th { /* table cells */
 .groupTwo {
 	display: none;
 }
-
+.channelBanner {
+	height: 30px;
+	margin-left: 3px;
+}
+.topLogo {
+	font-size: medium;
+	color: lightblue;
+}
+.channelToggleButton {
+	font-size: large;
+	color: lightblue;
+}
+#toggleShowDurations {
+	margin-top: 0px;
+}
+.inTitleChannel {
+	font-size: 12px;
+	color: lightblue;
+}

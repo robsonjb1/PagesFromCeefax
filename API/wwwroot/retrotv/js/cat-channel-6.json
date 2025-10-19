@@ -1,33 +1,100 @@
 [
 {
-   "title": "PODCASTS: Windows Weekly",
-   "shortName": "Windows Weekly",
-   "urlLocal": "media/Channel-6/1-WW.mp3",
-   "length": 9912.163,
-   "description": "WW 952: You Can See the Edges of the Bubble - Windows 11, version 25H2 Is Weirdly Identical (4 days ago)"
+   "title": "POD-1: Spiked",
+   "shortName": "Spiked",
+   "urlLocal": "media/Channel-6/1-SPIKED.mp3",
+   "length": 1435.35,
+   "description": "Farage’s path to power | Pollster James Johnson (2 days ago)",
+   "isPodcast": true
 }
 ,
 {
-   "title": "PODCASTS: Hanselminutes",
-   "shortName": "Hanselminutes",
-   "urlLocal": "media/Channel-6/1-HANSELMINUTES.mp3",
-   "length": 2053.619,
-   "description": "Push your ideas to the web with Netlify CEO Mathias Biilmann (3 days ago)"
+   "title": "POD-1: The Sky F1 Show",
+   "shortName": "The Sky F1 Show",
+   "urlLocal": "media/Channel-6/1-SKYF1.mp3",
+   "length": 1470.543,
+   "description": "Ted's Austin Podbook | Repercussions at McLaren, Jurassic Park and Super Mario! (3 days ago)",
+   "isPodcast": true
 }
 ,
 {
-   "title": "PODCASTS: Intelligent Machines",
-   "shortName": "Intelligent Machines",
-   "urlLocal": "media/Channel-6/1-INTELMAC.mp3",
-   "length": 8785.528,
-   "description": "IM 839: Cogsuckers and Clankers - Radio's New Golden Age or Apocalypse? (4 days ago)"
+   "title": "POD-1: TRIGGERnometry",
+   "shortName": "TRIGGERnometry",
+   "urlLocal": "media/Channel-6/1-TRIGGER.mp3",
+   "length": 2794.083,
+   "description": "Our Thoughts on Gaza Ceasefire (2 days ago)",
+   "isPodcast": true
 }
 ,
 {
-   "title": "PODCASTS: RunAs Radio",
-   "shortName": "RunAs Radio",
-   "urlLocal": "media/Channel-6/1-RUNASRADIO.mp3",
-   "length": 2461.553,
-   "description": "HaveIBeenPwned with Troy Hunt (4 days ago)"
+   "title": "POD-1: TRIGGERnometry",
+   "shortName": "TRIGGERnometry",
+   "urlLocal": "media/Channel-6/2-TRIGGER.mp3",
+   "length": 5410.315,
+   "description": "The True Story of Hitler's U-Boat War - Roger Moorhouse (4 days ago)",
+   "isPodcast": true
+}
+,
+{
+   "title": "POD-1: Coffee House Shots",
+   "shortName": "Coffee House Shots",
+   "urlLocal": "media/Channel-6/1-CHS.mp3",
+   "length": 2417.135,
+   "description": "Thatcher & Reagan's special relationship (2 days ago)",
+   "isPodcast": true
+}
+,
+{
+   "title": "POD-1: Coffee House Shots",
+   "shortName": "Coffee House Shots",
+   "urlLocal": "media/Channel-6/2-CHS.mp3",
+   "length": 810.187,
+   "description": "Antisemitism, Chinese spies & GB's economic fragility (2 days ago)",
+   "isPodcast": true
+}
+,
+{
+   "title": "POD-1: Americano",
+   "shortName": "Americano",
+   "urlLocal": "media/Channel-6/1-AMERICANO.mp3",
+   "length": 2237.152,
+   "description": "Is Trump on a roll? (2 days ago)",
+   "isPodcast": true
+}
+,
+{
+   "title": "POD-1: The Spectator Edition",
+   "shortName": "The Spectator Edition",
+   "urlLocal": "media/Channel-6/1-SPECTATOR.mp3",
+   "length": 1867.78,
+   "description": "Chinese spies, Vance’s rise & is French parenting supreme? (3 days ago)",
+   "isPodcast": true
+}
+,
+{
+   "title": "POD-1: Quite Right",
+   "shortName": "Quite Right",
+   "urlLocal": "media/Channel-6/1-QUITERIGHT.mp3",
+   "length": 2901.524,
+   "description": "Lab leaks & spy scandals: was Cameron wrong about China? (5 days ago)",
+   "isPodcast": true
+}
+,
+{
+   "title": "POD-1: Brendan O'Neill",
+   "shortName": "Brendan O'Neill",
+   "urlLocal": "media/Channel-6/1-B-ONEILL.mp3",
+   "length": 3578.2,
+   "description": "How Trump’s Gaza deal shatters the lies about Israel, with Natasha Hausdorff (5 days ago)",
+   "isPodcast": true
+}
+,
+{
+   "title": "POD-1: Planet Normal",
+   "shortName": "Planet Normal",
+   "urlLocal": "media/Channel-6/1-PLANET-NORMAL.mp3",
+   "length": 3901.79,
+   "description": "Trump’s peace plan and the China spy row unfurling in Westminster (4 days ago)",
+   "isPodcast": true
 }
 ]
