@@ -1,0 +1,884 @@
+{ "lastRefresh": "Tue 06 Jan 22:12", 
+   "episodeList": 
+[
+{
+   "title": "JONATHAN CREEK: The Judas Tree",
+   "shortName": "The Judas Tree",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Judas Tree.mp4",
+   "length": 5655.018,
+   "description": "Jonathan Creek is called upon by his friend, investigator Joey Ross, to look into a series of mysterious and spooky events at a house called Green Lanterns."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Omega Man",
+   "shortName": "The Omega Man",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Omega Man.mp4",
+   "length": 2976.704,
+   "description": "Maddy is contacted by a man who makes a living investigating the existence of aliens."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Problem At Gallows Gate (Part 1)",
+   "shortName": "The Problem At Gallows Gate (Part 1)",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Problem At Gallows Gate (Part 1).mp4",
+   "length": 2946.64,
+   "description": "A young wealthy eccentric commits suicide by jumping off a balcony after discovering his girlfriend with someone else."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Problem At Gallows Gate (Part 2)",
+   "shortName": "The Problem At Gallows Gate (Part 2)",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Problem At Gallows Gate (Part 2).mp4",
+   "length": 2990,
+   "description": "Jonathan and Maddy begin to realise that the man Kitty saw may not have even died in the first place."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Reconstituted Corpse",
+   "shortName": "The Reconstituted Corpse",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Reconstituted Corpse.mp4",
+   "length": 3540.56,
+   "description": "Zola Zbzewski has made her money and reputation by being one of the most cosmetically altered women in Britain."
+}
+,
+{
+   "title": "POIROT: Murder on the Links",
+   "shortName": "Murder on the Links",
+   "urlLocal": "media/channel-5/../Core/Poirot/Murder on the Links.mp4",
+   "length": 6424.192,
+   "description": "While Poirot and Hastings are enjoying their holiday in France, they are approached by a man who fears for his life."
+}
+,
+{
+   "title": "POIROT: Murder on the Orient Express",
+   "shortName": "Murder on the Orient Express",
+   "urlLocal": "media/channel-5/../Core/Poirot/Murder on the Orient Express.mp4",
+   "length": 5571.092,
+   "description": "Hercule Poirot travels to London on the Orient Express."
+}
+,
+{
+   "title": "POIROT: One, Two, Buckle My Shoe",
+   "shortName": "One, Two, Buckle My Shoe",
+   "urlLocal": "media/channel-5/../Core/Poirot/One, Two, Buckle My Shoe.mp4",
+   "length": 6374.058,
+   "description": "Shortly after Poirot pays a visit to his dentist he is found shot in his office."
+}
+,
+{
+   "title": "POIROT: Peril At End House (Part 1)",
+   "shortName": "Peril At End House (Part 1)",
+   "urlLocal": "media/channel-5/../Core/Poirot/Peril At End House (Part 1).mp4",
+   "length": 3185.204,
+   "description": "Poirot and Hastings are holidaying when they meet a young girl who casually mentions that she has at least thrice escaped certain death."
+}
+,
+{
+   "title": "POIROT: Peril At End House (Part 2)",
+   "shortName": "Peril At End House (Part 2)",
+   "urlLocal": "media/channel-5/../Core/Poirot/Peril At End House (Part 2).mp4",
+   "length": 3183.496,
+   "description": "Poirot and Hastings are holidaying when they meet a young girl who casually mentions that she has at least thrice escaped certain death."
+}
+,
+{
+   "title": "POIROT: Problem at Sea",
+   "shortName": "Problem at Sea",
+   "urlLocal": "media/channel-5/../Core/Poirot/Problem at Sea.mp4",
+   "length": 3188.544,
+   "description": "Poirot and Hastings embark on a cruise ship to Egypt."
+}
+,
+{
+   "title": "POIROT: Sad Cypress",
+   "shortName": "Sad Cypress",
+   "urlLocal": "media/channel-5/../Core/Poirot/Sad Cypress.mp4",
+   "length": 5840.408,
+   "description": "Young Elinor Carlisle is tried in court for first murdering her aunt for money and then also her aunt's protégée who stole the heart of Elinor's fiancé."
+}
+,
+{
+   "title": "POIROT: Taken at the Flood",
+   "shortName": "Taken at the Flood",
+   "urlLocal": "media/channel-5/../Core/Poirot/Taken at the Flood.mp4",
+   "length": 5862.176,
+   "description": "The young Rosaleen Cloade and her brother David are the only survivors of a gas explosion."
+}
+,
+{
+   "title": "POIROT: The ABC Murders",
+   "shortName": "The ABC Murders",
+   "urlLocal": "media/channel-5/../Core/Poirot/The ABC Murders.mp4",
+   "length": 6349.056,
+   "description": "Poirot starts receiving mocking letters with allusions to crimes-to-be, signed \"ABC\"."
+}
+,
+{
+   "title": "POIROT: The Adventure of Johnnie Waverly",
+   "shortName": "The Adventure of Johnnie Waverly",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Adventure of Johnnie Waverly.mp4",
+   "length": 3133.119,
+   "description": "Country squire Marcus Waverly and his wife Ada ask Poirot to help before their son Johnnie is kidnapped."
+}
+,
+{
+   "title": "POIROT: The Adventure of the Cheap Flat",
+   "shortName": "The Adventure of the Cheap Flat",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Adventure of the Cheap Flat.mp4",
+   "length": 3126.345,
+   "description": "Poirot and Hastings meet a couple at a party who have just rented a flat in a fashionable district for an implausibly cheap price."
+}
+,
+{
+   "title": "POIROT: The Adventure of the Clapham Cook",
+   "shortName": "The Adventure of the Clapham Cook",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Adventure of the Clapham Cook.mp4",
+   "length": 3153.002,
+   "description": "Mrs Todd prods Poirot into investigating the disappearance of her cook, Miss Eliza Dunn."
+}
+,
+{
+   "title": "MISS MARPLE: The Mirror Crack'd from Side to Side",
+   "shortName": "The Mirror Crack'd from Side to Side",
+   "urlLocal": "media/channel-5/../Core/Miss Marple/The Mirror Crack'd from Side to Side.m4v",
+   "length": 6938.986,
+   "description": "Hollywood comes to St Mary Mead when faded movie star Marina Gregg takes up residence for a local film shoot."
+}
+,
+{
+   "title": "MISS MARPLE: The Murder at the Vicarage",
+   "shortName": "The Murder at the Vicarage",
+   "urlLocal": "media/channel-5/../Core/Miss Marple/The Murder at the Vicarage.mp4",
+   "length": 5409.04,
+   "description": "When a colonel is murdered, Miss Marple is faced with a long list of suspects."
+}
+,
+{
+   "title": "MISS MARPLE: They Do It With Mirrors",
+   "shortName": "They Do It With Mirrors",
+   "urlLocal": "media/channel-5/../Core/Miss Marple/They Do It With Mirrors.m4v",
+   "length": 6696.405,
+   "description": "At an estate turned reformatory school, Miss Marple visits her old school chum Carrie Louise."
+}
+,
+{
+   "title": "JONATHAN CREEK: Angel Hair",
+   "shortName": "Angel Hair",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Angel Hair.mp4",
+   "length": 3585,
+   "description": "A pop star's husband is baffled as to how a woman can regrow a full head of hair barely two days after she had it all hacked off in a hoax kidnap ransom video."
+}
+,
+{
+   "title": "JONATHAN CREEK: Black Canary",
+   "shortName": "Black Canary",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Black Canary.mp4",
+   "length": 5382.08,
+   "description": "An illusionist, whose twin sister died when an escape trick went wrong is found dead in her snow-covered garden."
+}
+,
+{
+   "title": "JONATHAN CREEK: Danse Macabre",
+   "shortName": "Danse Macabre",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Danse Macabre.mp4",
+   "length": 3038.64,
+   "description": "A writer is shot dead on Halloween by a man in a skeleton costume who subsequently takes her unconscious daughter hostage and locks himself in the garage."
+}
+,
+{
+   "title": "JONATHAN CREEK: Ghost's Forge",
+   "shortName": "Ghost's Forge",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Ghost's Forge.mp4",
+   "length": 2933.64,
+   "description": "An old friend of Maddy's wants her and Jonathan to investigate a house supposedly called Ghost's Forge."
+}
+,
+{
+   "title": "POIROT: The Clocks",
+   "shortName": "The Clocks",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Clocks.mp4",
+   "length": 5569.724,
+   "description": "Sheila Webb, a girl working for a secretarial service, is summoned to the house of a customer."
+}
+,
+{
+   "title": "POIROT: The Cornish Mystery",
+   "shortName": "The Cornish Mystery",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Cornish Mystery.mp4",
+   "length": 2997.747,
+   "description": "An ordinary middle-aged woman, Mrs Pengelley, visits Poirot and tells him of her horrid suspicion: her husband is trying to poison her."
+}
+,
+{
+   "title": "POIROT: The Disappearance of Mr Davenheim",
+   "shortName": "The Disappearance of Mr Davenheim",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Disappearance of Mr Davenheim.mp4",
+   "length": 3208.009,
+   "description": "A well-known banker, Mr Davenheim, has disappeared."
+}
+,
+{
+   "title": "POIROT: The Double Clue",
+   "shortName": "The Double Clue",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Double Clue.mp4",
+   "length": 3090.09,
+   "description": "Following a string of robberies, Poirot helps Chief Inspector Japp try to find the jewel thief."
+}
+,
+{
+   "title": "POIROT: The Dream",
+   "shortName": "The Dream",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Dream.mp4",
+   "length": 3072.127,
+   "description": "The rich and eccentric owner of a pie factory consults Poirot about a troubling dream in which he commits suicide."
+}
+,
+{
+   "title": "POIROT: The Hollow",
+   "shortName": "The Hollow",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Hollow.mp4",
+   "length": 5836.405,
+   "description": "Poirot is invited to The Hollow, a splendid country retreat of the Angkatell family."
+}
+,
+{
+   "title": "POIROT: The Incredible Theft",
+   "shortName": "The Incredible Theft",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Incredible Theft.mp4",
+   "length": 3109.119,
+   "description": "Poirot is invited to a dinner party thrown by the Mayfields, as Mrs Mayfield fears her husband might become indiscreet in the presence of a suspected foreign spy."
+}
+,
+{
+   "title": "POIROT: The Kidnapped Prime Minister",
+   "shortName": "The Kidnapped Prime Minister",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Kidnapped Prime Minister.mp4",
+   "length": 3184.201,
+   "description": "The Prime Minister has been kidnapped and Poirot has thirty-two and a quarter hours to find him."
+}
+,
+{
+   "title": "POIROT: After the Funeral",
+   "shortName": "After the Funeral",
+   "urlLocal": "media/channel-5/../Core/Poirot/After the Funeral.mp4",
+   "length": 5832.068,
+   "description": "The wealthy Richard Abernethie changes his will in a curious way and dies unexpectedly."
+}
+,
+{
+   "title": "POIROT: Appointment with Death",
+   "shortName": "Appointment with Death",
+   "urlLocal": "media/channel-5/../Core/Poirot/Appointment with Death.mp4",
+   "length": 5849.888,
+   "description": "Upon visiting an archaeological dig in Syria, Poirot gets to know a family of adopted children."
+}
+,
+{
+   "title": "POIROT: Cards on the Table",
+   "shortName": "Cards on the Table",
+   "urlLocal": "media/channel-5/../Core/Poirot/Cards on the Table.mp4",
+   "length": 5799.374,
+   "description": "The mysterious Mr Shaitana invites eight guests to a dinner party."
+}
+,
+{
+   "title": "POIROT: Cat Among the Pigeons",
+   "shortName": "Cat Among the Pigeons",
+   "urlLocal": "media/channel-5/../Core/Poirot/Cat Among the Pigeons.mp4",
+   "length": 5834.848,
+   "description": "In the wake of a violent revolution, Princess Shaista is sent away to the safety of Meadowbank girls' school along with a trove of rubies."
+}
+,
+{
+   "title": "POIROT: Curtain; Poirot's Last Case",
+   "shortName": "Curtain; Poirot's Last Case",
+   "urlLocal": "media/channel-5/../Core/Poirot/Curtain; Poirot's Last Case.mp4",
+   "length": 5364.96,
+   "description": "After almost thirty years apart, Hercule Poirot, now crippled with arthritis is reunited with his old companion Captain Hastings."
+}
+,
+{
+   "title": "POIROT: Dead Man's Folly",
+   "shortName": "Dead Man's Folly",
+   "urlLocal": "media/channel-5/../Core/Poirot/Dead Man's Folly.mp4",
+   "length": 5319.968,
+   "description": "Mrs Ariadne Oliver is asked to stage a murder hunt for the party at Nasse House, the country residence of the Folliat family."
+}
+,
+{
+   "title": "POIROT: Dead Man's Mirror",
+   "shortName": "Dead Man's Mirror",
+   "urlLocal": "media/channel-5/../Core/Poirot/Dead Man's Mirror.mp4",
+   "length": 3175.84,
+   "description": "A dislikeable man who hired Poirot to investigate the possibly shady dealings of his business associate, is murdered shortly after."
+}
+,
+{
+   "title": "POIROT: Death in the Clouds",
+   "shortName": "Death in the Clouds",
+   "urlLocal": "media/channel-5/../Core/Poirot/Death in the Clouds.mp4",
+   "length": 6406.058,
+   "description": "When one of the passangers on Poirot's flight is murdered via a poisoned dart found under the Detective's seat, Poirot decides to help clear his name."
+}
+,
+{
+   "title": "POIROT: Death on the Nile",
+   "shortName": "Death on the Nile",
+   "urlLocal": "media/channel-5/../Core/Poirot/Death on the Nile.mp4",
+   "length": 6099.165,
+   "description": "Poirot embarks on a cruise ship on the Nile, where he gets to know a rich American heiress on her honeymoon."
+}
+,
+{
+   "title": "POIROT: Double Sin",
+   "shortName": "Double Sin",
+   "urlLocal": "media/channel-5/../Core/Poirot/Double Sin.mp4",
+   "length": 3178.419,
+   "description": "A dissatisfied Poirot takes Hastings on holiday to Devon."
+}
+,
+{
+   "title": "POIROT: Dumb Witness",
+   "shortName": "Dumb Witness",
+   "urlLocal": "media/channel-5/../Core/Poirot/Dumb Witness.mp4",
+   "length": 6400.608,
+   "description": "An elderly lady of considerable wealth tells Poirot of her fear that one of her relatives is trying to kill her."
+}
+,
+{
+   "title": "POIROT: Elephants Can Remember",
+   "shortName": "Elephants Can Remember",
+   "urlLocal": "media/channel-5/../Core/Poirot/Elephants Can Remember.mp4",
+   "length": 5315.64,
+   "description": "Ariadne Oliver wishes to unravel the mystery behind the deaths of her goddaughter's parents."
+}
+,
+{
+   "title": "POIROT: Evil under the Sun",
+   "shortName": "Evil under the Sun",
+   "urlLocal": "media/channel-5/../Core/Poirot/Evil under the Sun.mp4",
+   "length": 6198.752,
+   "description": "A quiet holiday at a secluded hotel in Devon is all that Hercule Poirot wants."
+}
+,
+{
+   "title": "POIROT: Four and Twenty Blackbirds",
+   "shortName": "Four and Twenty Blackbirds",
+   "urlLocal": "media/channel-5/../Core/Poirot/Four and Twenty Blackbirds.mp4",
+   "length": 3172.736,
+   "description": "Henry Gascoigne, an elderly man and a regular at the Bishop's Chophouse restaurant, deviates from his usual eating habits."
+}
+,
+{
+   "title": "POIROT: Hallowe'en Party",
+   "shortName": "Hallowe'en Party",
+   "urlLocal": "media/channel-5/../Core/Poirot/Hallowe'en Party.mp4",
+   "length": 5550.826,
+   "description": "A girl who claims to have witnessed a murder is found drowned in the apple-bobbing tub at a children's Halloween party."
+}
+,
+{
+   "title": "POIROT: Hercule Poirot's Christmas",
+   "shortName": "Hercule Poirot's Christmas",
+   "urlLocal": "media/channel-5/../Core/Poirot/Hercule Poirot's Christmas.mp4",
+   "length": 6427.84,
+   "description": "Obnoxious multi-millionaire Simeon Lee unexpectedly invites his family to gather at his home for Christmas."
+}
+,
+{
+   "title": "POIROT: Hickory Dickory Dock",
+   "shortName": "Hickory Dickory Dock",
+   "urlLocal": "media/channel-5/../Core/Poirot/Hickory Dickory Dock.mp4",
+   "length": 6421.344,
+   "description": "An outbreak of apparent kleptomania at a student hostel is not normally the sort of crime that arouses Hercule Poirot's interest."
+}
+,
+{
+   "title": "POIROT: How Does Your Garden Grow",
+   "shortName": "How Does Your Garden Grow",
+   "urlLocal": "media/channel-5/../Core/Poirot/How Does Your Garden Grow.mp4",
+   "length": 3213.056,
+   "description": "At a flower show, Poirot is approached by an mysterious woman in a wheelchair."
+}
+,
+{
+   "title": "POIROT: Jewel Robbery at the Grand Metropolitan",
+   "shortName": "Jewel Robbery at the Grand Metropolitan",
+   "urlLocal": "media/channel-5/../Core/Poirot/Jewel Robbery at the Grand Metropolitan.mp4",
+   "length": 3118.048,
+   "description": "Poirot is holidaying in Brighton on his doctor's orders but gets dragged into an investigation when the pearl necklace is brazenly stolen."
+}
+,
+{
+   "title": "POIROT: Lord Edgware Dies",
+   "shortName": "Lord Edgware Dies",
+   "urlLocal": "media/channel-5/../Core/Poirot/Lord Edgware Dies.mp4",
+   "length": 6213.728,
+   "description": "The glamorous Jane Wilkinson is strongly suspected of murdering her husband, the fourth Baron Edgware, so that she could re-marry."
+}
+,
+{
+   "title": "POIROT: Mrs McGinty's Dead",
+   "shortName": "Mrs McGinty's Dead",
+   "urlLocal": "media/channel-5/../Core/Poirot/Mrs McGinty's Dead.mp4",
+   "length": 5849.568,
+   "description": "The murder of Mrs McGinty, a simple village charwoman, seems a straightforward enough affair – but Inspector Spence is not satisfied."
+}
+,
+{
+   "title": "POIROT: Murder in Mesopotamia",
+   "shortName": "Murder in Mesopotamia",
+   "urlLocal": "media/channel-5/../Core/Poirot/Murder in Mesopotamia.mp4",
+   "length": 6201.12,
+   "description": "When Poirot and Hastings are visiting a promising archeological dig on their holiday in Iraq, the Detective is sought out by a woman troubled by nasty letters with death-threats."
+}
+,
+{
+   "title": "POIROT: The Adventure of the Egyptian Tomb",
+   "shortName": "The Adventure of the Egyptian Tomb",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Adventure of the Egyptian Tomb.mp4",
+   "length": 3161.504,
+   "description": "Poirot and Hastings travel to Egypt to investigate a group of archaeologists dropping dead after opening an allegedly cursed ancient tomb."
+}
+,
+{
+   "title": "POIROT: The Adventure of the Italian Nobleman",
+   "shortName": "The Adventure of the Italian Nobleman",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Adventure of the Italian Nobleman.mp4",
+   "length": 3176.864,
+   "description": "Poirot helps solve the murder of an Italian nobleman of unsavoury reputation who happens to be the employer of Miss Lemon's new suitor."
+}
+,
+{
+   "title": "POIROT: The Adventure of the Western Star",
+   "shortName": "The Adventure of the Western Star",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Adventure of the Western Star.mp4",
+   "length": 3150.708,
+   "description": "A famous Belgian film star consults Poirot about a series of letters threatening that her celebrated diamond will soon be stolen."
+}
+,
+{
+   "title": "POIROT: The Affair at the Victory Ball",
+   "shortName": "The Affair at the Victory Ball",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Affair at the Victory Ball.mp4",
+   "length": 3124.074,
+   "description": "Poirot and Hastings attend the Victory Ball, a classical masquarade where every guest is dressed as someone famous."
+}
+,
+{
+   "title": "POIROT: The Big Four",
+   "shortName": "The Big Four",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Big Four.mp4",
+   "length": 5276.544,
+   "description": "With the help of his old friends Captain Hastings, Miss Lemon and Inspector Japp, Hercule Poirot investigates a series of carefully planned and executed murders."
+}
+,
+{
+   "title": "POIROT: The Case of the Missing Will",
+   "shortName": "The Case of the Missing Will",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Case of the Missing Will.mp4",
+   "length": 3190.048,
+   "description": "A rich, terminally ill man asks Poirot to be executor of his new will, in which he intends to leave the whole estate to his ward Violet Wilson."
+}
+,
+{
+   "title": "POIROT: Murder in the Mews",
+   "shortName": "Murder in the Mews",
+   "urlLocal": "media/channel-5/../Core/Poirot/Murder in the Mews.mp4",
+   "length": 3174.122,
+   "description": "\"A good night for a murder,\" says Hastings while he, Inspector Japp and Poirot are enjoying the festivities of Guy Fawkes night."
+}
+,
+{
+   "title": "POIROT: The King of Clubs",
+   "shortName": "The King of Clubs",
+   "urlLocal": "media/channel-5/../Core/Poirot/The King of Clubs.mp4",
+   "length": 2908.138,
+   "description": "Poirot and Hastings investigate the death of film studio owner Henry Reedburn at the request of Prince Paul of Maurania."
+}
+,
+{
+   "title": "POIROT: The Labours of Hercules",
+   "shortName": "The Labours of Hercules",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Labours of Hercules.mp4",
+   "length": 5451.562,
+   "description": "Hercule Poirot picks up on the trail of the ingenious thief Marascaud and devises a trap with the assistance of the Metropolitan Police."
+}
+,
+{
+   "title": "POIROT: The Lost Mine",
+   "shortName": "The Lost Mine",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Lost Mine.mp4",
+   "length": 3201.929,
+   "description": "The director of Poirot's bank consults the Detective after the disappearance of Mr Wu Ling who was due to sell the bank a map leading to a Burmese mine abundant with silver."
+}
+,
+{
+   "title": "POIROT: The Million Dollar Bond Robbery",
+   "shortName": "The Million Dollar Bond Robbery",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Million Dollar Bond Robbery.mp4",
+   "length": 3190.976,
+   "description": "After a bank clerc charged with overseeing a million dollars' worth of American bonds is poisoned, the bank calls in Poirot."
+}
+,
+{
+   "title": "POIROT: The Murder of Roger Ackroyd",
+   "shortName": "The Murder of Roger Ackroyd",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Murder of Roger Ackroyd.mp4",
+   "length": 6208.024,
+   "description": "Poirot reminisces about an older case in which Roger Ackroyd, the elderly, stingy millionaire disliked by many, was found murdered in cold blood."
+}
+,
+{
+   "title": "POIROT: The Mysterious Affair at Styles",
+   "shortName": "The Mysterious Affair at Styles",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Mysterious Affair at Styles.mp4",
+   "length": 6457.024,
+   "description": "After WWI, Captain Hastings is invited to Styles Court, where he meets his old friend Poirot again."
+}
+,
+{
+   "title": "POIROT: The Mystery of Hunter's Lodge",
+   "shortName": "The Mystery of Hunter's Lodge",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Mystery of Hunter's Lodge.mp4",
+   "length": 3168.064,
+   "description": "Poirot accompanies Hastings on a shooting party at the Hunter's Lodge, but is soon struck down with a flu."
+}
+,
+{
+   "title": "POIROT: The Mystery of the Blue Train",
+   "shortName": "The Mystery of the Blue Train",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Mystery of the Blue Train.mp4",
+   "length": 5891.367,
+   "description": "While travelling on the Blue Train between Calais and Nice, Poirot gets mixed up in the investigation of the brutal murder of American heiress Ruth Kettering."
+}
+,
+{
+   "title": "POIROT: The Mystery of the Spanish Chest",
+   "shortName": "The Mystery of the Spanish Chest",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Mystery of the Spanish Chest.mp4",
+   "length": 3202.069,
+   "description": "The charming Mrs Clayton begs Poirot for protection from her jealous husband."
+}
+,
+{
+   "title": "POIROT: The Plymouth Express",
+   "shortName": "The Plymouth Express",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Plymouth Express.mp4",
+   "length": 3168.064,
+   "description": "Australian mining entrepreneur Gordon Halliday hires Poirot to look into the activities of one of his daughter's suitors."
+}
+,
+{
+   "title": "POIROT: The Theft of the Royal Ruby",
+   "shortName": "The Theft of the Royal Ruby",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Theft of the Royal Ruby.mp4",
+   "length": 2912.447,
+   "description": "During Christmas holidays, Poirot gets a visit from the Egyptian prince whose royal ruby has been stolen by a prostitute."
+}
+,
+{
+   "title": "POIROT: The Third Floor Flat",
+   "shortName": "The Third Floor Flat",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Third Floor Flat.mp4",
+   "length": 3047.744,
+   "description": "Young people return from a night out, but they have to use the coal lift because they have lost the keys to the apartment."
+}
+,
+{
+   "title": "POIROT: The Tragedy at Marsdon Manor",
+   "shortName": "The Tragedy at Marsdon Manor",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Tragedy at Marsdon Manor.mp4",
+   "length": 3210.068,
+   "description": "Poirot and Hastings travel to Marsdon Leigh in response to a letter about an insoluble murder."
+}
+,
+{
+   "title": "POIROT: The Underdog",
+   "shortName": "The Underdog",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Underdog.mp4",
+   "length": 3193.44,
+   "description": "Poirot investigates the violent death of the CEO of a chemical company whose list of enemies seems to be without end."
+}
+,
+{
+   "title": "POIROT: The Veiled Lady",
+   "shortName": "The Veiled Lady",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Veiled Lady.mp4",
+   "length": 3054.473,
+   "description": "Poirot is approached by a heavily veiled woman, Lady Millicent Castle Vaughan."
+}
+,
+{
+   "title": "POIROT: The Yellow Iris",
+   "shortName": "The Yellow Iris",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Yellow Iris.mp4",
+   "length": 3168.608,
+   "description": "The wealthy Barton Russell throws a dinner party in remebrance of his wife Iris's death by inviting the same people that were present the night of her murder."
+}
+,
+{
+   "title": "POIROT: Third Girl",
+   "shortName": "Third Girl",
+   "urlLocal": "media/channel-5/../Core/Poirot/Third Girl.mp4",
+   "length": 5848.864,
+   "description": "An unbalanced young heiress confides in Poirot that she might have killed someone, but runs away without explaining further."
+}
+,
+{
+   "title": "POIROT: Three Act Tragedy",
+   "shortName": "Three Act Tragedy",
+   "urlLocal": "media/channel-5/../Core/Poirot/Three Act Tragedy.mp4",
+   "length": 5561.718,
+   "description": "A well-liked clergyman with no enemy in the world chokes to death at a party thrown by the renowned Sir Charles Cartwright."
+}
+,
+{
+   "title": "POIROT: Triangle at Rhodes",
+   "shortName": "Triangle at Rhodes",
+   "urlLocal": "media/channel-5/../Core/Poirot/Triangle at Rhodes.mp4",
+   "length": 3194.303,
+   "description": "Poirot is enjoying his holiday in Rhodes, but human drama never seems to be too far away."
+}
+,
+{
+   "title": "POIROT: Wasps' Nest",
+   "shortName": "Wasps' Nest",
+   "urlLocal": "media/channel-5/../Core/Poirot/Wasps' Nest.mp4",
+   "length": 3180.074,
+   "description": "Poirot runs into his old friend John Harrison at a village fete and sets out to prevent a murder."
+}
+,
+{
+   "title": "MISS MARPLE: A Caribbean Mystery",
+   "shortName": "A Caribbean Mystery",
+   "urlLocal": "media/channel-5/../Core/Miss Marple/A Caribbean Mystery.m4v",
+   "length": 6484.202,
+   "description": "While holidaying in Barbados, Miss Marple is bored to tears by a dotty Major who tells tall tales of knowing a murderer."
+}
+,
+{
+   "title": "MISS MARPLE: A Murder is Announced",
+   "shortName": "A Murder is Announced",
+   "urlLocal": "media/channel-5/../Core/Miss Marple/A Murder is Announced.m4v",
+   "length": 9552.104,
+   "description": "A party game goes wrong and a young Swiss man is dead."
+}
+,
+{
+   "title": "MISS MARPLE: A Pocketful of Rye",
+   "shortName": "A Pocketful of Rye",
+   "urlLocal": "media/channel-5/../Core/Miss Marple/A Pocketful of Rye.m4v",
+   "length": 6183.988,
+   "description": "When the members of a wealthy banking family start dropping like flies, Miss Marple is reminded of the old nursery rhyme."
+}
+,
+{
+   "title": "MISS MARPLE: At Bertram's Hotel",
+   "shortName": "At Bertram's Hotel",
+   "urlLocal": "media/channel-5/../Core/Miss Marple/At Bertram's Hotel.m4v",
+   "length": 6539.946,
+   "description": "False identities, larceny, and a crime ring are only the tip of the tentacle when Miss Marple stays in a posh London hotel.(modelled after Brown's Hotel) where nothing is what it seems."
+}
+,
+{
+   "title": "MISS MARPLE: Nemesis",
+   "shortName": "Nemesis",
+   "urlLocal": "media/channel-5/../Core/Miss Marple/Nemesis.m4v",
+   "length": 6485.077,
+   "description": "Miss Marple is sent on a mission from beyond the grave to clear a dead man's son."
+}
+,
+{
+   "title": "MISS MARPLE: Sleeping Murder",
+   "shortName": "Sleeping Murder",
+   "urlLocal": "media/channel-5/../Core/Miss Marple/Sleeping Murder.m4v",
+   "length": 6438.02,
+   "description": "A young wife believes her house is haunted."
+}
+,
+{
+   "title": "MISS MARPLE: The 4.50 From Paddington",
+   "shortName": "The 4.50 From Paddington",
+   "urlLocal": "media/channel-5/../Core/Miss Marple/The 4.50 From Paddington.m4v",
+   "length": 6573.994,
+   "description": "After Miss Marple's friend witnesses a murder in a railway carriage running parallel to her own, Miss Marple engages a resourceful young woman to investigate."
+}
+,
+{
+   "title": "MISS MARPLE: The Body in the Library",
+   "shortName": "The Body in the Library",
+   "urlLocal": "media/channel-5/../Core/Miss Marple/The Body in the Library.m4v",
+   "length": 9315.093,
+   "description": "Miss Marple assists her neighbours the Bantrys when a lovely young girl is found dead in their library."
+}
+,
+{
+   "title": "POIROT: Five Little Pigs",
+   "shortName": "Five Little Pigs",
+   "urlLocal": "media/channel-5/../Core/Poirot/Five Little Pigs.mp4",
+   "length": 5831.484,
+   "description": "Young Lucy Lemarchant asks Poirot to uncover the truth of the 14-year-old murder case in which her mother Caroline was hanged for poisoning her husband."
+}
+,
+{
+   "title": "JONATHAN CREEK: Gorgons Wood",
+   "shortName": "Gorgons Wood",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Gorgons Wood.mp4",
+   "length": 3641.066,
+   "description": "A priceless Eastern porcelain monk is stolen in front of several witnesses, prompting Jonathan and Carla's discovery of a major case of sibling rivalry."
+}
+,
+{
+   "title": "JONATHAN CREEK: Jack In The Box",
+   "shortName": "Jack In The Box",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Jack In The Box.mp4",
+   "length": 3533.44,
+   "description": "After Maddy successfully campaigns to free a man she believes to have been wrongly imprisoned for murder, the husband of the victim is found shot dead in his nuclear fall-out shelter."
+}
+,
+{
+   "title": "JONATHAN CREEK: Miracle In Crooked Lane",
+   "shortName": "Miracle In Crooked Lane",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Miracle In Crooked Lane.mp4",
+   "length": 2995.648,
+   "description": "A former glamour model is seriously injured when her garden shed explodes."
+}
+,
+{
+   "title": "JONATHAN CREEK: Mother Redcap",
+   "shortName": "Mother Redcap",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Mother Redcap.mp4",
+   "length": 2993.066,
+   "description": "A judge on a police protection programme is killed by a rapier blade into the chest, but only his sleeping wife was in the room at the time."
+}
+,
+{
+   "title": "JONATHAN CREEK: No Trace Of Tracy",
+   "shortName": "No Trace Of Tracy",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/No Trace Of Tracy.mp4",
+   "length": 3548,
+   "description": "Tracy, a teenager who loves seventies rock music, goes to visit her idol, retired rock star Roy Pilgrim."
+}
+,
+{
+   "title": "JONATHAN CREEK: Satan's Chimney",
+   "shortName": "Satan's Chimney",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Satan's Chimney.mp4",
+   "length": 7123.072,
+   "description": "With Maddy gone to America on a book promotion tour, Jonathan teams up with Carla Borrego."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Chequered Box",
+   "shortName": "The Chequered Box",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Chequered Box.mp4",
+   "length": 3604,
+   "description": "A police detective is photographed after apparently murdering a prosecutor by hanging her in her office."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Clue of the Savant's Thumb",
+   "shortName": "The Clue of the Savant's Thumb",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Clue of the Savant's Thumb.m4v",
+   "length": 5359,
+   "description": "Jonathan Creek has left magic and theatre behind and is now a high-powered businessman with a wife, Polly."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Coonskin Cap",
+   "shortName": "The Coonskin Cap",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Coonskin Cap.mp4",
+   "length": 3553.64,
+   "description": "After an awkward break-up some months ago, Jonathan and Carla unite to investigate a serial killer who wears a Davy Crockett hat and kills people named after flowers."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Curious Tale Of Mr Spearfish",
+   "shortName": "The Curious Tale Of Mr Spearfish",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Curious Tale Of Mr Spearfish.mp4",
+   "length": 2996.714,
+   "description": "A man who claims to have sold his soul to the Devil has a remarkable run of good luck."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Eyes Of Tiresias",
+   "shortName": "The Eyes Of Tiresias",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Eyes Of Tiresias.mp4",
+   "length": 3016.042,
+   "description": "When an old woman experiences dreams of the future, Jonathan must find out what is happening before her dreams of being attacked by a one-eyed man with a sword come to pass."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Grinning Man",
+   "shortName": "The Grinning Man",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Grinning Man.mp4",
+   "length": 7134.08,
+   "description": "Since 1938, a number of people have disappeared from the attic of a Gothic mansion."
+}
+,
+{
+   "title": "JONATHAN CREEK: The House Of Monkeys",
+   "shortName": "The House Of Monkeys",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The House Of Monkeys.mp4",
+   "length": 3545.066,
+   "description": "A cancer doctor is found impaled by a sword in his locked study."
+}
+,
+{
+   "title": "POIROT: The Chocolate Box",
+   "shortName": "The Chocolate Box",
+   "urlLocal": "media/channel-5/../Core/Poirot/The Chocolate Box.mp4",
+   "length": 3166.944,
+   "description": "While in Belgium, Poirot recounts to Chief Inspector Japp a case from twenty years prior."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Scented Room",
+   "shortName": "The Scented Room",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Scented Room.mp4",
+   "length": 2941.994,
+   "description": "A painting disappears from a locked room and the owner, theatre critic Sylvester Le Fley, offers a large reward for its recovery."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Seer Of The Sands",
+   "shortName": "The Seer Of The Sands",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Seer Of The Sands.mp4",
+   "length": 3584.64,
+   "description": "A man who investigates supernatural occurrences kills himself by crashing his boat after receiving a fax from his lover."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Tailor's Dummy",
+   "shortName": "The Tailor's Dummy",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Tailor's Dummy.mp4",
+   "length": 3582.016,
+   "description": "A designer commits suicide by jumping out of a window after reading a bad review of his work."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Three Gamblers",
+   "shortName": "The Three Gamblers",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Three Gamblers.mp4",
+   "length": 3046.698,
+   "description": "A drug dealer and criminal who was shot six times in the head somehow managed to climb up the stairs from the cellar."
+}
+,
+{
+   "title": "JONATHAN CREEK: The Wrestler's Tomb",
+   "shortName": "The Wrestler's Tomb",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Wrestler's Tomb.mp4",
+   "length": 5340.458,
+   "description": "An artist is found dead at his home, while his mistress is found bound, blindfolded and gagged with tape."
+}
+,
+{
+   "title": "JONATHAN CREEK: Time Waits For Norman",
+   "shortName": "Time Waits For Norman",
+   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Time Waits For Norman.mp4",
+   "length": 2951.018,
+   "description": "Antonia, a friend of Maddy's, asks her and Jonathan to discover what her husband has been up to after reliable witnesses place him on both sides of the Atlantic only minutes apart."
+}
+]}
+

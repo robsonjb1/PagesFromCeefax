@@ -1,0 +1,272 @@
+<!--
+ pagesfromceefax.com
+
+ Jason Robson
+ Twitter @pfceefax
+ https://github.com/robsonjb1/PagesFromCeefax
+
+ Attributions:
+ - Displays news stories gathered from the BBC public RSS feeds
+
+ - Header artwork was taken from REAL Ceefax pages using the BeebEm BBC Micro emulator (which supports Teletext adapters)
+     and used a 'digital' feed of Teletext from some time in 2006.
+
+ - Background TV image using licensed stock art imagery purchased from shutterstock.com
+
+ - The audio was taken from the following YouTube video (attribution unknown)
+ -   https://www.youtube.com/watch?v=JU8P5G-GM_g
+
+ - Hosted using Microsoft Azure
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RetroTV</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+    <meta name="apple-mobile-web-app-title" content="RetroTV" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" value="A tribute to the in-vision Teletext service Ceefax, familiar to British TV viewers for over 30 years." />
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <script src="./lib/jquery.3.7.1.min.js"></script>
+    <script type="module" src="./js/main2.js"></script>
+   
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+
+
+<body style="background-color: black;">
+    <div id="planner" style="background-color: #000050">
+        <div class="plannerTogglePanel">
+            <div>
+                <span id="currentTime" class="plannerTime"></span>
+                &nbsp;
+                <span><a id="settingsToggle"><i id="settingsToggleIcon" class="bi bi-info-circle plannerGroupButton"></i></a></span>
+            </div>
+
+            <div>
+                <a id="channelGroupToggle">
+                    <i id="channelGroup1button" class="bi plannerGroupButton bi-1-square-fill"></i>
+                    <i id="channelGroup2button" class="bi plannerGroupButton bi-2-square"></i>
+                </a>
+            </div>
+
+            <div>
+                <a id="speakerToggle"><i id="speakerIcon" class="bi bi-volume-up-fill plannerToggleButton"></i></a>
+            </div>
+        </div>
+        
+        <div id="channelList">
+            <div id="channelGrouping1">
+                <table class="plannerTable">
+                    <tr id="channel1row">
+                        <td valign="top">
+                            <button id='channel1button' type="button" class="btn btn-outline-primary plannerButton">
+                                <nobr><span class="plannerStart" id="channel1time"></span></nobr>
+                                <div class="progress bg-info plannerProgress"><div id="channel1progress" class="progress-bar bg-warning" role="progressbar"></div></div>
+                            </button>
+                        </td>
+                        <td class="plannerTitle">
+                            <div class="showDetails">
+                                <span id="channel1title"></span><div class="plannerDescription" id="channel1description"></div>
+                            </div>
+                            <div class="channelDetails initially-hidden">
+                                <span id="settings1title">TOP GEAR</span><div class="plannerDescription" id="settings1description"></div>
+                            </div>
+                        </td>  
+                    </tr>
+<!--
+                    <tr id="channel2row">
+                        <td valign="top">
+                            <button id='channel2button' type="button" class="btn btn-outline-primary plannerButton">
+                                <nobr><span class="plannerStart" id="channel2time"></span></nobr>
+                                <div class="progress bg-info plannerProgress"><div id="channel2progress" class="progress-bar bg-warning" role="progressbar"></div></div>
+                            </button>
+                        </td>
+                        <td class="plannerTitle">
+                            <div class="showDetails">
+                                <span id="channel2title"></span><div class="plannerDescription" id="channel2description"></div>
+                            </div>
+                            <div class="channelDetails initially-hidden">
+                                <span id="settings2title">BLAKE'S-7 + RED DWARF</span><div class="plannerDescription" id="settings2description"></div>
+                            </div>
+                        </td>  
+                    </tr>
+-->
+                    <tr id="channel3row">
+                        <td valign="top">
+                            <button id='channel3button' type="button" class="btn btn-outline-primary plannerButton">
+                                <nobr><span class="plannerStart" id="channel3time"></span></nobr>
+                                <div class="progress bg-info plannerProgress"><div id="channel3progress" class="progress-bar bg-warning" role="progressbar"></div></div>
+                            </button>
+                        </td>
+                        <td class="plannerTitle">
+                            <div class="showDetails">
+                                <span id="channel3title"></span><div class="plannerDescription" id="channel3description"></div>
+                            </div>
+                            <div class="channelDetails initially-hidden">
+                                <span id="settings3title">DOCTOR WHO + BLAKE'S-7 + SPACE/TECH</span><div class="plannerDescription" id="settings3description"></div>
+                            </div>
+                        </td>  
+                    </tr>
+
+                    <tr id="channel6row">
+                        <td valign="top">
+                            <button id='channel6button' type="button" class="btn btn-outline-primary plannerButton">
+                                <nobr><span class="plannerStart" id="channel6time"></span></nobr>
+                                <div class="progress bg-info plannerProgress"><div id="channel6progress" class="progress-bar bg-warning" role="progressbar"></div></div>
+                            </button>
+                        </td>
+                        <td class="plannerTitle">
+                            <div class="showDetails">
+                                <span id="channel6title"></span><div class="plannerDescription" id="channel6description"></div>
+                            </div>
+                            <div class="channelDetails initially-hidden">
+                                <span id="settings6title">COMEDY</span><div class="plannerDescription" id="settings6description"></div>
+                            </div>
+                        </td>  
+                    </tr>
+
+                    <tr id="channel7row">
+                        <td valign="top">
+                            <button id='channel7button' type="button" class="btn btn-outline-primary plannerButton">
+                                <nobr><span class="plannerStart" id="channel7time"></span></nobr>
+                                <div class="progress bg-info plannerProgress"><div id="channel7progress" class="progress-bar bg-warning" role="progressbar"></div></div>
+                            </button>
+                        </td>
+                        <td class="plannerTitle">
+                            <div class="showDetails">
+                                <span id="channel7title"></span><div class="plannerDescription" id="channel7description"></div>
+                            </div>
+                            <div class="channelDetails initially-hidden">
+                                <span id="settings7title">MOVIES</span><div class="plannerDescription" id="settings7description"></div>
+                            </div>
+                        </td>  
+                    </tr>
+                    
+                    <tr id="channel10row">
+                        <td valign="top">
+                            <button id='channel10button' type="button" class="btn btn-outline-primary plannerButton">
+                                <nobr><span class="plannerStart" id="channel10time"></span></nobr>
+                                <div class="progress bg-info plannerProgress"><div id="channel10progress" class="progress-bar bg-warning" role="progressbar"></div></div>
+                            </button>
+                        </td>
+                        <td class="plannerTitle">
+                            <div class="showDetails">
+                                <span id="channel10title"></span><div class="plannerDescription" id="channel10description"></div>
+                            </div>
+                            <div class="channelDetails initially-hidden">
+                                <span id="settings10title">PODCASTS</span><div class="plannerDescription" id="settings10description"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+       
+            <div id="channelGrouping2">
+                <table class="plannerTable">
+                    <tr id="channel11row">
+                        <td valign="top">
+                            <button id='channel11button' type="button" class="btn btn-outline-primary plannerButton">
+                                <nobr><span class="plannerStart" id="channel11time"></span></nobr>
+                                <div class="progress bg-info plannerProgress"><div id="channel11progress" class="progress-bar bg-warning" role="progressbar"></div></div>
+                            </button>
+                        </td>
+                        <td class="plannerTitle">
+                            <div class="showDetails">
+                                <span id="channel11title"></span><div class="plannerDescription" id="channel11description"></div>
+                            </div>
+                            <div class="channelDetails initially-hidden">
+                                <span id="settings11title">PORTILLO</span><div class="plannerDescription" id="settings11description"></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr id="channel4row">
+                        <td valign="top">
+                            <button id='channel4button' type="button" class="btn btn-outline-primary plannerButton">
+                                <nobr><span class="plannerStart" id="channel4time"></span></nobr>
+                                <div class="progress bg-info plannerProgress"><div id="channel4progress" class="progress-bar bg-warning" role="progressbar"></div></div>
+                            </button>
+                        </td>
+                        <td class="plannerTitle">
+                            <div class="showDetails">
+                                <span id="channel4title"></span><div class="plannerDescription" id="channel4description"></div>
+                            </div>
+                            <div class="channelDetails initially-hidden">
+                                <span id="settings4title">STAR TREK (DS9 + VOYAGER)</span><div class="plannerDescription" id="settings4description"></div>
+                            </div>
+                        </td>  
+                    </tr>
+
+                    <tr id="channel5row">
+                        <td valign="top">
+                            <button id='channel5button' type="button" class="btn btn-outline-primary plannerButton">
+                                <nobr><span class="plannerStart" id="channel5time"></span></nobr>
+                                <div class="progress bg-info plannerProgress"><div id="channel5progress" class="progress-bar bg-warning" role="progressbar"></div></div>
+                            </button>
+                        </td>
+                        <td class="plannerTitle">
+                            <div class="showDetails">
+                                <span id="channel5title"></span><div class="plannerDescription" id="channel5description"></div>
+                            </div>
+                            <div class="channelDetails initially-hidden">
+                                <span id="settings5title">MYSTERY</span><div class="plannerDescription" id="settings5description"></div>
+                            </div>
+                        </td>  
+                    </tr>
+
+                    <tr id="channel8row">
+                        <td valign="top">
+                            <button id='channel8button' type="button" class="btn btn-outline-primary plannerButton">
+                                <nobr><span class="plannerStart" id="channel8time"></span></nobr>
+                                <div class="progress bg-info plannerProgress"><div id="channel8progress" class="progress-bar bg-warning" role="progressbar"></div></div>
+                            </button>
+                        </td>
+                        <td class="plannerTitle">
+                            <div class="showDetails">
+                                <span id="channel8title"></span><div class="plannerDescription" id="channel8description"></div>
+                            </div>
+                            <div class="channelDetails initially-hidden">
+                                <span id="settings8title">TOP OF THE POPS + BBC MUSIC</span><div class="plannerDescription" id="settings8description"></div>
+                            </div>
+                        </td>  
+                    </tr>  
+
+                    <tr id="channel9row">
+                        <td valign="top">
+                            <button id='channel9button' type="button" class="btn btn-outline-primary plannerButton">
+                                <nobr><span class="plannerStart" id="channel9time"></span></nobr>
+                                <div class="progress bg-info plannerProgress"><div id="channel9progress" class="progress-bar bg-warning" role="progressbar"></div></div>
+                            </button>
+                        </td>
+                        <td class="plannerTitle">
+                            <div class="showDetails">
+                                <span id="channel9title"></span><div class="plannerDescription" id="channel9description"></div>
+                            </div>
+                            <div class="channelDetails initially-hidden">
+                                <span id="settings9title">MUSIC (AUDIO)</span><div class="plannerDescription" id="settings9description"></div>
+                            </div>
+                        </td>  
+                    </tr>
+               </table>
+            </div>
+        </div>
+    </div>
+    
+    <video id="videoCanvas" width="100%"></video>
+    <div id="pfcOverlay" class="initially-hidden">
+        <iframe src="../" id="pfcFrame"></iframe>
+    </div>
+</body>
+</html>

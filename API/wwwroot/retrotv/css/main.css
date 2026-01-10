@@ -104,18 +104,6 @@ audio {
 	background-size: 100% 100%;
 }
 
-#teletextCanvas {
-	width: 100%;
-	border: 1px transparent #000;
-	border-radius: 30px;
-}
-
-#videoCanvas {
-	width: 100%;
-	border: 1px transparent #000;
-	border-radius: 30px;
-}
-
 /* Now Next banner */
 #planner {
 	margin-top: auto;
@@ -136,46 +124,30 @@ td, th { /* table cells */
 }
 .plannerTable {
 	font-size:smaller;
-	margin-top: 10px;
 	margin-left: 10px;
 	margin-bottom: 10px;
 }
-.plannerTime {
-	color: yellow;
-	vertical-align: top;
-	text-align: left;
-}
-.radioPlannerTime {
-	color: yellow;
-	vertical-align: top;
-	text-align: center;
-	font-size: medium;
-}
 .plannerButton {
-	width: 75px !important;
+	width: 60px !important;
+	height: 37px !important;
+	margin-left: -3px;
+	padding: 3px !important;
 }
 .plannerStart {
-	color: yellow;
-	font-size: smaller;
+	color: #ffff80;
+	font-size: 13px;
 	vertical-align: top;
+	margin-left: -1px;
+}
+.tick {
+	color: #ffff80;
+	font-size: 16px;
+	vertical-align: 0px;
 }
 .plannerDescription {
 	font-size: smaller;
 	color: lightblue;
-	vertical-align: top;
-}
-.speakerMute {
-	font-size: large;
-	color: lightblue;
-}
-.speakerIconBox {
-	margin-top: 0px;
-	width: 5px;
-}
-.plannerRadioDescription {
-	font-size: smaller;
-	color: lightblue;
-	vertical-align: top;
+	margin-top: -2px;
 }
 .plannerTitle {
 	vertical-align: top;
@@ -183,6 +155,9 @@ td, th { /* table cells */
 .plannerProgress {
 	height: 5px !important;
 	opacity: 75%;
+	margin-top: -5px;
+	margin-left: 2px;
+	margin-right: 2px;
 }
 .progress {
 	background-color: #aaa;
@@ -204,25 +179,43 @@ td, th { /* table cells */
 	width: 100%;
 	height: 100%;
 }
-.groupTwo {
+#settings {
 	display: none;
 }
 .channelBanner {
 	height: 30px;
 	margin-left: 3px;
 }
-.topLogo {
-	font-size: medium;
-	color: lightblue;
+.plannerToggleButton {
+	font-size: x-large;
+	color: #e0e0e0;
+	margin-right: 12px;
 }
-.channelToggleButton {
+.plannerGroupButton {
 	font-size: large;
-	color: lightblue;
-}
-#toggleShowDurations {
-	margin-top: 0px;
+	color: #e0e0e0;
 }
 .inTitleChannel {
-	font-size: 12px;
+	font-size: 15px;
 	color: lightblue;
+	vertical-align: -1px;
+}
+.plannerTime {
+	font-size: 14px;
+	color: lightblue;
+	vertical-align: 2px;
+	margin-left: 12px;
+	width: 30px;
+}
+
+.plannerLogo {
+	font-size: 16px;
+	color: lightblue;
+	vertical-align: 3px;
+	margin-left: 12px;
+}
+.plannerTogglePanel {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }

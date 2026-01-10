@@ -1,0 +1,120 @@
+{ "lastRefresh": "Sat 10 Jan 01:37", 
+   "episodeList": 
+[
+{
+   "urlLocal": "media/Channel-10/1-SPECTATOR.mp3",
+   "length": 2470.164,
+   "isPodcast": true,
+   "title": "PODCASTS: The Spectator Edition",
+   "shortName": "The Spectator Edition (Yesterday)",
+   "description": "Stormy seas, Trump’s revolution & Gen Z’s sex recession (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-CHS.mp3",
+   "length": 862.092,
+   "isPodcast": true,
+   "title": "PODCASTS: Coffee House Shots",
+   "shortName": "Coffee House Shots (Today)",
+   "description": "Mums for Reform? (Today)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/2-CHS.mp3",
+   "length": 660.166,
+   "isPodcast": true,
+   "title": "PODCASTS: Coffee House Shots",
+   "shortName": "Coffee House Shots (Yesterday)",
+   "description": "Keir Starmer, pub harmer (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/3-CHS.mp3",
+   "length": 1094.347,
+   "isPodcast": true,
+   "title": "PODCASTS: Coffee House Shots",
+   "shortName": "Coffee House Shots (2 days ago)",
+   "description": "How Reform plans to govern (2 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-PLANET-NORMAL.mp3",
+   "length": 4113.994,
+   "isPodcast": true,
+   "title": "PODCASTS: Planet Normal",
+   "shortName": "Planet Normal (2 days ago)",
+   "description": "Best Voyages from the Rocket 2025 Episode 2 (2 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-QUITERIGHT.mp3",
+   "length": 1795.055,
+   "isPodcast": true,
+   "title": "PODCASTS: Quite Right",
+   "shortName": "Quite Right (Yesterday)",
+   "description": "Q&A: A Labour rebellion is coming – can Starmer survive? (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-AMERICANO.mp3",
+   "length": 1426.86,
+   "isPodcast": true,
+   "title": "PODCASTS: Americano",
+   "shortName": "Americano (2 days ago)",
+   "description": "Is Trump going for Iran next? (2 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/2-AMERICANO.mp3",
+   "length": 2081.488,
+   "isPodcast": true,
+   "title": "PODCASTS: Americano",
+   "shortName": "Americano (3 days ago)",
+   "description": "Does America need Venezuela’s oil? (3 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-B-ONEILL.mp3",
+   "length": 2467.422,
+   "isPodcast": true,
+   "title": "PODCASTS: Brendan O'Neill",
+   "shortName": "Brendan O'Neill (2 days ago)",
+   "description": "What Trump wants from Venezuela, with Daniel McCarthy (2 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-TRIGGER.mp3",
+   "length": 2285.348,
+   "isPodcast": true,
+   "title": "PODCASTS: TRIGGERnometry",
+   "shortName": "TRIGGERnometry (2 days ago)",
+   "description": "LIVE Iran Update with Mahyar Tousi (2 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/2-TRIGGER.mp3",
+   "length": 3795.461,
+   "isPodcast": true,
+   "title": "PODCASTS: TRIGGERnometry",
+   "shortName": "TRIGGERnometry (3 days ago)",
+   "description": "How They Ruined California - Steve Hilton (3 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-SPIKED.mp3",
+   "length": 2281.038,
+   "isPodcast": true,
+   "title": "PODCASTS: Spiked",
+   "shortName": "Spiked (Yesterday)",
+   "description": "Venezuela, Greenland and Trump’s new world disorder (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-REALITY.mp3",
+   "length": 458.344,
+   "isPodcast": true,
+   "title": "PODCASTS: Reality Check",
+   "shortName": "Reality Check (Yesterday)",
+   "description": "Could Britain's migration crisis already be over? (Yesterday)"
+}
+]}
