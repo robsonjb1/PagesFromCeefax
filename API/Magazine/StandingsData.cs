@@ -52,12 +52,12 @@ public class StandingsData : IStandingData
         doc.LoadHtml(html);
 
         // Drivers
-        var drivers = doc.DocumentNode.SelectNodes("//section[@id='Drivers']//tr[@class='ssrcss-qqhdqi-TableRowBody e1icz100']");
+        var drivers = doc.DocumentNode.SelectNodes("//section[@id='Drivers']//tr[@class='ssrcss-ktc2fz-TableRowBody e1icz100']");
         foreach(var driver in drivers)
         {
             var nodes = driver.SelectNodes(".//span");
             string driverName = nodes[2].InnerText;
-            driverName = string.Join(" ", driverName.Split().Reverse().Take(2).Reverse()); // Take last two words of name only
+            //driverName = string.Join(" ", driverName.Split().Reverse().Take(2).Reverse()); // Take last two words of name only
         
             string team = nodes[4].InnerText;
             int wins = Convert.ToInt32(nodes[8].InnerText);
@@ -67,7 +67,7 @@ public class StandingsData : IStandingData
         }
 
         // Constructors
-        var constructors = doc.DocumentNode.SelectNodes("//section[@id='Constructors']//tr[@class='ssrcss-qqhdqi-TableRowBody e1icz100']");
+        var constructors = doc.DocumentNode.SelectNodes("//section[@id='Constructors']//tr[@class='ssrcss-ktc2fz-TableRowBody e1icz100']");
         foreach(var constructor in constructors)
         {
             var nodes = constructor.SelectNodes(".//span");
