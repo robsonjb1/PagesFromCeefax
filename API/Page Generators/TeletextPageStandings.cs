@@ -38,7 +38,7 @@ public class TeletextPageStandings : ITeletextPageStanding
             foreach(var d in _sd.Drivers.Take(8))
             {
                 TeletextControl col = (count % 2 == 0) ? TeletextControl.AlphaWhite : TeletextControl.AlphaCyan;
-                sb.AppendLine($"[{col}]{d.Name.PadRightWithTrunc(17)} {d.Team.PadRightWithTrunc(12)}{d.Wins.PadLeftWithTrunc(2)} {d.Points.PadLeftWithTrunc(6)}");
+                sb.AppendLine($"[{col}]{d.Name.PadRightWithTrunc(16)} {d.Team.PadRightWithTrunc(13)}{d.Wins.PadLeftWithTrunc(2)} {d.Points.PadLeftWithTrunc(6)}");
                 
                 count++;
             }
