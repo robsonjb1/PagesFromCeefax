@@ -1,578 +1,882 @@
-{ "lastRefresh": "Tue 06 Jan 22:13", 
+{ "lastRefresh": "Sun 22 Mar 17:21", 
    "episodeList": 
 [
 {
-   "title": "MOVIES: Aliens",
-   "shortName": "Aliens",
-   "urlLocal": "media/channel-7/../Core/Movies/Aliens.mp4",
-   "length": 9267.176,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Apollo 11",
-   "shortName": "Apollo 11",
-   "urlLocal": "media/channel-7/../Core/Movies/Apollo 11.mp4",
-   "length": 5581.242,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Apollo 13",
-   "shortName": "Apollo 13",
-   "urlLocal": "media/channel-7/../Core/Movies/Apollo 13.mp4",
-   "length": 8391.146,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Black Crag - Ambleside Bivvy Bag Mountain Camp",
-   "shortName": "Black Crag - Ambleside Bivvy Bag Mountain Camp",
-   "urlLocal": "media/channel-7/../Core/Movies/Black Crag -  Ambleside Bivvy Bag Mountain Camp.mp4",
-   "length": 3248.749,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Black Crag - Great Langdale Christmas Day",
-   "shortName": "Black Crag - Great Langdale Christmas Day",
-   "urlLocal": "media/channel-7/../Core/Movies/Black Crag -  Great Langdale Christmas Day.mp4",
-   "length": 3400.922,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Black Crag - Great Langdale Winter Hike",
-   "shortName": "Black Crag - Great Langdale Winter Hike",
-   "urlLocal": "media/channel-7/../Core/Movies/Black Crag -  Great Langdale Winter Hike.mp4",
-   "length": 3401.265,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Black Crag - Kirkstone Pass Van Camp",
-   "shortName": "Black Crag - Kirkstone Pass Van Camp",
-   "urlLocal": "media/channel-7/../Core/Movies/Black Crag -  Kirkstone Pass Van Camp.mp4",
-   "length": 3577.524,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Black Crag - Seat Sandal Overnight Camp",
-   "shortName": "Black Crag - Seat Sandal Overnight Camp",
-   "urlLocal": "media/channel-7/../Core/Movies/Black Crag -  Seat Sandal Overnight Camp.mp4",
-   "length": 3078.756,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: James Bond 23 - Skyfall",
-   "shortName": "James Bond 23 - Skyfall",
-   "urlLocal": "media/channel-7/../Core/Movies/James Bond 23 -  Skyfall.mp4",
-   "length": 8590.037,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: James May - Man on the Moon",
-   "shortName": "James May - Man on the Moon",
-   "urlLocal": "media/channel-7/../Core/Movies/James May -  Man on the Moon.m4v",
-   "length": 3572.08,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Kursk - The Last Mission",
-   "shortName": "Kursk - The Last Mission",
-   "urlLocal": "media/channel-7/../Core/Movies/Kursk -  The Last Mission.mp4",
-   "length": 6475.56,
-   "description": "The crew of the submarine Kursk head out for an ill-fated exercise in the Barents Sea."
-}
-,
-{
-   "title": "MOVIES: Labyrinth",
-   "shortName": "Labyrinth",
-   "urlLocal": "media/channel-7/../Core/Movies/Labyrinth.mp4",
-   "length": 6063.148,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Moon",
-   "shortName": "Moon",
-   "urlLocal": "media/channel-7/../Core/Movies/Moon.mp4",
-   "length": 5437.56,
-   "description": "Psychological thriller about a lunar miner nearing the end of his three-year mission."
-}
-,
-{
-   "title": "MOVIES: Shaun of the Dead",
-   "shortName": "Shaun of the Dead",
-   "urlLocal": "media/channel-7/../Core/Movies/Shaun of the Dead.mp4",
-   "length": 5965.173,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Sneakers",
-   "shortName": "Sneakers",
-   "urlLocal": "media/channel-7/../Core/Movies/Sneakers.mp4",
-   "length": 7525.28,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Spitfire",
-   "shortName": "Spitfire",
-   "urlLocal": "media/channel-7/../Core/Movies/Spitfire.mp4",
-   "length": 5485.46,
-   "description": "The story of the World War II fighter aircraft that became an international icon."
-}
-,
-{
-   "title": "MOVIES: Star Trek 2 - The Wrath of Khan",
-   "shortName": "Star Trek 2 - The Wrath of Khan",
-   "urlLocal": "media/channel-7/../Core/Movies/Star Trek 2 -  The Wrath of Khan.mp4",
-   "length": 6781.818,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Star Trek 8 - First Contact",
-   "shortName": "Star Trek 8 - First Contact",
-   "urlLocal": "media/channel-7/../Core/Movies/Star Trek 8 -  First Contact.mp4",
-   "length": 6644.32,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Star Wars IV - A New Hope",
-   "shortName": "Star Wars IV - A New Hope",
-   "urlLocal": "media/channel-7/../Core/Movies/Star Wars IV -  A New Hope.mp4",
-   "length": 7484.735,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Star Wars V - The Empire Strikes Back",
-   "shortName": "Star Wars V - The Empire Strikes Back",
-   "urlLocal": "media/channel-7/../Core/Movies/Star Wars V -  The Empire Strikes Back.mp4",
-   "length": 7641.717,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Star Wars VI - Return of the Jedi",
-   "shortName": "Star Wars VI - Return of the Jedi",
-   "urlLocal": "media/channel-7/../Core/Movies/Star Wars VI -  Return of the Jedi.mp4",
-   "length": 8087.38,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: The Bourne Identity",
-   "shortName": "The Bourne Identity",
-   "urlLocal": "media/channel-7/../Core/Movies/The Bourne Identity.mp4",
-   "length": 7117.068,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: The Bourne Supremacy",
-   "shortName": "The Bourne Supremacy",
-   "urlLocal": "media/channel-7/../Core/Movies/The Bourne Supremacy.mp4",
-   "length": 6511.588,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: The Bourne Ultimatum",
-   "shortName": "The Bourne Ultimatum",
-   "urlLocal": "media/channel-7/../Core/Movies/The Bourne Ultimatum.mp4",
-   "length": 6913.99,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: The Eagle Has Landed",
+   "title": "FILMS: The Eagle Has Landed",
    "shortName": "The Eagle Has Landed",
-   "urlLocal": "media/channel-7/../Core/Movies/The Eagle Has Landed.mp4",
+   "urlLocal": "media/channel-7/../Core/Films/The Eagle Has Landed.mp4",
    "length": 7755.786,
    "description": "World War II action about a German plot to kidnap Winston Churchill."
 }
 ,
 {
-   "title": "MOVIES: The Hunt for Red October",
-   "shortName": "The Hunt for Red October",
-   "urlLocal": "media/channel-7/../Core/Movies/The Hunt for Red October.mp4",
-   "length": 8108.01,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: The Life of Brian",
-   "shortName": "The Life of Brian",
-   "urlLocal": "media/channel-7/../Core/Movies/The Life of Brian.mp4",
-   "length": 5623.722,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: The Martian",
-   "shortName": "The Martian",
-   "urlLocal": "media/channel-7/../Core/Movies/The Martian.mp4",
-   "length": 7931.92,
-   "description": "An astronaut stranded on Mars and presumed dead must find a way to contact Earth."
-}
-,
-{
-   "title": "MOVIES: Horizon 2017 - Antarctica Ice Station Rescue",
-   "shortName": "Horizon 2017 - Antarctica Ice Station Rescue",
-   "urlLocal": "media/channel-7/../Core/Movies/Horizon 2017 -  Antarctica Ice Station Rescue.mp4",
-   "length": 3548.04,
-   "description": "Following the everyday heroes battling to move a vital polar research station."
-}
-,
-{
-   "title": "MOVIES: Hot Fuzz",
-   "shortName": "Hot Fuzz",
-   "urlLocal": "media/channel-7/../Core/Movies/Hot Fuzz.mp4",
-   "length": 7246.954,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Indiana Jones - Raiders of the Lost Ark",
-   "shortName": "Indiana Jones - Raiders of the Lost Ark",
-   "urlLocal": "media/channel-7/../Core/Movies/Indiana Jones -  Raiders of the Lost Ark.mp4",
-   "length": 6918.954,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Indiana Jones - Temple of Doom",
-   "shortName": "Indiana Jones - Temple of Doom",
-   "urlLocal": "media/channel-7/../Core/Movies/Indiana Jones -  Temple of Doom.mp4",
-   "length": 7108.309,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Interstellar",
-   "shortName": "Interstellar",
-   "urlLocal": "media/channel-7/../Core/Movies/Interstellar.mp4",
-   "length": 10144.008,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: James Bond   6 - On Her Majesty's Secret Service",
-   "shortName": "James Bond   6 - On Her Majesty's Secret Service",
-   "urlLocal": "media/channel-7/../Core/Movies/James Bond   6 -  On Her Majesty's Secret Service.mp4",
-   "length": 8538.571,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: James Bond 10 - The Spy Who Loved Me",
-   "shortName": "James Bond 10 - The Spy Who Loved Me",
-   "urlLocal": "media/channel-7/../Core/Movies/James Bond 10 -  The Spy Who Loved Me.mp4",
-   "length": 7540.574,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: James Bond 11 - Moonraker",
-   "shortName": "James Bond 11 - Moonraker",
-   "urlLocal": "media/channel-7/../Core/Movies/James Bond 11 -  Moonraker.mp4",
-   "length": 7588.97,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: James Bond 12 - For Your Eyes Only",
-   "shortName": "James Bond 12 - For Your Eyes Only",
-   "urlLocal": "media/channel-7/../Core/Movies/James Bond 12 -  For Your Eyes Only.mp4",
-   "length": 7679.38,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: James Bond 13 - Octopussy",
-   "shortName": "James Bond 13 - Octopussy",
-   "urlLocal": "media/channel-7/../Core/Movies/James Bond 13 -  Octopussy.mp4",
-   "length": 7848.674,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: James Bond 17 - GoldenEye",
-   "shortName": "James Bond 17 - GoldenEye",
-   "urlLocal": "media/channel-7/../Core/Movies/James Bond 17 -  GoldenEye.mp4",
-   "length": 7800.459,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: 2001 A Space Odyssey",
-   "shortName": "2001 A Space Odyssey",
-   "urlLocal": "media/channel-7/../Core/Movies/2001 A Space Odyssey.mp4",
-   "length": 8931.712,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: 2010 Odyssey Two",
-   "shortName": "2010 Odyssey Two",
-   "urlLocal": "media/channel-7/../Core/Movies/2010 Odyssey Two.mp4",
-   "length": 6955.968,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Airplane!  ",
-   "shortName": "Airplane!  ",
-   "urlLocal": "media/channel-7/../Core/Movies/Airplane!  .mp4",
-   "length": 5262.09,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Airplane! II",
-   "shortName": "Airplane! II",
-   "urlLocal": "media/channel-7/../Core/Movies/Airplane! II.mp4",
-   "length": 5054.463,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Alan Partridge Alpha Papa",
-   "shortName": "Alan Partridge Alpha Papa",
-   "urlLocal": "media/channel-7/../Core/Movies/Alan Partridge Alpha Papa.mp4",
-   "length": 5074.04,
-   "description": "A radio DJ ends up in a siege when a disgruntled colleague takes the staff hostage."
-}
-,
-{
-   "title": "MOVIES: Alien",
-   "shortName": "Alien",
-   "urlLocal": "media/channel-7/../Core/Movies/Alien.mp4",
-   "length": 6708.68,
-   "description": "A commercial spacecraft investigates a mysterious signal and picks up a deadly life form."
-}
-,
-{
-   "title": "MOVIES: Black Crag - Solo Mountain Camp at the Limit",
-   "shortName": "Black Crag - Solo Mountain Camp at the Limit",
-   "urlLocal": "media/channel-7/../Core/Movies/Black Crag -  Solo Mountain Camp at the Limit.mp4",
-   "length": 1963.478,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Black Crag - Wythop Mill Alpine Walk",
-   "shortName": "Black Crag - Wythop Mill Alpine Walk",
-   "urlLocal": "media/channel-7/../Core/Movies/Black Crag -  Wythop Mill Alpine Walk.mp4",
-   "length": 3129.042,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Blade Runner",
-   "shortName": "Blade Runner",
-   "urlLocal": "media/channel-7/../Core/Movies/Blade Runner.mp4",
-   "length": 7056.981,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Chariots of Fire",
-   "shortName": "Chariots of Fire",
-   "urlLocal": "media/channel-7/../Core/Movies/Chariots of Fire.mp4",
-   "length": 7052.12,
-   "description": "The story of 1924 Olympic athletes Harold Abrahams and Eric Liddell."
-}
-,
-{
-   "title": "MOVIES: Die Hard",
-   "shortName": "Die Hard",
-   "urlLocal": "media/channel-7/../Core/Movies/Die Hard.mp4",
-   "length": 7927.961,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Donnie Darko",
-   "shortName": "Donnie Darko",
-   "urlLocal": "media/channel-7/../Core/Movies/Donnie Darko.mp4",
-   "length": 6516.976,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Double Cross - The True Story of the D-Day Spies",
-   "shortName": "Double Cross - The True Story of the D-Day Spies",
-   "urlLocal": "media/channel-7/../Core/Movies/Double Cross -  The True Story of the D-Day Spies.mp4",
-   "length": 3547.04,
-   "description": "Revealing the heroic spies who helped contribute to victory in WWII."
-}
-,
-{
-   "title": "MOVIES: Drop Dead Gorgeous",
-   "shortName": "Drop Dead Gorgeous",
-   "urlLocal": "media/channel-7/../Core/Movies/Drop Dead Gorgeous.mp4",
-   "length": 5873.92,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Dunkirk",
-   "shortName": "Dunkirk",
-   "urlLocal": "media/channel-7/../Core/Movies/Dunkirk.mp4",
-   "length": 5829.88,
-   "description": "Allied soldiers find themselves surrounded by enemy forces in Dunkirk in World War II."
-}
-,
-{
-   "title": "MOVIES: Ghostbusters",
-   "shortName": "Ghostbusters",
-   "urlLocal": "media/channel-7/../Core/Movies/Ghostbusters.mp4",
-   "length": 6308.353,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Horizon 2016 - Ice Station Antarctica",
-   "shortName": "Horizon 2016 - Ice Station Antarctica",
-   "urlLocal": "media/channel-7/../Core/Movies/Horizon 2016 -  Ice Station Antarctica.mp4",
-   "length": 3542.04,
-   "description": "BBC weatherman Peter Gibbs makes an emotional return to Antarctica."
-}
-,
-{
-   "title": "MOVIES: Carry On Camping",
-   "shortName": "Carry On Camping",
-   "urlLocal": "media/channel-7/../Core/Movies/Carry On Camping.mp4",
-   "length": 5093.984,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Carry On Cleo",
-   "shortName": "Carry On Cleo",
-   "urlLocal": "media/channel-7/../Core/Movies/Carry On Cleo.mp4",
-   "length": 5521.28,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Carry On up the Khyber",
-   "shortName": "Carry On up the Khyber",
-   "urlLocal": "media/channel-7/../Core/Movies/Carry On up the Khyber.mp4",
-   "length": 5131.456,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: The Matrix",
-   "shortName": "The Matrix",
-   "urlLocal": "media/channel-7/../Core/Movies/The Matrix.mp4",
-   "length": 8178.086,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: The Railway Children",
-   "shortName": "The Railway Children",
-   "urlLocal": "media/channel-7/../Core/Movies/The Railway Children.mp4",
-   "length": 6297.72,
-   "description": "Three children move from a comfortable townhouse to a small Yorkshire cottage."
-}
-,
-{
-   "title": "MOVIES: The Terminator 1",
-   "shortName": "The Terminator 1",
-   "urlLocal": "media/channel-7/../Core/Movies/The Terminator 1.mp4",
-   "length": 6433.51,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: The Terminator 2 - Judgement Day",
-   "shortName": "The Terminator 2 - Judgement Day",
-   "urlLocal": "media/channel-7/../Core/Movies/The Terminator 2 -  Judgement Day.mp4",
-   "length": 9355.764,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: The X Files",
-   "shortName": "The X Files",
-   "urlLocal": "media/channel-7/../Core/Movies/The X Files.mp4",
-   "length": 7361.27,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Vulcan - Operation Black Buck",
-   "shortName": "Vulcan - Operation Black Buck",
-   "urlLocal": "media/channel-7/../Core/Movies/Vulcan -  Operation Black Buck.mp4",
-   "length": 2820.969,
-   "description": ""
-}
-,
-{
-   "title": "MOVIES: Wallace and Gromit 1 - A Grand Day Out",
-   "shortName": "Wallace and Gromit 1 - A Grand Day Out",
-   "urlLocal": "media/channel-7/../Core/Movies/Wallace and Gromit 1 -  A Grand Day Out.mp4",
-   "length": 1361.24,
-   "description": "Wallace and Gromit blast off in a homemade rocket to see if the moon is made of cheese."
-}
-,
-{
-   "title": "MOVIES: Wallace and Gromit 2 - The Wrong Trousers",
-   "shortName": "Wallace and Gromit 2 - The Wrong Trousers",
-   "urlLocal": "media/channel-7/../Core/Movies/Wallace and Gromit 2 -  The Wrong Trousers.mp4",
-   "length": 1724.04,
-   "description": "A mysterious penguin moves in with Wallace and Gromit, embroiling them in a heist."
-}
-,
-{
-   "title": "MOVIES: Wallace and Gromit 3 - A Close Shave",
-   "shortName": "Wallace and Gromit 3 - A Close Shave",
-   "urlLocal": "media/channel-7/../Core/Movies/Wallace and Gromit 3 -  A Close Shave.mp4",
-   "length": 1793.04,
-   "description": "While Wallace is distracted by a romance, Gromit is framed for sheep rustling."
-}
-,
-{
-   "title": "MOVIES: Wallace and Gromit 4 - A Matter of Loaf and Death",
-   "shortName": "Wallace and Gromit 4 - A Matter of Loaf and Death",
-   "urlLocal": "media/channel-7/../Core/Movies/Wallace and Gromit 4 -  A Matter of Loaf and Death.mp4",
+   "title": "FILMS: Wallace and Gromit 5 - A Matter of Loaf and Death",
+   "shortName": "Wallace and Gromit 5 - A Matter of Loaf and Death",
+   "urlLocal": "media/channel-7/../Core/Films/Wallace and Gromit 5 -  A Matter of Loaf and Death.mp4",
    "length": 1740.04,
    "description": "Wallace and Gromit's business faces danger when a killer starts targeting local bakers."
 }
 ,
 {
-   "title": "MOVIES: Wallace and Gromit 5 - The Curse of the Were-Rabbit",
-   "shortName": "Wallace and Gromit 5 - The Curse of the Were-Rabbit",
-   "urlLocal": "media/channel-7/../Core/Movies/Wallace and Gromit 5 -  The Curse of the Were-Rabbit.mp4",
+   "title": "MUSIC: Synth Britannia",
+   "shortName": "Synth Britannia",
+   "urlLocal": "media/channel-7/../Core/Music/Synth Britannia.mp4",
+   "length": 5258.08,
+   "description": "How a group of post-punk musicians took the synthesiser to the centre of the pop stage."
+}
+,
+{
+   "title": "MUSIC: Tears for Fears - Radio 2 in Concert",
+   "shortName": "Tears for Fears - Radio 2 in Concert",
+   "urlLocal": "media/channel-7/../Core/Music/Tears for Fears -  Radio 2 in Concert.mp4",
+   "length": 1874.901,
+   "description": "Jo Whiley presents highlights from Tears for Fears' performance at the BBC Radio Theatre."
+}
+,
+{
+   "title": "MUSIC: The Cure - Radio 2 in Concert",
+   "shortName": "The Cure - Radio 2 in Concert",
+   "urlLocal": "media/channel-7/../Core/Music/The Cure -  Radio 2 in Concert.mp4",
+   "length": 4619.04,
+   "description": "The Cure perform classics, fan favourites and tracks from the album Songs of a Lost World."
+}
+,
+{
+   "title": "MUSIC: The Cure at the BBC",
+   "shortName": "The Cure at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/The Cure at the BBC.mp4",
+   "length": 3537.2,
+   "description": "A celebration of The Cure, Robert Smith and their unique songwriting talents."
+}
+,
+{
+   "title": "MUSIC: The Police in the East - The Old Grey Whistle Test",
+   "shortName": "The Police in the East - The Old Grey Whistle Test",
+   "urlLocal": "media/channel-7/../Core/Music/The Police in the East -  The Old Grey Whistle Test.mp4",
+   "length": 3141.908,
+   "description": "Interviews and footage from The Police's 1980 tour of Japan, Hong Kong, India and Egypt."
+}
+,
+{
+   "title": "MUSIC: The Smiths - The Old Grey Whistle Test",
+   "shortName": "The Smiths - The Old Grey Whistle Test",
+   "urlLocal": "media/channel-7/../Core/Music/The Smiths -  The Old Grey Whistle Test.mp4",
+   "length": 2338.9,
+   "description": "Mark Ellen introduces The Smiths in concert at The Assembly Rooms in Derby."
+}
+,
+{
+   "title": "FILMS: 2001 A Space Odyssey",
+   "shortName": "2001 A Space Odyssey",
+   "urlLocal": "media/channel-7/../Core/Films/2001 A Space Odyssey.mp4",
+   "length": 8931.712,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: 2010 Odyssey Two",
+   "shortName": "2010 Odyssey Two",
+   "urlLocal": "media/channel-7/../Core/Films/2010 Odyssey Two.mp4",
+   "length": 6955.968,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Airplane! ",
+   "shortName": "Airplane! ",
+   "urlLocal": "media/channel-7/../Core/Films/Airplane! .mp4",
+   "length": 5262.09,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Alan Partridge Alpha Papa",
+   "shortName": "Alan Partridge Alpha Papa",
+   "urlLocal": "media/channel-7/../Core/Films/Alan Partridge Alpha Papa.mp4",
+   "length": 5074.04,
+   "description": "A radio DJ ends up in a siege when a disgruntled colleague takes the staff hostage."
+}
+,
+{
+   "title": "FILMS: Alien",
+   "shortName": "Alien",
+   "urlLocal": "media/channel-7/../Core/Films/Alien.mp4",
+   "length": 6708.68,
+   "description": "A commercial spacecraft investigates a mysterious signal and picks up a deadly life form."
+}
+,
+{
+   "title": "FILMS: Aliens",
+   "shortName": "Aliens",
+   "urlLocal": "media/channel-7/../Core/Films/Aliens.mp4",
+   "length": 9267.176,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Apollo 11",
+   "shortName": "Apollo 11",
+   "urlLocal": "media/channel-7/../Core/Films/Apollo 11.mp4",
+   "length": 5581.242,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Apollo 13",
+   "shortName": "Apollo 13",
+   "urlLocal": "media/channel-7/../Core/Films/Apollo 13.mp4",
+   "length": 8391.146,
+   "description": ""
+}
+,
+{
+   "title": "MUSIC: Depeche Mode - Radio 2 Piano Room",
+   "shortName": "Depeche Mode - Radio 2 Piano Room",
+   "urlLocal": "media/channel-7/../Core/Music/Depeche Mode -  Radio 2 Piano Room.mp4",
+   "length": 806.68,
+   "description": "5 times Grammy nominated Depeche Mode perform in Radio 2's Piano Room."
+}
+,
+{
+   "title": "MUSIC: Depeche Mode at the BBC",
+   "shortName": "Depeche Mode at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/Depeche Mode at the BBC.mp4",
+   "length": 3500.04,
+   "description": "Including New Life, Just Can't Get Enough, Blasphemous Rumours and Personal Jesus."
+}
+,
+{
+   "title": "MUSIC: Easy Listening Hits at the BBC",
+   "shortName": "Easy Listening Hits at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/Easy Listening Hits at the BBC.mp4",
+   "length": 3585.12,
+   "description": "With Burt Bacharach, Andy Williams, Sergio Mendes & Brasil 66, The Carpenters and more."
+}
+,
+{
+   "title": "MUSIC: John Denver at Wembley Arena 1979",
+   "shortName": "John Denver at Wembley Arena 1979",
+   "urlLocal": "media/channel-7/../Core/Music/John Denver at Wembley Arena 1979.mp4",
+   "length": 2380.116,
+   "description": "Country singer-songwriter John Denver performs in concert at Wembley Arena in 1979."
+}
+,
+{
+   "title": "MUSIC: Kate Bush at the BBC",
+   "shortName": "Kate Bush at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/Kate Bush at the BBC.mp4",
+   "length": 3560,
+   "description": "Including the hits Wuthering Heights, Babooshka, Running up That Hill and Hounds of Love."
+}
+,
+{
+   "title": "MUSIC: Kraftwerk - Minimum Maximum",
+   "shortName": "Kraftwerk - Minimum Maximum",
+   "urlLocal": "media/channel-7/../Core/Music/Kraftwerk -  Minimum Maximum.mov",
+   "length": 3624.92,
+   "description": ""
+}
+,
+{
+   "title": "MUSIC: Kylie Minogue - Radio 2 in the Park",
+   "shortName": "Kylie Minogue - Radio 2 in the Park",
+   "urlLocal": "media/channel-7/../Core/Music/Kylie Minogue -  Radio 2 in the Park.mp4",
+   "length": 3807.04,
+   "description": "Bona fide pop royalty sets hearts racing and feet dancing."
+}
+,
+{
+   "title": "MUSIC: Kylie Minogue at the BBC",
+   "shortName": "Kylie Minogue at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/Kylie Minogue at the BBC.mp4",
+   "length": 5326.04,
+   "description": "A journey back in time for some of Kylie's best and biggest performances on the BBC."
+}
+,
+{
+   "title": "MUSIC: Lionel Richie at the BBC",
+   "shortName": "Lionel Richie at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/Lionel Richie at the BBC.mp4",
+   "length": 3542,
+   "description": "A selection of Lionel Richie's greatest moments from the BBC archives."
+}
+,
+{
+   "title": "MUSIC: Madness at the BBC",
+   "shortName": "Madness at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/Madness at the BBC.mp4",
+   "length": 5280.04,
+   "description": "Suggs and Mike Barson of Madness explore some of the nutty boys' finest moments."
+}
+,
+{
+   "title": "MUSIC: New Order - 6 Music Live 2015",
+   "shortName": "New Order - 6 Music Live 2015",
+   "urlLocal": "media/channel-7/../Core/Music/New Order -  6 Music Live 2015.mp4",
+   "length": 2678.4,
+   "description": "Performing True Faith, Blue Monday and Temptation, alongside collaborations with La Roux."
+}
+,
+{
+   "title": "MUSIC: Paul Young at the BBC",
+   "shortName": "Paul Young at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/Paul Young at the BBC.mp4",
+   "length": 3521.429,
+   "description": "Paul Young looks back on a career that saw him capture the hearts of a generation of fans."
+}
+,
+{
+   "title": "MUSIC: Pet Shop Boys - Glastonbury 2010",
+   "shortName": "Pet Shop Boys - Glastonbury 2010",
+   "urlLocal": "media/channel-7/../Core/Music/Pet Shop Boys -  Glastonbury 2010.mp4",
+   "length": 5298.5,
+   "description": "The Pet Shop Boys put on a glitzy show at Worthy Farm, with wall to wall pop hits."
+}
+,
+{
+   "title": "MUSIC: Pet Shop Boys - Glastonbury 2022",
+   "shortName": "Pet Shop Boys - Glastonbury 2022",
+   "urlLocal": "media/channel-7/../Core/Music/Pet Shop Boys -  Glastonbury 2022.mp4",
+   "length": 5477.653,
+   "description": "Synth-pop legends Pet Shop Boys complete Sunday's line-up on the Other Stage."
+}
+,
+{
+   "title": "MUSIC: Pet Shop Boys - Hyde Park 2019",
+   "shortName": "Pet Shop Boys - Hyde Park 2019",
+   "urlLocal": "media/channel-7/../Core/Music/Pet Shop Boys -  Hyde Park 2019.mp4",
+   "length": 5327.64,
+   "description": "Pet Shop Boys' headline performance at Radio 2 Live In Hyde Park 2019."
+}
+,
+{
+   "title": "MUSIC: Pet Shop Boys - In Concert 1991",
+   "shortName": "Pet Shop Boys - In Concert 1991",
+   "urlLocal": "media/channel-7/../Core/Music/Pet Shop Boys -  In Concert 1991.mp4",
+   "length": 3507.946,
+   "description": "The Pet Shop Boys in concert in 1991."
+}
+,
+{
+   "title": "MUSIC: Pet Shop Boys - Preston 2024",
+   "shortName": "Pet Shop Boys - Preston 2024",
+   "urlLocal": "media/channel-7/../Core/Music/Pet Shop Boys -  Preston 2024.mp4",
+   "length": 5356.8,
+   "description": "Preston plays host to Pet Shop Boys - Sunday's headlining act at Radio 2 in the Park."
+}
+,
+{
+   "title": "MUSIC: Pet Shop Boys at the BBC",
+   "shortName": "Pet Shop Boys at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/Pet Shop Boys at the BBC.mp4",
+   "length": 5275.08,
+   "description": "A look back at one of British music's most significant partnerships, Pet Shop Boys."
+}
+,
+{
+   "title": "MUSIC: Pulp - Glastonbury 2025",
+   "shortName": "Pulp - Glastonbury 2025",
+   "urlLocal": "media/channel-7/../Core/Music/Pulp -  Glastonbury 2025.mp4",
+   "length": 3545,
+   "description": "Pulp take to Glastonbury's Pyramid Stage for their Saturday evening set."
+}
+,
+{
+   "title": "MUSIC: Risk Astley - Glastonbury 2023",
+   "shortName": "Risk Astley - Glastonbury 2023",
+   "urlLocal": "media/channel-7/../Core/Music/Risk Astley -  Glastonbury 2023.mp4",
+   "length": 1835.56,
+   "description": "Ricky Astley's amazing live set from the Pyramid Stage at Glastonbury 2023."
+}
+,
+{
+   "title": "MUSIC: Simple Minds - Radio 2 in Concert",
+   "shortName": "Simple Minds - Radio 2 in Concert",
+   "urlLocal": "media/channel-7/../Core/Music/Simple Minds -  Radio 2 in Concert.mp4",
+   "length": 5476.948,
+   "description": "Simple Minds take to the stage at the Hackney Empire, hosted by Jo Whiley."
+}
+,
+{
+   "title": "MUSIC: Sting - Radio 2 in the Park",
+   "shortName": "Sting - Radio 2 in the Park",
+   "urlLocal": "media/channel-7/../Core/Music/Sting -  Radio 2 in the Park.mp4",
+   "length": 4548.68,
+   "description": "Headlining the Saturday of Radio 2 in the Park is Sting, performing his timeless hits."
+}
+,
+{
+   "title": "MUSIC: Sting and the Police at the BBC",
+   "shortName": "Sting and the Police at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/Sting and the Police at the BBC.mp4",
+   "length": 5290.32,
+   "description": "Performances from the BBC's archives from Sting's solo career and from the Police."
+}
+,
+{
+   "title": "MUSIC: Synth Britannia at the BBC",
+   "shortName": "Synth Britannia at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/Synth Britannia at the BBC.mp4",
+   "length": 3539,
+   "description": "A 70s and 80s journey through the BBC's synthpop archives, from Roxy Music to New Order."
+}
+,
+{
+   "title": "FILMS: Black Crag 2023-03-17",
+   "shortName": "Black Crag 2023-03-17",
+   "urlLocal": "media/channel-7/../Core/Films/Black Crag 2023-03-17.mp4",
+   "length": 1963.478,
+   "description": "SOLO mountain camp that pushed me to the limit!"
+}
+,
+{
+   "title": "FILMS: Black Crag 2023-05-28",
+   "shortName": "Black Crag 2023-05-28",
+   "urlLocal": "media/channel-7/../Core/Films/Black Crag 2023-05-28.mp4",
+   "length": 1692.989,
+   "description": "VAN CAMP and a curry to say farewell to my bestie."
+}
+,
+{
+   "title": "FILMS: Black Crag 2024-12-29",
+   "shortName": "Black Crag 2024-12-29",
+   "urlLocal": "media/channel-7/../Core/Films/Black Crag 2024-12-29.mp4",
+   "length": 3400.922,
+   "description": "What's it like to SOLO mountain camp on CHRISTMAS DAY!"
+}
+,
+{
+   "title": "FILMS: Black Crag 2025-02-09",
+   "shortName": "Black Crag 2025-02-09",
+   "urlLocal": "media/channel-7/../Core/Films/Black Crag 2025-02-09.mp4",
+   "length": 3577.524,
+   "description": "VAN camp on England's FAVOURITE mountain pass."
+}
+,
+{
+   "title": "FILMS: Blade Runner",
+   "shortName": "Blade Runner",
+   "urlLocal": "media/channel-7/../Core/Films/Blade Runner.mp4",
+   "length": 7056.981,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Chariots of Fire",
+   "shortName": "Chariots of Fire",
+   "urlLocal": "media/channel-7/../Core/Films/Chariots of Fire.mp4",
+   "length": 7052.12,
+   "description": "The story of 1924 Olympic athletes Harold Abrahams and Eric Liddell."
+}
+,
+{
+   "title": "FILMS: Die Hard",
+   "shortName": "Die Hard",
+   "urlLocal": "media/channel-7/../Core/Films/Die Hard.mp4",
+   "length": 7927.961,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Donnie Darko",
+   "shortName": "Donnie Darko",
+   "urlLocal": "media/channel-7/../Core/Films/Donnie Darko.mp4",
+   "length": 6516.976,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Double Cross - The True Story of the D-Day Spies",
+   "shortName": "Double Cross - The True Story of the D-Day Spies",
+   "urlLocal": "media/channel-7/../Core/Films/Double Cross -  The True Story of the D-Day Spies.mp4",
+   "length": 3547.04,
+   "description": "Revealing the heroic spies who helped contribute to victory in WWII."
+}
+,
+{
+   "title": "FILMS: Drop Dead Gorgeous",
+   "shortName": "Drop Dead Gorgeous",
+   "urlLocal": "media/channel-7/../Core/Films/Drop Dead Gorgeous.mp4",
+   "length": 5873.92,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Ghostbusters",
+   "shortName": "Ghostbusters",
+   "urlLocal": "media/channel-7/../Core/Films/Ghostbusters.mp4",
+   "length": 6308.353,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Hot Fuzz",
+   "shortName": "Hot Fuzz",
+   "urlLocal": "media/channel-7/../Core/Films/Hot Fuzz.mp4",
+   "length": 7246.954,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Indiana Jones - Raiders of the Lost Ark",
+   "shortName": "Indiana Jones - Raiders of the Lost Ark",
+   "urlLocal": "media/channel-7/../Core/Films/Indiana Jones -  Raiders of the Lost Ark.mp4",
+   "length": 6918.954,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Indiana Jones - Temple of Doom",
+   "shortName": "Indiana Jones - Temple of Doom",
+   "urlLocal": "media/channel-7/../Core/Films/Indiana Jones -  Temple of Doom.mp4",
+   "length": 7108.309,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Interstellar",
+   "shortName": "Interstellar",
+   "urlLocal": "media/channel-7/../Core/Films/Interstellar.mp4",
+   "length": 10144.008,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: James Bond   6 - On Her Majesty's Secret Service",
+   "shortName": "James Bond   6 - On Her Majesty's Secret Service",
+   "urlLocal": "media/channel-7/../Core/Films/James Bond   6 -  On Her Majesty's Secret Service.mp4",
+   "length": 8538.571,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: James Bond 10 - The Spy Who Loved Me",
+   "shortName": "James Bond 10 - The Spy Who Loved Me",
+   "urlLocal": "media/channel-7/../Core/Films/James Bond 10 -  The Spy Who Loved Me.mp4",
+   "length": 7540.574,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: James Bond 11 - Moonraker",
+   "shortName": "James Bond 11 - Moonraker",
+   "urlLocal": "media/channel-7/../Core/Films/James Bond 11 -  Moonraker.mp4",
+   "length": 7588.97,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: James Bond 12 - For Your Eyes Only",
+   "shortName": "James Bond 12 - For Your Eyes Only",
+   "urlLocal": "media/channel-7/../Core/Films/James Bond 12 -  For Your Eyes Only.mp4",
+   "length": 7679.38,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: James Bond 13 - Octopussy",
+   "shortName": "James Bond 13 - Octopussy",
+   "urlLocal": "media/channel-7/../Core/Films/James Bond 13 -  Octopussy.mp4",
+   "length": 7848.674,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: The Hunt for Red October",
+   "shortName": "The Hunt for Red October",
+   "urlLocal": "media/channel-7/../Core/Films/The Hunt for Red October.mp4",
+   "length": 8108.01,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: The Life of Brian",
+   "shortName": "The Life of Brian",
+   "urlLocal": "media/channel-7/../Core/Films/The Life of Brian.mp4",
+   "length": 5623.722,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: The Martian",
+   "shortName": "The Martian",
+   "urlLocal": "media/channel-7/../Core/Films/The Martian.mp4",
+   "length": 7931.92,
+   "description": "An astronaut stranded on Mars and presumed dead must find a way to contact Earth."
+}
+,
+{
+   "title": "FILMS: The Matrix",
+   "shortName": "The Matrix",
+   "urlLocal": "media/channel-7/../Core/Films/The Matrix.mp4",
+   "length": 8178.086,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: The Mummy",
+   "shortName": "The Mummy",
+   "urlLocal": "media/channel-7/../Core/Films/The Mummy.mp4",
+   "length": 7489.023,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: The Railway Children",
+   "shortName": "The Railway Children",
+   "urlLocal": "media/channel-7/../Core/Films/The Railway Children.mp4",
+   "length": 6297.72,
+   "description": "Three children move from a comfortable townhouse to a small Yorkshire cottage."
+}
+,
+{
+   "title": "FILMS: The Terminator 1",
+   "shortName": "The Terminator 1",
+   "urlLocal": "media/channel-7/../Core/Films/The Terminator 1.mp4",
+   "length": 6433.51,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: The Terminator 2 - Judgement Day",
+   "shortName": "The Terminator 2 - Judgement Day",
+   "urlLocal": "media/channel-7/../Core/Films/The Terminator 2 -  Judgement Day.mp4",
+   "length": 9355.764,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: The X Files",
+   "shortName": "The X Files",
+   "urlLocal": "media/channel-7/../Core/Films/The X Files.mp4",
+   "length": 7361.27,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Tim Peake - How to be an Astronaut",
+   "shortName": "Tim Peake - How to be an Astronaut",
+   "urlLocal": "media/channel-7/../Core/Films/Tim Peake -  How to be an Astronaut.mp4",
+   "length": 3545,
+   "description": "Tim Peake's video diary of the lead-up to his arrival at the International Space Station."
+}
+,
+{
+   "title": "FILMS: Vulcan - Operation Black Buck",
+   "shortName": "Vulcan - Operation Black Buck",
+   "urlLocal": "media/channel-7/../Core/Films/Vulcan -  Operation Black Buck.mp4",
+   "length": 2820.969,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Wallace and Gromit 1 - A Grand Day Out",
+   "shortName": "Wallace and Gromit 1 - A Grand Day Out",
+   "urlLocal": "media/channel-7/../Core/Films/Wallace and Gromit 1 -  A Grand Day Out.mp4",
+   "length": 1361.273,
+   "description": "Wallace and Gromit blast off in a homemade rocket to see if the moon is made of cheese."
+}
+,
+{
+   "title": "FILMS: Wallace and Gromit 2 - The Wrong Trousers",
+   "shortName": "Wallace and Gromit 2 - The Wrong Trousers",
+   "urlLocal": "media/channel-7/../Core/Films/Wallace and Gromit 2 -  The Wrong Trousers.mp4",
+   "length": 1724.073,
+   "description": "A mysterious penguin moves in with Wallace and Gromit, embroiling them in a heist."
+}
+,
+{
+   "title": "FILMS: Wallace and Gromit 3 - A Close Shave",
+   "shortName": "Wallace and Gromit 3 - A Close Shave",
+   "urlLocal": "media/channel-7/../Core/Films/Wallace and Gromit 3 -  A Close Shave.mp4",
+   "length": 1793.04,
+   "description": "While Wallace is distracted by a romance, Gromit is framed for sheep rustling."
+}
+,
+{
+   "title": "FILMS: Wallace and Gromit 4 - The Curse of the Were-Rabbit",
+   "shortName": "Wallace and Gromit 4 - The Curse of the Were-Rabbit",
+   "urlLocal": "media/channel-7/../Core/Films/Wallace and Gromit 4 -  The Curse of the Were-Rabbit.mp4",
    "length": 4569.6,
    "description": "Wallace and Gromit's pest control business is called into action against a giant rabbit."
 }
 ,
 {
-   "title": "MOVIES: Wallace and Gromit 6 - Vengeance Most Fowl",
+   "title": "MUSIC: ABBA at the BBC",
+   "shortName": "ABBA at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/ABBA at the BBC.mp4",
+   "length": 3541,
+   "description": "With Waterloo, Dancing Queen, Does Your Mother Know, SOS, Fernando, Chiquitita and more."
+}
+,
+{
+   "title": "MUSIC: Billy Joel - The Old Grey Whistle Test",
+   "shortName": "Billy Joel - The Old Grey Whistle Test",
+   "urlLocal": "media/channel-7/../Core/Music/Billy Joel -  The Old Grey Whistle Test.mp4",
+   "length": 2381.08,
+   "description": "From 1978, Billy Joel performs songs from his album The Stranger."
+}
+,
+{
+   "title": "MUSIC: David Bowie at the BBC",
+   "shortName": "David Bowie at the BBC",
+   "urlLocal": "media/channel-7/../Core/Music/David Bowie at the BBC.mp4",
+   "length": 3540.04,
+   "description": "Songs include Ashes to Ashes, Absolute Beginners, The Man Who Sold the World and Fame."
+}
+,
+{
+   "title": "MUSIC: Depeche Mode - 6 Music Festival 2017",
+   "shortName": "Depeche Mode - 6 Music Festival 2017",
+   "urlLocal": "media/channel-7/../Core/Music/Depeche Mode -  6 Music Festival 2017.mp4",
+   "length": 3543.64,
+   "description": "Highlights from Depeche Mode's headlining performance at the 6 Music Festival in Glasgow."
+}
+,
+{
+   "title": "FILMS: James Bond 17 - GoldenEye",
+   "shortName": "James Bond 17 - GoldenEye",
+   "urlLocal": "media/channel-7/../Core/Films/James Bond 17 -  GoldenEye.mp4",
+   "length": 7800.459,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: James Bond 23 - Skyfall",
+   "shortName": "James Bond 23 - Skyfall",
+   "urlLocal": "media/channel-7/../Core/Films/James Bond 23 -  Skyfall.mp4",
+   "length": 8590.037,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: James May - Man on the Moon",
+   "shortName": "James May - Man on the Moon",
+   "urlLocal": "media/channel-7/../Core/Films/James May -  Man on the Moon.m4v",
+   "length": 3572.08,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Kursk - The Last Mission",
+   "shortName": "Kursk - The Last Mission",
+   "urlLocal": "media/channel-7/../Core/Films/Kursk -  The Last Mission.mp4",
+   "length": 6475.56,
+   "description": "The crew of the submarine Kursk head out for an ill-fated exercise in the Barents Sea."
+}
+,
+{
+   "title": "FILMS: Labyrinth",
+   "shortName": "Labyrinth",
+   "urlLocal": "media/channel-7/../Core/Films/Labyrinth.mp4",
+   "length": 6063.148,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Micro 1-5 The New Media",
+   "shortName": "Micro 1-5 The New Media",
+   "urlLocal": "media/channel-7/../Core/Films/Micro 1-5 The New Media.mp4",
+   "length": 1452.052,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Micro 2-10 At the End of the Line",
+   "shortName": "Micro 2-10 At the End of the Line",
+   "urlLocal": "media/channel-7/../Core/Films/Micro 2-10 At the End of the Line.mp4",
+   "length": 1459.05,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Micro 2-3 Strings and Things",
+   "shortName": "Micro 2-3 Strings and Things",
+   "urlLocal": "media/channel-7/../Core/Films/Micro 2-3 Strings and Things.mp4",
+   "length": 1463.06,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Micro Live 1983",
+   "shortName": "Micro Live 1983",
+   "urlLocal": "media/channel-7/../Core/Films/Micro Live 1983.mp4",
+   "length": 6886.058,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Science Fiction - Robots",
+   "shortName": "Science Fiction - Robots",
+   "urlLocal": "media/channel-7/../Core/Films/Science Fiction -  Robots.mp4",
+   "length": 3530.64,
+   "description": "Dominic Sandbrook explores science fiction's obsession with robots."
+}
+,
+{
+   "title": "FILMS: Science Fiction - Space",
+   "shortName": "Science Fiction - Space",
+   "urlLocal": "media/channel-7/../Core/Films/Science Fiction -  Space.mp4",
+   "length": 3551.84,
+   "description": "Dominic Sandbrook looks at science fiction's enduring fascination with outer space."
+}
+,
+{
+   "title": "FILMS: Science Fiction - Time",
+   "shortName": "Science Fiction - Time",
+   "urlLocal": "media/channel-7/../Core/Films/Science Fiction -  Time.mp4",
+   "length": 3545.4,
+   "description": "Dominic Sandbrook explores science fiction's most alluring theme - time travel."
+}
+,
+{
+   "title": "FILMS: Shaun of the Dead",
+   "shortName": "Shaun of the Dead",
+   "urlLocal": "media/channel-7/../Core/Films/Shaun of the Dead.mp4",
+   "length": 5965.173,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Sneakers",
+   "shortName": "Sneakers",
+   "urlLocal": "media/channel-7/../Core/Films/Sneakers.mp4",
+   "length": 7525.28,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Spitfire",
+   "shortName": "Spitfire",
+   "urlLocal": "media/channel-7/../Core/Films/Spitfire.mp4",
+   "length": 5485.46,
+   "description": "The story of the World War II fighter aircraft that became an international icon."
+}
+,
+{
+   "title": "FILMS: Star Trek 2 - The Wrath of Khan",
+   "shortName": "Star Trek 2 - The Wrath of Khan",
+   "urlLocal": "media/channel-7/../Core/Films/Star Trek 2 -  The Wrath of Khan.mp4",
+   "length": 6781.818,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Star Trek 8 - First Contact",
+   "shortName": "Star Trek 8 - First Contact",
+   "urlLocal": "media/channel-7/../Core/Films/Star Trek 8 -  First Contact.mp4",
+   "length": 6644.32,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Star Wars - Rogue One",
+   "shortName": "Star Wars - Rogue One",
+   "urlLocal": "media/channel-7/../Core/Films/Star Wars -  Rogue One.mp4",
+   "length": 8037.28,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Star Wars IV - A New Hope",
+   "shortName": "Star Wars IV - A New Hope",
+   "urlLocal": "media/channel-7/../Core/Films/Star Wars IV -  A New Hope.mp4",
+   "length": 7484.735,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Star Wars V - The Empire Strikes Back",
+   "shortName": "Star Wars V - The Empire Strikes Back",
+   "urlLocal": "media/channel-7/../Core/Films/Star Wars V -  The Empire Strikes Back.mp4",
+   "length": 7641.717,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Star Wars VI - Return of the Jedi",
+   "shortName": "Star Wars VI - Return of the Jedi",
+   "urlLocal": "media/channel-7/../Core/Films/Star Wars VI -  Return of the Jedi.mp4",
+   "length": 8087.38,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Team America World Police",
+   "shortName": "Team America World Police",
+   "urlLocal": "media/channel-7/../Core/Films/Team America World Police.mp4",
+   "length": 5861.188,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: The Bourne Identity",
+   "shortName": "The Bourne Identity",
+   "urlLocal": "media/channel-7/../Core/Films/The Bourne Identity.mp4",
+   "length": 7117.068,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: The Bourne Supremacy",
+   "shortName": "The Bourne Supremacy",
+   "urlLocal": "media/channel-7/../Core/Films/The Bourne Supremacy.mp4",
+   "length": 6511.588,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: The Bourne Ultimatum",
+   "shortName": "The Bourne Ultimatum",
+   "urlLocal": "media/channel-7/../Core/Films/The Bourne Ultimatum.mp4",
+   "length": 6913.99,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Micro Live 1984",
+   "shortName": "Micro Live 1984",
+   "urlLocal": "media/channel-7/../Core/Films/Micro Live 1984.mp4",
+   "length": 3612.052,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Micro Men",
+   "shortName": "Micro Men",
+   "urlLocal": "media/channel-7/../Core/Films/Micro Men.mov",
+   "length": 5112.2,
+   "description": ""
+}
+,
+{
+   "title": "FILMS: Moon",
+   "shortName": "Moon",
+   "urlLocal": "media/channel-7/../Core/Films/Moon.mp4",
+   "length": 5437.56,
+   "description": "Psychological thriller about a lunar miner nearing the end of his three-year mission."
+}
+,
+{
+   "title": "FILMS: Science Fiction - Invasion",
+   "shortName": "Science Fiction - Invasion",
+   "urlLocal": "media/channel-7/../Core/Films/Science Fiction -  Invasion.mp4",
+   "length": 3538.12,
+   "description": "A look at sci-fi's obsession with alien invasion, from all-out assault to hidden threats."
+}
+,
+{
+   "title": "FILMS: Wallace and Gromit 6 - Vengeance Most Fowl",
    "shortName": "Wallace and Gromit 6 - Vengeance Most Fowl",
-   "urlLocal": "media/channel-7/../Core/Movies/Wallace and Gromit 6 -  Vengeance Most Fowl.mp4",
+   "urlLocal": "media/channel-7/../Core/Films/Wallace and Gromit 6 -  Vengeance Most Fowl.mp4",
    "length": 4538.04,
    "description": "Wallace invents a 'smart gnome' that has a mind of its own - or does it?"
 }
 ,
 {
-   "title": "MOVIES: Wargames",
+   "title": "FILMS: Wargames",
    "shortName": "Wargames",
-   "urlLocal": "media/channel-7/../Core/Movies/Wargames.mp4",
+   "urlLocal": "media/channel-7/../Core/Films/Wargames.mp4",
    "length": 6762.506,
    "description": "Wargames.1983.REMASTERED.1080p.BluRay.H264.AAC-RARBG."
 }

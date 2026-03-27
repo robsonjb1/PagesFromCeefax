@@ -2,9 +2,11 @@
 let totalChannels = 10;
 let selectedChannel = 0;
 let showIdentNext = true;
-let channelSelections = "";
 let settingsVisible = false;
 let channelsVisible = true;
+let channelSelections = "";
+let halfWidth = false;
+let lastBannerRefresh = new Date();
 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -12,31 +14,26 @@ var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 if(document.cookie) {
     channelSelections = document.cookie.substring(document.cookie.indexOf("=") + 1)
 }
-if(channelSelections == "" || isNaN(channelSelections)) {
-    channelSelections = "890";
+if(channelSelections == "" || channelSelections.indexOf("|") == -1) {
+    channelSelections = "|1||8||9||10|";
 }
 
 // Enable channel settings
 for(var c=1; c<=totalChannels; c++) {   
-    var test = c.toString();
-    if(c == 10) {
-        test = "0";
-    }
+    var test = "|" + c.toString() + "|";
     if(channelSelections.indexOf(test) > -1) {
-        $(`#settings${c}button`).addClass('active');
-        $(`#settings${c}time`).html('&#10003;');
+        $(`#settings${c}icon`).addClass("bi-toggle-on");
+        $(`#settings${c}icon`).removeClass("bi-toggle-off");        
         $(`#channel${c}row`).show();
 
         if(selectedChannel == 0) {
             selectedChannel = c; // Use this as initial channel
         }
     } else {
+        $(`#settings${c}icon`).addClass("bi-toggle-off");
+        $(`#settings${c}icon`).removeClass("bi-toggle-on");    
         $(`#channel${c}row`).hide();
     }
-}
-
-if(selectedChannel == 0) {
-    selectedChannel = 10; // Default to podcasts if no video channels enabled
 }
 
 // Initialise episode list
@@ -44,10 +41,6 @@ let episodeList = new Array(totalChannels+1);
 for(var c=0; c<=totalChannels; c++) {
     episodeList[c] = {};
 }
-
-$.ajaxSetup({
-    async: false
-});
 
 // Load the channel feeds
 refreshChannelFeeds();
@@ -65,25 +58,53 @@ let videoContainer = {
      ready : false
 };
 
+
 // Start video
-setTimeout(autoRefreshCaption, 10000);          // 10 seconds
 setTimeout(autoRefreshChannelFeeds, 600000);    // 10 minutes
+setTimeout(autoRefreshCaption, 10000);          // 10 seconds
 switchChannel(selectedChannel);
 
 
 function refreshChannelFeeds() {
+    console.log("Refreshing channel feeds...");
+    
+    $.ajaxSetup({
+        async: false
+    });
+
     for(var i=1; i<=totalChannels; i++) {
         $.getJSON(`./js/cat-channel-${i}.json?z=${Math.random()}`, function(json) {
             episodeList[i].data = json.episodeList;
             episodeList[i].lastRefresh = json.lastRefresh;
         });
     }
+
+    // Ping the PFC carousel for logging purposes
+    $.ajaxSetup({
+        async: true
+    });
+    $.getJSON(`../carousel?z=${Math.random()}`, function(json) { });
 }
 
 function autoRefreshCaption() {
+    let now = new Date();
+    let refreshChannel = (now - lastBannerRefresh) > 30000
+    lastBannerRefresh = now;
+
     setTimeout(autoRefreshCaption, 10000); // If the banner is showing, update the content every 10 seconds
-    updateChannelStats();
-    displayCaption();
+
+    if(refreshChannel)
+    {
+        // More than 30 seconds since the last banner refresh (it should be 10 seconds)
+        // Reselect the channel to ensure we are at the right show/time
+        switchChannel(selectedChannel);
+        console.log('Resyncing channel...');
+    }
+    
+    if($('#planner').is(":visible")) {
+        updateChannelStats();
+        displayCaption();
+    }
 }
 
 function autoRefreshChannelFeeds() {
@@ -94,23 +115,24 @@ function autoRefreshChannelFeeds() {
 function switchSettings(channel) {
     var sChannel = channel.toString();
 
-    if(channelSelections.indexOf(sChannel) == -1) {
-        $(`#settings${channel}button`).addClass('active');
-        $(`#settings${channel}time`).html('&#10003;');
+    if(channelSelections.indexOf("|" + sChannel + "|") == -1) {
         $(`#channel${channel}row`).show();
-        channelSelections += sChannel;
+        $(`#settings${channel}icon`).removeClass("bi-toggle-off");    
+        $(`#settings${channel}icon`).addClass("bi-toggle-on");    
+        channelSelections += "|" + sChannel + "|";
     } else {
-        $(`#settings${channel}button`).removeClass('active');
-        $(`#settings${channel}time`).html('');
         $(`#channel${channel}row`).hide();
-        channelSelections = channelSelections.replace(sChannel, '');
+        $(`#settings${channel}icon`).removeClass("bi-toggle-on");    
+        $(`#settings${channel}icon`).addClass("bi-toggle-off");  
+        channelSelections = channelSelections.replace("|" + sChannel + "|", "");
     }
     document.cookie = `channelSelections=${channelSelections}; expires=Thu, 1 Jan 2029 12:00:00 UTC; path=/`;
 }
 
 function switchChannel(channel) {
     showIdentNext = true;
-
+    var pfcAlreadyDisplayed = episodeList[selectedChannel].isMusic || episodeList[selectedChannel].isPodcast;
+    
     // Update stats for each channel to ensure the banner is accurate
     updateChannelStats();
    
@@ -119,9 +141,12 @@ function switchChannel(channel) {
     $(`#channel${selectedChannel}button`).addClass('active');
 
     // Show/hide PFC overlay
-    if(episodeList[selectedChannel].isMusic || episodeList[selectedChannel].isPodcast) {
+    if(!pfcAlreadyDisplayed && (episodeList[selectedChannel].isMusic || episodeList[selectedChannel].isPodcast)) {
+        $('#pfcFrame').attr("src", "../");
         $('#pfcOverlay').show();
-    } else {
+    }
+    if(!(episodeList[selectedChannel].isMusic || episodeList[selectedChannel].isPodcast)) {
+        $('#pfcFrame').attr("src", "");
         $('#pfcOverlay').hide();
     }
 
@@ -146,8 +171,7 @@ function updateChannelStats(advanceOffset = false) {
         let totalTimes = 0;
         episodeList[channel].data.forEach((e) => totalTimes += e.length);
         let days = Math.floor(totalTimes / 86400, 0);
-        let hours = Math.round((totalTimes - (days * 86400)) / 3600, 1)
-        console.log(`Channel ${channel} total length, ${days} days, ${hours} hours`);
+        let hours = Math.floor((totalTimes - (days * 86400)) / 3600, 1)
   
         // Select the current episode and time based on seconds since epoch
         let dayPosition = Math.floor(((now.getTime() / 1000) + (advanceOffset ? 1 : 0)) % totalTimes);
@@ -170,7 +194,7 @@ function updateChannelStats(advanceOffset = false) {
                 episodeList[channel].source = episodeList[channel].data[i].urlLocal;
                 episodeList[channel].isMusic = episodeList[channel].data[i].isMusic;
                 episodeList[channel].isPodcast = episodeList[channel].data[i].isPodcast;
-
+               
                 // Overrides for music channel, which shows time for the whole series (album)
                 if(episodeList[channel].isMusic) {
                     episodeList[channel].duration = Math.floor(episodeList[channel].data[i].seriesTotalLength / 60); // whole minutes
@@ -188,24 +212,24 @@ function updateChannelStats(advanceOffset = false) {
                     }
                 }
 
-                // Display the currently playing show on the settings table
-                let hoursPrompt = "hours";
-                if(hours == 1) {
-                    hoursPrompt = "hour";
-                }
-
-                if(days != 0) {
-                    $(`#settings${channel}description`).text(`${episodeList[channel].lastRefresh} (${episodeList[channel].data.length} items, ${days} days ${hours} ${hoursPrompt})`); 
-                }
-                else {
-                    $(`#settings${channel}description`).text(`${episodeList[channel].lastRefresh} (${episodeList[channel].data.length} items, ${hours} ${hoursPrompt})`); 
-                }
-
                 break;
             }
             else {
                 sum += episodeList[channel].data[i].length;
             }
+        }
+
+        // Display the currently playing show on the settings table
+        let hoursPrompt = "hours";
+        if(hours == 1) {
+            hoursPrompt = "hour";
+        }
+
+        if(days != 0) {
+            $(`#settings${channel}description`).text(`${episodeList[channel].lastRefresh} (${episodeList[channel].data.length} items, ${days} days ${hours} ${hoursPrompt})`); 
+        }
+        else {
+            $(`#settings${channel}description`).text(`${episodeList[channel].lastRefresh} (${episodeList[channel].data.length} items, ${hours} ${hoursPrompt})`); 
         }
     }
 }
@@ -223,7 +247,7 @@ function advanceEpisode() {
         updateChannelStats(true);
         startNewVideo(episodeList[selectedChannel].source);
         displayCaption();
-
+      
         // Next time round, show the channel ident banner
         showIdentNext = true;
     }
@@ -249,17 +273,16 @@ function displayCaption() {
             label = `${hours}hr ${mins}m`;
         }
         $(`#channel${i}time`).text(label);
-        
-        updateControlText(`#channel${i}title`, episodeList[i].title.replace("(", "<nobr>(").replace(")", ")</nobr>"));
+        $(`#channel${i}title`).html(episodeList[i].title.replace("(", "<nobr>(").replace(")", ")</nobr>"));
                 
         // If >85% through show up next rather than the description. Radio channels always show description
         var upNext = "(at " + episodeList[i].endTime + ") " + episodeList[i].upNext;
         
         if(!episodeList[i].isMusic && (episodeList[i].description == "" || episodeList[i].description.indexOf(" ") == -1 || episodeList[i].perc >= 85)) {
-            updateControlText(`#channel${i}description`, upNext);
+            $(`#channel${i}description`).html(upNext);
         }
         else {
-            updateControlText(`#channel${i}description`, episodeList[i].description.replace("(", "<nobr>(").replace(")", ")</nobr>"));
+            $(`#channel${i}description`).html(episodeList[i].description.replace("(", "<nobr>(").replace(")", ")</nobr>"));
         }
         
         if(episodeList[i].perc >= 85) {
@@ -279,14 +302,6 @@ function displayCaption() {
         ' ' + ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
 
     $("#currentTime").text(currentTime);
-}
-
-function updateControlText(control, value) {  
-    if(document.getElementById(control.substring(1)) && document.getElementById(control.substring(1)).innerHTML != value) {
-        $(control).fadeOut(function() {            
-            $(this).html(value)
-        }).fadeIn();
-    }
 }
 
 function readyToPlayVideo(event) { 
@@ -309,8 +324,8 @@ function playPauseClick() {
                 settingsVisible = false;
                 channelsVisible = true;
 
-                $('#settingsToggleIcon').removeClass("bi-info-circle-fill");
-                $('#settingsToggleIcon').addClass("bi-info-circle");
+                $('#settingsToggleIcon').removeClass("bi-gear-fill");
+                $('#settingsToggleIcon').addClass("bi-gear");
 
                 $("#planner").hide();
                 $("#settings").hide();
@@ -321,7 +336,7 @@ function playPauseClick() {
                 updateChannelStats();
                 displayCaption();
                 $("#planner").fadeToggle();
-            }
+            } 
         }
     }
 }
@@ -338,22 +353,6 @@ for(let i=1; i<=totalChannels; i++) {
     });
     $(`#channel${i}description`).on('click', function(event) {
         switchChannel(i);
-        event.preventDefault();
-    });
-};
-
-// Wire up settings selector buttons
-for(let i=1; i<=totalChannels; i++) {
-    $(`#settings${i}button`).on('click', function(event) {
-        switchSettings(i);
-        event.preventDefault();
-    });
-    $(`#settings${i}title`).on('click', function(event) {
-        switchSettings(i);
-        event.preventDefault();
-    });
-    $(`#settings${i}description`).on('click', function(event) {
-        switchSettings(i);
         event.preventDefault();
     });
 };
@@ -380,11 +379,11 @@ $("#settingsToggle").on('click', function(event) {
         $("#channelList").toggle();
 
         if(settingsVisible) {
-            $('#settingsToggleIcon').removeClass("bi-info-circle");
-            $('#settingsToggleIcon').addClass("bi-info-circle-fill");
+            $('#settingsToggleIcon').removeClass("bi-gear");
+            $('#settingsToggleIcon').addClass("bi-gear-fill");
         } else {
-            $('#settingsToggleIcon').removeClass("bi-info-circle-fill");
-            $('#settingsToggleIcon').addClass("bi-info-circle");
+            $('#settingsToggleIcon').removeClass("bi-gear-fill");
+            $('#settingsToggleIcon').addClass("bi-gear");
         }
     }
 
@@ -394,12 +393,70 @@ $("#settingsToggle").on('click', function(event) {
     return false;
 });
 
+// Wire up settings selector buttons
+for(let i=1; i<=totalChannels; i++) {
+    $(`#settings${i}button`).on('click', function(event) {
+        switchSettings(i);
+        event.preventDefault();
+    });
+    $(`#settings${i}title`).on('click', function(event) {
+        switchSettings(i);
+        event.preventDefault();
+    });
+    $(`#settings${i}description`).on('click', function(event) {
+        switchSettings(i);
+        event.preventDefault();
+    });
+};
+
 // Wire up iFrame listener
 window.onmessage = function(e) {
     if (e.data == 'click') {
         playPauseClick();
     }
 };
+
+// Wire up page width toggle
+$("#pageWidthToggle").on('click', function(event) {
+    // Toggle page width
+    halfWidth = !halfWidth;
+    if(halfWidth) {
+        $('#pageWidthIcon').removeClass('bi-zoom-out');
+        $('#pageWidthIcon').addClass('bi-zoom-in');
+        $('#videoCanvas').width("55%");
+        $('#pfcOverlay').width("55%");
+    } else {
+        $('#pageWidthIcon').removeClass('bi-zoom-in');
+        $('#pageWidthIcon').addClass('bi-zoom-out');
+        $('#videoCanvas').width("100%");
+        $('#pfcOverlay').width("100%");
+    }
+
+    return false;
+});
+
+// Wire up reverse channels switch
+$("#reverseChannels").on('click', function(event) {
+    var newChannelSelections = "";
+
+    for(var c=1; c<=totalChannels; c++) {   
+        var test = "|" + c.toString() + "|";
+        if(channelSelections.indexOf(test) == -1) {
+            $(`#settings${c}icon`).addClass("bi-toggle-on");
+            $(`#settings${c}icon`).removeClass("bi-toggle-off");        
+            $(`#channel${c}row`).show();
+
+            newChannelSelections += test;
+        } else {
+            $(`#settings${c}icon`).addClass("bi-toggle-off");
+            $(`#settings${c}icon`).removeClass("bi-toggle-on");    
+            $(`#channel${c}row`).hide();
+        }
+    }
+
+    channelSelections = newChannelSelections;
+    document.cookie = `channelSelections=${channelSelections}; expires=Thu, 1 Jan 2029 12:00:00 UTC; path=/`;
+});
 
 // Wire up video canvas event listeners
 videoCanvas.addEventListener("click", playPauseClick);

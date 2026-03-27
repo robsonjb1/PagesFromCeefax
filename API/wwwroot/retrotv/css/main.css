@@ -123,19 +123,19 @@ td, th { /* table cells */
     padding: 5px;
 }
 .plannerTable {
-	font-size:smaller;
+	font-size:medium;
 	margin-left: 10px;
 	margin-bottom: 10px;
 }
 .plannerButton {
 	width: 60px !important;
-	height: 37px !important;
+	height: 43px !important;
 	margin-left: -3px;
 	padding: 3px !important;
 }
 .plannerStart {
 	color: #ffff80;
-	font-size: 13px;
+	font-size: 14px;
 	vertical-align: top;
 	margin-left: -1px;
 }
@@ -155,7 +155,7 @@ td, th { /* table cells */
 .plannerProgress {
 	height: 5px !important;
 	opacity: 75%;
-	margin-top: -5px;
+	margin-top: -2px;
 	margin-left: 2px;
 	margin-right: 2px;
 }
@@ -181,6 +181,12 @@ td, th { /* table cells */
 }
 #settings {
 	display: none;
+	height: 300px;
+	overflow: auto;
+}
+#channelList {
+	height: 300px;
+	overflow: auto;
 }
 .channelBanner {
 	height: 30px;
@@ -201,11 +207,15 @@ td, th { /* table cells */
 	vertical-align: -1px;
 }
 .plannerTime {
-	font-size: 14px;
+	font-size: 15px;
 	color: lightblue;
 	vertical-align: 2px;
 	margin-left: 12px;
 	width: 30px;
+}
+.channelToggle {
+	font-size: 25px;
+	color: yellow;
 }
 
 .plannerLogo {

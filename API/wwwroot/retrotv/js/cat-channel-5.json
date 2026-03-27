@@ -1,884 +1,2140 @@
-{ "lastRefresh": "Tue 06 Jan 22:12", 
+{ "lastRefresh": "Sun 22 Mar 17:20", 
    "episodeList": 
 [
 {
-   "title": "JONATHAN CREEK: The Judas Tree",
-   "shortName": "The Judas Tree",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Judas Tree.mp4",
-   "length": 5655.018,
-   "description": "Jonathan Creek is called upon by his friend, investigator Joey Ross, to look into a series of mysterious and spooky events at a house called Green Lanterns."
+   "title": "YES MINISTER: 3-6 The Whisky Priest",
+   "shortName": "3-6 The Whisky Priest",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/3-6 The Whisky Priest.mp4",
+   "length": 1776.895,
+   "description": "Jim is made aware of information regarding the sale of British arms to terrorist groups."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Omega Man",
-   "shortName": "The Omega Man",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Omega Man.mp4",
-   "length": 2976.704,
-   "description": "Maddy is contacted by a man who makes a living investigating the existence of aliens."
+   "title": "YES MINISTER: 3-7 The Middle-Class Rip-Off",
+   "shortName": "3-7 The Middle-Class Rip-Off",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/3-7 The Middle-Class Rip-Off.mp4",
+   "length": 1794.943,
+   "description": "Jim Hacker supports the sale of an art gallery to help fund an ailing local football club."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Problem At Gallows Gate (Part 1)",
-   "shortName": "The Problem At Gallows Gate (Part 1)",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Problem At Gallows Gate (Part 1).mp4",
-   "length": 2946.64,
-   "description": "A young wealthy eccentric commits suicide by jumping off a balcony after discovering his girlfriend with someone else."
+   "title": "YES MINISTER: 3-8 Party Games",
+   "shortName": "3-8 Party Games",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/3-8 Party Games.mp4",
+   "length": 3648.906,
+   "description": "The seasonal festivities are overshadowed by rumours of a cabinet reshuffle."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Problem At Gallows Gate (Part 2)",
-   "shortName": "The Problem At Gallows Gate (Part 2)",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Problem At Gallows Gate (Part 2).mp4",
-   "length": 2990,
-   "description": "Jonathan and Maddy begin to realise that the man Kitty saw may not have even died in the first place."
+   "title": "GONE FISHING: 2020 Christmas Special",
+   "shortName": "2020 Christmas Special",
+   "urlLocal": "media/channel-5/../Core/Gone Fishing/2020 Christmas Special.mp4",
+   "length": 3540.06,
+   "description": "Bob Mortimer and Paul Whitehouse return to Bob's childhood home of Middlesbrough."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Reconstituted Corpse",
-   "shortName": "The Reconstituted Corpse",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Reconstituted Corpse.mp4",
-   "length": 3540.56,
-   "description": "Zola Zbzewski has made her money and reputation by being one of the most cosmetically altered women in Britain."
+   "title": "GONE FISHING: 2021 Christmas Special",
+   "shortName": "2021 Christmas Special",
+   "urlLocal": "media/channel-5/../Core/Gone Fishing/2021 Christmas Special.mp4",
+   "length": 3544.04,
+   "description": "Paul, Bob and Ted the dog travel to the north of England on a quest for an English salmon."
 }
 ,
 {
-   "title": "POIROT: Murder on the Links",
-   "shortName": "Murder on the Links",
-   "urlLocal": "media/channel-5/../Core/Poirot/Murder on the Links.mp4",
-   "length": 6424.192,
-   "description": "While Poirot and Hastings are enjoying their holiday in France, they are approached by a man who fears for his life."
+   "title": "GONE FISHING: 2022 Christmas Special",
+   "shortName": "2022 Christmas Special",
+   "urlLocal": "media/channel-5/../Core/Gone Fishing/2022 Christmas Special.mp4",
+   "length": 3553.04,
+   "description": "Bob and Paul travel overseas to Norway for their most spectacular fishing adventure yet."
 }
 ,
 {
-   "title": "POIROT: Murder on the Orient Express",
-   "shortName": "Murder on the Orient Express",
-   "urlLocal": "media/channel-5/../Core/Poirot/Murder on the Orient Express.mp4",
-   "length": 5571.092,
-   "description": "Hercule Poirot travels to London on the Orient Express."
+   "title": "FAWLTY TOWERS: 2-3 Waldorf Salad",
+   "shortName": "2-3 Waldorf Salad",
+   "urlLocal": "media/channel-5/../Core/Fawlty Towers/2-3 Waldorf Salad.m4v",
+   "length": 1922.986,
+   "description": "Basil is not altogether keen on a loud and demanding American guest who demands a higher class of service (and food) than Fawlty Towers is accustomed to providing."
 }
 ,
 {
-   "title": "POIROT: One, Two, Buckle My Shoe",
-   "shortName": "One, Two, Buckle My Shoe",
-   "urlLocal": "media/channel-5/../Core/Poirot/One, Two, Buckle My Shoe.mp4",
-   "length": 6374.058,
-   "description": "Shortly after Poirot pays a visit to his dentist he is found shot in his office."
+   "title": "FAWLTY TOWERS: 2-4 The Kipper and the Corpse",
+   "shortName": "2-4 The Kipper and the Corpse",
+   "urlLocal": "media/channel-5/../Core/Fawlty Towers/2-4 The Kipper and the Corpse.m4v",
+   "length": 1893.269,
+   "description": "With no regard to Basil's blood pressure, a guest dies at the hotel and Basil and the staff are left with the unpleasant task of removing the body discreetly."
 }
 ,
 {
-   "title": "POIROT: Peril At End House (Part 1)",
-   "shortName": "Peril At End House (Part 1)",
-   "urlLocal": "media/channel-5/../Core/Poirot/Peril At End House (Part 1).mp4",
-   "length": 3185.204,
-   "description": "Poirot and Hastings are holidaying when they meet a young girl who casually mentions that she has at least thrice escaped certain death."
+   "title": "FAWLTY TOWERS: 2-5 The Anniversary",
+   "shortName": "2-5 The Anniversary",
+   "urlLocal": "media/channel-5/../Core/Fawlty Towers/2-5 The Anniversary.m4v",
+   "length": 1747.989,
+   "description": "Basil invites some friends for a surprise wedding anniversary party, but Sybil assumes he has forgotten their anniversary and storms off."
 }
 ,
 {
-   "title": "POIROT: Peril At End House (Part 2)",
-   "shortName": "Peril At End House (Part 2)",
-   "urlLocal": "media/channel-5/../Core/Poirot/Peril At End House (Part 2).mp4",
-   "length": 3183.496,
-   "description": "Poirot and Hastings are holidaying when they meet a young girl who casually mentions that she has at least thrice escaped certain death."
+   "title": "RED DWARF: 2-4 Stasis Leak",
+   "shortName": "2-4 Stasis Leak",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/2-4 Stasis Leak.mp4",
+   "length": 1791.06,
+   "description": "A leak from the suspended animation chamber has created a doorway to the past."
 }
 ,
 {
-   "title": "POIROT: Problem at Sea",
-   "shortName": "Problem at Sea",
-   "urlLocal": "media/channel-5/../Core/Poirot/Problem at Sea.mp4",
-   "length": 3188.544,
-   "description": "Poirot and Hastings embark on a cruise ship to Egypt."
+   "title": "RED DWARF: 2-5 Queeg",
+   "shortName": "2-5 Queeg",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/2-5 Queeg.mp4",
+   "length": 1778.386,
+   "description": "Holly's behaviour begins to endanger the ship so he's replaced by the back-up computer."
 }
 ,
 {
-   "title": "POIROT: Sad Cypress",
-   "shortName": "Sad Cypress",
-   "urlLocal": "media/channel-5/../Core/Poirot/Sad Cypress.mp4",
-   "length": 5840.408,
-   "description": "Young Elinor Carlisle is tried in court for first murdering her aunt for money and then also her aunt's protégée who stole the heart of Elinor's fiancé."
+   "title": "RED DWARF: 2-6 Parallel Universe",
+   "shortName": "2-6 Parallel Universe",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/2-6 Parallel Universe.mp4",
+   "length": 1703.658,
+   "description": "Holly devises a faster-than-light drive that sends the crew into a parallel universe."
 }
 ,
 {
-   "title": "POIROT: Taken at the Flood",
-   "shortName": "Taken at the Flood",
-   "urlLocal": "media/channel-5/../Core/Poirot/Taken at the Flood.mp4",
-   "length": 5862.176,
-   "description": "The young Rosaleen Cloade and her brother David are the only survivors of a gas explosion."
+   "title": "RED DWARF: 3-1 Backwards",
+   "shortName": "3-1 Backwards",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-1 Backwards.mp4",
+   "length": 1639.746,
+   "description": "Lister and Rimmer finally arrive back on earth only to find time is behaving strangely."
 }
 ,
 {
-   "title": "POIROT: The ABC Murders",
-   "shortName": "The ABC Murders",
-   "urlLocal": "media/channel-5/../Core/Poirot/The ABC Murders.mp4",
-   "length": 6349.056,
-   "description": "Poirot starts receiving mocking letters with allusions to crimes-to-be, signed \"ABC\"."
+   "title": "RED DWARF: 3-2 Marooned",
+   "shortName": "3-2 Marooned",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-2 Marooned.mp4",
+   "length": 1714.06,
+   "description": "Lister and Rimmer are stranded on a moon with only a pot noodle and a tin of dog food."
 }
 ,
 {
-   "title": "POIROT: The Adventure of Johnnie Waverly",
-   "shortName": "The Adventure of Johnnie Waverly",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Adventure of Johnnie Waverly.mp4",
-   "length": 3133.119,
-   "description": "Country squire Marcus Waverly and his wife Ada ask Poirot to help before their son Johnnie is kidnapped."
+   "title": "RED DWARF: 3-3 Polymorph",
+   "shortName": "3-3 Polymorph",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-3 Polymorph.mp4",
+   "length": 1590.573,
+   "description": "A genetic mutant gets loose aboard the ship, leading to 24 hours of gruesome horror."
 }
 ,
 {
-   "title": "POIROT: The Adventure of the Cheap Flat",
-   "shortName": "The Adventure of the Cheap Flat",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Adventure of the Cheap Flat.mp4",
-   "length": 3126.345,
-   "description": "Poirot and Hastings meet a couple at a party who have just rented a flat in a fashionable district for an implausibly cheap price."
+   "title": "RED DWARF: 3-4 Bodyswap",
+   "shortName": "3-4 Bodyswap",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-4 Bodyswap.mp4",
+   "length": 1603.02,
+   "description": "Rimmer convinces Lister that they should swap bodies for a fortnight."
 }
 ,
 {
-   "title": "POIROT: The Adventure of the Clapham Cook",
-   "shortName": "The Adventure of the Clapham Cook",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Adventure of the Clapham Cook.mp4",
-   "length": 3153.002,
-   "description": "Mrs Todd prods Poirot into investigating the disappearance of her cook, Miss Eliza Dunn."
+   "title": "RED DWARF: 3-5 Timeslides",
+   "shortName": "3-5 Timeslides",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-5 Timeslides.mp4",
+   "length": 1663.295,
+   "description": "Kryten discovers some developing fluid which prints photographs the crew can walk into."
 }
 ,
 {
-   "title": "MISS MARPLE: The Mirror Crack'd from Side to Side",
-   "shortName": "The Mirror Crack'd from Side to Side",
-   "urlLocal": "media/channel-5/../Core/Miss Marple/The Mirror Crack'd from Side to Side.m4v",
-   "length": 6938.986,
-   "description": "Hollywood comes to St Mary Mead when faded movie star Marina Gregg takes up residence for a local film shoot."
+   "title": "RED DWARF: 3-6 The Last Day",
+   "shortName": "3-6 The Last Day",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-6 The Last Day.mp4",
+   "length": 1637.738,
+   "description": "Kryten discovers his in-built expiry date is only 24 hours away."
 }
 ,
 {
-   "title": "MISS MARPLE: The Murder at the Vicarage",
-   "shortName": "The Murder at the Vicarage",
-   "urlLocal": "media/channel-5/../Core/Miss Marple/The Murder at the Vicarage.mp4",
-   "length": 5409.04,
-   "description": "When a colonel is murdered, Miss Marple is faced with a long list of suspects."
+   "title": "RED DWARF: 4-1 Camille",
+   "shortName": "4-1 Camille",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-1 Camille.mp4",
+   "length": 1602.62,
+   "description": "Kryten falls in love at first sight but has his heart broken in the process."
 }
 ,
 {
-   "title": "MISS MARPLE: They Do It With Mirrors",
-   "shortName": "They Do It With Mirrors",
-   "urlLocal": "media/channel-5/../Core/Miss Marple/They Do It With Mirrors.m4v",
-   "length": 6696.405,
-   "description": "At an estate turned reformatory school, Miss Marple visits her old school chum Carrie Louise."
+   "title": "RED DWARF: 4-2 D.N.A.",
+   "shortName": "4-2 D.N.A.",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-2 D.N.A..mp4",
+   "length": 1667.604,
+   "description": "The crew encounter the ultimate in genetic engineering technology."
 }
 ,
 {
-   "title": "JONATHAN CREEK: Angel Hair",
-   "shortName": "Angel Hair",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Angel Hair.mp4",
-   "length": 3585,
-   "description": "A pop star's husband is baffled as to how a woman can regrow a full head of hair barely two days after she had it all hacked off in a hoax kidnap ransom video."
+   "title": "RED DWARF: 4-3 Justice",
+   "shortName": "4-3 Justice",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-3 Justice.mp4",
+   "length": 1696.393,
+   "description": "The crew land up in 'Justice World', where a crime's consequences affect the perpetrator."
 }
 ,
 {
-   "title": "JONATHAN CREEK: Black Canary",
-   "shortName": "Black Canary",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Black Canary.mp4",
-   "length": 5382.08,
-   "description": "An illusionist, whose twin sister died when an escape trick went wrong is found dead in her snow-covered garden."
+   "title": "BLACKADDER: 4-3 Major Star",
+   "shortName": "4-3 Major Star",
+   "urlLocal": "media/channel-5/../Core/Blackadder/4-3 Major Star.mp4",
+   "length": 1740.052,
+   "description": "The October Revolution in Moscow results in a Charlie Chaplin impression from Baldrick."
 }
 ,
 {
-   "title": "JONATHAN CREEK: Danse Macabre",
-   "shortName": "Danse Macabre",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Danse Macabre.mp4",
-   "length": 3038.64,
-   "description": "A writer is shot dead on Halloween by a man in a skeleton costume who subsequently takes her unconscious daughter hostage and locks himself in the garage."
+   "title": "BLACKADDER: 4-4 Private Plane",
+   "shortName": "4-4 Private Plane",
+   "urlLocal": "media/channel-5/../Core/Blackadder/4-4 Private Plane.mp4",
+   "length": 1732.073,
+   "description": "Edmund, George and Baldrick join the Royal Flying Corps."
 }
 ,
 {
-   "title": "JONATHAN CREEK: Ghost's Forge",
-   "shortName": "Ghost's Forge",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Ghost's Forge.mp4",
-   "length": 2933.64,
-   "description": "An old friend of Maddy's wants her and Jonathan to investigate a house supposedly called Ghost's Forge."
+   "title": "YES PRIME MINISTER: 2-7 The National Education Service",
+   "shortName": "2-7 The National Education Service",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/2-7 The National Education Service.mp4",
+   "length": 1800.959,
+   "description": "Hacker's decision to abolish the Department of Education and Science appals Sir Humphrey."
 }
 ,
 {
-   "title": "POIROT: The Clocks",
-   "shortName": "The Clocks",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Clocks.mp4",
-   "length": 5569.724,
-   "description": "Sheila Webb, a girl working for a secretarial service, is summoned to the house of a customer."
+   "title": "YES PRIME MINISTER: 2-8 The Tangled Web",
+   "shortName": "2-8 The Tangled Web",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/2-8 The Tangled Web.mp4",
+   "length": 1694.913,
+   "description": "Hacker denies that MPs' phones are tapped, only to be told by Sir Humphrey that they are."
 }
 ,
 {
-   "title": "POIROT: The Cornish Mystery",
-   "shortName": "The Cornish Mystery",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Cornish Mystery.mp4",
-   "length": 2997.747,
-   "description": "An ordinary middle-aged woman, Mrs Pengelley, visits Poirot and tells him of her horrid suspicion: her husband is trying to poison her."
+   "title": "ALAN PARTRIDGE: 1-1 A Room with an Alan",
+   "shortName": "1-1 A Room with an Alan",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/1-1 A Room with an Alan.m4v",
+   "length": 1737.251,
+   "description": "Alan's wife Carol has kicked him out and he is living at the Linton Travel Tavern, a hotel near the A11 in Cambridgeshire."
 }
 ,
 {
-   "title": "POIROT: The Disappearance of Mr Davenheim",
-   "shortName": "The Disappearance of Mr Davenheim",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Disappearance of Mr Davenheim.mp4",
-   "length": 3208.009,
-   "description": "A well-known banker, Mr Davenheim, has disappeared."
+   "title": "ALAN PARTRIDGE: 1-2 Alan Attraction",
+   "shortName": "1-2 Alan Attraction",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/1-2 Alan Attraction.m4v",
+   "length": 1745.251,
+   "description": "Without a second series of his programme, Alan is nearing bankruptcy and chooses to fire the entire staff rather than downsize his beloved car."
 }
 ,
 {
-   "title": "POIROT: The Double Clue",
-   "shortName": "The Double Clue",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Double Clue.mp4",
-   "length": 3090.09,
-   "description": "Following a string of robberies, Poirot helps Chief Inspector Japp try to find the jewel thief."
+   "title": "ALAN PARTRIDGE: 1-3 Watership Alan",
+   "shortName": "1-3 Watership Alan",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/1-3 Watership Alan.m4v",
+   "length": 1741.244,
+   "description": "After making various unsympathetic and ill-advised comments about farming on his radio show, Alan becomes an object of hatred for local farmers."
 }
 ,
 {
-   "title": "POIROT: The Dream",
-   "shortName": "The Dream",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Dream.mp4",
-   "length": 3072.127,
-   "description": "The rich and eccentric owner of a pie factory consults Poirot about a troubling dream in which he commits suicide."
+   "title": "ALAN PARTRIDGE: 1-4 Basic Alan",
+   "shortName": "1-4 Basic Alan",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/1-4 Basic Alan.m4v",
+   "length": 1737.194,
+   "description": "There are major refurbishments taking place at the Linton Travel Tavern, leaving Alan as the only guest."
 }
 ,
 {
-   "title": "POIROT: The Hollow",
-   "shortName": "The Hollow",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Hollow.mp4",
-   "length": 5836.405,
-   "description": "Poirot is invited to The Hollow, a splendid country retreat of the Angkatell family."
+   "title": "ALAN PARTRIDGE: 1-5 To Kill a Mocking Alan",
+   "shortName": "1-5 To Kill a Mocking Alan",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/1-5 To Kill a Mocking Alan.m4v",
+   "length": 1695.22,
+   "description": "Alan hosts \"An Afternoon with Alan Partridge\" at the hotel which is attended by his self-confessed \"biggest fan\"."
 }
 ,
 {
-   "title": "POIROT: The Incredible Theft",
-   "shortName": "The Incredible Theft",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Incredible Theft.mp4",
-   "length": 3109.119,
-   "description": "Poirot is invited to a dinner party thrown by the Mayfields, as Mrs Mayfield fears her husband might become indiscreet in the presence of a suspected foreign spy."
+   "title": "YES MINISTER: 1-1 Open Government",
+   "shortName": "1-1 Open Government",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/1-1 Open Government.mp4",
+   "length": 1739.903,
+   "description": "First episode of the acclaimed sitcom about a hapless British government minister."
 }
 ,
 {
-   "title": "POIROT: The Kidnapped Prime Minister",
-   "shortName": "The Kidnapped Prime Minister",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Kidnapped Prime Minister.mp4",
-   "length": 3184.201,
-   "description": "The Prime Minister has been kidnapped and Poirot has thirty-two and a quarter hours to find him."
+   "title": "YES MINISTER: 1-2 The Official Visit",
+   "shortName": "1-2 The Official Visit",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/1-2 The Official Visit.mp4",
+   "length": 1694.911,
+   "description": "Hacker recognises a visiting head of an African nation as an old friend."
 }
 ,
 {
-   "title": "POIROT: After the Funeral",
-   "shortName": "After the Funeral",
-   "urlLocal": "media/channel-5/../Core/Poirot/After the Funeral.mp4",
-   "length": 5832.068,
-   "description": "The wealthy Richard Abernethie changes his will in a curious way and dies unexpectedly."
+   "title": "YES MINISTER: 1-3 The Economy Drive",
+   "shortName": "1-3 The Economy Drive",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/1-3 The Economy Drive.mp4",
+   "length": 1709.908,
+   "description": "Jim Hacker wants to implement some cost-cutting initiatives; Sir Humphrey does not."
 }
 ,
 {
-   "title": "POIROT: Appointment with Death",
-   "shortName": "Appointment with Death",
-   "urlLocal": "media/channel-5/../Core/Poirot/Appointment with Death.mp4",
-   "length": 5849.888,
-   "description": "Upon visiting an archaeological dig in Syria, Poirot gets to know a family of adopted children."
+   "title": "YES MINISTER: 1-4 Big Brother",
+   "shortName": "1-4 Big Brother",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/1-4 Big Brother.mp4",
+   "length": 1750.911,
+   "description": "Jim tries to implement a privacy safeguard for a new national computer database."
 }
 ,
 {
-   "title": "POIROT: Cards on the Table",
-   "shortName": "Cards on the Table",
-   "urlLocal": "media/channel-5/../Core/Poirot/Cards on the Table.mp4",
-   "length": 5799.374,
-   "description": "The mysterious Mr Shaitana invites eight guests to a dinner party."
+   "title": "YES MINISTER: 1-5 The Writing on the Wall",
+   "shortName": "1-5 The Writing on the Wall",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/1-5 The Writing on the Wall.mp4",
+   "length": 1658.922,
+   "description": "Jim Hacker MP and Sir Humphrey learn of a plan that threatens them both."
 }
 ,
 {
-   "title": "POIROT: Cat Among the Pigeons",
-   "shortName": "Cat Among the Pigeons",
-   "urlLocal": "media/channel-5/../Core/Poirot/Cat Among the Pigeons.mp4",
-   "length": 5834.848,
-   "description": "In the wake of a violent revolution, Princess Shaista is sent away to the safety of Meadowbank girls' school along with a trove of rubies."
+   "title": "YES MINISTER: 1-6 The Right to Know",
+   "shortName": "1-6 The Right to Know",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/1-6 The Right to Know.mp4",
+   "length": 1766.911,
+   "description": "Should ministers ever be kept in the dark? Jim Hacker is not so sure."
 }
 ,
 {
-   "title": "POIROT: Curtain; Poirot's Last Case",
-   "shortName": "Curtain; Poirot's Last Case",
-   "urlLocal": "media/channel-5/../Core/Poirot/Curtain; Poirot's Last Case.mp4",
-   "length": 5364.96,
-   "description": "After almost thirty years apart, Hercule Poirot, now crippled with arthritis is reunited with his old companion Captain Hastings."
+   "title": "YES MINISTER: 1-7 Jobs for the Boys",
+   "shortName": "1-7 Jobs for the Boys",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/1-7 Jobs for the Boys.mp4",
+   "length": 1738.922,
+   "description": "Sir Humphrey is being very evasive about a departmental project that has run into trouble."
 }
 ,
 {
-   "title": "POIROT: Dead Man's Folly",
-   "shortName": "Dead Man's Folly",
-   "urlLocal": "media/channel-5/../Core/Poirot/Dead Man's Folly.mp4",
-   "length": 5319.968,
-   "description": "Mrs Ariadne Oliver is asked to stage a murder hunt for the party at Nasse House, the country residence of the Folliat family."
+   "title": "YES MINISTER: 2-1 The Compassionate Society",
+   "shortName": "2-1 The Compassionate Society",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/2-1 The Compassionate Society.mp4",
+   "length": 1764.906,
+   "description": "Minister for administrative affairs Jim Hacker struggles to cut administrative staff."
 }
 ,
 {
-   "title": "POIROT: Dead Man's Mirror",
-   "shortName": "Dead Man's Mirror",
-   "urlLocal": "media/channel-5/../Core/Poirot/Dead Man's Mirror.mp4",
-   "length": 3175.84,
-   "description": "A dislikeable man who hired Poirot to investigate the possibly shady dealings of his business associate, is murdered shortly after."
+   "title": "YES MINISTER: 2-2 Doing the Honours",
+   "shortName": "2-2 Doing the Honours",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/2-2 Doing the Honours.mp4",
+   "length": 1707.906,
+   "description": "Sir Humphrey retaliates when Hacker plans to block honours for spendthrift civil servants."
 }
 ,
 {
-   "title": "POIROT: Death in the Clouds",
-   "shortName": "Death in the Clouds",
-   "urlLocal": "media/channel-5/../Core/Poirot/Death in the Clouds.mp4",
-   "length": 6406.058,
-   "description": "When one of the passangers on Poirot's flight is murdered via a poisoned dart found under the Detective's seat, Poirot decides to help clear his name."
+   "title": "YES MINISTER: 2-3 The Death List",
+   "shortName": "2-3 The Death List",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/2-3 The Death List.mp4",
+   "length": 1766.913,
+   "description": "Hacker learns that his department supplies the government with its surveillance equipment."
 }
 ,
 {
-   "title": "POIROT: Death on the Nile",
-   "shortName": "Death on the Nile",
-   "urlLocal": "media/channel-5/../Core/Poirot/Death on the Nile.mp4",
-   "length": 6099.165,
-   "description": "Poirot embarks on a cruise ship on the Nile, where he gets to know a rich American heiress on her honeymoon."
+   "title": "YES MINISTER: 2-4 The Greasy Pole",
+   "shortName": "2-4 The Greasy Pole",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/2-4 The Greasy Pole.mp4",
+   "length": 1778.9,
+   "description": "Jim Hacker finds himself in the middle of a row over a chemical corporation's new factory."
 }
 ,
 {
-   "title": "POIROT: Double Sin",
-   "shortName": "Double Sin",
-   "urlLocal": "media/channel-5/../Core/Poirot/Double Sin.mp4",
-   "length": 3178.419,
-   "description": "A dissatisfied Poirot takes Hastings on holiday to Devon."
+   "title": "YES MINISTER: 2-5 The Devil You Know",
+   "shortName": "2-5 The Devil You Know",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/2-5 The Devil You Know.mp4",
+   "length": 1779.906,
+   "description": "Rumours of a cabinet reshuffle force Jim Hacker to take drastic action to keep his post."
 }
 ,
 {
-   "title": "POIROT: Dumb Witness",
-   "shortName": "Dumb Witness",
-   "urlLocal": "media/channel-5/../Core/Poirot/Dumb Witness.mp4",
-   "length": 6400.608,
-   "description": "An elderly lady of considerable wealth tells Poirot of her fear that one of her relatives is trying to kill her."
+   "title": "YES MINISTER: 2-6 The Quality of Life",
+   "shortName": "2-6 The Quality of Life",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/2-6 The Quality of Life.mp4",
+   "length": 1754.906,
+   "description": "Having promised to save a city farm from closure, Hacker calls on Sir Humphrey for help."
 }
 ,
 {
-   "title": "POIROT: Elephants Can Remember",
-   "shortName": "Elephants Can Remember",
-   "urlLocal": "media/channel-5/../Core/Poirot/Elephants Can Remember.mp4",
-   "length": 5315.64,
-   "description": "Ariadne Oliver wishes to unravel the mystery behind the deaths of her goddaughter's parents."
+   "title": "YES MINISTER: 2-7 A Question of Loyalty",
+   "shortName": "2-7 A Question of Loyalty",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/2-7 A Question of Loyalty.mp4",
+   "length": 1727.892,
+   "description": "Jim and Sir Humphrey appear before a select committee looking into government expenditure."
 }
 ,
 {
-   "title": "POIROT: Evil under the Sun",
-   "shortName": "Evil under the Sun",
-   "urlLocal": "media/channel-5/../Core/Poirot/Evil under the Sun.mp4",
-   "length": 6198.752,
-   "description": "A quiet holiday at a secluded hotel in Devon is all that Hercule Poirot wants."
+   "title": "YES MINISTER: 3-1 Equal Opportunities",
+   "shortName": "3-1 Equal Opportunities",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/3-1 Equal Opportunities.mp4",
+   "length": 1720.906,
+   "description": "Jim Hacker wants more women in higher governmental posts, but Sir Humphrey does not agree."
 }
 ,
 {
-   "title": "POIROT: Four and Twenty Blackbirds",
-   "shortName": "Four and Twenty Blackbirds",
-   "urlLocal": "media/channel-5/../Core/Poirot/Four and Twenty Blackbirds.mp4",
-   "length": 3172.736,
-   "description": "Henry Gascoigne, an elderly man and a regular at the Bishop's Chophouse restaurant, deviates from his usual eating habits."
+   "title": "YES MINISTER: 3-2 The Challenge",
+   "shortName": "3-2 The Challenge",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/3-2 The Challenge.mp4",
+   "length": 1822.89,
+   "description": "Jim Hacker is interrogated on local civil defence by a tenacious television interviewer."
 }
 ,
 {
-   "title": "POIROT: Hallowe'en Party",
-   "shortName": "Hallowe'en Party",
-   "urlLocal": "media/channel-5/../Core/Poirot/Hallowe'en Party.mp4",
-   "length": 5550.826,
-   "description": "A girl who claims to have witnessed a murder is found drowned in the apple-bobbing tub at a children's Halloween party."
+   "title": "YES MINISTER: 3-3 The Skeleton in the Cupboard",
+   "shortName": "3-3 The Skeleton in the Cupboard",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/3-3 The Skeleton in the Cupboard.mp4",
+   "length": 1810.906,
+   "description": "A normally efficient local council is late with some paperwork."
 }
 ,
 {
-   "title": "POIROT: Hercule Poirot's Christmas",
-   "shortName": "Hercule Poirot's Christmas",
-   "urlLocal": "media/channel-5/../Core/Poirot/Hercule Poirot's Christmas.mp4",
-   "length": 6427.84,
-   "description": "Obnoxious multi-millionaire Simeon Lee unexpectedly invites his family to gather at his home for Christmas."
+   "title": "YES MINISTER: 3-4 The Moral Dimension",
+   "shortName": "3-4 The Moral Dimension",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/3-4 The Moral Dimension.mp4",
+   "length": 1719.914,
+   "description": "Jim Hacker has to balance conflicting moral demands when he travels to Qumran."
 }
 ,
 {
-   "title": "POIROT: Hickory Dickory Dock",
-   "shortName": "Hickory Dickory Dock",
-   "urlLocal": "media/channel-5/../Core/Poirot/Hickory Dickory Dock.mp4",
-   "length": 6421.344,
-   "description": "An outbreak of apparent kleptomania at a student hostel is not normally the sort of crime that arouses Hercule Poirot's interest."
+   "title": "YES MINISTER: 3-5 The Bed of Nails",
+   "shortName": "3-5 The Bed of Nails",
+   "urlLocal": "media/channel-5/../Core/Yes Minister/3-5 The Bed of Nails.mp4",
+   "length": 1761.906,
+   "description": "Jim is handed responsibility for developing an integrated national transport policy."
 }
 ,
 {
-   "title": "POIROT: How Does Your Garden Grow",
-   "shortName": "How Does Your Garden Grow",
-   "urlLocal": "media/channel-5/../Core/Poirot/How Does Your Garden Grow.mp4",
-   "length": 3213.056,
-   "description": "At a flower show, Poirot is approached by an mysterious woman in a wheelchair."
+   "title": "RED DWARF: 4-4 White Hole",
+   "shortName": "4-4 White Hole",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-4 White Hole.mp4",
+   "length": 1648.506,
+   "description": "Holly leaves the crew drifting helplessly towards a white hole."
 }
 ,
 {
-   "title": "POIROT: Jewel Robbery at the Grand Metropolitan",
-   "shortName": "Jewel Robbery at the Grand Metropolitan",
-   "urlLocal": "media/channel-5/../Core/Poirot/Jewel Robbery at the Grand Metropolitan.mp4",
-   "length": 3118.048,
-   "description": "Poirot is holidaying in Brighton on his doctor's orders but gets dragged into an investigation when the pearl necklace is brazenly stolen."
+   "title": "RED DWARF: 4-5 Dimension Jump",
+   "shortName": "4-5 Dimension Jump",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-5 Dimension Jump.mp4",
+   "length": 1720.34,
+   "description": "In a parallel universe, an Arnold Rimmer exists who's charming, popular, brave and modest."
 }
 ,
 {
-   "title": "POIROT: Lord Edgware Dies",
-   "shortName": "Lord Edgware Dies",
-   "urlLocal": "media/channel-5/../Core/Poirot/Lord Edgware Dies.mp4",
-   "length": 6213.728,
-   "description": "The glamorous Jane Wilkinson is strongly suspected of murdering her husband, the fourth Baron Edgware, so that she could re-marry."
+   "title": "RED DWARF: 4-6 Meltdown",
+   "shortName": "4-6 Meltdown",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-6 Meltdown.mp4",
+   "length": 1583.06,
+   "description": "A transporter whisks the crew to 'Waxworld' - a theme park where things are going wrong."
 }
 ,
 {
-   "title": "POIROT: Mrs McGinty's Dead",
-   "shortName": "Mrs McGinty's Dead",
-   "urlLocal": "media/channel-5/../Core/Poirot/Mrs McGinty's Dead.mp4",
-   "length": 5849.568,
-   "description": "The murder of Mrs McGinty, a simple village charwoman, seems a straightforward enough affair – but Inspector Spence is not satisfied."
+   "title": "RED DWARF: 5-1 Holoship",
+   "shortName": "5-1 Holoship",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-1 Holoship.mp4",
+   "length": 1671.213,
+   "description": "Rimmer is transmitted from Red Dwarf to the advanced holoship Enlightenment."
 }
 ,
 {
-   "title": "POIROT: Murder in Mesopotamia",
-   "shortName": "Murder in Mesopotamia",
-   "urlLocal": "media/channel-5/../Core/Poirot/Murder in Mesopotamia.mp4",
-   "length": 6201.12,
-   "description": "When Poirot and Hastings are visiting a promising archeological dig on their holiday in Iraq, the Detective is sought out by a woman troubled by nasty letters with death-threats."
+   "title": "RED DWARF: 5-2 The Inquisitor",
+   "shortName": "5-2 The Inquisitor",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-2 The Inquisitor.mp4",
+   "length": 1691.78,
+   "description": "The Inquisitor roams through time, weeding out life's wastrels and deleting the worthless."
 }
 ,
 {
-   "title": "POIROT: The Adventure of the Egyptian Tomb",
-   "shortName": "The Adventure of the Egyptian Tomb",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Adventure of the Egyptian Tomb.mp4",
-   "length": 3161.504,
-   "description": "Poirot and Hastings travel to Egypt to investigate a group of archaeologists dropping dead after opening an allegedly cursed ancient tomb."
+   "title": "RED DWARF: 5-3 Terrorform",
+   "shortName": "5-3 Terrorform",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-3 Terrorform.mp4",
+   "length": 1627.46,
+   "description": "Rimmer is taken prisoner in his own mind."
 }
 ,
 {
-   "title": "POIROT: The Adventure of the Italian Nobleman",
-   "shortName": "The Adventure of the Italian Nobleman",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Adventure of the Italian Nobleman.mp4",
-   "length": 3176.864,
-   "description": "Poirot helps solve the murder of an Italian nobleman of unsavoury reputation who happens to be the employer of Miss Lemon's new suitor."
+   "title": "RED DWARF: 5-4 Quarantine",
+   "shortName": "5-4 Quarantine",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-4 Quarantine.mp4",
+   "length": 1697.686,
+   "description": "Rimmer forces the crew to spend 12 weeks in quarantine."
 }
 ,
 {
-   "title": "POIROT: The Adventure of the Western Star",
-   "shortName": "The Adventure of the Western Star",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Adventure of the Western Star.mp4",
-   "length": 3150.708,
-   "description": "A famous Belgian film star consults Poirot about a series of letters threatening that her celebrated diamond will soon be stolen."
+   "title": "RED DWARF: 5-5 Demons and Angels",
+   "shortName": "5-5 Demons and Angels",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-5 Demons and Angels.mp4",
+   "length": 1612.146,
+   "description": "The Red Dwarf crew create good and evil doppelgängers of themselves."
 }
 ,
 {
-   "title": "POIROT: The Affair at the Victory Ball",
-   "shortName": "The Affair at the Victory Ball",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Affair at the Victory Ball.mp4",
-   "length": 3124.074,
-   "description": "Poirot and Hastings attend the Victory Ball, a classical masquarade where every guest is dressed as someone famous."
+   "title": "RED DWARF: 5-6 Back to Reality",
+   "shortName": "5-6 Back to Reality",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-6 Back to Reality.mp4",
+   "length": 1638.14,
+   "description": "The crew of Red Dwarf discover an abandoned space ship on an ocean bed."
 }
 ,
 {
-   "title": "POIROT: The Big Four",
-   "shortName": "The Big Four",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Big Four.mp4",
-   "length": 5276.544,
-   "description": "With the help of his old friends Captain Hastings, Miss Lemon and Inspector Japp, Hercule Poirot investigates a series of carefully planned and executed murders."
+   "title": "RED DWARF: 6-1 Psirens",
+   "shortName": "6-1 Psirens",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/6-1 Psirens.mp4",
+   "length": 1735.773,
+   "description": "The crew awake after 200 years in suspended animation to find the ship has been stolen."
 }
 ,
 {
-   "title": "POIROT: The Case of the Missing Will",
-   "shortName": "The Case of the Missing Will",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Case of the Missing Will.mp4",
-   "length": 3190.048,
-   "description": "A rich, terminally ill man asks Poirot to be executor of his new will, in which he intends to leave the whole estate to his ward Violet Wilson."
+   "title": "RED DWARF: 6-2 Legion",
+   "shortName": "6-2 Legion",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/6-2 Legion.mp4",
+   "length": 1694.813,
+   "description": "With supplies running low, the crew find themselves dragged to a deserted space station."
 }
 ,
 {
-   "title": "POIROT: Murder in the Mews",
-   "shortName": "Murder in the Mews",
-   "urlLocal": "media/channel-5/../Core/Poirot/Murder in the Mews.mp4",
-   "length": 3174.122,
-   "description": "\"A good night for a murder,\" says Hastings while he, Inspector Japp and Poirot are enjoying the festivities of Guy Fawkes night."
+   "title": "RED DWARF: 6-3 Gunmen of the Apocalypse",
+   "shortName": "6-3 Gunmen of the Apocalypse",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/6-3 Gunmen of the Apocalypse.mp4",
+   "length": 1730.073,
+   "description": "Kryten contracts a computer virus, so the crew must enter his electronic mindscape."
 }
 ,
 {
-   "title": "POIROT: The King of Clubs",
-   "shortName": "The King of Clubs",
-   "urlLocal": "media/channel-5/../Core/Poirot/The King of Clubs.mp4",
-   "length": 2908.138,
-   "description": "Poirot and Hastings investigate the death of film studio owner Henry Reedburn at the request of Prince Paul of Maurania."
+   "title": "RED DWARF: 6-4 Emohawk Polymorph II",
+   "shortName": "6-4 Emohawk Polymorph II",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/6-4 Emohawk Polymorph II.mp4",
+   "length": 1698.466,
+   "description": "The crew need replacement engine parts from the fearsome Kinatowi clan."
 }
 ,
 {
-   "title": "POIROT: The Labours of Hercules",
-   "shortName": "The Labours of Hercules",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Labours of Hercules.mp4",
-   "length": 5451.562,
-   "description": "Hercule Poirot picks up on the trail of the ingenious thief Marascaud and devises a trap with the assistance of the Metropolitan Police."
+   "title": "RED DWARF: 6-5 Rimmerworld",
+   "shortName": "6-5 Rimmerworld",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/6-5 Rimmerworld.mp4",
+   "length": 1702.015,
+   "description": "After escaping a disintegrating ship, Rimmer's pod is sucked into a wormhole in time."
 }
 ,
 {
-   "title": "POIROT: The Lost Mine",
-   "shortName": "The Lost Mine",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Lost Mine.mp4",
-   "length": 3201.929,
-   "description": "The director of Poirot's bank consults the Detective after the disappearance of Mr Wu Ling who was due to sell the bank a map leading to a Burmese mine abundant with silver."
+   "title": "RED DWARF: 6-6 Out of Time",
+   "shortName": "6-6 Out of Time",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/6-6 Out of Time.mp4",
+   "length": 1705.5,
+   "description": "The crew encounter several unreality bubbles."
 }
 ,
 {
-   "title": "POIROT: The Million Dollar Bond Robbery",
-   "shortName": "The Million Dollar Bond Robbery",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Million Dollar Bond Robbery.mp4",
-   "length": 3190.976,
-   "description": "After a bank clerc charged with overseeing a million dollars' worth of American bonds is poisoned, the bank calls in Poirot."
+   "title": "SPACED: 1-1 Beginnings",
+   "shortName": "1-1 Beginnings",
+   "urlLocal": "media/channel-5/../Core/Spaced/1-1 Beginnings.m4v",
+   "length": 1444.64,
+   "description": "Daisy Steiner is living in a squat, and Tim Bisley is homeless after breaking up with his girlfriend."
 }
 ,
 {
-   "title": "POIROT: The Murder of Roger Ackroyd",
-   "shortName": "The Murder of Roger Ackroyd",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Murder of Roger Ackroyd.mp4",
-   "length": 6208.024,
-   "description": "Poirot reminisces about an older case in which Roger Ackroyd, the elderly, stingy millionaire disliked by many, was found murdered in cold blood."
+   "title": "SPACED: 1-2 Gatherings",
+   "shortName": "1-2 Gatherings",
+   "urlLocal": "media/channel-5/../Core/Spaced/1-2 Gatherings.m4v",
+   "length": 1444.08,
+   "description": "Daisy plans a housewarming party to avoid doing any work."
 }
 ,
 {
-   "title": "POIROT: The Mysterious Affair at Styles",
-   "shortName": "The Mysterious Affair at Styles",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Mysterious Affair at Styles.mp4",
-   "length": 6457.024,
-   "description": "After WWI, Captain Hastings is invited to Styles Court, where he meets his old friend Poirot again."
+   "title": "SPACED: 1-3 Art",
+   "shortName": "1-3 Art",
+   "urlLocal": "media/channel-5/../Core/Spaced/1-3 Art.m4v",
+   "length": 1533.72,
+   "description": "After taking some speed, Tim has spent all night playing Resident Evil 2 and Mike has accidentally travelled to Sheffield."
 }
 ,
 {
-   "title": "POIROT: The Mystery of Hunter's Lodge",
-   "shortName": "The Mystery of Hunter's Lodge",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Mystery of Hunter's Lodge.mp4",
-   "length": 3168.064,
-   "description": "Poirot accompanies Hastings on a shooting party at the Hunter's Lodge, but is soon struck down with a flu."
+   "title": "SPACED: 1-4 Battles",
+   "shortName": "1-4 Battles",
+   "urlLocal": "media/channel-5/../Core/Spaced/1-4 Battles.m4v",
+   "length": 1449.88,
+   "description": "After getting dumped by her boyfriend Richard, Daisy decides to cheer herself up by getting a dog called Colin."
 }
 ,
 {
-   "title": "POIROT: The Mystery of the Blue Train",
-   "shortName": "The Mystery of the Blue Train",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Mystery of the Blue Train.mp4",
-   "length": 5891.367,
-   "description": "While travelling on the Blue Train between Calais and Nice, Poirot gets mixed up in the investigation of the brutal murder of American heiress Ruth Kettering."
+   "title": "SPACED: 2-2 Change",
+   "shortName": "2-2 Change",
+   "urlLocal": "media/channel-5/../Core/Spaced/2-2 Change.m4v",
+   "length": 1464.76,
+   "description": "Following a dispute with a young customer over Jar Jar Binks merchandise, Bilbo fires Tim."
 }
 ,
 {
-   "title": "POIROT: The Mystery of the Spanish Chest",
-   "shortName": "The Mystery of the Spanish Chest",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Mystery of the Spanish Chest.mp4",
-   "length": 3202.069,
-   "description": "The charming Mrs Clayton begs Poirot for protection from her jealous husband."
+   "title": "SPACED: 2-3 Mettle",
+   "shortName": "2-3 Mettle",
+   "urlLocal": "media/channel-5/../Core/Spaced/2-3 Mettle.m4v",
+   "length": 1464.64,
+   "description": "Tim and Mike are in the Robot Wars quarter final, but their robot is sabotaged by a rival."
 }
 ,
 {
-   "title": "POIROT: The Plymouth Express",
-   "shortName": "The Plymouth Express",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Plymouth Express.mp4",
-   "length": 3168.064,
-   "description": "Australian mining entrepreneur Gordon Halliday hires Poirot to look into the activities of one of his daughter's suitors."
+   "title": "SPACED: 2-4 Help",
+   "shortName": "2-4 Help",
+   "urlLocal": "media/channel-5/../Core/Spaced/2-4 Help.m4v",
+   "length": 1498.24,
+   "description": "After receiving a call from the mysterious Damien Knox of Darkstar Comics, Tim employs Tyres to deliver his portfolio of artwork."
 }
 ,
 {
-   "title": "POIROT: The Theft of the Royal Ruby",
-   "shortName": "The Theft of the Royal Ruby",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Theft of the Royal Ruby.mp4",
-   "length": 2912.447,
-   "description": "During Christmas holidays, Poirot gets a visit from the Egyptian prince whose royal ruby has been stolen by a prostitute."
+   "title": "SPACED: 1-5 Chaos",
+   "shortName": "1-5 Chaos",
+   "urlLocal": "media/channel-5/../Core/Spaced/1-5 Chaos.m4v",
+   "length": 1448.92,
+   "description": "Daisy is strongly bonding with new dog Colin, much to Tim's displeasure."
 }
 ,
 {
-   "title": "POIROT: The Third Floor Flat",
-   "shortName": "The Third Floor Flat",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Third Floor Flat.mp4",
-   "length": 3047.744,
-   "description": "Young people return from a night out, but they have to use the coal lift because they have lost the keys to the apartment."
+   "title": "SPACED: 1-6 Epiphanies",
+   "shortName": "1-6 Epiphanies",
+   "urlLocal": "media/channel-5/../Core/Spaced/1-6 Epiphanies.m4v",
+   "length": 1445.28,
+   "description": "Tim's bicycle courier friend Tyres pops round for a cup of tea and decides to take the gang clubbing."
 }
 ,
 {
-   "title": "POIROT: The Tragedy at Marsdon Manor",
-   "shortName": "The Tragedy at Marsdon Manor",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Tragedy at Marsdon Manor.mp4",
-   "length": 3210.068,
-   "description": "Poirot and Hastings travel to Marsdon Leigh in response to a letter about an insoluble murder."
+   "title": "SPACED: 1-7 Ends",
+   "shortName": "1-7 Ends",
+   "urlLocal": "media/channel-5/../Core/Spaced/1-7 Ends.m4v",
+   "length": 1480.28,
+   "description": "Tim is ecstatic when his ex-girlfriend Sarah decides she wants him back."
 }
 ,
 {
-   "title": "POIROT: The Underdog",
-   "shortName": "The Underdog",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Underdog.mp4",
-   "length": 3193.44,
-   "description": "Poirot investigates the violent death of the CEO of a chemical company whose list of enemies seems to be without end."
+   "title": "SPACED: 2-1 Back",
+   "shortName": "2-1 Back",
+   "urlLocal": "media/channel-5/../Core/Spaced/2-1 Back.m4v",
+   "length": 1455.16,
+   "description": "After receiving an injection of money following the sale of her articles, Daisy returns from her holiday in Asia but finds it hard to settle back into normal life."
 }
 ,
 {
-   "title": "POIROT: The Veiled Lady",
-   "shortName": "The Veiled Lady",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Veiled Lady.mp4",
-   "length": 3054.473,
-   "description": "Poirot is approached by a heavily veiled woman, Lady Millicent Castle Vaughan."
+   "title": "ALAN PARTRIDGE: How Are You 6",
+   "shortName": "How Are You 6",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/How Are You 6.mp4",
+   "length": 1610.047,
+   "description": "Back where he began, Alan is forced to wonder if he's come full circle or gone nowhere."
 }
 ,
 {
-   "title": "POIROT: The Yellow Iris",
-   "shortName": "The Yellow Iris",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Yellow Iris.mp4",
-   "length": 3168.608,
-   "description": "The wealthy Barton Russell throws a dinner party in remebrance of his wife Iris's death by inviting the same people that were present the night of her murder."
+   "title": "BLACKADDER: 2-1 Bells",
+   "shortName": "2-1 Bells",
+   "urlLocal": "media/channel-5/../Core/Blackadder/2-1 Bells.mp4",
+   "length": 1811.903,
+   "description": "Blackadder is struck by Cupid's arrow when he takes on a new servant - a girl named Bob."
 }
 ,
 {
-   "title": "POIROT: Third Girl",
-   "shortName": "Third Girl",
-   "urlLocal": "media/channel-5/../Core/Poirot/Third Girl.mp4",
-   "length": 5848.864,
-   "description": "An unbalanced young heiress confides in Poirot that she might have killed someone, but runs away without explaining further."
+   "title": "BLACKADDER: 2-2 Head",
+   "shortName": "2-2 Head",
+   "urlLocal": "media/channel-5/../Core/Blackadder/2-2 Head.mp4",
+   "length": 1605.066,
+   "description": "Edmund is appointed lord high executioner and beheads a man early to have some time off."
 }
 ,
 {
-   "title": "POIROT: Three Act Tragedy",
-   "shortName": "Three Act Tragedy",
-   "urlLocal": "media/channel-5/../Core/Poirot/Three Act Tragedy.mp4",
-   "length": 5561.718,
-   "description": "A well-liked clergyman with no enemy in the world chokes to death at a party thrown by the renowned Sir Charles Cartwright."
+   "title": "BLACKADDER: 2-3 Potato",
+   "shortName": "2-3 Potato",
+   "urlLocal": "media/channel-5/../Core/Blackadder/2-3 Potato.mp4",
+   "length": 1804.073,
+   "description": "Edmund decides to navigate the Cape of Good Hope after Sir Walter Raleigh's success."
 }
 ,
 {
-   "title": "POIROT: Triangle at Rhodes",
-   "shortName": "Triangle at Rhodes",
-   "urlLocal": "media/channel-5/../Core/Poirot/Triangle at Rhodes.mp4",
-   "length": 3194.303,
-   "description": "Poirot is enjoying his holiday in Rhodes, but human drama never seems to be too far away."
+   "title": "BLACKADDER: 2-4 Money",
+   "shortName": "2-4 Money",
+   "urlLocal": "media/channel-5/../Core/Blackadder/2-4 Money.mp4",
+   "length": 1795.746,
+   "description": "Edmund is in trouble when he is visited by a bishop armed with a red-hot poker."
 }
 ,
 {
-   "title": "POIROT: Wasps' Nest",
-   "shortName": "Wasps' Nest",
-   "urlLocal": "media/channel-5/../Core/Poirot/Wasps' Nest.mp4",
-   "length": 3180.074,
-   "description": "Poirot runs into his old friend John Harrison at a village fete and sets out to prevent a murder."
+   "title": "BLACKADDER: 2-5 Beer",
+   "shortName": "2-5 Beer",
+   "urlLocal": "media/channel-5/../Core/Blackadder/2-5 Beer.mp4",
+   "length": 1753.58,
+   "description": "Problems arise after an embarrassing incident with a turnip, a feather and a fat aunt."
 }
 ,
 {
-   "title": "MISS MARPLE: A Caribbean Mystery",
-   "shortName": "A Caribbean Mystery",
-   "urlLocal": "media/channel-5/../Core/Miss Marple/A Caribbean Mystery.m4v",
-   "length": 6484.202,
-   "description": "While holidaying in Barbados, Miss Marple is bored to tears by a dotty Major who tells tall tales of knowing a murderer."
+   "title": "BLACKADDER: 2-6 Chains",
+   "shortName": "2-6 Chains",
+   "urlLocal": "media/channel-5/../Core/Blackadder/2-6 Chains.mp4",
+   "length": 1756.906,
+   "description": "The evil Prince Ludwig kidnaps both Blackadder and Lord Melchett."
 }
 ,
 {
-   "title": "MISS MARPLE: A Murder is Announced",
-   "shortName": "A Murder is Announced",
-   "urlLocal": "media/channel-5/../Core/Miss Marple/A Murder is Announced.m4v",
-   "length": 9552.104,
-   "description": "A party game goes wrong and a young Swiss man is dead."
+   "title": "BLACKADDER: 3-1 Dish and Dishonesty",
+   "shortName": "3-1 Dish and Dishonesty",
+   "urlLocal": "media/channel-5/../Core/Blackadder/3-1 Dish and Dishonesty.mp4",
+   "length": 1761.044,
+   "description": "Edmund Blackadder Esq, butler to the Prince Regent, tries to get Baldrick elected as an MP."
 }
 ,
 {
-   "title": "MISS MARPLE: A Pocketful of Rye",
-   "shortName": "A Pocketful of Rye",
-   "urlLocal": "media/channel-5/../Core/Miss Marple/A Pocketful of Rye.m4v",
-   "length": 6183.988,
-   "description": "When the members of a wealthy banking family start dropping like flies, Miss Marple is reminded of the old nursery rhyme."
+   "title": "BLACKADDER: 3-2 Ink and Incapability",
+   "shortName": "3-2 Ink and Incapability",
+   "urlLocal": "media/channel-5/../Core/Blackadder/3-2 Ink and Incapability.mp4",
+   "length": 1755.519,
+   "description": "When Dr Samuel Johnson's dictionary is used for firewood, Edmund must rewrite it."
 }
 ,
 {
-   "title": "MISS MARPLE: At Bertram's Hotel",
-   "shortName": "At Bertram's Hotel",
-   "urlLocal": "media/channel-5/../Core/Miss Marple/At Bertram's Hotel.m4v",
-   "length": 6539.946,
-   "description": "False identities, larceny, and a crime ring are only the tip of the tentacle when Miss Marple stays in a posh London hotel.(modelled after Brown's Hotel) where nothing is what it seems."
+   "title": "BLACKADDER: 3-3 Nob and Nobility",
+   "shortName": "3-3 Nob and Nobility",
+   "urlLocal": "media/channel-5/../Core/Blackadder/3-3 Nob and Nobility.mp4",
+   "length": 1791.04,
+   "description": "Revolution sweeps France and Edmund takes advantage of the Scarlet Pimpernel's popularity."
 }
 ,
 {
-   "title": "MISS MARPLE: Nemesis",
-   "shortName": "Nemesis",
-   "urlLocal": "media/channel-5/../Core/Miss Marple/Nemesis.m4v",
-   "length": 6485.077,
-   "description": "Miss Marple is sent on a mission from beyond the grave to clear a dead man's son."
+   "title": "BLACKADDER: 3-4 Sense and Senility",
+   "shortName": "3-4 Sense and Senility",
+   "urlLocal": "media/channel-5/../Core/Blackadder/3-4 Sense and Senility.mp4",
+   "length": 1595.066,
+   "description": "George hires two actors to tutor him in public speaking while trying to avoid anarchists."
 }
 ,
 {
-   "title": "MISS MARPLE: Sleeping Murder",
-   "shortName": "Sleeping Murder",
-   "urlLocal": "media/channel-5/../Core/Miss Marple/Sleeping Murder.m4v",
-   "length": 6438.02,
-   "description": "A young wife believes her house is haunted."
+   "title": "BLACKADDER: 3-5 Amy and Amiability",
+   "shortName": "3-5 Amy and Amiability",
+   "urlLocal": "media/channel-5/../Core/Blackadder/3-5 Amy and Amiability.mp4",
+   "length": 1765.055,
+   "description": "Edmund sets out to find the regent a bride with a big dowry."
 }
 ,
 {
-   "title": "MISS MARPLE: The 4.50 From Paddington",
-   "shortName": "The 4.50 From Paddington",
-   "urlLocal": "media/channel-5/../Core/Miss Marple/The 4.50 From Paddington.m4v",
-   "length": 6573.994,
-   "description": "After Miss Marple's friend witnesses a murder in a railway carriage running parallel to her own, Miss Marple engages a resourceful young woman to investigate."
+   "title": "BLACKADDER: 3-6 Duel and Duality",
+   "shortName": "3-6 Duel and Duality",
+   "urlLocal": "media/channel-5/../Core/Blackadder/3-6 Duel and Duality.mp4",
+   "length": 1792.046,
+   "description": "The prince is challenged to a duel by the fearsome Duke of Wellington."
 }
 ,
 {
-   "title": "MISS MARPLE: The Body in the Library",
-   "shortName": "The Body in the Library",
-   "urlLocal": "media/channel-5/../Core/Miss Marple/The Body in the Library.m4v",
-   "length": 9315.093,
-   "description": "Miss Marple assists her neighbours the Bantrys when a lovely young girl is found dead in their library."
+   "title": "BLACKADDER: 4-1 Captain Cook",
+   "shortName": "4-1 Captain Cook",
+   "urlLocal": "media/channel-5/../Core/Blackadder/4-1 Captain Cook.mp4",
+   "length": 1748.046,
+   "description": "Edmund is sent into no man's land to sketch the German positions."
 }
 ,
 {
-   "title": "POIROT: Five Little Pigs",
-   "shortName": "Five Little Pigs",
-   "urlLocal": "media/channel-5/../Core/Poirot/Five Little Pigs.mp4",
-   "length": 5831.484,
-   "description": "Young Lucy Lemarchant asks Poirot to uncover the truth of the 14-year-old murder case in which her mother Caroline was hanged for poisoning her husband."
+   "title": "BLACKADDER: 4-2 Corporal Punishment",
+   "shortName": "4-2 Corporal Punishment",
+   "urlLocal": "media/channel-5/../Core/Blackadder/4-2 Corporal Punishment.mp4",
+   "length": 1761.053,
+   "description": "Blackadder faces court martial for eating a carrier pigeon."
 }
 ,
 {
-   "title": "JONATHAN CREEK: Gorgons Wood",
-   "shortName": "Gorgons Wood",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Gorgons Wood.mp4",
-   "length": 3641.066,
-   "description": "A priceless Eastern porcelain monk is stolen in front of several witnesses, prompting Jonathan and Carla's discovery of a major case of sibling rivalry."
+   "title": "THE GOOD LIFE: 1-6 The Pagan Rite",
+   "shortName": "1-6 The Pagan Rite",
+   "urlLocal": "media/channel-5/../Core/The Good Life/1-6 The Pagan Rite.mp4",
+   "length": 1740.116,
+   "description": "As Tom and Barbara's savings dwindle, Tom sets about earning some extra money."
 }
 ,
 {
-   "title": "JONATHAN CREEK: Jack In The Box",
-   "shortName": "Jack In The Box",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Jack In The Box.mp4",
-   "length": 3533.44,
-   "description": "After Maddy successfully campaigns to free a man she believes to have been wrongly imprisoned for murder, the husband of the victim is found shot dead in his nuclear fall-out shelter."
+   "title": "THE GOOD LIFE: 1-7 Backs to the Wall",
+   "shortName": "1-7 Backs to the Wall",
+   "urlLocal": "media/channel-5/../Core/The Good Life/1-7 Backs to the Wall.mp4",
+   "length": 1580.116,
+   "description": "It is harvest time, and the Goods need all the help they can get."
 }
 ,
 {
-   "title": "JONATHAN CREEK: Miracle In Crooked Lane",
-   "shortName": "Miracle In Crooked Lane",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Miracle In Crooked Lane.mp4",
-   "length": 2995.648,
-   "description": "A former glamour model is seriously injured when her garden shed explodes."
+   "title": "THE GOOD LIFE: 2-1 Just My Bill",
+   "shortName": "2-1 Just My Bill",
+   "urlLocal": "media/channel-5/../Core/The Good Life/2-1 Just My Bill.mp4",
+   "length": 1723.114,
+   "description": "Tom finds marketing his garden produce more difficult than he thought it would be."
 }
 ,
 {
-   "title": "JONATHAN CREEK: Mother Redcap",
-   "shortName": "Mother Redcap",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Mother Redcap.mp4",
-   "length": 2993.066,
-   "description": "A judge on a police protection programme is killed by a rapier blade into the chest, but only his sleeping wife was in the room at the time."
+   "title": "THE GOOD LIFE: 2-2 The Guru of Surbiton",
+   "shortName": "2-2 The Guru of Surbiton",
+   "urlLocal": "media/channel-5/../Core/The Good Life/2-2 The Guru of Surbiton.mp4",
+   "length": 1721.108,
+   "description": "Tom's philosophy of life attracts two young disciples - but not permanently, he hopes."
 }
 ,
 {
-   "title": "JONATHAN CREEK: No Trace Of Tracy",
-   "shortName": "No Trace Of Tracy",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/No Trace Of Tracy.mp4",
-   "length": 3548,
-   "description": "Tracy, a teenager who loves seventies rock music, goes to visit her idol, retired rock star Roy Pilgrim."
+   "title": "THE GOOD LIFE: 2-3 Mr Fix It",
+   "shortName": "2-3 Mr Fix It",
+   "urlLocal": "media/channel-5/../Core/The Good Life/2-3 Mr Fix It.mp4",
+   "length": 1715.114,
+   "description": "Tom and Barbara are visited by the press."
 }
 ,
 {
-   "title": "JONATHAN CREEK: Satan's Chimney",
-   "shortName": "Satan's Chimney",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Satan's Chimney.mp4",
-   "length": 7123.072,
-   "description": "With Maddy gone to America on a book promotion tour, Jonathan teams up with Carla Borrego."
+   "title": "THE GOOD LIFE: 2-4 The Day Peace Broke Out",
+   "shortName": "2-4 The Day Peace Broke Out",
+   "urlLocal": "media/channel-5/../Core/The Good Life/2-4 The Day Peace Broke Out.mp4",
+   "length": 1740.116,
+   "description": "Tom takes the law into his own hands when some of his leeks go missing."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Chequered Box",
-   "shortName": "The Chequered Box",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Chequered Box.mp4",
-   "length": 3604,
-   "description": "A police detective is photographed after apparently murdering a prosecutor by hanging her in her office."
+   "title": "THE GOOD LIFE: 2-5 Mutiny",
+   "shortName": "2-5 Mutiny",
+   "urlLocal": "media/channel-5/../Core/The Good Life/2-5 Mutiny.mp4",
+   "length": 1702.122,
+   "description": "It's Margo's first night in the Sound of Music, and Jerry receives some unpleasant news."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Clue of the Savant's Thumb",
-   "shortName": "The Clue of the Savant's Thumb",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Clue of the Savant's Thumb.m4v",
-   "length": 5359,
-   "description": "Jonathan Creek has left magic and theatre behind and is now a high-powered businessman with a wife, Polly."
+   "title": "THE GOOD LIFE: 2-6 Home Sweet Home",
+   "shortName": "2-6 Home Sweet Home",
+   "urlLocal": "media/channel-5/../Core/The Good Life/2-6 Home Sweet Home.mp4",
+   "length": 1725.119,
+   "description": "A boar walker visits the Goods' estates."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Coonskin Cap",
-   "shortName": "The Coonskin Cap",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Coonskin Cap.mp4",
-   "length": 3553.64,
-   "description": "After an awkward break-up some months ago, Jonathan and Carla unite to investigate a serial killer who wears a Davy Crockett hat and kills people named after flowers."
+   "title": "THE GOOD LIFE: 2-7 Going to Pot",
+   "shortName": "2-7 Going to Pot",
+   "urlLocal": "media/channel-5/../Core/The Good Life/2-7 Going to Pot.mp4",
+   "length": 1741.119,
+   "description": "Tom and Barbara's evening class becomes unusually productive."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Curious Tale Of Mr Spearfish",
-   "shortName": "The Curious Tale Of Mr Spearfish",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Curious Tale Of Mr Spearfish.mp4",
-   "length": 2996.714,
-   "description": "A man who claims to have sold his soul to the Devil has a remarkable run of good luck."
+   "title": "THE GOOD LIFE: 3-1 The Early Birds",
+   "shortName": "3-1 The Early Birds",
+   "urlLocal": "media/channel-5/../Core/The Good Life/3-1 The Early Birds.mp4",
+   "length": 1796.116,
+   "description": "The Leadbetters have had enough of the Goods' early morning activities."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Eyes Of Tiresias",
-   "shortName": "The Eyes Of Tiresias",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Eyes Of Tiresias.mp4",
-   "length": 3016.042,
-   "description": "When an old woman experiences dreams of the future, Jonathan must find out what is happening before her dreams of being attacked by a one-eyed man with a sword come to pass."
+   "title": "THE GOOD LIFE: 3-2 The Happy Event",
+   "shortName": "3-2 The Happy Event",
+   "urlLocal": "media/channel-5/../Core/The Good Life/3-2 The Happy Event.mp4",
+   "length": 1717.119,
+   "description": "A 400 per cent increase in their livestock population is a source of joy for the Goods."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Grinning Man",
-   "shortName": "The Grinning Man",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Grinning Man.mp4",
-   "length": 7134.08,
-   "description": "Since 1938, a number of people have disappeared from the attic of a Gothic mansion."
+   "title": "THE GOOD LIFE: 3-3 A Tug of the Forelock",
+   "shortName": "3-3 A Tug of the Forelock",
+   "urlLocal": "media/channel-5/../Core/The Good Life/3-3 A Tug of the Forelock.mp4",
+   "length": 1685.119,
+   "description": "Tom revamps his cultivator, and Barbara becomes the Leadbetters' housekeeper."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The House Of Monkeys",
-   "shortName": "The House Of Monkeys",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The House Of Monkeys.mp4",
-   "length": 3545.066,
-   "description": "A cancer doctor is found impaled by a sword in his locked study."
+   "title": "THE GOOD LIFE: 3-4 I Talk to the Trees",
+   "shortName": "3-4 I Talk to the Trees",
+   "urlLocal": "media/channel-5/../Core/The Good Life/3-4 I Talk to the Trees.mp4",
+   "length": 1766.783,
+   "description": "The Goods experiment with talking to their plants to see if they will grow more."
 }
 ,
 {
-   "title": "POIROT: The Chocolate Box",
-   "shortName": "The Chocolate Box",
-   "urlLocal": "media/channel-5/../Core/Poirot/The Chocolate Box.mp4",
-   "length": 3166.944,
-   "description": "While in Belgium, Poirot recounts to Chief Inspector Japp a case from twenty years prior."
+   "title": "THE GOOD LIFE: 3-5 The Wind-Break War",
+   "shortName": "3-5 The Wind-Break War",
+   "urlLocal": "media/channel-5/../Core/The Good Life/3-5 The Wind-Break War.mp4",
+   "length": 1793.108,
+   "description": "War breaks out between the Goods and the Leadbetters."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Scented Room",
-   "shortName": "The Scented Room",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Scented Room.mp4",
-   "length": 2941.994,
-   "description": "A painting disappears from a locked room and the owner, theatre critic Sylvester Le Fley, offers a large reward for its recovery."
+   "title": "THE GOOD LIFE: 3-6 Whose Fleas are These",
+   "shortName": "3-6 Whose Fleas are These",
+   "urlLocal": "media/channel-5/../Core/The Good Life/3-6 Whose Fleas are These.mp4",
+   "length": 1732.116,
+   "description": "Tom and Barbara find themselves with fleas."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Seer Of The Sands",
-   "shortName": "The Seer Of The Sands",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Seer Of The Sands.mp4",
-   "length": 3584.64,
-   "description": "A man who investigates supernatural occurrences kills himself by crashing his boat after receiving a fax from his lover."
+   "title": "THE GOOD LIFE: 3-7 The Last Posh Frock",
+   "shortName": "3-7 The Last Posh Frock",
+   "urlLocal": "media/channel-5/../Core/The Good Life/3-7 The Last Posh Frock.mp4",
+   "length": 1725.119,
+   "description": "Barbara tries to remain a woman despite her work-worn hands and a ruined dress."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Tailor's Dummy",
-   "shortName": "The Tailor's Dummy",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Tailor's Dummy.mp4",
-   "length": 3582.016,
-   "description": "A designer commits suicide by jumping out of a window after reading a bad review of his work."
+   "title": "THE GOOD LIFE: 4-1 Away From It All",
+   "shortName": "4-1 Away From It All",
+   "urlLocal": "media/channel-5/../Core/The Good Life/4-1 Away From It All.mp4",
+   "length": 1780.116,
+   "description": "The Leadbetters are left to look after the animals when Tom and Barbara take a break."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Three Gamblers",
-   "shortName": "The Three Gamblers",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Three Gamblers.mp4",
-   "length": 3046.698,
-   "description": "A drug dealer and criminal who was shot six times in the head somehow managed to climb up the stairs from the cellar."
+   "title": "THE GOOD LIFE: 4-2 The Green Door",
+   "shortName": "4-2 The Green Door",
+   "urlLocal": "media/channel-5/../Core/The Good Life/4-2 The Green Door.mp4",
+   "length": 1716.116,
+   "description": "Is Margo having an affair? The Goods can't help thinking the worst."
 }
 ,
 {
-   "title": "JONATHAN CREEK: The Wrestler's Tomb",
-   "shortName": "The Wrestler's Tomb",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/The Wrestler's Tomb.mp4",
-   "length": 5340.458,
-   "description": "An artist is found dead at his home, while his mistress is found bound, blindfolded and gagged with tape."
+   "title": "THE GOOD LIFE: 4-3 Our Speaker Today",
+   "shortName": "4-3 Our Speaker Today",
+   "urlLocal": "media/channel-5/../Core/The Good Life/4-3 Our Speaker Today.mp4",
+   "length": 1590.122,
+   "description": "Barbara gets Margo out of a fix when a speaker at her society lets her down."
 }
 ,
 {
-   "title": "JONATHAN CREEK: Time Waits For Norman",
-   "shortName": "Time Waits For Norman",
-   "urlLocal": "media/channel-5/../Core/Jonathan Creek/Time Waits For Norman.mp4",
-   "length": 2951.018,
-   "description": "Antonia, a friend of Maddy's, asks her and Jonathan to discover what her husband has been up to after reliable witnesses place him on both sides of the Atlantic only minutes apart."
+   "title": "THE GOOD LIFE: 4-4 The Weaver's Tale",
+   "shortName": "4-4 The Weaver's Tale",
+   "urlLocal": "media/channel-5/../Core/The Good Life/4-4 The Weaver's Tale.mp4",
+   "length": 1714.111,
+   "description": "Tom buys a loom so he and Barbara can make their own woollen clothes."
+}
+,
+{
+   "title": "THE GOOD LIFE: 4-5 Suit Yourself",
+   "shortName": "4-5 Suit Yourself",
+   "urlLocal": "media/channel-5/../Core/The Good Life/4-5 Suit Yourself.mp4",
+   "length": 1788.116,
+   "description": "The Goods find new ways to put their loom to good use."
+}
+,
+{
+   "title": "THE GOOD LIFE: 4-6 Sweet and Sour Charity",
+   "shortName": "4-6 Sweet and Sour Charity",
+   "urlLocal": "media/channel-5/../Core/The Good Life/4-6 Sweet and Sour Charity.mp4",
+   "length": 1731.114,
+   "description": "Tom schemes about oil, Jerry schemes about promotion, and Margo lands a leading role."
+}
+,
+{
+   "title": "THE GOOD LIFE: 4-7 Anniversary",
+   "shortName": "4-7 Anniversary",
+   "urlLocal": "media/channel-5/../Core/The Good Life/4-7 Anniversary.mp4",
+   "length": 1794.111,
+   "description": "Has the good life come to an end for Tom and Barbara?"
+}
+,
+{
+   "title": "THE GOOD LIFE: Silly, But It's Fun",
+   "shortName": "Silly, But It's Fun",
+   "urlLocal": "media/channel-5/../Core/The Good Life/Silly, But It's Fun.mp4",
+   "length": 1604.948,
+   "description": "The Goods' and the Leadbetters' respective Christmases both fail to go according to plan."
+}
+,
+{
+   "title": "THE GOOD LIFE: When I'm 65",
+   "shortName": "When I'm 65",
+   "urlLocal": "media/channel-5/../Core/The Good Life/When I'm 65.mp4",
+   "length": 1763.114,
+   "description": "The Goods begin to have misgivings about their plans for old age."
+}
+,
+{
+   "title": "WOULD I LIE TO YOU: 11-4",
+   "shortName": "11-4",
+   "urlLocal": "media/channel-5/../Core/Would I Lie To You/11-4.mp4",
+   "length": 1739.14,
+   "description": "With Susie Dent, Bob Mortimer, Ore Oduba and Stacey Solomon."
+}
+,
+{
+   "title": "WOULD I LIE TO YOU: 12-1",
+   "shortName": "12-1",
+   "urlLocal": "media/channel-5/../Core/Would I Lie To You/12-1.mp4",
+   "length": 1733.3,
+   "description": "With Dion Dublin, Debbie McGee, Bob Mortimer and Lucy Porter."
+}
+,
+{
+   "title": "WOULD I LIE TO YOU: 13-5",
+   "shortName": "13-5",
+   "urlLocal": "media/channel-5/../Core/Would I Lie To You/13-5.mp4",
+   "length": 1736.22,
+   "description": "With guests Jay Blades, Sue Johnston, Alice Levine and Bob Mortimer."
+}
+,
+{
+   "title": "WOULD I LIE TO YOU: 14-4",
+   "shortName": "14-4",
+   "urlLocal": "media/channel-5/../Core/Would I Lie To You/14-4.mp4",
+   "length": 1754.36,
+   "description": "With guests Bob Mortimer, Samantha Morton, Miles Jupp and Sarah Hadland."
+}
+,
+{
+   "title": "WOULD I LIE TO YOU: 15-2",
+   "shortName": "15-2",
+   "urlLocal": "media/channel-5/../Core/Would I Lie To You/15-2.mp4",
+   "length": 1738.36,
+   "description": "With guests Angellica Bell, Bob Mortimer, Suggs and Holly Willoughby."
+}
+,
+{
+   "title": "WOULD I LIE TO YOU: 16-6",
+   "shortName": "16-6",
+   "urlLocal": "media/channel-5/../Core/Would I Lie To You/16-6.mp4",
+   "length": 1735.44,
+   "description": "With guests Munya Chawawa, Bob Mortimer, Professor Alice Roberts and Snoochie Shy."
+}
+,
+{
+   "title": "THE FAST SHOW: 1-2",
+   "shortName": "1-2",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/1-2.mp4",
+   "length": 1740.522,
+   "description": "Character-based comedy sketches with Paul Whitehouse, Charlie Higson and friends."
+}
+,
+{
+   "title": "WOULD I LIE TO YOU: 18-9",
+   "shortName": "18-9",
+   "urlLocal": "media/channel-5/../Core/Would I Lie To You/18-9.mp4",
+   "length": 1737.08,
+   "description": "Sara Davies, Michelle de Swarte, Bob Mortimer and Chris Ramsey join  Rob, Lee and David."
+}
+,
+{
+   "title": "WOULD I LIE TO YOU: 19-2",
+   "shortName": "19-2",
+   "urlLocal": "media/channel-5/../Core/Would I Lie To You/19-2.mp4",
+   "length": 1726.186,
+   "description": "Bob Mortimer, Dianne Buswell, Jamelia and Mark Chapman join Rob, Lee and David."
+}
+,
+{
+   "title": "THE IT CROWD: 1-1 Yesterday's Jam",
+   "shortName": "1-1 Yesterday's Jam",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/1-1 Yesterday's Jam.mp4",
+   "length": 1395.44,
+   "description": "Jen Barber is interviewed for a position at Reynholm Industries."
+}
+,
+{
+   "title": "THE IT CROWD: 1-2 Calamity Jen",
+   "shortName": "1-2 Calamity Jen",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/1-2 Calamity Jen.mp4",
+   "length": 1454.08,
+   "description": "Denholm mandates his employees to attend a stress seminar, threatening to fire those who still experience stress by the end of the day."
+}
+,
+{
+   "title": "THE IT CROWD: 1-3 Fifty-Fifty",
+   "shortName": "1-3 Fifty-Fifty",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/1-3 Fifty-Fifty.mp4",
+   "length": 1469.44,
+   "description": "Roy's date with a young woman goes horribly wrong after she mistakes chocolate spread on his head for faeces."
+}
+,
+{
+   "title": "THE IT CROWD: 1-4 The Red Door",
+   "shortName": "1-4 The Red Door",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/1-4 The Red Door.mp4",
+   "length": 1414.44,
+   "description": "Frustrated at the repeated theft of his coffee mug, Moss shows off a plain white one which supposedly has a picture of his head on the bottom; however, he is unable to find it."
+}
+,
+{
+   "title": "THE IT CROWD: 1-5 The Haunting of Bill Crouse",
+   "shortName": "1-5 The Haunting of Bill Crouse",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/1-5 The Haunting of Bill Crouse.mp4",
+   "length": 1424.44,
+   "description": "Jen has a terrible dinner date with co-worker Bill Crouse."
+}
+,
+{
+   "title": "THE IT CROWD: 1-6 Aunt Irma Visits",
+   "shortName": "1-6 Aunt Irma Visits",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/1-6 Aunt Irma Visits.mp4",
+   "length": 1505.44,
+   "description": "Denholm thanks everyone except for the IT department for their involvement in a successful project."
+}
+,
+{
+   "title": "THE IT CROWD: 2-1 The Work Outing",
+   "shortName": "2-1 The Work Outing",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/2-1 The Work Outing.m4v",
+   "length": 1487.56,
+   "description": "Co-worker Phillip asks Jen on a date to watch a play."
+}
+,
+{
+   "title": "SPACED: 2-5 Gone",
+   "shortName": "2-5 Gone",
+   "urlLocal": "media/channel-5/../Core/Spaced/2-5 Gone.m4v",
+   "length": 1485,
+   "description": "While spending an evening out in Camden, Tim and Daisy encounter some young hooligans who accuse them of substituting oregano for marijuana."
+}
+,
+{
+   "title": "SPACED: 2-6 Dissolution",
+   "shortName": "2-6 Dissolution",
+   "urlLocal": "media/channel-5/../Core/Spaced/2-6 Dissolution.m4v",
+   "length": 1560.96,
+   "description": "At Daisy's birthday party, cracks begin to form between members of the group."
+}
+,
+{
+   "title": "SPACED: 2-7 Leaves",
+   "shortName": "2-7 Leaves",
+   "urlLocal": "media/channel-5/../Core/Spaced/2-7 Leaves.m4v",
+   "length": 1557.04,
+   "description": "Marsha, having discovered that Daisy and Tim had lied to her ever since moving in, decides to sell the house."
+}
+,
+{
+   "title": "CATTERICK: (1 of 6)",
+   "shortName": "(1 of 6)",
+   "urlLocal": "media/channel-5/../Core/Catterick/(1 of 6).m4v",
+   "length": 1698.434,
+   "description": "Chris and Carl are brothers who are reunited after 15 years in a desperate search for Carl's son Paul."
+}
+,
+{
+   "title": "CATTERICK: (2 of 6)",
+   "shortName": "(2 of 6)",
+   "urlLocal": "media/channel-5/../Core/Catterick/(2 of 6).m4v",
+   "length": 1692.434,
+   "description": "On their way to the town of Catterick, the brothers are pursued by a murderer."
+}
+,
+{
+   "title": "CATTERICK: (3 of 6)",
+   "shortName": "(3 of 6)",
+   "urlLocal": "media/channel-5/../Core/Catterick/(3 of 6).m4v",
+   "length": 1703.354,
+   "description": "Our heroes discover there was more to the stolen car than they realised."
+}
+,
+{
+   "title": "CATTERICK: (4 of 6)",
+   "shortName": "(4 of 6)",
+   "urlLocal": "media/channel-5/../Core/Catterick/(4 of 6).m4v",
+   "length": 1708.354,
+   "description": "Chris and Carl narrowly escape certain death from Tony."
+}
+,
+{
+   "title": "CATTERICK: (5 of 6)",
+   "shortName": "(5 of 6)",
+   "urlLocal": "media/channel-5/../Core/Catterick/(5 of 6).m4v",
+   "length": 1707.834,
+   "description": "The brothers check out a local garden centre where Carl's son once worked."
+}
+,
+{
+   "title": "CATTERICK: (6 of 6)",
+   "shortName": "(6 of 6)",
+   "urlLocal": "media/channel-5/../Core/Catterick/(6 of 6).m4v",
+   "length": 1659.834,
+   "description": "As the brothers get ever closer to their destination, Chris uncovers a secret too horrific to contemplate."
+}
+,
+{
+   "title": "FATHER TED: 1-1 Good Luck, Father Ted",
+   "shortName": "1-1 Good Luck, Father Ted",
+   "urlLocal": "media/channel-5/../Core/Father Ted/1-1 Good Luck, Father Ted.m4v",
+   "length": 1415.6,
+   "description": "A television programme offers to interview Father Ted, who goes to extreme lengths to ensure the other members of the clergy on the island do not interrupt his moment in the spotlight."
+}
+,
+{
+   "title": "FATHER TED: 1-2 Entertaining Father Stone",
+   "shortName": "1-2 Entertaining Father Stone",
+   "urlLocal": "media/channel-5/../Core/Father Ted/1-2 Entertaining Father Stone.m4v",
+   "length": 1446.4,
+   "description": "Ted and Dougal are devastated as an inoffensive but unbearably boring priest, Father Stone, arrives on Craggy Island for his annual visit."
+}
+,
+{
+   "title": "FATHER TED: 1-3 The Passion of St Tibulus",
+   "shortName": "1-3 The Passion of St Tibulus",
+   "urlLocal": "media/channel-5/../Core/Father Ted/1-3 The Passion of St Tibulus.m4v",
+   "length": 1463,
+   "description": "Bishop Leonard Brennan arrives at the parochial house on an official visit with news that a blasphemous film, condemned by the pope and banned everywhere, is being shown in Craggy Island thanks to a loophole."
+}
+,
+{
+   "title": "FATHER TED: 1-4 Competition Time",
+   "shortName": "1-4 Competition Time",
+   "urlLocal": "media/channel-5/../Core/Father Ted/1-4 Competition Time.m4v",
+   "length": 1429.48,
+   "description": "Ahead of the annual 'All Priests Stars in Their Eyes Lookalike Competition', Ted, determined to beat his arch-nemesis Father Dick Byrne, reveals his Elvis costume."
+}
+,
+{
+   "title": "FATHER TED: 1-5 And God Created Woman",
+   "shortName": "1-5 And God Created Woman",
+   "urlLocal": "media/channel-5/../Core/Father Ted/1-5 And God Created Woman.m4v",
+   "length": 1507.72,
+   "description": "Father Ted meets novelist Polly Clarke at the book signing for her latest novel Bejewelled with Kisses."
+}
+,
+{
+   "title": "FATHER TED: 1-6 Grant Unto Him Eternal Rest",
+   "shortName": "1-6 Grant Unto Him Eternal Rest",
+   "urlLocal": "media/channel-5/../Core/Father Ted/1-6 Grant Unto Him Eternal Rest.m4v",
+   "length": 1471.72,
+   "description": "Father Ted is unconcerned when he discovers Jack has drunk a bottle of floor polish, but a lack of pulse and no breathing can only mean one thing, Father Jack is dead."
+}
+,
+{
+   "title": "FATHER TED: 2-1 Hell",
+   "shortName": "2-1 Hell",
+   "urlLocal": "media/channel-5/../Core/Father Ted/2- 1 Hell.m4v",
+   "length": 1456.6,
+   "description": "Ted, Dougal and Jack take their annual holiday and encounter Father Noel Furlong."
+}
+,
+{
+   "title": "FATHER TED: 2-2 Think Fast, Father Ted",
+   "shortName": "2-2 Think Fast, Father Ted",
+   "urlLocal": "media/channel-5/../Core/Father Ted/2- 2 Think Fast, Father Ted.m4v",
+   "length": 1456,
+   "description": "When Ted holds a raffle, he destroys the prize - a new car."
+}
+,
+{
+   "title": "FATHER TED: 2-3 Tentacles of Doom",
+   "shortName": "2-3 Tentacles of Doom",
+   "urlLocal": "media/channel-5/../Core/Father Ted/2- 3 Tentacles of Doom.m4v",
+   "length": 1483.32,
+   "description": "Three bishops visit the island."
+}
+,
+{
+   "title": "FATHER TED: 2-4 Old Grey Whistle Theft",
+   "shortName": "2-4 Old Grey Whistle Theft",
+   "urlLocal": "media/channel-5/../Core/Father Ted/2- 4 Old Grey Whistle Theft.m4v",
+   "length": 1459.605,
+   "description": "Dougal starts hanging around with a rebellious priest, Father Damo Lennon."
+}
+,
+{
+   "title": "FATHER TED: 2-5 A Song for Europe",
+   "shortName": "2-5 A Song for Europe",
+   "urlLocal": "media/channel-5/../Core/Father Ted/2- 5 A Song for Europe.m4v",
+   "length": 1441.002,
+   "description": "Ted is goaded by Father Dick Byrne into attempting to write a song for \"Eurosong '96\"."
+}
+,
+{
+   "title": "FATHER TED: 2-6 The Plague",
+   "shortName": "2-6 The Plague",
+   "urlLocal": "media/channel-5/../Core/Father Ted/2- 6 The Plague.m4v",
+   "length": 1428.6,
+   "description": "The parochial house is infested by rabbits, just as the very rabbit-phobic Bishop Brennan plans a visit."
+}
+,
+{
+   "title": "FATHER TED: 2-7 Rock-a-Hula Ted",
+   "shortName": "2-7 Rock-a-Hula Ted",
+   "urlLocal": "media/channel-5/../Core/Father Ted/2- 7 Rock-a-Hula Ted.m4v",
+   "length": 1453.802,
+   "description": "A female singer (a parody of Sinéad O'Connor) visits the island just when Ted is judging the annual Lovely Girls competition."
+}
+,
+{
+   "title": "FATHER TED: 2-8 Cigarettes and Alcohol and Rollerblading",
+   "shortName": "2-8 Cigarettes and Alcohol and Rollerblading",
+   "urlLocal": "media/channel-5/../Core/Father Ted/2- 8 Cigarettes and Alcohol and Rollerblading.m4v",
+   "length": 1457.002,
+   "description": "In a game of one-upmanship with Dick Byrne, Ted decides the three priests must give something up for Lent."
+}
+,
+{
+   "title": "FATHER TED: 2-9 New Jack City",
+   "shortName": "2-9 New Jack City",
+   "urlLocal": "media/channel-5/../Core/Father Ted/2- 9 New Jack City.m4v",
+   "length": 1391,
+   "description": "Jack's hairy hands get him sent to an old priests' home."
+}
+,
+{
+   "title": "FATHER TED: 2-10 Flight into Terror",
+   "shortName": "2-10 Flight into Terror",
+   "urlLocal": "media/channel-5/../Core/Father Ted/2-10 Flight into Terror.m4v",
+   "length": 1422,
+   "description": "A flight back from a pilgrimage runs out of fuel and there are only two parachutes."
+}
+,
+{
+   "title": "FATHER TED: 3-1 Are you Right There, Father Ted",
+   "shortName": "3-1 Are you Right There, Father Ted",
+   "urlLocal": "media/channel-5/../Core/Father Ted/3-1 Are you Right There, Father Ted.m4v",
+   "length": 1454.805,
+   "description": "Ted's \"Chinaman\" impression goes down badly with Craggy Island's Chinese community."
+}
+,
+{
+   "title": "FATHER TED: 3-2 Chirpy Burpy Cheap Sheep",
+   "shortName": "3-2 Chirpy Burpy Cheap Sheep",
+   "urlLocal": "media/channel-5/../Core/Father Ted/3-2 Chirpy Burpy Cheap Sheep.m4v",
+   "length": 1442.8,
+   "description": "Ted makes a large bet on the King of the Sheep competition."
+}
+,
+{
+   "title": "FATHER TED: 3-3 Speed 3",
+   "shortName": "3-3 Speed 3",
+   "urlLocal": "media/channel-5/../Core/Father Ted/3-3 Speed 3.m4v",
+   "length": 1476.8,
+   "description": "When Ted and Dougal expose a philandering milkman, he takes revenge on his replacement, Dougal, by putting a bomb on the milk float."
+}
+,
+{
+   "title": "FATHER TED: 3-4 The Mainland",
+   "shortName": "3-4 The Mainland",
+   "urlLocal": "media/channel-5/../Core/Father Ted/3-4 The Mainland.m4v",
+   "length": 1442.005,
+   "description": "When Ted, Dougal, Jack and Mrs Doyle go on a trip to the mainland, all kinds of trouble ensues."
+}
+,
+{
+   "title": "FATHER TED: 3-5 Escape from Victory",
+   "shortName": "3-5 Escape from Victory",
+   "urlLocal": "media/channel-5/../Core/Father Ted/3-5 Escape from Victory.m4v",
+   "length": 1431,
+   "description": "Ted takes great steps to ensure he wins a bet with Dick Byrne on the outcome of the All-Priests Over-75's Five-a-Side Football Championship."
+}
+,
+{
+   "title": "FATHER TED: 3-6 Kicking Bishop Brennan",
+   "shortName": "3-6 Kicking Bishop Brennan",
+   "urlLocal": "media/channel-5/../Core/Father Ted/3-6 Kicking Bishop Brennan.m4v",
+   "length": 1453.013,
+   "description": "Exposed as a cheat at the end of the previous episode, a terrified Ted tries to draw upon his courage to complete the forfeit."
+}
+,
+{
+   "title": "FATHER TED: 3-7 Night of the Nearly Dead",
+   "shortName": "3-7 Night of the Nearly Dead",
+   "urlLocal": "media/channel-5/../Core/Father Ted/3-7 Night of the Nearly Dead.m4v",
+   "length": 1441.002,
+   "description": "Young TV presenter Eoin McLove pays a visit to Craggy Island, causing excitement for the island's aging females, who besiege the Parochial House."
+}
+,
+{
+   "title": "FATHER TED: 3-8 Going to America",
+   "shortName": "3-8 Going to America",
+   "urlLocal": "media/channel-5/../Core/Father Ted/3-8 Going to America.m4v",
+   "length": 1528,
+   "description": "Ted gets the opportunity of a lifetime, but can't bring himself to break it to the others that they're not invited."
+}
+,
+{
+   "title": "FATHER TED: A Christmassy Ted",
+   "shortName": "A Christmassy Ted",
+   "urlLocal": "media/channel-5/../Core/Father Ted/A Christmassy Ted.m4v",
+   "length": 3301.48,
+   "description": "Ted's quick thinking whilst lost in a department store's lingerie department earns him the coveted Golden Cleric award."
+}
+,
+{
+   "title": "THE HITCHHIKER'S GUIDE TO THE GALAXY: (1 of 6)",
+   "shortName": "(1 of 6)",
+   "urlLocal": "media/channel-5/../Core/The Hitchhiker's Guide to the Galaxy/(1 of 6).mp4",
+   "length": 1972.68,
+   "description": "Arthur wakes to discover his house has been scheduled for demolition."
+}
+,
+{
+   "title": "THE HITCHHIKER'S GUIDE TO THE GALAXY: (2 of 6)",
+   "shortName": "(2 of 6)",
+   "urlLocal": "media/channel-5/../Core/The Hitchhiker's Guide to the Galaxy/(2 of 6).mp4",
+   "length": 2095.16,
+   "description": "After being subjected to Vogon poetry, Arthur and Ford are thrown out of an airlock but improbably rescued just before death."
+}
+,
+{
+   "title": "THE HITCHHIKER'S GUIDE TO THE GALAXY: (3 of 6)",
+   "shortName": "(3 of 6)",
+   "urlLocal": "media/channel-5/../Core/The Hitchhiker's Guide to the Galaxy/(3 of 6).mp4",
+   "length": 1862.44,
+   "description": "Zaphod finds the legendary plant of Magrathea, which manufactured planets for the hyper-wealthy until the galactic economy collapsed."
+}
+,
+{
+   "title": "THE HITCHHIKER'S GUIDE TO THE GALAXY: (4 of 6)",
+   "shortName": "(4 of 6)",
+   "urlLocal": "media/channel-5/../Core/The Hitchhiker's Guide to the Galaxy/(4 of 6).mp4",
+   "length": 1941.04,
+   "description": "Slartibartfast shows Arthur the archive tapes of the development of Deep Thought, who was given the order to search for the Ultimate Answer to Life, The Universe and Everything."
+}
+,
+{
+   "title": "THE HITCHHIKER'S GUIDE TO THE GALAXY: (5 of 6)",
+   "shortName": "(5 of 6)",
+   "urlLocal": "media/channel-5/../Core/The Hitchhiker's Guide to the Galaxy/(5 of 6).mp4",
+   "length": 1972.4,
+   "description": "The four travellers are transported forward in time to Milliways, the Restaurant at the End of the Universe."
+}
+,
+{
+   "title": "THE HITCHHIKER'S GUIDE TO THE GALAXY: (6 of 6)",
+   "shortName": "(6 of 6)",
+   "urlLocal": "media/channel-5/../Core/The Hitchhiker's Guide to the Galaxy/(6 of 6).mp4",
+   "length": 2144.72,
+   "description": "Ford and Arthur arrive – without Zaphod and Trillian – on a spaceship carrying millions of people in cryogenic pods."
+}
+,
+{
+   "title": "THE FAST SHOW: 1-1",
+   "shortName": "1-1",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/1-1.mp4",
+   "length": 1738.516,
+   "description": "The first ever episode of the sketch show."
+}
+,
+{
+   "title": "THE FAST SHOW: 3-6",
+   "shortName": "3-6",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/3-6.mp4",
+   "length": 1735.06,
+   "description": "Unlucky Alf is held hostage by his home appliances."
+}
+,
+{
+   "title": "THE FAST SHOW: 3-7",
+   "shortName": "3-7",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/3-7.mp4",
+   "length": 1743.04,
+   "description": "Ron Manager is confused by the concept of a female sports anchor person."
+}
+,
+{
+   "title": "THE FAST SHOW: 3-8",
+   "shortName": "3-8",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/3-8.mp4",
+   "length": 1786.066,
+   "description": "The Off Roaders go white-water rafting and Rowley Birkin presents a slide show."
+}
+,
+{
+   "title": "THE FAST SHOW: Christmas Special",
+   "shortName": "Christmas Special",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/Christmas Special.mp4",
+   "length": 2506.516,
+   "description": "Festive edition of the comedy sketch show."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 2-6 Basil the Rat",
+   "shortName": "2-6 Basil the Rat",
+   "urlLocal": "media/channel-5/../Core/Fawlty Towers/2-6 Basil the Rat.m4v",
+   "length": 2025.045,
+   "description": "The local health inspector notes and reads out a long list of hygiene infractions which the staff must rectify before his next visit, or else face closure."
+}
+,
+{
+   "title": "RED DWARF: 1-1 The End",
+   "shortName": "1-1 The End",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/1-1 The End.mp4",
+   "length": 1800.06,
+   "description": "Red Dwarf is a mining ship with a crew of 169."
+}
+,
+{
+   "title": "RED DWARF: 1-2 Future Echoes",
+   "shortName": "1-2 Future Echoes",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/1-2 Future Echoes.mp4",
+   "length": 1729.973,
+   "description": "Red Dwarf breaks the light barrier and Rimmer sees a death in the future."
+}
+,
+{
+   "title": "RED DWARF: 1-3 Balance of Power",
+   "shortName": "1-3 Balance of Power",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/1-3 Balance of Power.mp4",
+   "length": 1788.095,
+   "description": "Cult space comedy series."
+}
+,
+{
+   "title": "RED DWARF: 1-4 Waiting for God",
+   "shortName": "1-4 Waiting for God",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/1-4 Waiting for God.mp4",
+   "length": 1708.953,
+   "description": "Lister 'learns' Cat writing and discovers some startling facts."
+}
+,
+{
+   "title": "RED DWARF: 1-5 Confidence and Paranoia",
+   "shortName": "1-5 Confidence and Paranoia",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/1-5 Confidence and Paranoia.mp4",
+   "length": 1778.047,
+   "description": "Lister contracts a mutated form of pneumonia - and his hallucinations turn solid."
+}
+,
+{
+   "title": "RED DWARF: 1-6 Me Squared",
+   "shortName": "1-6 Me Squared",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/1-6 Me Squared.mp4",
+   "length": 1764.053,
+   "description": "Rimmer has discovered how to make a duplicate and moves in with himself."
+}
+,
+{
+   "title": "RED DWARF: 2-1 Kryten",
+   "shortName": "2-1 Kryten",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/2-1 Kryten.mp4",
+   "length": 1695.06,
+   "description": "Things are fine aboard crashed spaceship Nova 5 until Red Dwarf answers its distress call."
+}
+,
+{
+   "title": "RED DWARF: 2-2 Better than Life",
+   "shortName": "2-2 Better than Life",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/2-2 Better than Life.mp4",
+   "length": 1767.06,
+   "description": "Rimmer and Lister find a computer game which plugs directly into the brain."
+}
+,
+{
+   "title": "RED DWARF: 2-3 Thanks for the Memory",
+   "shortName": "2-3 Thanks for the Memory",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/2-3 Thanks for the Memory.mp4",
+   "length": 1703.06,
+   "description": "Someone's erased four days of the crew's memory, broken Lister's leg and done the jigsaw."
+}
+,
+{
+   "title": "THE IT CROWD: 2-2 Return of the Golden Child",
+   "shortName": "2-2 Return of the Golden Child",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/2-2 Return of the Golden Child.m4v",
+   "length": 1391.56,
+   "description": "Asking Roy questions about his lifestyle, Moss enters Roy's data into an Internet site that estimates a person's date of death."
+}
+,
+{
+   "title": "THE IT CROWD: 2-3 Moss and the German",
+   "shortName": "2-3 Moss and the German",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/2-3 Moss and the German.m4v",
+   "length": 1444.56,
+   "description": "Roy and Moss try to watch a zombie film on DVD when Roy's friend calls him and is about to spoil the movie's plot twist."
+}
+,
+{
+   "title": "THE IT CROWD: 2-4 The Dinner Party",
+   "shortName": "2-4 The Dinner Party",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/2-4 The Dinner Party.m4v",
+   "length": 1302.44,
+   "description": "Jen has finally found love with her new boyfriend Peter, and to celebrate their happiness they host a dinner party for six of their single friends."
+}
+,
+{
+   "title": "THE IT CROWD: 2-5 Smoke and Mirrors",
+   "shortName": "2-5 Smoke and Mirrors",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/2-5 Smoke and Mirrors.m4v",
+   "length": 1437.56,
+   "description": "Roy comes back from a stag night unaware that he has been wearing lipstick."
+}
+,
+{
+   "title": "THE IT CROWD: 2-6 Men without Women",
+   "shortName": "2-6 Men without Women",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/2-6 Men without Women.mp4",
+   "length": 1389.92,
+   "description": "Douglas travels far and wide in his quest to bed Jen and is given rohypnol by a mysterious blind sorcerer."
+}
+,
+{
+   "title": "THE IT CROWD: 3-1 From Hell",
+   "shortName": "3-1 From Hell",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/3-1 From Hell.m4v",
+   "length": 1394.41,
+   "description": "Roy suspects Jen's handyman Gary is a \"builder from hell\" who has a reputation of urinating in customers' sinks."
+}
+,
+{
+   "title": "THE IT CROWD: 3-2 Are We Not Men",
+   "shortName": "3-2 Are We Not Men",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/3-2 Are We Not Men.m4v",
+   "length": 1313.237,
+   "description": "Moss and Roy use a football translation website to gather quotes to pass themselves off as knowledgeable football fans."
+}
+,
+{
+   "title": "THE IT CROWD: 3-3 Tramps Like Us",
+   "shortName": "3-3 Tramps Like Us",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/3-3 Tramps Like Us.m4v",
+   "length": 1311.637,
+   "description": "Following the events of the series 2 episode finale, Jen, Moss and Roy receive a disappointing settlement from their sexual harassment lawsuit."
+}
+,
+{
+   "title": "THE IT CROWD: 3-4 The Speech",
+   "shortName": "3-4 The Speech",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/3-4 The Speech.m4v",
+   "length": 1455.082,
+   "description": "Jen boasts about winning Employee of the Month and makes Roy and Moss write her acceptance speech."
+}
+,
+{
+   "title": "THE IT CROWD: 3-5 Friendface",
+   "shortName": "3-5 Friendface",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/3-5 Friendface.m4v",
+   "length": 1365.226,
+   "description": "Jen persuades Roy and Moss to join the social networking site Friendface."
+}
+,
+{
+   "title": "THE IT CROWD: 3-6 Calendar Geeks",
+   "shortName": "3-6 Calendar Geeks",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/3-6 Calendar Geeks.m4v",
+   "length": 1415.637,
+   "description": "Roy is overjoyed when the women from the seventh floor decide to make a nude calendar as a fundraiser."
+}
+,
+{
+   "title": "THE IT CROWD: 4-1 Jen the Fredo",
+   "shortName": "4-1 Jen the Fredo",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/4-1 Jen the Fredo.m4v",
+   "length": 1460.394,
+   "description": "Roy is depressed over his recent breakup with his girlfriend."
+}
+,
+{
+   "title": "THE IT CROWD: 4-2 The Final Countdown",
+   "shortName": "4-2 The Final Countdown",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/4-2 The Final Countdown.m4v",
+   "length": 1420.01,
+   "description": "Following a successful run on the popular quiz show Countdown, Moss is invited to \"8+\", an exclusive club for previous champions of the game show who have appeared over eight times."
+}
+,
+{
+   "title": "THE IT CROWD: 4-3 Something Happened",
+   "shortName": "4-3 Something Happened",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/4-3 Something Happened.m4v",
+   "length": 1386.069,
+   "description": "Douglas becomes interested in \"Spaceology\" – a new age-styled religion that employs cosmic ordering."
+}
+,
+{
+   "title": "THE IT CROWD: 4-4 Italian for Beginners",
+   "shortName": "4-4 Italian for Beginners",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/4-4 Italian for Beginners.m4v",
+   "length": 1440.49,
+   "description": "Jealous that her co-worker Linda has been impressing everyone at their executive meetings, Jen pretends to be fluent in Italian so she can become Douglas's interpreter."
+}
+,
+{
+   "title": "THE IT CROWD: 4-5 Bad Boys",
+   "shortName": "4-5 Bad Boys",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/4-5 Bad Boys.m4v",
+   "length": 1307.946,
+   "description": "At a Scared Straight!-styled talk, Moss is the first to present, recalling the events of the episode."
+}
+,
+{
+   "title": "THE IT CROWD: 4-6 Reynholm vs Reynholm",
+   "shortName": "4-6 Reynholm vs Reynholm",
+   "urlLocal": "media/channel-5/../Core/The IT Crowd/4-6 Reynholm vs Reynholm.m4v",
+   "length": 1447.978,
+   "description": "Douglas's second wife Victoria, who had disappeared after two weeks of marriage, reunites with Douglas."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 1-1 The Grand Design",
+   "shortName": "1-1 The Grand Design",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/1-1 The Grand Design.mp4",
+   "length": 1774.954,
+   "description": "Jim Hacker discovers some interesting facts about the UK's defence system."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 1-2 The Ministerial Broadcast",
+   "shortName": "1-2 The Ministerial Broadcast",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/1-2 The Ministerial Broadcast.mp4",
+   "length": 1766.954,
+   "description": "Hacker prepares to make his first broadcast as prime minister."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 1-3 The Smoke Screen",
+   "shortName": "1-3 The Smoke Screen",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/1-3 The Smoke Screen.mp4",
+   "length": 1767.956,
+   "description": "Jim Hacker threatens smokers with tax rises as part of a ploy to get around the Treasury."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 1-4 The Key",
+   "shortName": "1-4 The Key",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/1-4 The Key.mp4",
+   "length": 1763.946,
+   "description": "The PM's political advisor tells Jim that he is letting Humphrey become too dominant."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 1-5 A Real Partnership",
+   "shortName": "1-5 A Real Partnership",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/1-5 A Real Partnership.mp4",
+   "length": 1795.946,
+   "description": "The government runs into a financial crisis just as MPs are due for a pay rise."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 1-6 A Victory for Democracy",
+   "shortName": "1-6 A Victory for Democracy",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/1-6 A Victory for Democracy.mp4",
+   "length": 1811.946,
+   "description": "Jim Hacker begins to wonder whether the government runs the Foreign Office, or vice versa."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 1-7 The Bishops Gambit",
+   "shortName": "1-7 The Bishops Gambit",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/1-7 The Bishops Gambit.mp4",
+   "length": 1821.951,
+   "description": "Jim is not keen on the candidates for a bishopric, and Humphrey has someone else in mind."
+}
+,
+{
+   "title": "ALAN PARTRIDGE: How Are You 5",
+   "shortName": "How Are You 5",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/How Are You 5.mp4",
+   "length": 1694.058,
+   "description": "Newly single and never happier, Alan throws himself into new experiences."
+}
+,
+{
+   "title": "THE FAST SHOW: Last Fast Show 1",
+   "shortName": "Last Fast Show 1",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/Last Fast Show 1.mp4",
+   "length": 2348.04,
+   "description": "A festive farewell to the Fast Show begins with a guest appearance by Johnny Depp."
+}
+,
+{
+   "title": "THE FAST SHOW: Last Fast Show 2",
+   "shortName": "Last Fast Show 2",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/Last Fast Show 2.mp4",
+   "length": 2021.76,
+   "description": "Featuring some nice Cuban jazz and Swiss Toni's explanation of fishing."
+}
+,
+{
+   "title": "THE FAST SHOW: Last Fast Show 3",
+   "shortName": "Last Fast Show 3",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/Last Fast Show 3.mp4",
+   "length": 2334.04,
+   "description": "The last episode of supposedly the last Fast Show series ever."
+}
+,
+{
+   "title": "THE GOOD LIFE: 1-1 Plough Your Own Furrow",
+   "shortName": "1-1 Plough Your Own Furrow",
+   "urlLocal": "media/channel-5/../Core/The Good Life/1-1 Plough Your Own Furrow.mp4",
+   "length": 1656.046,
+   "description": "Tom decides that commuting is no life for a thinking man and devises a unique solution."
+}
+,
+{
+   "title": "THE GOOD LIFE: 1-2 Say Little Hen",
+   "shortName": "1-2 Say Little Hen",
+   "urlLocal": "media/channel-5/../Core/The Good Life/1-2 Say Little Hen.mp4",
+   "length": 1620.066,
+   "description": "The Goods introduce livestock into Surbiton, to the apprehension of their neighbours."
+}
+,
+{
+   "title": "THE GOOD LIFE: 1-3 The Weaker Sex",
+   "shortName": "1-3 The Weaker Sex",
+   "urlLocal": "media/channel-5/../Core/The Good Life/1-3 The Weaker Sex.mp4",
+   "length": 1783.082,
+   "description": "Things are starting to happen in Tom's garden, but Barbara is not happy."
+}
+,
+{
+   "title": "THE GOOD LIFE: 1-4 Pig's Lib",
+   "shortName": "1-4 Pig's Lib",
+   "urlLocal": "media/channel-5/../Core/The Good Life/1-4 Pig's Lib.mp4",
+   "length": 1636.074,
+   "description": "Margo is horrified when she hears of Tom and Barbara's decision to keep pigs."
+}
+,
+{
+   "title": "THE GOOD LIFE: 1-5 The Thing in the Cellar",
+   "shortName": "1-5 The Thing in the Cellar",
+   "urlLocal": "media/channel-5/../Core/The Good Life/1-5 The Thing in the Cellar.mp4",
+   "length": 1729.066,
+   "description": "To practise self-sufficiency successfully, every resource must be used - even animal dung!"
+}
+,
+{
+   "title": "YES PRIME MINISTER: 1-8 One of Us",
+   "shortName": "1-8 One of Us",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/1-8 One of Us.mp4",
+   "length": 1771.946,
+   "description": "The late former head of MI5 is confirmed as a Russian spy who was cleared by Sir Humphrey."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 2-1 Man Overboard",
+   "shortName": "2-1 Man Overboard",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/2-1 Man Overboard.mp4",
+   "length": 1799.956,
+   "description": "Jim backs the relocation of military units to make the unemployment figures look better."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 2-2 Official Secrets",
+   "shortName": "2-2 Official Secrets",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/2-2 Official Secrets.mp4",
+   "length": 1804.948,
+   "description": "The press learns of Hacker's attempts to suppress a chapter of his predecessor's memoirs."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 2-3 A Diplomatic Incident",
+   "shortName": "2-3 A Diplomatic Incident",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/2-3 A Diplomatic Incident.mp4",
+   "length": 1685.951,
+   "description": "Jim discovers the French plan to gain political advantage over the Channel Tunnel borders."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 2-4 A Conflict of Interest",
+   "shortName": "2-4 A Conflict of Interest",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/2-4 A Conflict of Interest.mp4",
+   "length": 1801.962,
+   "description": "Jim and Sir Humphrey clash over who should become the new governor of the Bank of England."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 2-5 Power to the People",
+   "shortName": "2-5 Power to the People",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/2-5 Power to the People.mp4",
+   "length": 1828.948,
+   "description": "Jim Hacker meets a local councillor who has some radical ideas about local government."
+}
+,
+{
+   "title": "YES PRIME MINISTER: 2-6 The Patron of the Arts",
+   "shortName": "2-6 The Patron of the Arts",
+   "urlLocal": "media/channel-5/../Core/Yes Prime Minister/2-6 The Patron of the Arts.mp4",
+   "length": 1682.943,
+   "description": "Sir Humphrey tells a friend in the arts that the government is planning to cut grants."
+}
+,
+{
+   "title": "ALAN PARTRIDGE: 1-6 Towering Alan",
+   "shortName": "1-6 Towering Alan",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/1-6 Towering Alan.m4v",
+   "length": 1729.219,
+   "description": "Alan is delighted to discover that Tony Hayers has died and that his successor is Chris Feather, a supporter of Alan’s works."
+}
+,
+{
+   "title": "ALAN PARTRIDGE: 2-1 The Talented Mr Alan",
+   "shortName": "2-1 The Talented Mr Alan",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/2-1 The Talented Mr Alan.m4v",
+   "length": 1742,
+   "description": "While visiting Michael at the petrol station, Alan has a chance meeting with his old teacher Frank Raphael."
+}
+,
+{
+   "title": "ALAN PARTRIDGE: 2-2 The Colour of Alan",
+   "shortName": "2-2 The Colour of Alan",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/2-2 The Colour of Alan.m4v",
+   "length": 1725.013,
+   "description": "Alan is asked to present a sales conference for \"Dante's of Reading,\" a company that supplies coal-effect fires and fireplaces."
+}
+,
+{
+   "title": "ALAN PARTRIDGE: 2-3 Brave Alan",
+   "shortName": "2-3 Brave Alan",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/2-3 Brave Alan.m4v",
+   "length": 1745.002,
+   "description": "Alan makes a new friend called Dan at the BP garage."
+}
+,
+{
+   "title": "ALAN PARTRIDGE: 2-4 Never Say Alan Again",
+   "shortName": "2-4 Never Say Alan Again",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/2-4 Never Say Alan Again.m4v",
+   "length": 1739,
+   "description": "Alan plans to watch all the James Bond films in sequential order for the bank holiday weekend with Michael."
+}
+,
+{
+   "title": "ALAN PARTRIDGE: 2-5 I Know What Alan Did Last Summer",
+   "shortName": "2-5 I Know What Alan Did Last Summer",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/2-5 I Know What Alan Did Last Summer.mp4",
+   "length": 1667.993,
+   "description": "The Inland Revenue are due to call and carry out a random investigation on Alan's business affairs."
+}
+,
+{
+   "title": "ALAN PARTRIDGE: 2-6 Alan Wide Shut",
+   "shortName": "2-6 Alan Wide Shut",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/2-6 Alan Wide Shut.m4v",
+   "length": 1717.013,
+   "description": "The building work on Alan's house is finally complete and Sonja wants to move in."
+}
+,
+{
+   "title": "ALAN PARTRIDGE: How Are You 1",
+   "shortName": "How Are You 1",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/How Are You 1.mp4",
+   "length": 1728.046,
+   "description": "Alan Partridge returns to make Britain's first ever documentary about mental health."
+}
+,
+{
+   "title": "ALAN PARTRIDGE: How Are You 2",
+   "shortName": "How Are You 2",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/How Are You 2.mp4",
+   "length": 1699.05,
+   "description": "Continuing his quest to fix the nation's mind, Alan posits a question - does talking help?"
+}
+,
+{
+   "title": "ALAN PARTRIDGE: How Are You 3",
+   "shortName": "How Are You 3",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/How Are You 3.mp4",
+   "length": 1704.046,
+   "description": "Alan asks the question: is solitude healthy, or do we need other people?"
+}
+,
+{
+   "title": "ALAN PARTRIDGE: How Are You 4",
+   "shortName": "How Are You 4",
+   "urlLocal": "media/channel-5/../Core/Alan Partridge/How Are You 4.mp4",
+   "length": 1750.066,
+   "description": "Alone in the Peaks with only a stick-cam, Alan asks: can nature heal a troubled mind?"
+}
+,
+{
+   "title": "GONE FISHING: 2023 Hogmanay Special",
+   "shortName": "2023 Hogmanay Special",
+   "urlLocal": "media/channel-5/../Core/Gone Fishing/2023 Hogmanay Special.mp4",
+   "length": 3554.36,
+   "description": "Bob, Paul and Ted travel to Scotland to celebrate Hogmanay in spectacular style."
+}
+,
+{
+   "title": "GONE FISHING: 2024 Christmas Special",
+   "shortName": "2024 Christmas Special",
+   "urlLocal": "media/channel-5/../Core/Gone Fishing/2024 Christmas Special.mp4",
+   "length": 3561.04,
+   "description": "To celebrate another year of fishing, Paul and Bob visit the River Lot in France."
+}
+,
+{
+   "title": "GONE FISHING: 2025 Christmas Special",
+   "shortName": "2025 Christmas Special",
+   "urlLocal": "media/channel-5/../Core/Gone Fishing/2025 Christmas Special.mp4",
+   "length": 3553.673,
+   "description": "Bob, Paul and Ted visit Devon and Cornwall for their festive treat and meet Dawn French."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 1-1 A Touch of Class",
+   "shortName": "1-1 A Touch of Class",
+   "urlLocal": "media/channel-5/../Core/Fawlty Towers/1-1 A Touch of Class.m4v",
+   "length": 1821.32,
+   "description": "As Basil tries to raise the tone of the hotel, the aristocratic Lord Melbury comes to stay at the hotel."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 1-2 The Builders",
+   "shortName": "1-2 The Builders",
+   "urlLocal": "media/channel-5/../Core/Fawlty Towers/1-2 The Builders.m4v",
+   "length": 1694.2,
+   "description": "Maintenance is made on the lobby while the Fawltys are out, but a misreading causes the incompetent builders to mess it up spectacularly."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 1-3 The Wedding Party",
+   "shortName": "1-3 The Wedding Party",
+   "urlLocal": "media/channel-5/../Core/Fawlty Towers/1-3 The Wedding Party.m4v",
+   "length": 2000.533,
+   "description": "Basil gets annoyed when a young, flirtatious couple start \"hanky-pankying\" under his nose."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 1-4 The Hotel Inspectors",
+   "shortName": "1-4 The Hotel Inspectors",
+   "urlLocal": "media/channel-5/../Core/Fawlty Towers/1-4 The Hotel Inspectors.m4v",
+   "length": 1728.6,
+   "description": "When Basil hears of hotel inspectors roaming Torquay incognito, he realises with horror that guests he has been abusing could easily be among them."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 1-5 Gourmet Night",
+   "shortName": "1-5 Gourmet Night",
+   "urlLocal": "media/channel-5/../Core/Fawlty Towers/1-5 Gourmet Night.m4v",
+   "length": 1717.12,
+   "description": "In an effort to climb another rung in the social ladder, Basil arranges a gourmet night."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 1-6 The Germans",
+   "shortName": "1-6 The Germans",
+   "urlLocal": "media/channel-5/../Core/Fawlty Towers/1-6 The Germans.m4v",
+   "length": 1875.413,
+   "description": "With Sybil in the hospital with an ingrowing toenail, a moose's head to hang up and some German guests arriving the next day, Basil has his work cut out for him."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 2-1 Communication Problems",
+   "shortName": "2-1 Communication Problems",
+   "urlLocal": "media/channel-5/../Core/Fawlty Towers/2-1 Communication Problems.m4v",
+   "length": 1884.757,
+   "description": "The arrival of the \"guest from hell\", a rather deaf, domineering and bad-tempered woman interferes with Basil's attempts to prevent the money he won on a racehorse from being discovered by Sybil."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 2-2 The Psychiatrist",
+   "shortName": "2-2 The Psychiatrist",
+   "urlLocal": "media/channel-5/../Core/Fawlty Towers/2-2 The Psychiatrist.m4v",
+   "length": 2178.709,
+   "description": "A psychiatrist and his wife come to the hotel for a weekend break, and cannot help but notice the eccentricities of their host."
+}
+,
+{
+   "title": "THE FAST SHOW: 1-3",
+   "shortName": "1-3",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/1-3.mp4",
+   "length": 1741.503,
+   "description": "Character-based sketch show, featuring Professor Denzil Dexter and the Off Roaders."
+}
+,
+{
+   "title": "THE FAST SHOW: 1-4",
+   "shortName": "1-4",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/1-4.mp4",
+   "length": 1741.503,
+   "description": "Paul Whitehouse and Charlie Higson present some of our favourite comedy characters."
+}
+,
+{
+   "title": "THE FAST SHOW: 1-5",
+   "shortName": "1-5",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/1-5.mp4",
+   "length": 1739.519,
+   "description": "Featuring Ron Manager, Ed Winchester and Roy and Renee, the train passengers from hell."
+}
+,
+{
+   "title": "THE FAST SHOW: 1-6",
+   "shortName": "1-6",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/1-6.mp4",
+   "length": 1739.06,
+   "description": "There's a look at war films in the sketch 'Scenes from the Movies'."
+}
+,
+{
+   "title": "THE FAST SHOW: 2-1",
+   "shortName": "2-1",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/2-1.mp4",
+   "length": 1740.052,
+   "description": "Competitive Dad and Chris the Crafty Cockney join the familiar comic faces."
+}
+,
+{
+   "title": "THE FAST SHOW: 2-2",
+   "shortName": "2-2",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/2-2.mp4",
+   "length": 1743.053,
+   "description": "Featuring an appearance by snooker star Steve Davis."
+}
+,
+{
+   "title": "THE FAST SHOW: 2-3",
+   "shortName": "2-3",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/2-3.mp4",
+   "length": 1756.053,
+   "description": "Featuring rare footage of Arthur Atkinson recording his wartime radio show 'How Queer!'."
+}
+,
+{
+   "title": "THE FAST SHOW: 2-4",
+   "shortName": "2-4",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/2-4.mp4",
+   "length": 1746.066,
+   "description": "Featuring the world's world's worst casino croupier."
+}
+,
+{
+   "title": "THE FAST SHOW: 2-5",
+   "shortName": "2-5",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/2-5.mp4",
+   "length": 1745.046,
+   "description": "Featuring Unlucky Alf, who attempts to propose to his loved one."
+}
+,
+{
+   "title": "THE FAST SHOW: 2-6",
+   "shortName": "2-6",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/2-6.mp4",
+   "length": 1743.06,
+   "description": "Featuring drama with Monkfish and more music from jazz club."
+}
+,
+{
+   "title": "THE FAST SHOW: 2-7",
+   "shortName": "2-7",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/2-7.mp4",
+   "length": 1740.053,
+   "description": "The world's crudest salesman visits a fashion show and competitive Dad plays Monoploy."
+}
+,
+{
+   "title": "THE FAST SHOW: 3-1",
+   "shortName": "3-1",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/3-1.mp4",
+   "length": 1681.073,
+   "description": "Old favourites return, joined by characters like Swiss Toni, Chip Cobb and Dave Angel."
+}
+,
+{
+   "title": "THE FAST SHOW: 3-2",
+   "shortName": "3-2",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/3-2.mp4",
+   "length": 1729.066,
+   "description": "Johnny Gosling and Mister Kipling make their first appearances."
+}
+,
+{
+   "title": "THE FAST SHOW: 3-3",
+   "shortName": "3-3",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/3-3.mp4",
+   "length": 1734.273,
+   "description": "The Suits You Sir tailors take on a young assistant and Unlucky Alf visits a fairground."
+}
+,
+{
+   "title": "THE FAST SHOW: 3-4",
+   "shortName": "3-4",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/3-4.mp4",
+   "length": 1735.066,
+   "description": "More fast moving character comedy sketches from Paul Whitehouse, Charlie Higson and co."
+}
+,
+{
+   "title": "THE FAST SHOW: 3-5",
+   "shortName": "3-5",
+   "urlLocal": "media/channel-5/../Core/The Fast Show/3-5.mp4",
+   "length": 1737.073,
+   "description": "Channel Nine hosts a TV awards ceremony and the Suits You Sir tailors get a comeuppance."
+}
+,
+{
+   "title": "BLACKADDER: 4-5 General Hospital",
+   "shortName": "4-5 General Hospital",
+   "urlLocal": "media/channel-5/../Core/Blackadder/4-5 General Hospital.mp4",
+   "length": 1679.06,
+   "description": "Melchett orders Blackadder to unmask a spy working in a hospital."
+}
+,
+{
+   "title": "BLACKADDER: 4-6 Goodbyeee",
+   "shortName": "4-6 Goodbyeee",
+   "urlLocal": "media/channel-5/../Core/Blackadder/4-6 Goodbyeee.mp4",
+   "length": 1762.046,
+   "description": "Blackadder, George and Baldrick are told they are going over the top the next day."
+}
+,
+{
+   "title": "BLACKADDER: Blackadder's Christmas Carol",
+   "shortName": "Blackadder's Christmas Carol",
+   "urlLocal": "media/channel-5/../Core/Blackadder/Blackadder's Christmas Carol.mp4",
+   "length": 2595.562,
+   "description": "Ebenezer Blackadder gets a glimpse of his loathsome ancestors on Christmas Eve, 1850."
 }
 ]}
 

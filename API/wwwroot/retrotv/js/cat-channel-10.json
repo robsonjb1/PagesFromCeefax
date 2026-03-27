@@ -1,120 +1,120 @@
-{ "lastRefresh": "Sat 10 Jan 01:37", 
+{ "lastRefresh": "Fri 27 Mar 17:28", 
    "episodeList": 
 [
 {
-   "urlLocal": "media/Channel-10/1-SPECTATOR.mp3",
-   "length": 2470.164,
-   "isPodcast": true,
-   "title": "PODCASTS: The Spectator Edition",
-   "shortName": "The Spectator Edition (Yesterday)",
-   "description": "Stormy seas, Trump’s revolution & Gen Z’s sex recession (Yesterday)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-CHS.mp3",
-   "length": 862.092,
-   "isPodcast": true,
-   "title": "PODCASTS: Coffee House Shots",
-   "shortName": "Coffee House Shots (Today)",
-   "description": "Mums for Reform? (Today)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/2-CHS.mp3",
-   "length": 660.166,
-   "isPodcast": true,
-   "title": "PODCASTS: Coffee House Shots",
-   "shortName": "Coffee House Shots (Yesterday)",
-   "description": "Keir Starmer, pub harmer (Yesterday)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/3-CHS.mp3",
-   "length": 1094.347,
-   "isPodcast": true,
-   "title": "PODCASTS: Coffee House Shots",
-   "shortName": "Coffee House Shots (2 days ago)",
-   "description": "How Reform plans to govern (2 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-PLANET-NORMAL.mp3",
-   "length": 4113.994,
-   "isPodcast": true,
-   "title": "PODCASTS: Planet Normal",
-   "shortName": "Planet Normal (2 days ago)",
-   "description": "Best Voyages from the Rocket 2025 Episode 2 (2 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-QUITERIGHT.mp3",
-   "length": 1795.055,
-   "isPodcast": true,
-   "title": "PODCASTS: Quite Right",
-   "shortName": "Quite Right (Yesterday)",
-   "description": "Q&A: A Labour rebellion is coming – can Starmer survive? (Yesterday)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-AMERICANO.mp3",
-   "length": 1426.86,
-   "isPodcast": true,
-   "title": "PODCASTS: Americano",
-   "shortName": "Americano (2 days ago)",
-   "description": "Is Trump going for Iran next? (2 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/2-AMERICANO.mp3",
-   "length": 2081.488,
-   "isPodcast": true,
-   "title": "PODCASTS: Americano",
-   "shortName": "Americano (3 days ago)",
-   "description": "Does America need Venezuela’s oil? (3 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-B-ONEILL.mp3",
-   "length": 2467.422,
-   "isPodcast": true,
-   "title": "PODCASTS: Brendan O'Neill",
-   "shortName": "Brendan O'Neill (2 days ago)",
-   "description": "What Trump wants from Venezuela, with Daniel McCarthy (2 days ago)"
-}
-,
-{
    "urlLocal": "media/Channel-10/1-TRIGGER.mp3",
-   "length": 2285.348,
+   "length": 6979.291,
    "isPodcast": true,
    "title": "PODCASTS: TRIGGERnometry",
    "shortName": "TRIGGERnometry (2 days ago)",
-   "description": "LIVE Iran Update with Mahyar Tousi (2 days ago)"
+   "description": "This War Will FAIL' - Military Expert Prof Robert Pape (2 days ago)"
 }
 ,
 {
    "urlLocal": "media/Channel-10/2-TRIGGER.mp3",
-   "length": 3795.461,
+   "length": 4576.47,
    "isPodcast": true,
    "title": "PODCASTS: TRIGGERnometry",
-   "shortName": "TRIGGERnometry (3 days ago)",
-   "description": "How They Ruined California - Steve Hilton (3 days ago)"
+   "shortName": "TRIGGERnometry (5 days ago)",
+   "description": "Why I Told President Trump to Attack Iran - Sen. Ted Cruz (5 days ago)"
 }
 ,
 {
-   "urlLocal": "media/Channel-10/1-SPIKED.mp3",
-   "length": 2281.038,
+   "urlLocal": "media/Channel-10/1-AMERICANO.mp3",
+   "length": 2303.66,
    "isPodcast": true,
-   "title": "PODCASTS: Spiked",
-   "shortName": "Spiked (Yesterday)",
-   "description": "Venezuela, Greenland and Trump’s new world disorder (Yesterday)"
+   "title": "PODCASTS: Americano",
+   "shortName": "Americano (4 days ago)",
+   "description": "Podcast wars, Cuba & Corbyn – with Steven Crowder (4 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-SKYF1.mp3",
+   "length": 1052.943,
+   "isPodcast": true,
+   "title": "PODCASTS: The Sky F1 Show",
+   "shortName": "The Sky F1 Show (Yesterday)",
+   "description": "Ted's Japan Podbook: Will anyone catch Mercedes? Will 'Yo-Yo Racing' force drivers to think outside the box? (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-SPECTATOR.mp3",
+   "length": 3057.632,
+   "isPodcast": true,
+   "title": "PODCASTS: The Spectator Edition",
+   "shortName": "The Spectator Edition (Today)",
+   "description": "Does British politics have a problem with the 'omnicause'? (Today)"
 }
 ,
 {
    "urlLocal": "media/Channel-10/1-REALITY.mp3",
-   "length": 458.344,
+   "length": 1370.435,
    "isPodcast": true,
    "title": "PODCASTS: Reality Check",
-   "shortName": "Reality Check (Yesterday)",
-   "description": "Could Britain's migration crisis already be over? (Yesterday)"
+   "shortName": "Reality Check (3 days ago)",
+   "description": "Energy bailout? Why Britain can’t afford a cap on household bills (3 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-QUITERIGHT.mp3",
+   "length": 1794.272,
+   "isPodcast": true,
+   "title": "PODCASTS: Quite Right",
+   "shortName": "Quite Right (Today)",
+   "description": "Q&A: Do the Tories need a bigger kicking? (Today)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-CHS.mp3",
+   "length": 575.163,
+   "isPodcast": true,
+   "title": "PODCASTS: Coffee House Shots",
+   "shortName": "Coffee House Shots (Today)",
+   "description": "Energy crisis: are we in 1973 territory? (Today)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/2-CHS.mp3",
+   "length": 1164.407,
+   "isPodcast": true,
+   "title": "PODCASTS: Coffee House Shots",
+   "shortName": "Coffee House Shots (Yesterday)",
+   "description": "The curious case of Morgan McSweeney's missing phone (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/3-CHS.mp3",
+   "length": 867.63,
+   "isPodcast": true,
+   "title": "PODCASTS: Coffee House Shots",
+   "shortName": "Coffee House Shots (2 days ago)",
+   "description": "To drill or not to drill, that is the question (2 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-SPIKED.mp3",
+   "length": 2119.026,
+   "isPodcast": true,
+   "title": "PODCASTS: Spiked",
+   "shortName": "Spiked (Today)",
+   "description": "The Iranian threat to Britain (Today)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-PLANET-NORMAL.mp3",
+   "length": 3832.274,
+   "isPodcast": true,
+   "title": "PODCASTS: Planet Normal",
+   "shortName": "Planet Normal (Yesterday)",
+   "description": "Anti-semitism is clearly out of control in the UK (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-B-ONEILL.mp3",
+   "length": 2427.559,
+   "isPodcast": true,
+   "title": "PODCASTS: Brendan O'Neill",
+   "shortName": "Brendan O'Neill (3 days ago)",
+   "description": "Can Trump still claim victory in Iran?, with Daniel McCarthy (3 days ago)"
 }
 ]}
