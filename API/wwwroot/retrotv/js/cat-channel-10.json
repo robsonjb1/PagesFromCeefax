@@ -1,120 +1,138 @@
-{ "lastRefresh": "Fri 27 Mar 17:28", 
+{ "lastRefresh": "Sun 26 Apr 17:30", 
    "episodeList": 
 [
 {
-   "urlLocal": "media/Channel-10/1-TRIGGER.mp3",
-   "length": 6979.291,
-   "isPodcast": true,
-   "title": "PODCASTS: TRIGGERnometry",
-   "shortName": "TRIGGERnometry (2 days ago)",
-   "description": "This War Will FAIL' - Military Expert Prof Robert Pape (2 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/2-TRIGGER.mp3",
-   "length": 4576.47,
-   "isPodcast": true,
-   "title": "PODCASTS: TRIGGERnometry",
-   "shortName": "TRIGGERnometry (5 days ago)",
-   "description": "Why I Told President Trump to Attack Iran - Sen. Ted Cruz (5 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-AMERICANO.mp3",
-   "length": 2303.66,
-   "isPodcast": true,
-   "title": "PODCASTS: Americano",
-   "shortName": "Americano (4 days ago)",
-   "description": "Podcast wars, Cuba & Corbyn – with Steven Crowder (4 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-SKYF1.mp3",
-   "length": 1052.943,
-   "isPodcast": true,
-   "title": "PODCASTS: The Sky F1 Show",
-   "shortName": "The Sky F1 Show (Yesterday)",
-   "description": "Ted's Japan Podbook: Will anyone catch Mercedes? Will 'Yo-Yo Racing' force drivers to think outside the box? (Yesterday)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-SPECTATOR.mp3",
-   "length": 3057.632,
-   "isPodcast": true,
-   "title": "PODCASTS: The Spectator Edition",
-   "shortName": "The Spectator Edition (Today)",
-   "description": "Does British politics have a problem with the 'omnicause'? (Today)"
-}
-,
-{
    "urlLocal": "media/Channel-10/1-REALITY.mp3",
-   "length": 1370.435,
+   "length": 768.469,
    "isPodcast": true,
    "title": "PODCASTS: Reality Check",
-   "shortName": "Reality Check (3 days ago)",
-   "description": "Energy bailout? Why Britain can’t afford a cap on household bills (3 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-QUITERIGHT.mp3",
-   "length": 1794.272,
-   "isPodcast": true,
-   "title": "PODCASTS: Quite Right",
-   "shortName": "Quite Right (Today)",
-   "description": "Q&A: Do the Tories need a bigger kicking? (Today)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-CHS.mp3",
-   "length": 575.163,
-   "isPodcast": true,
-   "title": "PODCASTS: Coffee House Shots",
-   "shortName": "Coffee House Shots (Today)",
-   "description": "Energy crisis: are we in 1973 territory? (Today)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/2-CHS.mp3",
-   "length": 1164.407,
-   "isPodcast": true,
-   "title": "PODCASTS: Coffee House Shots",
-   "shortName": "Coffee House Shots (Yesterday)",
-   "description": "The curious case of Morgan McSweeney's missing phone (Yesterday)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/3-CHS.mp3",
-   "length": 867.63,
-   "isPodcast": true,
-   "title": "PODCASTS: Coffee House Shots",
-   "shortName": "Coffee House Shots (2 days ago)",
-   "description": "To drill or not to drill, that is the question (2 days ago)"
+   "shortName": "Reality Check (2 days ago)",
+   "description": "Don't believe the headline: the truth about unemployment data (2 days ago)"
 }
 ,
 {
    "urlLocal": "media/Channel-10/1-SPIKED.mp3",
-   "length": 2119.026,
+   "length": 2315.676,
    "isPodcast": true,
    "title": "PODCASTS: Spiked",
-   "shortName": "Spiked (Today)",
-   "description": "The Iranian threat to Britain (Today)"
+   "shortName": "Spiked (2 days ago)",
+   "description": "Can slippery Starmer cling on? (2 days ago)"
 }
 ,
 {
-   "urlLocal": "media/Channel-10/1-PLANET-NORMAL.mp3",
-   "length": 3832.274,
+   "urlLocal": "media/Channel-10/1-QUITERIGHT.mp3",
+   "length": 1676.669,
    "isPodcast": true,
-   "title": "PODCASTS: Planet Normal",
-   "shortName": "Planet Normal (Yesterday)",
-   "description": "Anti-semitism is clearly out of control in the UK (Yesterday)"
+   "title": "PODCASTS: Quite Right",
+   "shortName": "Quite Right (3 days ago)",
+   "description": "Why you should be proud to be English – and Rowling vs Campbell (3 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/2-QUITERIGHT.mp3",
+   "length": 2419.617,
+   "isPodcast": true,
+   "title": "PODCASTS: Quite Right",
+   "shortName": "Quite Right (5 days ago)",
+   "description": "Starmer out? — be careful what you wish for (5 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-SPECTATOR.mp3",
+   "length": 2402.977,
+   "isPodcast": true,
+   "title": "PODCASTS: The Spectator Edition",
+   "shortName": "The Spectator Edition (3 days ago)",
+   "description": "‘Keir Starmer has become Boris Johnson!’ with Prue Leith & Peter Frankopan (3 days ago)"
 }
 ,
 {
    "urlLocal": "media/Channel-10/1-B-ONEILL.mp3",
-   "length": 2427.559,
+   "length": 2504.411,
    "isPodcast": true,
    "title": "PODCASTS: Brendan O'Neill",
-   "shortName": "Brendan O'Neill (3 days ago)",
-   "description": "Can Trump still claim victory in Iran?, with Daniel McCarthy (3 days ago)"
+   "shortName": "Brendan O'Neill (4 days ago)",
+   "description": "Iran is *still* a nuclear threat | Trump adviser Mark Dubowitz (4 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/2-B-ONEILL.mp3",
+   "length": 2128.744,
+   "isPodcast": true,
+   "title": "PODCASTS: Brendan O'Neill",
+   "shortName": "Brendan O'Neill (4 days ago)",
+   "description": "Why Iran is not a new ‘forever war’ | US vet Nate Vance (4 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-CHS.mp3",
+   "length": 796.812,
+   "isPodcast": true,
+   "title": "PODCASTS: Coffee House Shots",
+   "shortName": "Coffee House Shots (Yesterday)",
+   "description": "'I used to be Labour. No more.' – who will win Wales? (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/2-CHS.mp3",
+   "length": 883.356,
+   "isPodcast": true,
+   "title": "PODCASTS: Coffee House Shots",
+   "shortName": "Coffee House Shots (2 days ago)",
+   "description": "Is Lord Hermer fit to be Attorney General? (2 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/3-CHS.mp3",
+   "length": 1151.947,
+   "isPodcast": true,
+   "title": "PODCASTS: Coffee House Shots",
+   "shortName": "Coffee House Shots (3 days ago)",
+   "description": "‘Worse than the worst of Boris Johnson’ – are Labour turning on Starmer? (3 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-PLANET-NORMAL.mp3",
+   "length": 4365.059,
+   "isPodcast": true,
+   "title": "PODCASTS: Planet Normal",
+   "shortName": "Planet Normal (4 days ago)",
+   "description": "The Mandelson mess, stagflation returns, and the battle for Wales (4 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-SKYF1.mp3",
+   "length": 4255.764,
+   "isPodcast": true,
+   "title": "PODCASTS: The Sky F1 Show",
+   "shortName": "The Sky F1 Show (5 days ago)",
+   "description": "‘The only problem is if he moons out the back window!’ (5 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-TRIGGER.mp3",
+   "length": 4516.519,
+   "isPodcast": true,
+   "title": "PODCASTS: TRIGGERnometry",
+   "shortName": "TRIGGERnometry (Yesterday)",
+   "description": "Rob Schneider: 'I'm A 90s Liberal — Which Makes Me A Fascist' (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/2-TRIGGER.mp3",
+   "length": 4172.173,
+   "isPodcast": true,
+   "title": "PODCASTS: TRIGGERnometry",
+   "shortName": "TRIGGERnometry (4 days ago)",
+   "description": "Trump Is the Greatest At One Law Of Power — And It Could Destroy Him - Robert Greene (4 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-AMERICANO.mp3",
+   "length": 2376.776,
+   "isPodcast": true,
+   "title": "PODCASTS: Americano",
+   "shortName": "Americano (3 days ago)",
+   "description": "How real is the ‘Trumplash’? (3 days ago)"
 }
 ]}

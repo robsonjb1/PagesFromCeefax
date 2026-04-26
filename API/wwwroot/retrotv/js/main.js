@@ -5,7 +5,6 @@ let showIdentNext = true;
 let settingsVisible = false;
 let channelsVisible = true;
 let channelSelections = "";
-let halfWidth = false;
 let lastBannerRefresh = new Date();
 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -15,7 +14,7 @@ if(document.cookie) {
     channelSelections = document.cookie.substring(document.cookie.indexOf("=") + 1)
 }
 if(channelSelections == "" || channelSelections.indexOf("|") == -1) {
-    channelSelections = "|1||8||9||10|";
+    channelSelections = "|1||2||9||10|";
 }
 
 // Enable channel settings
@@ -79,11 +78,11 @@ function refreshChannelFeeds() {
         });
     }
 
-    // Ping the PFC carousel for logging purposes
+    // Ping the PFC API for logging purposes
     $.ajaxSetup({
         async: true
     });
-    $.getJSON(`../carousel?z=${Math.random()}`, function(json) { });
+    $.getJSON(`../ping/${selectedChannel}`, function(json) { });
 }
 
 function autoRefreshCaption() {
@@ -417,26 +416,23 @@ window.onmessage = function(e) {
 };
 
 // Wire up page width toggle
-$("#pageWidthToggle").on('click', function(event) {
-    // Toggle page width
-    halfWidth = !halfWidth;
-    if(halfWidth) {
-        $('#pageWidthIcon').removeClass('bi-zoom-out');
-        $('#pageWidthIcon').addClass('bi-zoom-in');
-        $('#videoCanvas').width("55%");
-        $('#pfcOverlay').width("55%");
-    } else {
-        $('#pageWidthIcon').removeClass('bi-zoom-in');
-        $('#pageWidthIcon').addClass('bi-zoom-out');
-        $('#videoCanvas').width("100%");
-        $('#pfcOverlay').width("100%");
-    }
+$("#castVideo").on('click', function(event) {
+    videoContainer.video.pause();
+    window.open(videoContainer.video.src);
 
     return false;
 });
 
 // Wire up reverse channels switch
 $("#reverseChannels").on('click', function(event) {
+    if($('#reverseChannelsIcon').hasClass('bi-layout-sidebar-inset')) {
+        $('#reverseChannelsIcon').removeClass('bi-layout-sidebar-inset');
+        $('#reverseChannelsIcon').addClass('bi-layout-sidebar-inset-reverse');
+    } else {
+        $('#reverseChannelsIcon').removeClass('bi-layout-sidebar-inset-reverse');
+        $('#reverseChannelsIcon').addClass('bi-layout-sidebar-inset');
+    }
+
     var newChannelSelections = "";
 
     for(var c=1; c<=totalChannels; c++) {   
