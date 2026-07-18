@@ -2,6 +2,7 @@
 using System.ServiceModel.Syndication;
 using System.Xml;
 using API.Architecture;
+using HtmlAgilityPack;
 
 namespace API.Magazine;
 
@@ -56,7 +57,7 @@ public class CeefaxContent : ICeefaxContent
         UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/ajax/home/currency-json"), "HL-Currencies"));
 
         // 10-year UK bond yields
-        UriCache.Add(new CachedUri(new Uri("https://uk.investing.com/rates-bonds/uk-10-year-bond-yield-historical-data"), "UK-10YRBOND"));
+        UriCache.Add(new CachedUri(new Uri("https://markets.ft.com/data/bonds/tearsheet/summary?s=UK10YG"), "UK-10YRBOND"));
 
         // Process the UR cache (first time)
         ProcessUriCache().Wait();
@@ -80,6 +81,28 @@ public class CeefaxContent : ICeefaxContent
 
     private async Task ProcessUriCache()
     {
+        // JRTEMP
+        /*
+        for(int i = 1503; i<1510; i++)
+        {
+            var rootHtml = FetchPageAsync(new Uri($"https://totparchive.co.uk/episode.php?id={i}")).Result.httpResponse.Content.ReadAsStringAsync().Result; 
+
+            HtmlDocument doc = new();
+            doc.LoadHtml(rootHtml);
+
+            // Parse index page and construct article list
+            var titleTag = doc.DocumentNode.SelectSingleNode("//title");
+            string title = titleTag.InnerText;
+
+            string description = rootHtml.Substring(rootHtml.IndexOf("\"description\": \""));
+            description = description.Substring(description.IndexOf("Including performances from"));
+            description = description.Replace("Including performances from", "With").Replace(".", "").Replace("&amp;", "&").Trim() + ".";
+
+            Console.WriteLine(title);
+            Console.WriteLine(description);
+        }
+        */
+        
         try
         {
             var client = new HttpClient();
@@ -129,6 +152,8 @@ public class CeefaxContent : ICeefaxContent
                 storyCount++;
             }
         }
+
+        
     }
 
     private static async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
