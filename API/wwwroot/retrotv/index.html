@@ -48,28 +48,26 @@
 <body style="background-color: black;">
     <div id="planner" style="background-color: #000050;">
         <div class="plannerTogglePanel">
-         
             <div>
                 &nbsp;&nbsp;&nbsp;
-                <span><a id="settingsToggle"><i id="settingsToggleIcon" class="bi bi-gear plannerGroupButton"></i></a></span>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="settingsToggle"><span id="currentTime" class="plannerTime"></span></a>
+            </div>
+
+            <div>
+                <span><a id="pageWidthToggle">
+                    <i id="pageWidthIcon" class="bi bi-zoom-out plannerGroupButton" style="vertical-align: 1px"></i>
+                </a></span>
+            </div>
+
+            <div>
                 <span><a id="reverseChannels"><i id="reverseChannelsIcon" class="bi bi-layout-sidebar-inset plannerGroupButton"></i></a></span>
             </div>
 
             <div>
-                <span id="currentTime" class="plannerTime"></span>
-            </div>
-
-            <div>
-                <a id="castVideo">
-                    <i id="castIcon" class="bi bi-cast plannerGroupButton"></i>
-                </a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a id="speakerToggle">
                     <i id="speakerIcon" class="bi bi-volume-up-fill plannerToggleButton" style="vertical-align: -2px"></i>
                 </a>
             </div>
-
         </div>
         
         <div id="settings">
@@ -77,113 +75,102 @@
                 <tr id="settings1row">
                     <td valign="top">
                         <button id='settings1button' type="button" class="btn btn-outline-primary plannerButton">
-                            <i id="settings1icon" class="bi bi-toggle-off channelToggle"></i>
+                            <i id="settings1icon" class="bi bi-layout-sidebar-inset channelToggle"></i>
                         </button>
-                        </td>
-                        <td class="plannerTitle">
-                            <span id="settings1title">TOP GEAR + CLARKSON'S FARM</span><div class="plannerDescription" id="settings1description"></div>
-                        </td>
+                    </td>
+                    <td class="plannerTitle">
+                        <span id="settings1title">TOP GEAR + TRAVEL + FISHING</span><div class="plannerDescription" id="settings1description"></div>
                     </td>
                 </tr>
+
                 <tr id="settings2row">
                     <td valign="top">
                         <button id='settings2button' type="button" class="btn btn-outline-primary plannerButton">
-                            <i id="settings2icon" class="bi bi-toggle-off channelToggle"></i>
+                            <i id="settings2icon" class="bi bi-layout-sidebar-inset channelToggle"></i>
                         </button>
-                        </td>
-                        <td class="plannerTitle">
-                            <span id="settings2title">BLAKE'S-7 + RED DWARF + FISHING</span><div class="plannerDescription" id="settings2description"></div>
-                        </td>
+                    </td>
+                    <td class="plannerTitle">
+                        <span id="settings2title">BLAKE'S-7 + DOCTOR WHO + COMEDY</span><div class="plannerDescription" id="settings2description"></div>
                     </td>
                 </tr>
+
                 <tr id="settings3row">
                     <td valign="top">
                         <button id='settings3button' type="button" class="btn btn-outline-primary plannerButton">
-                            <i id="settings3icon" class="bi bi-toggle-off channelToggle"></i>
+                            <i id="settings3icon" class="bi bi-layout-sidebar-inset channelToggle"></i>
                         </button>
-                        </td>
-                        <td class="plannerTitle">
-                            <span id="settings3title">DOCTOR WHO</span><div class="plannerDescription" id="settings3description"></div>
-                        </td>
+                    </td>
+                    <td class="plannerTitle">
+                        <span id="settings3title">MARTIN TV</span><div class="plannerDescription" id="settings3description"></div>
                     </td>
                 </tr>
+
                 <tr id="settings4row">
                     <td valign="top">
                         <button id='settings4button' type="button" class="btn btn-outline-primary plannerButton">
-                            <i id="settings4icon" class="bi bi-toggle-off channelToggle"></i>
+                            <i id="settings4icon" class="bi bi-layout-sidebar-inset channelToggle"></i>
                         </button>
-                        </td>
-                        <td class="plannerTitle">
-                            <span id="settings4title">STAR TREK</span><div class="plannerDescription" id="settings4description"></div>
-                        </td>
+                    </td>
+                    <td class="plannerTitle">
+                        <span id="settings4title">STAR TREK</span><div class="plannerDescription" id="settings4description"></div>
                     </td>
                 </tr>
+            
                 <tr id="settings5row">
                     <td valign="top">
                         <button id='settings5button' type="button" class="btn btn-outline-primary plannerButton">
-                            <i id="settings5icon" class="bi bi-toggle-off channelToggle"></i>
+                            <i id="settings5icon" class="bi bi-layout-sidebar-inset channelToggle"></i>
                         </button>
-                        </td>
-                        <td class="plannerTitle">
-                            <span id="settings5title">COMEDY</span><div class="plannerDescription" id="settings5description"></div>
-                        </td>
+                    </td>
+                    <td class="plannerTitle">
+                        <span id="settings5title">FILMS + BBC MUSIC</span><div class="plannerDescription" id="settings5description"></div>
                     </td>
                 </tr>
+
                 <tr id="settings6row">
                     <td valign="top">
                         <button id='settings6button' type="button" class="btn btn-outline-primary plannerButton">
-                            <i id="settings6icon" class="bi bi-toggle-off channelToggle"></i>
+                            <i id="settings6icon" class="bi bi-layout-sidebar-inset channelToggle"></i>
                         </button>
-                        </td>
-                        <td class="plannerTitle">
-                            <span id="settings6title">FILMS + BBC MUSIC</span><div class="plannerDescription" id="settings6description"></div>
-                        </td>
+                    </td>
+                    <td class="plannerTitle">
+                        <span id="settings6title">TOP OF THE POPS</span><div class="plannerDescription" id="settings6description"></div>
                     </td>
                 </tr>
+
                 <tr id="settings7row">
                     <td valign="top">
                         <button id='settings7button' type="button" class="btn btn-outline-primary plannerButton">
-                            <i id="settings7icon" class="bi bi-toggle-off channelToggle"></i>
+                            <i id="settings7icon" class="bi bi-layout-sidebar-inset channelToggle"></i>
                         </button>
-                        </td>
-                        <td class="plannerTitle">
-                            <span id="settings7title">TOP OF THE POPS</span><div class="plannerDescription" id="settings7description"></div>
-                        </td>
+                    </td>
+                    <td class="plannerTitle">
+                        <span id="settings7title">&#9836; &nbsp;MUSIC (AUDIO)</span><div class="plannerDescription" id="settings7description"></div>
                     </td>
                 </tr>
+
                 <tr id="settings8row">
                     <td valign="top">
                         <button id='settings8button' type="button" class="btn btn-outline-primary plannerButton">
-                            <i id="settings8icon" class="bi bi-toggle-off channelToggle"></i>
+                            <i id="settings8icon" class="bi bi-layout-sidebar-inset channelToggle"></i>
                         </button>
-                        </td>
-                        <td class="plannerTitle">
-                            <span id="settings8title">PORTILLO</span><div class="plannerDescription" id="settings8description"></div>
-                        </td>
+                    </td>
+                    <td class="plannerTitle">
+                        <span id="settings8title">&#9836; &nbsp;AUDIOBOOKS (AUDIO)</span><div class="plannerDescription" id="settings8description"></div>
                     </td>
                 </tr>
+               
                 <tr id="settings9row">
                     <td valign="top">
                         <button id='settings9button' type="button" class="btn btn-outline-primary plannerButton">
-                            <i id="settings9icon" class="bi bi-toggle-off channelToggle"></i>
+                            <i id="settings9icon" class="bi bi-layout-sidebar-inset channelToggle"></i>
                         </button>
-                        </td>
-                        <td class="plannerTitle">
-                            <span id="settings9title">MUSIC (AUDIO)</span><div class="plannerDescription" id="settings9description"></div>
-                        </td>
+                    </td>
+                    <td class="plannerTitle">
+                        <span id="settings9title">&#9836; &nbsp;PODCASTS (AUDIO)</span><div class="plannerDescription" id="settings9description"></div>
                     </td>
                 </tr>
-                <tr id="settings10row">
-                    <td valign="top">
-                        <button id='settings10button' type="button" class="btn btn-outline-primary plannerButton">
-                            <i id="settings10icon" class="bi bi-toggle-off channelToggle"></i>
-                        </button>
-                        </td>
-                        <td class="plannerTitle">
-                            <span id="settings10title">PODCASTS (AUDIO)</span><div class="plannerDescription" id="settings10description"></div>
-                        </td>
-                    </td>
-                </tr>
+              
             </table>
         </div>
 
@@ -230,7 +217,7 @@
                         </div>
                     </td>  
                 </tr>
-
+         
                 <tr id="channel4row">
                     <td valign="top">
                         <button id='channel4button' type="button" class="btn btn-outline-primary plannerButton">
@@ -244,7 +231,7 @@
                         </div>
                     </td>  
                 </tr>
-
+       
                 <tr id="channel5row">
                     <td valign="top">
                         <button id='channel5button' type="button" class="btn btn-outline-primary plannerButton">
@@ -282,7 +269,7 @@
                     </td>
                     <td class="plannerTitle">
                         <div class="showDetails">
-                            <span id="channel7title"></span><div class="plannerDescription" id="channel7description"></div>
+                            &#9836; &nbsp;<span id="channel7title"></span><div class="plannerDescription" id="channel7description"></div>
                         </div>
                     </td>  
                 </tr>
@@ -296,7 +283,7 @@
                     </td>
                     <td class="plannerTitle">
                         <div class="showDetails">
-                            <span id="channel8title"></span><div class="plannerDescription" id="channel8description"></div>
+                            &#9836; &nbsp;<span id="channel8title"></span><div class="plannerDescription" id="channel8description"></div>
                         </div>
                     </td>  
                 </tr>
@@ -310,24 +297,11 @@
                     </td>
                     <td class="plannerTitle">
                         <div class="showDetails">
-                            <span id="channel9title"></span><div class="plannerDescription" id="channel9description"></div>
+                            &#9836; &nbsp;<span id="channel9title"></span><div class="plannerDescription" id="channel9description"></div>
                         </div>
                     </td>  
                 </tr>
 
-                <tr id="channel10row">
-                    <td valign="top">
-                        <button id='channel10button' type="button" class="btn btn-outline-primary plannerButton">
-                            <nobr><span class="plannerStart" id="channel10time"></span></nobr>
-                            <div class="progress bg-info plannerProgress"><div id="channel10progress" class="progress-bar bg-warning" role="progressbar"></div></div>
-                        </button>
-                    </td>
-                    <td class="plannerTitle">
-                        <div class="showDetails">
-                            <span id="channel10title"></span><div class="plannerDescription" id="channel10description"></div>
-                        </div>
-                    </td>  
-                </tr>
             </table>
         </div>
     </div>

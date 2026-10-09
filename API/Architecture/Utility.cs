@@ -184,7 +184,7 @@ namespace API.Architecture
                 content += ".";
             }
 
-            String[] words = content.Split(' ');
+            string[] words = content.Split(' ');
             string currentLine = "";
             int effectiveLineLength = firstLineOverride;
             

@@ -10,7 +10,6 @@ public class NewsStory
     public readonly CeefaxSectionType SectionName;
     public readonly Uri Link;
     public readonly List<string> Headline;
-    public readonly List<string> MultiPageHeadline;
     public List<string> Body;
 
     public NewsStory(CeefaxSectionType SectionName, string Headline, Uri Link)

@@ -16,12 +16,14 @@ let audioContextM5000 = new AudioContext({ sampleRate: 46875 });
 let music5000 = new Music5000((buffer) => onBufferMusic5000(buffer));
 let music5000workletNode = null;
 
+/*
 audioContextM5000.audioWorklet.addModule("./js/music5000-worklet.js").then(() => {
     music5000workletNode = new AudioWorkletNode(audioContextM5000, "music5000", {
         outputChannelCount: [2],
     });
     music5000workletNode.connect(audioContextM5000.destination);
 });
+*/
 
 function onBufferMusic5000(buffer) {
     if (music5000workletNode) music5000workletNode.port.postMessage(buffer);

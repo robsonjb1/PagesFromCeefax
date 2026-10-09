@@ -59,13 +59,13 @@ public class TeletextPageWeather : ITeletextPageWeather
             }
 
             // Insert temperatures
-            map = map.Replace("[AA]", FormatWeatherString(_wd.Temperatures["London"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[BB]", FormatWeatherString(_wd.Temperatures["Cardiff"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[CC]", FormatWeatherString(_wd.Temperatures["Manchester"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[DD]", FormatWeatherString(_wd.Temperatures["Edinburgh"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[EE]", FormatWeatherString(_wd.Temperatures["Belfast"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[FF]", FormatWeatherString(_wd.Temperatures["Lerwick"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[GG]", FormatWeatherString(_wd.Temperatures["Truro"].CurrentTemp, TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+            map = map.Replace("[AA]", FormatWeatherString(_wd.Temperatures["WeatherLondon"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+                .Replace("[BB]", FormatWeatherString(_wd.Temperatures["WeatherCardiff"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+                .Replace("[CC]", FormatWeatherString(_wd.Temperatures["WeatherManchester"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+                .Replace("[DD]", FormatWeatherString(_wd.Temperatures["WeatherEdinburgh"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+                .Replace("[EE]", FormatWeatherString(_wd.Temperatures["WeatherBelfast"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+                .Replace("[FF]", FormatWeatherString(_wd.Temperatures["WeatherLerwick"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+                .Replace("[GG]", FormatWeatherString(_wd.Temperatures["WeatherTruro"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
                 .Replace("[TTT]", Utility.ConvertToUKTime(_wd.LastRefreshUTC).ToString("HH:mm"));
 
             sb.Append(map);
@@ -83,17 +83,16 @@ public class TeletextPageWeather : ITeletextPageWeather
             CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
             
             int forecastNo = 0;
-            int offset = _wd.Forecasts[3].Body != null ? 1 : 0; // Show the last three forecasts
             switch (page)
             {
                 case CeefaxSectionType.WeatherForecast1:
-                    forecastNo = 0 + offset;
+                    forecastNo = 0;
                     break;
                 case CeefaxSectionType.WeatherForecast2:
-                    forecastNo = 1 + offset;
+                    forecastNo = 1;
                     break;
                 case CeefaxSectionType.WeatherForecast3:
-                    forecastNo = 2 + offset;
+                    forecastNo = 2;
                     break;
                 default:
                     break;
@@ -103,7 +102,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             string sectionText = _wd.Forecasts[forecastNo].Body;
 
             sb.Append(Graphics.HeaderWeather);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{sectionTitle}[{TeletextControl.AlphaWhite}]{forecastNo+2-offset}/4");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{sectionTitle}[{TeletextControl.AlphaWhite}]{forecastNo+2}/4");
 
             // Break body text up into paragraphs
             List<string> bodyLines = new();

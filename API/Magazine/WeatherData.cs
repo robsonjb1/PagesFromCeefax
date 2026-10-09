@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
+using System.ServiceModel.Syndication;
 using System.Text.Json;
+using System.Xml;
 using API.Architecture;
 using API.DataTransferObjects;
 using HtmlAgilityPack;
@@ -12,17 +14,11 @@ public class Forecast
     public string Title { get; set; }
     public string Body { get; set; }
 }
-public class CityTemperature
-{
-    public int CurrentTemp { get; set; }
-    public int MaxTemp { get; set; }
-    public int MinTemp { get; set; }
-    public string Description { get; set; }
-}
+
 public interface IWeatherData
 {
     public Forecast[] Forecasts { get; set; } 
-    public Dictionary<string, CityTemperature> Temperatures { get; set; }
+    public Dictionary<string, int> Temperatures { get; set; }
     public DateTime LastRefreshUTC { get; set; }
     public bool IsValid { get; set; }
 }
@@ -30,7 +26,7 @@ public interface IWeatherData
 public class WeatherData : IWeatherData
 {
     public Forecast[] Forecasts { get; set; } = new Forecast[4];
-    public Dictionary<string, CityTemperature> Temperatures { get; set; } = new();
+    public Dictionary<string, int> Temperatures { get; set; } = new();
     public DateTime LastRefreshUTC { get; set; }
     public bool IsValid { get; set; } = false;
 
@@ -42,10 +38,18 @@ public class WeatherData : IWeatherData
             var doc = new HtmlDocument();
             doc.LoadHtml(html);
 
-            for(int i=0; i<=3; i++) { AddForecast(doc, i); }
+            for(int i=0; i<=2; i++) { AddForecast(doc, i); }
             
             LastRefreshUTC = DateTime.UtcNow;
-            SystemConfig.WeatherCities.ForEach(z => Temperatures.Add(z, GetTempFromApiResponse(cc, z)));
+            Temperatures.Add("WeatherLondon", GetTemperature(cc, CeefaxSectionType.WeatherLondon));
+            Temperatures.Add("WeatherCardiff", GetTemperature(cc, CeefaxSectionType.WeatherCardiff));
+            Temperatures.Add("WeatherEdinburgh", GetTemperature(cc, CeefaxSectionType.WeatherEdinburgh));
+            Temperatures.Add("WeatherTruro", GetTemperature(cc, CeefaxSectionType.WeatherTruro));
+            Temperatures.Add("WeatherLerwick", GetTemperature(cc, CeefaxSectionType.WeatherLerwick));
+            Temperatures.Add("WeatherManchester", GetTemperature(cc, CeefaxSectionType.WeatherManchester));
+            Temperatures.Add("WeatherBelfast", GetTemperature(cc, CeefaxSectionType.WeatherBelfast));
+
+            //SystemConfig.WeatherCities.ForEach(z => Temperatures.Add(z, GetTempFromApiResponse(cc, z)));
             
             IsValid = true;
         }
@@ -59,12 +63,22 @@ public class WeatherData : IWeatherData
     private void AddForecast(HtmlDocument doc, int forecastNo)
     {
         Forecasts[forecastNo] = new Forecast() {
-            Title = doc.DocumentNode.SelectSingleNode($"(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[{forecastNo+1}]")?.InnerText,
-            Body = doc.DocumentNode.SelectSingleNode($"(//b[@class='ssrcss-1xjjfut-BoldText e5tfeyi3'])[{forecastNo+1}]/parent::p/following-sibling::p")?.InnerText
+            Title = doc.DocumentNode.SelectSingleNode($"(//p[@class='ssrcss-1q0x1qg-Paragraph e1jhz7w10'])[{2+(forecastNo*2)}]")?.InnerText,
+            Body = doc.DocumentNode.SelectSingleNode($"(//p[@class='ssrcss-1q0x1qg-Paragraph e1jhz7w10'])[{3+(forecastNo*2)}]")?.InnerText
         };
     }
 
-    private CityTemperature GetTempFromApiResponse(ICeefaxContent cc, string city)
+    private int GetTemperature(ICeefaxContent cc, CeefaxSectionType city)
+    {
+        string html = String.Empty;
+        TextReader tr = new StringReader(cc.UriCache.Find(l => l.Location == cc.Sections.Find(z => z.Name == city)!.Feed)!.ContentString!);
+        SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
+        int temperature = Convert.ToInt32(feed.Items.First().Summary.Text.Split("°C")[0].Split(" ")[^1]);
+
+        return temperature;
+    }
+
+    /*private CityTemperature GetTempFromApiResponse(ICeefaxContent cc, string city)
     {
         string json = String.Empty;
         try
@@ -84,4 +98,5 @@ public class WeatherData : IWeatherData
             throw new OpenWeatherParseException(json, ex);
         }
     }
+    */
 }

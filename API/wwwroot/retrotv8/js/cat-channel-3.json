@@ -1,0 +1,1777 @@
+{ "lastRefresh": "Wed 07 Oct 17:20", 
+   "episodeList": 
+[
+{
+   "title": "GONE FISHING: 8-1",
+   "shortName": "8-1",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/8-1.mp4",
+   "length": 1751.426,
+   "isVideo": true,
+   "description": "Paul takes Bob to fish the River Itchen in Hampshire."
+}
+,
+{
+   "title": "GONE FISHING: 8-2",
+   "shortName": "8-2",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/8-2.mp4",
+   "length": 1744.17,
+   "isVideo": true,
+   "description": "Paul and Bob fish for fresh sea trout as the sun sets in Wales."
+}
+,
+{
+   "title": "GONE FISHING: 8-3",
+   "shortName": "8-3",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/8-3.mp4",
+   "length": 1744.66,
+   "isVideo": true,
+   "description": "Paul, Bob and Ted travel to Manchester to fish the Rochdale Canal."
+}
+,
+{
+   "title": "GONE FISHING: 8-4",
+   "shortName": "8-4",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/8-4.mp4",
+   "length": 1747.026,
+   "isVideo": true,
+   "description": "Paul and Bob head to Herefordshire to try to land a big perch."
+}
+,
+{
+   "title": "GONE FISHING: 8-5",
+   "shortName": "8-5",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/8-5.mp4",
+   "length": 1746.538,
+   "isVideo": true,
+   "description": "Bob and Paul head to Ceredigion to catch a tope, a rare species of shark."
+}
+,
+{
+   "title": "GONE FISHING: 8-6",
+   "shortName": "8-6",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/8-6.mp4",
+   "length": 1750.586,
+   "isVideo": true,
+   "description": "Paul takes Bob to his favourite river, the mighty Findhorn in the Scottish Highlands."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-1 The Way Back",
+   "shortName": "1-1 The Way Back",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1- 1 The Way Back.mp4",
+   "length": 2951.018,
+   "isVideo": true,
+   "description": "Roj Blake discovers shocking secrets about his past, pitting him against the tyrannical Federation."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-2 Space Fall",
+   "shortName": "1-2 Space Fall",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1- 2 Space Fall.mp4",
+   "length": 3134.868,
+   "isVideo": true,
+   "description": "Aboard a prison colony transport, Blake meets future comrades and encounters a mysterious space vessel that could liberate Earth from the grip of the Federation."
+}
+,
+{
+   "title": "BLAKE'S-7: A-13 Orac",
+   "shortName": "A-13 Orac",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A-13 Orac.mp4",
+   "length": 3113.834,
+   "isVideo": true,
+   "description": "The Liberator crew converge on the planet Aristo to find the mysterious Orac, but Servalon and Travis are also on its trail."
+}
+,
+{
+   "title": "BLAKE'S-7: B-1 Redemption",
+   "shortName": "B-1 Redemption",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B- 1 Redemption.mp4",
+   "length": 2983.615,
+   "isVideo": true,
+   "description": "The Liberator comes under attack from a powerful alien force."
+}
+,
+{
+   "title": "BLAKE'S-7: B-2 Shadow",
+   "shortName": "B-2 Shadow",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B- 2 Shadow.mp4",
+   "length": 3036.031,
+   "isVideo": true,
+   "description": "Blake and his crew must locate the source of the drug 'Shadow'."
+}
+,
+{
+   "title": "BLAKE'S-7: B-3 Weapon",
+   "shortName": "B-3 Weapon",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B- 3 Weapon.mp4",
+   "length": 3107.028,
+   "isVideo": true,
+   "description": "Servalan locates a powerful new weapon that marks Blake and his crew for elimination at her leisure."
+}
+,
+{
+   "title": "BLAKE'S-7: B-4 Horizon",
+   "shortName": "B-4 Horizon",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B- 4 Horizon.mp4",
+   "length": 3032.02,
+   "isVideo": true,
+   "description": "On the mysterious planet Horizon, Blake finds a secret mining operation."
+}
+,
+{
+   "title": "BLAKE'S-7: B-5 Pressure Point",
+   "shortName": "B-5 Pressure Point",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B- 5 Pressure Point.mp4",
+   "length": 2970.026,
+   "isVideo": true,
+   "description": "Blake intends to make a devastating strike at the heart of the Federation, but at what cost ?"
+}
+,
+{
+   "title": "BLAKE'S-7: B-6 Trial",
+   "shortName": "B-6 Trial",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B- 6 Trial.mp4",
+   "length": 3087.018,
+   "isVideo": true,
+   "description": "Servalan seeks to have Travis killed, while Avon tries to persuade the crew to abandon Blake for good."
+}
+,
+{
+   "title": "BLAKE'S-7: B-7 Killer",
+   "shortName": "B-7 Killer",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B- 7 Killer.mp4",
+   "length": 3076.031,
+   "isVideo": true,
+   "description": "Avon and Vila break into a Federation stronghold to find a crystal that can decrypt enemy pulse-codes."
+}
+,
+{
+   "title": "BLAKE'S-7: B-8 Hostage",
+   "shortName": "B-8 Hostage",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B- 8 Hostage.mp4",
+   "length": 3069.823,
+   "isVideo": true,
+   "description": "Travis kidnaps Blake's cousin and lures Blake and his crew into a trap."
+}
+,
+{
+   "title": "BLAKE'S-7: B-9 Countdown",
+   "shortName": "B-9 Countdown",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B- 9 Countdown.mp4",
+   "length": 3070.015,
+   "isVideo": true,
+   "description": "Seeking the secret location of Federation Control, Blake travels to the planet Albion to capture a Space Major who may provide answers."
+}
+,
+{
+   "title": "BLAKE'S-7: B-10 Voice from the Past",
+   "shortName": "B-10 Voice from the Past",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B-10 Voice from the Past.mp4",
+   "length": 2920.02,
+   "isVideo": true,
+   "description": "A resistance group claim to have enough evidence to overthrow the Federation, but what are their real motives?"
+}
+,
+{
+   "title": "BLAKE'S-7: B-11 Gambit",
+   "shortName": "B-11 Gambit",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B-11 Gambit.mp4",
+   "length": 3115.028,
+   "isVideo": true,
+   "description": "Blake and his crew travel to Freedom City to find a cyber-surgeon who may hold the key to the location of Star One."
+}
+,
+{
+   "title": "BLAKE'S-7: B-12 The Keeper",
+   "shortName": "B-12 The Keeper",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B-12 The Keeper.mp4",
+   "length": 3082.623,
+   "isVideo": true,
+   "description": "The race to find Star One continues, as Blake heads to the planet Goth to find a royal leader called 'The Keeper'."
+}
+,
+{
+   "title": "RED DWARF: 2-4 Stasis Leak",
+   "shortName": "2-4 Stasis Leak",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/2-4 Stasis Leak.mp4",
+   "length": 1791.06,
+   "isVideo": true,
+   "description": "A leak from the suspended animation chamber has created a doorway to the past."
+}
+,
+{
+   "title": "RED DWARF: 2-5 Queeg",
+   "shortName": "2-5 Queeg",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/2-5 Queeg.mp4",
+   "length": 1778.386,
+   "isVideo": true,
+   "description": "Holly's behaviour begins to endanger the ship so he's replaced by the back-up computer."
+}
+,
+{
+   "title": "RED DWARF: 2-6 Parallel Universe",
+   "shortName": "2-6 Parallel Universe",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/2-6 Parallel Universe.mp4",
+   "length": 1703.658,
+   "isVideo": true,
+   "description": "Holly devises a faster-than-light drive that sends the crew into a parallel universe."
+}
+,
+{
+   "title": "RED DWARF: 3-1 Backwards",
+   "shortName": "3-1 Backwards",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/3-1 Backwards.mp4",
+   "length": 1639.746,
+   "isVideo": true,
+   "description": "Lister and Rimmer finally arrive back on earth only to find time is behaving strangely."
+}
+,
+{
+   "title": "RED DWARF: 3-2 Marooned",
+   "shortName": "3-2 Marooned",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/3-2 Marooned.mp4",
+   "length": 1714.06,
+   "isVideo": true,
+   "description": "Lister and Rimmer are stranded on a moon with only a pot noodle and a tin of dog food."
+}
+,
+{
+   "title": "RED DWARF: 3-3 Polymorph",
+   "shortName": "3-3 Polymorph",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/3-3 Polymorph.mp4",
+   "length": 1590.573,
+   "isVideo": true,
+   "description": "A genetic mutant gets loose aboard the ship, leading to 24 hours of gruesome horror."
+}
+,
+{
+   "title": "RED DWARF: 3-4 Bodyswap",
+   "shortName": "3-4 Bodyswap",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/3-4 Bodyswap.mp4",
+   "length": 1603.02,
+   "isVideo": true,
+   "description": "Rimmer convinces Lister that they should swap bodies for a fortnight."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-6 Seek-Locate-Destroy",
+   "shortName": "1-6 Seek-Locate-Destroy",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1- 6 Seek-Locate-Destroy.mp4",
+   "length": 3086.76,
+   "isVideo": true,
+   "description": "Ruthless Supreme Commander Servalan enlists Space Commander Travis to track down and eliminate Blake and his band of freedom fighters."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-7 Mission to Destiny",
+   "shortName": "1-7 Mission to Destiny",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1- 7 Mission to Destiny.mp4",
+   "length": 3068.628,
+   "isVideo": true,
+   "description": "Blake and his crew stumble upon a murder mystery aboard a drifting freighter."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-8 Duel",
+   "shortName": "1-8 Duel",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1- 8 Duel.mp4",
+   "length": 3078.271,
+   "isVideo": true,
+   "description": "Travis hunts down the Liberator and Blake must face his arch-enemy in hand-to-hand combat."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-9 Project Avalon",
+   "shortName": "1-9 Project Avalon",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1- 9 Project Avalon.mp4",
+   "length": 3156.5,
+   "isVideo": true,
+   "description": "Travis holds a resistance leader captive, prompting Blake to launch a rescue mission."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-2 Powerplay",
+   "shortName": "3-2 Powerplay",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3- 2 Powerplay.mp4",
+   "length": 3033.826,
+   "isVideo": true,
+   "description": "As Avon and Vila fight separate battles for survival, each find it difficult to distinguish between friends and enemies."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-3 Volcano",
+   "shortName": "3-3 Volcano",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3- 3 Volcano.mp4",
+   "length": 3098.602,
+   "isVideo": true,
+   "description": "For the Liberator's crew the planet Obsidian offers the prospect of allies and a safe base from which to work."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-4 Dawn of the Gods",
+   "shortName": "3-4 Dawn of the Gods",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3- 4 Dawn of the Gods.mp4",
+   "length": 3054.633,
+   "isVideo": true,
+   "description": "When the Liberator is mysteriously drawn off course it takes the crew vital time to find out why."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-5 The Harvest of Kairos",
+   "shortName": "3-5 The Harvest of Kairos",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3- 5 The Harvest of Kairos.mp4",
+   "length": 3086.62,
+   "isVideo": true,
+   "description": "A mysterious death awaits anyone who remains on the the planet Kairos after the harvest week."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-6 City at the Edge of the World",
+   "shortName": "3-6 City at the Edge of the World",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3- 6 City at the Edge of the World.mp4",
+   "length": 3091.713,
+   "isVideo": true,
+   "description": "In an ancient and deserted city on the planet Keezarn, Vila struggles to open a mysterious vault."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-7 Children of Auron",
+   "shortName": "3-7 Children of Auron",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3- 7 Children of Auron.mp4",
+   "length": 2922.836,
+   "isVideo": true,
+   "description": "When a deadly disease strikes the planet Auron, Cally is summoned to return home to help her people."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-8 Rumours of Death",
+   "shortName": "3-8 Rumours of Death",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3- 8 Rumours of Death.mp4",
+   "length": 3059.6,
+   "isVideo": true,
+   "description": "Avon returns to Earth looking for the Federation torturer who killed the woman he loved."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-9 Sarcophagus",
+   "shortName": "3-9 Sarcophagus",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3- 9 Sarcophagus.mp4",
+   "length": 3108.814,
+   "isVideo": true,
+   "description": "In deep space the Liberator finds an alien ship, drifting and unmanned."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-10 Ultraworld",
+   "shortName": "3-10 Ultraworld",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3-10 Ultraworld.mp4",
+   "length": 2938.806,
+   "isVideo": true,
+   "description": "To the crew of the Liberator the strange artificial planet Ultraworld appears lifeless."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-11 Moloch",
+   "shortName": "3-11 Moloch",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3-11 Moloch.mp4",
+   "length": 3089.6,
+   "isVideo": true,
+   "description": "The planet Sardos holds the secret of almost limitless wealth and power."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-12 Death-Watch",
+   "shortName": "3-12 Death-Watch",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3-12 Death-Watch.mp4",
+   "length": 3062.812,
+   "isVideo": true,
+   "description": "The ritual war fought by two professional champions seems like the ultimate spectator sport."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-13 Terminal",
+   "shortName": "3-13 Terminal",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3-13 Terminal.mp4",
+   "length": 3239.826,
+   "isVideo": true,
+   "description": "Darkness descends over the crew as their original leader Blake seems to be returning."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-1 Rescue",
+   "shortName": "4-1 Rescue",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4- 1 Rescue.mp4",
+   "length": 2991.606,
+   "isVideo": true,
+   "description": "Avon and the crew of the Liberator are struggling to survive on the hostile world of Terminal."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-2 Power",
+   "shortName": "4-2 Power",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4- 2 Power.mp4",
+   "length": 2997.62,
+   "isVideo": true,
+   "description": "Vila discovers that the silo containing Scorpio is impossible to open."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-3 Traitor",
+   "shortName": "4-3 Traitor",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4- 3 Traitor.mp4",
+   "length": 2961.606,
+   "isVideo": true,
+   "description": "Avon needs to know why the Federation are suddenly making such easy territorial gains."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-7 Assassin",
+   "shortName": "4-7 Assassin",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4- 7 Assassin.mp4",
+   "length": 2972.522,
+   "isVideo": true,
+   "description": "Avon and his companions become targets for murder."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-8 Games",
+   "shortName": "4-8 Games",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4- 8 Games.mp4",
+   "length": 2969.773,
+   "isVideo": true,
+   "description": "The planet Mecron is the only source of Feldon, a rare and extremely valuable crystal."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-9 Sand",
+   "shortName": "4-9 Sand",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4- 9 Sand.mp4",
+   "length": 2932.006,
+   "isVideo": true,
+   "description": "The Federation's sudden concern for a long lost expedition to the planet Vim arouses the interest of Avon and his companions."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-10 Gold",
+   "shortName": "4-10 Gold",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4-10 Gold.mp4",
+   "length": 2913.684,
+   "isVideo": true,
+   "description": "Stealing a gold shipment from an undefended pleasure cruiser en route to Earth seems too good an opportunity to miss."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-11 Orbit",
+   "shortName": "4-11 Orbit",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4-11 Orbit.mp4",
+   "length": 2922.72,
+   "isVideo": true,
+   "description": "A renegade Federation scientist makes an interesting offer to Avon."
+}
+,
+{
+   "title": "RED DWARF: 3-5 Timeslides",
+   "shortName": "3-5 Timeslides",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/3-5 Timeslides.mp4",
+   "length": 1663.295,
+   "isVideo": true,
+   "description": "Kryten discovers some developing fluid which prints photographs the crew can walk into."
+}
+,
+{
+   "title": "RED DWARF: 3-6 The Last Day",
+   "shortName": "3-6 The Last Day",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/3-6 The Last Day.mp4",
+   "length": 1637.738,
+   "isVideo": true,
+   "description": "Kryten discovers his in-built expiry date is only 24 hours away."
+}
+,
+{
+   "title": "RED DWARF: 4-1 Camille",
+   "shortName": "4-1 Camille",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/4-1 Camille.mp4",
+   "length": 1602.62,
+   "isVideo": true,
+   "description": "Kryten falls in love at first sight but has his heart broken in the process."
+}
+,
+{
+   "title": "RED DWARF: 4-2 D.N.A.",
+   "shortName": "4-2 D.N.A.",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/4-2 D.N.A..mp4",
+   "length": 1667.604,
+   "isVideo": true,
+   "description": "The crew encounter the ultimate in genetic engineering technology."
+}
+,
+{
+   "title": "RED DWARF: 4-3 Justice",
+   "shortName": "4-3 Justice",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/4-3 Justice.mp4",
+   "length": 1696.393,
+   "isVideo": true,
+   "description": "The crew land up in 'Justice World', where a crime's consequences affect the perpetrator."
+}
+,
+{
+   "title": "RED DWARF: 4-4 White Hole",
+   "shortName": "4-4 White Hole",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/4-4 White Hole.mp4",
+   "length": 1648.506,
+   "isVideo": true,
+   "description": "Holly leaves the crew drifting helplessly towards a white hole."
+}
+,
+{
+   "title": "RED DWARF: 4-5 Dimension Jump",
+   "shortName": "4-5 Dimension Jump",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/4-5 Dimension Jump.mp4",
+   "length": 1720.34,
+   "isVideo": true,
+   "description": "In a parallel universe, an Arnold Rimmer exists who's charming, popular, brave and modest."
+}
+,
+{
+   "title": "RED DWARF: 4-6 Meltdown",
+   "shortName": "4-6 Meltdown",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/4-6 Meltdown.mp4",
+   "length": 1583.06,
+   "isVideo": true,
+   "description": "A transporter whisks the crew to 'Waxworld' - a theme park where things are going wrong."
+}
+,
+{
+   "title": "RED DWARF: 5-1 Holoship",
+   "shortName": "5-1 Holoship",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/5-1 Holoship.mp4",
+   "length": 1671.213,
+   "isVideo": true,
+   "description": "Rimmer is transmitted from Red Dwarf to the advanced holoship Enlightenment."
+}
+,
+{
+   "title": "RED DWARF: 5-2 The Inquisitor",
+   "shortName": "5-2 The Inquisitor",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/5-2 The Inquisitor.mp4",
+   "length": 1691.78,
+   "isVideo": true,
+   "description": "The Inquisitor roams through time, weeding out life's wastrels and deleting the worthless."
+}
+,
+{
+   "title": "RED DWARF: 5-3 Terrorform",
+   "shortName": "5-3 Terrorform",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/5-3 Terrorform.mp4",
+   "length": 1627.46,
+   "isVideo": true,
+   "description": "Rimmer is taken prisoner in his own mind."
+}
+,
+{
+   "title": "RED DWARF: 5-4 Quarantine",
+   "shortName": "5-4 Quarantine",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/5-4 Quarantine.mp4",
+   "length": 1697.686,
+   "isVideo": true,
+   "description": "Rimmer forces the crew to spend 12 weeks in quarantine."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-12 Warlord",
+   "shortName": "4-12 Warlord",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4-12 Warlord.mp4",
+   "length": 2952.682,
+   "isVideo": true,
+   "description": "Avon calls a meeting on Xenon between the five most powerful factions resisting the Federation."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-13 Blake",
+   "shortName": "4-13 Blake",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4-13 Blake.mp4",
+   "length": 2983.7,
+   "isVideo": true,
+   "description": "The crew think they are going to be able to run away from the Federation, but Avon has other ideas, and sets off to find Blake."
+}
+,
+{
+   "title": "BLAKE'S-7: A-1 The Way Back",
+   "shortName": "A-1 The Way Back",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A- 1 The Way Back.mp4",
+   "length": 2951.018,
+   "isVideo": true,
+   "description": "Roj Blake discovers shocking secrets about his past, pitting him against the tyrannical Federation."
+}
+,
+{
+   "title": "BLAKE'S-7: A-2 Space Fall",
+   "shortName": "A-2 Space Fall",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A- 2 Space Fall.mp4",
+   "length": 3134.868,
+   "isVideo": true,
+   "description": "Aboard a prison colony transport, Blake meets future comrades and encounters a mysterious space vessel that could liberate Earth from the grip of the Federation."
+}
+,
+{
+   "title": "BLAKE'S-7: A-3 Cygnus Alpha",
+   "shortName": "A-3 Cygnus Alpha",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A- 3 Cygnus Alpha.mp4",
+   "length": 3118.42,
+   "isVideo": true,
+   "description": "Blake and his crew uncover more of the Liberator's secrets, then follow the prison ship to Cygnus Alpha to mount a bold rescue mission."
+}
+,
+{
+   "title": "BLAKE'S-7: A-4 Time Squad",
+   "shortName": "A-4 Time Squad",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A- 4 Time Squad.mp4",
+   "length": 3090.431,
+   "isVideo": true,
+   "description": "Blake plans his first strike against the Federation, recruiting an extra crew member in the process."
+}
+,
+{
+   "title": "BLAKE'S-7: A-5 The Web",
+   "shortName": "A-5 The Web",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A- 5 The Web.mp4",
+   "length": 2985.428,
+   "isVideo": true,
+   "description": "Inhabitants of an uncharted world threaten the lives of the Liberator crew."
+}
+,
+{
+   "title": "BLAKE'S-7: A-6 Seek-Locate-Destroy",
+   "shortName": "A-6 Seek-Locate-Destroy",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A- 6 Seek-Locate-Destroy.mp4",
+   "length": 3086.76,
+   "isVideo": true,
+   "description": "Ruthless Supreme Commander Servalan enlists Space Commander Travis to track down and eliminate Blake and his band of freedom fighters."
+}
+,
+{
+   "title": "BLAKE'S-7: A-7 Mission to Destiny",
+   "shortName": "A-7 Mission to Destiny",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A- 7 Mission to Destiny.mp4",
+   "length": 3068.628,
+   "isVideo": true,
+   "description": "Blake and his crew stumble upon a murder mystery aboard a drifting freighter."
+}
+,
+{
+   "title": "BLAKE'S-7: A-8 Duel",
+   "shortName": "A-8 Duel",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A- 8 Duel.mp4",
+   "length": 3078.271,
+   "isVideo": true,
+   "description": "Travis hunts down the Liberator and Blake must face his arch-enemy in hand-to-hand combat."
+}
+,
+{
+   "title": "BLAKE'S-7: A-9 Project Avalon",
+   "shortName": "A-9 Project Avalon",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A- 9 Project Avalon.mp4",
+   "length": 3156.5,
+   "isVideo": true,
+   "description": "Travis holds a resistance leader captive, prompting Blake to launch a rescue mission."
+}
+,
+{
+   "title": "BLAKE'S-7: A-10 Breakdown",
+   "shortName": "A-10 Breakdown",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A-10 Breakdown.mp4",
+   "length": 3088.298,
+   "isVideo": true,
+   "description": "The behavioural limiter implanted in Gan's brain begins to malfunction, threatening the lives of everyone aboard the Liberator."
+}
+,
+{
+   "title": "BLAKE'S-7: A-11 Bounty",
+   "shortName": "A-11 Bounty",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A-11 Bounty.mp4",
+   "length": 3123.903,
+   "isVideo": true,
+   "description": "While Blake attemps to prevent a civil war, a bounty hunter takes control of the Liberator to deliver its crew to the Federation."
+}
+,
+{
+   "title": "BLAKE'S-7: A-12 Deliverance",
+   "shortName": "A-12 Deliverance",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/A-12 Deliverance.mp4",
+   "length": 2957.226,
+   "isVideo": true,
+   "description": "Stranded on an alien planet, Avon, Vila and Gan discover an ancient space capsule, while Blake discovers that the Federation are hunting for a device called Orac."
+}
+,
+{
+   "title": "GONE FISHING: 1-1",
+   "shortName": "1-1",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/1-1.mp4",
+   "length": 1755.086,
+   "isVideo": true,
+   "description": "Paul and Bob fish for tench in Norfolk and reminisce about their childhood days."
+}
+,
+{
+   "title": "GONE FISHING: 1-2",
+   "shortName": "1-2",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/1-2.mp4",
+   "length": 1729.046,
+   "isVideo": true,
+   "description": "Paul and Bob fish for the mighty Barbel in Hay-on-Wye and discuss mortality with a vicar."
+}
+,
+{
+   "title": "GONE FISHING: 1-3",
+   "shortName": "1-3",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/1-3.mp4",
+   "length": 1755.073,
+   "isVideo": true,
+   "description": "In the beautiful Monsal Valley, Paul teaches Bob how to fly-fish for wild rainbow trout."
+}
+,
+{
+   "title": "GONE FISHING: 1-4",
+   "shortName": "1-4",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/1-4.mp4",
+   "length": 1755.093,
+   "isVideo": true,
+   "description": "Bob has a plan to help Paul recapture his youth."
+}
+,
+{
+   "title": "GONE FISHING: 1-5",
+   "shortName": "1-5",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/1-5.mp4",
+   "length": 1753.06,
+   "isVideo": true,
+   "description": "Paul fishes at the Bridge Pool near Christchurch in Dorset, hoping to catch sea trout."
+}
+,
+{
+   "title": "GONE FISHING: 1-6",
+   "shortName": "1-6",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/1-6.mp4",
+   "length": 1753.066,
+   "isVideo": true,
+   "description": "Paul and Bob try and catch a legendary pike and write a eulogy for each other."
+}
+,
+{
+   "title": "GONE FISHING: 2-1",
+   "shortName": "2-1",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/2-1.mp4",
+   "length": 1739.073,
+   "isVideo": true,
+   "description": "Paul and Bob travel to the River Usk in Wales, where Paul's father taught him to fish."
+}
+,
+{
+   "title": "GONE FISHING: 2-2",
+   "shortName": "2-2",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/2-2.mp4",
+   "length": 1745.08,
+   "isVideo": true,
+   "description": "Paul and Bob brave the wild lakes of Essex in search of the mighty carp."
+}
+,
+{
+   "title": "GONE FISHING: 2-3",
+   "shortName": "2-3",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/2-3.mp4",
+   "length": 1740.093,
+   "isVideo": true,
+   "description": "Bob has harboured a childhood dream to catch a salmon, so they set off for the River Tay."
+}
+,
+{
+   "title": "GONE FISHING: 2-4",
+   "shortName": "2-4",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/2-4.mp4",
+   "length": 1740.093,
+   "isVideo": true,
+   "description": "At the Upper Tamar Lakes, Paul and Bob fish for the predatory perch."
+}
+,
+{
+   "title": "GONE FISHING: 2-5",
+   "shortName": "2-5",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/2-5.mp4",
+   "length": 1746.08,
+   "isVideo": true,
+   "description": "Paul and Bob fly to Enniskillen to fish for pike."
+}
+,
+{
+   "title": "GONE FISHING: 2-6",
+   "shortName": "2-6",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/2-6.mp4",
+   "length": 1751.086,
+   "isVideo": true,
+   "description": "Paul and Bob fish for grayling and meet the surgeon who performed Bob's heart bypass."
+}
+,
+{
+   "title": "GONE FISHING: 2020 Christmas Special",
+   "shortName": "2020 Christmas Special",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/2020 Christmas Special.mp4",
+   "length": 3540.06,
+   "isVideo": true,
+   "description": "Bob Mortimer and Paul Whitehouse return to Bob's childhood home of Middlesbrough."
+}
+,
+{
+   "title": "GONE FISHING: 2021 Christmas Special",
+   "shortName": "2021 Christmas Special",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/2021 Christmas Special.mp4",
+   "length": 3544.04,
+   "isVideo": true,
+   "description": "Paul, Bob and Ted the dog travel to the north of England on a quest for an English salmon."
+}
+,
+{
+   "title": "GONE FISHING: 2022 Christmas Special",
+   "shortName": "2022 Christmas Special",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/2022 Christmas Special.mp4",
+   "length": 3553.04,
+   "isVideo": true,
+   "description": "Bob and Paul travel overseas to Norway for their most spectacular fishing adventure yet."
+}
+,
+{
+   "title": "GONE FISHING: 2023 Hogmanay Special",
+   "shortName": "2023 Hogmanay Special",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/2023 Hogmanay Special.mp4",
+   "length": 3554.36,
+   "isVideo": true,
+   "description": "Bob, Paul and Ted travel to Scotland to celebrate Hogmanay in spectacular style."
+}
+,
+{
+   "title": "GONE FISHING: 2024 Christmas Special",
+   "shortName": "2024 Christmas Special",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/2024 Christmas Special.mp4",
+   "length": 3561.04,
+   "isVideo": true,
+   "description": "To celebrate another year of fishing, Paul and Bob visit the River Lot in France."
+}
+,
+{
+   "title": "GONE FISHING: 2025 Christmas Special",
+   "shortName": "2025 Christmas Special",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/2025 Christmas Special.mp4",
+   "length": 3553.673,
+   "isVideo": true,
+   "description": "Bob, Paul and Ted visit Devon and Cornwall for their festive treat and meet Dawn French."
+}
+,
+{
+   "title": "GONE FISHING: 3-1",
+   "shortName": "3-1",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/3-1.mp4",
+   "length": 1744.066,
+   "isVideo": true,
+   "description": "Paul and Bob visit the River Tweed in Scotland to continue their quest to catch a salmon."
+}
+,
+{
+   "title": "GONE FISHING: 3-2",
+   "shortName": "3-2",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/3-2.mp4",
+   "length": 1746.08,
+   "isVideo": true,
+   "description": "Paul takes Bob to Hertfordshire's River Lea, where Paul fished as a teenager."
+}
+,
+{
+   "title": "GONE FISHING: 3-3",
+   "shortName": "3-3",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/3-3.mp4",
+   "length": 1750.08,
+   "isVideo": true,
+   "description": "Paul and Bob visit Norfolk to go lake fishing for what they hope will be a monster pike."
+}
+,
+{
+   "title": "GONE FISHING: 3-4",
+   "shortName": "3-4",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/3-4.mp4",
+   "length": 1749.073,
+   "isVideo": true,
+   "description": "Paul and Bob fish for brown trout on the beautiful River Test in Hampshire."
+}
+,
+{
+   "title": "GONE FISHING: 3-5",
+   "shortName": "3-5",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/3-5.mp4",
+   "length": 1750.08,
+   "isVideo": true,
+   "description": "Paul and Bob go lake fishing in Wiltshire for the shy and elusive crucian carp."
+}
+,
+{
+   "title": "BLAKE'S-7: Deliverance '98 (Part 1)",
+   "shortName": "Deliverance '98 (Part 1)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Deliverance '98 (Part 1).mp4",
+   "length": 3556.01,
+   "isVideo": true,
+   "description": "With Gareth Thomas, Sally Knyvette, David Jackson and Peter Tuddenham."
+}
+,
+{
+   "title": "BLAKE'S-7: Deliverance '98 (Part 2)",
+   "shortName": "Deliverance '98 (Part 2)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Deliverance '98 (Part 2).mp4",
+   "length": 3682.41,
+   "isVideo": true,
+   "description": "With Gareth Thomas, David Jackson, Michael Keating, Peter Tuddenham and Stephen Greif."
+}
+,
+{
+   "title": "BLAKE'S-7: Deliverance '98 (Part 3)",
+   "shortName": "Deliverance '98 (Part 3)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Deliverance '98 (Part 3).mp4",
+   "length": 3896.063,
+   "isVideo": true,
+   "description": "With David Maloney, stuntman Stuart Fell and studio lighting designer Brian Clemett."
+}
+,
+{
+   "title": "BLAKE'S-7: Deliverance '98 (Part 4)",
+   "shortName": "Deliverance '98 (Part 4)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Deliverance '98 (Part 4).mp4",
+   "length": 1142.015,
+   "isVideo": true,
+   "description": "Gareth Thomas, Michael Keating, David Maloney and make-up designer Sheelagh Wells pay tribute to creator Terry Nation."
+}
+,
+{
+   "title": "BLAKE'S-7: Deliverance '98 (Part 5)",
+   "shortName": "Deliverance '98 (Part 5)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Deliverance '98 (Part 5).mp4",
+   "length": 3169.663,
+   "isVideo": true,
+   "description": "With Jacqueline Pearce, Sally Kynvette and Jan Chappell."
+}
+,
+{
+   "title": "BLAKE'S-7: Gambit (Commentary)",
+   "shortName": "Gambit (Commentary)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Gambit (Commentary).mp4",
+   "length": 3114.077,
+   "isVideo": true,
+   "description": "With Jacqueline Pearce, Michael Keating, Brian Croucher and David Maloney."
+}
+,
+{
+   "title": "BLAKE'S-7: Horizon (Commentary)",
+   "shortName": "Horizon (Commentary)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Horizon (Commentary).mp4",
+   "length": 3031.285,
+   "isVideo": true,
+   "description": "With Sally Knyvette and Brian Miller."
+}
+,
+{
+   "title": "BLAKE'S-7: Jacqueline Pearce Tribute",
+   "shortName": "Jacqueline Pearce Tribute",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Jacqueline Pearce Tribute.mp4",
+   "length": 4696.66,
+   "isVideo": true,
+   "description": "An in-depth look at the life and career of the iconic Servalan actress."
+}
+,
+{
+   "title": "BLAKE'S-7: Liberation (Series 1)",
+   "shortName": "Liberation (Series 1)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Liberation (Series 1).mp4",
+   "length": 5078.015,
+   "isVideo": true,
+   "description": "Actors Sally Knyvette and Jan Chappell meet to reminisce about making the first series."
+}
+,
+{
+   "title": "BLAKE'S-7: Liberation (Series 2)",
+   "shortName": "Liberation (Series 2)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Liberation (Series 2).mp4",
+   "length": 6742.655,
+   "isVideo": true,
+   "description": "Actors Sally Kynvette and Jan Chappell meet to look back on Series 2 with contributions from cast and crew."
+}
+,
+{
+   "title": "BLAKE'S-7: Michael E Briant in Conversation",
+   "shortName": "Michael E Briant in Conversation",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Michael E Briant in Conversation.mp4",
+   "length": 5290.026,
+   "isVideo": true,
+   "description": "The prolific director discusses his life, career and sci-fi work."
+}
+,
+{
+   "title": "BLAKE'S-7: Project Avalon (Commentary)",
+   "shortName": "Project Avalon (Commentary)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Project Avalon (Commentary).mp4",
+   "length": 3156.5,
+   "isVideo": true,
+   "description": "With Jacqueline Pearce, Stephen Greif and Sally Knyvette."
+}
+,
+{
+   "title": "BLAKE'S-7: Redemption (Commentary)",
+   "shortName": "Redemption (Commentary)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Redemption (Commentary).mp4",
+   "length": 2983.053,
+   "isVideo": true,
+   "description": "With Sally Knyvette and Mat Irvine."
+}
+,
+{
+   "title": "BLAKE'S-7: Roger Murray-Leach in Conversation",
+   "shortName": "Roger Murray-Leach in Conversation",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Roger Murray-Leach in Conversation.mp4",
+   "length": 4767.06,
+   "isVideo": true,
+   "description": "Matthew Sweet chats to designer Roger Murray-Leach."
+}
+,
+{
+   "title": "BLAKE'S-7: Sally Knyvette in Conversation",
+   "shortName": "Sally Knyvette in Conversation",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Sally Knyvette in Conversation.mp4",
+   "length": 4696.02,
+   "isVideo": true,
+   "description": "Matthew Sweet chats to Sally about her life, career and Blake's 7."
+}
+,
+{
+   "title": "BLAKE'S-7: Seek-Locate-Destroy (Commentary)",
+   "shortName": "Seek-Locate-Destroy (Commentary)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Seek-Locate-Destroy (Commentary).mp4",
+   "length": 3086.76,
+   "isVideo": true,
+   "description": "With Michael Keating, Jacqueline Pearce and Stephen Greif."
+}
+,
+{
+   "title": "BLAKE'S-7: Shadow (Commentary)",
+   "shortName": "Shadow (Commentary)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Shadow (Commentary).mp4",
+   "length": 3035.44,
+   "isVideo": true,
+   "description": "With Jan Chappell and Sally Knyvette."
+}
+,
+{
+   "title": "BLAKE'S-7: Space Fall (Commentary)",
+   "shortName": "Space Fall (Commentary)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Space Fall (Commentary).mp4",
+   "length": 3134.868,
+   "isVideo": true,
+   "description": "With Sally Knyvette, Michael Keating and producer David Maloney."
+}
+,
+{
+   "title": "BLAKE'S-7: Star One (Commentary)",
+   "shortName": "Star One (Commentary)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Star One (Commentary).mp4",
+   "length": 2906.474,
+   "isVideo": true,
+   "description": "With Sally Knyvette, Brian Croucher and Matt Irvine."
+}
+,
+{
+   "title": "BLAKE'S-7: Stephen Greif Tribute",
+   "shortName": "Stephen Greif Tribute",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Stephen Greif Tribute.mp4",
+   "length": 2086.015,
+   "isVideo": true,
+   "description": "Friends and colleagues reminisce about the actor who first played Space Commander Travis."
+}
+,
+{
+   "title": "BLAKE'S-7: Tellycon Convention Panel",
+   "shortName": "Tellycon Convention Panel",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Tellycon Convention Panel.mp4",
+   "length": 2862.058,
+   "isVideo": true,
+   "description": "From 23rd July 1988 with Brian Croucher."
+}
+,
+{
+   "title": "BLAKE'S-7: The Keeper (Commentary)",
+   "shortName": "The Keeper (Commentary)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/The Keeper (Commentary).mp4",
+   "length": 3081.904,
+   "isVideo": true,
+   "description": "With Sally Knyvette and Brian Croucher."
+}
+,
+{
+   "title": "BLAKE'S-7: The Making of Blake's-7 (Part 1)",
+   "shortName": "The Making of Blake's-7 (Part 1)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/The Making of Blake's-7 (Part 1).mp4",
+   "length": 2513.023,
+   "isVideo": true,
+   "description": "Part 1 of an unreleased documentary originally slated for release in the 1990's, featuring a comprehensive look back at Series 1."
+}
+,
+{
+   "title": "BLAKE'S-7: The Making of Blake's-7 (Part 2)",
+   "shortName": "The Making of Blake's-7 (Part 2)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/The Making of Blake's-7 (Part 2).mp4",
+   "length": 3561.066,
+   "isVideo": true,
+   "description": "Part 2 of this unreleased archival documentary featuring rare interviews with cast and crew."
+}
+,
+{
+   "title": "BLAKE'S-7: Trial (Commentary)",
+   "shortName": "Trial (Commentary)",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Trial (Commentary).mp4",
+   "length": 3086.376,
+   "isVideo": true,
+   "description": "With Jan Chappell, Brian Croucher, David Maloney and Chris Boucher."
+}
+,
+{
+   "title": "RED DWARF: 1-1 The End",
+   "shortName": "1-1 The End",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/1-1 The End.mp4",
+   "length": 1800.06,
+   "isVideo": true,
+   "description": "Red Dwarf is a mining ship with a crew of 169."
+}
+,
+{
+   "title": "RED DWARF: 1-2 Future Echoes",
+   "shortName": "1-2 Future Echoes",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/1-2 Future Echoes.mp4",
+   "length": 1729.973,
+   "isVideo": true,
+   "description": "Red Dwarf breaks the light barrier and Rimmer sees a death in the future."
+}
+,
+{
+   "title": "RED DWARF: 1-3 Balance of Power",
+   "shortName": "1-3 Balance of Power",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/1-3 Balance of Power.mp4",
+   "length": 1788.095,
+   "isVideo": true,
+   "description": "Cult space comedy series."
+}
+,
+{
+   "title": "BLAKE'S-7: B-13 Star One",
+   "shortName": "B-13 Star One",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/B-13 Star One.mp4",
+   "length": 2907.028,
+   "isVideo": true,
+   "description": "The Liberator crew converge on Star One, where they uncover a terrible truth."
+}
+,
+{
+   "title": "BLAKE'S-7: Cast Introductions",
+   "shortName": "Cast Introductions",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/Cast Introductions.mp4",
+   "length": 1301.631,
+   "isVideo": true,
+   "description": "A look at some of the key characters from the series; Blake, Jenna, Avon, Vila, Gan and Zen."
+}
+,
+{
+   "title": "BLAKE'S-7: David Jackson Tribute",
+   "shortName": "David Jackson Tribute",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/David Jackson Tribute.mp4",
+   "length": 2807.658,
+   "isVideo": true,
+   "description": "Friends and colleagues remember the actor who played Gan."
+}
+,
+{
+   "title": "RED DWARF: 1-4 Waiting for God",
+   "shortName": "1-4 Waiting for God",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/1-4 Waiting for God.mp4",
+   "length": 1708.953,
+   "isVideo": true,
+   "description": "Lister 'learns' Cat writing and discovers some startling facts."
+}
+,
+{
+   "title": "RED DWARF: 1-5 Confidence and Paranoia",
+   "shortName": "1-5 Confidence and Paranoia",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/1-5 Confidence and Paranoia.mp4",
+   "length": 1778.047,
+   "isVideo": true,
+   "description": "Lister contracts a mutated form of pneumonia - and his hallucinations turn solid."
+}
+,
+{
+   "title": "RED DWARF: 1-6 Me Squared",
+   "shortName": "1-6 Me Squared",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/1-6 Me Squared.mp4",
+   "length": 1764.053,
+   "isVideo": true,
+   "description": "Rimmer has discovered how to make a duplicate and moves in with himself."
+}
+,
+{
+   "title": "RED DWARF: 2-1 Kryten",
+   "shortName": "2-1 Kryten",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/2-1 Kryten.mp4",
+   "length": 1695.06,
+   "isVideo": true,
+   "description": "Things are fine aboard crashed spaceship Nova 5 until Red Dwarf answers its distress call."
+}
+,
+{
+   "title": "RED DWARF: 2-2 Better than Life",
+   "shortName": "2-2 Better than Life",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/2-2 Better than Life.mp4",
+   "length": 1767.06,
+   "isVideo": true,
+   "description": "Rimmer and Lister find a computer game which plugs directly into the brain."
+}
+,
+{
+   "title": "RED DWARF: 2-3 Thanks for the Memory",
+   "shortName": "2-3 Thanks for the Memory",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/2-3 Thanks for the Memory.mp4",
+   "length": 1703.06,
+   "isVideo": true,
+   "description": "Someone's erased four days of the crew's memory, broken Lister's leg and done the jigsaw."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-13 Star One",
+   "shortName": "2-13 Star One",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2-13 Star One.mp4",
+   "length": 2907.028,
+   "isVideo": true,
+   "description": "The Liberator crew converge on Star One, where they uncover a terrible truth."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-1 Aftermath",
+   "shortName": "3-1 Aftermath",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/3- 1 Aftermath.mp4",
+   "length": 3106.613,
+   "isVideo": true,
+   "description": "In a desperate attempt to delay the invading aliens until the Federation battle fleet arrive, Blake has sacrificed the Liberator."
+}
+,
+{
+   "title": "GONE FISHING: 3-6",
+   "shortName": "3-6",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/3-6.mp4",
+   "length": 1746.093,
+   "isVideo": true,
+   "description": "Bob and Paul return to the River Wye, Bob's favourite river, to fish for chub."
+}
+,
+{
+   "title": "GONE FISHING: 4-1",
+   "shortName": "4-1",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/4-1.mp4",
+   "length": 1754.073,
+   "isVideo": true,
+   "description": "Paul and Bob travel to the remote island of North Uist in the Outer Hebrides."
+}
+,
+{
+   "title": "GONE FISHING: 4-2",
+   "shortName": "4-2",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/4-2.mp4",
+   "length": 1755.053,
+   "isVideo": true,
+   "description": "Paul and Bob fish in the private and tranquil lake at Burghley House."
+}
+,
+{
+   "title": "GONE FISHING: 4-3",
+   "shortName": "4-3",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/4-3.mp4",
+   "length": 1749.055,
+   "isVideo": true,
+   "description": "Paul and Bob visit the Lake District, where Bob spent much of his teenage years."
+}
+,
+{
+   "title": "GONE FISHING: 4-4",
+   "shortName": "4-4",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/4-4.mp4",
+   "length": 1750.058,
+   "isVideo": true,
+   "description": "Paul and Bob take a boat trip on the Norfolk Broads."
+}
+,
+{
+   "title": "GONE FISHING: 4-5",
+   "shortName": "4-5",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/4-5.mp4",
+   "length": 1749.055,
+   "isVideo": true,
+   "description": "Paul and Bob visit picturesque Mid Wales in search of wild carp."
+}
+,
+{
+   "title": "GONE FISHING: 4-6",
+   "shortName": "4-6",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/4-6.mp4",
+   "length": 1734.06,
+   "isVideo": true,
+   "description": "Paul and Bob visit the River Severn in search of the elusive zander."
+}
+,
+{
+   "title": "GONE FISHING: 5-1",
+   "shortName": "5-1",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/5-1.mp4",
+   "length": 1747.073,
+   "isVideo": true,
+   "description": "Bob and Paul visit the River Exe in Devon, where they fish for summer grilse."
+}
+,
+{
+   "title": "GONE FISHING: 5-2",
+   "shortName": "5-2",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/5-2.mp4",
+   "length": 1754.06,
+   "isVideo": true,
+   "description": "Paul, Bob and terrier Ted travel to the River Dee in north Wales to fish for grayling."
+}
+,
+{
+   "title": "GONE FISHING: 5-3",
+   "shortName": "5-3",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/5-3.mp4",
+   "length": 1741.066,
+   "isVideo": true,
+   "description": "Paul and Bob take the sleeper train to Scotland in a quest for ferox trout."
+}
+,
+{
+   "title": "GONE FISHING: 5-4",
+   "shortName": "5-4",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/5-4.mp4",
+   "length": 1754.066,
+   "isVideo": true,
+   "description": "Paul and Bob fish Old Father Thames on their quest for perch."
+}
+,
+{
+   "title": "GONE FISHING: 5-5",
+   "shortName": "5-5",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/5-5.mp4",
+   "length": 1730.047,
+   "isVideo": true,
+   "description": "Paul and Bob travel to the serene Surrey Hills to fish for carp and barbel."
+}
+,
+{
+   "title": "GONE FISHING: 5-6",
+   "shortName": "5-6",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/5-6.mp4",
+   "length": 1736.046,
+   "isVideo": true,
+   "description": "Paul and Bob venture to southern Ireland to fish the mighty Lough Corrib."
+}
+,
+{
+   "title": "GONE FISHING: 6-1",
+   "shortName": "6-1",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/6-1.mp4",
+   "length": 1753.066,
+   "isVideo": true,
+   "description": "Paul and Bob visit Wales to fish for chub and meet the founder of charity Tackling Minds."
+}
+,
+{
+   "title": "GONE FISHING: 6-2",
+   "shortName": "6-2",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/6-2.mp4",
+   "length": 1753.046,
+   "isVideo": true,
+   "description": "Paul and Bob head to a hidden lake in Dumfries and Galloway in search of a big pike."
+}
+,
+{
+   "title": "GONE FISHING: 6-3",
+   "shortName": "6-3",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/6-3.mp4",
+   "length": 1752.073,
+   "isVideo": true,
+   "description": "Paul and Bob fish the autumnal Hampshire Avon for roach, dace and river carp."
+}
+,
+{
+   "title": "GONE FISHING: 6-4",
+   "shortName": "6-4",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/6-4.mp4",
+   "length": 1750.06,
+   "isVideo": true,
+   "description": "Paul and Bob venture to Sutton Lake in Shropshire to fish for crucian carp."
+}
+,
+{
+   "title": "GONE FISHING: 6-5",
+   "shortName": "6-5",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/6-5.mp4",
+   "length": 1743.06,
+   "isVideo": true,
+   "description": "A very special surprise awaits Paul and terrier Ted on Burgh Island, south Devon."
+}
+,
+{
+   "title": "GONE FISHING: 6-6",
+   "shortName": "6-6",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/6-6.mp4",
+   "length": 1749.055,
+   "isVideo": true,
+   "description": "Paul and Bob return to the Peak District, this time with Ted."
+}
+,
+{
+   "title": "GONE FISHING: 7-1",
+   "shortName": "7-1",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/7-1.mp4",
+   "length": 1752.906,
+   "isVideo": true,
+   "description": "Bob, Paul and Ted travel to hidden lakes in Norfolk to fish for tench."
+}
+,
+{
+   "title": "GONE FISHING: 7-2",
+   "shortName": "7-2",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/7-2.mp4",
+   "length": 1733.186,
+   "isVideo": true,
+   "description": "Bob and Paul travel to County Donegal and County Tyrone to catch an Irish salmon."
+}
+,
+{
+   "title": "GONE FISHING: 7-3",
+   "shortName": "7-3",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/7-3.mp4",
+   "length": 1754.026,
+   "isVideo": true,
+   "description": "Paul, Bob and Ted travel to the historic fishing spot of Driffield Beck in East Yorkshire."
+}
+,
+{
+   "title": "GONE FISHING: 7-4",
+   "shortName": "7-4",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/7-4.mp4",
+   "length": 1753.346,
+   "isVideo": true,
+   "description": "Paul and Bob fish the mighty River Trent for the barbel and welcome a very special guest."
+}
+,
+{
+   "title": "GONE FISHING: 7-5",
+   "shortName": "7-5",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/7-5.mp4",
+   "length": 1753.364,
+   "isVideo": true,
+   "description": "Paul, Bob and Ted brave the elements to go sea fishing at Blakeney Point in North Norfolk."
+}
+,
+{
+   "title": "GONE FISHING: 7-6",
+   "shortName": "7-6",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/7-6.mp4",
+   "length": 1739.007,
+   "isVideo": true,
+   "description": "Paul, Bob and Ted travel to Bedfordshire to fish the River Ouse in the summer sunshine."
+}
+,
+{
+   "title": "GONE FISHING: 7-7",
+   "shortName": "7-7",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/7-7.mp4",
+   "length": 1750.804,
+   "isVideo": true,
+   "description": "Paul, Bob and Ted take the short trip to Epping in Essex to fish for rudd."
+}
+,
+{
+   "title": "GONE FISHING: 7-8",
+   "shortName": "7-8",
+   "urlLocal": "media/channel-3/../Core/Gone Fishing/7-8.mp4",
+   "length": 1753.693,
+   "isVideo": true,
+   "description": "Paul, Bob and Ted travel to the River Frome and try mackerel fishing on Chesil Beach."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-3 Cygnus Alpha",
+   "shortName": "1-3 Cygnus Alpha",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1- 3 Cygnus Alpha.mp4",
+   "length": 3118.42,
+   "isVideo": true,
+   "description": "Blake and his crew uncover more of the Liberator's secrets, then follow the prison ship to Cygnus Alpha to mount a bold rescue mission."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-4 Time Squad",
+   "shortName": "1-4 Time Squad",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1- 4 Time Squad.mp4",
+   "length": 3090.431,
+   "isVideo": true,
+   "description": "Blake plans his first strike against the Federation, recruiting an extra crew member in the process."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-5 The Web",
+   "shortName": "1-5 The Web",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1- 5 The Web.mp4",
+   "length": 2985.428,
+   "isVideo": true,
+   "description": "Inhabitants of an uncharted world threaten the lives of the Liberator crew."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-10 Breakdown",
+   "shortName": "1-10 Breakdown",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1-10 Breakdown.mp4",
+   "length": 3088.298,
+   "isVideo": true,
+   "description": "The behavioural limiter implanted in Gan's brain begins to malfunction, threatening the lives of everyone aboard the Liberator."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-11 Bounty",
+   "shortName": "1-11 Bounty",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1-11 Bounty.mp4",
+   "length": 3123.903,
+   "isVideo": true,
+   "description": "While Blake attemps to prevent a civil war, a bounty hunter takes control of the Liberator to deliver its crew to the Federation."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-12 Deliverance",
+   "shortName": "1-12 Deliverance",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1-12 Deliverance.mp4",
+   "length": 2957.226,
+   "isVideo": true,
+   "description": "Stranded on an alien planet, Avon, Vila and Gan discover an ancient space capsule, while Blake discovers that the Federation are hunting for a device called Orac."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-13 Orac",
+   "shortName": "1-13 Orac",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/1-13 Orac.mp4",
+   "length": 3113.834,
+   "isVideo": true,
+   "description": "The Liberator crew converge on the planet Aristo to find the mysterious Orac, but Servalon and Travis are also on its trail."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-1 Redemption",
+   "shortName": "2-1 Redemption",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2- 1 Redemption.mp4",
+   "length": 2983.615,
+   "isVideo": true,
+   "description": "The Liberator comes under attack from a powerful alien force."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-2 Shadow",
+   "shortName": "2-2 Shadow",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2- 2 Shadow.mp4",
+   "length": 3036.031,
+   "isVideo": true,
+   "description": "Blake and his crew must locate the source of the drug 'Shadow'."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-3 Weapon",
+   "shortName": "2-3 Weapon",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2- 3 Weapon.mp4",
+   "length": 3107.028,
+   "isVideo": true,
+   "description": "Servalan locates a powerful new weapon that marks Blake and his crew for elimination at her leisure."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-4 Horizon",
+   "shortName": "2-4 Horizon",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2- 4 Horizon.mp4",
+   "length": 3032.02,
+   "isVideo": true,
+   "description": "On the mysterious planet Horizon, Blake finds a secret mining operation."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-5 Pressure Point",
+   "shortName": "2-5 Pressure Point",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2- 5 Pressure Point.mp4",
+   "length": 2970.026,
+   "isVideo": true,
+   "description": "Blake intends to make a devastating strike at the heart of the Federation, but at what cost ?"
+}
+,
+{
+   "title": "BLAKE'S-7: 2-6 Trial",
+   "shortName": "2-6 Trial",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2- 6 Trial.mp4",
+   "length": 3087.018,
+   "isVideo": true,
+   "description": "Servalan seeks to have Travis killed, while Avon tries to persuade the crew to abandon Blake for good."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-7 Killer",
+   "shortName": "2-7 Killer",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2- 7 Killer.mp4",
+   "length": 3076.031,
+   "isVideo": true,
+   "description": "Avon and Vila break into a Federation stronghold to find a crystal that can decrypt enemy pulse-codes."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-8 Hostage",
+   "shortName": "2-8 Hostage",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2- 8 Hostage.mp4",
+   "length": 3069.823,
+   "isVideo": true,
+   "description": "Travis kidnaps Blake's cousin and lures Blake and his crew into a trap."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-9 Countdown",
+   "shortName": "2-9 Countdown",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2- 9 Countdown.mp4",
+   "length": 3070.015,
+   "isVideo": true,
+   "description": "Seeking the secret location of Federation Control, Blake travels to the planet Albion to capture a Space Major who may provide answers."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-10 Voice from the Past",
+   "shortName": "2-10 Voice from the Past",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2-10 Voice from the Past.mp4",
+   "length": 2920.02,
+   "isVideo": true,
+   "description": "A resistance group claim to have enough evidence to overthrow the Federation, but what are their real motives?"
+}
+,
+{
+   "title": "BLAKE'S-7: 2-11 Gambit",
+   "shortName": "2-11 Gambit",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2-11 Gambit.mp4",
+   "length": 3115.028,
+   "isVideo": true,
+   "description": "Blake and his crew travel to Freedom City to find a cyber-surgeon who may hold the key to the location of Star One."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-12 The Keeper",
+   "shortName": "2-12 The Keeper",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/2-12 The Keeper.mp4",
+   "length": 3082.623,
+   "isVideo": true,
+   "description": "The race to find Star One continues, as Blake heads to the planet Goth to find a royal leader called 'The Keeper'."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-4 Stardrive",
+   "shortName": "4-4 Stardrive",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4- 4 Stardrive.mp4",
+   "length": 2943.633,
+   "isVideo": true,
+   "description": "A collision with an asteroid damages Scorpio's main drives."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-5 Animals",
+   "shortName": "4-5 Animals",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4- 5 Animals.mp4",
+   "length": 3000.5,
+   "isVideo": true,
+   "description": "Justin is a genetic engineer who has knowledge which Avon needs."
+}
+,
+{
+   "title": "BLAKE'S-7: 4-6 Headhunter",
+   "shortName": "4-6 Headhunter",
+   "urlLocal": "media/channel-3/../Core/Blake's-7/4- 6 Headhunter.mp4",
+   "length": 2974.26,
+   "isVideo": true,
+   "description": "Muller is Avon's latest recruit and a genius in his field, but even a genius cannot come back from the dead."
+}
+,
+{
+   "title": "RED DWARF: 5-5 Demons and Angels",
+   "shortName": "5-5 Demons and Angels",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/5-5 Demons and Angels.mp4",
+   "length": 1612.146,
+   "isVideo": true,
+   "description": "The Red Dwarf crew create good and evil doppelgängers of themselves."
+}
+,
+{
+   "title": "RED DWARF: 5-6 Back to Reality",
+   "shortName": "5-6 Back to Reality",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/5-6 Back to Reality.mp4",
+   "length": 1638.14,
+   "isVideo": true,
+   "description": "The crew of Red Dwarf discover an abandoned space ship on an ocean bed."
+}
+,
+{
+   "title": "RED DWARF: 6-1 Psirens",
+   "shortName": "6-1 Psirens",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/6-1 Psirens.mp4",
+   "length": 1735.773,
+   "isVideo": true,
+   "description": "The crew awake after 200 years in suspended animation to find the ship has been stolen."
+}
+,
+{
+   "title": "RED DWARF: 6-2 Legion",
+   "shortName": "6-2 Legion",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/6-2 Legion.mp4",
+   "length": 1694.813,
+   "isVideo": true,
+   "description": "With supplies running low, the crew find themselves dragged to a deserted space station."
+}
+,
+{
+   "title": "RED DWARF: 6-3 Gunmen of the Apocalypse",
+   "shortName": "6-3 Gunmen of the Apocalypse",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/6-3 Gunmen of the Apocalypse.mp4",
+   "length": 1730.073,
+   "isVideo": true,
+   "description": "Kryten contracts a computer virus, so the crew must enter his electronic mindscape."
+}
+,
+{
+   "title": "RED DWARF: 6-4 Emohawk Polymorph II",
+   "shortName": "6-4 Emohawk Polymorph II",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/6-4 Emohawk Polymorph II.mp4",
+   "length": 1698.466,
+   "isVideo": true,
+   "description": "The crew need replacement engine parts from the fearsome Kinatowi clan."
+}
+,
+{
+   "title": "RED DWARF: 6-5 Rimmerworld",
+   "shortName": "6-5 Rimmerworld",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/6-5 Rimmerworld.mp4",
+   "length": 1702.015,
+   "isVideo": true,
+   "description": "After escaping a disintegrating ship, Rimmer's pod is sucked into a wormhole in time."
+}
+,
+{
+   "title": "RED DWARF: 6-6 Out of Time",
+   "shortName": "6-6 Out of Time",
+   "urlLocal": "media/channel-3/../Core/Red Dwarf/6-6 Out of Time.mp4",
+   "length": 1705.5,
+   "isVideo": true,
+   "description": "The crew encounter several unreality bubbles."
+}
+]}
+

@@ -7,6 +7,7 @@ public class Graphics
     // Page headers
     public readonly static StringBuilder HeaderHome = new();
     public readonly static StringBuilder HeaderSussex = new();
+    public readonly static StringBuilder HeaderTees = new();
     public readonly static StringBuilder HeaderWorld = new();
     public readonly static StringBuilder HeaderPolitics = new();
     public readonly static StringBuilder HeaderSciTech = new();
@@ -59,6 +60,11 @@ public class Graphics
         HeaderSussex.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]   s{{%oz%s{{%s{{%¬sh7}}");
         HeaderSussex.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]/////,,/-,/,,/,,/,,-.,////");
 
+        HeaderTees.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]     (|$|, |, x,$");
+        HeaderTees.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]      ¬ ¬s ¬s s{{%");
+        HeaderTees.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]////////,/,,/,,/,,////////");
+
+       
         HeaderBusiness.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}] |l4|h4|,$|_<th<h<,h<,");
         HeaderBusiness.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}] ¬{{4oz%s{{5¬j5¬jwbs¬bs¬");
         HeaderBusiness.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsRed}]///,,.-,/,,.,-.,-,-,,-,,//");

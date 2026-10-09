@@ -1,996 +1,562 @@
-{ "lastRefresh": "Sun 26 Apr 17:33", 
+{ "lastRefresh": "Fri 09 Oct 19:05", 
    "episodeList": 
 [
 {
-   "title": "PORTILLO: 16-13 Dudley to West Bromwich",
-   "shortName": "16-13 Dudley to West Bromwich",
-   "urlLocal": "media/channel-8/../Core/Portillo/16-13 Dudley to West Bromwich.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo boards a barge on the Dudley Canal and discovers an ancient seabed."
+   "title": "BIG FINISH: 12-1 Corners of the Mind",
+   "shortName": "12-1 Corners of the Mind",
+   "urlLocal": "media/channel-8/Big Finish/12-1 Corners of the Mind.mp3",
+   "length": 3132.011,
+   "isAudioBook": true,
+   "description": "Avon is trapped in a labyrinth full of puzzles, with no way to teleport to safety and deadly traps at every corner."
 }
 ,
 {
-   "title": "PORTILLO: 16-14 Birmingham New Street to Wednesbury",
-   "shortName": "16-14 Birmingham New Street to Wednesbury",
-   "urlLocal": "media/channel-8/../Core/Portillo/16-14 Birmingham New Street to Wednesbury.mp4",
-   "length": 1740.04,
-   "description": "Arriving in Birmingham, Michael heads to Curzon Street for a tour of the HS2 terminus."
+   "title": "BIG FINISH: 12-2 Capital",
+   "shortName": "12-2 Capital",
+   "urlLocal": "media/channel-8/Big Finish/12-2 Capital.mp3",
+   "length": 3545.446,
+   "isAudioBook": true,
+   "description": "The Armageddon Storm - a weapon so dreadful that it can lay waste to entire planets"
 }
 ,
 {
-   "title": "PORTILLO: 16-15 Solihull to Birmingham International",
-   "shortName": "16-15 Solihull to Birmingham International",
-   "urlLocal": "media/channel-8/../Core/Portillo/16-15 Solihull to Birmingham International.mp4",
-   "length": 1734.64,
-   "description": "On the last leg of his Midlands tour, Michael travels to Solihull, home of the Land Rover."
+   "title": "HITCHHIKER'S GUIDE: (15 of 26)",
+   "shortName": "(15 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(15 of 26).mp3",
+   "length": 2136.241,
+   "isAudioBook": true,
+   "description": "Slartibartfast teaches Arthur Dent and Ford Prefect the history of the worst wars in the galaxy, the origins of cricket (or rather Krikkit) and Arthur is diverted by a very angry and deadly creature."
 }
 ,
 {
-   "title": "PORTILLO: 16-16 Loughton to Audley End",
-   "shortName": "16-16 Loughton to Audley End",
-   "urlLocal": "media/channel-8/../Core/Portillo/16-16 Loughton to Audley End.mp4",
-   "length": 1740.44,
-   "description": "Michael Portillo embarks on a journey across Essex."
+   "title": "HITCHHIKER'S GUIDE: (16 of 26)",
+   "shortName": "(16 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(16 of 26).mp3",
+   "length": 1862.191,
+   "isAudioBook": true,
+   "description": "Arthur Dent attempts to escape from a lifeform whom he keeps accidently killing, learns how to fly and gets hit in the small-of-the-back by an airborne party."
 }
 ,
 {
-   "title": "PORTILLO: 16-17 Romford to the Blackwater Estuary",
-   "shortName": "16-17 Romford to the Blackwater Estuary",
-   "urlLocal": "media/channel-8/../Core/Portillo/16-17 Romford to the Blackwater Estuary.mp4",
-   "length": 1740.053,
-   "description": "Michael explores a rail operating centre and visits the home of Radio Caroline."
+   "title": "HITCHHIKER'S GUIDE: (17 of 26)",
+   "shortName": "(17 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(17 of 26).mp3",
+   "length": 1816.084,
+   "isAudioBook": true,
+   "description": "Our heroes travel to Krikkit in order to prevent the worst, Zaphod Beeblebrox comes to the rescue and Marvin makes everyone depressed."
 }
 ,
 {
-   "title": "PORTILLO: 16-18 Chelmsford to Tollesbury",
-   "shortName": "16-18 Chelmsford to Tollesbury",
-   "urlLocal": "media/channel-8/../Core/Portillo/16-18 Chelmsford to Tollesbury.mp4",
-   "length": 1740.04,
-   "description": "Michael's exploration of Essex reaches Chelmsford."
+   "title": "HITCHHIKER'S GUIDE: (18 of 26)",
+   "shortName": "(18 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(18 of 26).mp3",
+   "length": 2076.055,
+   "isAudioBook": true,
+   "description": "Arthur Dent and Trillian meet the computer behind the Supernova Bomb, our heroes try to find out the Ultimate Question to Life, the Universe and Everything and Arthur returns to Lord's."
 }
 ,
 {
-   "title": "PORTILLO: 16-19 Witham to Saffron Walden",
-   "shortName": "16-19 Witham to Saffron Walden",
-   "urlLocal": "media/channel-8/../Core/Portillo/16-19 Witham to Saffron Walden.mp4",
-   "length": 1740.04,
-   "description": "Michael visits Terling Place, one of Essex's great country houses."
+   "title": "HITCHHIKER'S GUIDE: (19 of 26)",
+   "shortName": "(19 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(19 of 26).mp3",
+   "length": 1962.919,
+   "isAudioBook": true,
+   "description": "Arthur Dent discovers that his home planet has somehow popped back into existence and he meets the woman of his dreams."
 }
 ,
 {
-   "title": "PORTILLO: 16-20 Colchester to Chappel and Wakes Colne",
-   "shortName": "16-20 Colchester to Chappel and Wakes Colne",
-   "urlLocal": "media/channel-8/../Core/Portillo/16-20 Colchester to Chappel and Wakes Colne.mp4",
-   "length": 1727.8,
-   "description": "As Michael's trip finishes, he visits Colchester, a claimant for Britain's oldest town."
+   "title": "BIG FINISH: 3-1 The Armageddon Storm (Part 1)",
+   "shortName": "3-1 The Armageddon Storm (Part 1)",
+   "urlLocal": "media/channel-8/Big Finish/ 3-1 The Armageddon Storm (Part 1).mp3",
+   "length": 3401.624,
+   "isAudioBook": true,
+   "description": "Grant has learnt of the existence of the Armageddon Storm, a terrifying new Federation super-weapon."
 }
 ,
 {
-   "title": "PORTILLO: 200 Years of the Railways (Part 1)",
-   "shortName": "200 Years of the Railways (Part 1)",
-   "urlLocal": "media/channel-8/../Core/Portillo/200 Years of the Railways (Part 1).mp4",
-   "length": 3536.026,
-   "description": "Railway enthusiast Michael Portillo leads a landmark journey through 200 years of rail."
+   "title": "BIG FINISH: 3-2 The Armageddon Storm (Part 2)",
+   "shortName": "3-2 The Armageddon Storm (Part 2)",
+   "urlLocal": "media/channel-8/Big Finish/ 3-2 The Armageddon Storm (Part 2).mp3",
+   "length": 3250.16,
+   "isAudioBook": true,
+   "description": "Avon finds himself in a race against time, with his crew's lives hanging in the balance."
 }
 ,
 {
-   "title": "PORTILLO: 200 Years of the Railways (Part 2)",
-   "shortName": "200 Years of the Railways (Part 2)",
-   "urlLocal": "media/channel-8/../Core/Portillo/200 Years of the Railways (Part 2).mp4",
-   "length": 3536.34,
-   "description": "Michael Portillo reveals how the first railways in Britain transformed the country."
+   "title": "BIG FINISH: 3-3 The Armageddon Storm (Part 3)",
+   "shortName": "3-3 The Armageddon Storm (Part 3)",
+   "urlLocal": "media/channel-8/Big Finish/ 3-3 The Armageddon Storm (Part 3).mp3",
+   "length": 3730.832,
+   "isAudioBook": true,
+   "description": "What will Grant do when he finds out about the blood on Avon's hands?"
 }
 ,
 {
-   "title": "PORTILLO: 3-1 Axminster to Budleigh Salterton",
-   "shortName": "3-1 Axminster to Budleigh Salterton",
-   "urlLocal": "media/channel-8/../Core/Portillo/3- 1 Axminster to Budleigh Salterton.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo embarks on another journey exploring the shores of Britain."
+   "title": "BIG FINISH: 4-1 Promises",
+   "shortName": "4-1 Promises",
+   "urlLocal": "media/channel-8/Big Finish/ 4-1 Promises.mp3",
+   "length": 3670.832,
+   "isAudioBook": true,
+   "description": "Cally is alone with Travis, Blake's mortal enemy, both trapped on this desolate world."
 }
 ,
 {
-   "title": "PORTILLO: 3-2 Exeter to Plymouth",
-   "shortName": "3-2 Exeter to Plymouth",
-   "urlLocal": "media/channel-8/../Core/Portillo/3- 2 Exeter to Plymouth.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo reaches Devon's county town, Exeter, dominated by its Gothic cathedral."
+   "title": "BIG FINISH: 4-2 Epitaph",
+   "shortName": "4-2 Epitaph",
+   "urlLocal": "media/channel-8/Big Finish/ 4-2 Epitaph.mp3",
+   "length": 3613.088,
+   "isAudioBook": true,
+   "description": "When the Liberator picks up a distress call from a stricken strip, Jenna and Vila teleport across."
 }
 ,
 {
-   "title": "PORTILLO: 3-3 Tintagel to St. Austell",
-   "shortName": "3-3 Tintagel to St. Austell",
-   "urlLocal": "media/channel-8/../Core/Portillo/3- 3 Tintagel to St. Austell.mp4",
-   "length": 1740.04,
-   "description": "Michael leaves Devon for Cornwall and the rugged Atlantic coast of its northern shore."
+   "title": "BIG FINISH: 4-3 Kerr",
+   "shortName": "4-3 Kerr",
+   "urlLocal": "media/channel-8/Big Finish/ 4-3 Kerr.mp3",
+   "length": 4276.04,
+   "isAudioBook": true,
+   "description": "Supreme Commander Servalan believes she has a vital insight into the Liberator crew - a clone of Avon,"
 }
 ,
 {
-   "title": "PORTILLO: 3-4 St Mawes to Porthcurno",
-   "shortName": "3-4 St Mawes to Porthcurno",
-   "urlLocal": "media/channel-8/../Core/Portillo/3- 4 St Mawes to Porthcurno.mp4",
-   "length": 1740.04,
-   "description": "Michael reaches the pretty Cornish fishing village of St Mawes."
+   "title": "BIG FINISH: 5-1 Logic",
+   "shortName": "5-1 Logic",
+   "urlLocal": "media/channel-8/Big Finish/ 5-1 Logic.mp3",
+   "length": 4222.802,
+   "isAudioBook": true,
+   "description": "Pol Astat Constable is a woman living an ordinary life in a domed city on Earth."
 }
 ,
 {
-   "title": "PORTILLO: 3-5 Isles of Scilly",
-   "shortName": "3-5 Isles of Scilly",
-   "urlLocal": "media/channel-8/../Core/Portillo/3- 5 Isles of Scilly.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo finishes his journey in the Scillonian archipelago."
+   "title": "BIG FINISH: 5-2 Risk Management",
+   "shortName": "5-2 Risk Management",
+   "urlLocal": "media/channel-8/Big Finish/ 5-2 Risk Management.mp3",
+   "length": 3168.552,
+   "isAudioBook": true,
+   "description": "Blake and Jenna come to the aid of the planet Sutskar, which has fought off the shackles of the Federation and won independence and freedom."
 }
 ,
 {
-   "title": "PORTILLO: 3-6 Cardigan Bay to Abergynolwyn",
-   "shortName": "3-6 Cardigan Bay to Abergynolwyn",
-   "urlLocal": "media/channel-8/../Core/Portillo/3- 6 Cardigan Bay to Abergynolwyn.mp4",
-   "length": 1736.64,
-   "description": "Michael Portillo embarks on a railway journey around the western coast of Wales."
+   "title": "BIG FINISH: 5-3 Three",
+   "shortName": "5-3 Three",
+   "urlLocal": "media/channel-8/Big Finish/ 5-3 Three.mp3",
+   "length": 4005.751,
+   "isAudioBook": true,
+   "description": "Cullen is a journalist in search of a big story - and he has landed the scoop of a lifetime."
 }
 ,
 {
-   "title": "PORTILLO: 3-7 Harlech to Abedaron",
-   "shortName": "3-7 Harlech to Abedaron",
-   "urlLocal": "media/channel-8/../Core/Portillo/3- 7 Harlech to Abedaron.mp4",
-   "length": 1740.04,
-   "description": "Michael tracks the coastline north from Harlech to skirt the Llyn Peninsula."
+   "title": "BIG FINISH: 6-1 Incentive",
+   "shortName": "6-1 Incentive",
+   "urlLocal": "media/channel-8/Big Finish/ 6-1 Incentive.mp3",
+   "length": 3436.42,
+   "isAudioBook": true,
+   "description": "The Liberator crew are recovering from a Galactic War and searching for their lost members Blake and Jenna."
 }
 ,
 {
-   "title": "PORTILLO: 3-8 Porthmadog to Anglesey",
-   "shortName": "3-8 Porthmadog to Anglesey",
-   "urlLocal": "media/channel-8/../Core/Portillo/3- 8 Porthmadog to Anglesey.mp4",
-   "length": 1733.52,
-   "description": "Michael steams through the glorious scenery of the Snowdonia National Park."
+   "title": "BIG FINISH: 6-2 Jenna's Story",
+   "shortName": "6-2 Jenna's Story",
+   "urlLocal": "media/channel-8/Big Finish/ 6-2 Jenna's Story.mp3",
+   "length": 3524.306,
+   "isAudioBook": true,
+   "description": "Jenna's story is finally told - from her escape from the Liberator during the Galactic War, to her determination to continue the fight against the Federation alone."
 }
 ,
 {
-   "title": "PORTILLO: 3-9 The Isle of Anglesey",
-   "shortName": "3-9 The Isle of Anglesey",
-   "urlLocal": "media/channel-8/../Core/Portillo/3- 9 The Isle of Anglesey.mp4",
-   "length": 1733.64,
-   "description": "Michael is on the Isle of Anglesey, encountering a Welsh gastronomic delight."
+   "title": "BIG FINISH: 6-3 Blake's Story",
+   "shortName": "6-3 Blake's Story",
+   "urlLocal": "media/channel-8/Big Finish/ 6-3 Blake's Story.mp3",
+   "length": 3602.839,
+   "isAudioBook": true,
+   "description": "Blake's story is finally told - from his escape from the Liberator during the Galactic War, to his new life as a troubled, scarred man on a distant rebel world."
 }
 ,
 {
-   "title": "PORTILLO: 3-10 Conwy to Colwyn Bay",
-   "shortName": "3-10 Conwy to Colwyn Bay",
-   "urlLocal": "media/channel-8/../Core/Portillo/3-10 Conwy to Colwyn Bay.mp4",
-   "length": 1737.4,
-   "description": "Michael Portillo takes the train to the medieval walled town of Conwy."
+   "title": "BIG FINISH: 7-1 Spy",
+   "shortName": "7-1 Spy",
+   "urlLocal": "media/channel-8/Big Finish/ 7-1 Spy.mp3",
+   "length": 3403.132,
+   "isAudioBook": true,
+   "description": "Cally and Vila are undercover on the Federation-controlled world Cortol Four."
 }
 ,
 {
-   "title": "PORTILLO: 3-11 Eastbourne to Rye",
-   "shortName": "3-11 Eastbourne to Rye",
-   "urlLocal": "media/channel-8/../Core/Portillo/3-11 Eastbourne to Rye.mp4",
-   "length": 1740.04,
-   "description": "Michael sets off to explore the English Channel and the Thames and Medway estuaries."
+   "title": "BIG FINISH: 7-2 Disorder",
+   "shortName": "7-2 Disorder",
+   "urlLocal": "media/channel-8/Big Finish/ 7-2 Disorder.mp3",
+   "length": 3177.068,
+   "isAudioBook": true,
+   "description": "Division Three is a space station in the process of being decommissioned."
 }
 ,
 {
-   "title": "PORTILLO: 12-3 West Ruislip to Windsor",
-   "shortName": "12-3 West Ruislip to Windsor",
-   "urlLocal": "media/channel-8/../Core/Portillo/12- 3 West Ruislip to Windsor.mp4",
-   "length": 1726.16,
-   "description": "Michael Portillo continues his railway tour at leafy Hatch End."
+   "title": "BIG FINISH: 7-3 The Hard Road",
+   "shortName": "7-3 The Hard Road",
+   "urlLocal": "media/channel-8/Big Finish/ 7-3 The Hard Road.mp3",
+   "length": 3479.41,
+   "isAudioBook": true,
+   "description": "Blake decides it is time to fight back against the Federation - and to fight back with allies."
 }
 ,
 {
-   "title": "PORTILLO: 12-4 Guildford to Aldershot",
-   "shortName": "12-4 Guildford to Aldershot",
-   "urlLocal": "media/channel-8/../Core/Portillo/12- 4 Guildford to Aldershot.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo resumes his tour of the Home Counties in the historic town of Guildford."
+   "title": "BIG FINISH: 8-1 President",
+   "shortName": "8-1 President",
+   "urlLocal": "media/channel-8/Big Finish/ 8-1 President.mp3",
+   "length": 4236.308,
+   "isAudioBook": true,
+   "description": "Alone together, two Federation officials at last share the truth."
 }
 ,
 {
-   "title": "PORTILLO: 12-5 Farnborough to Winchester",
-   "shortName": "12-5 Farnborough to Winchester",
-   "urlLocal": "media/channel-8/../Core/Portillo/12- 5 Farnborough to Winchester.mp4",
-   "length": 1760.12,
-   "description": "Michael is heading for Farnborough, Hampshire, famous today for its airshow."
+   "title": "BIG FINISH: 8-2 The Sea of Iron",
+   "shortName": "8-2 The Sea of Iron",
+   "urlLocal": "media/channel-8/Big Finish/ 8-2 The Sea of Iron.mp3",
+   "length": 4204.334,
+   "isAudioBook": true,
+   "description": "Cally wishes to find Captain Mani Yalleg, her instructor when she was training to be a freedom fighter."
 }
 ,
 {
-   "title": "PORTILLO: 12-6 Saxmundham to Dedham",
-   "shortName": "12-6 Saxmundham to Dedham",
-   "urlLocal": "media/channel-8/../Core/Portillo/12- 6 Saxmundham to Dedham.mp4",
-   "length": 1769.16,
-   "description": "Armed with his 1930s Bradshaw's, Michael Portillo explores East Anglia between the wars."
+   "title": "BIG FINISH: 8-3 Spoils",
+   "shortName": "8-3 Spoils",
+   "urlLocal": "media/channel-8/Big Finish/ 8-3 Spoils.mp3",
+   "length": 4417.336,
+   "isAudioBook": true,
+   "description": "Roj Blake dreams of bringing down the Federation."
 }
 ,
 {
-   "title": "PORTILLO: 12-7 Colchester to Chadwell Heath",
-   "shortName": "12-7 Colchester to Chadwell Heath",
-   "urlLocal": "media/channel-8/../Core/Portillo/12- 7 Colchester to Chadwell Heath.mp4",
-   "length": 1737.16,
-   "description": "Michael Portillo discovers the Essex origins of the BBC and joins the Women's Land Army."
+   "title": "BIG FINISH: 9-1 Defector",
+   "shortName": "9-1 Defector",
+   "urlLocal": "media/channel-8/Big Finish/ 9-1 Defector.mp3",
+   "length": 3531.315,
+   "isAudioBook": true,
+   "description": "Avon orders Tarrant and new crew-member Del Grant to assassinate a Federation figurehead."
 }
 ,
 {
-   "title": "PORTILLO: 12-8 Potters Bar to Cardington",
-   "shortName": "12-8 Potters Bar to Cardington",
-   "urlLocal": "media/channel-8/../Core/Portillo/12- 8 Potters Bar to Cardington.mp4",
-   "length": 1743.56,
-   "description": "Michael Portillo's Bradshaw travels resume at Potters Bar in leafy Hertfordshire."
+   "title": "BIG FINISH: 9-2 Planetfall",
+   "shortName": "9-2 Planetfall",
+   "urlLocal": "media/channel-8/Big Finish/ 9-2 Planetfall.mp3",
+   "length": 3619.556,
+   "isAudioBook": true,
+   "description": "Can Avon and Cally get off Space Station Arcadia before it crashes into the planet below?"
 }
 ,
 {
-   "title": "PORTILLO: 12-9 Sawbridgeworth to Cambridge",
-   "shortName": "12-9 Sawbridgeworth to Cambridge",
-   "urlLocal": "media/channel-8/../Core/Portillo/12- 9 Sawbridgeworth to Cambridge.mp4",
-   "length": 1742.8,
-   "description": "Steered by his Bradshaw's guide, Michael Portillo heads for the village of Perry Green."
+   "title": "BIG FINISH: 9-3 Secrets",
+   "shortName": "9-3 Secrets",
+   "urlLocal": "media/channel-8/Big Finish/ 9-3 Secrets.mp3",
+   "length": 3478.182,
+   "isAudioBook": true,
+   "description": "With the future of the rebellion in jeopardy, Vila and Grant infiltrate an illegal arms bazaar?"
 }
 ,
 {
-   "title": "PORTILLO: 12-10 Newmarket to Walsingham",
-   "shortName": "12-10 Newmarket to Walsingham",
-   "urlLocal": "media/channel-8/../Core/Portillo/12-10 Newmarket to Walsingham.mp4",
-   "length": 1748.64,
-   "description": "Michael Portillo is in Suffolk on the last leg of his 1930s tour of East Anglia."
+   "title": "BIG FINISH: 10-1 Velandra",
+   "shortName": "10-1 Velandra",
+   "urlLocal": "media/channel-8/Big Finish/10-1 Velandra.mp3",
+   "length": 3901.914,
+   "isAudioBook": true,
+   "description": "Blake is having bad dreams: a swamp, wolves, a woman called Velandra - and Travis."
 }
 ,
 {
-   "title": "PORTILLO: 12-11 Crewe to Shotton",
-   "shortName": "12-11 Crewe to Shotton",
-   "urlLocal": "media/channel-8/../Core/Portillo/12-11 Crewe to Shotton.mp4",
-   "length": 1736.68,
-   "description": "Michael is in Crewe, a town steeped in railway history and immortalised in the music hall."
+   "title": "BIG FINISH: 12-3 Punishment",
+   "shortName": "12-3 Punishment",
+   "urlLocal": "media/channel-8/Big Finish/12-3 Punishment.mp3",
+   "length": 3009.153,
+   "isAudioBook": true,
+   "description": "It's the end of the world and Vila's father has returned - he isn't sure what is worse."
 }
 ,
 {
-   "title": "PORTILLO: 12-12 Rhyl to Anglesey",
-   "shortName": "12-12 Rhyl to Anglesey",
-   "urlLocal": "media/channel-8/../Core/Portillo/12-12 Rhyl to Anglesey.mp4",
-   "length": 1737.32,
-   "description": "Michael's 1930s railway tour of north Wales takes him to a magnificent coastline."
+   "title": "HITCHHIKER'S GUIDE: ( 1 of 26)",
+   "shortName": "( 1 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/( 1 of 26).mp3",
+   "length": 1711.386,
+   "isAudioBook": true,
+   "description": "The Earth is unexpectedly destroyed and the great hitchhike begins."
 }
 ,
 {
-   "title": "PORTILLO: 12-13 Bangor to Betws-y-Coed",
-   "shortName": "12-13 Bangor to Betws-y-Coed",
-   "urlLocal": "media/channel-8/../Core/Portillo/12-13 Bangor to Betws-y-Coed.mp4",
-   "length": 1726.48,
-   "description": "Michael Portillo continues his 1936 railway tour of north Wales in the city of Bangor."
+   "title": "HITCHHIKER'S GUIDE: ( 2 of 26)",
+   "shortName": "( 2 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/( 2 of 26).mp3",
+   "length": 1697.959,
+   "isAudioBook": true,
+   "description": "Arthur Dent now faces a hopeless choice between meeting certain death in the vacuum of space or finding something pleasant to say about Vogon poetry."
 }
 ,
 {
-   "title": "PORTILLO: 12-14 Blaenau Ffestiniog to Barmouth",
-   "shortName": "12-14 Blaenau Ffestiniog to Barmouth",
-   "urlLocal": "media/channel-8/../Core/Portillo/12-14 Blaenau Ffestiniog to Barmouth.mp4",
-   "length": 1740.76,
-   "description": "Michael heads across Snowdonia to the coastal towns of north western Wales."
+   "title": "HITCHHIKER'S GUIDE: ( 3 of 26)",
+   "shortName": "( 3 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/( 3 of 26).mp3",
+   "length": 1736.881,
+   "isAudioBook": true,
+   "description": "After being improbably rescued from certain death in the vacuum of space, Arthur Dent and his new companions now face a missile attack and certain death."
 }
 ,
 {
-   "title": "PORTILLO: 12-15 Aberystwyth to Newtown",
-   "shortName": "12-15 Aberystwyth to Newtown",
-   "urlLocal": "media/channel-8/../Core/Portillo/12-15 Aberystwyth to Newtown.mp4",
-   "length": 1740.44,
-   "description": "Michael travels from Aberystwyth into the Cambrian Mountains and finishes in Newtown."
+   "title": "HITCHHIKER'S GUIDE: ( 4 of 26)",
+   "shortName": "( 4 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/( 4 of 26).mp3",
+   "length": 1759.634,
+   "isAudioBook": true,
+   "description": "It has been revealed to Arthur that the Earth has been built by the Magratheans and run by mice."
 }
 ,
 {
-   "title": "PORTILLO: 14-1 Preston to Rawtenstall",
-   "shortName": "14-1 Preston to Rawtenstall",
-   "urlLocal": "media/channel-8/../Core/Portillo/14- 1 Preston to Rawtenstall.mp4",
-   "length": 1734.92,
-   "description": "Michael Portillo strikes out to explore the Britain of his youth, starting in Preston."
+   "title": "HITCHHIKER'S GUIDE: ( 5 of 26)",
+   "shortName": "( 5 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/( 5 of 26).mp3",
+   "length": 1771.128,
+   "isAudioBook": true,
+   "description": "Arthur Dent and his companions have been cornered by two humane cops who have left them in a certain-death situation."
 }
 ,
 {
-   "title": "PORTILLO: 14-2 Urmston to New Islington",
-   "shortName": "14-2 Urmston to New Islington",
-   "urlLocal": "media/channel-8/../Core/Portillo/14- 2 Urmston to New Islington.mp4",
-   "length": 1740.04,
-   "description": "Michael celebrates new beginnings for the nation in the years after the Second World War."
+   "title": "HITCHHIKER'S GUIDE: ( 6 of 26)",
+   "shortName": "( 6 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/( 6 of 26).mp3",
+   "length": 1839.438,
+   "isAudioBook": true,
+   "description": "Will the Ultimate Question to Life, the Universe and Everything be discovered?"
 }
 ,
 {
-   "title": "PORTILLO: 14-3 Oldham to Wakefield",
-   "shortName": "14-3 Oldham to Wakefield",
-   "urlLocal": "media/channel-8/../Core/Portillo/14- 3 Oldham to Wakefield.mp4",
-   "length": 1732.56,
-   "description": "Greater Manchester's Metrolink tram delivers Michael to the former cotton town of Oldham."
+   "title": "HITCHHIKER'S GUIDE: ( 7 of 26)",
+   "shortName": "( 7 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/( 7 of 26).mp3",
+   "length": 1782.334,
+   "isAudioBook": true,
+   "description": "Arthur Dent and Ford Prefect are stranded on prehistoric Earth."
 }
 ,
 {
-   "title": "PORTILLO: 14-4 Wakefield to Leeds",
-   "shortName": "14-4 Wakefield to Leeds",
-   "urlLocal": "media/channel-8/../Core/Portillo/14- 4 Wakefield to Leeds.mp4",
-   "length": 1731.72,
-   "description": "Starting in Wakefield, Michael visits the National Coal Mining Museum for England."
+   "title": "HITCHHIKER'S GUIDE: ( 8 of 26)",
+   "shortName": "( 8 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/( 8 of 26).mp3",
+   "length": 1763.343,
+   "isAudioBook": true,
+   "description": "Zaphod Beeblebrox and his mysterious friend Roosta are being taken in a flying building to the evil Frogstar."
 }
 ,
 {
-   "title": "PORTILLO: 14-5 Bradford to Hebden Bridge",
-   "shortName": "14-5 Bradford to Hebden Bridge",
-   "urlLocal": "media/channel-8/../Core/Portillo/14- 5 Bradford to Hebden Bridge.mp4",
-   "length": 1737.28,
-   "description": "Michael continues exploring north west England in Bradford, Shipley and Hebden Bridge."
+   "title": "HITCHHIKER'S GUIDE: ( 9 of 26)",
+   "shortName": "( 9 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/( 9 of 26).mp3",
+   "length": 1774.288,
+   "isAudioBook": true,
+   "description": "Our heroes have the chance to chew the fat with some old enemies and Arthur Dent has an unpleasant cup of tea."
 }
 ,
 {
-   "title": "PORTILLO: 14-6 Tilbury to Barbican",
-   "shortName": "14-6 Tilbury to Barbican",
-   "urlLocal": "media/channel-8/../Core/Portillo/14- 6 Tilbury to Barbican.mp4",
-   "length": 1736.72,
-   "description": "Michael travels from London's Docklands and East End to the Barbican."
+   "title": "HITCHHIKER'S GUIDE: (10 of 26)",
+   "shortName": "(10 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(10 of 26).mp3",
+   "length": 1769.195,
+   "isAudioBook": true,
+   "description": "Our heroes have some close encounters with others and themselves."
 }
 ,
 {
-   "title": "PORTILLO: 14-7 Waterloo to Regent's Park",
-   "shortName": "14-7 Waterloo to Regent's Park",
-   "urlLocal": "media/channel-8/../Core/Portillo/14- 7 Waterloo to Regent's Park.mp4",
-   "length": 1742.72,
-   "description": "Michael Portillo continues his exploration of postwar Britain from London to Cambridge."
+   "title": "HITCHHIKER'S GUIDE: (11 of 26)",
+   "shortName": "(11 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(11 of 26).mp3",
+   "length": 1780.871,
+   "isAudioBook": true,
+   "description": "Our heroes do a lot of running and digging."
 }
 ,
 {
-   "title": "PORTILLO: 14-8 Paddington to Ongar",
-   "shortName": "14-8 Paddington to Ongar",
-   "urlLocal": "media/channel-8/../Core/Portillo/14- 8 Paddington to Ongar.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo ventures deep underground onto the Elizabeth Line."
+   "title": "HITCHHIKER'S GUIDE: (12 of 26)",
+   "shortName": "(12 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(12 of 26).mp3",
+   "length": 1670.086,
+   "isAudioBook": true,
+   "description": "All is resolved, everyone lives happily ever after and pigs fly."
 }
 ,
 {
-   "title": "PORTILLO: AUS 6 Newcastle to Brisbane",
-   "shortName": "AUS 6 Newcastle to Brisbane",
-   "urlLocal": "media/channel-8/../Core/Portillo/AUS 6 Newcastle to Brisbane.mp4",
-   "length": 3510.04,
-   "description": "Michael crosses the Hawkesbury River and rides a solar-powered train."
+   "title": "HITCHHIKER'S GUIDE: (13 of 26)",
+   "shortName": "(13 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(13 of 26).mp3",
+   "length": 1784.032,
+   "isAudioBook": true,
+   "description": "Arthur Dent finds himself stuck on prehistoric Earth, Ford Prefect comes out of a state of madness and Trillian teleports herself out of Zaphod Beeblebrox's life."
 }
 ,
 {
-   "title": "PORTILLO: EURO 7-1 Salamanca to Canfranc",
-   "shortName": "EURO 7-1 Salamanca to Canfranc",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 7-1 Salamanca to Canfranc.mp4",
-   "length": 3562.02,
-   "description": "Michael Portillo sports a modern edition of his Bradshaw's Handbook as he heads for Spain."
+   "title": "HITCHHIKER'S GUIDE: (14 of 26)",
+   "shortName": "(14 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(14 of 26).mp3",
+   "length": 1861.511,
+   "isAudioBook": true,
+   "description": "Arthur Dent and Ford Prefect travel forward in time via a sofa, just in time to spot a spaceship belonging to an old friend and to see Lord's Cricket Ground be destroyed by 11 white robots."
 }
 ,
 {
-   "title": "PORTILLO: EURO 7-2 Orleans to Reims",
-   "shortName": "EURO 7-2 Orleans to Reims",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 7-2 Orleans to Reims.mp4",
-   "length": 3538.58,
-   "description": "Michael visits the magnificent stained-glass windows of the Cathedral of Sainte-Croix."
+   "title": "BIG FINISH: 1-1 The Turing Test",
+   "shortName": "1-1 The Turing Test",
+   "urlLocal": "media/channel-8/Big Finish/ 1-1 The Turing Test.mp3",
+   "length": 3766.421,
+   "isAudioBook": true,
+   "description": "After evading an attack by Cassini Pirates, the Liberator heads to the rogue moon of Quentil."
 }
 ,
 {
-   "title": "PORTILLO: EURO 7-3 Berlin to Stuttgart",
-   "shortName": "EURO 7-3 Berlin to Stuttgart",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 7-3 Berlin to Stuttgart.mp4",
-   "length": 3539.34,
-   "description": "Michael hears how new rail lines transported spectators to the Nazi Olympic Games of 1936."
+   "title": "BIG FINISH: 1-2 Solitary",
+   "shortName": "1-2 Solitary",
+   "urlLocal": "media/channel-8/Big Finish/ 1-2 Solitary.mp3",
+   "length": 3554.254,
+   "isAudioBook": true,
+   "description": "Vila is in solitary confinement."
 }
 ,
 {
-   "title": "PORTILLO: EURO 7-4 Palermo to Mt Etna",
-   "shortName": "EURO 7-4 Palermo to Mt Etna",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 7-4 Palermo to Mt Etna.mp4",
-   "length": 3531.3,
-   "description": "In Palermo, Michael takes in the art and architecture of the futurists."
+   "title": "BIG FINISH: 1-3 Counterfeit",
+   "shortName": "1-3 Counterfeit",
+   "urlLocal": "media/channel-8/Big Finish/ 1-3 Counterfeit.mp3",
+   "length": 3732.958,
+   "isAudioBook": true,
+   "description": "The Bovee Mining Facility is a Federation slave camp worked by disgraced scientists."
 }
 ,
 {
-   "title": "PORTILLO: EURO 7-5 Linz to Bratislava",
-   "shortName": "EURO 7-5 Linz to Bratislava",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 7-5 Linz to Bratislava.mp4",
-   "length": 3540.62,
-   "description": "Michael travels through Austria and the Czech Republic, exploring a dark era in history."
+   "title": "BIG FINISH: 2-1 The Magnificent Four",
+   "shortName": "2-1 The Magnificent Four",
+   "urlLocal": "media/channel-8/Big Finish/ 2-1 The Magnificent Four.mp3",
+   "length": 3751.736,
+   "isAudioBook": true,
+   "description": "A mission to steal data from the planet Mogul goes badly wrong when Cally and Avon are outflanked and outgunned."
 }
 ,
 {
-   "title": "PORTILLO: EURO 7-6 Stockholm to the Arctic Circle",
-   "shortName": "EURO 7-6 Stockholm to the Arctic Circle",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 7-6 Stockholm to the Arctic Circle.mp4",
-   "length": 3536.26,
-   "description": "Michael celebrates Midsummer in Marielund and learns to decorate a Dala horse in Mora."
+   "title": "BIG FINISH: 2-2 False Positive",
+   "shortName": "2-2 False Positive",
+   "urlLocal": "media/channel-8/Big Finish/ 2-2 False Positive.mp3",
+   "length": 3687.056,
+   "isAudioBook": true,
+   "description": "Dr Lian has a mysterious new patient - a man who was found shot in the leg near Engel City."
 }
 ,
 {
-   "title": "PORTILLO: EURO 8-1 Pula to Pazin",
-   "shortName": "EURO 8-1 Pula to Pazin",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8- 1 Pula to Pazin.mp4",
-   "length": 1740.04,
-   "description": "Michael mounts a valiant defence against latter-day gladiators in Pula's amphitheatre."
+   "title": "BIG FINISH: 2-3 Wolf",
+   "shortName": "2-3 Wolf",
+   "urlLocal": "media/channel-8/Big Finish/ 2-3 Wolf.mp3",
+   "length": 4161.512,
+   "isAudioBook": true,
+   "description": "Some time ago, Blake and his crew were helped by a revered Auron scientist named Gustav Nyrron."
 }
 ,
 {
-   "title": "PORTILLO: EURO 8-2 Buzet to Pag",
-   "shortName": "EURO 8-2 Buzet to Pag",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8- 2 Buzet to Pag.mp4",
-   "length": 1735.92,
-   "description": "Ably assisted by Lila, an expert labrador, Michael Portillo hunts for truffles."
+   "title": "BIG FINISH: 10-2 Retribution",
+   "shortName": "10-2 Retribution",
+   "urlLocal": "media/channel-8/Big Finish/10-2 Retribution.mp3",
+   "length": 3093.006,
+   "isAudioBook": true,
+   "description": "A distress call leads Avon and Vila to an old tracking station on the moon of Lorean."
 }
 ,
 {
-   "title": "PORTILLO: 3-14 Birchington-on-Sea to Whitstable",
-   "shortName": "3-14 Birchington-on-Sea to Whitstable",
-   "urlLocal": "media/channel-8/../Core/Portillo/3-14 Birchington-on-Sea to Whitstable.mp4",
-   "length": 1740.04,
-   "description": "Michael 's railway exploration of the Channel coastline has reached the Isle of Thanet."
+   "title": "BIG FINISH: 10-3 Ministry of Peace",
+   "shortName": "10-3 Ministry of Peace",
+   "urlLocal": "media/channel-8/Big Finish/10-3 Ministry of Peace.mp3",
+   "length": 3370.845,
+   "isAudioBook": true,
+   "description": "The Liberator crew are on the planet Speranza to assist its new interim government."
 }
 ,
 {
-   "title": "PORTILLO: 3-15 Faversham to Chatham",
-   "shortName": "3-15 Faversham to Chatham",
-   "urlLocal": "media/channel-8/../Core/Portillo/3-15 Faversham to Chatham.mp4",
-   "length": 1740.04,
-   "description": "Michael gets out onto the water in the last sailing barge to work on the Thames."
+   "title": "BIG FINISH: 11-1 Brother",
+   "shortName": "11-1 Brother",
+   "urlLocal": "media/channel-8/Big Finish/11-1 Brother.mp3",
+   "length": 4064.809,
+   "isAudioBook": true,
+   "description": "Auron scientist Gustav Nyrron is back aboard the Liberator, on his way home."
 }
 ,
 {
-   "title": "PORTILLO: 3-16 Canvey Island to Wrabness",
-   "shortName": "3-16 Canvey Island to Wrabness",
-   "urlLocal": "media/channel-8/../Core/Portillo/3-16 Canvey Island to Wrabness.mp4",
-   "length": 1739.4,
-   "description": "Michael Portillo embarks on a new railway journey around the coast of the east of England."
+   "title": "BIG FINISH: 11-2 Poison",
+   "shortName": "11-2 Poison",
+   "urlLocal": "media/channel-8/Big Finish/11-2 Poison.mp3",
+   "length": 3624.855,
+   "isAudioBook": true,
+   "description": "Federation Freighter Antares is a ship with many secrets."
 }
 ,
 {
-   "title": "PORTILLO: 3-17 Woodbridge to Southwold",
-   "shortName": "3-17 Woodbridge to Southwold",
-   "urlLocal": "media/channel-8/../Core/Portillo/3-17 Woodbridge to Southwold.mp4",
-   "length": 1738.24,
-   "description": "Michael is plunged in at the deep end on a rafting challenge with the sea scouts."
+   "title": "BIG FINISH: 11-3 Escape from Destiny",
+   "shortName": "11-3 Escape from Destiny",
+   "urlLocal": "media/channel-8/Big Finish/11-3 Escape from Destiny.mp3",
+   "length": 3483.585,
+   "isAudioBook": true,
+   "description": "When the Liberator receives a distress signal from a planet it once helped save, Cally and Vila journey to a civilization on the brink of collapse."
 }
 ,
 {
-   "title": "PORTILLO: 3-18 Lowestoft to Great Yarmouth",
-   "shortName": "3-18 Lowestoft to Great Yarmouth",
-   "urlLocal": "media/channel-8/../Core/Portillo/3-18 Lowestoft to Great Yarmouth.mp4",
-   "length": 1740.04,
-   "description": "Michael's journey takes him to the treacherous waters off the Norfolk coast."
+   "title": "HITCHHIKER'S GUIDE: (20 of 26)",
+   "shortName": "(20 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(20 of 26).mp3",
+   "length": 2076.917,
+   "isAudioBook": true,
+   "description": "Arthur Dent finds an odd fishbowl, his new love's name and has some explaining to do over his copy of The Hitchhiker's Guide to the Galaxy."
 }
 ,
 {
-   "title": "PORTILLO: 3-19 West Runton to Burnham Market",
-   "shortName": "3-19 West Runton to Burnham Market",
-   "urlLocal": "media/channel-8/../Core/Portillo/3-19 West Runton to Burnham Market.mp4",
-   "length": 1737.52,
-   "description": "Michael examines a replica of the smallest bone in Britain's largest mammoth."
+   "title": "HITCHHIKER'S GUIDE: (21 of 26)",
+   "shortName": "(21 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(21 of 26).mp3",
+   "length": 2453.812,
+   "isAudioBook": true,
+   "description": "Arthur Dent and Fenchurch go flying together, Ford Prefect meets a weird creature in the East River and Arthur learns what happened to all the dolphins."
 }
 ,
 {
-   "title": "PORTILLO: JAPAN  3 Shima Peninsula to Nara",
-   "shortName": "JAPAN  3 Shima Peninsula to Nara",
-   "urlLocal": "media/channel-8/../Core/Portillo/JAPAN  3 Shima Peninsula to Nara.mp4",
-   "length": 1742.847,
-   "description": "Michael takes a luxury, panoramic Shimikaze train to the beautiful Shima peninsula."
+   "title": "HITCHHIKER'S GUIDE: (22 of 26)",
+   "shortName": "(22 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(22 of 26).mp3",
+   "length": 2117.198,
+   "isAudioBook": true,
+   "description": "A spaceship lands in Knightsbridge, Arthur Dent and Fenchurch discover God's Last Message to his Creation and Marvin the Paranoid Android makes his farewell appearance."
 }
 ,
 {
-   "title": "PORTILLO: JAPAN  4 Kanazawa to Kurobe Gorge",
-   "shortName": "JAPAN  4 Kanazawa to Kurobe Gorge",
-   "urlLocal": "media/channel-8/../Core/Portillo/JAPAN  4 Kanazawa to Kurobe Gorge.mp4",
-   "length": 1747.42,
-   "description": "Michael begins in the city of Kanazawa, where he goes behind the scenes of the Shinkansen."
+   "title": "HITCHHIKER'S GUIDE: (23 of 26)",
+   "shortName": "(23 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(23 of 26).mp3",
+   "length": 2237.884,
+   "isAudioBook": true,
+   "description": "The tenth planet in the solar system is discovered, an American Trillian has trouble with her handbag and Ford Prefect discovers something horrible at The Hitchhiker's Guide to the Galaxy offices."
 }
 ,
 {
-   "title": "PORTILLO: JAPAN  5 Japanese Alps Nagano to Narai Juku",
-   "shortName": "JAPAN  5 Japanese Alps Nagano to Narai Juku",
-   "urlLocal": "media/channel-8/../Core/Portillo/JAPAN  5 Japanese Alps Nagano to Narai Juku.mp4",
-   "length": 1754.858,
-   "description": "Michael ends the first leg of his Japan adventure heading to Nagano."
+   "title": "HITCHHIKER'S GUIDE: (24 of 26)",
+   "shortName": "(24 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(24 of 26).mp3",
+   "length": 2126.837,
+   "isAudioBook": true,
+   "description": "An alien race ask Tricia McMillan to work out their horoscopes, Arthur Dent gets some advice and Ford Prefect discovers The Guide has become much more sinister."
 }
 ,
 {
-   "title": "PORTILLO: JAPAN  6 Kagoshima to Chiran",
-   "shortName": "JAPAN  6 Kagoshima to Chiran",
-   "urlLocal": "media/channel-8/../Core/Portillo/JAPAN  6 Kagoshima to Chiran.mp4",
-   "length": 1747.42,
-   "description": "Michael is in Kagoshima, a city which sits in the shadow of Japan's most active volcano."
+   "title": "HITCHHIKER'S GUIDE: (25 of 26)",
+   "shortName": "(25 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(25 of 26).mp3",
+   "length": 2005.707,
+   "isAudioBook": true,
+   "description": "Trillian tells Arthur Dent he is a father, Ford Prefect sends Arthur a parcel and Arthur's new daughter Random flies to Earth."
 }
 ,
 {
-   "title": "PORTILLO: JAPAN  7 Amakusa Islands to Shin Omuta",
-   "shortName": "JAPAN  7 Amakusa Islands to Shin Omuta",
-   "urlLocal": "media/channel-8/../Core/Portillo/JAPAN  7 Amakusa Islands to Shin Omuta.mp4",
-   "length": 1740.06,
-   "description": "Michael Portillo takes the ferry to the Amakusa archipelago and meets a master swordsmith."
-}
-,
-{
-   "title": "PORTILLO: JAPAN  8 Yame to Nagasaki",
-   "shortName": "JAPAN  8 Yame to Nagasaki",
-   "urlLocal": "media/channel-8/../Core/Portillo/JAPAN  8 Yame to Nagasaki.mp4",
-   "length": 1716.97,
-   "description": "Michael visits a Kyushu tea farm and the city of Nagasaki."
-}
-,
-{
-   "title": "PORTILLO: JAPAN  9 Arita to Fukuoka",
-   "shortName": "JAPAN  9 Arita to Fukuoka",
-   "urlLocal": "media/channel-8/../Core/Portillo/JAPAN  9 Arita to Fukuoka.mp4",
-   "length": 1746.538,
-   "description": "Michael arrives in the home of Japanese porcelain, Arita, with its ceramic Shinto shrine."
-}
-,
-{
-   "title": "PORTILLO: 3-20 Wells next the Sea to the Wash",
-   "shortName": "3-20 Wells next the Sea to the Wash",
-   "urlLocal": "media/channel-8/../Core/Portillo/3-20 Wells next the Sea to the Wash.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo's rail exploration of the eastern reaches of England draws to a close."
-}
-,
-{
-   "title": "PORTILLO: ASIA 1 Hong Kong",
-   "shortName": "ASIA 1 Hong Kong",
-   "urlLocal": "media/channel-8/../Core/Portillo/ASIA 1 Hong Kong.mp4",
-   "length": 3549.04,
-   "description": "In Hong Kong, Michael's highlights include the enviably efficient mass transit system."
-}
-,
-{
-   "title": "PORTILLO: ASIA 10 Singapore",
-   "shortName": "ASIA 10 Singapore",
-   "urlLocal": "media/channel-8/../Core/Portillo/ASIA 10 Singapore.mp4",
-   "length": 3531,
-   "description": "Michael walks the streets of Singapore's Chinatown with a local artist."
-}
-,
-{
-   "title": "PORTILLO: ASIA 2 Chiang Mai",
-   "shortName": "ASIA 2 Chiang Mai",
-   "urlLocal": "media/channel-8/../Core/Portillo/ASIA 2 Chiang Mai.mp4",
-   "length": 3530,
-   "description": "Michael helps out at an elephant hospital and tries his hand at umbrella-making."
-}
-,
-{
-   "title": "PORTILLO: ASIA 3 Bangkok",
-   "shortName": "ASIA 3 Bangkok",
-   "urlLocal": "media/channel-8/../Core/Portillo/ASIA 3 Bangkok.mp4",
-   "length": 3538.88,
-   "description": "Michael steps into the ring under the guidance of Master Toddy to learn muay Thai boxing."
-}
-,
-{
-   "title": "PORTILLO: ASIA 4 Ho Chi Minh",
-   "shortName": "ASIA 4 Ho Chi Minh",
-   "urlLocal": "media/channel-8/../Core/Portillo/ASIA 4 Ho Chi Minh.mp4",
-   "length": 3530.12,
-   "description": "Michael Portillo boards Vietnam's spectacular Reunification Railway."
-}
-,
-{
-   "title": "PORTILLO: ASIA 5 Hue",
-   "shortName": "ASIA 5 Hue",
-   "urlLocal": "media/channel-8/../Core/Portillo/ASIA 5 Hue.mp4",
-   "length": 3525.76,
-   "description": "Michael meets milliner Mrs Ngo, who teaches him how to make the iconic conical hat."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-15 Zweisimmen to Lausanne",
-   "shortName": "EURO 8-15 Zweisimmen to Lausanne",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8-15 Zweisimmen to Lausanne.mp4",
-   "length": 1743.84,
-   "description": "Michael wends his way in style down mountainsides from Interlaken to the Swiss Riviera."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-16 Nantes to Lorient",
-   "shortName": "EURO 8-16 Nantes to Lorient",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8-16 Nantes to Lorient.mp4",
-   "length": 1726.64,
-   "description": "Michael Portillo's rail travels take him to the north west corner of France."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-17 Brest to St Brieuc",
-   "shortName": "EURO 8-17 Brest to St Brieuc",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8-17 Brest to St Brieuc.mp4",
-   "length": 1728.12,
-   "description": "Michael's journey reaches the naval port of Brest, home to France's oceanographic fleet."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-18 Rennes to Mont Saint-Michel",
-   "shortName": "EURO 8-18 Rennes to Mont Saint-Michel",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8-18 Rennes to Mont Saint-Michel.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo's railway adventure reaches Rennes, capital of Brittany."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-19 Bayeux to Argentan",
-   "shortName": "EURO 8-19 Bayeux to Argentan",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8-19 Bayeux to Argentan.mp4",
-   "length": 1738.28,
-   "description": "In Bayeux, Michael Portillo admires the 70-metre-long Bayeux Tapestry."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-20 Lisieux to Giverny",
-   "shortName": "EURO 8-20 Lisieux to Giverny",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8-20 Lisieux to Giverny.mp4",
-   "length": 1740.04,
-   "description": "Michael discovers how Calvados has been distilled since 1865 at the Pierre Huet estate."
-}
-,
-{
-   "title": "PORTILLO: JAPAN  1 Osaka to Nagoya",
-   "shortName": "JAPAN  1 Osaka to Nagoya",
-   "urlLocal": "media/channel-8/../Core/Portillo/JAPAN  1 Osaka to Nagoya.mp4",
-   "length": 1727.026,
-   "description": "Michael begins his trip in Osaka, takes a journey on the Shinkansen and heads to Nagoya."
-}
-,
-{
-   "title": "PORTILLO: JAPAN  2 Kyoto",
-   "shortName": "JAPAN  2 Kyoto",
-   "urlLocal": "media/channel-8/../Core/Portillo/JAPAN  2 Kyoto.mp4",
-   "length": 1754.966,
-   "description": "Michael travels to the cultural heart of Japan, Kyoto."
-}
-,
-{
-   "title": "PORTILLO: ASIA 6 Jakarta",
-   "shortName": "ASIA 6 Jakarta",
-   "urlLocal": "media/channel-8/../Core/Portillo/ASIA 6 Jakarta.mp4",
-   "length": 3530.08,
-   "description": "In Jakarta, Michael uncovers Indonesia's colonial past as part of a Dutch empire."
-}
-,
-{
-   "title": "PORTILLO: ASIA 7 Yogyakarta",
-   "shortName": "ASIA 7 Yogyakarta",
-   "urlLocal": "media/channel-8/../Core/Portillo/ASIA 7 Yogyakarta.mp4",
-   "length": 3524,
-   "description": "In Yogyakarta, Michael visits the Sultan's Palace and sees some shadow puppetry."
-}
-,
-{
-   "title": "PORTILLO: ASIA 8 Penang",
-   "shortName": "ASIA 8 Penang",
-   "urlLocal": "media/channel-8/../Core/Portillo/ASIA 8 Penang.mp4",
-   "length": 3535.92,
-   "description": "Michael releases exotic specimens at Malaysia's first butterfly sanctuary."
-}
-,
-{
-   "title": "PORTILLO: ASIA 9 Kuala Lumpur",
-   "shortName": "ASIA 9 Kuala Lumpur",
-   "urlLocal": "media/channel-8/../Core/Portillo/ASIA 9 Kuala Lumpur.mp4",
-   "length": 3534.84,
-   "description": "In Kuala Lumpur, Michael tries the ancient art of pewter smithing."
-}
-,
-{
-   "title": "PORTILLO: AUS 1 Port Augusta to Darwin",
-   "shortName": "AUS 1 Port Augusta to Darwin",
-   "urlLocal": "media/channel-8/../Core/Portillo/AUS 1 Port Augusta to Darwin.mp4",
-   "length": 3532.04,
-   "description": "At Bond Springs Cattle Station, Michael discovers the story of cattle king Sidney Kidman."
-}
-,
-{
-   "title": "PORTILLO: AUS 2 Sydney to Broken Hill",
-   "shortName": "AUS 2 Sydney to Broken Hill",
-   "urlLocal": "media/channel-8/../Core/Portillo/AUS 2 Sydney to Broken Hill.mp4",
-   "length": 3535.04,
-   "description": "Michael Portillo heads west into the Blue Mountains and travels 570 miles to Broken Hill."
-}
-,
-{
-   "title": "PORTILLO: AUS 3 Adelaide to Perth",
-   "shortName": "AUS 3 Adelaide to Perth",
-   "urlLocal": "media/channel-8/../Core/Portillo/AUS 3 Adelaide to Perth.mp4",
-   "length": 3557.04,
-   "description": "Michael rides the transcontinental Indian Pacific Railway from Adelaide to Perth."
-}
-,
-{
-   "title": "PORTILLO: AUS 4 Canberra to Melbourne",
-   "shortName": "AUS 4 Canberra to Melbourne",
-   "urlLocal": "media/channel-8/../Core/Portillo/AUS 4 Canberra to Melbourne.mp4",
-   "length": 3530.04,
-   "description": "Michael discovers the story behind the Ashes at the hallowed Melbourne Cricket Ground."
-}
-,
-{
-   "title": "PORTILLO: AUS 5 Kuranda to Townsville",
-   "shortName": "AUS 5 Kuranda to Townsville",
-   "urlLocal": "media/channel-8/../Core/Portillo/AUS 5 Kuranda to Townsville.mp4",
-   "length": 3521.04,
-   "description": "Michael marvels at the engineering expertise of the 1890s on the Kuranda Scenic Railway."
-}
-,
-{
-   "title": "PORTILLO: 12-1 Oxford to Abingdon",
-   "shortName": "12-1 Oxford to Abingdon",
-   "urlLocal": "media/channel-8/../Core/Portillo/12- 1 Oxford to Abingdon.mp4",
-   "length": 1727.8,
-   "description": "Michael Portillo strikes out on another series of railway journeys, starting in Oxford."
-}
-,
-{
-   "title": "PORTILLO: 12-2 Stoke Mandeville to Beaconsfield",
-   "shortName": "12-2 Stoke Mandeville to Beaconsfield",
-   "urlLocal": "media/channel-8/../Core/Portillo/12- 2 Stoke Mandeville to Beaconsfield.mp4",
-   "length": 1753.44,
-   "description": "Michael Portillo continues his travels at Stoke Mandeville in Buckinghamshire."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-3 Knin to Split",
-   "shortName": "EURO 8-3 Knin to Split",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8- 3 Knin to Split.mp4",
-   "length": 1736.96,
-   "description": "Michael's railway adventure reaches Zadar, a centre for the production of cherry liqueur."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-4 Sarajevo",
-   "shortName": "EURO 8-4 Sarajevo",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8- 4 Sarajevo.mp4",
-   "length": 1740.04,
-   "description": "Michael traces the fateful last journey of Archduke Franz Ferdinand and his wife, Sophie."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-5 Mostar to Dubrovnik",
-   "shortName": "EURO 8-5 Mostar to Dubrovnik",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8- 5 Mostar to Dubrovnik.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo enjoys a journey on the historic line from Sarajevo to Mostar."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-6 Bergen to Flam",
-   "shortName": "EURO 8-6 Bergen to Flam",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8- 6 Bergen to Flam.mp4",
-   "length": 1733.2,
-   "description": "Michael Portillo embarks on a Scandinavian railway adventure from Bergen to Copenhagen."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-7 Myrdal to Heddal",
-   "shortName": "EURO 8-7 Myrdal to Heddal",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8- 7 Myrdal to Heddal.mp4",
-   "length": 1739.36,
-   "description": "Michael Portillo's rail journey continues towards the Norwegian capital of Oslo."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-8 Larvik to Holstebro",
-   "shortName": "EURO 8-8 Larvik to Holstebro",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8- 8 Larvik to Holstebro.mp4",
-   "length": 1729.84,
-   "description": "Michael is in Larvik in southern Norway, famed for the blue rock larvikite."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-9 Aarhus to Odense",
-   "shortName": "EURO 8-9 Aarhus to Odense",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8- 9 Aarhus to Odense.mp4",
-   "length": 1750.04,
-   "description": "Michael Portillo's Scandinavian rail adventure reaches Denmark's second city, Aarhus."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-10 Roskilde to Copenhagen",
-   "shortName": "EURO 8-10 Roskilde to Copenhagen",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8-10 Roskilde to Copenhagen.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo concludes his epic rail journey, crossing an 18-kilometre bridge."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-11 Maienfeld to the Rhine Gorge",
-   "shortName": "EURO 8-11 Maienfeld to the Rhine Gorge",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8-11 Maienfeld to the Rhine Gorge.mp4",
-   "length": 1736.68,
-   "description": "Michael Portillo visits the tiny village home of Switzerland's most famous child, Heidi."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-12 Sedrun to Schwyz",
-   "shortName": "EURO 8-12 Sedrun to Schwyz",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8-12 Sedrun to Schwyz.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo ventures into the bowels of an immense hydroelectric dam."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-13 Zurich",
-   "shortName": "EURO 8-13 Zurich",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8-13 Zurich.mp4",
-   "length": 1736,
-   "description": "In Zurich, Michael has a brush with the absurd in the anarchic paintings of the Dadaists."
-}
-,
-{
-   "title": "PORTILLO: EURO 8-14 Rotkreuz to Brienz",
-   "shortName": "EURO 8-14 Rotkreuz to Brienz",
-   "urlLocal": "media/channel-8/../Core/Portillo/EURO 8-14 Rotkreuz to Brienz.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo scales the Swiss Alps on one of the steepest cog railways in the world."
-}
-,
-{
-   "title": "PORTILLO: 14-9 Felixstowe to Norwich",
-   "shortName": "14-9 Felixstowe to Norwich",
-   "urlLocal": "media/channel-8/../Core/Portillo/14- 9 Felixstowe to Norwich.mp4",
-   "length": 1741.04,
-   "description": "Michael Portillo continues his rail exploration of the east of England."
-}
-,
-{
-   "title": "PORTILLO: 14-10 Brandon to Cambridge",
-   "shortName": "14-10 Brandon to Cambridge",
-   "urlLocal": "media/channel-8/../Core/Portillo/14-10 Brandon to Cambridge.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo completes his railway journey through the east of England."
-}
-,
-{
-   "title": "PORTILLO: 14-11 Derby to Hinckley",
-   "shortName": "14-11 Derby to Hinckley",
-   "urlLocal": "media/channel-8/../Core/Portillo/14-11 Derby to Hinckley.mp4",
-   "length": 1726.28,
-   "description": "Michael Portillo begins a railway journey from the Midlands to the West Country."
-}
-,
-{
-   "title": "PORTILLO: 14-12 Coventry to Leamington Spa",
-   "shortName": "14-12 Coventry to Leamington Spa",
-   "urlLocal": "media/channel-8/../Core/Portillo/14-12 Coventry to Leamington Spa.mp4",
-   "length": 1733.72,
-   "description": "In Coventry, Michael recalls the destruction of the city's Gothic cathedral."
-}
-,
-{
-   "title": "PORTILLO: 14-13 Long Itchington to Moseley",
-   "shortName": "14-13 Long Itchington to Moseley",
-   "urlLocal": "media/channel-8/../Core/Portillo/14-13 Long Itchington to Moseley.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo's railway journey reaches the heart of the Warwickshire countryside."
-}
-,
-{
-   "title": "PORTILLO: 14-14 Wolverhampton to Cheltenham",
-   "shortName": "14-14 Wolverhampton to Cheltenham",
-   "urlLocal": "media/channel-8/../Core/Portillo/14-14 Wolverhampton to Cheltenham.mp4",
-   "length": 1750.04,
-   "description": "Michael finds out about the impact of a famous Enoch Powell speech across the nation."
-}
-,
-{
-   "title": "PORTILLO: 14-15 Tewkesbury to Filton",
-   "shortName": "14-15 Tewkesbury to Filton",
-   "urlLocal": "media/channel-8/../Core/Portillo/14-15 Tewkesbury to Filton.mp4",
-   "length": 1737.28,
-   "description": "Michael visits the fairy-tale castle of Eastnor at the foot of the Malvern Hills."
-}
-,
-{
-   "title": "PORTILLO: 16-1 Paddock Wood to Frant",
-   "shortName": "16-1 Paddock Wood to Frant",
-   "urlLocal": "media/channel-8/../Core/Portillo/16- 1 Paddock Wood to Frant.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo takes to the rails to explore the Weald in south east England."
-}
-,
-{
-   "title": "PORTILLO: 16-2 Hildenborough to Robertsbridge",
-   "shortName": "16-2 Hildenborough to Robertsbridge",
-   "urlLocal": "media/channel-8/../Core/Portillo/16- 2 Hildenborough to Robertsbridge.mp4",
-   "length": 1733.88,
-   "description": "Michael Portillo's rail exploration of the Weald continues from Tonbridge."
-}
-,
-{
-   "title": "PORTILLO: 16-3 Dorking to Lingfield",
-   "shortName": "16-3 Dorking to Lingfield",
-   "urlLocal": "media/channel-8/../Core/Portillo/16- 3 Dorking to Lingfield.mp4",
-   "length": 1739.2,
-   "description": "Michael Portillo's railway tour of the Weald reaches the spectacular Surrey countryside."
-}
-,
-{
-   "title": "PORTILLO: 16-4 Gatwick Airport to Royal Tunbridge Wells",
-   "shortName": "16-4 Gatwick Airport to Royal Tunbridge Wells",
-   "urlLocal": "media/channel-8/../Core/Portillo/16- 4 Gatwick Airport to Royal Tunbridge Wells.mp4",
-   "length": 1736.04,
-   "description": "Michael Portillo's exploration of the Weald continues aboard the Gatwick Express train."
-}
-,
-{
-   "title": "PORTILLO: 16-5 Chichester to Amberley",
-   "shortName": "16-5 Chichester to Amberley",
-   "urlLocal": "media/channel-8/../Core/Portillo/16- 5 Chichester to Amberley.mp4",
-   "length": 1751.44,
-   "description": "Michael Portillo's railway tour of the Weald nears its conclusion."
-}
-,
-{
-   "title": "PORTILLO: 16-6 Windermere to Sellafield",
-   "shortName": "16-6 Windermere to Sellafield",
-   "urlLocal": "media/channel-8/../Core/Portillo/16- 6 Windermere to Sellafield.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo begins a railway tour of Cumbria and Dumfriesshire."
-}
-,
-{
-   "title": "PORTILLO: 16-7 St Bees to Grange-over-Sands",
-   "shortName": "16-7 St Bees to Grange-over-Sands",
-   "urlLocal": "media/channel-8/../Core/Portillo/16- 7 St Bees to Grange-over-Sands.mp4",
-   "length": 1731.44,
-   "description": "Michael Portillo travels along the scenic Cumbrian Coast Line."
-}
-,
-{
-   "title": "PORTILLO: 16-8 Maryport to Penrith",
-   "shortName": "16-8 Maryport to Penrith",
-   "urlLocal": "media/channel-8/../Core/Portillo/16- 8 Maryport to Penrith.mp4",
-   "length": 1740.04,
-   "description": "Michael's railway journey continues as he follows in the footsteps of the Lakeland poets."
-}
-,
-{
-   "title": "PORTILLO: 16-9 Aspatria to Carlisle",
-   "shortName": "16-9 Aspatria to Carlisle",
-   "urlLocal": "media/channel-8/../Core/Portillo/16- 9 Aspatria to Carlisle.mp4",
-   "length": 1740.04,
-   "description": "Michael's railway journey takes him to the rolling countryside around Aspatria."
-}
-,
-{
-   "title": "PORTILLO: 16-10 Dumfries to Auchinleck",
-   "shortName": "16-10 Dumfries to Auchinleck",
-   "urlLocal": "media/channel-8/../Core/Portillo/16-10 Dumfries to Auchinleck.mp4",
-   "length": 1740.04,
-   "description": "Michael concludes his journey from Cumbria to Dumfriesshire by crossing the Solway Firth."
-}
-,
-{
-   "title": "PORTILLO: 16-11 Shrewsbury to Telford",
-   "shortName": "16-11 Shrewsbury to Telford",
-   "urlLocal": "media/channel-8/../Core/Portillo/16-11 Shrewsbury to Telford.mp4",
-   "length": 1739.2,
-   "description": "Michael Portillo re-enacts the Battle of Shrewsbury and explores the town's cathedral."
-}
-,
-{
-   "title": "PORTILLO: 16-12 Ironbridge to Coseley",
-   "shortName": "16-12 Ironbridge to Coseley",
-   "urlLocal": "media/channel-8/../Core/Portillo/16-12 Ironbridge to Coseley.mp4",
-   "length": 1737.04,
-   "description": "Michael is in Ironbridge Gorge on the River Severn, a hotbed of 18th-century innovation."
-}
-,
-{
-   "title": "PORTILLO: 3-12 Folkestone to Le Touquet",
-   "shortName": "3-12 Folkestone to Le Touquet",
-   "urlLocal": "media/channel-8/../Core/Portillo/3-12 Folkestone to Le Touquet.mp4",
-   "length": 1740.04,
-   "description": "Michael Portillo travels through the longest undersea tunnel in the world."
-}
-,
-{
-   "title": "PORTILLO: 3-13 Dover to Margate",
-   "shortName": "3-13 Dover to Margate",
-   "urlLocal": "media/channel-8/../Core/Portillo/3-13 Dover to Margate.mp4",
-   "length": 1740.04,
-   "description": "Michael is in Dover, where he recalls the biggest evacuation in military history."
-}
-,
-{
-   "title": "PORTILLO: JAPAN 10 Shimonoseki to Hiroshima",
-   "shortName": "JAPAN 10 Shimonoseki to Hiroshima",
-   "urlLocal": "media/channel-8/../Core/Portillo/JAPAN 10 Shimonoseki to Hiroshima.mp4",
-   "length": 1740.78,
-   "description": "Michael tries the deadly delicacy of pufferfish in the harbour town of Shimonoseki."
+   "title": "HITCHHIKER'S GUIDE: (26 of 26)",
+   "shortName": "(26 of 26)",
+   "urlLocal": "media/channel-8/Hitchhiker's Guide/(26 of 26).mp3",
+   "length": 2364.63,
+   "isAudioBook": true,
+   "description": "The Grebulons decide to take positive action and our heroes discover that Earth is never a safe place to be."
 }
 ]}
 

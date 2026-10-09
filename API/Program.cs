@@ -41,9 +41,22 @@ try
     // Configure the HTTP request pipeline.
     app.UseHttpsRedirection();
 
-    app.MapGet("/carousel", (ICacheService cs) =>
+    app.MapGet("/carousel", (ICacheService cs, HttpContext context) =>
     {
+        if (!context.Connection.RemoteIpAddress.ToString().Contains("192.168."))
+        {
+            File.AppendAllText("/volumes/media/carousel_log.txt", $"{DateTime.Now} {context.Connection.RemoteIpAddress} carousel {Environment.NewLine}");
+        }
         return Results.Extensions.NoCache(cs.GetCarousel());
+    });
+
+    app.MapGet("/ping/{channel}", (string channel, ICacheService cs, HttpContext context) =>
+    {
+        if (!context.Connection.RemoteIpAddress.ToString().Contains("192.168."))
+        {
+            File.AppendAllText("/volumes/media/carousel_log.txt", $"{DateTime.Now} {context.Connection.RemoteIpAddress} {channel} {Environment.NewLine}");
+        }
+        return String.Empty;
     });
 
     app.MapGet("/kindle/{email}", (IKindleService ks, string email) =>

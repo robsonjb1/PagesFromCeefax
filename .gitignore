@@ -6,4 +6,6 @@ api/bin/*
 api/kindletemp/*
 .vscode
 appsettings.development.json
+appsettings.json
 API/wwwroot/retrotv/media
+API/appsettings.json

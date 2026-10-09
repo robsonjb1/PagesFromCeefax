@@ -54,20 +54,18 @@ namespace API.Services
 
                         // Instantiate objects required to build cache
                         CeefaxContent cc = new(_config);
-                        IMarketData marketData = new MarketData(cc);
                         IStandingData standingData = new StandingsData(cc);
                         IWeatherData weatherData = new WeatherData(cc);
                         ITVListingData listingData = new TVListingData(cc);
                         
                         CarouselService cs = new(
                             new TeletextPageNews(cc),
-                            new TeletextPageMarkets(cc, marketData),
                             new TeletextPageStandings(cc, standingData),
                             new TeletextPageWeather(cc, weatherData),
                             new TeletextPageTV(cc, listingData));
                         
                         _cd.Carousel = cs.Carousel;
-                        _cd.Carousel.IsValid = marketData.IsValid && standingData.IsValid && weatherData.IsValid && listingData.IsValid;
+                        _cd.Carousel.IsValid = standingData.IsValid && weatherData.IsValid && listingData.IsValid;
                         _cd.LastBuilt = Utility.ConvertToUKTime(DateTime.UtcNow);
                         _cd.BuildTimeSeconds = Convert.ToInt32(sw.ElapsedMilliseconds / 1000);
 

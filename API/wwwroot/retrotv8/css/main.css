@@ -1,0 +1,228 @@
+
+/* reset */
+*, *:before, *:after {
+	margin: 0;
+	padding: 0;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+Header, section, footer, aside {
+	display: block;
+}
+
+/* general styles */
+body {
+	background-color: black;
+}
+
+Header {
+	position: absolute;
+	top: -1000px;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+audio {
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+#controls {
+    text-align: center;
+	    color: white;
+	font-size: .8em;
+	background-color: black;	
+	margin-top: 10px;
+}
+
+/* main page container */
+#container {
+	font-size: 1.25em;
+	width: 100%;
+	height: 52.85em;
+	background: #000000 url('../img/background.jpg') center top no-repeat;
+	background-size: auto 100%;
+	margin: -6em 0 0 0;
+	padding: 5em 0 0 0;
+	position: relative;
+	overflow: hidden;
+}
+
+/* content bit */
+#page {
+	font-size: 1em;
+	line-height: 1.23;
+	display: table;
+	margin: 0 auto 0 auto;
+	-webkit-transform: scale(1.2,0.97);
+	-moz-transform: scale(1.2,0.97);
+	-ms-transform: scale(1.2,0.97);
+	-o-transform: scale(1.2,0.97);
+	transform: scale(1.2,0.97);
+	cursor: default;
+	letter-spacing: 0px;
+}
+#page.view {
+	-webkit-transform: scale(1.2,0.97) perspective(1000px) rotateX(0.1deg) translateZ(1px);
+	-moz-transform: scale(1.2,0.97) perspective(1000px) rotateX(0.1deg) translateZ(1px);
+	-ms-transform: scale(1.2,0.97) perspective(1000px) rotateX(0.1deg) translateZ(1px);
+	-o-transform: scale(1.2,0.97) perspective(1000px) rotateX(0.1deg) translateZ(1px);
+	transform: scale(1.2,0.97) perspective(1000px) rotateX(0.1deg) translateZ(1px);
+}
+#page span, #page a {
+	display: inline;
+	vertical-align: top;
+}
+#page #pageContent {
+	position: relative;
+}
+#page.view #pageContent span {
+	border: none;
+	margin: 0;
+}
+
+/* scanline/shading overlay */
+#overlay, #overlaySvg {
+	width: 52.2em;
+	height: 39.2em;
+	position: absolute;
+	top: 5.2em;
+	left: 50%;
+	margin: 0 0 0 -25.6em;
+	pointer-events: none;
+}
+#overlay {
+	background: url('../img/overlay.png') no-repeat;
+	background-size: 100% 100%;
+}
+
+/* Now Next banner */
+#planner {
+	margin-top: auto;
+	position: absolute;
+	bottom: 0;
+    left: 0;
+    right: 0;
+	width: 100%;
+	z-index: 2;
+}
+
+.initially-hidden {
+	display: none;
+}
+
+td, th { /* table cells */
+    padding: 5px;
+}
+.plannerTable {
+	font-size:medium;
+	margin-left: 10px;
+	margin-bottom: 0px;
+}
+.plannerButton {
+	width: 60px !important;
+	height: 43px !important;
+	margin-left: -3px;
+	padding: 3px !important;
+}
+.plannerStart {
+	color: #ffff80;
+	font-size: 14px;
+	vertical-align: top;
+	margin-left: -1px;
+}
+.tick {
+	color: #ffff80;
+	font-size: 16px;
+	vertical-align: 0px;
+}
+.plannerDescription {
+	font-size: smaller;
+	color: lightblue;
+	margin-top: -2px;
+}
+.plannerTitle {
+	vertical-align: top;
+}
+.plannerProgress {
+	height: 5px !important;
+	opacity: 75%;
+	margin-top: -2px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.progress {
+	background-color: #aaa;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+#pfcOverlay {
+	margin-top: auto;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: -100px;
+	bottom: 10px;
+	width: 100%;
+	z-index: 1;
+}
+#pfcFrame {
+	width: 100%;
+	height: 100%;
+}
+#settings {
+	display: none;
+}
+#channelList {
+}
+.channelBanner {
+	height: 30px;
+	margin-left: 3px;
+}
+.plannerToggleButton {
+	font-size: xx-large;
+	color: #e0e0e0;
+	margin-right: 12px;
+}
+.plannerGroupButton {
+	font-size: x-large;
+	color: #e0e0e0;
+}
+.inTitleChannel {
+	font-size: 15px;
+	color: lightblue;
+	vertical-align: -1px;
+}
+.plannerTime {
+	font-size: 15px;
+	color: lightblue;
+	vertical-align: 1px;
+	width: 30px;
+}
+.channelToggle {
+	font-size: x-large;
+	color: yellow;
+}
+
+.plannerLogo {
+	font-size: 16px;
+	color: lightblue;
+	vertical-align: 3px;
+	margin-left: 12px;
+}
+.plannerTogglePanel {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: -5px;
+	margin-bottom: -10px;
+}

@@ -29,6 +29,7 @@ public class CeefaxSection
             case CeefaxSectionType.Science:
             case CeefaxSectionType.Technology:
             case CeefaxSectionType.Sussex:
+            case CeefaxSectionType.Tees:
             case CeefaxSectionType.TVScheduleBBC1:
             case CeefaxSectionType.TVScheduleBBC2:
             case CeefaxSectionType.TVScheduleBBC4:
@@ -36,7 +37,6 @@ public class CeefaxSection
             case CeefaxSectionType.WeatherForecast1:
             case CeefaxSectionType.WeatherForecast2:
             case CeefaxSectionType.WeatherForecast3:
-            case CeefaxSectionType.WeatherWorld:
                 this.HeadingCol = TeletextControl.AlphaYellow;
                 this.PromoBackground = TeletextControl.AlphaBlue;
                 
@@ -91,7 +91,13 @@ public class CeefaxSection
             case CeefaxSectionType.WeatherForecast1:
             case CeefaxSectionType.WeatherForecast2:
             case CeefaxSectionType.WeatherForecast3:
-            case CeefaxSectionType.WeatherWorld:
+            case CeefaxSectionType.WeatherLondon:
+            case CeefaxSectionType.WeatherManchester:
+            case CeefaxSectionType.WeatherTruro:
+            case CeefaxSectionType.WeatherBelfast:
+            case CeefaxSectionType.WeatherCardiff:
+            case CeefaxSectionType.WeatherEdinburgh:
+            case CeefaxSectionType.WeatherLerwick:
             case CeefaxSectionType.TVScheduleBBC1:
             case CeefaxSectionType.TVScheduleBBC2:
             case CeefaxSectionType.TVScheduleBBC4:
@@ -127,10 +133,13 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Sussex:
                 this.Header = Graphics.HeaderSussex;
+                this.PromoFooter = "Tees news coming up next >>>";
+                break;
+            case CeefaxSectionType.Tees:
+                this.Header = Graphics.HeaderTees;
                 break;
             case CeefaxSectionType.Business:
                 this.Header = Graphics.HeaderBusiness;
-                this.PromoFooter = "Market data coming up next >>>";
                 break;
             case CeefaxSectionType.Football:
                 this.Header = Graphics.HeaderFootball;

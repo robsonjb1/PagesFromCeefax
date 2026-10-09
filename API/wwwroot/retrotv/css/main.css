@@ -125,7 +125,7 @@ td, th { /* table cells */
 .plannerTable {
 	font-size:medium;
 	margin-left: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
 }
 .plannerButton {
 	width: 60px !important;
@@ -181,12 +181,8 @@ td, th { /* table cells */
 }
 #settings {
 	display: none;
-	height: 350px;
-	overflow: auto;
 }
 #channelList {
-	height: 350px;
-	overflow: auto;
 }
 .channelBanner {
 	height: 30px;
@@ -207,13 +203,13 @@ td, th { /* table cells */
 	vertical-align: -1px;
 }
 .plannerTime {
-	font-size: 17px;
+	font-size: 15px;
 	color: lightblue;
 	vertical-align: 1px;
 	width: 30px;
 }
 .channelToggle {
-	font-size: 25px;
+	font-size: x-large;
 	color: yellow;
 }
 
@@ -227,4 +223,6 @@ td, th { /* table cells */
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	margin-top: -5px;
+	margin-bottom: -10px;
 }

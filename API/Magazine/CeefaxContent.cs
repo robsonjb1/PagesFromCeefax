@@ -33,6 +33,8 @@ public class CeefaxContent : ICeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Technology, new Uri("https://feeds.bbci.co.uk/news/technology/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Business, new Uri("https://feeds.bbci.co.uk/news/business/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Sussex, new Uri("https://feeds.bbci.co.uk/news/england/sussex/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Tees, new Uri("https://feeds.bbci.co.uk/news/england/tees/rss.xml")));
+        
         Sections.Add(new CeefaxSection(CeefaxSectionType.Football, new Uri("https://feeds.bbci.co.uk/sport/football/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Rugby, new Uri("https://feeds.bbci.co.uk/sport/rugby-union/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Cricket, new Uri("https://feeds.bbci.co.uk/sport/cricket/rss.xml")));
@@ -41,8 +43,18 @@ public class CeefaxContent : ICeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Formula1, new Uri("https://feeds.bbci.co.uk/sport/formula1/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Standings, new Uri("https://www.bbc.co.uk/sport/formula1/standings")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Entertainment, new Uri("https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
+        
         Sections.Add(new CeefaxSection(CeefaxSectionType.Weather, new Uri("https://www.bbc.co.uk/weather")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.hl.co.uk/shares")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherLondon, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2643743")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherCardiff, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2653822")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherEdinburgh, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2650225")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherTruro, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2635412")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherLerwick, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2644605")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherManchester, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2643123")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherBelfast, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2655984")));
+
+        //Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.hl.co.uk/shares")));
+        
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC1, new Uri("https://www.bbc.co.uk/schedules/p00fzl6x")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));
@@ -51,13 +63,13 @@ public class CeefaxContent : ICeefaxContent
         Sections.ForEach(z => UriCache.Add(new CachedUri(z.Feed)));
 
         // Add the weather API requests to the URL cache
-        SystemConfig.WeatherCities.ForEach(c => AddWeatherAPIUriToCache(c));
+        //SystemConfig.WeatherCities.ForEach(c => AddWeatherAPIUriToCache(c));
         
         // Add the Hargreaves Lansdown API currency request to the URL cache
-        UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/ajax/home/currency-json"), "HL-Currencies"));
+        //UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/ajax/home/currency-json"), "HL-Currencies"));
 
         // 10-year UK bond yields
-        UriCache.Add(new CachedUri(new Uri("https://markets.ft.com/data/bonds/tearsheet/summary?s=UK10YG"), "UK-10YRBOND"));
+        //UriCache.Add(new CachedUri(new Uri("https://markets.ft.com/data/bonds/tearsheet/summary?s=UK10YG"), "UK-10YRBOND"));
 
         // Process the UR cache (first time)
         ProcessUriCache().Wait();
@@ -81,28 +93,6 @@ public class CeefaxContent : ICeefaxContent
 
     private async Task ProcessUriCache()
     {
-        // JRTEMP
-        /*
-        for(int i = 1503; i<1510; i++)
-        {
-            var rootHtml = FetchPageAsync(new Uri($"https://totparchive.co.uk/episode.php?id={i}")).Result.httpResponse.Content.ReadAsStringAsync().Result; 
-
-            HtmlDocument doc = new();
-            doc.LoadHtml(rootHtml);
-
-            // Parse index page and construct article list
-            var titleTag = doc.DocumentNode.SelectSingleNode("//title");
-            string title = titleTag.InnerText;
-
-            string description = rootHtml.Substring(rootHtml.IndexOf("\"description\": \""));
-            description = description.Substring(description.IndexOf("Including performances from"));
-            description = description.Replace("Including performances from", "With").Replace(".", "").Replace("&amp;", "&").Trim() + ".";
-
-            Console.WriteLine(title);
-            Console.WriteLine(description);
-        }
-        */
-        
         try
         {
             var client = new HttpClient();
@@ -152,8 +142,6 @@ public class CeefaxContent : ICeefaxContent
                 storyCount++;
             }
         }
-
-        
     }
 
     private static async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)

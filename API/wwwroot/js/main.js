@@ -18,6 +18,9 @@ import { video } from "./video.js";
         var canvasWidth = $('#magazineCanvas').width();
         var canvasHeight = $('#magazineCanvas').height();
 
+        window.top.postMessage('click', '*')
+
+        /*
         if(y > canvasHeight * 0.90) // User as selected the bottom row
         {        
             if(x < canvasWidth * 0.35) toggleMusic();                                                    // Red
@@ -25,6 +28,7 @@ import { video } from "./video.js";
             if(x >= canvasWidth * 0.7 && x < canvasWidth * 0.9) { debugOffset++; moveNextPage(); }      // Yellow
             if(x >= canvasWidth * 0.9) window.open("https://x.com/pfceefax");                           // Cyan
         }
+        */
     });
 
     // Carousel state
@@ -38,13 +42,14 @@ import { video } from "./video.js";
     var pageDuration = 27;
     var pageTickerNo = 100;
     var pageTicking = true;
+    var pageTickerDelay = 0;
     var lastPageRefresh = new Date();
     var pageIsValid = true;
     var pagesInCarousel = 0
     var carousel = null;
     var carouselRequestTime;
     var carouselIsValid = true; 
-    var pageBuffer = getLoadingPage();  // getTestPage();
+    var pageBuffer = new Uint8Array(); //getLoadingPage();  // getTestPage();
     var musicOn = false;
   
     // Functions
@@ -64,7 +69,7 @@ import { video } from "./video.js";
                 pageBuffer = getLoadingPage();
                 pageTicking = true;
                 debugOffset = 0;
-                rowLimit = 1; // Force new page redraw    
+                rowLimit = 0; // Force new page redraw    
 
                 // Refresh magazine
                 getNewCarousel();
@@ -81,10 +86,18 @@ import { video } from "./video.js";
 
             // Determine number of rows to draw
             lastRowRefresh = time;
-            rowLimit = rowLimit >= 25 ? 25 : rowLimit+2;
+            if(rowLimit != 1) {
+                rowLimit = rowLimit >= 25 ? 1 : rowLimit+2;
+            }
             
             // Increment ticker with a random delay to make less uniform
-            if(pageTicking && rowLimit >= 25) pageTickerNo = (pageTickerNo > 190) ? 100 : pageTickerNo + ((Math.floor((Math.random() * 10)) == 1) ? 2 : 1); 
+            if(pageTicking && rowLimit == 1) {
+                pageTickerDelay++;
+                if(pageTickerDelay == 8) {
+                    pageTickerNo = (pageTickerNo > 190) ? 100 : pageTickerNo + ((Math.floor((Math.random() * 10)) == 1) ? 2 : 1); 
+                    pageTickerDelay = 0;
+                }
+            }            
             
             // Render page
             insertPageHeader(carouselIsValid, pageIsValid, pageBuffer, pageTickerNo, musicOn);
@@ -111,6 +124,7 @@ import { video } from "./video.js";
         charData[16] = 7; // Set white text for the remainder
 
         // Insert Fastext buttons
+        /*
         const footer = " Music:" + (musicOn ? "On " : "Off") + "   Previous   Next   Contact X";
         
         for(var i=0; i<footer.length; i++) charData[960+i] = footer.charCodeAt(i);
@@ -119,6 +133,7 @@ import { video } from "./video.js";
         charData[982] = 3;  // Yellow
         charData[989] = 6;  // Cyan
         charData[998] = 93; // Right Arrow
+        */
     }
    
     function getNewCarousel() {
@@ -137,14 +152,14 @@ import { video } from "./video.js";
                 
                 var magazineReceiveTime = new Date();
                 var actualWait = (magazineReceiveTime - carouselRequestTime) / 1000;
-                if (actualWait >= loadingPageDuration) {
+                //if (actualWait >= loadingPageDuration) {
                     // More than 15 seconds have passed, so move to the first page straight away
                     transitionSecond = (magazineReceiveTime.getSeconds() + 1) % 60;
-                }
-                else {
+                //}
+                //else {
                     // Magazine received before 15 seconds have passed, so calculate the correct transition second
-                    transitionSecond = (carouselRequestTime.getSeconds() + loadingPageDuration) % 60;
-                }
+                //    transitionSecond = (carouselRequestTime.getSeconds() + loadingPageDuration) % 60;
+                //}
             }
         });
     }
@@ -156,7 +171,7 @@ import { video } from "./video.js";
         currentPage = (debugOffset + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration))) % pagesInCarousel;
         pageBuffer = carousel.content[currentPage].data;
         pageIsValid = carousel.content[currentPage].isValid;
-        rowLimit = 1; // Force new page redraw
+        rowLimit = 0; // Force new page redraw
         for(var i=3+(40*20*4); i<40*20*12*24*4; i+=4) imgData.data[i] = 0;   // Blank the screen (only lines 2 to 24, keep header and Fastext buttons)
     }
 
