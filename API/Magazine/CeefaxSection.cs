@@ -131,7 +131,7 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Sussex:
                 Header = Graphics.HeaderSussex;
-                PromoFooter = "Tees news coming up next >>>";
+                PromoFooter = "Kent news coming up next >>>";
                 break;
             case CeefaxSectionType.Kent:
                 Header = Graphics.HeaderKent;
