@@ -17,7 +17,7 @@ public enum CeefaxSectionType
     Standings,
     Entertainment,
     Sussex,
-    Tees,
+    Kent,
     Weather,
     WeatherForecast1,
     WeatherForecast2,

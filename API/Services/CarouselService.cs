@@ -46,7 +46,7 @@ public class CarouselService
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Science));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Technology));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Sussex));
-            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Tees));
+            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Kent));
 
             // Business section
             BuildTeletextPage(Graphics.PromoBusiness);

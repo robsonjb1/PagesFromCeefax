@@ -25,7 +25,7 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Technology, new Uri("https://feeds.bbci.co.uk/news/technology/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Business, new Uri("https://feeds.bbci.co.uk/news/business/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Sussex, new Uri("https://feeds.bbci.co.uk/news/england/sussex/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Tees, new Uri("https://feeds.bbci.co.uk/news/england/tees/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Kent, new Uri("https://feeds.bbci.co.uk/news/england/kent/rss.xml")));
         
         Sections.Add(new CeefaxSection(CeefaxSectionType.Football, new Uri("https://feeds.bbci.co.uk/sport/football/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Rugby, new Uri("https://feeds.bbci.co.uk/sport/rugby-union/rss.xml")));

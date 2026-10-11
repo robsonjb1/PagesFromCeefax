@@ -29,7 +29,7 @@ public class CeefaxSection
             case CeefaxSectionType.Science:
             case CeefaxSectionType.Technology:
             case CeefaxSectionType.Sussex:
-            case CeefaxSectionType.Tees:
+            case CeefaxSectionType.Kent:
             case CeefaxSectionType.TVScheduleBBC1:
             case CeefaxSectionType.TVScheduleBBC2:
             case CeefaxSectionType.TVScheduleBBC4:
@@ -133,8 +133,8 @@ public class CeefaxSection
                 Header = Graphics.HeaderSussex;
                 PromoFooter = "Tees news coming up next >>>";
                 break;
-            case CeefaxSectionType.Tees:
-                Header = Graphics.HeaderTees;
+            case CeefaxSectionType.Kent:
+                Header = Graphics.HeaderKent;
                 break;
             case CeefaxSectionType.Business:
                 Header = Graphics.HeaderBusiness;

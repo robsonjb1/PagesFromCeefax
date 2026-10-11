@@ -7,7 +7,7 @@ public class Graphics
     // Page headers
     public readonly static StringBuilder HeaderHome = new();
     public readonly static StringBuilder HeaderSussex = new();
-    public readonly static StringBuilder HeaderTees = new();
+    public readonly static StringBuilder HeaderKent = new();
     public readonly static StringBuilder HeaderWorld = new();
     public readonly static StringBuilder HeaderPolitics = new();
     public readonly static StringBuilder HeaderSciTech = new();
@@ -52,18 +52,19 @@ public class Graphics
         HeaderPolitics.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] j7£ju¬ju0¬ ¬ ¬ju0s{{5");
         HeaderPolitics.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]///-./-,,-,.,/,/,-,.,,.///");
 
-        HeaderSciTech.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] x,$x,h4 (|$|,_<$|h4");
-        HeaderSciTech.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] s{{%opj5£ ¬ ¬s*u0¬k5");
-        HeaderSciTech.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]///,,/-,-.//,/,,/,.,-.////");
+        HeaderSciTech.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]  x,$x,h4 (|$|,_<$|h4");
+        HeaderSciTech.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]  s{{%opj5£ ¬ ¬s*u0¬k5");
+        HeaderSciTech.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]////,,/-,-.//,/,,/,.,-.///");
 
         HeaderSussex.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]   x,$|h4x,$x,$|,h4|");
         HeaderSussex.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]   s{{%oz%s{{%s{{%¬sh7}}");
         HeaderSussex.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]/////,,/-,/,,/,,/,,-.,////");
 
-        HeaderTees.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]     (|$|, |, x,$");
-        HeaderTees.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]      ¬ ¬s ¬s s{{%");
-        HeaderTees.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]////////,/,,/,,/,,////////");
-       
+        HeaderKent.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]      |h4|$xl0l<");
+        HeaderKent.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]      ¬k4¬1¬j5j5");
+        HeaderKent.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]////////,-.,.,-.-.////////");
+
+
         HeaderBusiness.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}] |l4|h4|,$|_<th<h<,h<,");
         HeaderBusiness.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}] ¬{{4oz%s{{5¬j5¬jwbs¬bs¬");
         HeaderBusiness.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsRed}]///,,.-,/,,.,-.,-,-,,-,,//");
