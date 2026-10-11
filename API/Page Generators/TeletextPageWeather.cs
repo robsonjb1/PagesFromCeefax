@@ -4,22 +4,10 @@ using API.Magazine;
 
 namespace API.PageGenerators;
 
-public interface ITeletextPageWeather
+public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
 {
-    public StringBuilder CreateWeatherMap();
-    public StringBuilder CreateWeatherPage(CeefaxSectionType page);
-}
-
-public class TeletextPageWeather : ITeletextPageWeather
-{
-    private readonly IWeatherData _wd;
-    private readonly ICeefaxContent _cc;
-
-    public TeletextPageWeather(ICeefaxContent cc, IWeatherData wd)
-    {
-        _cc = cc;
-        _wd = wd;
-    }
+    private readonly WeatherData _wd = wd;
+    private readonly CeefaxContent _cc = cc;
 
     #region Public Methods
     public StringBuilder CreateWeatherMap()
@@ -105,7 +93,7 @@ public class TeletextPageWeather : ITeletextPageWeather
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]{sectionTitle}[{TeletextControl.AlphaWhite}]{forecastNo+2}/4");
 
             // Break body text up into paragraphs
-            List<string> bodyLines = new();
+            List<string> bodyLines = [];
             foreach(string line in sectionText.Split(". "))
             {
                 List<string> newChunk = Utility.ParseParagraph(line);

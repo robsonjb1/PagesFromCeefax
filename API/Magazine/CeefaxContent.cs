@@ -2,22 +2,14 @@
 using System.ServiceModel.Syndication;
 using System.Xml;
 using API.Architecture;
-using HtmlAgilityPack;
 
 namespace API.Magazine;
 
-public interface ICeefaxContent
+public class CeefaxContent
 {
-    public List<NewsStory> StoryList { get; set; }
-    public List<CachedUri> UriCache { get; set; }
-    public List<CeefaxSection> Sections { get; set; }
-}
-
-public class CeefaxContent : ICeefaxContent
-{
-    public List<NewsStory> StoryList { get; set; } = new();
-    public List<CachedUri> UriCache { get; set; } = new();
-    public List<CeefaxSection> Sections { get; set; } = new();
+    public List<NewsStory> StoryList { get; set; } = [];
+    public List<CachedUri> UriCache { get; set; } = [];
+    public List<CeefaxSection> Sections { get; set; } = [];
 
     private readonly ISystemConfig _config;
 
@@ -52,24 +44,13 @@ public class CeefaxContent : ICeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherLerwick, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2644605")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherManchester, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2643123")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherBelfast, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2655984")));
-
-        //Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.hl.co.uk/shares")));
-        
+  
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC1, new Uri("https://www.bbc.co.uk/schedules/p00fzl6x")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));
         
         // Add each section's feed URL to URL cache
         Sections.ForEach(z => UriCache.Add(new CachedUri(z.Feed)));
-
-        // Add the weather API requests to the URL cache
-        //SystemConfig.WeatherCities.ForEach(c => AddWeatherAPIUriToCache(c));
-        
-        // Add the Hargreaves Lansdown API currency request to the URL cache
-        //UriCache.Add(new CachedUri(new Uri("https://www.hl.co.uk/ajax/home/currency-json"), "HL-Currencies"));
-
-        // 10-year UK bond yields
-        //UriCache.Add(new CachedUri(new Uri("https://markets.ft.com/data/bonds/tearsheet/summary?s=UK10YG"), "UK-10YRBOND"));
 
         // Process the UR cache (first time)
         ProcessUriCache().Wait();
@@ -82,13 +63,6 @@ public class CeefaxContent : ICeefaxContent
 
         // Parse all stories
         StoryList.ForEach(z => z.AddBody(UriCache.Find(l => l.Location == z.Link).ContentString));
-    }
-
-    private void AddWeatherAPIUriToCache(string city)
-    {
-        UriCache.Add(new CachedUri(
-            new Uri($"https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={_config.OpenWeatherApiKey}"),
-            city));
     }
 
     private async Task ProcessUriCache()

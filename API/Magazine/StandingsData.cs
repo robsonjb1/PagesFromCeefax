@@ -5,7 +5,7 @@ using Serilog;
 
 namespace API.Magazine;
 
-public record StandingRecord
+public record StandingsRecord
 {
     public string Name { get; set; }
     public string Team { get; set;}
@@ -13,22 +13,22 @@ public record StandingRecord
     public int Points { get; set; }
 }
 
-public interface IStandingData
+public interface IStandingsData
 {
-    public List<StandingRecord> Drivers { get; set; }
-    public List<StandingRecord> Constructors { get; set; }
+    public List<StandingsRecord> Drivers { get; set; }
+    public List<StandingsRecord> Constructors { get; set; }
     public bool IsValid { get; set; }
 }
 
-public class StandingsData : IStandingData
+public class StandingsData : IStandingsData
 {
-    public List<StandingRecord> Drivers { get; set; } = new();
-    public List<StandingRecord> Constructors { get; set; } = new();
+    public List<StandingsRecord> Drivers { get; set; } = [];
+    public List<StandingsRecord> Constructors { get; set; } = [];
     public bool IsValid { get; set; } = false;
 
-    private readonly ICeefaxContent _cc;
+    private readonly CeefaxContent _cc;
 
-    public StandingsData(ICeefaxContent cc)
+    public StandingsData(CeefaxContent cc)
     {
         _cc = cc;
 
@@ -63,7 +63,7 @@ public class StandingsData : IStandingData
             int wins = Convert.ToInt32(nodes[8].InnerText);
             int points = Convert.ToInt32(nodes[10].InnerText);
             
-            Drivers.Add(new StandingRecord() { Name = driverName, Team = team, Points = points, Wins = wins });
+            Drivers.Add(new StandingsRecord() { Name = driverName, Team = team, Points = points, Wins = wins });
         }
 
         // Constructors
@@ -75,7 +75,7 @@ public class StandingsData : IStandingData
             int wins = Convert.ToInt32(nodes[5].InnerText);
             int points = Convert.ToInt32(nodes[7].InnerText);
 
-            Constructors.Add(new StandingRecord() { Team = team, Points = points, Wins = wins });
+            Constructors.Add(new StandingsRecord() { Team = team, Points = points, Wins = wins });
         }
     }
 }

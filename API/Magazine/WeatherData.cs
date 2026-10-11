@@ -3,7 +3,6 @@ using System.ServiceModel.Syndication;
 using System.Text.Json;
 using System.Xml;
 using API.Architecture;
-using API.DataTransferObjects;
 using HtmlAgilityPack;
 using Serilog;
 
@@ -26,11 +25,11 @@ public interface IWeatherData
 public class WeatherData : IWeatherData
 {
     public Forecast[] Forecasts { get; set; } = new Forecast[4];
-    public Dictionary<string, int> Temperatures { get; set; } = new();
+    public Dictionary<string, int> Temperatures { get; set; } = [];
     public DateTime LastRefreshUTC { get; set; }
     public bool IsValid { get; set; } = false;
 
-    public WeatherData(ICeefaxContent cc)
+    public WeatherData(CeefaxContent cc)
     {
         try
         {
@@ -48,8 +47,6 @@ public class WeatherData : IWeatherData
             Temperatures.Add("WeatherLerwick", GetTemperature(cc, CeefaxSectionType.WeatherLerwick));
             Temperatures.Add("WeatherManchester", GetTemperature(cc, CeefaxSectionType.WeatherManchester));
             Temperatures.Add("WeatherBelfast", GetTemperature(cc, CeefaxSectionType.WeatherBelfast));
-
-            //SystemConfig.WeatherCities.ForEach(z => Temperatures.Add(z, GetTempFromApiResponse(cc, z)));
             
             IsValid = true;
         }
@@ -68,7 +65,7 @@ public class WeatherData : IWeatherData
         };
     }
 
-    private int GetTemperature(ICeefaxContent cc, CeefaxSectionType city)
+    private int GetTemperature(CeefaxContent cc, CeefaxSectionType city)
     {
         string html = String.Empty;
         TextReader tr = new StringReader(cc.UriCache.Find(l => l.Location == cc.Sections.Find(z => z.Name == city)!.Feed)!.ContentString!);
@@ -77,26 +74,4 @@ public class WeatherData : IWeatherData
 
         return temperature;
     }
-
-    /*private CityTemperature GetTempFromApiResponse(ICeefaxContent cc, string city)
-    {
-        string json = String.Empty;
-        try
-        {
-            json = cc.UriCache.First(l => l.Tag == city).ContentString;
-            OpenWeather dto = JsonSerializer.Deserialize<OpenWeather>(json);
-            return new CityTemperature 
-            {
-                CurrentTemp = Convert.ToInt32(dto.main.temp),
-                MaxTemp = Convert.ToInt32(dto.main.temp_max),
-                MinTemp = Convert.ToInt32(dto.main.temp_min),
-                Description = dto.weather.First().description
-            };            
-        }   
-        catch (Exception ex)
-        {
-            throw new OpenWeatherParseException(json, ex);
-        }
-    }
-    */
 }

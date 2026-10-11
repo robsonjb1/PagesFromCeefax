@@ -12,14 +12,9 @@ static class ResultsExtensions
     }
 }
 
-class NoCacheResult : IResult
+class NoCacheResult(CarouselDelivery cd) : IResult
 {
-    private readonly CarouselDelivery _cd;
-
-    public NoCacheResult(CarouselDelivery cd)
-    {
-        _cd = cd;
-    }
+    private readonly CarouselDelivery _cd = cd;
 
     public Task ExecuteAsync(HttpContext httpContext)
     {

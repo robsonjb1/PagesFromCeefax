@@ -1,103 +1,13 @@
-{ "lastRefresh": "Fri 09 Oct 19:15", 
+{ "lastRefresh": "Sun 11 Oct 17:01", 
    "episodeList": 
 [
 {
-   "urlLocal": "media/Channel-9/1-RUNASRADIO.mp3",
-   "length": 2227.356,
+   "urlLocal": "media/Channel-9/1-LASTORDERS.mp3",
+   "length": 2717.701,
    "isPodcast": true,
-   "title": "PODCASTS: RunAs Radio",
-   "shortName": "RunAs Radio (2 days ago)",
-   "description": "Cloudflare Edge Workers with Bob Fornal (2 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-9/1-SPIKED.mp3",
-   "length": 2422.386,
-   "isPodcast": true,
-   "title": "PODCASTS: Spiked",
-   "shortName": "Spiked (Today)",
-   "description": "Why Zack Polanski flopped (Today)"
-}
-,
-{
-   "urlLocal": "media/Channel-9/2-SPIKED.mp3",
-   "length": 2199.039,
-   "isPodcast": true,
-   "title": "PODCASTS: Spiked",
-   "shortName": "Spiked (Yesterday)",
-   "description": "Why I named the ‘Cornell 7’ accuser | Michael Tracey (Yesterday)"
-}
-,
-{
-   "urlLocal": "media/Channel-9/1-AMERICANO.mp3",
-   "length": 1888.652,
-   "isPodcast": true,
-   "title": "PODCASTS: Americano",
-   "shortName": "Americano (Today)",
-   "description": "Trump’s decade of power: What went wrong? (Today)"
-}
-,
-{
-   "urlLocal": "media/Channel-9/1-CHS.mp3",
-   "length": 1211.349,
-   "isPodcast": true,
-   "title": "PODCASTS: Coffee House Shots",
-   "shortName": "Coffee House Shots (Today)",
-   "description": "Is Polanski finished? – Labour crushes Green challenge in North London (Today)"
-}
-,
-{
-   "urlLocal": "media/Channel-9/2-CHS.mp3",
-   "length": 1377.958,
-   "isPodcast": true,
-   "title": "PODCASTS: Coffee House Shots",
-   "shortName": "Coffee House Shots (Yesterday)",
-   "description": "What makes a great politician? | Thérèse Coffey & Michael Gove (Yesterday)"
-}
-,
-{
-   "urlLocal": "media/Channel-9/3-CHS.mp3",
-   "length": 934.138,
-   "isPodcast": true,
-   "title": "PODCASTS: Coffee House Shots",
-   "shortName": "Coffee House Shots (2 days ago)",
-   "description": "REACTION: Kemi’s conference speech – has she found ‘the right way’? (2 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-9/1-REALITY.mp3",
-   "length": 2191.098,
-   "isPodcast": true,
-   "title": "PODCASTS: Reality Check",
-   "shortName": "Reality Check (Yesterday)",
-   "description": "A history of the bond markets – with Robin Wigglesworth (Yesterday)"
-}
-,
-{
-   "urlLocal": "media/Channel-9/1-TRIGGER.mp3",
-   "length": 5374.981,
-   "isPodcast": true,
-   "title": "PODCASTS: TRIGGERnometry",
-   "shortName": "TRIGGERnometry (Today)",
-   "description": "France is on Fire & Is Zionism Racism? - Off the Fence (Today)"
-}
-,
-{
-   "urlLocal": "media/Channel-9/2-TRIGGER.mp3",
-   "length": 7396.989,
-   "isPodcast": true,
-   "title": "PODCASTS: TRIGGERnometry",
-   "shortName": "TRIGGERnometry (2 days ago)",
-   "description": "Everything You Know About Napoleon Is Wrong – Historian Andrew Roberts (2 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-9/3-TRIGGER.mp3",
-   "length": 602.592,
-   "isPodcast": true,
-   "title": "PODCASTS: TRIGGERnometry",
-   "shortName": "TRIGGERnometry (3 days ago)",
-   "description": "Never Go Full Tucker - Konstantin Kisin (3 days ago)"
+   "title": "PODCASTS: Last Orders",
+   "shortName": "Last Orders (Today)",
+   "description": "Englishness, Welsh wokery and the ‘rent boy’ scandal (Today)"
 }
 ,
 {
@@ -105,8 +15,80 @@
    "length": 2775.875,
    "isPodcast": true,
    "title": "PODCASTS: The Spectator Edition",
-   "shortName": "The Spectator Edition (Today)",
-   "description": "Why is antisemitism rising in Britain? – with Andrew Roberts & Peter Hitchens (Today)"
+   "shortName": "The Spectator Edition (2 days ago)",
+   "description": "Why is antisemitism rising in Britain? – with Andrew Roberts & Peter Hitchens (2 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-9/1-CHS.mp3",
+   "length": 2343.601,
+   "isPodcast": true,
+   "title": "PODCASTS: Coffee House Shots",
+   "shortName": "Coffee House Shots (Yesterday)",
+   "description": "LIVE: Why aren't Britain's young people working? | with Laura Trott (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-9/2-CHS.mp3",
+   "length": 1211.349,
+   "isPodcast": true,
+   "title": "PODCASTS: Coffee House Shots",
+   "shortName": "Coffee House Shots (2 days ago)",
+   "description": "Is Polanski finished? – Labour crushes Green challenge in North London (2 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-9/3-CHS.mp3",
+   "length": 1377.958,
+   "isPodcast": true,
+   "title": "PODCASTS: Coffee House Shots",
+   "shortName": "Coffee House Shots (3 days ago)",
+   "description": "What makes a great politician? | Thérèse Coffey & Michael Gove (3 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-9/1-QUITERIGHT.mp3",
+   "length": 2258.729,
+   "isPodcast": true,
+   "title": "PODCASTS: Quite Right",
+   "shortName": "Quite Right (Yesterday)",
+   "description": "Britain must ‘come down like a ton of bricks’ on Islamist extremism – Nick Timothy | Quite right! LIVE (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-9/2-QUITERIGHT.mp3",
+   "length": 1809.083,
+   "isPodcast": true,
+   "title": "PODCASTS: Quite Right",
+   "shortName": "Quite Right (4 days ago)",
+   "description": "Are the Tories back? – and how the Greens became ‘Home Counties Hezbollah’ | LIVE (4 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-9/1-SPIKED.mp3",
+   "length": 2362.253,
+   "isPodcast": true,
+   "title": "PODCASTS: Spiked",
+   "shortName": "Spiked (2 days ago)",
+   "description": "Why Zack Polanski flopped (2 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-9/2-SPIKED.mp3",
+   "length": 2229.159,
+   "isPodcast": true,
+   "title": "PODCASTS: Spiked",
+   "shortName": "Spiked (3 days ago)",
+   "description": "Why I named the ‘Cornell 7’ accuser | Michael Tracey (3 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-9/1-ANDREWNEIL.mp3",
+   "length": 2795.457,
+   "isPodcast": true,
+   "title": "PODCASTS: Andrew Neil Report",
+   "shortName": "Andrew Neil Report (5 days ago)",
+   "description": "If Trump loses the House AND the Senate he will be the lamest of lame ducks (5 days ago)"
 }
 ,
 {
@@ -114,52 +96,70 @@
    "length": 1075.416,
    "isPodcast": true,
    "title": "PODCASTS: The Sky F1 Show",
-   "shortName": "The Sky F1 Show (Yesterday)",
-   "description": "Ted's 'Podbook' is back to round up the news from Singapore! (Yesterday)"
+   "shortName": "The Sky F1 Show (3 days ago)",
+   "description": "Ted's 'Podbook' is back to round up the news from Singapore! (3 days ago)"
 }
 ,
 {
    "urlLocal": "media/Channel-9/2-SKYF1.mp3",
-   "length": 3442.755,
+   "length": 3442.688,
    "isPodcast": true,
    "title": "PODCASTS: The Sky F1 Show",
-   "shortName": "The Sky F1 Show (3 days ago)",
-   "description": "'What happened on the formation lap?' (3 days ago)"
+   "shortName": "The Sky F1 Show (5 days ago)",
+   "description": "'What happened on the formation lap?' (5 days ago)"
 }
 ,
 {
-   "urlLocal": "media/Channel-9/1-PLANET-NORMAL.mp3",
-   "length": 3897.507,
+   "urlLocal": "media/Channel-9/1-REALITY.mp3",
+   "length": 2343.601,
    "isPodcast": true,
-   "title": "PODCASTS: Planet Normal",
-   "shortName": "Planet Normal (Yesterday)",
-   "description": "Labour’s energy insecurity intensifies (Yesterday)"
+   "title": "PODCASTS: Reality Check",
+   "shortName": "Reality Check (Yesterday)",
+   "description": "LIVE: Why aren't Britain's young people working? | with Laura Trott (Yesterday)"
 }
 ,
 {
-   "urlLocal": "media/Channel-9/1-QUITERIGHT.mp3",
-   "length": 1809.083,
+   "urlLocal": "media/Channel-9/2-REALITY.mp3",
+   "length": 2191.098,
    "isPodcast": true,
-   "title": "PODCASTS: Quite Right",
-   "shortName": "Quite Right (2 days ago)",
-   "description": "Are the Tories back? – and how the Greens became ‘Home Counties Hezbollah’ | LIVE (2 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-9/1-ANDREWNEIL.mp3",
-   "length": 2794.244,
-   "isPodcast": true,
-   "title": "PODCASTS: Andrew Neil Report",
-   "shortName": "Andrew Neil Report (3 days ago)",
-   "description": "If Trump loses the House AND the Senate he will be the lamest of lame ducks (3 days ago)"
+   "title": "PODCASTS: Reality Check",
+   "shortName": "Reality Check (3 days ago)",
+   "description": "A history of the bond markets – with Robin Wigglesworth (3 days ago)"
 }
 ,
 {
    "urlLocal": "media/Channel-9/1-B-ONEILL.mp3",
-   "length": 1398.648,
+   "length": 1428.767,
    "isPodcast": true,
    "title": "PODCASTS: Brendan O'Neill",
-   "shortName": "Brendan O'Neill (2 days ago)",
-   "description": "Alan Dershowitz: Why I quit the Democrats (2 days ago)"
+   "shortName": "Brendan O'Neill (4 days ago)",
+   "description": "Alan Dershowitz: Why I quit the Democrats (4 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-9/1-AMERICANO.mp3",
+   "length": 1888.652,
+   "isPodcast": true,
+   "title": "PODCASTS: Americano",
+   "shortName": "Americano (2 days ago)",
+   "description": "Trump’s decade of power: What went wrong? (2 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-9/1-RUNASRADIO.mp3",
+   "length": 2227.356,
+   "isPodcast": true,
+   "title": "PODCASTS: RunAs Radio",
+   "shortName": "RunAs Radio (4 days ago)",
+   "description": "Cloudflare Edge Workers with Bob Fornal (4 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-9/1-PLANET-NORMAL.mp3",
+   "length": 3897.514,
+   "isPodcast": true,
+   "title": "PODCASTS: Planet Normal",
+   "shortName": "Planet Normal (3 days ago)",
+   "description": "Labour’s energy insecurity intensifies (3 days ago)"
 }
 ]}

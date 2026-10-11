@@ -63,7 +63,6 @@ public class Graphics
         HeaderTees.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]     (|$|, |, x,$");
         HeaderTees.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]      ¬ ¬s ¬s s{{%");
         HeaderTees.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]////////,/,,/,,/,,////////");
-
        
         HeaderBusiness.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}] |l4|h4|,$|_<th<h<,h<,");
         HeaderBusiness.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}] ¬{{4oz%s{{5¬j5¬jwbs¬bs¬");

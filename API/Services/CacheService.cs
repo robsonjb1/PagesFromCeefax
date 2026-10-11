@@ -21,18 +21,13 @@ namespace API.Services
         public CarouselDelivery GetCarousel();
     }
 
-    public class CacheService : ICacheService
+    public class CacheService(ISystemConfig config) : ICacheService
     {
         private readonly IMemoryCache _cacheCarousel = new MemoryCache(new MemoryCacheOptions());
-        private readonly Object l = new();
+        private readonly Lock l = new();
         private readonly DateTime _serviceStart = Utility.ConvertToUKTime(DateTime.UtcNow);
-        private CarouselDelivery _cd = new();
-        private readonly ISystemConfig _config;
-
-        public CacheService(ISystemConfig config)
-        {
-            _config = config;
-        }
+        private readonly CarouselDelivery _cd = new();
+        private readonly ISystemConfig _config = config;
 
         public CarouselDelivery GetCarousel()
         {
@@ -54,18 +49,18 @@ namespace API.Services
 
                         // Instantiate objects required to build cache
                         CeefaxContent cc = new(_config);
-                        IStandingData standingData = new StandingsData(cc);
-                        IWeatherData weatherData = new WeatherData(cc);
-                        ITVListingData listingData = new TVListingData(cc);
+                        StandingsData standingsData = new(cc);
+                        WeatherData weatherData = new(cc);
+                        TVListingData listingData = new(cc);
                         
                         CarouselService cs = new(
                             new TeletextPageNews(cc),
-                            new TeletextPageStandings(cc, standingData),
+                            new TeletextPageStandings(cc, standingsData),
                             new TeletextPageWeather(cc, weatherData),
                             new TeletextPageTV(cc, listingData));
                         
                         _cd.Carousel = cs.Carousel;
-                        _cd.Carousel.IsValid = standingData.IsValid && weatherData.IsValid && listingData.IsValid;
+                        _cd.Carousel.IsValid = standingsData.IsValid && weatherData.IsValid && listingData.IsValid;
                         _cd.LastBuilt = Utility.ConvertToUKTime(DateTime.UtcNow);
                         _cd.BuildTimeSeconds = Convert.ToInt32(sw.ElapsedMilliseconds / 1000);
 

@@ -15,7 +15,7 @@ public record ChannelSchedule
 {
     public string Day { get; set; }
     public CeefaxSectionType Channel { get; set; }
-    public List<TVListing> Listings { get; set;} = new();
+    public List<TVListing> Listings { get; set;} = [];
 
     public ChannelSchedule(CeefaxSectionType c)
     {
@@ -31,11 +31,11 @@ public interface ITVListingData
 
 public class TVListingData : ITVListingData
 {
-    public List<ChannelSchedule> Schedules { get ; set; } = new();
+    public List<ChannelSchedule> Schedules { get ; set; } = [];
     public bool IsValid { get; set; } = false;
-    private readonly ICeefaxContent _cc;
+    private readonly CeefaxContent _cc;
 
-    public TVListingData(ICeefaxContent cc)
+    public TVListingData(CeefaxContent cc)
     {
         _cc = cc;
 

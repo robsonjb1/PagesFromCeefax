@@ -21,7 +21,6 @@ try
     // Add services to the container.
     builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
     {
-        OpenWeatherApiKey = builder.Configuration["OpenWeatherApiKey"],
         ServiceContentExpiryMins = Convert.ToInt32(builder.Configuration["ServiceContentExpiryMins"]),
         KindleFromAddress = builder.Configuration["KindleFromAddress"],
         KindleFromUsername = builder.Configuration["KindleFromUsername"],

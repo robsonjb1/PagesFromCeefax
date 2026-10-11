@@ -21,11 +21,11 @@ public interface ISpectatorContent
 
 public class SpectatorContent : ISpectatorContent
 {
-    public List<SpectatorArticle> SpectatorArticles { get; set; } = new();
-    public List<SpectatorCartoon> SpectatorCartoons { get; set; } = new();
+    public List<SpectatorArticle> SpectatorArticles { get; set; } = [];
+    public List<SpectatorCartoon> SpectatorCartoons { get; set; } = [];
     public string CoverImageBase64 { get; set; } = String.Empty;
-    private List<CachedUri> UrlCache { get; set; } = new();
-    private List<CachedUri> ImageCache { get; set; } = new();
+    private List<CachedUri> UrlCache { get; set; } = [];
+    private List<CachedUri> ImageCache { get; set; } = [];
     private ISystemConfig _config;
  
     public SpectatorContent(ISystemConfig config)

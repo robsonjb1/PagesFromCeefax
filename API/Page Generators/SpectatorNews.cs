@@ -9,13 +9,9 @@ public interface ISpectatorNews
     public string Generate();
 }
 
-public class SpectatorNews : ISpectatorNews
+public class SpectatorNews(ISpectatorContent kc) : ISpectatorNews
 {
-    private ISpectatorContent _kc;
-    public SpectatorNews(ISpectatorContent kc)
-    {
-        _kc = kc;
-    }
+    private readonly ISpectatorContent _kc = kc;
 
     public string Generate()
     {

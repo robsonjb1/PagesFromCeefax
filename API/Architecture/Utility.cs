@@ -1,5 +1,4 @@
 using System.Text;
-using System.Text.Json;
 using System.Text.RegularExpressions;
 using API.Magazine;
 
@@ -11,16 +10,15 @@ namespace API.Architecture
         {
             bool readingToken = false;
             string token = string.Empty;
-
-            char[] input = line.ToCharArray();
-            List<char> output = new();
+            _ = line.ToCharArray();
+            List<char> output = [];
             
             for(int i=0; i<line.Length; i++)
             {
                 if(line[i] == '[')
                 {
                     readingToken = true;
-                    token = String.Empty;
+                    token = string.Empty;
                 }
                 else
                 {
@@ -86,7 +84,7 @@ namespace API.Architecture
             if(totalLines > 0)
             {
                 for(int i=0; i<totalLines; i++)  
-                { sb.AppendLine(String.Empty); }
+                { sb.AppendLine(string.Empty); }
             }
         }
 
@@ -143,21 +141,13 @@ namespace API.Architecture
 
         public static string GetDaySuffix(DateTime dt)
         {
-            switch (dt.Day)
+            return dt.Day switch
             {
-                case 1:
-                case 21:
-                case 31:
-                    return "st";
-                case 2:
-                case 22:
-                    return "nd";
-                case 3:
-                case 23:
-                    return "rd";
-                default:
-                    return "th";
-            }
+                1 or 21 or 31 => "st",
+                2 or 22 => "nd",
+                3 or 23 => "rd",
+                _ => "th",
+            };
         }
 
         // Mixture of string parsing utilities and graphics character handling
@@ -241,7 +231,7 @@ namespace API.Architecture
             // Open/closing quotes
             html = html.Replace("“", "\"");
             html = html.Replace("”", "\"");
-            
+
             html = html.Replace("â€œ", "'");
             html = html.Replace("â€™", "'");
             html = html.Replace("â€", "'");

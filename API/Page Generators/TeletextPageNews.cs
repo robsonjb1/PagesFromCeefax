@@ -1,4 +1,3 @@
-using System.Security.Principal;
 using System.ServiceModel.Syndication;
 using System.Text;
 using System.Xml;
@@ -7,26 +6,15 @@ using API.Magazine;
 
 namespace API.PageGenerators;
 
-public interface ITeletextPageNews
+public class TeletextPageNews(CeefaxContent cc)
 {
-    public List<StringBuilder> CreateNewsSection(CeefaxSectionType sectionName);
-    public StringBuilder CreateNewsInBrief(CeefaxSectionType sectionName);
-}
-
-public class TeletextPageNews : ITeletextPageNews
-{
-    private readonly ICeefaxContent _cc;
-
-    public TeletextPageNews(ICeefaxContent cc)
-    {
-        _cc = cc;
-    }
+    private readonly CeefaxContent _cc = cc;
 
     #region Public Methods
     public List<StringBuilder> CreateNewsSection(CeefaxSectionType sectionName)
     {
         CeefaxSection section = _cc.Sections.Find(z => z.Name == sectionName)!;
-        List<StringBuilder> content = new();
+        List<StringBuilder> content = [];
 
         // Loop through each story and generate a news page (excluding commentary articles)
         int storyCount = 1;

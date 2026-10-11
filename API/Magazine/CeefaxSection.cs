@@ -37,17 +37,16 @@ public class CeefaxSection
             case CeefaxSectionType.WeatherForecast1:
             case CeefaxSectionType.WeatherForecast2:
             case CeefaxSectionType.WeatherForecast3:
-                this.HeadingCol = TeletextControl.AlphaYellow;
-                this.PromoBackground = TeletextControl.AlphaBlue;
+                HeadingCol = TeletextControl.AlphaYellow;
+                PromoBackground = TeletextControl.AlphaBlue;
                 
-                this.PromoCol = TeletextControl.AlphaYellow;
+                PromoCol = TeletextControl.AlphaYellow;
                 break;
 
             case CeefaxSectionType.Business:
-            case CeefaxSectionType.Markets:
-                this.HeadingCol = TeletextControl.AlphaYellow;
-                this.PromoBackground = TeletextControl.AlphaRed;
-                this.PromoCol = TeletextControl.AlphaWhite;
+                HeadingCol = TeletextControl.AlphaYellow;
+                PromoBackground = TeletextControl.AlphaRed;
+                PromoCol = TeletextControl.AlphaWhite;
                 break;
 
             case CeefaxSectionType.Football:
@@ -57,15 +56,15 @@ public class CeefaxSection
             case CeefaxSectionType.Golf:
             case CeefaxSectionType.Formula1:
             case CeefaxSectionType.Standings:
-                this.HeadingCol = TeletextControl.AlphaGreen;
-                this.PromoBackground = TeletextControl.AlphaBlue;
-                this.PromoCol = TeletextControl.AlphaYellow;
+                HeadingCol = TeletextControl.AlphaGreen;
+                PromoBackground = TeletextControl.AlphaBlue;
+                PromoCol = TeletextControl.AlphaYellow;
                 break;
 
             case CeefaxSectionType.Entertainment:
-                this.HeadingCol = TeletextControl.AlphaYellow;
-                this.PromoBackground = TeletextControl.AlphaMagenta;
-                this.PromoCol = TeletextControl.AlphaYellow;
+                HeadingCol = TeletextControl.AlphaYellow;
+                PromoBackground = TeletextControl.AlphaMagenta;
+                PromoCol = TeletextControl.AlphaYellow;
                 break;
 
             default:
@@ -81,11 +80,10 @@ public class CeefaxSection
             case CeefaxSectionType.Business:
             case CeefaxSectionType.Football:
             case CeefaxSectionType.Entertainment:
-                this.TotalStories = 3;
-                this.HasNewsInBrief = true;
+                TotalStories = 3;
+                HasNewsInBrief = true;
                 break;
 
-            case CeefaxSectionType.Markets:
             case CeefaxSectionType.Standings:
             case CeefaxSectionType.Weather:
             case CeefaxSectionType.WeatherForecast1:
@@ -101,11 +99,11 @@ public class CeefaxSection
             case CeefaxSectionType.TVScheduleBBC1:
             case CeefaxSectionType.TVScheduleBBC2:
             case CeefaxSectionType.TVScheduleBBC4:
-                this.TotalStories = 0;
+                TotalStories = 0;
                 break;
 
             default:
-                this.TotalStories = 2;
+                TotalStories = 2;
                 break;
         }
 
@@ -113,63 +111,63 @@ public class CeefaxSection
         switch (Name)
         {
             case CeefaxSectionType.Home:
-                this.Header = Graphics.HeaderHome;
-                this.PromoFooter = "World news coming up next >>>";
+                Header = Graphics.HeaderHome;
+                PromoFooter = "World news coming up next >>>";
                 break;
             case CeefaxSectionType.World:
-                this.Header = Graphics.HeaderWorld;
-                this.PromoFooter = "Political news coming up next >>>";
+                Header = Graphics.HeaderWorld;
+                PromoFooter = "Political news coming up next >>>";
                 break;
             case CeefaxSectionType.Politics:
-                this.Header = Graphics.HeaderPolitics;
-                this.PromoFooter = "Technology news coming up next >>>";
+                Header = Graphics.HeaderPolitics;
+                PromoFooter = "Technology news coming up next >>>";
                 break;
             case CeefaxSectionType.Science:
-                this.Header = Graphics.HeaderSciTech;
+                Header = Graphics.HeaderSciTech;
                 break;
             case CeefaxSectionType.Technology:
-                this.Header = Graphics.HeaderSciTech;
-                this.PromoFooter = "Sussex news coming up next >>>";
+                Header = Graphics.HeaderSciTech;
+                PromoFooter = "Sussex news coming up next >>>";
                 break;
             case CeefaxSectionType.Sussex:
-                this.Header = Graphics.HeaderSussex;
-                this.PromoFooter = "Tees news coming up next >>>";
+                Header = Graphics.HeaderSussex;
+                PromoFooter = "Tees news coming up next >>>";
                 break;
             case CeefaxSectionType.Tees:
-                this.Header = Graphics.HeaderTees;
+                Header = Graphics.HeaderTees;
                 break;
             case CeefaxSectionType.Business:
-                this.Header = Graphics.HeaderBusiness;
+                Header = Graphics.HeaderBusiness;
                 break;
             case CeefaxSectionType.Football:
-                this.Header = Graphics.HeaderFootball;
-                this.PromoFooter = "Rugby news coming up next >>>";
+                Header = Graphics.HeaderFootball;
+                PromoFooter = "Rugby news coming up next >>>";
                 break;
             case CeefaxSectionType.Rugby:
-                this.Header = Graphics.HeaderRugby;
-                this.PromoFooter = "Cricket news coming up next >>>";
+                Header = Graphics.HeaderRugby;
+                PromoFooter = "Cricket news coming up next >>>";
                 break;
             case CeefaxSectionType.Cricket:
-                this.Header = Graphics.HeaderCricket;
-                this.PromoFooter = "Tennis news coming up next >>>";
+                Header = Graphics.HeaderCricket;
+                PromoFooter = "Tennis news coming up next >>>";
                 break;
             case CeefaxSectionType.Tennis:
-                this.Header = Graphics.HeaderTennis;
-                this.PromoFooter = "Golf news coming up next >>>";
+                Header = Graphics.HeaderTennis;
+                PromoFooter = "Golf news coming up next >>>";
                 break;
             case CeefaxSectionType.Golf:
-                this.Header = Graphics.HeaderGolf;
-                this.PromoFooter = "Motorsport news coming up next >>>";
+                Header = Graphics.HeaderGolf;
+                PromoFooter = "Motorsport news coming up next >>>";
                 break;
             case CeefaxSectionType.Formula1:
-                this.Header = Graphics.HeaderFormula1;
+                Header = Graphics.HeaderFormula1;
                 break;
             case CeefaxSectionType.TVScheduleBBC4:
-                this.Header = Graphics.HeaderGolf;
-                this.PromoFooter = "Entertainment news coming up next >>";
+                Header = Graphics.HeaderGolf;
+                PromoFooter = "Entertainment news coming up next >>";
                 break;
             case CeefaxSectionType.Entertainment:
-                this.Header = Graphics.HeaderEntertainment;
+                Header = Graphics.HeaderEntertainment;
                 break;
           
             default:

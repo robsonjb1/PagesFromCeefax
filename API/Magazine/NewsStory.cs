@@ -17,7 +17,7 @@ public class NewsStory
         this.SectionName = SectionName;
         this.Link = Link;
         this.Headline = Utility.ParseParagraph(Headline);
-        this.Body = new List<string>();
+        Body = [];
     }
 
     public void AddBody(string html)
@@ -32,7 +32,7 @@ public class NewsStory
         if (mainlines != null)
         {
             // Break into sentences (one paragraph = one sentence)
-            List<string> storyText = new();
+            List<string> storyText = [];
             foreach (var p in mainlines)
             {
                 var tempLine = p.InnerText.Trim().Split(". ");

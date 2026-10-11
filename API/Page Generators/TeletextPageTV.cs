@@ -4,21 +4,10 @@ using API.Magazine;
 
 namespace API.PageGenerators;
 
-public interface ITeletextPageTV
+public class TeletextPageTV(CeefaxContent cc, ITVListingData listings) 
 {
-    public List<StringBuilder> CreateSchedule(CeefaxSectionType sectionName);
-}
-
-public class TeletextPageTV : ITeletextPageTV
-{
-    private readonly ICeefaxContent _cc;
-    private readonly ITVListingData _ld;
-
-    public TeletextPageTV(ICeefaxContent cc, ITVListingData listings)
-    {
-        _cc = cc;
-        _ld = listings;
-    }
+    private readonly CeefaxContent _cc = cc;
+    private readonly ITVListingData _ld = listings;
 
     #region Public Methods
     public List<StringBuilder> CreateSchedule(CeefaxSectionType channel)
@@ -33,7 +22,7 @@ public class TeletextPageTV : ITeletextPageTV
             CreateSinglePage(page2, channel, endTime, true); // Feed the end time from page 1 into the start time of page 2
         }
 
-        return new List<StringBuilder> {page1, page2};
+        return [page1, page2];
     }
 
     private string FormatDisplayTime(string time)
@@ -103,7 +92,7 @@ public class TeletextPageTV : ITeletextPageTV
                 // Don't show a description for news or weather
                 if(OnlyShowHeadline(show.Title))
                 {
-                    bodyLines = new List<string>();
+                    bodyLines = [];
                 }
 
                 if(lineCount + titleLines.Count + bodyLines.Count > 18)

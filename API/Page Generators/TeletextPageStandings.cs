@@ -4,17 +4,13 @@ using API.Magazine;
 
 namespace API.PageGenerators;
 
-public interface ITeletextPageStanding
-{
-    public StringBuilder CreateStandingsPage();
-}
 
-public class TeletextPageStandings : ITeletextPageStanding
+public class TeletextPageStandings
 {
-    private readonly ICeefaxContent _cc;
-    private readonly IStandingData _sd;
+    private readonly CeefaxContent _cc;
+    private readonly StandingsData _sd;
     
-    public TeletextPageStandings(ICeefaxContent mc, IStandingData sd)
+    public TeletextPageStandings(CeefaxContent mc, StandingsData sd)
     {
         _cc = mc;
         _sd = sd;

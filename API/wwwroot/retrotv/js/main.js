@@ -133,14 +133,14 @@ function switchSettings(channel) {
 function switchChannel(channel) {
     showIdentNext = true;
                 
-    var pfcAlreadyDisplayed = (episodeList[selectedChannel].isMusic || episodeList[selectedChannel].isAudioBook || episodeList[selectedChannel].isPodcast);
-   
+    var pfcAlreadyDisplayed = !episodeList[selectedChannel].isVideo;
+    
     $(`#channel${selectedChannel}button`).removeClass('active');
     selectedChannel = channel;
     $(`#channel${selectedChannel}button`).addClass('active');
 
     // Show/hide PFC overlay
-    if(episodeList[selectedChannel].isMusic || episodeList[selectedChannel].isAudioBook || episodeList[selectedChannel].isPodcast) {
+    if(!episodeList[selectedChannel].isVideo) {
         if(!pfcAlreadyDisplayed) {
             $('#pfcFrame').attr("src", "../");
             $('#pfcOverlay').show();
@@ -197,7 +197,8 @@ function updateChannelStats(advanceOffset = false) {
                 episodeList[channel].source = episodeList[channel].data[i].urlLocal;
                 episodeList[channel].isMusic = episodeList[channel].data[i].isMusic;
                 episodeList[channel].isPodcast = episodeList[channel].data[i].isPodcast;
-                episodeList[channel].isAudioBook = episodeList[channel].data[i].isAudioBook;                
+                episodeList[channel].isAudioBook = episodeList[channel].data[i].isAudioBook;   
+                episodeList[channel].isVideo = episodeList[channel].data[i].isVideo;                
                
                 // Overrides for music channel, which shows time for the whole series (album)
                 if(episodeList[channel].isMusic) {
@@ -241,7 +242,7 @@ function updateChannelStats(advanceOffset = false) {
 }
 
 function advanceEpisode() {
-    if(showIdentNext && !episodeList[selectedChannel].isAudioBook && !episodeList[selectedChannel].isMusic && !episodeList[selectedChannel].isPodcast)
+    if(showIdentNext && episodeList[selectedChannel].isVideo)
     {
         // Display the ident
         startNewVideo("media/RetroTVIdent.mp4");
@@ -253,7 +254,9 @@ function advanceEpisode() {
     {
         // Move to the start of the next episode
         updateChannelStats(true);
-        startNewVideo(episodeList[selectedChannel].source);
+        if(episodeList[selectedChannel].isVideo || !videoContainer.video.muted) {
+            startNewVideo(episodeList[selectedChannel].source);
+        }
         displayCaption();
     
         // Next time round, show the channel ident banner

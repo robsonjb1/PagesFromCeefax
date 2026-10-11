@@ -29,7 +29,6 @@ public enum CeefaxSectionType
     WeatherCardiff,
     WeatherEdinburgh,
     WeatherLerwick,
-    Markets,
     TVScheduleBBC1,
     TVScheduleBBC2,
     TVScheduleBBC4
