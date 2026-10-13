@@ -1,11 +1,8 @@
 using System.Text;
-using System.IO;
 using System.Text.RegularExpressions;
 using API.Architecture;
 using HtmlAgilityPack;
 using Serilog;
-using SixLabors.ImageSharp.Formats;
-using SixLabors.ImageSharp.Formats.Webp;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.Processing;
 using System.Diagnostics;

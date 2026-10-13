@@ -1,64 +1,14 @@
 ﻿using API.Architecture;
-using HtmlAgilityPack;
 
 namespace API.Magazine;
 
-public class NewsStory
+public class NewsStory(CeefaxSectionType SectionName, string Headline, string Summary, DateTime PublishDate, Uri Link)
 {
-    const int maxLines = 18;
-
-    public readonly CeefaxSectionType SectionName;
-    public readonly Uri Link;
-    public readonly List<string> Headline;
-    public List<string> Body;
-
-    public NewsStory(CeefaxSectionType SectionName, string Headline, Uri Link)
-    {
-        this.SectionName = SectionName;
-        this.Link = Link;
-        this.Headline = Utility.ParseParagraph(Headline);
-        Body = [];
-    }
-
-    public void AddBody(string html)
-    {
-        HtmlDocument doc = new();
-        doc.LoadHtml(html);
-
-        // Parse story body - only to be called once URL has been retrieved
-        var mainlines = doc.DocumentNode.SelectNodes("//article/*[@data-component='text-block']//p")   // news page
-            ?? doc.DocumentNode.SelectNodes("//article//div/p");                                    // video story
-
-        if (mainlines != null)
-        {
-            // Break into sentences (one paragraph = one sentence)
-            List<string> storyText = [];
-            foreach (var p in mainlines)
-            {
-                var tempLine = p.InnerText.Trim().Split(". ");
-                storyText.AddRange(tempLine);
-            }
-            
-            foreach (var l in storyText)
-            {
-			    if (l != String.Empty)
-                {
-                    List<string> newChunk = Utility.ParseParagraph(l);
-
-                    if (newChunk.Count > 0 && newChunk[0] != "This video can not be played.")
-                    {
-                        if (Headline.Count + Body.Count + newChunk.Count - 1 > maxLines)
-                        {
-                            // The current paragraph will overflow the page
-                           break;
-                        }
-
-                        Body.Add("");
-                        Body.AddRange(newChunk);
-                    }
-                }
-            }
-        }
-    }
+    public readonly CeefaxSectionType SectionName = SectionName;
+    public readonly Uri Link = Link;
+    public readonly List<string> Headline = Utility.ParseParagraph(Headline);
+    public readonly List<string> Summary = Utility.ParseParagraph(Summary);
+    public readonly DateTime PublishDate = PublishDate;
+    public bool Included = false;
 }
 

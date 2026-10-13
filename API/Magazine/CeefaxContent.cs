@@ -32,7 +32,7 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Cricket, new Uri("https://feeds.bbci.co.uk/sport/cricket/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Tennis, new Uri("https://feeds.bbci.co.uk/sport/tennis/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Golf, new Uri("https://feeds.bbci.co.uk/sport/golf/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Formula1, new Uri("https://feeds.bbci.co.uk/sport/formula1/rss.xml")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Motorsport, new Uri("https://feeds.bbci.co.uk/sport/formula1/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Standings, new Uri("https://www.bbc.co.uk/sport/formula1/standings")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Entertainment, new Uri("https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
         
@@ -49,6 +49,13 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));
         
+        // Add the Hargreaves Lansdown API markets and currency request to the URL cache
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.hl.co.uk/shares")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsCurrencies, new Uri("https://www.hl.co.uk/ajax/home/currency-json")));
+        
+        // Add the FT 10-year UK bond yields
+        Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsBonds, new Uri("https://markets.ft.com/data/bonds/tearsheet/summary?s=UK10YG")));
+
         // Add each section's feed URL to URL cache
         Sections.ForEach(z => UriCache.Add(new CachedUri(z.Feed)));
 
@@ -56,13 +63,7 @@ public class CeefaxContent
         ProcessUriCache().Wait();
 
         // Process feeds to determine which full text stories to display
-        Sections.FindAll(z => z.TotalStories > 0).ForEach(z => ProcessRSSFeed(z));
-        
-        // Process the URI cache (second time, now all story URL's are in)
-        ProcessUriCache().Wait();
-
-        // Parse all stories
-        StoryList.ForEach(z => z.AddBody(UriCache.Find(l => l.Location == z.Link).ContentString));
+        Sections.FindAll(z => z.TotalPages > 0).ForEach(z => ProcessRSSFeed(z));
     }
 
     private async Task ProcessUriCache()
@@ -102,18 +103,19 @@ public class CeefaxContent
         TextReader tr = new StringReader(UriCache.Find(l => l.Location == section.Feed).ContentString);
         SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
 
-        int storyCount = 0;
         foreach (SyndicationItem item in feed.Items)
         {
-            // Only add the story if not already present, and is not marked as a 'live' scrolling story
-            if (!StoryList.Exists(z => z.Link == item.Links[0].Uri) && (storyCount < section.TotalStories) && !item.Title.Text.StartsWith("Watch:") && !item.Links[0].Uri.ToString().Contains("/live/"))
+            // Only add if not a comment piece, or a 'live' scrolling story
+            if (!item.Title.Text.Contains(':') && 
+                !item.Title.Text.EndsWith('?') &&
+                !item.Links[0].Uri.ToString().Contains("/live/"))
             {
-                StoryList.Add(new NewsStory(section.Name, item.Title.Text.Trim(), item.Links[0].Uri));
-
-                // Add story link to the URL cache to be retrieved later
-                UriCache.Add(new CachedUri(item.Links[0].Uri));
-            
-                storyCount++;
+                StoryList.Add(new NewsStory(
+                    section.Name, 
+                    item.Title.Text.Trim(),
+                    item.Summary.Text.Trim(),
+                    item.PublishDate.DateTime,
+                    item.Links[0].Uri));
             }
         }
     }

@@ -25,10 +25,12 @@ public class CarouselService
     private readonly TeletextPageNews _tn;
     private readonly TeletextPageTV _tt;
     private readonly TeletextPageStandings _ts;
-   
-    public CarouselService(TeletextPageNews tn, TeletextPageStandings ts, TeletextPageWeather tw, TeletextPageTV tt)
+    private readonly TeletextPageMarkets _tm;
+
+    public CarouselService(TeletextPageNews tn, TeletextPageMarkets tm, TeletextPageStandings ts, TeletextPageWeather tw, TeletextPageTV tt)
     {
         _tn = tn;
+        _tm = tm;
         _ts = ts;
         _tw = tw;
         _tt = tt;
@@ -51,6 +53,7 @@ public class CarouselService
             // Business section
             BuildTeletextPage(Graphics.PromoBusiness);
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Business));
+            BuildTeletextPage(_tm.CreateMarketsPage());
            
             // Sports section
             BuildTeletextPage(Graphics.PromoSport);
@@ -59,7 +62,7 @@ public class CarouselService
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Cricket));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Tennis));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Golf));
-            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Formula1));
+            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Motorsport));
             BuildTeletextPage(_ts.CreateStandingsPage());
 
             // Weather section

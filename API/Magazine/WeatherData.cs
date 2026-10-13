@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using System.ServiceModel.Syndication;
-using System.Text.Json;
+﻿using System.ServiceModel.Syndication;
 using System.Xml;
 using API.Architecture;
 using HtmlAgilityPack;

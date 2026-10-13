@@ -7,8 +7,7 @@ public class CeefaxSection
 {
     public readonly CeefaxSectionType Name;
     public readonly Uri Feed;
-    public readonly int TotalStories;
-    public readonly bool HasNewsInBrief = false;
+    public readonly int TotalPages;
     public readonly StringBuilder Header;
     public readonly TeletextControl HeadingCol;
     public readonly string PromoFooter;
@@ -39,11 +38,11 @@ public class CeefaxSection
             case CeefaxSectionType.WeatherForecast3:
                 HeadingCol = TeletextControl.AlphaYellow;
                 PromoBackground = TeletextControl.AlphaBlue;
-                
                 PromoCol = TeletextControl.AlphaYellow;
                 break;
 
             case CeefaxSectionType.Business:
+            case CeefaxSectionType.Markets:
                 HeadingCol = TeletextControl.AlphaYellow;
                 PromoBackground = TeletextControl.AlphaRed;
                 PromoCol = TeletextControl.AlphaWhite;
@@ -54,7 +53,7 @@ public class CeefaxSection
             case CeefaxSectionType.Cricket:
             case CeefaxSectionType.Tennis:
             case CeefaxSectionType.Golf:
-            case CeefaxSectionType.Formula1:
+            case CeefaxSectionType.Motorsport:
             case CeefaxSectionType.Standings:
                 HeadingCol = TeletextControl.AlphaGreen;
                 PromoBackground = TeletextControl.AlphaBlue;
@@ -74,16 +73,6 @@ public class CeefaxSection
         // Initialise the full section sizes
         switch (Name)
         {
-            case CeefaxSectionType.Home:
-            case CeefaxSectionType.World:
-            case CeefaxSectionType.Politics:
-            case CeefaxSectionType.Business:
-            case CeefaxSectionType.Football:
-            case CeefaxSectionType.Entertainment:
-                TotalStories = 3;
-                HasNewsInBrief = true;
-                break;
-
             case CeefaxSectionType.Standings:
             case CeefaxSectionType.Weather:
             case CeefaxSectionType.WeatherForecast1:
@@ -99,11 +88,26 @@ public class CeefaxSection
             case CeefaxSectionType.TVScheduleBBC1:
             case CeefaxSectionType.TVScheduleBBC2:
             case CeefaxSectionType.TVScheduleBBC4:
-                TotalStories = 0;
+            case CeefaxSectionType.Markets:
+            case CeefaxSectionType.MarketsCurrencies:
+            case CeefaxSectionType.MarketsBonds:
+                TotalPages = 0;
+                break;
+            
+            case CeefaxSectionType.Politics:
+            case CeefaxSectionType.Business:
+            case CeefaxSectionType.Football:
+            case CeefaxSectionType.Entertainment:
+                TotalPages = 2;
+                break;
+
+            case CeefaxSectionType.Home:
+            case CeefaxSectionType.World:
+                TotalPages = 3;
                 break;
 
             default:
-                TotalStories = 2;
+                TotalPages = 1;
                 break;
         }
 
@@ -138,6 +142,7 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Business:
                 Header = Graphics.HeaderBusiness;
+                PromoFooter = "Market data coming up next >>>";    
                 break;
             case CeefaxSectionType.Football:
                 Header = Graphics.HeaderFootball;
@@ -159,7 +164,7 @@ public class CeefaxSection
                 Header = Graphics.HeaderGolf;
                 PromoFooter = "Motorsport news coming up next >>>";
                 break;
-            case CeefaxSectionType.Formula1:
+            case CeefaxSectionType.Motorsport:
                 Header = Graphics.HeaderFormula1;
                 break;
             case CeefaxSectionType.TVScheduleBBC4:

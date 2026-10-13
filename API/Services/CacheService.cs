@@ -49,12 +49,14 @@ namespace API.Services
 
                         // Instantiate objects required to build cache
                         CeefaxContent cc = new(_config);
+                        MarketsData marketsData = new(cc);
                         StandingsData standingsData = new(cc);
                         WeatherData weatherData = new(cc);
                         TVListingData listingData = new(cc);
                         
                         CarouselService cs = new(
                             new TeletextPageNews(cc),
+                            new TeletextPageMarkets(cc, marketsData),
                             new TeletextPageStandings(cc, standingsData),
                             new TeletextPageWeather(cc, weatherData),
                             new TeletextPageTV(cc, listingData));

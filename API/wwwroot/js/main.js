@@ -39,7 +39,7 @@ import { video } from "./video.js";
     var lastRowRefresh = false;
     var currentPage = 0
     var loadingPageDuration = 10;
-    var pageDuration = 27;
+    var pageDuration = 30;
     var pageTickerNo = 100;
     var pageTicking = true;
     var pageTickerDelay = 0;
@@ -151,7 +151,7 @@ import { video } from "./video.js";
                 pagesInCarousel = carousel.totalPages;
                 
                 var magazineReceiveTime = new Date();
-                var actualWait = (magazineReceiveTime - carouselRequestTime) / 1000;
+                //var actualWait = (magazineReceiveTime - carouselRequestTime) / 1000;
                 //if (actualWait >= loadingPageDuration) {
                     // More than 15 seconds have passed, so move to the first page straight away
                     transitionSecond = (magazineReceiveTime.getSeconds() + 1) % 60;

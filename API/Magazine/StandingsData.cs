@@ -1,6 +1,5 @@
 using API.Architecture;
 using HtmlAgilityPack;
-using Microsoft.AspNetCore.DataProtection.XmlEncryption;
 using Serilog;
 
 namespace API.Magazine;

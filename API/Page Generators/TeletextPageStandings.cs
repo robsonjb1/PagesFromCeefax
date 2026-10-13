@@ -5,23 +5,17 @@ using API.Magazine;
 namespace API.PageGenerators;
 
 
-public class TeletextPageStandings
+public class TeletextPageStandings(CeefaxContent mc, StandingsData sd)
 {
-    private readonly CeefaxContent _cc;
-    private readonly StandingsData _sd;
-    
-    public TeletextPageStandings(CeefaxContent mc, StandingsData sd)
-    {
-        _cc = mc;
-        _sd = sd;
-    }
+    private readonly CeefaxContent _cc = mc;
+    private readonly StandingsData _sd = sd;
 
     #region Public Methods
 
     public StringBuilder CreateStandingsPage()
     {
         StringBuilder sb = new StringBuilder();
-        CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Formula1);
+        CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Motorsport);
         
         if(_sd.IsValid)             // Only construct the page if we have valid data
         {

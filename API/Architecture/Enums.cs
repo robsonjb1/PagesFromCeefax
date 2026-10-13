@@ -13,7 +13,7 @@ public enum CeefaxSectionType
     Cricket,
     Tennis,
     Golf,
-    Formula1,
+    Motorsport,
     Standings,
     Entertainment,
     Sussex,
@@ -31,7 +31,10 @@ public enum CeefaxSectionType
     WeatherLerwick,
     TVScheduleBBC1,
     TVScheduleBBC2,
-    TVScheduleBBC4
+    TVScheduleBBC4,
+    Markets,
+    MarketsCurrencies,
+    MarketsBonds,
 }
 
 public enum TeletextControl

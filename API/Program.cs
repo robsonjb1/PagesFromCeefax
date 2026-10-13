@@ -1,5 +1,4 @@
-﻿using System;
-using API.Architecture;
+﻿using API.Architecture;
 using API.Extensions;
 using API.Services;
 using Microsoft.Extensions.FileProviders;
