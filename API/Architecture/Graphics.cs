@@ -23,6 +23,7 @@ public class Graphics
     public readonly static StringBuilder HeaderMarkets = new();
     public readonly static StringBuilder HeaderShares = new();
     public readonly static StringBuilder HeaderWeather = new();
+    public readonly static StringBuilder HeaderTravel = new();
     public readonly static StringBuilder HeaderLinks = new();
     
     // Transition screens
@@ -114,13 +115,14 @@ public class Graphics
         HeaderWeather.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] *uu?jwj7¬ ¬ ¬k5¬1¬k4");
         HeaderWeather.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]////,,.-,-.,/,/,-.,.,-.///");
 
+        HeaderTravel.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsCyan}] (l<$|,|h<l4| h4|,h4");
+        HeaderTravel.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsCyan}]  j5 ¬£}}j7k5\"m' ¬sju0");
+        HeaderTravel.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]££££££££££££££££££££££££££");
+
+
         //HeaderTop40Singles.AppendLine("<p><span class=\"paper6 ink3\">" + Utility.BlockGraph("  l<h<|h<| |_ h<|  |,$|_<th<,$| |$|,$  ") + "</span></p>");
         //HeaderTop40Singles.AppendLine("<p><span class=\"paper6 ink3\">" + Utility.BlockGraph("  j5ju¬j7£ /n,ju¬  s{5¬j5¬ju{5¬0¬1s{5  ") + "</span></p>");
         //HeaderTop40Singles.AppendLine("<p><span class=\"ink6\">" + Utility.BlockGraph("£££££££££££££££££££££££££££££££££££££££") + "</span></p>");
-
-        //HeaderTravel.AppendLine("<p>" + Utility.BlockGraph("j£3kj£3kj£3k ") + "<span class=\"paper5 ink1\">" + Utility.BlockGraph("   (l<$|,|h<l4| h4|,h4    ") + "</span></p>");
-        //HeaderTravel.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"paper5 ink1\">" + Utility.BlockGraph("    j5 ¬£}j7k5\"m' ¬sju0   ") + "</span></p>");
-        //HeaderTravel.AppendLine("<p>" + Utility.BlockGraph("\"£££\"£££\"£££ ") + "<span class=\"ink5\">" + Utility.BlockGraph("££££££££££££££££££££££££££") + "</span></p>");
 
         //HeaderShares.AppendLine("<p>" + Utility.BlockGraph("j£3kj£3kj£3k ") + "<span class=\"paper2 ink7\">" + Utility.BlockGraph("    |,$| |h<l4|,|h<$|,$   ") + "</span></p>");
         //HeaderShares.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"paper2 ink7\">" + Utility.BlockGraph("    s{5¬£¬j7k5¬£}jw1s{5   ") + "</span></p>");

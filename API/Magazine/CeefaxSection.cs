@@ -36,6 +36,7 @@ public class CeefaxSection
             case CeefaxSectionType.WeatherForecast1:
             case CeefaxSectionType.WeatherForecast2:
             case CeefaxSectionType.WeatherForecast3:
+            case CeefaxSectionType.Travel:
                 HeadingCol = TeletextControl.AlphaYellow;
                 PromoBackground = TeletextControl.AlphaBlue;
                 PromoCol = TeletextControl.AlphaYellow;
@@ -91,19 +92,17 @@ public class CeefaxSection
             case CeefaxSectionType.Markets:
             case CeefaxSectionType.MarketsCurrencies:
             case CeefaxSectionType.MarketsBonds:
+            case CeefaxSectionType.Travel:
                 TotalPages = 0;
                 break;
             
+            case CeefaxSectionType.Home:
+            case CeefaxSectionType.World:
             case CeefaxSectionType.Politics:
             case CeefaxSectionType.Business:
             case CeefaxSectionType.Football:
             case CeefaxSectionType.Entertainment:
                 TotalPages = 2;
-                break;
-
-            case CeefaxSectionType.Home:
-            case CeefaxSectionType.World:
-                TotalPages = 3;
                 break;
 
             default:
@@ -174,7 +173,10 @@ public class CeefaxSection
             case CeefaxSectionType.Entertainment:
                 Header = Graphics.HeaderEntertainment;
                 break;
-          
+            case CeefaxSectionType.Weather:
+                Header = Graphics.HeaderWeather;
+                PromoFooter = "Travel news coming up next >>>";
+                break;
             default:
                 break;
         }

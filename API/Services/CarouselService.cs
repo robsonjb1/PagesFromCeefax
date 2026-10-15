@@ -26,9 +26,11 @@ public class CarouselService
     private readonly TeletextPageTV _tt;
     private readonly TeletextPageStandings _ts;
     private readonly TeletextPageMarkets _tm;
+    private readonly TeletextPageTravel _tl;
 
-    public CarouselService(TeletextPageNews tn, TeletextPageMarkets tm, TeletextPageStandings ts, TeletextPageWeather tw, TeletextPageTV tt)
+    public CarouselService(TeletextPageNews tn, TeletextPageTravel tl,TeletextPageMarkets tm, TeletextPageStandings ts, TeletextPageWeather tw, TeletextPageTV tt)
     {
+        _tl = tl;
         _tn = tn;
         _tm = tm;
         _ts = ts;
@@ -71,7 +73,8 @@ public class CarouselService
             BuildTeletextPage(_tw.CreateWeatherPage(CeefaxSectionType.WeatherForecast1));
             BuildTeletextPage(_tw.CreateWeatherPage(CeefaxSectionType.WeatherForecast2));
             BuildTeletextPage(_tw.CreateWeatherPage(CeefaxSectionType.WeatherForecast3));
-             
+            BuildTeletextPage(_tl.CreateTravelPage());
+            
             // Entertainment section
             BuildTeletextPage(Graphics.PromoTV);
             BuildTeletextPage(_tt.CreateSchedule(CeefaxSectionType.TVScheduleBBC1));

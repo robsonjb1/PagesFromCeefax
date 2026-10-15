@@ -353,6 +353,13 @@ function playPauseClick() {
     }
 }
 
+function pfcClick() {
+    // Update stats for each channel
+    updateChannelStats();
+    displayCaption();
+    $("#planner").fadeToggle();
+}
+
 function syncChannelRows() {
     var leftHandDisplayed = !($('#reverseChannelsIcon').hasClass('bi-layout-sidebar-inset-reverse'));    
 
@@ -451,7 +458,7 @@ for(let i=1; i<=totalChannels; i++) {
 // Wire up iFrame listener
 window.onmessage = function(e) {
     if (e.data == 'click') {
-        playPauseClick();
+        pfcClick();
     }
 };
 

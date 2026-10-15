@@ -11,15 +11,7 @@ public record StandingsRecord
     public int Wins { get; set; }
     public int Points { get; set; }
 }
-
-public interface IStandingsData
-{
-    public List<StandingsRecord> Drivers { get; set; }
-    public List<StandingsRecord> Constructors { get; set; }
-    public bool IsValid { get; set; }
-}
-
-public class StandingsData : IStandingsData
+public class StandingsData 
 {
     public List<StandingsRecord> Drivers { get; set; } = [];
     public List<StandingsRecord> Constructors { get; set; } = [];

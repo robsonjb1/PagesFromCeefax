@@ -53,16 +53,18 @@ namespace API.Services
                         StandingsData standingsData = new(cc);
                         WeatherData weatherData = new(cc);
                         TVListingData listingData = new(cc);
+                        TravelData travelData = new(cc);
                         
                         CarouselService cs = new(
                             new TeletextPageNews(cc),
+                            new TeletextPageTravel(cc, travelData),
                             new TeletextPageMarkets(cc, marketsData),
                             new TeletextPageStandings(cc, standingsData),
                             new TeletextPageWeather(cc, weatherData),
                             new TeletextPageTV(cc, listingData));
                         
                         _cd.Carousel = cs.Carousel;
-                        _cd.Carousel.IsValid = standingsData.IsValid && weatherData.IsValid && listingData.IsValid;
+                        _cd.Carousel.IsValid = marketsData.IsValid && travelData.IsValid && standingsData.IsValid && weatherData.IsValid && listingData.IsValid;
                         _cd.LastBuilt = Utility.ConvertToUKTime(DateTime.UtcNow);
                         _cd.BuildTimeSeconds = Convert.ToInt32(sw.ElapsedMilliseconds / 1000);
 

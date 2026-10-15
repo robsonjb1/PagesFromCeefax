@@ -53,6 +53,9 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.hl.co.uk/shares")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsCurrencies, new Uri("https://www.hl.co.uk/ajax/home/currency-json")));
         
+        // Add Travel arrivals and departures from 
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Travel, new Uri("https://www.thetrainline.com/live/departures/stonegate")));
+        
         // Add the FT 10-year UK bond yields
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsBonds, new Uri("https://markets.ft.com/data/bonds/tearsheet/summary?s=UK10YG")));
 

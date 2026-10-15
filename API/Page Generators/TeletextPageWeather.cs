@@ -142,7 +142,7 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
                 sb.AppendLine(String.Empty);
             }
 
-            sb.FooterText(section);
+            sb.FooterText(section, forecastNo == 2);
         }
         return sb;
     }

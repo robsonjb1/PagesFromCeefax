@@ -35,6 +35,7 @@ public enum CeefaxSectionType
     Markets,
     MarketsCurrencies,
     MarketsBonds,
+    Travel
 }
 
 public enum TeletextControl
