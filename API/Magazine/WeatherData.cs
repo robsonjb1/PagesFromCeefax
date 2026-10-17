@@ -25,6 +25,10 @@ public class WeatherData : IWeatherData
     public Forecast[] Forecasts { get; set; } = new Forecast[4];
     public Dictionary<string, int> Temperatures { get; set; } = [];
     public DateTime LastRefreshUTC { get; set; }
+    public string Sunrise { get; set; }
+    public string Sunset { get; set; }
+    public string MaxTemp { get; set; }
+    public string MinTemp { get; set; }
     public bool IsValid { get; set; } = false;
 
     public WeatherData(CeefaxContent cc)
@@ -34,6 +38,13 @@ public class WeatherData : IWeatherData
             string html = cc.UriCache.First(l => l.Location == cc.Sections.First(z => z.Name == CeefaxSectionType.Weather).Feed).ContentString;
             var doc = new HtmlDocument();
             doc.LoadHtml(html);
+
+            HtmlNode todayForecast = doc.DocumentNode.SelectSingleNode("//a[contains(@class, 'wr-day__content')][.//span[contains(@class, 'wr-date') and normalize-space(.)='Today']]");
+            MaxTemp = todayForecast?.SelectSingleNode(".//span[contains(@class, 'wr-day-temperature__high-value')]//span[contains(@class, 'wr-value--temperature--c')]")?.InnerText[..^1].Trim();
+            MinTemp = todayForecast?.SelectSingleNode(".//span[contains(@class, 'wr-day-temperature__low-value')]//span[contains(@class, 'wr-value--temperature--c')]")?.InnerText[..^1].Trim();
+
+            Sunrise = doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'wr-c-environment-day-wrapper--active')]//span[contains(@class, 'wr-c-astro-data__sunrise')]/span[contains(@class, 'wr-c-astro-data__time')]")?.InnerText.Trim();
+            Sunset = doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'wr-c-environment-day-wrapper--active')]//span[contains(@class, 'wr-c-astro-data__sunset')]/span[contains(@class, 'wr-c-astro-data__time')]")?.InnerText.Trim();
 
             for(int i=0; i<=2; i++) { AddForecast(doc, i); }
             

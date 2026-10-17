@@ -36,7 +36,7 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Standings, new Uri("https://www.bbc.co.uk/sport/formula1/standings")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Entertainment, new Uri("https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
         
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Weather, new Uri("https://www.bbc.co.uk/weather")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Weather, new Uri("https://www.bbc.co.uk/weather/2647218"))); // Heathfield
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherLondon, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2643743")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherCardiff, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2653822")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherEdinburgh, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2650225")));
@@ -49,16 +49,19 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));
         
+        // Add The Register RSS feed
+        Sections.Add(new CeefaxSection(CeefaxSectionType.TheRegister, new Uri("https://www.theregister.com/?lab_viewport=rss")));
+        
         // Add the Hargreaves Lansdown API markets and currency request to the URL cache
         Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.hl.co.uk/shares")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsCurrencies, new Uri("https://www.hl.co.uk/ajax/home/currency-json")));
         
-        // Add Travel arrivals and departures from 
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Travel, new Uri("https://www.thetrainline.com/live/departures/stonegate")));
-        
         // Add the FT 10-year UK bond yields
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsBonds, new Uri("https://markets.ft.com/data/bonds/tearsheet/summary?s=UK10YG")));
 
+        // Add Travel arrivals and departures (Stonegate)
+        Sections.Add(new CeefaxSection(CeefaxSectionType.Travel, new Uri("https://www.thetrainline.com/live/departures/stonegate")));
+       
         // Add each section's feed URL to URL cache
         Sections.ForEach(z => UriCache.Add(new CachedUri(z.Feed)));
 
@@ -110,7 +113,7 @@ public class CeefaxContent
         {
             // Only add if not a comment piece, or a 'live' scrolling story
             if (!item.Title.Text.Contains(':') && 
-                !item.Title.Text.EndsWith('?') &&
+                !item.Title.Text.Contains('?') &&
                 !item.Links[0].Uri.ToString().Contains("/live/"))
             {
                 StoryList.Add(new NewsStory(

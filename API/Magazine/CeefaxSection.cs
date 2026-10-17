@@ -44,6 +44,7 @@ public class CeefaxSection
 
             case CeefaxSectionType.Business:
             case CeefaxSectionType.Markets:
+            case CeefaxSectionType.TheRegister:
                 HeadingCol = TeletextControl.AlphaYellow;
                 PromoBackground = TeletextControl.AlphaRed;
                 PromoCol = TeletextControl.AlphaWhite;
@@ -105,6 +106,10 @@ public class CeefaxSection
                 TotalPages = 2;
                 break;
 
+            case CeefaxSectionType.TheRegister:
+                TotalPages = 3;
+                break;
+
             default:
                 TotalPages = 1;
                 break;
@@ -123,21 +128,23 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Politics:
                 Header = Graphics.HeaderPolitics;
-                PromoFooter = "Technology news coming up next >>>";
+                PromoFooter = "Science news coming up next >>>";
                 break;
             case CeefaxSectionType.Science:
                 Header = Graphics.HeaderSciTech;
+                PromoFooter = "Technology news coming up next >>>";
                 break;
             case CeefaxSectionType.Technology:
                 Header = Graphics.HeaderSciTech;
-                PromoFooter = "Sussex news coming up next >>>";
+                PromoFooter = "Kent news coming up next >>>";
                 break;
             case CeefaxSectionType.Sussex:
                 Header = Graphics.HeaderSussex;
-                PromoFooter = "Kent news coming up next >>>";
+                PromoFooter = "Travel news coming up next >>>";
                 break;
             case CeefaxSectionType.Kent:
                 Header = Graphics.HeaderKent;
+                PromoFooter = "Sussex news coming up next >>>";
                 break;
             case CeefaxSectionType.Business:
                 Header = Graphics.HeaderBusiness;
@@ -172,10 +179,14 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Entertainment:
                 Header = Graphics.HeaderEntertainment;
+                PromoFooter = "The Register coming up next >>";
                 break;
             case CeefaxSectionType.Weather:
                 Header = Graphics.HeaderWeather;
-                PromoFooter = "Travel news coming up next >>>";
+                break;
+            case CeefaxSectionType.TheRegister:
+                Header = Graphics.HeaderRegister;
+                PromoFooter = "CEEFAX: The world at your fingertips";
                 break;
             default:
                 break;

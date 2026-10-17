@@ -79,7 +79,7 @@ public class KindleService : IKindleService
             Credentials = new NetworkCredential(_config.KindleFromUsername, _config.KindleFromPassword)
         };
 
-        Attachment attachment = new Attachment(filename);
+        Attachment attachment = new Attachment(filename, "application/epub+zip");
         using (var message = new MailMessage(
             new MailAddress(_config.KindleFromAddress, _config.KindleName),
             new MailAddress(_config.KindleToAddress, _config.KindleName)

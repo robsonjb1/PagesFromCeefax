@@ -54,8 +54,11 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
                 .Replace("[EE]", FormatWeatherString(_wd.Temperatures["WeatherBelfast"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
                 .Replace("[FF]", FormatWeatherString(_wd.Temperatures["WeatherLerwick"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
                 .Replace("[GG]", FormatWeatherString(_wd.Temperatures["WeatherTruro"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[TTT]", Utility.ConvertToUKTime(_wd.LastRefreshUTC).ToString("HH:mm"));
-
+                .Replace("[TTT]", Utility.ConvertToUKTime(_wd.LastRefreshUTC).ToString("HH:mm"))
+                .Replace("[SU1]", _wd.Sunrise)
+                .Replace("[SU2]", _wd.Sunset)
+                .Replace("[TE1]", string.Concat(_wd.MaxTemp, '/', _wd.MinTemp).PadLeftWithTrunc(5));
+                
             sb.Append(map);
 
             Utility.FooterText(sb, section);

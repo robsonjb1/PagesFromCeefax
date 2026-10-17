@@ -24,7 +24,7 @@ public class Graphics
     public readonly static StringBuilder HeaderShares = new();
     public readonly static StringBuilder HeaderWeather = new();
     public readonly static StringBuilder HeaderTravel = new();
-    public readonly static StringBuilder HeaderLinks = new();
+    public readonly static StringBuilder HeaderRegister = new();
     
     // Transition screens
     public readonly static StringBuilder PromoMap = new();
@@ -32,9 +32,7 @@ public class Graphics
     public readonly static StringBuilder PromoBusiness = new();
     public readonly static StringBuilder PromoSport = new();
     public readonly static StringBuilder PromoTV = new();
-    public readonly static StringBuilder PromoNews = new();
-    public readonly static StringBuilder PromoTeletext = new();
-    public readonly static StringBuilder PromoLinks = new();
+   public readonly static StringBuilder PromoCeefax = new();
     public readonly static StringBuilder PromoChristmas = new();
     public readonly static StringBuilder PromoLoading = new();
 
@@ -119,6 +117,11 @@ public class Graphics
         HeaderTravel.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsCyan}]  j5 ¬£}}j7k5\"m' ¬sju0");
         HeaderTravel.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]££££££££££££££££££££££££££");
 
+        HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]<,,4<,,4<,,l");
+        HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]5b(55b{{55jjj[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    HEADLINES FROM");
+        HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]-.,%-,,%-...[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]     THE REGISTER");
+
+
 
         //HeaderTop40Singles.AppendLine("<p><span class=\"paper6 ink3\">" + Utility.BlockGraph("  l<h<|h<| |_ h<|  |,$|_<th<,$| |$|,$  ") + "</span></p>");
         //HeaderTop40Singles.AppendLine("<p><span class=\"paper6 ink3\">" + Utility.BlockGraph("  j5ju¬j7£ /n,ju¬  s{5¬j5¬ju{5¬0¬1s{5  ") + "</span></p>");
@@ -166,11 +169,11 @@ public class Graphics
         PromoMap.AppendLine($"[LINE6][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]  ~o¬¬¬¬wq");
         PromoMap.AppendLine($"[LINE7][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}] j)\"¬[DD]¬}}");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                 p|¬t  x¬¬g¬¬¬¬0");
-        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Current[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]        n[EE]t +\" ¬¬¬¬¬¬");
-        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]temperatures[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]   +¬¬¬¬¬ _4 +¬¬¬¬¬|0");
-        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]at [TTT][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]        \"%*o! \"   *¬¬¬¬¬u");
-        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                           *¬[CC]¬}}");
-        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                       k||¬¬¬¬¬¬¬¬¬");
+        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                n[EE]t +\" ¬¬¬¬¬¬");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Max/Min[{TeletextControl.AlphaMagenta}][TE1][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]  +¬¬¬¬¬ _4 +¬¬¬¬¬|0");
+        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                 \"%*o! \"   *¬¬¬¬¬u");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Sunrise[{TeletextControl.AlphaYellow}][SU1][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]             *¬[CC]¬}}");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Sunset [{TeletextControl.AlphaCyan}][SU2][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]         k||¬¬¬¬¬¬¬¬¬");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                    4  '¬¬¬¬¬¬¬¬¬¬}}z¬t");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                   j!   j¬¬¬¬¬¬¬¬¬¬¬¬¬");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]               ppp<'  x|[BB]¬¬¬¬¬¬¬¬¬'");
@@ -277,6 +280,57 @@ public class Graphics
         PromoTV.AppendLine($"[{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}]");
         PromoTV.AppendLine(String.Empty);
 
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsCyan}]0p0             p0       _,");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsCyan}]7 \"d 8d _,$48$_& \" 8d 8d_up 8,_  _$");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsCyan}]5  jj_:h!_5¬  j   j_:j_: 5 6 z )8!   ");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsCyan}]  5p8!\"d0*p&55  \"dp8\"dp\"dp 5 e8k_&\"d___");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsRed}]                ppppppppp0ppp[{TeletextControl.HoldGraphics}][{TeletextControl.GraphicsMagenta}]ppp[{TeletextControl.GraphicsMagenta}]pp  ");
+        PromoCeefax.Append($"[{TeletextControl.GraphicsYellow}]      [{TeletextControl.HoldGraphics}]\"+o~¬/[{TeletextControl.GraphicsWhite}]j[{TeletextControl.GraphicsRed}]");
+        PromoCeefax.AppendLine($"[{TeletextControl.NewBackground}][{TeletextControl.GraphicsMagenta}]$,,,[{TeletextControl.GraphicsRed}]¬[{TeletextControl.BlackBackground}]5¬¬¬¬¬¬¬¬//[{TeletextControl.GraphicsWhite}]z%");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaWhite}]               [{TeletextControl.GraphicsMagenta}]£££££££[{TeletextControl.HoldGraphics}]£!£[{TeletextControl.GraphicsWhite}](,,,,,.//! ");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  |||||||||||||||||||||");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬ [{TeletextControl.GraphicsCyan}]||||||||||||||||");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]UP-TO-THE-MINUTE UK AND WORLD NEWS..");
+        PromoCeefax.AppendLine($" [{TeletextControl.AlphaCyan}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]POLITICS, SCIENCE AND BUSINESS...");
+        PromoCeefax.AppendLine($"  [{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]THE LATEST SPORT, INCLUDING");
+        PromoCeefax.AppendLine($"   [{TeletextControl.AlphaCyan}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]FOOTBALL, TENNIS, CRICKET, GOLF");
+        PromoCeefax.AppendLine($"    [{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]RUGBY AND MOTOR RACING...");
+        PromoCeefax.AppendLine($"     [{TeletextControl.AlphaCyan}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]WEATHER, TV, ENTERTAINMENT");
+        PromoCeefax.AppendLine($"      [{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]AND A GREAT DEAL MORE.........");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬ [{TeletextControl.GraphicsCyan}]||||||||||||||||");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬ [{TeletextControl.GraphicsCyan}]¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬||||||||||||||||||");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ,,,,,,,,,,,,,,,,,,,,,");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]Latest news coming up next >>>");
+     
+
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}]");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}]                      px|||tp0");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}]775<4<h$44         _>£££££k¬?!");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsGreen}]555w15j s5         /  7  7j?$");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}]<$t0p(_ph0pp0p0p0     £($£j¬¬4");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsGreen}]5 555j*lj 555<5-4    [{TeletextControl.GraphicsRed}]ow{{¬j¬¬¬");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsGreen}]£!!!!\"\"£\" !!!£!£!     [{TeletextControl.GraphicsRed}]+'h~¬¬¬4");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaWhite}]FROM[{TeletextControl.GraphicsRed}]                    ///¬¬}}");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] |<,,l4    ,||||4    ,||||4o¬?!");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] ¬5j}}~5?//o55(,~5?//o55($j5j¬5j7k7k5");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] ¬urs{{55bs¬5urs{{55bs¬5uzuz5j¬%j7h4k5");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] £££££q}}||~5££££q}}~¬¬5££££!*/ z}}~}}~5");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsRed}]                   _pp~¬¬¬¬¬}}||||$");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaWhite}]AND A VERY HAPPY   [{TeletextControl.GraphicsRed}]++¬¬¬¬¬¬¬¬¬¬%");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaWhite}]    NEW YEAR!     [{TeletextControl.GraphicsRed}]_|trx¬¬¬¬¬¬?'");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsRed}]                  x/¬/£//£($£/¬/!");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}]");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}]");
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaWhite}][{TeletextControl.NewBackground}]");
+        Utility.PadLines(PromoChristmas, 3);
+        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]CEEFAX: The world at your fingertips");
+
+
+
+/*
         PromoTeletext.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]");
         PromoTeletext.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]£¬£h<| ¬ h<| ¬$h<| |h4j=   sh<$");
         PromoTeletext.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] ¬ jws ¬0jws ¬0jws ~k4ju   ¬b{{5000");
@@ -300,30 +354,32 @@ public class Graphics
         PromoTeletext.AppendLine($"[{TeletextControl.AlphaYellow}]IS CALLED     [{TeletextControl.GraphicsRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaWhite}]4 5 6  [{TeletextControl.BlackBackground}]");
         PromoTeletext.AppendLine($"[{TeletextControl.AlphaWhite}]CEEFAX        [{TeletextControl.GraphicsRed}]¬¬¬¬¬¬¬¬¬");
         PromoTeletext.AppendLine(String.Empty);        
+*/
 
-        PromoNews.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]");
-        PromoNews.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]£¬£h<| ¬ h<| ¬$h<| |h4j=   sh<$");
-        PromoNews.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] ¬ jws ¬0jws ¬0jws ~k4ju   ¬b{{5000");
-        PromoNews.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]");
-        PromoNews.AppendLine(String.Empty);
-        PromoNews.AppendLine($"[{TeletextControl.GraphicsBlue}]                  |||||||||||||||||||||");
-        PromoNews.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-        PromoNews.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬ [{TeletextControl.GraphicsCyan}]||||||||||||||||");
-        PromoNews.AppendLine($"[{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]UP-TO-THE-MINUTE UK AND WORLD NEWS..");
-        PromoNews.AppendLine($" [{TeletextControl.AlphaCyan}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]POLITICS, SCIENCE AND BUSINESS...");
-        PromoNews.AppendLine($"  [{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]THE LATEST SPORT, INCLUDING");
-        PromoNews.AppendLine($"   [{TeletextControl.AlphaCyan}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]FOOTBALL, TENNIS, CRICKET, GOLF");
-        PromoNews.AppendLine($"    [{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]RUGBY AND MOTOR RACING...");
-        PromoNews.AppendLine($"     [{TeletextControl.AlphaCyan}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]WEATHER, TV, ENTERTAINMENT");
-        PromoNews.AppendLine($"      [{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]AND A GREAT DEAL MORE.........");
-        PromoNews.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬ [{TeletextControl.GraphicsCyan}]||||||||||||||||");
-        PromoNews.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬ [{TeletextControl.GraphicsCyan}]¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-        PromoNews.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬||||||||||||||||||");
-        PromoNews.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
-        PromoNews.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ,,,,,,,,,,,,,,,,,,,,,");
-        Utility.PadLines(PromoNews, 2);
-        PromoNews.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]Latest news coming up next >>>");
-       
+/*
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]£¬£h<| ¬ h<| ¬$h<| |h4j=   sh<$");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] ¬ jws ¬0jws ¬0jws ~k4ju   ¬b{{5000");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]");
+        PromoCeefax.AppendLine(String.Empty);
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  |||||||||||||||||||||");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬ [{TeletextControl.GraphicsCyan}]||||||||||||||||");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]UP-TO-THE-MINUTE UK AND WORLD NEWS..");
+        PromoCeefax.AppendLine($" [{TeletextControl.AlphaCyan}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]POLITICS, SCIENCE AND BUSINESS...");
+        PromoCeefax.AppendLine($"  [{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]THE LATEST SPORT, INCLUDING");
+        PromoCeefax.AppendLine($"   [{TeletextControl.AlphaCyan}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]FOOTBALL, TENNIS, CRICKET, GOLF");
+        PromoCeefax.AppendLine($"    [{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]RUGBY AND MOTOR RACING...");
+        PromoCeefax.AppendLine($"     [{TeletextControl.AlphaCyan}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]WEATHER, TV, ENTERTAINMENT");
+        PromoCeefax.AppendLine($"      [{TeletextControl.AlphaYellow}][{TeletextControl.NewBackground}][{TeletextControl.AlphaBlue}]AND A GREAT DEAL MORE.........");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬ [{TeletextControl.GraphicsCyan}]||||||||||||||||");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬ [{TeletextControl.GraphicsCyan}]¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬||||||||||||||||||");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ,,,,,,,,,,,,,,,,,,,,,");
+        Utility.PadLines(PromoCeefax, 2);
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]Latest news coming up next >>>");
+ */      
 
 
         // PromoCeefax.AppendLine("<p><span class=\"ink7\">" + Utility.BlockGraph("<,,4<,,4<,,4") + "</span>");
@@ -369,52 +425,23 @@ public class Graphics
         //LogoTV[4] = "<span class=\"ink2\">" + Utility.BlockGraph("j ") + "</span><span class=\"ink5\">" + Utility.BlockGraph("//// ") + "</span><span class=\"ink1\">" + Utility.BlockGraph("wwww¬5") + "</span>";
         //LogoTV[5] = "<span class=\"ink2\">" + Utility.BlockGraph("\"£££££ ") + "</span><span class=\"ink1\">" + Utility.BlockGraph("/.../%") + "</span>";
 
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsCyan}]0p0             p0       _,");
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsCyan}]7 \"d 8d _,$48$_& \" 8d 8d_up 8,_  _$");
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsCyan}]5  jj_:h!_5¬  j   j_:j_: 5 6 z )8!   ");
-        PromoLinks.AppendLine($"[{TeletextControl.GraphicsCyan}]  5p8!\"d0*p&55  \"dp8\"dp\"dp 5 e8k_&\"d___");
-        PromoLinks.AppendLine($"[{TeletextControl.GraphicsRed}]                ppppppppp0ppp[{TeletextControl.HoldGraphics}][{TeletextControl.GraphicsMagenta}]ppp[{TeletextControl.GraphicsMagenta}]pp  ");
-        
-        PromoLinks.Append($"[{TeletextControl.GraphicsYellow}]      [{TeletextControl.HoldGraphics}]\"+o~¬/[{TeletextControl.GraphicsWhite}]j[{TeletextControl.GraphicsRed}]");
-        PromoLinks.AppendLine($"[{TeletextControl.NewBackground}][{TeletextControl.GraphicsMagenta}]$,,,[{TeletextControl.GraphicsRed}]¬[{TeletextControl.BlackBackground}]5¬¬¬¬¬¬¬¬//[{TeletextControl.GraphicsWhite}]z%");
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaWhite}]               [{TeletextControl.GraphicsMagenta}]£££££££[{TeletextControl.HoldGraphics}]£!£[{TeletextControl.GraphicsWhite}](,,,,,.//! ");
-        
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaWhite}]If you have any suggestions or feedback");
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaWhite}]relating to this site, please click on");
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaWhite}]the[{TeletextControl.AlphaYellow}]X (@pfceefax)[{TeletextControl.AlphaWhite}]link at the bottom");
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaWhite}]of the screen.");
-        PromoLinks.AppendLine(String.Empty);
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaWhite}]If you would like to learn more about");
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaWhite}]the history of Ceefax,[{TeletextControl.AlphaYellow}]the world's");
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaYellow}]first teletext service,[{TeletextControl.AlphaWhite}]please visit");
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaWhite}]the website below:");
-        PromoLinks.AppendLine(String.Empty);
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaCyan}]http://teletext.mb21.co.uk");
-        Utility.PadLines(PromoLinks, 4);
-        PromoLinks.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]CEEFAX: The world at your fingertips");
+       
+     /*PromoCeefax.AppendLine($"[{TeletextControl.AlphaWhite}]If you have any suggestions or feedback");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaWhite}]relating to this site, please click on");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaWhite}]the[{TeletextControl.AlphaYellow}]X (@pfceefax)[{TeletextControl.AlphaWhite}]link at the bottom");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaWhite}]of the screen.");
+        PromoCeefax.AppendLine(String.Empty);
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaWhite}]If you would like to learn more about");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaWhite}]the history of Ceefax,[{TeletextControl.AlphaYellow}]the world's");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaYellow}]first teletext service,[{TeletextControl.AlphaWhite}]please visit");
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaWhite}]the website below:");
+        PromoCeefax.AppendLine(String.Empty);
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaCyan}]http://teletext.mb21.co.uk");
+        Utility.PadLines(PromoCeefax, 4);
+        PromoCeefax.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]CEEFAX: The world at your fingertips");
+        */
 
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}]");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}]                      px|||tp0");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}]775<4<h$44         _>£££££k¬?!");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsGreen}]555w15j s5         /  7  7j?$");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsWhite}]<$t0p(_ph0pp0p0p0     £($£j¬¬4");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsGreen}]5 555j*lj 555<5-4    [{TeletextControl.GraphicsRed}]ow{{¬j¬¬¬");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsGreen}]£!!!!\"\"£\" !!!£!£!     [{TeletextControl.GraphicsRed}]+'h~¬¬¬4");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaWhite}]FROM[{TeletextControl.GraphicsRed}]                    ///¬¬}}");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] |<,,l4    ,||||4    ,||||4o¬?!");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] ¬5j}}~5?//o55(,~5?//o55($j5j¬5j7k7k5");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] ¬urs{{55bs¬5urs{{55bs¬5uzuz5j¬%j7h4k5");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}] £££££q}}||~5££££q}}~¬¬5££££!*/ z}}~}}~5");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsRed}]                   _pp~¬¬¬¬¬}}||||$");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaWhite}]AND A VERY HAPPY   [{TeletextControl.GraphicsRed}]++¬¬¬¬¬¬¬¬¬¬%");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaWhite}]    NEW YEAR!     [{TeletextControl.GraphicsRed}]_|trx¬¬¬¬¬¬?'");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsRed}]                  x/¬/£//£($£/¬/!");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}]");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}]");
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaWhite}][{TeletextControl.NewBackground}]");
-        Utility.PadLines(PromoChristmas, 3);
-        PromoChristmas.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]CEEFAX: The world at your fingertips");
-
+     
 
 
         //PrestelIntro1.AppendLine("<p class=\"doubleHeight\"><span class=\"ink7\">&nbsp;&nbsp;Good " + Utility.Greeting(DateTime.Now) + "</span></p><br>");

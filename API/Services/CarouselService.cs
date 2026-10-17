@@ -40,18 +40,18 @@ public class CarouselService
         try
         {
             // This is teletext
-            BuildTeletextPage(Graphics.PromoTeletext);
+            BuildTeletextPage(Graphics.PromoCeefax);
 
             // News section
-            BuildTeletextPage(Graphics.PromoNews);
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Home));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.World));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Politics));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Science));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Technology));
-            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Sussex));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Kent));
-
+            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Sussex));
+            BuildTeletextPage(_tl.CreateTravelPage());
+          
             // Business section
             BuildTeletextPage(Graphics.PromoBusiness);
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Business));
@@ -73,7 +73,6 @@ public class CarouselService
             BuildTeletextPage(_tw.CreateWeatherPage(CeefaxSectionType.WeatherForecast1));
             BuildTeletextPage(_tw.CreateWeatherPage(CeefaxSectionType.WeatherForecast2));
             BuildTeletextPage(_tw.CreateWeatherPage(CeefaxSectionType.WeatherForecast3));
-            BuildTeletextPage(_tl.CreateTravelPage());
             
             // Entertainment section
             BuildTeletextPage(Graphics.PromoTV);
@@ -82,8 +81,10 @@ public class CarouselService
             BuildTeletextPage(_tt.CreateSchedule(CeefaxSectionType.TVScheduleBBC4));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Entertainment));
 
+            // The Register
+            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.TheRegister));
+
             // Close
-            BuildTeletextPage(Graphics.PromoLinks);
             if(DateTime.Now.Month == 12) {
                 BuildTeletextPage(Graphics.PromoChristmas);
             }            

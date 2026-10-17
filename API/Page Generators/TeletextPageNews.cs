@@ -28,13 +28,23 @@ public class TeletextPageNews(CeefaxContent cc)
         StringBuilder sb = new();
 
         sb.Append(section.Header);
-        if(totalPages > 1)
+
+        // Workaround for The Register
+        if(section.Name == CeefaxSectionType.TheRegister)
         {
-            sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} HEADLINES {" ".PadRight(22-section.Name.ToString().Length)} [{TeletextControl.AlphaWhite}] {currentPage}/{totalPages}");
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{Utility.PadLeftWithTrunc($"{currentPage}/{totalPages}", 39)}");
         }
         else
         {
-            sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} HEADLINES");
+            // Regular news page
+            if(totalPages > 1)
+            {
+                sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} HEADLINES {" ".PadRight(22-section.Name.ToString().Length)} [{TeletextControl.AlphaWhite}] {currentPage}/{totalPages}");
+            }
+            else
+            {
+                sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} HEADLINES");
+            }
         }
         
         int rows = 0;

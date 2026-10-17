@@ -23,7 +23,7 @@ public class TeletextPageTravel(CeefaxContent mc, TravelData td)
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]STONEGATE DEPARTURES");
             OutputRecords(sb, _td.SOGDepartures.Take(5).ToList());
             
-            sb.AppendLine($"[{TeletextControl.AlphaGreen}]Data accurate as at " + Utility.ConvertToUKTime(_td.LastRefreshUTC).ToString("HH:mm") + " (UK time)");
+            sb.AppendLine($"[{TeletextControl.AlphaGreen}]Updated at " + Utility.ConvertToUKTime(_td.LastRefreshUTC).ToString("HH:mm") + " (UK time)");
             sb.AppendLine("");
             sb.FooterText(section);
         }
