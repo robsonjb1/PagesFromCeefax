@@ -170,15 +170,15 @@ public class Graphics
         PromoMap.AppendLine($"[LINE7][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}] j)\"¬[DD]¬}}");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                 p|¬t  x¬¬g¬¬¬¬0");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                n[EE]t +\" ¬¬¬¬¬¬");
-        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Max/Min[{TeletextControl.AlphaMagenta}][TE1][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]  +¬¬¬¬¬ _4 +¬¬¬¬¬|0");
-        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                 \"%*o! \"   *¬¬¬¬¬u");
-        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Sunrise[{TeletextControl.AlphaYellow}][SU1][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]             *¬[CC]¬}}");
-        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Sunset [{TeletextControl.AlphaCyan}][SU2][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]         k||¬¬¬¬¬¬¬¬¬");
-        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                    4  '¬¬¬¬¬¬¬¬¬¬}}z¬t");
-        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                   j!   j¬¬¬¬¬¬¬¬¬¬¬¬¬");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Maximum [{TeletextControl.AlphaYellow}][TE1][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]  +¬¬¬¬¬ _4 +¬¬¬¬¬|0");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Minimum [{TeletextControl.AlphaCyan}][TE2][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]   \"%*o! \"   *¬¬¬¬¬u");
+        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                           *¬[CC]¬}}");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Sunrise[{TeletextControl.AlphaYellow}][SU1][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]         k||¬¬¬¬¬¬¬¬¬");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Sunset [{TeletextControl.AlphaCyan}][SU2][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]      4  '¬¬¬¬¬¬¬¬¬¬}}z¬t");
+        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                   j!   j¬¬¬¬¬¬¬[HH]¬¬");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]               ppp<'  x|[BB]¬¬¬¬¬¬¬¬¬'");
-        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]             \"£!      ! +/'i¬¬[AA]¬qp0");
-        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                         t¬¬¬¬¬¬¬¬¬¬¬'");
+        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]             \"£!       !+/'i¬¬¬¬¬¬¬qp0");
+        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                         t¬¬¬¬¬¬[AA]¬'");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                  [GG]¬¬¬¬¬¬¬¬?s///?!");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                    8?' \"'     \"");
 

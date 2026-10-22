@@ -59,8 +59,8 @@ import { video } from "./video.js";
             var now = new Date();
             currentSeconds = now.getSeconds();
 
-            // Do we need to refresh the magazine ? (takes place every 25 minutes)
-            if (now - carouselRequestTime > (25 * 60 * 1000)) {
+            // Do we need to refresh the magazine ? (takes place every 10 minutes)
+            if (now - carouselRequestTime > (10 * 60 * 1000)) {
                 carouselRequestTime = now;
                 lastPageRefresh = now;
                 transitionSecond = -1; // do not do a regular refresh until the new carousel is loaded

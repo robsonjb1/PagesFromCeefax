@@ -4,10 +4,10 @@ using API.Magazine;
 
 namespace API.PageGenerators;
 
-public class TeletextPageTV(CeefaxContent cc, ITVListingData listings) 
+public class TeletextPageTV(CeefaxContent cc, TVListingData listings) 
 {
     private readonly CeefaxContent _cc = cc;
-    private readonly ITVListingData _ld = listings;
+    private readonly TVListingData _ld = listings;
 
     #region Public Methods
     public List<StringBuilder> CreateSchedule(CeefaxSectionType channel)

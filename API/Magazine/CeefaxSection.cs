@@ -75,43 +75,32 @@ public class CeefaxSection
         // Initialise the full section sizes
         switch (Name)
         {
-            case CeefaxSectionType.Standings:
-            case CeefaxSectionType.Weather:
-            case CeefaxSectionType.WeatherForecast1:
-            case CeefaxSectionType.WeatherForecast2:
-            case CeefaxSectionType.WeatherForecast3:
-            case CeefaxSectionType.WeatherLondon:
-            case CeefaxSectionType.WeatherManchester:
-            case CeefaxSectionType.WeatherTruro:
-            case CeefaxSectionType.WeatherBelfast:
-            case CeefaxSectionType.WeatherCardiff:
-            case CeefaxSectionType.WeatherEdinburgh:
-            case CeefaxSectionType.WeatherLerwick:
-            case CeefaxSectionType.TVScheduleBBC1:
-            case CeefaxSectionType.TVScheduleBBC2:
-            case CeefaxSectionType.TVScheduleBBC4:
-            case CeefaxSectionType.Markets:
-            case CeefaxSectionType.MarketsCurrencies:
-            case CeefaxSectionType.MarketsBonds:
-            case CeefaxSectionType.Travel:
-                TotalPages = 0;
+            case CeefaxSectionType.Science:
+            case CeefaxSectionType.Technology:
+            case CeefaxSectionType.Kent:
+            case CeefaxSectionType.Sussex:
+            case CeefaxSectionType.Rugby:
+            case CeefaxSectionType.Cricket:
+            case CeefaxSectionType.Tennis:
+            case CeefaxSectionType.Golf:
+                TotalPages = 1;
                 break;
-            
+
             case CeefaxSectionType.Home:
             case CeefaxSectionType.World:
             case CeefaxSectionType.Politics:
-            case CeefaxSectionType.Business:
             case CeefaxSectionType.Football:
             case CeefaxSectionType.Entertainment:
+            case CeefaxSectionType.TheRegister:
                 TotalPages = 2;
                 break;
 
-            case CeefaxSectionType.TheRegister:
+            case CeefaxSectionType.Business:
                 TotalPages = 3;
                 break;
 
             default:
-                TotalPages = 1;
+                TotalPages = 0;
                 break;
         }
 
@@ -179,7 +168,7 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Entertainment:
                 Header = Graphics.HeaderEntertainment;
-                PromoFooter = "The Register coming up next >>";
+                PromoFooter = "The Register coming up next >>>";
                 break;
             case CeefaxSectionType.Weather:
                 Header = Graphics.HeaderWeather;

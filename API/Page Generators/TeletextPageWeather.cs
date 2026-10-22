@@ -47,17 +47,19 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
             }
 
             // Insert temperatures
-            map = map.Replace("[AA]", FormatWeatherString(_wd.Temperatures["WeatherLondon"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[BB]", FormatWeatherString(_wd.Temperatures["WeatherCardiff"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[CC]", FormatWeatherString(_wd.Temperatures["WeatherManchester"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[DD]", FormatWeatherString(_wd.Temperatures["WeatherEdinburgh"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[EE]", FormatWeatherString(_wd.Temperatures["WeatherBelfast"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[FF]", FormatWeatherString(_wd.Temperatures["WeatherLerwick"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
-                .Replace("[GG]", FormatWeatherString(_wd.Temperatures["WeatherTruro"], TeletextControl.AlphaWhite, TeletextControl.GraphicsGreen))
+            map = map.Replace("[AA]", FormatWeatherString(_wd.Locations["Heathfield"], TeletextControl.GraphicsGreen))
+                .Replace("[BB]", FormatWeatherString(_wd.Locations["Swansea"], TeletextControl.GraphicsGreen))
+                .Replace("[CC]", FormatWeatherString(_wd.Locations["Manchester"], TeletextControl.GraphicsGreen))
+                .Replace("[DD]", FormatWeatherString(_wd.Locations["Edinburgh"], TeletextControl.GraphicsGreen))
+                .Replace("[EE]", FormatWeatherString(_wd.Locations["Belfast"], TeletextControl.GraphicsGreen))
+                .Replace("[FF]", FormatWeatherString(_wd.Locations["Inverness"], TeletextControl.GraphicsGreen))
+                .Replace("[GG]", FormatWeatherString(_wd.Locations["Penzance"], TeletextControl.GraphicsGreen))
+                .Replace("[HH]", FormatWeatherString(_wd.Locations["Cambridge"], TeletextControl.GraphicsGreen))
                 .Replace("[TTT]", Utility.ConvertToUKTime(_wd.LastRefreshUTC).ToString("HH:mm"))
                 .Replace("[SU1]", _wd.Sunrise)
                 .Replace("[SU2]", _wd.Sunset)
-                .Replace("[TE1]", string.Concat(_wd.MaxTemp, '/', _wd.MinTemp).PadLeftWithTrunc(5));
+                .Replace("[TE1]", _wd.MaxTemp.PadLeftWithTrunc(4))
+                .Replace("[TE2]", _wd.MinTemp.PadLeftWithTrunc(4));
                 
             sb.Append(map);
 
@@ -152,9 +154,16 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
     #endregion
 
     #region Private Methods
-    private static string FormatWeatherString(int temperature, TeletextControl startCol = TeletextControl.AlphaWhite, TeletextControl endCol = TeletextControl.AlphaWhite)
+    private static string FormatWeatherString(SpotTemperature spot, TeletextControl endCol = TeletextControl.AlphaWhite)
     {
-        string str = temperature.ToString();
+        TeletextControl startCol = TeletextControl.AlphaWhite;
+
+        if(spot.WindSpeed > 30)
+        {
+            startCol = TeletextControl.AlphaRed;
+        }
+
+        string str = spot.Temperature.ToString();
         str = $"[{startCol}]{((str.Length == 1) ? " " : "")}{str}[{endCol}]";
         
         return str;

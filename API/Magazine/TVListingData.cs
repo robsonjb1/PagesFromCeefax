@@ -23,13 +23,7 @@ public record ChannelSchedule
     }
 }
 
-public interface ITVListingData
-{
-    public List<ChannelSchedule> Schedules { get ; set; }
-    public bool IsValid { get; set; }
-}
-
-public class TVListingData : ITVListingData
+public class TVListingData
 {
     public List<ChannelSchedule> Schedules { get ; set; } = [];
     public bool IsValid { get; set; } = false;
@@ -55,7 +49,7 @@ public class TVListingData : ITVListingData
             doc.LoadHtml(html);
 
             string day = doc.DocumentNode.SelectSingleNode("//time").InnerText.Trim();
-            schedule.Day = day[..day.IndexOf(" ")].ToUpper();
+            schedule.Day = day[..day.IndexOf(' ')].ToUpper();
 
             var shows = doc.DocumentNode.SelectNodes("//div[@class='programme__body']");
        

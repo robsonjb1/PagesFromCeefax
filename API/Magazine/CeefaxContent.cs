@@ -37,17 +37,23 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Entertainment, new Uri("https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
         
         Sections.Add(new CeefaxSection(CeefaxSectionType.Weather, new Uri("https://www.bbc.co.uk/weather/2647218"))); // Heathfield
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherLondon, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2643743")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherCardiff, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2653822")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherEdinburgh, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2650225")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherTruro, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2635412")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherLerwick, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2644605")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherHeathfield, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2647218")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSwansea, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2654089"))); // Caerphilly
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherEdinburgh, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2644204"))); // Livingston
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherPenzance, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2641589"))); // Newquay
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherInverness, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2646088")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherManchester, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2643123")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherBelfast, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2655984")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherCambridge, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2653941")));
   
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC1, new Uri("https://www.bbc.co.uk/schedules/p00fzl6x")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));
+        
+        //Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC1, new Uri("http://localhost/retrotv/js/cat-channel-1.json")));
+        //Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("http://localhost/retrotv/js/cat-channel-2.json")));
+        //Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("http://localhost/retrotv/js/cat-channel-5.json")));
+        
         
         // Add The Register RSS feed
         Sections.Add(new CeefaxSection(CeefaxSectionType.TheRegister, new Uri("https://www.theregister.com/?lab_viewport=rss")));
@@ -111,10 +117,11 @@ public class CeefaxContent
 
         foreach (SyndicationItem item in feed.Items)
         {
-            // Only add if not a comment piece, or a 'live' scrolling story
+            // Only add if not a comment piece, or a 'live' scrolling story, or a Register sponsored article
             if (!item.Title.Text.Contains(':') && 
                 !item.Title.Text.Contains('?') &&
-                !item.Links[0].Uri.ToString().Contains("/live/"))
+                !item.Links[0].Uri.ToString().Contains("/live/") &&
+                !item.Summary.Text.Contains("PARTNER CONTENT:"))
             {
                 StoryList.Add(new NewsStory(
                     section.Name, 
