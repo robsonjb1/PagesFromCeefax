@@ -83,6 +83,7 @@ public class CeefaxSection
             case CeefaxSectionType.Cricket:
             case CeefaxSectionType.Tennis:
             case CeefaxSectionType.Golf:
+            case CeefaxSectionType.Motorsport:
                 TotalPages = 1;
                 break;
 

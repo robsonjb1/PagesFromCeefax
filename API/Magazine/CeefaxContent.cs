@@ -42,7 +42,7 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherEdinburgh, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2644204"))); // Livingston
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherPenzance, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2641589"))); // Newquay
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherInverness, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2646088")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherManchester, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2643123")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherManchester, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2644688"))); // Leeds
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherBelfast, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2655984")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherCambridge, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2653941")));
   
@@ -121,7 +121,8 @@ public class CeefaxContent
             if (!item.Title.Text.Contains(':') && 
                 !item.Title.Text.Contains('?') &&
                 !item.Links[0].Uri.ToString().Contains("/live/") &&
-                !item.Summary.Text.Contains("PARTNER CONTENT:"))
+                !item.Summary.Text.Contains("PARTNER CONTENT:") &&
+                !item.Summary.Text.Contains("SPONSORED FEATURE:"))
             {
                 StoryList.Add(new NewsStory(
                     section.Name, 

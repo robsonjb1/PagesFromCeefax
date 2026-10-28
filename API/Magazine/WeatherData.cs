@@ -16,6 +16,8 @@ public class SpotTemperature
 {
     public int Temperature { get; set; }
     public int WindSpeed { get; set; }
+    public bool PressureFalling { get; set; }
+    public bool PressureRising { get; set; }
 }
 
 public class WeatherData
@@ -86,7 +88,9 @@ public class WeatherData
         SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
         int temperature = Convert.ToInt32(feed.Items.First().Summary.Text.Split("°C")[0].Split(" ")[^1]);
         int.TryParse(feed.Items.First().Summary.Text.Split("mph")[0].Split(" ")[^1], out int windSpeed);
-    
-        return new SpotTemperature() { Temperature = temperature, WindSpeed = windSpeed };
+        bool pressureFalling = feed.Items.First().Summary.Text.Contains("Falling");
+        bool pressureRising = feed.Items.First().Summary.Text.Contains("Rising");
+
+        return new SpotTemperature() { Temperature = temperature, WindSpeed = windSpeed, PressureFalling = pressureFalling, PressureRising = pressureRising };
     }
 }

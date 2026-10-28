@@ -41,7 +41,8 @@ try
 
     app.MapGet("/carousel", (ICacheService cs, HttpContext context) =>
     {
-        if (!context.Connection.RemoteIpAddress.ToString().Contains("192.168."))
+        if (!context.Connection.RemoteIpAddress.ToString().Contains("192.168.") &&
+            !context.Connection.RemoteIpAddress.ToString().Contains("::1"))
         {
             File.AppendAllText("/volumes/media/carousel_log.txt", $"{DateTime.Now} {context.Connection.RemoteIpAddress} carousel {Environment.NewLine}");
         }

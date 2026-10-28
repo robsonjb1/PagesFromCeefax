@@ -1,5 +1,5 @@
 // Initialisation
-let totalChannels = 9;
+let totalChannels = 10;
 let selectedChannel = 0;
 
 let showIdentNext = true;
@@ -16,7 +16,7 @@ if(document.cookie) {
     channelSelections = document.cookie.substring(document.cookie.indexOf("=") + 1)
 }
 if(channelSelections == "" || channelSelections.indexOf("|") == -1) {
-    channelSelections = "|1||2||7||9|";
+    channelSelections = "|1||2|3||8||10|";
 }
 
 // Enable channel settings
@@ -331,33 +331,30 @@ function playPauseClick() {
             $("#planner").fadeOut();
         }
         else {
-            if(settingsVisible) {
-                // If you've clicked on the video whilst the settings was open, close settings and go back to the channel list in the background
-                settingsVisible = false;
-                channelsVisible = true;
-
-                $('#settingsToggleIcon').removeClass("bi-gear-fill");
-                $('#settingsToggleIcon').addClass("bi-gear");
-
-                $("#planner").hide();
-                $("#settings").hide();
-                $("#channelList").fadeIn();
-            }
-            else {
-                // Update stats for each channel
-                updateChannelStats();
-                displayCaption();
-                $("#planner").fadeToggle();
-            } 
+           pfcClick();
         }
     }
 }
 
 function pfcClick() {
-    // Update stats for each channel
-    updateChannelStats();
-    displayCaption();
-    $("#planner").fadeToggle();
+    if(settingsVisible) {
+        // If you've clicked on the video whilst the settings was open, close settings and go back to the channel list in the background
+        settingsVisible = false;
+        channelsVisible = true;
+
+        $('#settingsToggleIcon').removeClass("bi-gear-fill");
+        $('#settingsToggleIcon').addClass("bi-gear");
+
+        $("#planner").hide();
+        $("#settings").hide();
+        $("#channelList").fadeIn();
+    }
+    else {
+        // Update stats for each channel
+        updateChannelStats();
+        displayCaption();
+        $("#planner").fadeToggle();
+    } 
 }
 
 function syncChannelRows() {

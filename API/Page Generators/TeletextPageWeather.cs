@@ -158,7 +158,15 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
     {
         TeletextControl startCol = TeletextControl.AlphaWhite;
 
-        if(spot.WindSpeed > 30)
+        if(spot.Temperature >= 20)
+        {
+            startCol = TeletextControl.AlphaYellow;
+        }
+        if(spot.Temperature <= 3)
+        {
+            startCol = TeletextControl.AlphaCyan;
+        }
+        if(spot.WindSpeed >= 30 || spot.Temperature >= 30)
         {
             startCol = TeletextControl.AlphaRed;
         }
