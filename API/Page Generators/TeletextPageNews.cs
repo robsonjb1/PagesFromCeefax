@@ -46,7 +46,7 @@ public class TeletextPageNews(CeefaxContent cc)
                 sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} HEADLINES");
             }
         }
-        
+    
         int rows = 0;
         foreach (NewsStory story in _cc.StoryList.FindAll(z=> z.SectionName == section.Name).OrderByDescending(z => z.PublishDate))
         {
@@ -56,7 +56,16 @@ public class TeletextPageNews(CeefaxContent cc)
                 story.Included = true;
             }
 
-            if (!story.Included && (rows + story.Headline.Count + story.Summary.Count < 18))
+            string adjustedStoryHeadline = story.Headline;
+            if(story.New)
+            {
+                adjustedStoryHeadline = "NEW " + adjustedStoryHeadline; 
+            }
+
+            List<string> HeadlineRows = Utility.ParseParagraph(adjustedStoryHeadline);
+            List<string> SummaryRows = Utility.ParseParagraph(story.Summary);
+
+            if (!story.Included && (rows + HeadlineRows.Count + SummaryRows.Count < 18))
             {
                 if (rows > 0)
                 {
@@ -65,12 +74,28 @@ public class TeletextPageNews(CeefaxContent cc)
                 }
 
                 // Title
-                story.Headline.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaWhite}]{l}"));
                 
+                // Adjust headline colouring if this is a new story
+                if(story.New)
+                {
+                    sb.AppendLine($"[{section.HeadingHighlightCol}]NEW[{TeletextControl.AlphaWhite}]" + HeadlineRows[0][4..]);
+                    if(HeadlineRows.Count > 1)
+                    {
+                        for(int i=1; i<HeadlineRows.Count; i++)
+                        {
+                            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{HeadlineRows[i]}");
+                        }
+                    }
+                }
+                else
+                {
+                    HeadlineRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaWhite}]{l}"));
+                }
+
                 // Summary
-                story.Summary.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaCyan}]{l}"));
+                SummaryRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaCyan}]{l}"));
                 
-                rows += story.Summary.Count + story.Headline.Count;
+                rows += SummaryRows.Count + HeadlineRows.Count;
               
                 // Ensure no other future pages include this story
                 story.Included = true;

@@ -6,9 +6,10 @@ public class NewsStory(CeefaxSectionType SectionName, string Headline, string Su
 {
     public readonly CeefaxSectionType SectionName = SectionName;
     public readonly Uri Link = Link;
-    public readonly List<string> Headline = Utility.ParseParagraph(Headline);
-    public readonly List<string> Summary = Utility.ParseParagraph(Summary);
+    public readonly string Headline = Headline;    
+    public readonly string Summary = Summary;
     public readonly DateTime PublishDate = PublishDate;
     public bool Included = false;
+    public bool New = (DateTime.UtcNow - PublishDate).TotalHours <= 1;
 }
 

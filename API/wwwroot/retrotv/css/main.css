@@ -149,6 +149,12 @@ td, th { /* table cells */
 	color: lightblue;
 	margin-top: -2px;
 }
+.plannerShuffleDate {
+	font-size: smaller;
+	color: lightblue;
+	margin-top: -2px;
+	display: none;
+}
 .plannerTitle {
 	vertical-align: top;
 }
@@ -181,8 +187,6 @@ td, th { /* table cells */
 }
 #settings {
 	display: none;
-}
-#channelList {
 }
 .channelBanner {
 	height: 30px;

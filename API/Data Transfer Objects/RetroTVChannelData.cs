@@ -26,6 +26,9 @@ public class RetroTVEpisodeData
     [JsonPropertyName("isVideo")]
     public bool IsVideo { get; set; }
 
+    [JsonPropertyName("publishDate")]
+    public string PublishDate { get; set; }
+
     [JsonPropertyName("description")]
     public string Description { get; set; }
 }

@@ -11,62 +11,6 @@ let lastBannerRefresh = new Date();
 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-// Retrieve channel selection cookie if present
-if(document.cookie) {
-    channelSelections = document.cookie.substring(document.cookie.indexOf("=") + 1)
-}
-if(channelSelections == "" || channelSelections.indexOf("|") == -1) {
-    channelSelections = "|1||2|3||8||10|";
-}
-
-// Enable channel settings
-for(var c=1; c<=totalChannels; c++) {   
-    var test = "|" + c.toString() + "|";
-    if(channelSelections.indexOf(test) > -1) {
-        $(`#settings${c}icon`).addClass("bi-layout-sidebar-inset");
-        $(`#settings${c}icon`).removeClass("bi-layout-sidebar-inset-reverse");        
-        $(`#channel${c}row`).show();
-
-        if(selectedChannel == 0) {
-            selectedChannel = c; // Use this as initial channel
-        }
-    } else {
-        $(`#settings${c}icon`).addClass("bi-layout-sidebar-inset-reverse");
-        $(`#settings${c}icon`).removeClass("bi-layout-sidebar-inset");    
-        $(`#channel${c}row`).hide();
-    }
-}
-
-// Initialise episode list
-let episodeList = new Array(totalChannels+1);
-for(var c=0; c<=totalChannels; c++) {
-    episodeList[c] = {};
-}
-
-// Load the channel feeds
-refreshChannelFeeds();
-updateChannelStats();
-
-// Set up the canvas
-let video = document.getElementById("videoCanvas");
-video.autoPlay = false; 
-video.loop = false; 
-video.addEventListener('loadedmetadata',function() {
-    readyToPlayVideo();
-});
-
-let videoContainer = {
-     video : video,
-     ready : false
-};
-
-// Start video
-setInterval(autoRefreshChannelFeeds, 600000);    // 10 minutes
-setInterval(autoRefreshCaption, 15000);          // 15 seconds
-
-switchChannel(selectedChannel);
-
-
 function refreshChannelFeeds() {
     console.log("Refreshing channel feeds...");
     
@@ -494,3 +438,60 @@ $("#reverseChannels").on('click', function(event) {
 // Wire up video canvas event listeners
 videoCanvas.addEventListener("click", playPauseClick);
 videoCanvas.addEventListener("ended", advanceEpisode);
+
+// Start
+
+// Retrieve channel selection cookie if present
+if(document.cookie) {
+    channelSelections = document.cookie.substring(document.cookie.indexOf("=") + 1)
+}
+if(channelSelections == "" || channelSelections.indexOf("|") == -1) {
+    channelSelections = "|1||2||3||8||10|";
+}
+
+// Enable channel settings
+for(var c=1; c<=totalChannels; c++) {   
+    var test = "|" + c.toString() + "|";
+    if(channelSelections.indexOf(test) > -1) {
+        $(`#settings${c}icon`).addClass("bi-layout-sidebar-inset");
+        $(`#settings${c}icon`).removeClass("bi-layout-sidebar-inset-reverse");        
+        $(`#channel${c}row`).show();
+
+        if(selectedChannel == 0) {
+            selectedChannel = c; // Use this as initial channel
+        }
+    } else {
+        $(`#settings${c}icon`).addClass("bi-layout-sidebar-inset-reverse");
+        $(`#settings${c}icon`).removeClass("bi-layout-sidebar-inset");    
+        $(`#channel${c}row`).hide();
+    }
+}
+
+// Initialise episode list
+let episodeList = new Array(totalChannels+1);
+for(var c=0; c<=totalChannels; c++) {
+    episodeList[c] = {};
+}
+
+// Load the channel feeds
+refreshChannelFeeds();
+updateChannelStats();
+
+// Set up the canvas
+let video = document.getElementById("videoCanvas");
+video.autoPlay = false; 
+video.loop = false; 
+video.addEventListener('loadedmetadata',function() {
+    readyToPlayVideo();
+});
+
+let videoContainer = {
+     video : video,
+     ready : false
+};
+
+// Start video
+setInterval(autoRefreshChannelFeeds, 600000);    // 10 minutes
+setInterval(autoRefreshCaption, 15000);          // 15 seconds
+
+switchChannel(selectedChannel);

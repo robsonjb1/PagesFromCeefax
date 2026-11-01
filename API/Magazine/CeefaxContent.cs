@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.ServiceModel.Syndication;
+using System.Text.Json;
 using System.Xml;
 using API.Architecture;
 
@@ -50,7 +51,7 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));
         
-        //Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC1, new Uri("http://localhost/retrotv/js/cat-channel-1.json")));
+        //Sections.Add(new CeefaxSection(CeefaxSectionType.Podcasts, new Uri("http://localhost/retrotv/js/cat-channel-10.json")));
         //Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("http://localhost/retrotv/js/cat-channel-2.json")));
         //Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("http://localhost/retrotv/js/cat-channel-5.json")));
         
@@ -128,12 +129,29 @@ public class CeefaxContent
                     section.Name, 
                     item.Title.Text.Trim(),
                     item.Summary.Text.Trim(),
-                    item.PublishDate.DateTime,
+                    item.PublishDate.UtcDateTime,
                     item.Links[0].Uri));
             }
-        }
+        }        
     }
 
+/*
+    private void ProcessPodcastList()
+    {
+        string json = UriCache.First(l => l.Location == Sections.First(z => z.Name == CeefaxSectionType.Podcasts).Feed).ContentString;
+        RetroTVChannelData data = JsonSerializer.Deserialize<RetroTVChannelData>(json);
+
+        foreach (RetroTVEpisodeData episode in data.EpisodeList)
+        {
+            StoryList.Add(new NewsStory(
+                CeefaxSectionType.Podcasts,
+                episode.ShortName,
+                episode.Description,
+                Convert.ToDateTime(episode.PublishDate),
+                new Uri("http://localhost/" + episode.UrlLocal)));
+        }
+    }
+*/
     private static async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
     {
         var httpHandler = new SocketsHttpHandler() {

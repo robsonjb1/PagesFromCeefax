@@ -10,6 +10,7 @@ public class CeefaxSection
     public readonly int TotalPages;
     public readonly StringBuilder Header;
     public readonly TeletextControl HeadingCol;
+    public readonly TeletextControl HeadingHighlightCol;
     public readonly string PromoFooter;
     public readonly TeletextControl PromoBackground;
     public readonly TeletextControl PromoCol;
@@ -38,6 +39,7 @@ public class CeefaxSection
             case CeefaxSectionType.WeatherForecast3:
             case CeefaxSectionType.Travel:
                 HeadingCol = TeletextControl.AlphaYellow;
+                HeadingHighlightCol = TeletextControl.AlphaGreen;
                 PromoBackground = TeletextControl.AlphaBlue;
                 PromoCol = TeletextControl.AlphaYellow;
                 break;
@@ -46,6 +48,7 @@ public class CeefaxSection
             case CeefaxSectionType.Markets:
             case CeefaxSectionType.TheRegister:
                 HeadingCol = TeletextControl.AlphaYellow;
+                HeadingHighlightCol = TeletextControl.AlphaGreen;
                 PromoBackground = TeletextControl.AlphaRed;
                 PromoCol = TeletextControl.AlphaWhite;
                 break;
@@ -58,12 +61,14 @@ public class CeefaxSection
             case CeefaxSectionType.Motorsport:
             case CeefaxSectionType.Standings:
                 HeadingCol = TeletextControl.AlphaGreen;
+                HeadingHighlightCol = TeletextControl.AlphaYellow;
                 PromoBackground = TeletextControl.AlphaBlue;
                 PromoCol = TeletextControl.AlphaYellow;
                 break;
 
             case CeefaxSectionType.Entertainment:
                 HeadingCol = TeletextControl.AlphaYellow;
+                HeadingHighlightCol = TeletextControl.AlphaGreen;
                 PromoBackground = TeletextControl.AlphaMagenta;
                 PromoCol = TeletextControl.AlphaYellow;
                 break;
@@ -164,7 +169,7 @@ public class CeefaxSection
                 Header = Graphics.HeaderFormula1;
                 break;
             case CeefaxSectionType.TVScheduleBBC4:
-                Header = Graphics.HeaderGolf;
+                Header = Graphics.HeaderTV;
                 PromoFooter = "Entertainment news coming up next >>";
                 break;
             case CeefaxSectionType.Entertainment:
