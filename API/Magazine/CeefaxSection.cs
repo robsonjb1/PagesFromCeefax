@@ -33,10 +33,9 @@ public class CeefaxSection
             case CeefaxSectionType.TVScheduleBBC1:
             case CeefaxSectionType.TVScheduleBBC2:
             case CeefaxSectionType.TVScheduleBBC4:
-            case CeefaxSectionType.Weather:
+            case CeefaxSectionType.WeatherUK:
             case CeefaxSectionType.WeatherForecast1:
             case CeefaxSectionType.WeatherForecast2:
-            case CeefaxSectionType.WeatherForecast3:
             case CeefaxSectionType.Travel:
                 HeadingCol = TeletextControl.AlphaYellow;
                 HeadingHighlightCol = TeletextControl.AlphaGreen;
@@ -176,7 +175,7 @@ public class CeefaxSection
                 Header = Graphics.HeaderEntertainment;
                 PromoFooter = "The Register coming up next >>>";
                 break;
-            case CeefaxSectionType.Weather:
+            case CeefaxSectionType.WeatherUK:
                 Header = Graphics.HeaderWeather;
                 break;
             case CeefaxSectionType.TheRegister:

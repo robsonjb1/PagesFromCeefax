@@ -128,9 +128,9 @@ export class TeletextAdaptor {
             }
         }
 
-        // Do we need to refresh the PFC magazine ? (takes place every 20 minutes)
+        // Do we need to refresh the PFC magazine ? (takes place every 5 minutes)
         const now = new Date();
-        if (now - this.carouselRequestTime > (20 * 60 * 1000)) {
+        if (now - this.carouselRequestTime > (5 * 60 * 1000)) {
             this.carouselRequestTime = now;
             
             // Refresh magazine

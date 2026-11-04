@@ -35,34 +35,49 @@ public class WeatherData
     {
         try
         {
-            string html = cc.UriCache.First(l => l.Location == cc.Sections.First(z => z.Name == CeefaxSectionType.Weather).Feed).ContentString;
+            // Get UK forecast
+            string html = cc.UriCache.First(l => l.Location == cc.Sections.First(z => z.Name == CeefaxSectionType.WeatherUK).Feed).ContentString;
             var doc = new HtmlDocument();
             doc.LoadHtml(html);
 
-            HtmlNode todayForecast = doc.DocumentNode.SelectSingleNode("//a[contains(@class, 'wr-day__content')][.//span[contains(@class, 'wr-date') and normalize-space(.)='Today']]");
+            for(int i=0; i<=2; i++) { AddForecast(doc, i); }
             
+            // Get spot temperatures
+            html = cc.UriCache.First(l => l.Location == cc.Sections.First(z => z.Name == CeefaxSectionType.WeatherHeathfield).Feed).ContentString;
+            doc = new HtmlDocument();
+            doc.LoadHtml(html);
+
+            HtmlNode todayForecast = doc.DocumentNode.SelectSingleNode("//a[contains(@class, 'wr-day__content')][.//span[contains(@class, 'wr-date') and normalize-space(.)='Today']]");
             if(todayForecast == null)
             {
                 todayForecast = doc.DocumentNode.SelectSingleNode("//a[contains(@class, 'wr-day__content')][.//span[contains(@class, 'wr-date') and normalize-space(.)='Tonight']]");   
             }
-            
+
             MaxTemp = todayForecast?.SelectSingleNode(".//span[contains(@class, 'wr-day-temperature__high-value')]//span[contains(@class, 'wr-value--temperature--c')]")?.InnerText[..^1].Trim() ?? "n/a";
             MinTemp = todayForecast?.SelectSingleNode(".//span[contains(@class, 'wr-day-temperature__low-value')]//span[contains(@class, 'wr-value--temperature--c')]")?.InnerText[..^1].Trim() ?? "n/a";
+
+            if(MaxTemp != "n/a")
+            {
+                MaxTemp += " C";
+            }
+
+            if(MinTemp != "n/a")
+            {
+                MinTemp += " C";
+            }
 
             Sunrise = doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'wr-c-environment-day-wrapper--active')]//span[contains(@class, 'wr-c-astro-data__sunrise')]/span[contains(@class, 'wr-c-astro-data__time')]")?.InnerText.Trim();
             Sunset = doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'wr-c-environment-day-wrapper--active')]//span[contains(@class, 'wr-c-astro-data__sunset')]/span[contains(@class, 'wr-c-astro-data__time')]")?.InnerText.Trim();
 
-            for(int i=0; i<=2; i++) { AddForecast(doc, i); }
-            
             LastRefreshUTC = DateTime.UtcNow;
-            Locations.Add("Heathfield", GetTemperature(cc, CeefaxSectionType.WeatherHeathfield));
-            Locations.Add("Swansea", GetTemperature(cc, CeefaxSectionType.WeatherSwansea));
-            Locations.Add("Edinburgh", GetTemperature(cc, CeefaxSectionType.WeatherEdinburgh));
-            Locations.Add("Penzance", GetTemperature(cc, CeefaxSectionType.WeatherPenzance));
-            Locations.Add("Inverness", GetTemperature(cc, CeefaxSectionType.WeatherInverness));
-            Locations.Add("Manchester", GetTemperature(cc, CeefaxSectionType.WeatherManchester));
-            Locations.Add("Belfast", GetTemperature(cc, CeefaxSectionType.WeatherBelfast));
-            Locations.Add("Cambridge", GetTemperature(cc, CeefaxSectionType.WeatherCambridge));
+            Locations.Add("Heathfield", GetTemperature(cc, CeefaxSectionType.WeatherSpotHeathfield));
+            Locations.Add("Swansea", GetTemperature(cc, CeefaxSectionType.WeatherSpotSwansea));
+            Locations.Add("Edinburgh", GetTemperature(cc, CeefaxSectionType.WeatherSpotEdinburgh));
+            Locations.Add("Penzance", GetTemperature(cc, CeefaxSectionType.WeatherSpotPenzance));
+            Locations.Add("Inverness", GetTemperature(cc, CeefaxSectionType.WeatherSpotInverness));
+            Locations.Add("Manchester", GetTemperature(cc, CeefaxSectionType.WeatherSpotManchester));
+            Locations.Add("Belfast", GetTemperature(cc, CeefaxSectionType.WeatherSpotBelfast));
+            Locations.Add("Cambridge", GetTemperature(cc, CeefaxSectionType.WeatherSpotCambridge));
             
             IsValid = true;
         }

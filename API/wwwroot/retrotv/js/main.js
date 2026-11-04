@@ -86,7 +86,7 @@ function switchChannel(channel) {
     // Show/hide PFC overlay
     if(!episodeList[selectedChannel].isVideo) {
         if(!pfcAlreadyDisplayed) {
-            $('#pfcFrame').attr("src", "../");
+            $('#pfcFrame').attr("src", "../index_nogui.html");
             $('#pfcOverlay').show();
         }
     }

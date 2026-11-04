@@ -1,7 +1,6 @@
 // Initialisation
 let totalChannels = 10;
 let selectedChannel = 1;
-
 let showIdentNext = true;
 let settingsVisible = false;
 let channelSelections = "|1||2||3||4||8||10|";
@@ -10,6 +9,7 @@ let lastBannerRefresh = new Date();
 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
+// Functions
 function refreshChannelFeeds() {
     console.log("Refreshing channel feeds...");
     
@@ -66,7 +66,7 @@ function switchChannel(channel) {
     // Show/hide PFC overlay
     if(!episodeList[selectedChannel].isVideo) {
         if(!pfcAlreadyDisplayed) {
-            $('#pfcFrame').attr("src", "../");
+            $('#pfcFrame').attr("src", "../index_nogui.html");
             $('#pfcOverlay').show();
         }
     }
@@ -110,6 +110,7 @@ function updateChannelStats(advanceOffset = false) {
                 let nextEpisodeId = (i == episodeList[channel].data.length - 1) ? 0 : i + 1;
                 let currentPosition = dayPosition - sum;
 
+                episodeList[channel].episodeId = i;                
                 episodeList[channel].duration = Math.floor(episodeList[channel].data[i].length / 60);   // whole minutes 
                 episodeList[channel].currentPosition = currentPosition;
                 episodeList[channel].startTime = new Date(now.getTime() - (currentPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour24: "true" });

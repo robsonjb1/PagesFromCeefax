@@ -153,13 +153,21 @@ namespace API.Architecture
         // Mixture of string parsing utilities and graphics character handling
         public static List<string> ParseParagraph(string content)
         {
-            return ParseParagraph(content, 39, 39, true);
+            return ParseParagraph(content, 39, true);
         }
 
-        public static List<string> ParseParagraph(string content, int lineLength, int firstLineOverride, bool addFullStop)
+        public static List<string> ParseParagraph(string content, int lineLength, bool addFullStop)
         {
             List<string> rows = [];
             content = Utility.CleanHTML(content);
+            int effectiveLineLength = lineLength;
+
+            if(lineLength == -1)
+            {
+                // Special case to flow around the map
+                effectiveLineLength = 19;
+            }
+            int rowNumber = 1;
 
             // Ensure a final full stop or question mark
             if(addFullStop
@@ -176,21 +184,20 @@ namespace API.Architecture
 
             string[] words = content.Split(' ');
             string currentLine = "";
-            int effectiveLineLength = firstLineOverride;
             
             foreach (string currentWord in words)
             {
                 if ((currentLine.Length >= effectiveLineLength) ||
                     ((currentLine.Length + currentWord.Length) >= effectiveLineLength))
                 {
-                    if(effectiveLineLength != lineLength)
+                    rows.Add(currentLine);
+                    rowNumber++;
+                    if(rowNumber == 8)
                     {
-                        currentLine += currentLine.PadRightWithTrunc(firstLineOverride - currentLine.Length) + " x/y";
+                        effectiveLineLength = 14;   // Flow around the map
                     }
-
-                    rows.Add(CleanHTML(currentLine));
+                    
                     currentLine = "";
-                    effectiveLineLength = lineLength;
                 }
 
                 if (currentLine.Length > 0)
@@ -205,7 +212,7 @@ namespace API.Architecture
 
             if (currentLine.Length > 0)
             {
-                rows.Add(CleanHTML(currentLine));
+                rows.Add(currentLine);
             }
 
             return rows;

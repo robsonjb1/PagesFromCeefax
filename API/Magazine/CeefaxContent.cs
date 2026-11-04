@@ -37,15 +37,16 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Standings, new Uri("https://www.bbc.co.uk/sport/formula1/standings")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Entertainment, new Uri("https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
         
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Weather, new Uri("https://www.bbc.co.uk/weather/2647218"))); // Heathfield
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherHeathfield, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2647218")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSwansea, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2654089"))); // Caerphilly
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherEdinburgh, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2644204"))); // Livingston
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherPenzance, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2641589"))); // Newquay
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherInverness, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2646088")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherManchester, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2644688"))); // Leeds
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherBelfast, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2655984")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherCambridge, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2653941")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherUK, new Uri("https://www.bbc.co.uk/weather"))); 
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherHeathfield, new Uri("https://www.bbc.co.uk/weather/2647218"))); 
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSpotHeathfield, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2647218")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSpotSwansea, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2654089"))); // Caerphilly
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSpotEdinburgh, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2644204"))); // Livingston
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSpotPenzance, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2641589"))); // Newquay
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSpotInverness, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2646088")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSpotManchester, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2644688"))); // Leeds
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSpotBelfast, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2655984")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSpotCambridge, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2653941")));
   
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC1, new Uri("https://www.bbc.co.uk/schedules/p00fzl6x")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));

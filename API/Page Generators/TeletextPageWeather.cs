@@ -15,17 +15,13 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
         StringBuilder sb = new();
         if(_wd.IsValid)             // Only construct the page if we have valid data
         {
-            CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
+            CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.WeatherUK);
         
             sb.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaWhite}]Data: BBC Weather Centre/Met Office");
             string map = Graphics.PromoMap.ToString();
-            string summaryText = _wd.Forecasts[0].Body;
-            if (summaryText.Contains('.'))
-            {
-                summaryText = summaryText[..(summaryText.IndexOf('.') + 1)];
-            }
-
-            List<string> mapLines = Utility.ParseParagraph(summaryText, 19, 19, true);
+            string summaryText = _wd.Forecasts[0].Body[.._wd.Forecasts[0].Body.IndexOf('.')];
+            
+            List<string> mapLines = Utility.ParseParagraph(summaryText, -1, true); // -1 special case to flow around the map
 
             TeletextControl summaryColour = TeletextControl.AlphaYellow;
             if (Utility.ConvertToUKTime(DateTime.UtcNow).Hour >= 18 || Utility.ConvertToUKTime(DateTime.UtcNow).Hour <= 6)
@@ -36,16 +32,16 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
             int j = 1;
             foreach (string line in mapLines)
             {
-                string replacement = $"[{summaryColour}]{line.PadRightWithTrunc(19)}";
+                string replacement = $"[{summaryColour}]{line.PadRightWithTrunc((j<8 ? 19 : 14))}";
                 map = map.Replace("[LINE" + j.ToString() + "]", replacement);
                 j++;
             }
             // Padding for any remaining lines
-            for (int k = j; k <= 7; k++)
+            for (int k = j; k <= 11; k++)
             {
-                map = map.Replace("[LINE" + k.ToString() + "]", $"[{TeletextControl.AlphaWhite}]{new string(' ', 19)}");
+                map = map.Replace("[LINE" + k.ToString() + "]", $"[{TeletextControl.AlphaWhite}]{new string(' ', (k<8 ? 19 : 14))}");
             }
-
+          
             // Insert temperatures
             map = map.Replace("[AA]", FormatWeatherString(_wd.Locations["Heathfield"], TeletextControl.GraphicsGreen))
                 .Replace("[BB]", FormatWeatherString(_wd.Locations["Swansea"], TeletextControl.GraphicsGreen))
@@ -58,8 +54,8 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
                 .Replace("[TTT]", Utility.ConvertToUKTime(_wd.LastRefreshUTC).ToString("HH:mm"))
                 .Replace("[SU1]", _wd.Sunrise)
                 .Replace("[SU2]", _wd.Sunset)
-                .Replace("[TE1]", _wd.MaxTemp.PadLeftWithTrunc(4))
-                .Replace("[TE2]", _wd.MinTemp.PadLeftWithTrunc(4));
+                .Replace("[TE1]", _wd.MaxTemp.PadRightWithTrunc(5))
+                .Replace("[TE2]", _wd.MinTemp.PadRightWithTrunc(5));
                 
             sb.Append(map);
 
@@ -73,18 +69,15 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
         StringBuilder sb = new();
         if(_wd.IsValid)             // Only construct the page if we have valid data
         {
-            CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Weather);
+            CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.WeatherUK);
             
             int forecastNo = 0;
             switch (page)
             {
                 case CeefaxSectionType.WeatherForecast1:
-                    forecastNo = 0;
-                    break;
-                case CeefaxSectionType.WeatherForecast2:
                     forecastNo = 1;
                     break;
-                case CeefaxSectionType.WeatherForecast3:
+                case CeefaxSectionType.WeatherForecast2:
                     forecastNo = 2;
                     break;
                 default:
@@ -95,7 +88,7 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
             string sectionText = _wd.Forecasts[forecastNo].Body;
 
             sb.Append(Graphics.HeaderWeather);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{sectionTitle}[{TeletextControl.AlphaWhite}]{forecastNo+2}/4");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{sectionTitle}[{TeletextControl.AlphaWhite}]{forecastNo + 1}/3");
 
             // Break body text up into paragraphs
             List<string> bodyLines = [];
@@ -119,7 +112,7 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
                     }
                 }
             }
-
+                     
             bool firstLine = true;
             foreach (string line in bodyLines)
             {

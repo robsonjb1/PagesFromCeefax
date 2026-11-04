@@ -72,7 +72,6 @@ public class CarouselService
             BuildTeletextPage(_tw.CreateWeatherMap());
             BuildTeletextPage(_tw.CreateWeatherPage(CeefaxSectionType.WeatherForecast1));
             BuildTeletextPage(_tw.CreateWeatherPage(CeefaxSectionType.WeatherForecast2));
-            BuildTeletextPage(_tw.CreateWeatherPage(CeefaxSectionType.WeatherForecast3));
             
             // Entertainment section
             BuildTeletextPage(Graphics.PromoTV);

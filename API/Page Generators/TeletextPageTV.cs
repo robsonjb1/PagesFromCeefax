@@ -85,8 +85,8 @@ public class TeletextPageTV(CeefaxContent cc, TVListingData listings)
 
             if(startListing)
             {
-                var titleLines = Utility.ParseParagraph(show.Title, 34, 34, false);
-                var bodyLines = Utility.ParseParagraph(show.Description, 34, 34, false);
+                var titleLines = Utility.ParseParagraph(show.Title, 34, false);
+                var bodyLines = Utility.ParseParagraph(show.Description, 34, false);
                 timeOfLastPageEntry = show.StartTime;
 
                 // Don't show a description for news or weather
