@@ -36,7 +36,8 @@ public class CeefaxSection
             case CeefaxSectionType.WeatherUK:
             case CeefaxSectionType.WeatherForecast1:
             case CeefaxSectionType.WeatherForecast2:
-            case CeefaxSectionType.Travel:
+            case CeefaxSectionType.TravelTrains:
+            case CeefaxSectionType.TravelFlights:
                 HeadingCol = TeletextControl.AlphaYellow;
                 HeadingHighlightCol = TeletextControl.AlphaGreen;
                 PromoBackground = TeletextControl.AlphaBlue;

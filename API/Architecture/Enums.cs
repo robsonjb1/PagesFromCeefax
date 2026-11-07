@@ -37,7 +37,8 @@ public enum CeefaxSectionType
     Markets,
     MarketsCurrencies,
     MarketsBonds,
-    Travel,
+    TravelTrains,
+    TravelFlights,
     Register
 }
 

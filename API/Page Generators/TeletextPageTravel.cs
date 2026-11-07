@@ -12,16 +12,16 @@ public class TeletextPageTravel(CeefaxContent mc, TravelData td)
 
     #region Public Methods
 
-    public StringBuilder CreateTravelPage()
+    public StringBuilder CreateTravelTrainsPage()
     {
-        CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Travel);
+        CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.TravelTrains);
         StringBuilder sb = new();
 
         if(_td.IsValid)             // Only construct the page if we have valid data
         {
             sb.Append(Graphics.HeaderTravel);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]STONEGATE DEPARTURES");
-            OutputRecords(sb, _td.SOGDepartures.Take(5).ToList());
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]STONEGATE DEPARTURES               [{TeletextControl.AlphaWhite}]1/2");
+            OutputTrainRecord(sb, _td.SOGDepartures.Take(7).ToList());
             
             sb.AppendLine($"[{TeletextControl.AlphaGreen}]Updated at " + Utility.ConvertToUKTime(_td.LastRefreshUTC).ToString("HH:mm") + " (UK time)");
             sb.AppendLine("");
@@ -31,7 +31,26 @@ public class TeletextPageTravel(CeefaxContent mc, TravelData td)
         return sb;
     }
 
-    public void OutputRecords(StringBuilder sb, List<TravelRecord> records)
+     public StringBuilder CreateTravelFlightsPage()
+    {
+        CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.TravelFlights);
+        StringBuilder sb = new();
+
+        if(_td.IsValid)             // Only construct the page if we have valid data
+        {
+            sb.Append(Graphics.HeaderTravel);
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]GATWICK ARRIVALS                   [{TeletextControl.AlphaWhite}]2/2");
+            OutputFlightRecord(sb, _td.LGWArrivals.Take(14).ToList());
+            
+            sb.AppendLine($"[{TeletextControl.AlphaGreen}]Updated at " + Utility.ConvertToUKTime(_td.LastRefreshUTC).ToString("HH:mm") + " (UK time)");
+            sb.AppendLine("");
+            sb.FooterText(section);
+        }
+
+        return sb;
+    }
+
+    public void OutputTrainRecord(StringBuilder sb, List<TravelRecord> records)
     {
         if(records.Count == 0)
         {
@@ -43,17 +62,63 @@ public class TeletextPageTravel(CeefaxContent mc, TravelData td)
         }
         else
         {
+            sb.LineBreak(TeletextControl.AlphaBlue);
+              
             foreach(var t in records)
             {
-                TeletextControl alertCol = t.Status.StartsWith("On time") ? TeletextControl.AlphaGreen : TeletextControl.AlphaRed;
-                sb.LineBreak(TeletextControl.AlphaBlue);
+                TeletextControl alertCol = t.Status.StartsWith("On time") ? 
+                    TeletextControl.AlphaGreen : t.Status.StartsWith("Exp.") ? TeletextControl.AlphaYellow : TeletextControl.AlphaRed;
                 sb.AppendLine($"[{TeletextControl.AlphaWhite}]{t.Destination.ToUpper().PadRightWithTrunc(24)}[{TeletextControl.AlphaWhite}]{t.Time.PadRightWithTrunc(4)}[{alertCol}]{t.Status.PadLeftWithTrunc(9)}");
                 sb.AppendLine($"[{TeletextControl.AlphaCyan}]Platform {t.Platform} {t.OperatedBy}");
             }
             sb.LineBreak(TeletextControl.AlphaBlue);
 
             // Pad to section end
-            sb.PadLines(15 - records.Count * 3);
+            sb.PadLines(14 - records.Count * 2);
+        }
+    }
+
+    public void OutputFlightRecord(StringBuilder sb, List<TravelRecord> records)
+    {
+        if(records.Count == 0)
+        {
+            sb.AppendLine("");
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]No upcoming flights");
+
+            // Pad to section end
+            sb.PadLines(14);
+        }
+        else
+        {
+            sb.LineBreak(TeletextControl.AlphaBlue);
+            bool white = true;
+            foreach(var t in records)
+            {
+                sb.Append($"[{(white ? TeletextControl.AlphaWhite : TeletextControl.AlphaCyan)}]");
+                sb.Append($"{t.OperatedBy.PadRightWithTrunc(8)}");
+                sb.Append($"{t.Destination.PadRightWithTrunc(15)}");
+                sb.Append($"{t.Time}");
+
+                TeletextControl statusCol = TeletextControl.AlphaGreen;
+                t.Status = t.Status.Replace(":", "").Replace("Expected", "Exp.");
+
+                if(t.Status.Contains("Exp."))
+                {
+                    statusCol = TeletextControl.AlphaYellow;
+                }
+                if(t.Status.Contains("Cancelled"))
+                {
+                    statusCol = TeletextControl.AlphaRed;
+                }
+                sb.AppendLine($"[{statusCol}]{t.Status.PadRightWithTrunc(11)}");
+            
+                white = !white;
+            }
+            
+            sb.LineBreak(TeletextControl.AlphaBlue);
+
+            // Pad to section end
+            sb.PadLines(14 - records.Count * 3);
         }
     }
 

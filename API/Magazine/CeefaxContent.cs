@@ -48,7 +48,7 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSpotBelfast, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2655984")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSpotCambridge, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2653941")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherSpotWolverhampton, new Uri("https://weather-broker-cdn.api.bbci.co.uk/en/observation/rss/2633691")));
-  
+        
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC1, new Uri("https://www.bbc.co.uk/schedules/p00fzl6x")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));
@@ -64,8 +64,9 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsBonds, new Uri("https://markets.ft.com/data/bonds/tearsheet/summary?s=UK10YG")));
 
         // Add Travel departures (Stonegate)
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Travel, new Uri("https://www.thetrainline.com/live/departures/stonegate")));
-       
+        Sections.Add(new CeefaxSection(CeefaxSectionType.TravelTrains, new Uri("https://www.thetrainline.com/live/departures/stonegate")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.TravelFlights, new Uri("https://www.gatwickairport.com/flights")));
+        
         // Add each section's feed URL to URL cache
         Sections.ForEach(z => UriCache.Add(new CachedUri(z.Feed)));
 
