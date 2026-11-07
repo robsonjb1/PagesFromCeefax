@@ -1,4 +1,4 @@
-[![pfc tests](https://github.com/robsonjb1/pagesfromceefax/actions/workflows/master_pagesfromceefax.yml/badge.svg)](https://github.com/robsonjb1/pagesfromceefax/actions/workflows/master_pagesfromceefax.yml)
+[![Build and deploy ASP.Net Core app to an Azure Web App](https://github.com/robsonjb1/PagesFromCeefax/actions/workflows/azure-webapps-dotnet-core.yml/badge.svg)](https://github.com/robsonjb1/PagesFromCeefax/actions/workflows/azure-webapps-dotnet-core.yml)
 
 ## PagesFromCeefax
 
