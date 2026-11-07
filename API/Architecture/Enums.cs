@@ -23,13 +23,14 @@ public enum CeefaxSectionType
     WeatherForecast1,
     WeatherForecast2,
     WeatherSpotHeathfield,
-    WeatherSpotManchester,
-    WeatherSpotPenzance,
+    WeatherSpotMiddleton,
+    WeatherSpotNewquay,
     WeatherSpotBelfast,
-    WeatherSpotSwansea,
-    WeatherSpotEdinburgh,
+    WeatherSpotCaerphilly,
+    WeatherSpotLivingston,
     WeatherSpotInverness,
     WeatherSpotCambridge,
+    WeatherSpotWolverhampton,
     TVScheduleBBC1,
     TVScheduleBBC2,
     TVScheduleBBC4,
@@ -37,7 +38,7 @@ public enum CeefaxSectionType
     MarketsCurrencies,
     MarketsBonds,
     Travel,
-    TheRegister
+    Register
 }
 
 public enum TeletextControl

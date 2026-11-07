@@ -23,7 +23,7 @@ import { video } from "./video.js";
             if(x < canvasWidth * 0.35) toggleMusic();                                                    // Red
             if(x >= canvasWidth * 0.35 && x < canvasWidth * 0.7) { debugOffset--; moveNextPage(); }      // Green
             if(x >= canvasWidth * 0.7 && x < canvasWidth * 0.9) { debugOffset++; moveNextPage(); }      // Yellow
-            if(x >= canvasWidth * 0.9) window.open("https://x.com/pfceefax");                           // Cyan
+            if(x >= canvasWidth * 0.9) toggleHold();                                                   // Cyan
         }
     });
 
@@ -46,6 +46,7 @@ import { video } from "./video.js";
     var carouselIsValid = true; 
     var pageBuffer = getLoadingPage();  // getTestPage();
     var musicOn = false;
+    var holdPage = false;
   
     // Functions
     function timerTrigger(time) {
@@ -54,16 +55,25 @@ import { video } from "./video.js";
             var now = new Date();
             currentSeconds = now.getSeconds();
 
-            // Do we need to refresh the magazine ? (takes place every 25 minutes)
-            if (now - carouselRequestTime > (25 * 60 * 1000)) {
+            // If in freeze mode, silently request a new carousel every 5 minutes
+            if(holdPage && now - carouselRequestTime > (5 * 60 * 1000)) {
                 carouselRequestTime = now;
                 lastPageRefresh = now;
                 transitionSecond = -1; // do not do a regular refresh until the new carousel is loaded
-              
+
+                // Refresh magazine
+                getNewCarousel();
+            }
+            
+            // If not, do we need to refresh the magazine ? (takes place every 25 minutes)
+            if(!holdPage && (now - carouselRequestTime > (25 * 60 * 1000))) {
+                carouselRequestTime = now;
+                lastPageRefresh = now;
+                transitionSecond = -1; // do not do a regular refresh until the new carousel is loaded
+            
                 // Switch back to loading page and turn on page ticker
                 pageBuffer = getLoadingPage();
                 pageTicking = true;
-                debugOffset = 0;
                 rowLimit = 0; // Force new page redraw    
 
                 // Refresh magazine
@@ -111,14 +121,13 @@ import { video } from "./video.js";
         charData[16] = 7; // Set white text for the remainder
 
         // Insert Fastext buttons
-        const footer = " Music:" + (musicOn ? "On " : "Off") + "   Previous   Next   Contact X";
+        const footer = " Music:" + (musicOn ? "On " : "Off") + "   Previous   Next    Hold:" + (holdPage ? "On " : "Off");
         
         for(var i=0; i<footer.length; i++) charData[960+i] = footer.charCodeAt(i);
         charData[960] = 1;  // Red
         charData[970] = 2;  // Green
         charData[982] = 3;  // Yellow
         charData[989] = 6;  // Cyan
-        charData[998] = 93; // Right Arrow
     }
    
     function getNewCarousel() {
@@ -153,11 +162,18 @@ import { video } from "./video.js";
         var now = new Date();
         transitionSecond = (now.getSeconds() + pageDuration) % 60;
         lastPageRefresh = now;
-        currentPage = (debugOffset + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration))) % pagesInCarousel;
+        
+        // force new page redraw
+        rowLimit = 0;
+        
+        if(!holdPage)   // If holding a page, do not recalculate the current page or blank the screen, just keep showing the current page
+        {
+            currentPage = (debugOffset + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration))) % pagesInCarousel;
+            for(var i=3+(40*20*4); i<40*20*12*24*4; i+=4) imgData.data[i] = 0;   // Blank the screen (only lines 2 to 24, keep header and Fastext buttons)
+        }
+
         pageBuffer = carousel.content[currentPage].data;
         pageIsValid = carousel.content[currentPage].isValid;
-        rowLimit = 0; // Force new page redraw
-        for(var i=3+(40*20*4); i<40*20*12*25*4; i+=4) imgData.data[i] = 0;   // Blank the screen (only lines 2 to 24, keep header and Fastext buttons)
     }
 
     function getCursorPosition(canvas, ev) {
@@ -192,6 +208,11 @@ import { video } from "./video.js";
         }
 
         musicOn = !musicOn;
+    }
+
+    // Togle hold state
+    function toggleHold() {
+        holdPage = !holdPage;
     }
 
     // Event handlers

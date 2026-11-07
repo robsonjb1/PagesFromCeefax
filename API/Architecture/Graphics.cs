@@ -26,6 +26,8 @@ public class Graphics
     public readonly static StringBuilder HeaderWeather = new();
     public readonly static StringBuilder HeaderTravel = new();
     public readonly static StringBuilder HeaderRegister = new();
+    public readonly static StringBuilder HeaderHeadlines = new();
+    
     
     // Transition screens
     public readonly static StringBuilder PromoMap = new();
@@ -126,7 +128,9 @@ public class Graphics
         HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]5b(55b{{55jjj[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    HEADLINES FROM");
         HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]-.,%-,,%-...[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]     THE REGISTER");
 
-
+        HeaderHeadlines.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]h4|h<h<|h<th4h4xl0|$|,");
+        HeaderHeadlines.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]j7¬jwj7¬ju?juj5¬j5¬1s¬");
+        HeaderHeadlines.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]//-.,-,-.,-,.-,-.,-.,.,,//");
 
         //HeaderTop40Singles.AppendLine("<p><span class=\"paper6 ink3\">" + Utility.BlockGraph("  l<h<|h<| |_ h<|  |,$|_<th<,$| |$|,$  ") + "</span></p>");
         //HeaderTop40Singles.AppendLine("<p><span class=\"paper6 ink3\">" + Utility.BlockGraph("  j5ju¬j7£ /n,ju¬  s{5¬j5¬ju{5¬0¬1s{5  ") + "</span></p>");
@@ -175,16 +179,16 @@ public class Graphics
         PromoMap.AppendLine($"[LINE7][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}] j)\"¬[DD]¬}}");
         PromoMap.AppendLine($"[LINE8][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]  p|¬t  x¬¬g¬¬¬¬0");
         PromoMap.AppendLine($"[LINE9][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}] n[EE]t +\" ¬¬¬¬¬¬");
-        PromoMap.AppendLine($"[LINE10][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}] +¬¬¬¬¬ _4 +¬¬¬¬¬|0");
-        PromoMap.AppendLine($"[LINE11][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]  \"%*o! \"   *¬[CC]u");
-        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                           *¬¬¬¬¬¬}}");
-        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Minimum Maximum[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]       k||¬¬¬¬¬¬¬¬¬");
-        PromoMap.AppendLine($"[{TeletextControl.AlphaCyan}][TE2]  [{TeletextControl.AlphaYellow}][TE1] [{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]        '¬¬¬¬¬¬¬¬¬¬}}z¬t");
-        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                        j¬¬¬¬¬¬¬[HH]¬¬");
-        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}]Sunrise Sunset[{TeletextControl.GraphicsGreen}][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]      x|[BB]¬¬¬¬¬¬¬¬¬'");
-        PromoMap.AppendLine($"[{TeletextControl.AlphaCyan}][SU1]  [{TeletextControl.AlphaYellow}][SU2] [{TeletextControl.GraphicsGreen}][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]       !+/'i¬¬¬¬¬¬¬qp0");
-        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                         t¬¬¬¬¬¬[AA]¬'");
-        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                  [GG]¬¬¬¬¬¬¬¬?s///?!");
+        PromoMap.AppendLine($"[LINE10][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}] +¬¬¬¬¬ _4 +¬[CC]|0");
+        PromoMap.AppendLine($"[LINE11][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]  \"%*o! \"   *¬¬¬¬¬u");
+        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                       _   *¬¬¬¬¬¬}}");
+        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                       k||¬¬[II]¬¬¬");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaGreen}]Minimum   Maximum[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]     '¬¬¬¬¬¬¬¬¬¬}}z¬t");
+        PromoMap.AppendLine($"[TE1]    [TE2] [{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]       j¬¬¬¬¬¬¬[HH]¬¬");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaGreen}]Pressure  Wind[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]       x|[BB]¬¬¬¬¬¬¬¬¬'");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}][PR1]    [PR2] [{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]      !+/'i¬¬¬¬¬¬¬qp0");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaGreen}]Sunrise   Sunset[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]        t¬¬¬¬¬¬[AA]¬'");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}][SU1]     [SU2][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]  [GG]¬¬¬¬¬¬¬¬?s///?!");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                    8?' \"'     \"");
 
         PromoBusiness.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsCyan}]¬wwwwwwwwwwwwww¬¬    j¬1*z¬2%_z}}?g   ");

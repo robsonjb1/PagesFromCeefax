@@ -45,7 +45,7 @@ public class CeefaxSection
 
             case CeefaxSectionType.Business:
             case CeefaxSectionType.Markets:
-            case CeefaxSectionType.TheRegister:
+            case CeefaxSectionType.Register:
                 HeadingCol = TeletextControl.AlphaYellow;
                 HeadingHighlightCol = TeletextControl.AlphaGreen;
                 PromoBackground = TeletextControl.AlphaRed;
@@ -96,7 +96,7 @@ public class CeefaxSection
             case CeefaxSectionType.Politics:
             case CeefaxSectionType.Football:
             case CeefaxSectionType.Entertainment:
-            case CeefaxSectionType.TheRegister:
+            case CeefaxSectionType.Register:
                 TotalPages = 2;
                 break;
 
@@ -178,7 +178,7 @@ public class CeefaxSection
             case CeefaxSectionType.WeatherUK:
                 Header = Graphics.HeaderWeather;
                 break;
-            case CeefaxSectionType.TheRegister:
+            case CeefaxSectionType.Register:
                 Header = Graphics.HeaderRegister;
                 PromoFooter = "CEEFAX: The world at your fingertips";
                 break;

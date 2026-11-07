@@ -1,5 +1,5 @@
 // Initialisation
-let totalChannels = 10;
+const totalChannels = 10;
 let selectedChannel = 1;
 let showIdentNext = true;
 let settingsVisible = false;
@@ -86,6 +86,8 @@ function switchChannel(channel) {
 
         videoContainer.video.load();
         videoContainer.video.play();
+
+        console.log(videoContainer.video.src);
 
         displayCaption();
     }
@@ -297,6 +299,9 @@ function syncChannelRows() {
     }
 }
 
+// End of functions
+// Wire up UI
+
 // Wire up channel selection buttons
 for(let i=1; i<=totalChannels; i++) {
     $(`#channel${i}button`).on('click', function(event) {
@@ -397,7 +402,6 @@ $("#reverseChannels").on('click', function(event) {
 // Wire up video canvas event listeners
 videoCanvas.addEventListener("click", playPauseClick);
 videoCanvas.addEventListener("ended", advanceEpisode);
-
 
 // Boot up
 

@@ -43,6 +43,7 @@ public class CarouselService
             BuildTeletextPage(Graphics.PromoCeefax);
 
             // News section
+            BuildTeletextPage(_tn.CreateNewsHeadlines());
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Home));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.World));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Politics));
@@ -81,7 +82,7 @@ public class CarouselService
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Entertainment));
 
             // The Register
-            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.TheRegister));
+            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Register));
 
             // Close
             if(DateTime.Now.Month == 12) {

@@ -16,6 +16,7 @@ public class SpotTemperature
 {
     public int Temperature { get; set; }
     public int WindSpeed { get; set; }
+    public int Pressure { get; set; }
     public bool PressureFalling { get; set; }
     public bool PressureRising { get; set; }
 }
@@ -27,8 +28,10 @@ public class WeatherData
     public DateTime LastRefreshUTC { get; set; }
     public string Sunrise { get; set; }
     public string Sunset { get; set; }
-    public string MaxTemp { get; set; }
-    public string MinTemp { get; set; }
+    public int MaxTemp { get; set; }
+    public int MinTemp { get; set; }
+    public string MaxTempLabel { get; set; }
+    public string MinTempLabel { get; set; }
     public bool IsValid { get; set; } = false;
 
     public WeatherData(CeefaxContent cc)
@@ -53,32 +56,38 @@ public class WeatherData
                 todayForecast = doc.DocumentNode.SelectSingleNode("//a[contains(@class, 'wr-day__content')][.//span[contains(@class, 'wr-date') and normalize-space(.)='Tonight']]");   
             }
 
-            MaxTemp = todayForecast?.SelectSingleNode(".//span[contains(@class, 'wr-day-temperature__high-value')]//span[contains(@class, 'wr-value--temperature--c')]")?.InnerText[..^1].Trim() ?? "n/a";
-            MinTemp = todayForecast?.SelectSingleNode(".//span[contains(@class, 'wr-day-temperature__low-value')]//span[contains(@class, 'wr-value--temperature--c')]")?.InnerText[..^1].Trim() ?? "n/a";
+            MaxTempLabel = todayForecast?.SelectSingleNode(".//span[contains(@class, 'wr-day-temperature__high-value')]//span[contains(@class, 'wr-value--temperature--c')]")?.InnerText[..^1].Trim() ?? "n/a";
+            MinTempLabel = todayForecast?.SelectSingleNode(".//span[contains(@class, 'wr-day-temperature__low-value')]//span[contains(@class, 'wr-value--temperature--c')]")?.InnerText[..^1].Trim() ?? "n/a";
+            
+            int.TryParse(MaxTempLabel, out int max);
+            int.TryParse(MinTempLabel, out int min);
 
-            if(MaxTemp != "n/a")
+            if(MaxTempLabel.EndsWith("n/a")) // Avoid n/a being coloured cyan
             {
-                MaxTemp += " C";
+                max = 10;
+            }
+            if(MinTempLabel.EndsWith("n/a"))
+            {
+                min = 10;
             }
 
-            if(MinTemp != "n/a")
-            {
-                MinTemp += " C";
-            }
-
+            MaxTemp = max;
+            MinTemp = min;
+            
             Sunrise = doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'wr-c-environment-day-wrapper--active')]//span[contains(@class, 'wr-c-astro-data__sunrise')]/span[contains(@class, 'wr-c-astro-data__time')]")?.InnerText.Trim();
             Sunset = doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'wr-c-environment-day-wrapper--active')]//span[contains(@class, 'wr-c-astro-data__sunset')]/span[contains(@class, 'wr-c-astro-data__time')]")?.InnerText.Trim();
 
             LastRefreshUTC = DateTime.UtcNow;
             Locations.Add("Heathfield", GetTemperature(cc, CeefaxSectionType.WeatherSpotHeathfield));
-            Locations.Add("Swansea", GetTemperature(cc, CeefaxSectionType.WeatherSpotSwansea));
-            Locations.Add("Edinburgh", GetTemperature(cc, CeefaxSectionType.WeatherSpotEdinburgh));
-            Locations.Add("Penzance", GetTemperature(cc, CeefaxSectionType.WeatherSpotPenzance));
+            Locations.Add("Swansea", GetTemperature(cc, CeefaxSectionType.WeatherSpotCaerphilly));
+            Locations.Add("Edinburgh", GetTemperature(cc, CeefaxSectionType.WeatherSpotLivingston));
+            Locations.Add("Penzance", GetTemperature(cc, CeefaxSectionType.WeatherSpotNewquay));
             Locations.Add("Inverness", GetTemperature(cc, CeefaxSectionType.WeatherSpotInverness));
-            Locations.Add("Manchester", GetTemperature(cc, CeefaxSectionType.WeatherSpotManchester));
+            Locations.Add("Manchester", GetTemperature(cc, CeefaxSectionType.WeatherSpotMiddleton));
             Locations.Add("Belfast", GetTemperature(cc, CeefaxSectionType.WeatherSpotBelfast));
             Locations.Add("Cambridge", GetTemperature(cc, CeefaxSectionType.WeatherSpotCambridge));
-            
+            Locations.Add("Birmingham", GetTemperature(cc, CeefaxSectionType.WeatherSpotWolverhampton));
+
             IsValid = true;
         }
         catch (Exception ex)
@@ -102,10 +111,11 @@ public class WeatherData
         TextReader tr = new StringReader(cc.UriCache.Find(l => l.Location == cc.Sections.Find(z => z.Name == city)!.Feed)!.ContentString!);
         SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
         int temperature = Convert.ToInt32(feed.Items.First().Summary.Text.Split("°C")[0].Split(" ")[^1]);
+        int pressure = Convert.ToInt32(feed.Items.First().Summary.Text.Split("mb")[0].Split(" ")[^1]);
         int.TryParse(feed.Items.First().Summary.Text.Split("mph")[0].Split(" ")[^1], out int windSpeed);
         bool pressureFalling = feed.Items.First().Summary.Text.Contains("Falling");
         bool pressureRising = feed.Items.First().Summary.Text.Contains("Rising");
 
-        return new SpotTemperature() { Temperature = temperature, WindSpeed = windSpeed, PressureFalling = pressureFalling, PressureRising = pressureRising };
+        return new SpotTemperature() { Temperature = temperature, WindSpeed = windSpeed, Pressure = pressure, PressureFalling = pressureFalling, PressureRising = pressureRising };
     }
-}
+}//

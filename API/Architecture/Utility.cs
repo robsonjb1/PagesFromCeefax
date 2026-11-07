@@ -113,6 +113,15 @@ namespace API.Architecture
             { return text.PadLeft(maxChars); }
         }
 
+        public static string PadRightWithTrunc(this int number, int maxChars)
+        {
+            string text = number.ToString();
+            if(text.Length >= maxChars)
+            { return text[..maxChars]; }
+            else
+            { return text.PadRight(maxChars); }
+        }
+
         public static void LineBreak(this StringBuilder sb, TeletextControl colour)
         {
             sb.AppendLine($"[{colour}]{new string('_', 39)}");

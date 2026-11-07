@@ -43,19 +43,37 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
             }
           
             // Insert temperatures
-            map = map.Replace("[AA]", FormatWeatherString(_wd.Locations["Heathfield"], TeletextControl.GraphicsGreen))
-                .Replace("[BB]", FormatWeatherString(_wd.Locations["Swansea"], TeletextControl.GraphicsGreen))
-                .Replace("[CC]", FormatWeatherString(_wd.Locations["Manchester"], TeletextControl.GraphicsGreen))
-                .Replace("[DD]", FormatWeatherString(_wd.Locations["Edinburgh"], TeletextControl.GraphicsGreen))
-                .Replace("[EE]", FormatWeatherString(_wd.Locations["Belfast"], TeletextControl.GraphicsGreen))
-                .Replace("[FF]", FormatWeatherString(_wd.Locations["Inverness"], TeletextControl.GraphicsGreen))
-                .Replace("[GG]", FormatWeatherString(_wd.Locations["Penzance"], TeletextControl.GraphicsGreen))
-                .Replace("[HH]", FormatWeatherString(_wd.Locations["Cambridge"], TeletextControl.GraphicsGreen))
+            TeletextControl windCol = TeletextControl.AlphaWhite;
+            if(_wd.Locations["Heathfield"].WindSpeed >= 30)
+            {
+                windCol = TeletextControl.AlphaRed;
+            }
+            TeletextControl pressureMovement = TeletextControl.RightArrow;
+            if(_wd.Locations["Heathfield"].PressureRising)
+            {
+                pressureMovement = TeletextControl.UpArrow;
+            }
+            if(_wd.Locations["Heathfield"].PressureFalling)
+            {
+                pressureMovement = TeletextControl.Quarter;
+            }
+            
+            map = map.Replace("[AA]", FormatWeatherString(_wd.Locations["Heathfield"].Temperature, _wd.Locations["Heathfield"].WindSpeed) + $"[{TeletextControl.GraphicsGreen}]")
+                .Replace("[BB]", FormatWeatherString(_wd.Locations["Swansea"].Temperature, _wd.Locations["Swansea"].WindSpeed) + $"[{TeletextControl.GraphicsGreen}]")
+                .Replace("[CC]", FormatWeatherString(_wd.Locations["Manchester"].Temperature, _wd.Locations["Manchester"].WindSpeed) + $"[{TeletextControl.GraphicsGreen}]")
+                .Replace("[DD]", FormatWeatherString(_wd.Locations["Edinburgh"].Temperature, _wd.Locations["Edinburgh"].WindSpeed) + $"[{TeletextControl.GraphicsGreen}]")
+                .Replace("[EE]", FormatWeatherString(_wd.Locations["Belfast"].Temperature, _wd.Locations["Belfast"].WindSpeed) + $"[{TeletextControl.GraphicsGreen}]")
+                .Replace("[FF]", FormatWeatherString(_wd.Locations["Inverness"].Temperature, _wd.Locations["Inverness"].WindSpeed) + $"[{TeletextControl.GraphicsGreen}]")
+                .Replace("[GG]", FormatWeatherString(_wd.Locations["Penzance"].Temperature, _wd.Locations["Penzance"].WindSpeed) + $"[{TeletextControl.GraphicsGreen}]")
+                .Replace("[HH]", FormatWeatherString(_wd.Locations["Cambridge"].Temperature, _wd.Locations["Cambridge"].WindSpeed) + $"[{TeletextControl.GraphicsGreen}]")
+                .Replace("[II]", FormatWeatherString(_wd.Locations["Birmingham"].Temperature, _wd.Locations["Birmingham"].WindSpeed) + $"[{TeletextControl.GraphicsGreen}]")
                 .Replace("[TTT]", Utility.ConvertToUKTime(_wd.LastRefreshUTC).ToString("HH:mm"))
                 .Replace("[SU1]", _wd.Sunrise)
                 .Replace("[SU2]", _wd.Sunset)
-                .Replace("[TE1]", _wd.MaxTemp.PadRightWithTrunc(5))
-                .Replace("[TE2]", _wd.MinTemp.PadRightWithTrunc(5));
+                .Replace("[TE1]", $"[{TemperatureColour(_wd.MinTemp)}]{_wd.MinTempLabel.PadRightWithTrunc(5)}")
+                .Replace("[TE2]", $"[{TemperatureColour(_wd.MaxTemp)}]{_wd.MaxTempLabel.PadRightWithTrunc(5)}")
+                .Replace("[PR1]", $"[{pressureMovement}]{_wd.Locations["Heathfield"].Pressure.PadLeftWithTrunc(4)}")
+                .Replace("[PR2]", $"[{windCol}]{_wd.Locations["Heathfield"].WindSpeed.PadRightWithTrunc(5)}");                
                 
             sb.Append(map);
 
@@ -147,27 +165,39 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
     #endregion
 
     #region Private Methods
-    private static string FormatWeatherString(SpotTemperature spot, TeletextControl endCol = TeletextControl.AlphaWhite)
+    private static string FormatWeatherString(int temperature, int windSpeed)
     {
-        TeletextControl startCol = TeletextControl.AlphaWhite;
+        TeletextControl startCol = TemperatureColour(temperature);
 
-        if(spot.Temperature >= 20)
-        {
-            startCol = TeletextControl.AlphaYellow;
-        }
-        if(spot.Temperature <= 3)
-        {
-            startCol = TeletextControl.AlphaCyan;
-        }
-        if(spot.WindSpeed >= 30 || spot.Temperature >= 30)
+        if(windSpeed >= 30)
         {
             startCol = TeletextControl.AlphaRed;
         }
 
-        string str = spot.Temperature.ToString();
-        str = $"[{startCol}]{((str.Length == 1) ? " " : "")}{str}[{endCol}]";
+        string str = temperature.ToString();
+        str = $"[{startCol}]{str.PadLeftWithTrunc(2)}";
         
         return str;
+    }
+
+    private static TeletextControl TemperatureColour(int temperature)
+    {
+        TeletextControl col = TeletextControl.AlphaWhite;
+
+        if(temperature >= 20)
+        {
+            col = TeletextControl.AlphaYellow;
+        }
+        if(temperature <= 3)
+        {
+            col = TeletextControl.AlphaCyan;
+        }
+        if(temperature >= 30)
+        {
+            col = TeletextControl.AlphaRed;
+        }
+
+        return col;
     }
     #endregion
 }

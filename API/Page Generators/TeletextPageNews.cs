@@ -23,6 +23,57 @@ public class TeletextPageNews(CeefaxContent cc)
         return content;
     }
 
+    public StringBuilder CreateNewsHeadlines()
+    {
+        StringBuilder sb = new();
+        sb.Append(Graphics.HeaderHeadlines);
+        
+        // List latest stories regardless of section. If a story is shown, do not mark it as included
+        // It will be intentionally repeated on the relevant section page later
+        int rows = 0;
+        List<Uri> included = [];
+        foreach (NewsStory story in _cc.StoryList.OrderByDescending(z => z.PublishDate))
+        {
+            if(!included.Exists(z => z == story.Link))
+            {
+                included.Add(story.Link);
+
+                List<string> HeadlineRows = Utility.ParseParagraph(story.SectionName.ToString().ToUpper() + " " + story.Headline);
+                List<string> SummaryRows = Utility.ParseParagraph(story.Summary);
+
+                if (rows + HeadlineRows.Count + SummaryRows.Count < 19)
+                {
+                    if(rows > 0) // Separator row
+                    {
+                        rows++;
+                        sb.AppendLine(string.Empty);
+                    }
+                    
+                    CeefaxSection section = _cc.Sections.Find(z => z.Name == story.SectionName)!;
+                    sb.AppendLine($"[{section.HeadingCol}]{story.SectionName.ToString().ToUpper()}[{TeletextControl.AlphaWhite}]" + HeadlineRows[0][(story.SectionName.ToString().Length+1)..]);
+                    if(HeadlineRows.Count > 1)
+                    {
+                        for(int i=1; i<HeadlineRows.Count; i++)
+                        {
+                            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{HeadlineRows[i]}");
+                        }
+                    }
+
+                    SummaryRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaCyan}]{l}"));
+                    rows += HeadlineRows.Count + SummaryRows.Count;
+                }
+            }
+        }
+
+        // Pad lines to the end
+        sb.PadLines(19 - rows);
+
+        sb.Append($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]");
+        sb.AppendLine("Home news coming up next >>>");
+
+        return sb;
+    }
+
     public StringBuilder CreateNewsInBrief(CeefaxSection section, int currentPage, int totalPages)
     {
         StringBuilder sb = new();
@@ -30,7 +81,7 @@ public class TeletextPageNews(CeefaxContent cc)
         sb.Append(section.Header);
 
         // Workaround for The Register
-        if(section.Name == CeefaxSectionType.TheRegister)
+        if(section.Name == CeefaxSectionType.Register)
         {
             sb.AppendLine($"[{TeletextControl.AlphaWhite}]{Utility.PadLeftWithTrunc($"{currentPage}/{totalPages}", 39)}");
         }
@@ -56,42 +107,20 @@ public class TeletextPageNews(CeefaxContent cc)
                 story.Included = true;
             }
 
-            string adjustedStoryHeadline = story.Headline;
-            if(story.New)
-            {
-                adjustedStoryHeadline = "NEW " + adjustedStoryHeadline; 
-            }
-
-            List<string> HeadlineRows = Utility.ParseParagraph(adjustedStoryHeadline);
+            List<string> HeadlineRows = Utility.ParseParagraph(story.Headline);
             List<string> SummaryRows = Utility.ParseParagraph(story.Summary);
 
             if (!story.Included && (rows + HeadlineRows.Count + SummaryRows.Count < 18))
             {
-                if (rows > 0)
+                if (rows > 0) // Separator row
                 {
                     rows++;
                     sb.AppendLine(string.Empty);
                 }
 
                 // Title
-                
-                // Adjust headline colouring if this is a new story
-                if(story.New)
-                {
-                    sb.AppendLine($"[{section.HeadingHighlightCol}]NEW[{TeletextControl.AlphaWhite}]" + HeadlineRows[0][4..]);
-                    if(HeadlineRows.Count > 1)
-                    {
-                        for(int i=1; i<HeadlineRows.Count; i++)
-                        {
-                            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{HeadlineRows[i]}");
-                        }
-                    }
-                }
-                else
-                {
-                    HeadlineRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaWhite}]{l}"));
-                }
-
+                HeadlineRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaWhite}]{l}"));
+              
                 // Summary
                 SummaryRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaCyan}]{l}"));
                 
