@@ -1,6 +1,627 @@
-{ "lastRefresh": "Wed 28 Oct 10:45", 
+{ "lastRefresh": "Sun 01 Nov 18:40", 
    "episodeList": 
 [
+{
+   "title": "RED DWARF: 1-3 Balance of Power",
+   "shortName": "1-3 Balance of Power",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/1-3 Balance of Power.mp4",
+   "length": 1788.095,
+   "isVideo": true,
+   "description": "Cult space comedy series."
+}
+,
+{
+   "title": "RED DWARF: 1-4 Waiting for God",
+   "shortName": "1-4 Waiting for God",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/1-4 Waiting for God.mp4",
+   "length": 1708.953,
+   "isVideo": true,
+   "description": "Lister 'learns' Cat writing and discovers some startling facts."
+}
+,
+{
+   "title": "RED DWARF: 1-5 Confidence and Paranoia",
+   "shortName": "1-5 Confidence and Paranoia",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/1-5 Confidence and Paranoia.mp4",
+   "length": 1778.047,
+   "isVideo": true,
+   "description": "Lister contracts a mutated form of pneumonia - and his hallucinations turn solid."
+}
+,
+{
+   "title": "THE IT CROWD: 1-4 The Red Door",
+   "shortName": "1-4 The Red Door",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/1-4 The Red Door.mp4",
+   "length": 1421.652,
+   "isVideo": true,
+   "description": "Frustrated at the repeated theft of his coffee mug, Moss shows off a plain white one which supposedly has a picture of his head on the bottom; however, he is unable to find it."
+}
+,
+{
+   "title": "THE IT CROWD: 1-5 The Haunting of Bill Crouse",
+   "shortName": "1-5 The Haunting of Bill Crouse",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/1-5 The Haunting of Bill Crouse.mp4",
+   "length": 1432.383,
+   "isVideo": true,
+   "description": "Jen has a terrible dinner date with co-worker Bill Crouse."
+}
+,
+{
+   "title": "THE IT CROWD: 1-6 Aunt Irma Visits",
+   "shortName": "1-6 Aunt Irma Visits",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/1-6 Aunt Irma Visits.mp4",
+   "length": 1513.407,
+   "isVideo": true,
+   "description": "Denholm thanks everyone except for the IT department for their involvement in a successful project."
+}
+,
+{
+   "title": "RED DWARF: 1-6 Me Squared",
+   "shortName": "1-6 Me Squared",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/1-6 Me Squared.mp4",
+   "length": 1764.053,
+   "isVideo": true,
+   "description": "Rimmer has discovered how to make a duplicate and moves in with himself."
+}
+,
+{
+   "title": "RED DWARF: 2-1 Kryten",
+   "shortName": "2-1 Kryten",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/2-1 Kryten.mp4",
+   "length": 1695.06,
+   "isVideo": true,
+   "description": "Things are fine aboard crashed spaceship Nova 5 until Red Dwarf answers its distress call."
+}
+,
+{
+   "title": "RED DWARF: 2-2 Better than Life",
+   "shortName": "2-2 Better than Life",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/2-2 Better than Life.mp4",
+   "length": 1767.06,
+   "isVideo": true,
+   "description": "Rimmer and Lister find a computer game which plugs directly into the brain."
+}
+,
+{
+   "title": "RED DWARF: 2-3 Thanks for the Memory",
+   "shortName": "2-3 Thanks for the Memory",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/2-3 Thanks for the Memory.mp4",
+   "length": 1703.06,
+   "isVideo": true,
+   "description": "Someone's erased four days of the crew's memory, broken Lister's leg and done the jigsaw."
+}
+,
+{
+   "title": "RED DWARF: 2-4 Stasis Leak",
+   "shortName": "2-4 Stasis Leak",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/2-4 Stasis Leak.mp4",
+   "length": 1791.06,
+   "isVideo": true,
+   "description": "A leak from the suspended animation chamber has created a doorway to the past."
+}
+,
+{
+   "title": "RED DWARF: 2-5 Queeg",
+   "shortName": "2-5 Queeg",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/2-5 Queeg.mp4",
+   "length": 1778.386,
+   "isVideo": true,
+   "description": "Holly's behaviour begins to endanger the ship so he's replaced by the back-up computer."
+}
+,
+{
+   "title": "RED DWARF: 2-6 Parallel Universe",
+   "shortName": "2-6 Parallel Universe",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/2-6 Parallel Universe.mp4",
+   "length": 1703.658,
+   "isVideo": true,
+   "description": "Holly devises a faster-than-light drive that sends the crew into a parallel universe."
+}
+,
+{
+   "title": "RED DWARF: 3-1 Backwards",
+   "shortName": "3-1 Backwards",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/3-1 Backwards.mp4",
+   "length": 1639.746,
+   "isVideo": true,
+   "description": "Lister and Rimmer finally arrive back on earth only to find time is behaving strangely."
+}
+,
+{
+   "title": "RED DWARF: 3-2 Marooned",
+   "shortName": "3-2 Marooned",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/3-2 Marooned.mp4",
+   "length": 1714.06,
+   "isVideo": true,
+   "description": "Lister and Rimmer are stranded on a moon with only a pot noodle and a tin of dog food."
+}
+,
+{
+   "title": "RED DWARF: 3-3 Polymorph",
+   "shortName": "3-3 Polymorph",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/3-3 Polymorph.mp4",
+   "length": 1590.573,
+   "isVideo": true,
+   "description": "A genetic mutant gets loose aboard the ship, leading to 24 hours of gruesome horror."
+}
+,
+{
+   "title": "RED DWARF: 3-4 Bodyswap",
+   "shortName": "3-4 Bodyswap",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/3-4 Bodyswap.mp4",
+   "length": 1603.02,
+   "isVideo": true,
+   "description": "Rimmer convinces Lister that they should swap bodies for a fortnight."
+}
+,
+{
+   "title": "YES MINISTER: 5-4 A Conflict of Interest",
+   "shortName": "5-4 A Conflict of Interest",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/5-4 A Conflict of Interest.mp4",
+   "length": 1801.962,
+   "isVideo": true,
+   "description": "Jim and Sir Humphrey clash over who should become the new governor of the Bank of England."
+}
+,
+{
+   "title": "YES MINISTER: 5-5 Power to the People",
+   "shortName": "5-5 Power to the People",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/5-5 Power to the People.mp4",
+   "length": 1828.948,
+   "isVideo": true,
+   "description": "Jim Hacker meets a local councillor who has some radical ideas about local government."
+}
+,
+{
+   "title": "YES MINISTER: 5-6 The Patron of the Arts",
+   "shortName": "5-6 The Patron of the Arts",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/5-6 The Patron of the Arts.mp4",
+   "length": 1682.943,
+   "isVideo": true,
+   "description": "Sir Humphrey tells a friend in the arts that the government is planning to cut grants."
+}
+,
+{
+   "title": "YES MINISTER: 5-7 The National Education Service",
+   "shortName": "5-7 The National Education Service",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/5-7 The National Education Service.mp4",
+   "length": 1800.959,
+   "isVideo": true,
+   "description": "Hacker's decision to abolish the Department of Education and Science appauls Sir Humphrey."
+}
+,
+{
+   "title": "YES MINISTER: 5-8 The Tangled Web",
+   "shortName": "5-8 The Tangled Web",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/5-8 The Tangled Web.mp4",
+   "length": 1694.913,
+   "isVideo": true,
+   "description": "Hacker denies that MPs' phones are tapped, only to be told by Sir Humphrey that they are."
+}
+,
+{
+   "title": "SAM WILLIS: Britain's Outlaws 1 - Highwaymen",
+   "shortName": "Britain's Outlaws 1 - Highwaymen",
+   "urlLocal": "media/channel-2/../Core/Sam Willis/Britain's Outlaws 1 -  Highwaymen.mp4",
+   "length": 3559,
+   "isVideo": true,
+   "description": "Though romanticised in literature, the highwayman became a social menace on the roads."
+}
+,
+{
+   "title": "THE IT CROWD: 3-6 Calendar Geeks",
+   "shortName": "3-6 Calendar Geeks",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/3-6 Calendar Geeks.mp4",
+   "length": 1418.964,
+   "isVideo": true,
+   "description": "Roy is overjoyed when the women from the seventh floor decide to make a nude calendar as a fundraiser."
+}
+,
+{
+   "title": "THE IT CROWD: 4-1 Jen the Fredo",
+   "shortName": "4-1 Jen the Fredo",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/4-1 Jen the Fredo.mp4",
+   "length": 1460.82,
+   "isVideo": true,
+   "description": "Roy is depressed over his recent breakup with his girlfriend."
+}
+,
+{
+   "title": "THE IT CROWD: 4-2 The Final Countdown",
+   "shortName": "4-2 The Final Countdown",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/4-2 The Final Countdown.mp4",
+   "length": 1421.247,
+   "isVideo": true,
+   "description": "Following a successful run on the popular quiz show Countdown, Moss is invited to \"8+\", an exclusive club for previous champions of the game show who have appeared over eight times."
+}
+,
+{
+   "title": "THE IT CROWD: 4-3 Something Happened",
+   "shortName": "4-3 Something Happened",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/4-3 Something Happened.mp4",
+   "length": 1389.844,
+   "isVideo": true,
+   "description": "Douglas becomes interested in \"Spaceology\" – a new age-styled religion that employs cosmic ordering."
+}
+,
+{
+   "title": "THE IT CROWD: 4-4 Italian for Beginners",
+   "shortName": "4-4 Italian for Beginners",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/4-4 Italian for Beginners.mp4",
+   "length": 1440.212,
+   "isVideo": true,
+   "description": "Jealous that her co-worker Linda has been impressing everyone at their executive meetings, Jen pretends to be fluent in Italian so she can become Douglas's interpreter."
+}
+,
+{
+   "title": "THE IT CROWD: 4-5 Bad Boys",
+   "shortName": "4-5 Bad Boys",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/4-5 Bad Boys.mp4",
+   "length": 1308.138,
+   "isVideo": true,
+   "description": "At a Scared Straight!-styled talk, Moss is the first to present, recalling the events of the episode."
+}
+,
+{
+   "title": "THE IT CROWD: 4-6 Reynholm vs Reynholm",
+   "shortName": "4-6 Reynholm vs Reynholm",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/4-6 Reynholm vs Reynholm.mp4",
+   "length": 1450.815,
+   "isVideo": true,
+   "description": "Douglas's second wife Victoria, who had disappeared after two weeks of marriage, reunites with Douglas."
+}
+,
+{
+   "title": "THE IT CROWD: 5-1 The Internet is Coming",
+   "shortName": "5-1 The Internet is Coming",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/5-1 The Internet is Coming.mp4",
+   "length": 2885.055,
+   "isVideo": true,
+   "description": "Roy accompanies his girlfriend Alice to her grandfather's funeral, where a disaster involving pepper spray makes things much worse."
+}
+,
+{
+   "title": "HITCHHIKER'S GUIDE: (1 of 6)",
+   "shortName": "(1 of 6)",
+   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/(1 of 6).mp4",
+   "length": 1972.68,
+   "isVideo": true,
+   "description": "Arthur wakes to discover his house has been scheduled for demolition."
+}
+,
+{
+   "title": "HITCHHIKER'S GUIDE: (2 of 6)",
+   "shortName": "(2 of 6)",
+   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/(2 of 6).mp4",
+   "length": 2095.16,
+   "isVideo": true,
+   "description": "After being subjected to Vogon poetry, Arthur and Ford are thrown out of an airlock but improbably rescued just before death."
+}
+,
+{
+   "title": "HITCHHIKER'S GUIDE: (3 of 6)",
+   "shortName": "(3 of 6)",
+   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/(3 of 6).mp4",
+   "length": 1862.44,
+   "isVideo": true,
+   "description": "Zaphod finds the legendary plant of Magrathea, which manufactured planets for the hyper-wealthy until the galactic economy collapsed."
+}
+,
+{
+   "title": "HITCHHIKER'S GUIDE: (4 of 6)",
+   "shortName": "(4 of 6)",
+   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/(4 of 6).mp4",
+   "length": 1941.04,
+   "isVideo": true,
+   "description": "Slartibartfast shows Arthur the archive tapes of the development of Deep Thought, who was given the order to search for the Ultimate Answer to Life, The Universe and Everything."
+}
+,
+{
+   "title": "HITCHHIKER'S GUIDE: (5 of 6)",
+   "shortName": "(5 of 6)",
+   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/(5 of 6).mp4",
+   "length": 1972.4,
+   "isVideo": true,
+   "description": "The four travellers are transported forward in time to Milliways, the Restaurant at the End of the Universe."
+}
+,
+{
+   "title": "HITCHHIKER'S GUIDE: (6 of 6)",
+   "shortName": "(6 of 6)",
+   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/(6 of 6).mp4",
+   "length": 2144.72,
+   "isVideo": true,
+   "description": "Ford and Arthur arrive – without Zaphod and Trillian – on a spaceship carrying millions of people in cryogenic pods."
+}
+,
+{
+   "title": "SAM WILLIS: Britain's Outlaws 2 - Pirates",
+   "shortName": "Britain's Outlaws 2 - Pirates",
+   "urlLocal": "media/channel-2/../Core/Sam Willis/Britain's Outlaws 2 -  Pirates.mp4",
+   "length": 3536.04,
+   "isVideo": true,
+   "description": "Charting the devastating impact pirates had during an age of colonial expansion."
+}
+,
+{
+   "title": "SAM WILLIS: Britain's Outlaws 3 - Rogues",
+   "shortName": "Britain's Outlaws 3 - Rogues",
+   "urlLocal": "media/channel-2/../Core/Sam Willis/Britain's Outlaws 3 -  Rogues.mp4",
+   "length": 3539.04,
+   "isVideo": true,
+   "description": "Sam Willis looks at urban crime, fraud and corruption in the 18th century."
+}
+,
+{
+   "title": "SAM WILLIS: Invasion! 1",
+   "shortName": "Invasion! 1",
+   "urlLocal": "media/channel-2/../Core/Sam Willis/Invasion! 1.mp4",
+   "length": 3540.04,
+   "isVideo": true,
+   "description": "Sam Willis gets to grips with Viking boat technology and rides an Iron Age chariot."
+}
+,
+{
+   "title": "SAM WILLIS: Invasion! 2",
+   "shortName": "Invasion! 2",
+   "urlLocal": "media/channel-2/../Core/Sam Willis/Invasion! 2.mp4",
+   "length": 3539.04,
+   "isVideo": true,
+   "description": "Sam tells the story of the Barbary Corsaire pirates, and the tale of King Louis the Lion."
+}
+,
+{
+   "title": "SAM WILLIS: Invasion! 3",
+   "shortName": "Invasion! 3",
+   "urlLocal": "media/channel-2/../Core/Sam Willis/Invasion! 3.mp4",
+   "length": 3517.04,
+   "isVideo": true,
+   "description": "Sam Willis discovers the ingenious French plans to invade Britain by balloon."
+}
+,
+{
+   "title": "SAM WILLIS: Shipwrecks - Britains Sunken History 1",
+   "shortName": "Shipwrecks - Britains Sunken History 1",
+   "urlLocal": "media/channel-2/../Core/Sam Willis/Shipwrecks -  Britains Sunken History 1.mp4",
+   "length": 3515,
+   "isVideo": true,
+   "description": "The stories behind the top-heavy Mary Rose and the wrecking of the Spanish Armada."
+}
+,
+{
+   "title": "SAM WILLIS: Shipwrecks - Britains Sunken History 2",
+   "shortName": "Shipwrecks - Britains Sunken History 2",
+   "urlLocal": "media/channel-2/../Core/Sam Willis/Shipwrecks -  Britains Sunken History 2.mp4",
+   "length": 3540,
+   "isVideo": true,
+   "description": "The story of shipwrecks moves into the Georgian age, when Britain ruled the waves."
+}
+,
+{
+   "title": "SAM WILLIS: Shipwrecks - Britains Sunken History 3",
+   "shortName": "Shipwrecks - Britains Sunken History 3",
+   "urlLocal": "media/channel-2/../Core/Sam Willis/Shipwrecks -  Britains Sunken History 3.mp4",
+   "length": 3573,
+   "isVideo": true,
+   "description": "How the Victorians found solutions to prevent the huge losses shipwrecks caused."
+}
+,
+{
+   "title": "SAM WILLIS: Sword Musket Machine Gun - Britains Armed History 1",
+   "shortName": "Sword Musket Machine Gun - Britains Armed History 1",
+   "urlLocal": "media/channel-2/../Core/Sam Willis/Sword Musket Machine Gun -  Britains Armed History 1.mp4",
+   "length": 3537.14,
+   "isVideo": true,
+   "description": "Dr Sam Willis discovers how medieval weapons shaped Britain."
+}
+,
+{
+   "title": "SAM WILLIS: Sword Musket Machine Gun - Britains Armed History 2",
+   "shortName": "Sword Musket Machine Gun - Britains Armed History 2",
+   "urlLocal": "media/channel-2/../Core/Sam Willis/Sword Musket Machine Gun -  Britains Armed History 2.mp4",
+   "length": 3540.06,
+   "isVideo": true,
+   "description": "The impact of gunpowder on the battlefield, from cannons to early handheld weapons."
+}
+,
+{
+   "title": "SAM WILLIS: Sword Musket Machine Gun - Britains Armed History 3",
+   "shortName": "Sword Musket Machine Gun - Britains Armed History 3",
+   "urlLocal": "media/channel-2/../Core/Sam Willis/Sword Musket Machine Gun -  Britains Armed History 3.mp4",
+   "length": 3530.06,
+   "isVideo": true,
+   "description": "Dr Sam Willis looks at the drive to develop ever more precise weapons on the battlefield."
+}
+,
+{
+   "title": "THE IT CROWD: 1-1 Yesterday's Jam",
+   "shortName": "1-1 Yesterday's Jam",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/1-1 Yesterday's Jam.mp4",
+   "length": 1402.218,
+   "isVideo": true,
+   "description": "Jen Barber is interviewed for a position at Reynholm Industries."
+}
+,
+{
+   "title": "THE IT CROWD: 1-2 Calamity Jen",
+   "shortName": "1-2 Calamity Jen",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/1-2 Calamity Jen.mp4",
+   "length": 1463.103,
+   "isVideo": true,
+   "description": "Denholm mandates his employees to attend a stress seminar, threatening to fire those who still experience stress by the end of the day."
+}
+,
+{
+   "title": "THE IT CROWD: 1-3 Fifty-Fifty",
+   "shortName": "1-3 Fifty-Fifty",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/1-3 Fifty-Fifty.mp4",
+   "length": 1477.46,
+   "isVideo": true,
+   "description": "Roy's date with a young woman goes horribly wrong after she mistakes chocolate spread on his head for faeces."
+}
+,
+{
+   "title": "RED DWARF: 3-5 Timeslides",
+   "shortName": "3-5 Timeslides",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/3-5 Timeslides.mp4",
+   "length": 1663.295,
+   "isVideo": true,
+   "description": "Kryten discovers some developing fluid which prints photographs the crew can walk into."
+}
+,
+{
+   "title": "RED DWARF: 3-6 The Last Day",
+   "shortName": "3-6 The Last Day",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/3-6 The Last Day.mp4",
+   "length": 1637.738,
+   "isVideo": true,
+   "description": "Kryten discovers his in-built expiry date is only 24 hours away."
+}
+,
+{
+   "title": "RED DWARF: 4-1 Camille",
+   "shortName": "4-1 Camille",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/4-1 Camille.mp4",
+   "length": 1602.62,
+   "isVideo": true,
+   "description": "Kryten falls in love at first sight but has his heart broken in the process."
+}
+,
+{
+   "title": "RED DWARF: 4-2 D.N.A.",
+   "shortName": "4-2 D.N.A.",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/4-2 D.N.A..mp4",
+   "length": 1667.604,
+   "isVideo": true,
+   "description": "The crew encounter the ultimate in genetic engineering technology."
+}
+,
+{
+   "title": "RED DWARF: 4-3 Justice",
+   "shortName": "4-3 Justice",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/4-3 Justice.mp4",
+   "length": 1696.393,
+   "isVideo": true,
+   "description": "The crew land up in 'Justice World', where a crime's consequences affect the perpetrator."
+}
+,
+{
+   "title": "RED DWARF: 4-4 White Hole",
+   "shortName": "4-4 White Hole",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/4-4 White Hole.mp4",
+   "length": 1648.506,
+   "isVideo": true,
+   "description": "Holly leaves the crew drifting helplessly towards a white hole."
+}
+,
+{
+   "title": "RED DWARF: 4-5 Dimension Jump",
+   "shortName": "4-5 Dimension Jump",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/4-5 Dimension Jump.mp4",
+   "length": 1720.34,
+   "isVideo": true,
+   "description": "In a parallel universe, an Arnold Rimmer exists who's charming, popular, brave and modest."
+}
+,
+{
+   "title": "HITCHHIKER'S GUIDE: The Making Of",
+   "shortName": "The Making Of",
+   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/The Making Of.mp4",
+   "length": 3514.332,
+   "isVideo": true,
+   "description": ""
+}
+,
+{
+   "title": "SIMON SCHAMA: 1-1",
+   "shortName": "1-1",
+   "urlLocal": "media/channel-2/../Core/Simon Schama/1-1.mp4",
+   "length": 3540.04,
+   "isVideo": true,
+   "description": "Simon Schama visits the miraculously preserved Stone Age cottages of Skara Brae in Orkney."
+}
+,
+{
+   "title": "SIMON SCHAMA: 1-2",
+   "shortName": "1-2",
+   "urlLocal": "media/channel-2/../Core/Simon Schama/1-2.mp4",
+   "length": 3535.701,
+   "isVideo": true,
+   "description": "The saga of William the Conqueror's triumph at the Battle of Hastings."
+}
+,
+{
+   "title": "SIMON SCHAMA: 1-3",
+   "shortName": "1-3",
+   "urlLocal": "media/channel-2/../Core/Simon Schama/1-3.mp4",
+   "length": 3406.89,
+   "isVideo": true,
+   "description": "How Henry II built a great medieval empire, only for his wife and son to destroy it."
+}
+,
+{
+   "title": "SIMON SCHAMA: 1-4",
+   "shortName": "1-4",
+   "urlLocal": "media/channel-2/../Core/Simon Schama/1-4.mp4",
+   "length": 3539.818,
+   "isVideo": true,
+   "description": "The story of Edward I, who tried to force English rule on Scotland and Wales."
+}
+,
+{
+   "title": "SIMON SCHAMA: 1-5",
+   "shortName": "1-5",
+   "urlLocal": "media/channel-2/../Core/Simon Schama/1-5.mp4",
+   "length": 3480.81,
+   "isVideo": true,
+   "description": "Simon Schama investigates the Black Death - the horror of medieval Britain."
+}
+,
+{
+   "title": "SIMON SCHAMA: 1-6",
+   "shortName": "1-6",
+   "urlLocal": "media/channel-2/../Core/Simon Schama/1-6.mp4",
+   "length": 3526.613,
+   "isVideo": true,
+   "description": "How Henry VIII's passion for Anne Boleyn set in motion a tidal wave of religious upheaval."
+}
+,
+{
+   "title": "SIMON SCHAMA: 1-7",
+   "shortName": "1-7",
+   "urlLocal": "media/channel-2/../Core/Simon Schama/1-7.mp4",
+   "length": 3547.882,
+   "isVideo": true,
+   "description": "Simon Schama examines the relationship between Queen Elizabeth I and her cousin Mary."
+}
+,
+{
+   "title": "SIMON SCHAMA: 2-1",
+   "shortName": "2-1",
+   "urlLocal": "media/channel-2/../Core/Simon Schama/2-1.mp4",
+   "length": 3541.888,
+   "isVideo": true,
+   "description": "Simon Schama reveals the real story of the English Civil War."
+}
+,
+{
+   "title": "SIMON SCHAMA: 2-2",
+   "shortName": "2-2",
+   "urlLocal": "media/channel-2/../Core/Simon Schama/2-2.mp4",
+   "length": 3509.888,
+   "isVideo": true,
+   "description": "Featuring the revolutionary period in Britain after the execution of Charles I."
+}
+,
+{
+   "title": "SIMON SCHAMA: 2-3",
+   "shortName": "2-3",
+   "urlLocal": "media/channel-2/../Core/Simon Schama/2-3.mp4",
+   "length": 3524.65,
+   "isVideo": true,
+   "description": "Simon Schama's epic history reaches the 18th century and the birth of modern Britain."
+}
+,
 {
    "title": "SIMON SCHAMA: 2-4",
    "shortName": "2-4",
@@ -137,6 +758,69 @@
 }
 ,
 {
+   "title": "CHASING THE MOON: 5 - Magnificent Desolation",
+   "shortName": "5 - Magnificent Desolation",
+   "urlLocal": "media/channel-2/../Core/Chasing the Moon/5 -  Magnificent Desolation.mp4",
+   "length": 2857.06,
+   "isVideo": true,
+   "description": "The space race takes a new twist as US astronauts compete to be the first man on the moon."
+}
+,
+{
+   "title": "CHASING THE MOON: 6 - Magnificent Desolation",
+   "shortName": "6 - Magnificent Desolation",
+   "urlLocal": "media/channel-2/../Core/Chasing the Moon/6 -  Magnificent Desolation.mp4",
+   "length": 2918.06,
+   "isVideo": true,
+   "description": "The world gathers around its television sets to watch Neil Armstrong set foot on the moon."
+}
+,
+{
+   "title": "FATHER TED: 1-1 Good Luck, Father Ted",
+   "shortName": "1-1 Good Luck, Father Ted",
+   "urlLocal": "media/channel-2/../Core/Father Ted/1-1 Good Luck, Father Ted.mp4",
+   "length": 1414.996,
+   "isVideo": true,
+   "description": "A television programme offers to interview Father Ted, who goes to extreme lengths to ensure the other members of the clergy on the island do not interrupt his moment in the spotlight."
+}
+,
+{
+   "title": "FATHER TED: 1-2 Entertaining Father Stone",
+   "shortName": "1-2 Entertaining Father Stone",
+   "urlLocal": "media/channel-2/../Core/Father Ted/1-2 Entertaining Father Stone.mp4",
+   "length": 1446,
+   "isVideo": true,
+   "description": "Ted and Dougal are devastated as an inoffensive but unbearably boring priest, Father Stone, arrives on Craggy Island for his annual visit."
+}
+,
+{
+   "title": "FATHER TED: 1-3 The Passion of Saint Tibulus",
+   "shortName": "1-3 The Passion of Saint Tibulus",
+   "urlLocal": "media/channel-2/../Core/Father Ted/1-3 The Passion of Saint Tibulus.mp4",
+   "length": 1462.612,
+   "isVideo": true,
+   "description": "Bishop Leonard Brennan arrives at the parochial house on an official visit with news that a blasphemous film, condemned by the pope and banned everywhere, is being shown in Craggy Island thanks to a loophole."
+}
+,
+{
+   "title": "FATHER TED: 1-4 Competition Time",
+   "shortName": "1-4 Competition Time",
+   "urlLocal": "media/channel-2/../Core/Father Ted/1-4 Competition Time.mp4",
+   "length": 1430,
+   "isVideo": true,
+   "description": "Ahead of the annual 'All Priests Stars in Their Eyes Lookalike Competition', Ted, determined to beat his arch-nemesis Father Dick Byrne, reveals his Elvis costume."
+}
+,
+{
+   "title": "FATHER TED: 1-5 And God Created Woman",
+   "shortName": "1-5 And God Created Woman",
+   "urlLocal": "media/channel-2/../Core/Father Ted/1-5 And God Created Woman.mp4",
+   "length": 1507.412,
+   "isVideo": true,
+   "description": "Father Ted meets novelist Polly Clarke at the book signing for her latest novel Bejewelled with Kisses."
+}
+,
+{
    "title": "MICRO: 2-1 The Versatile Machine",
    "shortName": "2-1 The Versatile Machine",
    "urlLocal": "media/channel-2/../Core/Micro/2- 1 The Versatile Machine.mp4",
@@ -161,132 +845,6 @@
    "length": 1463.06,
    "isVideo": true,
    "description": ""
-}
-,
-{
-   "title": "YES MINISTER: 3-8 Party Games",
-   "shortName": "3-8 Party Games",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/3-8 Party Games.mp4",
-   "length": 3648.906,
-   "isVideo": true,
-   "description": "The seasonal festivities are overshadowed by rumours of a cabinet reshuffle."
-}
-,
-{
-   "title": "YES MINISTER: 4-1 The Grand Design",
-   "shortName": "4-1 The Grand Design",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/4-1 The Grand Design.mp4",
-   "length": 1774.954,
-   "isVideo": true,
-   "description": "Jim Hacker discovers some interesting facts about the UK's defence system."
-}
-,
-{
-   "title": "YES MINISTER: 4-2 The Ministerial Broadcast",
-   "shortName": "4-2 The Ministerial Broadcast",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/4-2 The Ministerial Broadcast.mp4",
-   "length": 1766.954,
-   "isVideo": true,
-   "description": "Hacker prepares to make his first broadcast as prime minister."
-}
-,
-{
-   "title": "YES MINISTER: 4-3 The Smoke Screen",
-   "shortName": "4-3 The Smoke Screen",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/4-3 The Smoke Screen.mp4",
-   "length": 1767.956,
-   "isVideo": true,
-   "description": "Jim Hacker threatens smokers with tax rises as part of a ploy to get around the Treasury."
-}
-,
-{
-   "title": "YES MINISTER: 4-4 The Key",
-   "shortName": "4-4 The Key",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/4-4 The Key.mp4",
-   "length": 1763.946,
-   "isVideo": true,
-   "description": "The PM's political advisor tells Jim that he is letting Humphrey become too dominant."
-}
-,
-{
-   "title": "YES MINISTER: 4-5 A Real Partnership",
-   "shortName": "4-5 A Real Partnership",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/4-5 A Real Partnership.mp4",
-   "length": 1795.946,
-   "isVideo": true,
-   "description": "The government runs into a financial crisis just as MPs are due for a pay rise."
-}
-,
-{
-   "title": "YES MINISTER: 4-6 A Victory for Democracy",
-   "shortName": "4-6 A Victory for Democracy",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/4-6 A Victory for Democracy.mp4",
-   "length": 1811.946,
-   "isVideo": true,
-   "description": "Jim Hacker begins to wonder whether the government runs the Foreign Office, or vice versa."
-}
-,
-{
-   "title": "YES MINISTER: 4-7 The Bishops Gambit",
-   "shortName": "4-7 The Bishops Gambit",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/4-7 The Bishops Gambit.mp4",
-   "length": 1821.951,
-   "isVideo": true,
-   "description": "Jim is not keen on the candidates for a bishopric, and Humphrey has someone else in mind."
-}
-,
-{
-   "title": "YES MINISTER: 4-8 One of Us",
-   "shortName": "4-8 One of Us",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/4-8 One of Us.mp4",
-   "length": 1771.946,
-   "isVideo": true,
-   "description": "The late former head of MI5 is confirmed as a Russian spy who was cleared by Sir Humphrey."
-}
-,
-{
-   "title": "YES MINISTER: 5-1 Man Overboard",
-   "shortName": "5-1 Man Overboard",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/5-1 Man Overboard.mp4",
-   "length": 1799.956,
-   "isVideo": true,
-   "description": "Jim backs the relocation of military units to make the unemployment figures look better."
-}
-,
-{
-   "title": "YES MINISTER: 5-2 Official Secrets",
-   "shortName": "5-2 Official Secrets",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/5-2 Official Secrets.mp4",
-   "length": 1804.948,
-   "isVideo": true,
-   "description": "The press learns of Hacker's attempts to suppress a chapter of his predecessor's memoirs."
-}
-,
-{
-   "title": "YES MINISTER: 5-3 A Diplomatic Incident",
-   "shortName": "5-3 A Diplomatic Incident",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/5-3 A Diplomatic Incident.mp4",
-   "length": 1685.951,
-   "isVideo": true,
-   "description": "Jim discovers the French plan to gain political advantage over the Channel Tunnel borders."
-}
-,
-{
-   "title": "YES MINISTER: 5-4 A Conflict of Interest",
-   "shortName": "5-4 A Conflict of Interest",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/5-4 A Conflict of Interest.mp4",
-   "length": 1801.962,
-   "isVideo": true,
-   "description": "Jim and Sir Humphrey clash over who should become the new governor of the Bank of England."
-}
-,
-{
-   "title": "YES MINISTER: 5-5 Power to the People",
-   "shortName": "5-5 Power to the People",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/5-5 Power to the People.mp4",
-   "length": 1828.948,
-   "isVideo": true,
-   "description": "Jim Hacker meets a local councillor who has some radical ideas about local government."
 }
 ,
 {
@@ -362,78 +920,6 @@
 }
 ,
 {
-   "title": "RISE OF THE NAZI'S: 1-1 Politics",
-   "shortName": "1-1 Politics",
-   "urlLocal": "media/channel-2/../Core/Rise of the Nazi's/1-1 Politics.mp4",
-   "length": 3536.2,
-   "isVideo": true,
-   "description": "A political mastermind uses the sudden popularity of the Nazis for his own ends."
-}
-,
-{
-   "title": "RISE OF THE NAZI'S: 1-2 The First Six Months",
-   "shortName": "1-2 The First Six Months",
-   "urlLocal": "media/channel-2/../Core/Rise of the Nazi's/1-2 The First Six Months.mp4",
-   "length": 3535.56,
-   "isVideo": true,
-   "description": "At the start of 1933, Hitler sets his sights on dismantling the German state."
-}
-,
-{
-   "title": "RISE OF THE NAZI'S: 1-3 Night of the Long Knives",
-   "shortName": "1-3 Night of the Long Knives",
-   "urlLocal": "media/channel-2/../Core/Rise of the Nazi's/1-3 Night of the Long Knives.mp4",
-   "length": 3533.16,
-   "isVideo": true,
-   "description": "Hitler and Himmler conspire to depose Röhm and make the SS the main Nazi paramilitary."
-}
-,
-{
-   "title": "RISE OF THE NAZI'S: 2-1 Barbarossa",
-   "shortName": "2-1 Barbarossa",
-   "urlLocal": "media/channel-2/../Core/Rise of the Nazi's/2-1 Barbarossa.mp4",
-   "length": 3549.16,
-   "isVideo": true,
-   "description": "At the peak of his power, Hitler now faces fellow ruthless dictator Stalin."
-}
-,
-{
-   "title": "BLACKADDER: 3-4 Sense and Senility",
-   "shortName": "3-4 Sense and Senility",
-   "urlLocal": "media/channel-2/../Core/Blackadder/3-4 Sense and Senility.mp4",
-   "length": 1595.066,
-   "isVideo": true,
-   "description": "George hires two actors to tutor him in public speaking while trying to avoid anarchists."
-}
-,
-{
-   "title": "BLACKADDER: 3-5 Amy and Amiability",
-   "shortName": "3-5 Amy and Amiability",
-   "urlLocal": "media/channel-2/../Core/Blackadder/3-5 Amy and Amiability.mp4",
-   "length": 1765.055,
-   "isVideo": true,
-   "description": "Edmund sets out to find the regent a bride with a big dowry."
-}
-,
-{
-   "title": "BLACKADDER: 3-6 Duel and Duality",
-   "shortName": "3-6 Duel and Duality",
-   "urlLocal": "media/channel-2/../Core/Blackadder/3-6 Duel and Duality.mp4",
-   "length": 1792.046,
-   "isVideo": true,
-   "description": "The prince is challenged to a duel by the fearsome Duke of Wellington."
-}
-,
-{
-   "title": "BLACKADDER: 4-1 Captain Cook",
-   "shortName": "4-1 Captain Cook",
-   "urlLocal": "media/channel-2/../Core/Blackadder/4-1 Captain Cook.mp4",
-   "length": 1748.046,
-   "isVideo": true,
-   "description": "Edmund is sent into no man's land to sketch the German positions."
-}
-,
-{
    "title": "MICRO: Micro Live 1984",
    "shortName": "Micro Live 1984",
    "urlLocal": "media/channel-2/../Core/Micro/Micro Live 1984.mp4",
@@ -461,489 +947,12 @@
 }
 ,
 {
-   "title": "REGINALD PERRIN: 2-6",
-   "shortName": "2-6",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-6.mp4",
-   "length": 1907.44,
-   "isVideo": true,
-   "description": "Reggie is bored with his success and plans to destroy Grot by hiring totally unsuitable people."
-}
-,
-{
-   "title": "REGINALD PERRIN: 2-7",
-   "shortName": "2-7",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-7.mp4",
-   "length": 1838.46,
-   "isVideo": true,
-   "description": "Reggie's plan fails."
-}
-,
-{
-   "title": "REGINALD PERRIN: 3-1",
-   "shortName": "3-1",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-1.mp4",
-   "length": 1602,
-   "isVideo": true,
-   "description": "Reggie decides to open a commune helping people to live in peace and harmony."
-}
-,
-{
-   "title": "REGINALD PERRIN: 3-2",
-   "shortName": "3-2",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-2.mp4",
-   "length": 1978.98,
-   "isVideo": true,
-   "description": "Having recruited all the old faces, Reggie welcomes his one and only guest to \"Perrin's\"."
-}
-,
-{
-   "title": "REGINALD PERRIN: 3-3",
-   "shortName": "3-3",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-3.mp4",
-   "length": 2026.82,
-   "isVideo": true,
-   "description": "After a unique advertising campaign, \"Perrin's\" gains another guest."
-}
-,
-{
-   "title": "REGINALD PERRIN: 3-4",
-   "shortName": "3-4",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-4.mp4",
-   "length": 1835.5,
-   "isVideo": true,
-   "description": "Business is booming and Reggie is content."
-}
-,
-{
-   "title": "REGINALD PERRIN: 3-5",
-   "shortName": "3-5",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-5.mp4",
-   "length": 1747.98,
-   "isVideo": true,
-   "description": "Money and jewellery begin to disappear at Perrin's and a female guest starts to be suggestive with the male staff."
-}
-,
-{
-   "title": "REGINALD PERRIN: 3-6",
-   "shortName": "3-6",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-6.mp4",
-   "length": 1783.98,
-   "isVideo": true,
-   "description": "Perrin's loses face in the community as McBlane attacks a Salvation Army woman."
-}
-,
-{
-   "title": "REGINALD PERRIN: 3-7",
-   "shortName": "3-7",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-7.mp4",
-   "length": 1782.96,
-   "isVideo": true,
-   "description": "Perrin's closes and everyone says their goodbyes."
-}
-,
-{
-   "title": "THE IT CROWD: 1-1 Yesterday's Jam",
-   "shortName": "1-1 Yesterday's Jam",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/1-1 Yesterday's Jam.mp4",
-   "length": 1402.218,
-   "isVideo": true,
-   "description": "Jen Barber is interviewed for a position at Reynholm Industries."
-}
-,
-{
-   "title": "THE IT CROWD: 1-2 Calamity Jen",
-   "shortName": "1-2 Calamity Jen",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/1-2 Calamity Jen.mp4",
-   "length": 1463.103,
-   "isVideo": true,
-   "description": "Denholm mandates his employees to attend a stress seminar, threatening to fire those who still experience stress by the end of the day."
-}
-,
-{
-   "title": "THE IT CROWD: 1-3 Fifty-Fifty",
-   "shortName": "1-3 Fifty-Fifty",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/1-3 Fifty-Fifty.mp4",
-   "length": 1477.46,
-   "isVideo": true,
-   "description": "Roy's date with a young woman goes horribly wrong after she mistakes chocolate spread on his head for faeces."
-}
-,
-{
-   "title": "THE IT CROWD: 1-4 The Red Door",
-   "shortName": "1-4 The Red Door",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/1-4 The Red Door.mp4",
-   "length": 1421.652,
-   "isVideo": true,
-   "description": "Frustrated at the repeated theft of his coffee mug, Moss shows off a plain white one which supposedly has a picture of his head on the bottom; however, he is unable to find it."
-}
-,
-{
-   "title": "THE IT CROWD: 1-5 The Haunting of Bill Crouse",
-   "shortName": "1-5 The Haunting of Bill Crouse",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/1-5 The Haunting of Bill Crouse.mp4",
-   "length": 1432.383,
-   "isVideo": true,
-   "description": "Jen has a terrible dinner date with co-worker Bill Crouse."
-}
-,
-{
-   "title": "THE IT CROWD: 1-6 Aunt Irma Visits",
-   "shortName": "1-6 Aunt Irma Visits",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/1-6 Aunt Irma Visits.mp4",
-   "length": 1513.407,
-   "isVideo": true,
-   "description": "Denholm thanks everyone except for the IT department for their involvement in a successful project."
-}
-,
-{
-   "title": "THE IT CROWD: 2-1 The Work Outing",
-   "shortName": "2-1 The Work Outing",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/2-1 The Work Outing.mp4",
-   "length": 1494.932,
-   "isVideo": true,
-   "description": "Co-worker Phillip asks Jen on a date to watch a play."
-}
-,
-{
-   "title": "THE IT CROWD: 2-2 Return of the Golden Child",
-   "shortName": "2-2 Return of the Golden Child",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/2-2 Return of the Golden Child.mp4",
-   "length": 1399.615,
-   "isVideo": true,
-   "description": "Asking Roy questions about his lifestyle, Moss enters Roy's data into an Internet site that estimates a person's date of death."
-}
-,
-{
-   "title": "THE IT CROWD: 2-3 Moss and the German",
-   "shortName": "2-3 Moss and the German",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/2-3 Moss and the German.mp4",
-   "length": 1448.34,
-   "isVideo": true,
-   "description": "Roy and Moss try to watch a zombie film on DVD when Roy's friend calls him and is about to spoil the movie's plot twist."
-}
-,
-{
-   "title": "THE IT CROWD: 2-4 The Dinner Party",
-   "shortName": "2-4 The Dinner Party",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/2-4 The Dinner Party.mp4",
-   "length": 1299.284,
-   "isVideo": true,
-   "description": "Jen has finally found love with her new boyfriend Peter, and to celebrate their happiness they host a dinner party for six of their single friends."
-}
-,
-{
-   "title": "THE IT CROWD: 2-5 Smoke and Mirrors",
-   "shortName": "2-5 Smoke and Mirrors",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/2-5 Smoke and Mirrors.mp4",
-   "length": 1446.804,
-   "isVideo": true,
-   "description": "Roy comes back from a stag night unaware that he has been wearing lipstick."
-}
-,
-{
-   "title": "THE IT CROWD: 2-6 Men Without Women",
-   "shortName": "2-6 Men Without Women",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/2-6 Men Without Women.mp4",
-   "length": 1398.484,
-   "isVideo": true,
-   "description": "Douglas travels far and wide in his quest to bed Jen and is given rohypnol by a mysterious blind sorcerer."
-}
-,
-{
-   "title": "THE IT CROWD: 3-1 From Hell",
-   "shortName": "3-1 From Hell",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/3-1 From Hell.mp4",
-   "length": 1392.703,
-   "isVideo": true,
-   "description": "Roy suspects Jen's handyman Gary is a \"builder from hell\" who has a reputation of urinating in customers' sinks."
-}
-,
-{
-   "title": "THE IT CROWD: 3-2 Are We Not Men",
-   "shortName": "3-2 Are We Not Men",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/3-2 Are We Not Men.mp4",
-   "length": 1311.53,
-   "isVideo": true,
-   "description": "Moss and Roy use a football translation website to gather quotes to pass themselves off as knowledgeable football fans."
-}
-,
-{
-   "title": "THE IT CROWD: 3-3 Tramps Like Us",
-   "shortName": "3-3 Tramps Like Us",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/3-3 Tramps Like Us.mp4",
-   "length": 1319.658,
-   "isVideo": true,
-   "description": "Following the events of the series 2 episode finale, Jen, Moss and Roy receive a disappointing settlement from their sexual harassment lawsuit."
-}
-,
-{
-   "title": "THE IT CROWD: 3-4 The Speech",
-   "shortName": "3-4 The Speech",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/3-4 The Speech.mp4",
-   "length": 1445.46,
-   "isVideo": true,
-   "description": "Jen boasts about winning Employee of the Month and makes Roy and Moss write her acceptance speech."
-}
-,
-{
-   "title": "THE IT CROWD: 3-5 Friendface",
-   "shortName": "3-5 Friendface",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/3-5 Friendface.mp4",
-   "length": 1364.415,
-   "isVideo": true,
-   "description": "Jen persuades Roy and Moss to join the social networking site Friendface."
-}
-,
-{
-   "title": "THE IT CROWD: 3-6 Calendar Geeks",
-   "shortName": "3-6 Calendar Geeks",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/3-6 Calendar Geeks.mp4",
-   "length": 1418.964,
-   "isVideo": true,
-   "description": "Roy is overjoyed when the women from the seventh floor decide to make a nude calendar as a fundraiser."
-}
-,
-{
-   "title": "BLACKADDER: 4-3 Major Star",
-   "shortName": "4-3 Major Star",
-   "urlLocal": "media/channel-2/../Core/Blackadder/4-3 Major Star.mp4",
-   "length": 1740.052,
-   "isVideo": true,
-   "description": "The October Revolution in Moscow results in a Charlie Chaplin impression from Baldrick."
-}
-,
-{
-   "title": "BLACKADDER: 4-4 Private Plane",
-   "shortName": "4-4 Private Plane",
-   "urlLocal": "media/channel-2/../Core/Blackadder/4-4 Private Plane.mp4",
-   "length": 1732.073,
-   "isVideo": true,
-   "description": "Edmund, George and Baldrick join the Royal Flying Corps."
-}
-,
-{
-   "title": "BLACKADDER: 4-5 General Hospital",
-   "shortName": "4-5 General Hospital",
-   "urlLocal": "media/channel-2/../Core/Blackadder/4-5 General Hospital.mp4",
-   "length": 1679.06,
-   "isVideo": true,
-   "description": "Melchett orders Blackadder to unmask a spy working in a hospital."
-}
-,
-{
-   "title": "BLACKADDER: 4-6 Goodbyeee",
-   "shortName": "4-6 Goodbyeee",
-   "urlLocal": "media/channel-2/../Core/Blackadder/4-6 Goodbyeee.mp4",
-   "length": 1762.046,
-   "isVideo": true,
-   "description": "Blackadder, George and Baldrick are told they are going over the top the next day."
-}
-,
-{
-   "title": "BLACKADDER: Blackadder's Christmas Carol",
-   "shortName": "Blackadder's Christmas Carol",
-   "urlLocal": "media/channel-2/../Core/Blackadder/Blackadder's Christmas Carol.mp4",
-   "length": 2595.562,
-   "isVideo": true,
-   "description": "Ebenezer Blackadder gets a glimpse of his loathsome ancestors on Christmas Eve, 1850."
-}
-,
-{
    "title": "THE GOOD LIFE: 1-1 Plough Your Own Furrow",
    "shortName": "1-1 Plough Your Own Furrow",
    "urlLocal": "media/channel-2/../Core/The Good Life/1-1 Plough Your Own Furrow.mp4",
    "length": 1656.046,
    "isVideo": true,
    "description": "Tom decides that commuting is no life for a thinking man and devises a unique solution."
-}
-,
-{
-   "title": "FATHER TED: 2-6 The Plague",
-   "shortName": "2-6 The Plague",
-   "urlLocal": "media/channel-2/../Core/Father Ted/2- 6 The Plague.mp4",
-   "length": 1428.586,
-   "isVideo": true,
-   "description": "The parochial house is infested by rabbits, just as the very rabbit-phobic Bishop Brennan plans a visit."
-}
-,
-{
-   "title": "FATHER TED: 2-7 Rock-a-Hula Ted",
-   "shortName": "2-7 Rock-a-Hula Ted",
-   "urlLocal": "media/channel-2/../Core/Father Ted/2- 7 Rock-a-Hula Ted.mp4",
-   "length": 1453.802,
-   "isVideo": true,
-   "description": "A female singer (a parody of Sinéad O'Connor) visits the island just when Ted is judging the annual Lovely Girls competition."
-}
-,
-{
-   "title": "FATHER TED: 2-8 Cigarettes and Alcohol and Rollerblading",
-   "shortName": "2-8 Cigarettes and Alcohol and Rollerblading",
-   "urlLocal": "media/channel-2/../Core/Father Ted/2- 8 Cigarettes and Alcohol and Rollerblading.mp4",
-   "length": 1457.002,
-   "isVideo": true,
-   "description": "In a game of one-upmanship with Dick Byrne, Ted decides the three priests must give something up for Lent."
-}
-,
-{
-   "title": "FATHER TED: 2-9 New Jack City",
-   "shortName": "2-9 New Jack City",
-   "urlLocal": "media/channel-2/../Core/Father Ted/2- 9 New Jack City.mp4",
-   "length": 1390.996,
-   "isVideo": true,
-   "description": "Jack's hairy hands get him sent to an old priests' home."
-}
-,
-{
-   "title": "THE IT CROWD: 4-6 Reynholm vs Reynholm",
-   "shortName": "4-6 Reynholm vs Reynholm",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/4-6 Reynholm vs Reynholm.mp4",
-   "length": 1450.815,
-   "isVideo": true,
-   "description": "Douglas's second wife Victoria, who had disappeared after two weeks of marriage, reunites with Douglas."
-}
-,
-{
-   "title": "THE GOOD LIFE: 2-6 Home Sweet Home",
-   "shortName": "2-6 Home Sweet Home",
-   "urlLocal": "media/channel-2/../Core/The Good Life/2-6 Home Sweet Home.mp4",
-   "length": 1725.119,
-   "isVideo": true,
-   "description": "A boar walker visits the Goods' estates."
-}
-,
-{
-   "title": "THE GOOD LIFE: 2-7 Going to Pot",
-   "shortName": "2-7 Going to Pot",
-   "urlLocal": "media/channel-2/../Core/The Good Life/2-7 Going to Pot.mp4",
-   "length": 1741.119,
-   "isVideo": true,
-   "description": "Tom and Barbara's evening class becomes unusually productive."
-}
-,
-{
-   "title": "THE GOOD LIFE: 3-1 The Early Birds",
-   "shortName": "3-1 The Early Birds",
-   "urlLocal": "media/channel-2/../Core/The Good Life/3-1 The Early Birds.mp4",
-   "length": 1796.116,
-   "isVideo": true,
-   "description": "The Leadbetters have had enough of the Goods' early morning activities."
-}
-,
-{
-   "title": "THE GOOD LIFE: 3-2 The Happy Event",
-   "shortName": "3-2 The Happy Event",
-   "urlLocal": "media/channel-2/../Core/The Good Life/3-2 The Happy Event.mp4",
-   "length": 1717.119,
-   "isVideo": true,
-   "description": "A 400 per cent increase in their livestock population is a source of joy for the Goods."
-}
-,
-{
-   "title": "THE GOOD LIFE: 3-3 A Tug of the Forelock",
-   "shortName": "3-3 A Tug of the Forelock",
-   "urlLocal": "media/channel-2/../Core/The Good Life/3-3 A Tug of the Forelock.mp4",
-   "length": 1685.119,
-   "isVideo": true,
-   "description": "Tom revamps his cultivator, and Barbara becomes the Leadbetters' housekeeper."
-}
-,
-{
-   "title": "THE GOOD LIFE: 3-4 I Talk to the Trees",
-   "shortName": "3-4 I Talk to the Trees",
-   "urlLocal": "media/channel-2/../Core/The Good Life/3-4 I Talk to the Trees.mp4",
-   "length": 1766.783,
-   "isVideo": true,
-   "description": "The Goods experiment with talking to their plants to see if they will grow more."
-}
-,
-{
-   "title": "THE GOOD LIFE: 3-5 The Wind-Break War",
-   "shortName": "3-5 The Wind-Break War",
-   "urlLocal": "media/channel-2/../Core/The Good Life/3-5 The Wind-Break War.mp4",
-   "length": 1793.108,
-   "isVideo": true,
-   "description": "War breaks out between the Goods and the Leadbetters."
-}
-,
-{
-   "title": "THE GOOD LIFE: 3-6 Whose Fleas are These",
-   "shortName": "3-6 Whose Fleas are These",
-   "urlLocal": "media/channel-2/../Core/The Good Life/3-6 Whose Fleas are These.mp4",
-   "length": 1732.116,
-   "isVideo": true,
-   "description": "Tom and Barbara find themselves with fleas."
-}
-,
-{
-   "title": "YES MINISTER: 5-6 The Patron of the Arts",
-   "shortName": "5-6 The Patron of the Arts",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/5-6 The Patron of the Arts.mp4",
-   "length": 1682.943,
-   "isVideo": true,
-   "description": "Sir Humphrey tells a friend in the arts that the government is planning to cut grants."
-}
-,
-{
-   "title": "YES MINISTER: 5-7 The National Education Service",
-   "shortName": "5-7 The National Education Service",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/5-7 The National Education Service.mp4",
-   "length": 1800.959,
-   "isVideo": true,
-   "description": "Hacker's decision to abolish the Department of Education and Science appauls Sir Humphrey."
-}
-,
-{
-   "title": "YES MINISTER: 5-8 The Tangled Web",
-   "shortName": "5-8 The Tangled Web",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/5-8 The Tangled Web.mp4",
-   "length": 1694.913,
-   "isVideo": true,
-   "description": "Hacker denies that MPs' phones are tapped, only to be told by Sir Humphrey that they are."
-}
-,
-{
-   "title": "THE IT CROWD: 5-1 The Internet is Coming",
-   "shortName": "5-1 The Internet is Coming",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/5-1 The Internet is Coming.mp4",
-   "length": 2885.055,
-   "isVideo": true,
-   "description": "Roy accompanies his girlfriend Alice to her grandfather's funeral, where a disaster involving pepper spray makes things much worse."
-}
-,
-{
-   "title": "BLACKADDER: 2-6 Chains",
-   "shortName": "2-6 Chains",
-   "urlLocal": "media/channel-2/../Core/Blackadder/2-6 Chains.mp4",
-   "length": 1756.906,
-   "isVideo": true,
-   "description": "The evil Prince Ludwig kidnaps both Blackadder and Lord Melchett."
-}
-,
-{
-   "title": "BLACKADDER: 3-1 Dish and Dishonesty",
-   "shortName": "3-1 Dish and Dishonesty",
-   "urlLocal": "media/channel-2/../Core/Blackadder/3-1 Dish and Dishonesty.mp4",
-   "length": 1761.044,
-   "isVideo": true,
-   "description": "Edmund Blackadder Esq, butler to the Prince Regent, tries to get Baldrick elected as an MP."
-}
-,
-{
-   "title": "BLACKADDER: 3-2 Ink and Incapability",
-   "shortName": "3-2 Ink and Incapability",
-   "urlLocal": "media/channel-2/../Core/Blackadder/3-2 Ink and Incapability.mp4",
-   "length": 1755.519,
-   "isVideo": true,
-   "description": "When Dr Samuel Johnson's dictionary is used for firewood, Edmund must rewrite it."
-}
-,
-{
-   "title": "BLACKADDER: 3-3 Nob and Nobility",
-   "shortName": "3-3 Nob and Nobility",
-   "urlLocal": "media/channel-2/../Core/Blackadder/3-3 Nob and Nobility.mp4",
-   "length": 1791.04,
-   "isVideo": true,
-   "description": "Revolution sweeps France and Edmund takes advantage of the Scarlet Pimpernel's popularity."
 }
 ,
 {
@@ -1037,273 +1046,102 @@
 }
 ,
 {
-   "title": "THE GOOD LIFE: 2-5 Mutiny",
-   "shortName": "2-5 Mutiny",
-   "urlLocal": "media/channel-2/../Core/The Good Life/2-5 Mutiny.mp4",
-   "length": 1702.122,
+   "title": "BLACKADDER: 3-3 Nob and Nobility",
+   "shortName": "3-3 Nob and Nobility",
+   "urlLocal": "media/channel-2/../Core/Blackadder/3-3 Nob and Nobility.mp4",
+   "length": 1791.04,
    "isVideo": true,
-   "description": "It's Margo's first night in the Sound of Music, and Jerry receives some unpleasant news."
+   "description": "Revolution sweeps France and Edmund takes advantage of the Scarlet Pimpernel's popularity."
 }
 ,
 {
-   "title": "SAM WILLIS: Shipwrecks - Britains Sunken History 3",
-   "shortName": "Shipwrecks - Britains Sunken History 3",
-   "urlLocal": "media/channel-2/../Core/Sam Willis/Shipwrecks -  Britains Sunken History 3.mp4",
-   "length": 3573,
+   "title": "BLACKADDER: 3-4 Sense and Senility",
+   "shortName": "3-4 Sense and Senility",
+   "urlLocal": "media/channel-2/../Core/Blackadder/3-4 Sense and Senility.mp4",
+   "length": 1595.066,
    "isVideo": true,
-   "description": "How the Victorians found solutions to prevent the huge losses shipwrecks caused."
+   "description": "George hires two actors to tutor him in public speaking while trying to avoid anarchists."
 }
 ,
 {
-   "title": "SAM WILLIS: Sword Musket Machine Gun - Britains Armed History 1",
-   "shortName": "Sword Musket Machine Gun - Britains Armed History 1",
-   "urlLocal": "media/channel-2/../Core/Sam Willis/Sword Musket Machine Gun -  Britains Armed History 1.mp4",
-   "length": 3537.14,
+   "title": "BLACKADDER: 3-5 Amy and Amiability",
+   "shortName": "3-5 Amy and Amiability",
+   "urlLocal": "media/channel-2/../Core/Blackadder/3-5 Amy and Amiability.mp4",
+   "length": 1765.055,
    "isVideo": true,
-   "description": "Dr Sam Willis discovers how medieval weapons shaped Britain."
+   "description": "Edmund sets out to find the regent a bride with a big dowry."
 }
 ,
 {
-   "title": "SAM WILLIS: Sword Musket Machine Gun - Britains Armed History 2",
-   "shortName": "Sword Musket Machine Gun - Britains Armed History 2",
-   "urlLocal": "media/channel-2/../Core/Sam Willis/Sword Musket Machine Gun -  Britains Armed History 2.mp4",
-   "length": 3540.06,
+   "title": "BLACKADDER: 3-6 Duel and Duality",
+   "shortName": "3-6 Duel and Duality",
+   "urlLocal": "media/channel-2/../Core/Blackadder/3-6 Duel and Duality.mp4",
+   "length": 1792.046,
    "isVideo": true,
-   "description": "The impact of gunpowder on the battlefield, from cannons to early handheld weapons."
+   "description": "The prince is challenged to a duel by the fearsome Duke of Wellington."
 }
 ,
 {
-   "title": "THE IT CROWD: 4-1 Jen the Fredo",
-   "shortName": "4-1 Jen the Fredo",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/4-1 Jen the Fredo.mp4",
-   "length": 1460.82,
+   "title": "BLACKADDER: 4-1 Captain Cook",
+   "shortName": "4-1 Captain Cook",
+   "urlLocal": "media/channel-2/../Core/Blackadder/4-1 Captain Cook.mp4",
+   "length": 1748.046,
    "isVideo": true,
-   "description": "Roy is depressed over his recent breakup with his girlfriend."
+   "description": "Edmund is sent into no man's land to sketch the German positions."
 }
 ,
 {
-   "title": "THE IT CROWD: 4-2 The Final Countdown",
-   "shortName": "4-2 The Final Countdown",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/4-2 The Final Countdown.mp4",
-   "length": 1421.247,
+   "title": "BLACKADDER: 4-2 Corporal Punishment",
+   "shortName": "4-2 Corporal Punishment",
+   "urlLocal": "media/channel-2/../Core/Blackadder/4-2 Corporal Punishment.mp4",
+   "length": 1761.053,
    "isVideo": true,
-   "description": "Following a successful run on the popular quiz show Countdown, Moss is invited to \"8+\", an exclusive club for previous champions of the game show who have appeared over eight times."
+   "description": "Blackadder faces court martial for eating a carrier pigeon."
 }
 ,
 {
-   "title": "SAM WILLIS: Britain's Outlaws 1 - Highwaymen",
-   "shortName": "Britain's Outlaws 1 - Highwaymen",
-   "urlLocal": "media/channel-2/../Core/Sam Willis/Britain's Outlaws 1 -  Highwaymen.mp4",
-   "length": 3559,
+   "title": "BLACKADDER: 4-3 Major Star",
+   "shortName": "4-3 Major Star",
+   "urlLocal": "media/channel-2/../Core/Blackadder/4-3 Major Star.mp4",
+   "length": 1740.052,
    "isVideo": true,
-   "description": "Though romanticised in literature, the highwayman became a social menace on the roads."
+   "description": "The October Revolution in Moscow results in a Charlie Chaplin impression from Baldrick."
 }
 ,
 {
-   "title": "SAM WILLIS: Britain's Outlaws 2 - Pirates",
-   "shortName": "Britain's Outlaws 2 - Pirates",
-   "urlLocal": "media/channel-2/../Core/Sam Willis/Britain's Outlaws 2 -  Pirates.mp4",
-   "length": 3536.04,
+   "title": "BLACKADDER: 4-4 Private Plane",
+   "shortName": "4-4 Private Plane",
+   "urlLocal": "media/channel-2/../Core/Blackadder/4-4 Private Plane.mp4",
+   "length": 1732.073,
    "isVideo": true,
-   "description": "Charting the devastating impact pirates had during an age of colonial expansion."
+   "description": "Edmund, George and Baldrick join the Royal Flying Corps."
 }
 ,
 {
-   "title": "SAM WILLIS: Britain's Outlaws 3 - Rogues",
-   "shortName": "Britain's Outlaws 3 - Rogues",
-   "urlLocal": "media/channel-2/../Core/Sam Willis/Britain's Outlaws 3 -  Rogues.mp4",
-   "length": 3539.04,
+   "title": "BLACKADDER: 4-5 General Hospital",
+   "shortName": "4-5 General Hospital",
+   "urlLocal": "media/channel-2/../Core/Blackadder/4-5 General Hospital.mp4",
+   "length": 1679.06,
    "isVideo": true,
-   "description": "Sam Willis looks at urban crime, fraud and corruption in the 18th century."
+   "description": "Melchett orders Blackadder to unmask a spy working in a hospital."
 }
 ,
 {
-   "title": "SAM WILLIS: Invasion! 1",
-   "shortName": "Invasion! 1",
-   "urlLocal": "media/channel-2/../Core/Sam Willis/Invasion! 1.mp4",
-   "length": 3540.04,
+   "title": "BLACKADDER: 4-6 Goodbyeee",
+   "shortName": "4-6 Goodbyeee",
+   "urlLocal": "media/channel-2/../Core/Blackadder/4-6 Goodbyeee.mp4",
+   "length": 1762.046,
    "isVideo": true,
-   "description": "Sam Willis gets to grips with Viking boat technology and rides an Iron Age chariot."
+   "description": "Blackadder, George and Baldrick are told they are going over the top the next day."
 }
 ,
 {
-   "title": "SAM WILLIS: Invasion! 2",
-   "shortName": "Invasion! 2",
-   "urlLocal": "media/channel-2/../Core/Sam Willis/Invasion! 2.mp4",
-   "length": 3539.04,
+   "title": "BLACKADDER: Blackadder's Christmas Carol",
+   "shortName": "Blackadder's Christmas Carol",
+   "urlLocal": "media/channel-2/../Core/Blackadder/Blackadder's Christmas Carol.mp4",
+   "length": 2595.562,
    "isVideo": true,
-   "description": "Sam tells the story of the Barbary Corsaire pirates, and the tale of King Louis the Lion."
-}
-,
-{
-   "title": "SAM WILLIS: Invasion! 3",
-   "shortName": "Invasion! 3",
-   "urlLocal": "media/channel-2/../Core/Sam Willis/Invasion! 3.mp4",
-   "length": 3517.04,
-   "isVideo": true,
-   "description": "Sam Willis discovers the ingenious French plans to invade Britain by balloon."
-}
-,
-{
-   "title": "SAM WILLIS: Shipwrecks - Britains Sunken History 1",
-   "shortName": "Shipwrecks - Britains Sunken History 1",
-   "urlLocal": "media/channel-2/../Core/Sam Willis/Shipwrecks -  Britains Sunken History 1.mp4",
-   "length": 3515,
-   "isVideo": true,
-   "description": "The stories behind the top-heavy Mary Rose and the wrecking of the Spanish Armada."
-}
-,
-{
-   "title": "SAM WILLIS: Shipwrecks - Britains Sunken History 2",
-   "shortName": "Shipwrecks - Britains Sunken History 2",
-   "urlLocal": "media/channel-2/../Core/Sam Willis/Shipwrecks -  Britains Sunken History 2.mp4",
-   "length": 3540,
-   "isVideo": true,
-   "description": "The story of shipwrecks moves into the Georgian age, when Britain ruled the waves."
-}
-,
-{
-   "title": "SAM WILLIS: Sword Musket Machine Gun - Britains Armed History 3",
-   "shortName": "Sword Musket Machine Gun - Britains Armed History 3",
-   "urlLocal": "media/channel-2/../Core/Sam Willis/Sword Musket Machine Gun -  Britains Armed History 3.mp4",
-   "length": 3530.06,
-   "isVideo": true,
-   "description": "Dr Sam Willis looks at the drive to develop ever more precise weapons on the battlefield."
-}
-,
-{
-   "title": "BLACKADDER: 2-1 Bells",
-   "shortName": "2-1 Bells",
-   "urlLocal": "media/channel-2/../Core/Blackadder/2-1 Bells.mp4",
-   "length": 1811.903,
-   "isVideo": true,
-   "description": "Blackadder is struck by Cupid's arrow when he takes on a new servant - a girl named Bob."
-}
-,
-{
-   "title": "BLACKADDER: 2-2 Head",
-   "shortName": "2-2 Head",
-   "urlLocal": "media/channel-2/../Core/Blackadder/2-2 Head.mp4",
-   "length": 1605.066,
-   "isVideo": true,
-   "description": "Edmund is appointed lord high executioner and beheads a man early to have some time off."
-}
-,
-{
-   "title": "BLACKADDER: 2-3 Potato",
-   "shortName": "2-3 Potato",
-   "urlLocal": "media/channel-2/../Core/Blackadder/2-3 Potato.mp4",
-   "length": 1804.073,
-   "isVideo": true,
-   "description": "Edmund decides to navigate the Cape of Good Hope after Sir Walter Raleigh's success."
-}
-,
-{
-   "title": "BLACKADDER: 2-4 Money",
-   "shortName": "2-4 Money",
-   "urlLocal": "media/channel-2/../Core/Blackadder/2-4 Money.mp4",
-   "length": 1795.746,
-   "isVideo": true,
-   "description": "Edmund is in trouble when he is visited by a bishop armed with a red-hot poker."
-}
-,
-{
-   "title": "BLACKADDER: 2-5 Beer",
-   "shortName": "2-5 Beer",
-   "urlLocal": "media/channel-2/../Core/Blackadder/2-5 Beer.mp4",
-   "length": 1753.58,
-   "isVideo": true,
-   "description": "Problems arise after an embarrassing incident with a turnip, a feather and a fat aunt."
-}
-,
-{
-   "title": "FAWLTY TOWERS: 1-2 The Builders",
-   "shortName": "1-2 The Builders",
-   "urlLocal": "media/channel-2/../Core/Fawlty Towers/1-2 The Builders.mp4",
-   "length": 1695,
-   "isVideo": true,
-   "description": "Maintenance is made on the lobby while the Fawltys are out, but a misreading causes the incompetent builders to mess it up spectacularly."
-}
-,
-{
-   "title": "FAWLTY TOWERS: 1-3 The Wedding Party",
-   "shortName": "1-3 The Wedding Party",
-   "urlLocal": "media/channel-2/../Core/Fawlty Towers/1-3 The Wedding Party.mp4",
-   "length": 1998.015,
-   "isVideo": true,
-   "description": "Basil gets annoyed when a young, flirtatious couple start \"hanky-pankying\" under his nose."
-}
-,
-{
-   "title": "FAWLTY TOWERS: 1-4 The Hotel Inspectors",
-   "shortName": "1-4 The Hotel Inspectors",
-   "urlLocal": "media/channel-2/../Core/Fawlty Towers/1-4 The Hotel Inspectors.mp4",
-   "length": 1726.42,
-   "isVideo": true,
-   "description": "When Basil hears of hotel inspectors roaming Torquay incognito, he realises with horror that guests he has been abusing could easily be among them."
-}
-,
-{
-   "title": "FAWLTY TOWERS: 1-5 Gourmet Night",
-   "shortName": "1-5 Gourmet Night",
-   "urlLocal": "media/channel-2/../Core/Fawlty Towers/1-5 Gourmet Night.mp4",
-   "length": 1715.028,
-   "isVideo": true,
-   "description": "In an effort to climb another rung in the social ladder, Basil arranges a gourmet night."
-}
-,
-{
-   "title": "FAWLTY TOWERS: 1-6 The Germans",
-   "shortName": "1-6 The Germans",
-   "urlLocal": "media/channel-2/../Core/Fawlty Towers/1-6 The Germans.mp4",
-   "length": 1873.62,
-   "isVideo": true,
-   "description": "With Sybil in the hospital with an ingrowing toenail, a moose's head to hang up and some German guests arriving the next day, Basil has his work cut out for him."
-}
-,
-{
-   "title": "FAWLTY TOWERS: 2-1 Communication Problems",
-   "shortName": "2-1 Communication Problems",
-   "urlLocal": "media/channel-2/../Core/Fawlty Towers/2-1 Communication Problems.mp4",
-   "length": 1883.028,
-   "isVideo": true,
-   "description": "The arrival of the \"guest from hell\", a rather deaf, domineering and bad-tempered woman interferes with Basil's attempts to prevent the money he won on a racehorse from being discovered by Sybil."
-}
-,
-{
-   "title": "FAWLTY TOWERS: 2-2 The Psychiatrist",
-   "shortName": "2-2 The Psychiatrist",
-   "urlLocal": "media/channel-2/../Core/Fawlty Towers/2-2 The Psychiatrist.mp4",
-   "length": 2176.02,
-   "isVideo": true,
-   "description": "A psychiatrist and his wife come to the hotel for a weekend break, and cannot help but notice the eccentricities of their host."
-}
-,
-{
-   "title": "FAWLTY TOWERS: 2-3 Waldorf Salad",
-   "shortName": "2-3 Waldorf Salad",
-   "urlLocal": "media/channel-2/../Core/Fawlty Towers/2-3 Waldorf Salad.mp4",
-   "length": 1922.026,
-   "isVideo": true,
-   "description": "Basil is not altogether keen on a loud and demanding American guest who demands a higher class of service (and food) than Fawlty Towers is accustomed to providing."
-}
-,
-{
-   "title": "FAWLTY TOWERS: 2-4 The Kipper and the Corpse",
-   "shortName": "2-4 The Kipper and the Corpse",
-   "urlLocal": "media/channel-2/../Core/Fawlty Towers/2-4 The Kipper and the Corpse.mp4",
-   "length": 1893.61,
-   "isVideo": true,
-   "description": "With no regard to Basil's blood pressure, a guest dies at the hotel and Basil and the staff are left with the unpleasant task of removing the body discreetly."
-}
-,
-{
-   "title": "FATHER TED: A Christmassy Ted",
-   "shortName": "A Christmassy Ted",
-   "urlLocal": "media/channel-2/../Core/Father Ted/A Christmassy Ted.mp4",
-   "length": 3301.012,
-   "isVideo": true,
-   "description": "Ted's quick thinking whilst lost in a department store's lingerie department earns him the coveted Golden Cleric award."
+   "description": "Ebenezer Blackadder gets a glimpse of his loathsome ancestors on Christmas Eve, 1850."
 }
 ,
 {
@@ -1361,6 +1199,60 @@
 }
 ,
 {
+   "title": "SPACED: 2-6 Dissolution",
+   "shortName": "2-6 Dissolution",
+   "urlLocal": "media/channel-2/../Core/Spaced/2-6 Dissolution.mp4",
+   "length": 1558.036,
+   "isVideo": true,
+   "description": "At Daisy's birthday party, cracks begin to form between members of the group."
+}
+,
+{
+   "title": "SPACED: 2-7 Leaves",
+   "shortName": "2-7 Leaves",
+   "urlLocal": "media/channel-2/../Core/Spaced/2-7 Leaves.mp4",
+   "length": 1567.039,
+   "isVideo": true,
+   "description": "Marsha, having discovered that Daisy and Tim had lied to her and maintained their deception ever since moving in, is devastated, and decides to sell the house."
+}
+,
+{
+   "title": "CHASING THE MOON: 1 - A Place Beyond the Sky",
+   "shortName": "1 - A Place Beyond the Sky",
+   "urlLocal": "media/channel-2/../Core/Chasing the Moon/1 -  A Place Beyond the Sky.mp4",
+   "length": 2871.06,
+   "isVideo": true,
+   "description": "America's race to the moon begins with Soviet Russia's launch of Sputnik 1."
+}
+,
+{
+   "title": "CHASING THE MOON: 2 - A Place Beyond the Sky",
+   "shortName": "2 - A Place Beyond the Sky",
+   "urlLocal": "media/channel-2/../Core/Chasing the Moon/2 -  A Place Beyond the Sky.mp4",
+   "length": 2867.06,
+   "isVideo": true,
+   "description": "How America's space exploration technology caught up with the Soviet Union's."
+}
+,
+{
+   "title": "CHASING THE MOON: 3 - Earthrise",
+   "shortName": "3 - Earthrise",
+   "urlLocal": "media/channel-2/../Core/Chasing the Moon/3 -  Earthrise.mp4",
+   "length": 2870.06,
+   "isVideo": true,
+   "description": "A training exercise ends in tragedy, risking the future of the entire US space programme."
+}
+,
+{
+   "title": "CHASING THE MOON: 4 - Earthrise",
+   "shortName": "4 - Earthrise",
+   "urlLocal": "media/channel-2/../Core/Chasing the Moon/4 -  Earthrise.mp4",
+   "length": 2832.06,
+   "isVideo": true,
+   "description": "Within two years of the Apollo 1 tragedy, America sent a manned flight to the moon."
+}
+,
+{
    "title": "SPACED: 1-7 Ends",
    "shortName": "1-7 Ends",
    "urlLocal": "media/channel-2/../Core/Spaced/1-7 Ends.mp4",
@@ -1415,48 +1307,201 @@
 }
 ,
 {
-   "title": "SPACED: 2-6 Dissolution",
-   "shortName": "2-6 Dissolution",
-   "urlLocal": "media/channel-2/../Core/Spaced/2-6 Dissolution.mp4",
-   "length": 1558.036,
+   "title": "REGINALD PERRIN: 2-3",
+   "shortName": "2-3",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-3.mp4",
+   "length": 1648.7,
    "isVideo": true,
-   "description": "At Daisy's birthday party, cracks begin to form between members of the group."
+   "description": "Reggie has an idea for making a fortune: a shop that sells total rubbish."
 }
 ,
 {
-   "title": "SPACED: 2-7 Leaves",
-   "shortName": "2-7 Leaves",
-   "urlLocal": "media/channel-2/../Core/Spaced/2-7 Leaves.mp4",
-   "length": 1567.039,
+   "title": "REGINALD PERRIN: 2-4",
+   "shortName": "2-4",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-4.mp4",
+   "length": 1893.2,
    "isVideo": true,
-   "description": "Marsha, having discovered that Daisy and Tim had lied to her and maintained their deception ever since moving in, is devastated, and decides to sell the house."
+   "description": "Grot is a huge success selling all sorts of useless products."
 }
 ,
 {
-   "title": "YES MINISTER: 1-1 Open Government",
-   "shortName": "1-1 Open Government",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/1-1 Open Government.mp4",
-   "length": 1739.903,
+   "title": "REGINALD PERRIN: 2-5",
+   "shortName": "2-5",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-5.mp4",
+   "length": 1713.4,
    "isVideo": true,
-   "description": "First episode of the acclaimed sitcom about a hapless British government minister."
+   "description": "Sunshine Desserts goes bankrupt and Reggie hires his old coworkers and boss to Grot."
 }
 ,
 {
-   "title": "YES MINISTER: 1-2 The Official Visit",
-   "shortName": "1-2 The Official Visit",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/1-2 The Official Visit.mp4",
-   "length": 1694.911,
+   "title": "REGINALD PERRIN: 2-6",
+   "shortName": "2-6",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-6.mp4",
+   "length": 1907.44,
    "isVideo": true,
-   "description": "Hacker recognises a visiting head of an African nation as an old friend."
+   "description": "Reggie is bored with his success and plans to destroy Grot by hiring totally unsuitable people."
 }
 ,
 {
-   "title": "YES MINISTER: 1-3 The Economy Drive",
-   "shortName": "1-3 The Economy Drive",
-   "urlLocal": "media/channel-2/../Core/Yes Minister/1-3 The Economy Drive.mp4",
-   "length": 1709.908,
+   "title": "REGINALD PERRIN: 2-7",
+   "shortName": "2-7",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-7.mp4",
+   "length": 1838.46,
    "isVideo": true,
-   "description": "Jim Hacker wants to implement some cost-cutting initiatives; Sir Humphrey does not."
+   "description": "Reggie's plan fails."
+}
+,
+{
+   "title": "REGINALD PERRIN: 3-1",
+   "shortName": "3-1",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-1.mp4",
+   "length": 1602,
+   "isVideo": true,
+   "description": "Reggie decides to open a commune helping people to live in peace and harmony."
+}
+,
+{
+   "title": "REGINALD PERRIN: 3-2",
+   "shortName": "3-2",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-2.mp4",
+   "length": 1978.98,
+   "isVideo": true,
+   "description": "Having recruited all the old faces, Reggie welcomes his one and only guest to \"Perrin's\"."
+}
+,
+{
+   "title": "REGINALD PERRIN: 3-3",
+   "shortName": "3-3",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-3.mp4",
+   "length": 2026.82,
+   "isVideo": true,
+   "description": "After a unique advertising campaign, \"Perrin's\" gains another guest."
+}
+,
+{
+   "title": "REGINALD PERRIN: 3-4",
+   "shortName": "3-4",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-4.mp4",
+   "length": 1835.5,
+   "isVideo": true,
+   "description": "Business is booming and Reggie is content."
+}
+,
+{
+   "title": "REGINALD PERRIN: 3-5",
+   "shortName": "3-5",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-5.mp4",
+   "length": 1747.98,
+   "isVideo": true,
+   "description": "Money and jewellery begin to disappear at Perrin's and a female guest starts to be suggestive with the male staff."
+}
+,
+{
+   "title": "REGINALD PERRIN: 3-6",
+   "shortName": "3-6",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-6.mp4",
+   "length": 1783.98,
+   "isVideo": true,
+   "description": "Perrin's loses face in the community as McBlane attacks a Salvation Army woman."
+}
+,
+{
+   "title": "REGINALD PERRIN: 3-7",
+   "shortName": "3-7",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/3-7.mp4",
+   "length": 1782.96,
+   "isVideo": true,
+   "description": "Perrin's closes and everyone says their goodbyes."
+}
+,
+{
+   "title": "CATTERICK: (1 of 6)",
+   "shortName": "(1 of 6)",
+   "urlLocal": "media/channel-2/../Core/Catterick/(1 of 6).m4v",
+   "length": 1698.434,
+   "isVideo": true,
+   "description": "Chris and Carl are brothers who are reunited after 15 years in a desperate search for Carl's son Paul."
+}
+,
+{
+   "title": "FATHER TED: 1-6 Grant Unto Him Eternal Rest",
+   "shortName": "1-6 Grant Unto Him Eternal Rest",
+   "urlLocal": "media/channel-2/../Core/Father Ted/1-6 Grant Unto Him Eternal Rest.mp4",
+   "length": 1471.316,
+   "isVideo": true,
+   "description": "Father Ted is unconcerned when he discovers Jack has drunk a bottle of floor polish, but a lack of pulse and no breathing can only mean one thing, Father Jack is dead."
+}
+,
+{
+   "title": "FATHER TED: 2-1 Hell",
+   "shortName": "2-1 Hell",
+   "urlLocal": "media/channel-2/../Core/Father Ted/2- 1 Hell.mp4",
+   "length": 1456.596,
+   "isVideo": true,
+   "description": "Ted, Dougal and Jack take their annual holiday and encounter Father Noel Furlong."
+}
+,
+{
+   "title": "FATHER TED: 2-2 Think Fast, Father Ted",
+   "shortName": "2-2 Think Fast, Father Ted",
+   "urlLocal": "media/channel-2/../Core/Father Ted/2- 2 Think Fast, Father Ted.mp4",
+   "length": 1455.978,
+   "isVideo": true,
+   "description": "When Ted holds a raffle, he destroys the prize - a new car."
+}
+,
+{
+   "title": "FATHER TED: 2-3 Tentacles of Doom",
+   "shortName": "2-3 Tentacles of Doom",
+   "urlLocal": "media/channel-2/../Core/Father Ted/2- 3 Tentacles of Doom.mp4",
+   "length": 1483.306,
+   "isVideo": true,
+   "description": "Three bishops visit the island."
+}
+,
+{
+   "title": "FATHER TED: 2-4 Old Grey Whistle Theft",
+   "shortName": "2-4 Old Grey Whistle Theft",
+   "urlLocal": "media/channel-2/../Core/Father Ted/2- 4 Old Grey Whistle Theft.mp4",
+   "length": 1459.604,
+   "isVideo": true,
+   "description": "Dougal starts hanging around with a rebellious priest, Father Damo Lennon."
+}
+,
+{
+   "title": "FATHER TED: 2-5 A Song for Europe",
+   "shortName": "2-5 A Song for Europe",
+   "urlLocal": "media/channel-2/../Core/Father Ted/2- 5 A Song for Europe.mp4",
+   "length": 1441.002,
+   "isVideo": true,
+   "description": "Ted is goaded by Father Dick Byrne into attempting to write a song for \"Eurosong '96\"."
+}
+,
+{
+   "title": "REGINALD PERRIN: 1-7",
+   "shortName": "1-7",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-7.mp4",
+   "length": 1738.62,
+   "isVideo": true,
+   "description": "Reggie returns as Martin Wellbourne, attends his own memorial service, and wins back Elizabeth."
+}
+,
+{
+   "title": "REGINALD PERRIN: 2-1",
+   "shortName": "2-1",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-1.mp4",
+   "length": 1702.46,
+   "isVideo": true,
+   "description": "Reggie reveals his true identity and CJ promptly fires him."
+}
+,
+{
+   "title": "REGINALD PERRIN: 2-2",
+   "shortName": "2-2",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-2.mp4",
+   "length": 1854.46,
+   "isVideo": true,
+   "description": "Reggie is reduced to working at Mr Pelham's pig farm and Elizabeth decides to get a job."
 }
 ,
 {
@@ -1622,12 +1667,615 @@
 }
 ,
 {
+   "title": "YES MINISTER: 3-8 Party Games",
+   "shortName": "3-8 Party Games",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/3-8 Party Games.mp4",
+   "length": 3648.906,
+   "isVideo": true,
+   "description": "The seasonal festivities are overshadowed by rumours of a cabinet reshuffle."
+}
+,
+{
+   "title": "YES MINISTER: 4-1 The Grand Design",
+   "shortName": "4-1 The Grand Design",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/4-1 The Grand Design.mp4",
+   "length": 1774.954,
+   "isVideo": true,
+   "description": "Jim Hacker discovers some interesting facts about the UK's defence system."
+}
+,
+{
+   "title": "YES MINISTER: 4-2 The Ministerial Broadcast",
+   "shortName": "4-2 The Ministerial Broadcast",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/4-2 The Ministerial Broadcast.mp4",
+   "length": 1766.954,
+   "isVideo": true,
+   "description": "Hacker prepares to make his first broadcast as prime minister."
+}
+,
+{
+   "title": "YES MINISTER: 4-3 The Smoke Screen",
+   "shortName": "4-3 The Smoke Screen",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/4-3 The Smoke Screen.mp4",
+   "length": 1767.956,
+   "isVideo": true,
+   "description": "Jim Hacker threatens smokers with tax rises as part of a ploy to get around the Treasury."
+}
+,
+{
+   "title": "YES MINISTER: 4-4 The Key",
+   "shortName": "4-4 The Key",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/4-4 The Key.mp4",
+   "length": 1763.946,
+   "isVideo": true,
+   "description": "The PM's political advisor tells Jim that he is letting Humphrey become too dominant."
+}
+,
+{
+   "title": "YES MINISTER: 4-5 A Real Partnership",
+   "shortName": "4-5 A Real Partnership",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/4-5 A Real Partnership.mp4",
+   "length": 1795.946,
+   "isVideo": true,
+   "description": "The government runs into a financial crisis just as MPs are due for a pay rise."
+}
+,
+{
+   "title": "YES MINISTER: 4-6 A Victory for Democracy",
+   "shortName": "4-6 A Victory for Democracy",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/4-6 A Victory for Democracy.mp4",
+   "length": 1811.946,
+   "isVideo": true,
+   "description": "Jim Hacker begins to wonder whether the government runs the Foreign Office, or vice versa."
+}
+,
+{
+   "title": "YES MINISTER: 4-7 The Bishops Gambit",
+   "shortName": "4-7 The Bishops Gambit",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/4-7 The Bishops Gambit.mp4",
+   "length": 1821.951,
+   "isVideo": true,
+   "description": "Jim is not keen on the candidates for a bishopric, and Humphrey has someone else in mind."
+}
+,
+{
+   "title": "YES MINISTER: 4-8 One of Us",
+   "shortName": "4-8 One of Us",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/4-8 One of Us.mp4",
+   "length": 1771.946,
+   "isVideo": true,
+   "description": "The late former head of MI5 is confirmed as a Russian spy who was cleared by Sir Humphrey."
+}
+,
+{
+   "title": "YES MINISTER: 5-1 Man Overboard",
+   "shortName": "5-1 Man Overboard",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/5-1 Man Overboard.mp4",
+   "length": 1799.956,
+   "isVideo": true,
+   "description": "Jim backs the relocation of military units to make the unemployment figures look better."
+}
+,
+{
+   "title": "YES MINISTER: 5-2 Official Secrets",
+   "shortName": "5-2 Official Secrets",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/5-2 Official Secrets.mp4",
+   "length": 1804.948,
+   "isVideo": true,
+   "description": "The press learns of Hacker's attempts to suppress a chapter of his predecessor's memoirs."
+}
+,
+{
+   "title": "YES MINISTER: 5-3 A Diplomatic Incident",
+   "shortName": "5-3 A Diplomatic Incident",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/5-3 A Diplomatic Incident.mp4",
+   "length": 1685.951,
+   "isVideo": true,
+   "description": "Jim discovers the French plan to gain political advantage over the Channel Tunnel borders."
+}
+,
+{
+   "title": "THATCHER: 1 Making Margaret",
+   "shortName": "1 Making Margaret",
+   "urlLocal": "media/channel-2/../Core/Thatcher/1 Making Margaret.mp4",
+   "length": 3570.06,
+   "isVideo": true,
+   "description": "Tracing Mrs Thatcher's startling rise to power and her Iron Lady image in the 1970s."
+}
+,
+{
+   "title": "FATHER TED: A Christmassy Ted",
+   "shortName": "A Christmassy Ted",
+   "urlLocal": "media/channel-2/../Core/Father Ted/A Christmassy Ted.mp4",
+   "length": 3301.012,
+   "isVideo": true,
+   "description": "Ted's quick thinking whilst lost in a department store's lingerie department earns him the coveted Golden Cleric award."
+}
+,
+{
+   "title": "RISE OF THE NAZI'S: 1-1 Politics",
+   "shortName": "1-1 Politics",
+   "urlLocal": "media/channel-2/../Core/Rise of the Nazi's/1-1 Politics.mp4",
+   "length": 3536.2,
+   "isVideo": true,
+   "description": "A political mastermind uses the sudden popularity of the Nazis for his own ends."
+}
+,
+{
+   "title": "RISE OF THE NAZI'S: 1-2 The First Six Months",
+   "shortName": "1-2 The First Six Months",
+   "urlLocal": "media/channel-2/../Core/Rise of the Nazi's/1-2 The First Six Months.mp4",
+   "length": 3535.56,
+   "isVideo": true,
+   "description": "At the start of 1933, Hitler sets his sights on dismantling the German state."
+}
+,
+{
+   "title": "RISE OF THE NAZI'S: 1-3 Night of the Long Knives",
+   "shortName": "1-3 Night of the Long Knives",
+   "urlLocal": "media/channel-2/../Core/Rise of the Nazi's/1-3 Night of the Long Knives.mp4",
+   "length": 3533.16,
+   "isVideo": true,
+   "description": "Hitler and Himmler conspire to depose Röhm and make the SS the main Nazi paramilitary."
+}
+,
+{
+   "title": "RISE OF THE NAZI'S: 2-1 Barbarossa",
+   "shortName": "2-1 Barbarossa",
+   "urlLocal": "media/channel-2/../Core/Rise of the Nazi's/2-1 Barbarossa.mp4",
+   "length": 3549.16,
+   "isVideo": true,
+   "description": "At the peak of his power, Hitler now faces fellow ruthless dictator Stalin."
+}
+,
+{
    "title": "RISE OF THE NAZI'S: 2-2 Stalingrad",
    "shortName": "2-2 Stalingrad",
    "urlLocal": "media/channel-2/../Core/Rise of the Nazi's/2-2 Stalingrad.mp4",
    "length": 3550.04,
    "isVideo": true,
    "description": "The Nazis have lost in Moscow, and both dictators take charge of their armies."
+}
+,
+{
+   "title": "CATTERICK: (2 of 6)",
+   "shortName": "(2 of 6)",
+   "urlLocal": "media/channel-2/../Core/Catterick/(2 of 6).m4v",
+   "length": 1692.434,
+   "isVideo": true,
+   "description": "On their way to the town of Catterick, the brothers are pursued by a murderer."
+}
+,
+{
+   "title": "CATTERICK: (3 of 6)",
+   "shortName": "(3 of 6)",
+   "urlLocal": "media/channel-2/../Core/Catterick/(3 of 6).m4v",
+   "length": 1703.354,
+   "isVideo": true,
+   "description": "Our heroes discover there was more to the stolen car than they realised."
+}
+,
+{
+   "title": "CATTERICK: (4 of 6)",
+   "shortName": "(4 of 6)",
+   "urlLocal": "media/channel-2/../Core/Catterick/(4 of 6).m4v",
+   "length": 1708.354,
+   "isVideo": true,
+   "description": "Chris and Carl narrowly escape certain death from Tony."
+}
+,
+{
+   "title": "CATTERICK: (5 of 6)",
+   "shortName": "(5 of 6)",
+   "urlLocal": "media/channel-2/../Core/Catterick/(5 of 6).m4v",
+   "length": 1707.834,
+   "isVideo": true,
+   "description": "The brothers check out a local garden centre where Carl's son once worked."
+}
+,
+{
+   "title": "CATTERICK: (6 of 6)",
+   "shortName": "(6 of 6)",
+   "urlLocal": "media/channel-2/../Core/Catterick/(6 of 6).m4v",
+   "length": 1659.834,
+   "isVideo": true,
+   "description": "As the brothers get ever closer to their destination, Chris uncovers a secret too horrific to contemplate."
+}
+,
+{
+   "title": "YES MINISTER: 1-1 Open Government",
+   "shortName": "1-1 Open Government",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/1-1 Open Government.mp4",
+   "length": 1739.903,
+   "isVideo": true,
+   "description": "First episode of the acclaimed sitcom about a hapless British government minister."
+}
+,
+{
+   "title": "YES MINISTER: 1-2 The Official Visit",
+   "shortName": "1-2 The Official Visit",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/1-2 The Official Visit.mp4",
+   "length": 1694.911,
+   "isVideo": true,
+   "description": "Hacker recognises a visiting head of an African nation as an old friend."
+}
+,
+{
+   "title": "YES MINISTER: 1-3 The Economy Drive",
+   "shortName": "1-3 The Economy Drive",
+   "urlLocal": "media/channel-2/../Core/Yes Minister/1-3 The Economy Drive.mp4",
+   "length": 1709.908,
+   "isVideo": true,
+   "description": "Jim Hacker wants to implement some cost-cutting initiatives; Sir Humphrey does not."
+}
+,
+{
+   "title": "RED DWARF: 4-6 Meltdown",
+   "shortName": "4-6 Meltdown",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/4-6 Meltdown.mp4",
+   "length": 1583.06,
+   "isVideo": true,
+   "description": "A transporter whisks the crew to 'Waxworld' - a theme park where things are going wrong."
+}
+,
+{
+   "title": "RED DWARF: 5-1 Holoship",
+   "shortName": "5-1 Holoship",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/5-1 Holoship.mp4",
+   "length": 1671.213,
+   "isVideo": true,
+   "description": "Rimmer is transmitted from Red Dwarf to the advanced holoship Enlightenment."
+}
+,
+{
+   "title": "RED DWARF: 5-2 The Inquisitor",
+   "shortName": "5-2 The Inquisitor",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/5-2 The Inquisitor.mp4",
+   "length": 1691.78,
+   "isVideo": true,
+   "description": "The Inquisitor roams through time, weeding out life's wastrels and deleting the worthless."
+}
+,
+{
+   "title": "RED DWARF: 5-3 Terrorform",
+   "shortName": "5-3 Terrorform",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/5-3 Terrorform.mp4",
+   "length": 1627.46,
+   "isVideo": true,
+   "description": "Rimmer is taken prisoner in his own mind."
+}
+,
+{
+   "title": "RED DWARF: 5-4 Quarantine",
+   "shortName": "5-4 Quarantine",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/5-4 Quarantine.mp4",
+   "length": 1697.686,
+   "isVideo": true,
+   "description": "Rimmer forces the crew to spend 12 weeks in quarantine."
+}
+,
+{
+   "title": "RED DWARF: 5-5 Demons and Angels",
+   "shortName": "5-5 Demons and Angels",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/5-5 Demons and Angels.mp4",
+   "length": 1612.146,
+   "isVideo": true,
+   "description": "The Red Dwarf crew create good and evil doppelgängers of themselves."
+}
+,
+{
+   "title": "RED DWARF: 5-6 Back to Reality",
+   "shortName": "5-6 Back to Reality",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/5-6 Back to Reality.mp4",
+   "length": 1638.14,
+   "isVideo": true,
+   "description": "The crew of Red Dwarf discover an abandoned space ship on an ocean bed."
+}
+,
+{
+   "title": "RED DWARF: 6-2 Legion",
+   "shortName": "6-2 Legion",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/6-2 Legion.mp4",
+   "length": 1694.813,
+   "isVideo": true,
+   "description": "With supplies running low, the crew find themselves dragged to a deserted space station."
+}
+,
+{
+   "title": "RED DWARF: 6-3 Gunmen of the Apocalypse",
+   "shortName": "6-3 Gunmen of the Apocalypse",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/6-3 Gunmen of the Apocalypse.mp4",
+   "length": 1730.073,
+   "isVideo": true,
+   "description": "Kryten contracts a computer virus, so the crew must enter his electronic mindscape."
+}
+,
+{
+   "title": "RED DWARF: 6-4 Emohawk Polymorph II",
+   "shortName": "6-4 Emohawk Polymorph II",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/6-4 Emohawk Polymorph II.mp4",
+   "length": 1698.466,
+   "isVideo": true,
+   "description": "The crew need replacement engine parts from the fearsome Kinatowi clan."
+}
+,
+{
+   "title": "RED DWARF: 6-5 Rimmerworld",
+   "shortName": "6-5 Rimmerworld",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/6-5 Rimmerworld.mp4",
+   "length": 1702.015,
+   "isVideo": true,
+   "description": "After escaping a disintegrating ship, Rimmer's pod is sucked into a wormhole in time."
+}
+,
+{
+   "title": "RED DWARF: 6-6 Out of Time",
+   "shortName": "6-6 Out of Time",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/6-6 Out of Time.mp4",
+   "length": 1705.5,
+   "isVideo": true,
+   "description": "The crew encounter several unreality bubbles."
+}
+,
+{
+   "title": "BLACKADDER: 2-1 Bells",
+   "shortName": "2-1 Bells",
+   "urlLocal": "media/channel-2/../Core/Blackadder/2-1 Bells.mp4",
+   "length": 1811.903,
+   "isVideo": true,
+   "description": "Blackadder is struck by Cupid's arrow when he takes on a new servant - a girl named Bob."
+}
+,
+{
+   "title": "BLACKADDER: 2-2 Head",
+   "shortName": "2-2 Head",
+   "urlLocal": "media/channel-2/../Core/Blackadder/2-2 Head.mp4",
+   "length": 1605.066,
+   "isVideo": true,
+   "description": "Edmund is appointed lord high executioner and beheads a man early to have some time off."
+}
+,
+{
+   "title": "BLACKADDER: 2-3 Potato",
+   "shortName": "2-3 Potato",
+   "urlLocal": "media/channel-2/../Core/Blackadder/2-3 Potato.mp4",
+   "length": 1804.073,
+   "isVideo": true,
+   "description": "Edmund decides to navigate the Cape of Good Hope after Sir Walter Raleigh's success."
+}
+,
+{
+   "title": "BLACKADDER: 2-4 Money",
+   "shortName": "2-4 Money",
+   "urlLocal": "media/channel-2/../Core/Blackadder/2-4 Money.mp4",
+   "length": 1795.746,
+   "isVideo": true,
+   "description": "Edmund is in trouble when he is visited by a bishop armed with a red-hot poker."
+}
+,
+{
+   "title": "BLACKADDER: 2-5 Beer",
+   "shortName": "2-5 Beer",
+   "urlLocal": "media/channel-2/../Core/Blackadder/2-5 Beer.mp4",
+   "length": 1753.58,
+   "isVideo": true,
+   "description": "Problems arise after an embarrassing incident with a turnip, a feather and a fat aunt."
+}
+,
+{
+   "title": "BLACKADDER: 2-6 Chains",
+   "shortName": "2-6 Chains",
+   "urlLocal": "media/channel-2/../Core/Blackadder/2-6 Chains.mp4",
+   "length": 1756.906,
+   "isVideo": true,
+   "description": "The evil Prince Ludwig kidnaps both Blackadder and Lord Melchett."
+}
+,
+{
+   "title": "BLACKADDER: 3-1 Dish and Dishonesty",
+   "shortName": "3-1 Dish and Dishonesty",
+   "urlLocal": "media/channel-2/../Core/Blackadder/3-1 Dish and Dishonesty.mp4",
+   "length": 1761.044,
+   "isVideo": true,
+   "description": "Edmund Blackadder Esq, butler to the Prince Regent, tries to get Baldrick elected as an MP."
+}
+,
+{
+   "title": "BLACKADDER: 3-2 Ink and Incapability",
+   "shortName": "3-2 Ink and Incapability",
+   "urlLocal": "media/channel-2/../Core/Blackadder/3-2 Ink and Incapability.mp4",
+   "length": 1755.519,
+   "isVideo": true,
+   "description": "When Dr Samuel Johnson's dictionary is used for firewood, Edmund must rewrite it."
+}
+,
+{
+   "title": "THE IT CROWD: 2-4 The Dinner Party",
+   "shortName": "2-4 The Dinner Party",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/2-4 The Dinner Party.mp4",
+   "length": 1299.284,
+   "isVideo": true,
+   "description": "Jen has finally found love with her new boyfriend Peter, and to celebrate their happiness they host a dinner party for six of their single friends."
+}
+,
+{
+   "title": "THE IT CROWD: 2-5 Smoke and Mirrors",
+   "shortName": "2-5 Smoke and Mirrors",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/2-5 Smoke and Mirrors.mp4",
+   "length": 1446.804,
+   "isVideo": true,
+   "description": "Roy comes back from a stag night unaware that he has been wearing lipstick."
+}
+,
+{
+   "title": "THE IT CROWD: 2-6 Men Without Women",
+   "shortName": "2-6 Men Without Women",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/2-6 Men Without Women.mp4",
+   "length": 1398.484,
+   "isVideo": true,
+   "description": "Douglas travels far and wide in his quest to bed Jen and is given rohypnol by a mysterious blind sorcerer."
+}
+,
+{
+   "title": "THE IT CROWD: 3-1 From Hell",
+   "shortName": "3-1 From Hell",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/3-1 From Hell.mp4",
+   "length": 1392.703,
+   "isVideo": true,
+   "description": "Roy suspects Jen's handyman Gary is a \"builder from hell\" who has a reputation of urinating in customers' sinks."
+}
+,
+{
+   "title": "THE IT CROWD: 3-2 Are We Not Men",
+   "shortName": "3-2 Are We Not Men",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/3-2 Are We Not Men.mp4",
+   "length": 1311.53,
+   "isVideo": true,
+   "description": "Moss and Roy use a football translation website to gather quotes to pass themselves off as knowledgeable football fans."
+}
+,
+{
+   "title": "THE IT CROWD: 3-3 Tramps Like Us",
+   "shortName": "3-3 Tramps Like Us",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/3-3 Tramps Like Us.mp4",
+   "length": 1319.658,
+   "isVideo": true,
+   "description": "Following the events of the series 2 episode finale, Jen, Moss and Roy receive a disappointing settlement from their sexual harassment lawsuit."
+}
+,
+{
+   "title": "THE IT CROWD: 3-4 The Speech",
+   "shortName": "3-4 The Speech",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/3-4 The Speech.mp4",
+   "length": 1445.46,
+   "isVideo": true,
+   "description": "Jen boasts about winning Employee of the Month and makes Roy and Moss write her acceptance speech."
+}
+,
+{
+   "title": "THE IT CROWD: 3-5 Friendface",
+   "shortName": "3-5 Friendface",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/3-5 Friendface.mp4",
+   "length": 1364.415,
+   "isVideo": true,
+   "description": "Jen persuades Roy and Moss to join the social networking site Friendface."
+}
+,
+{
+   "title": "FATHER TED: 2-6 The Plague",
+   "shortName": "2-6 The Plague",
+   "urlLocal": "media/channel-2/../Core/Father Ted/2- 6 The Plague.mp4",
+   "length": 1428.586,
+   "isVideo": true,
+   "description": "The parochial house is infested by rabbits, just as the very rabbit-phobic Bishop Brennan plans a visit."
+}
+,
+{
+   "title": "FATHER TED: 2-7 Rock-a-Hula Ted",
+   "shortName": "2-7 Rock-a-Hula Ted",
+   "urlLocal": "media/channel-2/../Core/Father Ted/2- 7 Rock-a-Hula Ted.mp4",
+   "length": 1453.802,
+   "isVideo": true,
+   "description": "A female singer (a parody of Sinéad O'Connor) visits the island just when Ted is judging the annual Lovely Girls competition."
+}
+,
+{
+   "title": "FATHER TED: 2-8 Cigarettes and Alcohol and Rollerblading",
+   "shortName": "2-8 Cigarettes and Alcohol and Rollerblading",
+   "urlLocal": "media/channel-2/../Core/Father Ted/2- 8 Cigarettes and Alcohol and Rollerblading.mp4",
+   "length": 1457.002,
+   "isVideo": true,
+   "description": "In a game of one-upmanship with Dick Byrne, Ted decides the three priests must give something up for Lent."
+}
+,
+{
+   "title": "FATHER TED: 2-9 New Jack City",
+   "shortName": "2-9 New Jack City",
+   "urlLocal": "media/channel-2/../Core/Father Ted/2- 9 New Jack City.mp4",
+   "length": 1390.996,
+   "isVideo": true,
+   "description": "Jack's hairy hands get him sent to an old priests' home."
+}
+,
+{
+   "title": "FATHER TED: 2-10 Flight Into Terror",
+   "shortName": "2-10 Flight Into Terror",
+   "urlLocal": "media/channel-2/../Core/Father Ted/2-10 Flight Into Terror.mp4",
+   "length": 1422,
+   "isVideo": true,
+   "description": "A flight back from a pilgrimage runs out of fuel and there are only two parachutes."
+}
+,
+{
+   "title": "FATHER TED: 3-1 Are You Right There, Father Ted",
+   "shortName": "3-1 Are You Right There, Father Ted",
+   "urlLocal": "media/channel-2/../Core/Father Ted/3-1 Are You Right There, Father Ted.mp4",
+   "length": 1454.804,
+   "isVideo": true,
+   "description": "Ted's \"Chinaman\" impression goes down badly with Craggy Island's Chinese community."
+}
+,
+{
+   "title": "FATHER TED: 3-2 Chirpy Burpy Cheap Sheep",
+   "shortName": "3-2 Chirpy Burpy Cheap Sheep",
+   "urlLocal": "media/channel-2/../Core/Father Ted/3-2 Chirpy Burpy Cheap Sheep.mp4",
+   "length": 1442.8,
+   "isVideo": true,
+   "description": "Ted makes a large bet on the King of the Sheep competition."
+}
+,
+{
+   "title": "FATHER TED: 3-3 Speed 3",
+   "shortName": "3-3 Speed 3",
+   "urlLocal": "media/channel-2/../Core/Father Ted/3-3 Speed 3.mp4",
+   "length": 1476.778,
+   "isVideo": true,
+   "description": "When Ted and Dougal expose a philandering milkman, he takes revenge on his replacement, Dougal, by putting a bomb on the milk float."
+}
+,
+{
+   "title": "FATHER TED: 3-4 The Mainland",
+   "shortName": "3-4 The Mainland",
+   "urlLocal": "media/channel-2/../Core/Father Ted/3-4 The Mainland.mp4",
+   "length": 1442.004,
+   "isVideo": true,
+   "description": "When Ted, Dougal, Jack and Mrs Doyle go on a trip to the mainland, all kinds of trouble ensues."
+}
+,
+{
+   "title": "FATHER TED: 3-5 Escape from Victory",
+   "shortName": "3-5 Escape from Victory",
+   "urlLocal": "media/channel-2/../Core/Father Ted/3-5 Escape from Victory.mp4",
+   "length": 1430.996,
+   "isVideo": true,
+   "description": "Ted takes great steps to ensure he wins a bet with Dick Byrne on the outcome of the All-Priests Over-75's Five-a-Side Football Championship."
+}
+,
+{
+   "title": "FATHER TED: 3-6 Kicking Bishop Brennan",
+   "shortName": "3-6 Kicking Bishop Brennan",
+   "urlLocal": "media/channel-2/../Core/Father Ted/3-6 Kicking Bishop Brennan.mp4",
+   "length": 1453.012,
+   "isVideo": true,
+   "description": "Exposed as a cheat at the end of the previous episode, a terrified Ted tries to draw upon his courage to complete the forfeit."
+}
+,
+{
+   "title": "FATHER TED: 3-7 Night of the Nearly Dead",
+   "shortName": "3-7 Night of the Nearly Dead",
+   "urlLocal": "media/channel-2/../Core/Father Ted/3-7 Night of the Nearly Dead.mp4",
+   "length": 1441.002,
+   "isVideo": true,
+   "description": "Young TV presenter Eoin McLove pays a visit to Craggy Island, causing excitement for the island's aging females, who besiege the Parochial House."
+}
+,
+{
+   "title": "FATHER TED: 3-8 Going to America",
+   "shortName": "3-8 Going to America",
+   "urlLocal": "media/channel-2/../Core/Father Ted/3-8 Going to America.mp4",
+   "length": 1527.978,
+   "isVideo": true,
+   "description": "Ted gets the opportunity of a lifetime, but can't bring himself to break it to the others that they're not invited."
 }
 ,
 {
@@ -1667,6 +2315,213 @@
 }
 ,
 {
+   "title": "REGINALD PERRIN: 1-1",
+   "shortName": "1-1",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-1.mp4",
+   "length": 1815.9,
+   "isVideo": true,
+   "description": "Reggie's life as a sales executive at Sunshine Desserts is getting too much for him and the strain is starting to show."
+}
+,
+{
+   "title": "REGINALD PERRIN: 1-2",
+   "shortName": "1-2",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-2.mp4",
+   "length": 1762.46,
+   "isVideo": true,
+   "description": "Reggie's plans for a relaxing weekend are scuppered when the family decides to visit a safari park."
+}
+,
+{
+   "title": "REGINALD PERRIN: 1-3",
+   "shortName": "1-3",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-3.mp4",
+   "length": 1790.84,
+   "isVideo": true,
+   "description": "Elizabeth is away, so Reggie decides to invite his secretary Joan over for a secret tryst."
+}
+,
+{
+   "title": "REGINALD PERRIN: 1-4",
+   "shortName": "1-4",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-4.mp4",
+   "length": 1742.38,
+   "isVideo": true,
+   "description": "With Elizabeth still away, Reggie hosts a dinner party (without any food) for his business associates."
+}
+,
+{
+   "title": "REGINALD PERRIN: 1-5",
+   "shortName": "1-5",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-5.mp4",
+   "length": 1742.62,
+   "isVideo": true,
+   "description": "After a disastrous public speech to the Fruit Association at Bilberry Hall, Reggie decides to take drastic action."
+}
+,
+{
+   "title": "REGINALD PERRIN: 1-6",
+   "shortName": "1-6",
+   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-6.mp4",
+   "length": 1649.98,
+   "isVideo": true,
+   "description": "After his fake suicide, Reggie tries out a number of different new identities."
+}
+,
+{
+   "title": "RED DWARF: 6-1 Psirens",
+   "shortName": "6-1 Psirens",
+   "urlLocal": "media/channel-2/../Core/Red Dwarf/6-1 Psirens.mp4",
+   "length": 1735.773,
+   "isVideo": true,
+   "description": "The crew awake after 200 years in suspended animation to find the ship has been stolen."
+}
+,
+{
+   "title": "THATCHER: 2 Power",
+   "shortName": "2 Power",
+   "urlLocal": "media/channel-2/../Core/Thatcher/2 Power.mp4",
+   "length": 3539.06,
+   "isVideo": true,
+   "description": "Mrs Thatcher struggles to cling to power as she is subverted by members of her cabinet."
+}
+,
+{
+   "title": "THATCHER: 3 Enemies",
+   "shortName": "3 Enemies",
+   "urlLocal": "media/channel-2/../Core/Thatcher/3 Enemies.mp4",
+   "length": 3570.06,
+   "isVideo": true,
+   "description": "Mrs Thatcher confronts her enemies and leads the country to war."
+}
+,
+{
+   "title": "THATCHER: 4 That Bloody Woman",
+   "shortName": "4 That Bloody Woman",
+   "urlLocal": "media/channel-2/../Core/Thatcher/4 That Bloody Woman.mp4",
+   "length": 3570.06,
+   "isVideo": true,
+   "description": "Tensions erupt within Mrs Thatcher's inner circle and personal relationships are exposed."
+}
+,
+{
+   "title": "THATCHER: 5 Downfall",
+   "shortName": "5 Downfall",
+   "urlLocal": "media/channel-2/../Core/Thatcher/5 Downfall.mp4",
+   "length": 3570.06,
+   "isVideo": true,
+   "description": "Splits in Mrs Thatcher's cabinet and public anger lead to her eventual downfall."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 1-1 A Touch of Class",
+   "shortName": "1-1 A Touch of Class",
+   "urlLocal": "media/channel-2/../Core/Fawlty Towers/1-1 A Touch of Class.mp4",
+   "length": 1821,
+   "isVideo": true,
+   "description": "As Basil tries to raise the tone of the hotel, the aristocratic Lord Melbury comes to stay at the hotel."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 1-2 The Builders",
+   "shortName": "1-2 The Builders",
+   "urlLocal": "media/channel-2/../Core/Fawlty Towers/1-2 The Builders.mp4",
+   "length": 1695,
+   "isVideo": true,
+   "description": "Maintenance is made on the lobby while the Fawltys are out, but a misreading causes the incompetent builders to mess it up spectacularly."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 1-3 The Wedding Party",
+   "shortName": "1-3 The Wedding Party",
+   "urlLocal": "media/channel-2/../Core/Fawlty Towers/1-3 The Wedding Party.mp4",
+   "length": 1998.015,
+   "isVideo": true,
+   "description": "Basil gets annoyed when a young, flirtatious couple start \"hanky-pankying\" under his nose."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 1-4 The Hotel Inspectors",
+   "shortName": "1-4 The Hotel Inspectors",
+   "urlLocal": "media/channel-2/../Core/Fawlty Towers/1-4 The Hotel Inspectors.mp4",
+   "length": 1726.42,
+   "isVideo": true,
+   "description": "When Basil hears of hotel inspectors roaming Torquay incognito, he realises with horror that guests he has been abusing could easily be among them."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 1-5 Gourmet Night",
+   "shortName": "1-5 Gourmet Night",
+   "urlLocal": "media/channel-2/../Core/Fawlty Towers/1-5 Gourmet Night.mp4",
+   "length": 1715.028,
+   "isVideo": true,
+   "description": "In an effort to climb another rung in the social ladder, Basil arranges a gourmet night."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 1-6 The Germans",
+   "shortName": "1-6 The Germans",
+   "urlLocal": "media/channel-2/../Core/Fawlty Towers/1-6 The Germans.mp4",
+   "length": 1873.62,
+   "isVideo": true,
+   "description": "With Sybil in the hospital with an ingrowing toenail, a moose's head to hang up and some German guests arriving the next day, Basil has his work cut out for him."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 2-1 Communication Problems",
+   "shortName": "2-1 Communication Problems",
+   "urlLocal": "media/channel-2/../Core/Fawlty Towers/2-1 Communication Problems.mp4",
+   "length": 1883.028,
+   "isVideo": true,
+   "description": "The arrival of the \"guest from hell\", a rather deaf, domineering and bad-tempered woman interferes with Basil's attempts to prevent the money he won on a racehorse from being discovered by Sybil."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 2-2 The Psychiatrist",
+   "shortName": "2-2 The Psychiatrist",
+   "urlLocal": "media/channel-2/../Core/Fawlty Towers/2-2 The Psychiatrist.mp4",
+   "length": 2176.02,
+   "isVideo": true,
+   "description": "A psychiatrist and his wife come to the hotel for a weekend break, and cannot help but notice the eccentricities of their host."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 2-3 Waldorf Salad",
+   "shortName": "2-3 Waldorf Salad",
+   "urlLocal": "media/channel-2/../Core/Fawlty Towers/2-3 Waldorf Salad.mp4",
+   "length": 1922.026,
+   "isVideo": true,
+   "description": "Basil is not altogether keen on a loud and demanding American guest who demands a higher class of service (and food) than Fawlty Towers is accustomed to providing."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 2-4 The Kipper and the Corpse",
+   "shortName": "2-4 The Kipper and the Corpse",
+   "urlLocal": "media/channel-2/../Core/Fawlty Towers/2-4 The Kipper and the Corpse.mp4",
+   "length": 1893.61,
+   "isVideo": true,
+   "description": "With no regard to Basil's blood pressure, a guest dies at the hotel and Basil and the staff are left with the unpleasant task of removing the body discreetly."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 2-5 The Anniversary",
+   "shortName": "2-5 The Anniversary",
+   "urlLocal": "media/channel-2/../Core/Fawlty Towers/2-5 The Anniversary.mp4",
+   "length": 1747.028,
+   "isVideo": true,
+   "description": "Basil invites some friends for a surprise wedding anniversary party, but Sybil assumes he has forgotten their anniversary and storms off."
+}
+,
+{
+   "title": "FAWLTY TOWERS: 2-6 Basil the Rat",
+   "shortName": "2-6 Basil the Rat",
+   "urlLocal": "media/channel-2/../Core/Fawlty Towers/2-6 Basil the Rat.mp4",
+   "length": 2023.018,
+   "isVideo": true,
+   "description": "The local health inspector notes and reads out a long list of hygiene infractions which the staff must rectify before his next visit, or else face closure."
+}
+,
+{
    "title": "RED DWARF: 1-1 The End",
    "shortName": "1-1 The End",
    "urlLocal": "media/channel-2/../Core/Red Dwarf/1-1 The End.mp4",
@@ -1685,174 +2540,111 @@
 }
 ,
 {
-   "title": "RED DWARF: 1-3 Balance of Power",
-   "shortName": "1-3 Balance of Power",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/1-3 Balance of Power.mp4",
-   "length": 1788.095,
+   "title": "THE IT CROWD: 2-1 The Work Outing",
+   "shortName": "2-1 The Work Outing",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/2-1 The Work Outing.mp4",
+   "length": 1494.932,
    "isVideo": true,
-   "description": "Cult space comedy series."
+   "description": "Co-worker Phillip asks Jen on a date to watch a play."
 }
 ,
 {
-   "title": "RED DWARF: 1-4 Waiting for God",
-   "shortName": "1-4 Waiting for God",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/1-4 Waiting for God.mp4",
-   "length": 1708.953,
+   "title": "THE IT CROWD: 2-2 Return of the Golden Child",
+   "shortName": "2-2 Return of the Golden Child",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/2-2 Return of the Golden Child.mp4",
+   "length": 1399.615,
    "isVideo": true,
-   "description": "Lister 'learns' Cat writing and discovers some startling facts."
+   "description": "Asking Roy questions about his lifestyle, Moss enters Roy's data into an Internet site that estimates a person's date of death."
 }
 ,
 {
-   "title": "RED DWARF: 1-5 Confidence and Paranoia",
-   "shortName": "1-5 Confidence and Paranoia",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/1-5 Confidence and Paranoia.mp4",
-   "length": 1778.047,
+   "title": "THE IT CROWD: 2-3 Moss and the German",
+   "shortName": "2-3 Moss and the German",
+   "urlLocal": "media/channel-2/../Core/The IT Crowd/2-3 Moss and the German.mp4",
+   "length": 1448.34,
    "isVideo": true,
-   "description": "Lister contracts a mutated form of pneumonia - and his hallucinations turn solid."
+   "description": "Roy and Moss try to watch a zombie film on DVD when Roy's friend calls him and is about to spoil the movie's plot twist."
 }
 ,
 {
-   "title": "RED DWARF: 1-6 Me Squared",
-   "shortName": "1-6 Me Squared",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/1-6 Me Squared.mp4",
-   "length": 1764.053,
+   "title": "THE GOOD LIFE: 2-5 Mutiny",
+   "shortName": "2-5 Mutiny",
+   "urlLocal": "media/channel-2/../Core/The Good Life/2-5 Mutiny.mp4",
+   "length": 1702.122,
    "isVideo": true,
-   "description": "Rimmer has discovered how to make a duplicate and moves in with himself."
+   "description": "It's Margo's first night in the Sound of Music, and Jerry receives some unpleasant news."
 }
 ,
 {
-   "title": "RED DWARF: 2-1 Kryten",
-   "shortName": "2-1 Kryten",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/2-1 Kryten.mp4",
-   "length": 1695.06,
+   "title": "THE GOOD LIFE: 2-6 Home Sweet Home",
+   "shortName": "2-6 Home Sweet Home",
+   "urlLocal": "media/channel-2/../Core/The Good Life/2-6 Home Sweet Home.mp4",
+   "length": 1725.119,
    "isVideo": true,
-   "description": "Things are fine aboard crashed spaceship Nova 5 until Red Dwarf answers its distress call."
+   "description": "A boar walker visits the Goods' estates."
 }
 ,
 {
-   "title": "RED DWARF: 2-2 Better than Life",
-   "shortName": "2-2 Better than Life",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/2-2 Better than Life.mp4",
-   "length": 1767.06,
+   "title": "THE GOOD LIFE: 2-7 Going to Pot",
+   "shortName": "2-7 Going to Pot",
+   "urlLocal": "media/channel-2/../Core/The Good Life/2-7 Going to Pot.mp4",
+   "length": 1741.119,
    "isVideo": true,
-   "description": "Rimmer and Lister find a computer game which plugs directly into the brain."
+   "description": "Tom and Barbara's evening class becomes unusually productive."
 }
 ,
 {
-   "title": "RED DWARF: 2-3 Thanks for the Memory",
-   "shortName": "2-3 Thanks for the Memory",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/2-3 Thanks for the Memory.mp4",
-   "length": 1703.06,
+   "title": "THE GOOD LIFE: 3-1 The Early Birds",
+   "shortName": "3-1 The Early Birds",
+   "urlLocal": "media/channel-2/../Core/The Good Life/3-1 The Early Birds.mp4",
+   "length": 1796.116,
    "isVideo": true,
-   "description": "Someone's erased four days of the crew's memory, broken Lister's leg and done the jigsaw."
+   "description": "The Leadbetters have had enough of the Goods' early morning activities."
 }
 ,
 {
-   "title": "RED DWARF: 2-4 Stasis Leak",
-   "shortName": "2-4 Stasis Leak",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/2-4 Stasis Leak.mp4",
-   "length": 1791.06,
+   "title": "THE GOOD LIFE: 3-2 The Happy Event",
+   "shortName": "3-2 The Happy Event",
+   "urlLocal": "media/channel-2/../Core/The Good Life/3-2 The Happy Event.mp4",
+   "length": 1717.119,
    "isVideo": true,
-   "description": "A leak from the suspended animation chamber has created a doorway to the past."
+   "description": "A 400 per cent increase in their livestock population is a source of joy for the Goods."
 }
 ,
 {
-   "title": "RED DWARF: 2-5 Queeg",
-   "shortName": "2-5 Queeg",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/2-5 Queeg.mp4",
-   "length": 1778.386,
+   "title": "THE GOOD LIFE: 3-3 A Tug of the Forelock",
+   "shortName": "3-3 A Tug of the Forelock",
+   "urlLocal": "media/channel-2/../Core/The Good Life/3-3 A Tug of the Forelock.mp4",
+   "length": 1685.119,
    "isVideo": true,
-   "description": "Holly's behaviour begins to endanger the ship so he's replaced by the back-up computer."
+   "description": "Tom revamps his cultivator, and Barbara becomes the Leadbetters' housekeeper."
 }
 ,
 {
-   "title": "RED DWARF: 2-6 Parallel Universe",
-   "shortName": "2-6 Parallel Universe",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/2-6 Parallel Universe.mp4",
-   "length": 1703.658,
+   "title": "THE GOOD LIFE: 3-4 I Talk to the Trees",
+   "shortName": "3-4 I Talk to the Trees",
+   "urlLocal": "media/channel-2/../Core/The Good Life/3-4 I Talk to the Trees.mp4",
+   "length": 1766.783,
    "isVideo": true,
-   "description": "Holly devises a faster-than-light drive that sends the crew into a parallel universe."
+   "description": "The Goods experiment with talking to their plants to see if they will grow more."
 }
 ,
 {
-   "title": "RED DWARF: 3-1 Backwards",
-   "shortName": "3-1 Backwards",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/3-1 Backwards.mp4",
-   "length": 1639.746,
+   "title": "THE GOOD LIFE: 3-5 The Wind-Break War",
+   "shortName": "3-5 The Wind-Break War",
+   "urlLocal": "media/channel-2/../Core/The Good Life/3-5 The Wind-Break War.mp4",
+   "length": 1793.108,
    "isVideo": true,
-   "description": "Lister and Rimmer finally arrive back on earth only to find time is behaving strangely."
+   "description": "War breaks out between the Goods and the Leadbetters."
 }
 ,
 {
-   "title": "RED DWARF: 3-2 Marooned",
-   "shortName": "3-2 Marooned",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/3-2 Marooned.mp4",
-   "length": 1714.06,
+   "title": "THE GOOD LIFE: 3-6 Whose Fleas are These",
+   "shortName": "3-6 Whose Fleas are These",
+   "urlLocal": "media/channel-2/../Core/The Good Life/3-6 Whose Fleas are These.mp4",
+   "length": 1732.116,
    "isVideo": true,
-   "description": "Lister and Rimmer are stranded on a moon with only a pot noodle and a tin of dog food."
-}
-,
-{
-   "title": "RED DWARF: 3-3 Polymorph",
-   "shortName": "3-3 Polymorph",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/3-3 Polymorph.mp4",
-   "length": 1590.573,
-   "isVideo": true,
-   "description": "A genetic mutant gets loose aboard the ship, leading to 24 hours of gruesome horror."
-}
-,
-{
-   "title": "RED DWARF: 3-4 Bodyswap",
-   "shortName": "3-4 Bodyswap",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/3-4 Bodyswap.mp4",
-   "length": 1603.02,
-   "isVideo": true,
-   "description": "Rimmer convinces Lister that they should swap bodies for a fortnight."
-}
-,
-{
-   "title": "RED DWARF: 3-5 Timeslides",
-   "shortName": "3-5 Timeslides",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/3-5 Timeslides.mp4",
-   "length": 1663.295,
-   "isVideo": true,
-   "description": "Kryten discovers some developing fluid which prints photographs the crew can walk into."
-}
-,
-{
-   "title": "RED DWARF: 3-6 The Last Day",
-   "shortName": "3-6 The Last Day",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/3-6 The Last Day.mp4",
-   "length": 1637.738,
-   "isVideo": true,
-   "description": "Kryten discovers his in-built expiry date is only 24 hours away."
-}
-,
-{
-   "title": "RED DWARF: 4-1 Camille",
-   "shortName": "4-1 Camille",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/4-1 Camille.mp4",
-   "length": 1602.62,
-   "isVideo": true,
-   "description": "Kryten falls in love at first sight but has his heart broken in the process."
-}
-,
-{
-   "title": "RED DWARF: 4-2 D.N.A.",
-   "shortName": "4-2 D.N.A.",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/4-2 D.N.A..mp4",
-   "length": 1667.604,
-   "isVideo": true,
-   "description": "The crew encounter the ultimate in genetic engineering technology."
-}
-,
-{
-   "title": "RED DWARF: 4-3 Justice",
-   "shortName": "4-3 Justice",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/4-3 Justice.mp4",
-   "length": 1696.393,
-   "isVideo": true,
-   "description": "The crew land up in 'Justice World', where a crime's consequences affect the perpetrator."
+   "description": "Tom and Barbara find themselves with fleas."
 }
 ,
 {
@@ -1943,807 +2735,6 @@
    "length": 1763.114,
    "isVideo": true,
    "description": "The Goods begin to have misgivings about their plans for old age."
-}
-,
-{
-   "title": "CATTERICK: (1 of 6)",
-   "shortName": "(1 of 6)",
-   "urlLocal": "media/channel-2/../Core/Catterick/(1 of 6).m4v",
-   "length": 1698.434,
-   "isVideo": true,
-   "description": "Chris and Carl are brothers who are reunited after 15 years in a desperate search for Carl's son Paul."
-}
-,
-{
-   "title": "CATTERICK: (2 of 6)",
-   "shortName": "(2 of 6)",
-   "urlLocal": "media/channel-2/../Core/Catterick/(2 of 6).m4v",
-   "length": 1692.434,
-   "isVideo": true,
-   "description": "On their way to the town of Catterick, the brothers are pursued by a murderer."
-}
-,
-{
-   "title": "CATTERICK: (3 of 6)",
-   "shortName": "(3 of 6)",
-   "urlLocal": "media/channel-2/../Core/Catterick/(3 of 6).m4v",
-   "length": 1703.354,
-   "isVideo": true,
-   "description": "Our heroes discover there was more to the stolen car than they realised."
-}
-,
-{
-   "title": "CATTERICK: (4 of 6)",
-   "shortName": "(4 of 6)",
-   "urlLocal": "media/channel-2/../Core/Catterick/(4 of 6).m4v",
-   "length": 1708.354,
-   "isVideo": true,
-   "description": "Chris and Carl narrowly escape certain death from Tony."
-}
-,
-{
-   "title": "CATTERICK: (5 of 6)",
-   "shortName": "(5 of 6)",
-   "urlLocal": "media/channel-2/../Core/Catterick/(5 of 6).m4v",
-   "length": 1707.834,
-   "isVideo": true,
-   "description": "The brothers check out a local garden centre where Carl's son once worked."
-}
-,
-{
-   "title": "CATTERICK: (6 of 6)",
-   "shortName": "(6 of 6)",
-   "urlLocal": "media/channel-2/../Core/Catterick/(6 of 6).m4v",
-   "length": 1659.834,
-   "isVideo": true,
-   "description": "As the brothers get ever closer to their destination, Chris uncovers a secret too horrific to contemplate."
-}
-,
-{
-   "title": "SIMON SCHAMA: 1-1",
-   "shortName": "1-1",
-   "urlLocal": "media/channel-2/../Core/Simon Schama/1-1.mp4",
-   "length": 3540.04,
-   "isVideo": true,
-   "description": "Simon Schama visits the miraculously preserved Stone Age cottages of Skara Brae in Orkney."
-}
-,
-{
-   "title": "SIMON SCHAMA: 1-2",
-   "shortName": "1-2",
-   "urlLocal": "media/channel-2/../Core/Simon Schama/1-2.mp4",
-   "length": 3535.701,
-   "isVideo": true,
-   "description": "The saga of William the Conqueror's triumph at the Battle of Hastings."
-}
-,
-{
-   "title": "SIMON SCHAMA: 1-3",
-   "shortName": "1-3",
-   "urlLocal": "media/channel-2/../Core/Simon Schama/1-3.mp4",
-   "length": 3406.89,
-   "isVideo": true,
-   "description": "How Henry II built a great medieval empire, only for his wife and son to destroy it."
-}
-,
-{
-   "title": "SIMON SCHAMA: 1-4",
-   "shortName": "1-4",
-   "urlLocal": "media/channel-2/../Core/Simon Schama/1-4.mp4",
-   "length": 3539.818,
-   "isVideo": true,
-   "description": "The story of Edward I, who tried to force English rule on Scotland and Wales."
-}
-,
-{
-   "title": "SIMON SCHAMA: 1-5",
-   "shortName": "1-5",
-   "urlLocal": "media/channel-2/../Core/Simon Schama/1-5.mp4",
-   "length": 3480.81,
-   "isVideo": true,
-   "description": "Simon Schama investigates the Black Death - the horror of medieval Britain."
-}
-,
-{
-   "title": "SIMON SCHAMA: 1-6",
-   "shortName": "1-6",
-   "urlLocal": "media/channel-2/../Core/Simon Schama/1-6.mp4",
-   "length": 3526.613,
-   "isVideo": true,
-   "description": "How Henry VIII's passion for Anne Boleyn set in motion a tidal wave of religious upheaval."
-}
-,
-{
-   "title": "SIMON SCHAMA: 1-7",
-   "shortName": "1-7",
-   "urlLocal": "media/channel-2/../Core/Simon Schama/1-7.mp4",
-   "length": 3547.882,
-   "isVideo": true,
-   "description": "Simon Schama examines the relationship between Queen Elizabeth I and her cousin Mary."
-}
-,
-{
-   "title": "SIMON SCHAMA: 2-1",
-   "shortName": "2-1",
-   "urlLocal": "media/channel-2/../Core/Simon Schama/2-1.mp4",
-   "length": 3541.888,
-   "isVideo": true,
-   "description": "Simon Schama reveals the real story of the English Civil War."
-}
-,
-{
-   "title": "SIMON SCHAMA: 2-2",
-   "shortName": "2-2",
-   "urlLocal": "media/channel-2/../Core/Simon Schama/2-2.mp4",
-   "length": 3509.888,
-   "isVideo": true,
-   "description": "Featuring the revolutionary period in Britain after the execution of Charles I."
-}
-,
-{
-   "title": "SIMON SCHAMA: 2-3",
-   "shortName": "2-3",
-   "urlLocal": "media/channel-2/../Core/Simon Schama/2-3.mp4",
-   "length": 3524.65,
-   "isVideo": true,
-   "description": "Simon Schama's epic history reaches the 18th century and the birth of modern Britain."
-}
-,
-{
-   "title": "BLACKADDER: 4-2 Corporal Punishment",
-   "shortName": "4-2 Corporal Punishment",
-   "urlLocal": "media/channel-2/../Core/Blackadder/4-2 Corporal Punishment.mp4",
-   "length": 1761.053,
-   "isVideo": true,
-   "description": "Blackadder faces court martial for eating a carrier pigeon."
-}
-,
-{
-   "title": "FATHER TED: 2-10 Flight Into Terror",
-   "shortName": "2-10 Flight Into Terror",
-   "urlLocal": "media/channel-2/../Core/Father Ted/2-10 Flight Into Terror.mp4",
-   "length": 1422,
-   "isVideo": true,
-   "description": "A flight back from a pilgrimage runs out of fuel and there are only two parachutes."
-}
-,
-{
-   "title": "FATHER TED: 3-1 Are You Right There, Father Ted",
-   "shortName": "3-1 Are You Right There, Father Ted",
-   "urlLocal": "media/channel-2/../Core/Father Ted/3-1 Are You Right There, Father Ted.mp4",
-   "length": 1454.804,
-   "isVideo": true,
-   "description": "Ted's \"Chinaman\" impression goes down badly with Craggy Island's Chinese community."
-}
-,
-{
-   "title": "FATHER TED: 3-2 Chirpy Burpy Cheap Sheep",
-   "shortName": "3-2 Chirpy Burpy Cheap Sheep",
-   "urlLocal": "media/channel-2/../Core/Father Ted/3-2 Chirpy Burpy Cheap Sheep.mp4",
-   "length": 1442.8,
-   "isVideo": true,
-   "description": "Ted makes a large bet on the King of the Sheep competition."
-}
-,
-{
-   "title": "FATHER TED: 3-3 Speed 3",
-   "shortName": "3-3 Speed 3",
-   "urlLocal": "media/channel-2/../Core/Father Ted/3-3 Speed 3.mp4",
-   "length": 1476.778,
-   "isVideo": true,
-   "description": "When Ted and Dougal expose a philandering milkman, he takes revenge on his replacement, Dougal, by putting a bomb on the milk float."
-}
-,
-{
-   "title": "FATHER TED: 3-4 The Mainland",
-   "shortName": "3-4 The Mainland",
-   "urlLocal": "media/channel-2/../Core/Father Ted/3-4 The Mainland.mp4",
-   "length": 1442.004,
-   "isVideo": true,
-   "description": "When Ted, Dougal, Jack and Mrs Doyle go on a trip to the mainland, all kinds of trouble ensues."
-}
-,
-{
-   "title": "FATHER TED: 3-5 Escape from Victory",
-   "shortName": "3-5 Escape from Victory",
-   "urlLocal": "media/channel-2/../Core/Father Ted/3-5 Escape from Victory.mp4",
-   "length": 1430.996,
-   "isVideo": true,
-   "description": "Ted takes great steps to ensure he wins a bet with Dick Byrne on the outcome of the All-Priests Over-75's Five-a-Side Football Championship."
-}
-,
-{
-   "title": "FATHER TED: 3-6 Kicking Bishop Brennan",
-   "shortName": "3-6 Kicking Bishop Brennan",
-   "urlLocal": "media/channel-2/../Core/Father Ted/3-6 Kicking Bishop Brennan.mp4",
-   "length": 1453.012,
-   "isVideo": true,
-   "description": "Exposed as a cheat at the end of the previous episode, a terrified Ted tries to draw upon his courage to complete the forfeit."
-}
-,
-{
-   "title": "FATHER TED: 3-7 Night of the Nearly Dead",
-   "shortName": "3-7 Night of the Nearly Dead",
-   "urlLocal": "media/channel-2/../Core/Father Ted/3-7 Night of the Nearly Dead.mp4",
-   "length": 1441.002,
-   "isVideo": true,
-   "description": "Young TV presenter Eoin McLove pays a visit to Craggy Island, causing excitement for the island's aging females, who besiege the Parochial House."
-}
-,
-{
-   "title": "FATHER TED: 3-8 Going to America",
-   "shortName": "3-8 Going to America",
-   "urlLocal": "media/channel-2/../Core/Father Ted/3-8 Going to America.mp4",
-   "length": 1527.978,
-   "isVideo": true,
-   "description": "Ted gets the opportunity of a lifetime, but can't bring himself to break it to the others that they're not invited."
-}
-,
-{
-   "title": "RED DWARF: 4-4 White Hole",
-   "shortName": "4-4 White Hole",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/4-4 White Hole.mp4",
-   "length": 1648.506,
-   "isVideo": true,
-   "description": "Holly leaves the crew drifting helplessly towards a white hole."
-}
-,
-{
-   "title": "RED DWARF: 4-5 Dimension Jump",
-   "shortName": "4-5 Dimension Jump",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/4-5 Dimension Jump.mp4",
-   "length": 1720.34,
-   "isVideo": true,
-   "description": "In a parallel universe, an Arnold Rimmer exists who's charming, popular, brave and modest."
-}
-,
-{
-   "title": "RED DWARF: 4-6 Meltdown",
-   "shortName": "4-6 Meltdown",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/4-6 Meltdown.mp4",
-   "length": 1583.06,
-   "isVideo": true,
-   "description": "A transporter whisks the crew to 'Waxworld' - a theme park where things are going wrong."
-}
-,
-{
-   "title": "RED DWARF: 5-1 Holoship",
-   "shortName": "5-1 Holoship",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/5-1 Holoship.mp4",
-   "length": 1671.213,
-   "isVideo": true,
-   "description": "Rimmer is transmitted from Red Dwarf to the advanced holoship Enlightenment."
-}
-,
-{
-   "title": "RED DWARF: 5-2 The Inquisitor",
-   "shortName": "5-2 The Inquisitor",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/5-2 The Inquisitor.mp4",
-   "length": 1691.78,
-   "isVideo": true,
-   "description": "The Inquisitor roams through time, weeding out life's wastrels and deleting the worthless."
-}
-,
-{
-   "title": "RED DWARF: 5-3 Terrorform",
-   "shortName": "5-3 Terrorform",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/5-3 Terrorform.mp4",
-   "length": 1627.46,
-   "isVideo": true,
-   "description": "Rimmer is taken prisoner in his own mind."
-}
-,
-{
-   "title": "RED DWARF: 5-4 Quarantine",
-   "shortName": "5-4 Quarantine",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/5-4 Quarantine.mp4",
-   "length": 1697.686,
-   "isVideo": true,
-   "description": "Rimmer forces the crew to spend 12 weeks in quarantine."
-}
-,
-{
-   "title": "RED DWARF: 5-5 Demons and Angels",
-   "shortName": "5-5 Demons and Angels",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/5-5 Demons and Angels.mp4",
-   "length": 1612.146,
-   "isVideo": true,
-   "description": "The Red Dwarf crew create good and evil doppelgängers of themselves."
-}
-,
-{
-   "title": "RED DWARF: 5-6 Back to Reality",
-   "shortName": "5-6 Back to Reality",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/5-6 Back to Reality.mp4",
-   "length": 1638.14,
-   "isVideo": true,
-   "description": "The crew of Red Dwarf discover an abandoned space ship on an ocean bed."
-}
-,
-{
-   "title": "RED DWARF: 6-1 Psirens",
-   "shortName": "6-1 Psirens",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/6-1 Psirens.mp4",
-   "length": 1735.773,
-   "isVideo": true,
-   "description": "The crew awake after 200 years in suspended animation to find the ship has been stolen."
-}
-,
-{
-   "title": "RED DWARF: 6-2 Legion",
-   "shortName": "6-2 Legion",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/6-2 Legion.mp4",
-   "length": 1694.813,
-   "isVideo": true,
-   "description": "With supplies running low, the crew find themselves dragged to a deserted space station."
-}
-,
-{
-   "title": "RED DWARF: 6-3 Gunmen of the Apocalypse",
-   "shortName": "6-3 Gunmen of the Apocalypse",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/6-3 Gunmen of the Apocalypse.mp4",
-   "length": 1730.073,
-   "isVideo": true,
-   "description": "Kryten contracts a computer virus, so the crew must enter his electronic mindscape."
-}
-,
-{
-   "title": "RED DWARF: 6-4 Emohawk Polymorph II",
-   "shortName": "6-4 Emohawk Polymorph II",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/6-4 Emohawk Polymorph II.mp4",
-   "length": 1698.466,
-   "isVideo": true,
-   "description": "The crew need replacement engine parts from the fearsome Kinatowi clan."
-}
-,
-{
-   "title": "RED DWARF: 6-5 Rimmerworld",
-   "shortName": "6-5 Rimmerworld",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/6-5 Rimmerworld.mp4",
-   "length": 1702.015,
-   "isVideo": true,
-   "description": "After escaping a disintegrating ship, Rimmer's pod is sucked into a wormhole in time."
-}
-,
-{
-   "title": "RED DWARF: 6-6 Out of Time",
-   "shortName": "6-6 Out of Time",
-   "urlLocal": "media/channel-2/../Core/Red Dwarf/6-6 Out of Time.mp4",
-   "length": 1705.5,
-   "isVideo": true,
-   "description": "The crew encounter several unreality bubbles."
-}
-,
-{
-   "title": "CHASING THE MOON: 1 - A Place Beyond the Sky",
-   "shortName": "1 - A Place Beyond the Sky",
-   "urlLocal": "media/channel-2/../Core/Chasing the Moon/1 -  A Place Beyond the Sky.mp4",
-   "length": 2871.06,
-   "isVideo": true,
-   "description": "America's race to the moon begins with Soviet Russia's launch of Sputnik 1."
-}
-,
-{
-   "title": "CHASING THE MOON: 2 - A Place Beyond the Sky",
-   "shortName": "2 - A Place Beyond the Sky",
-   "urlLocal": "media/channel-2/../Core/Chasing the Moon/2 -  A Place Beyond the Sky.mp4",
-   "length": 2867.06,
-   "isVideo": true,
-   "description": "How America's space exploration technology caught up with the Soviet Union's."
-}
-,
-{
-   "title": "CHASING THE MOON: 3 - Earthrise",
-   "shortName": "3 - Earthrise",
-   "urlLocal": "media/channel-2/../Core/Chasing the Moon/3 -  Earthrise.mp4",
-   "length": 2870.06,
-   "isVideo": true,
-   "description": "A training exercise ends in tragedy, risking the future of the entire US space programme."
-}
-,
-{
-   "title": "CHASING THE MOON: 4 - Earthrise",
-   "shortName": "4 - Earthrise",
-   "urlLocal": "media/channel-2/../Core/Chasing the Moon/4 -  Earthrise.mp4",
-   "length": 2832.06,
-   "isVideo": true,
-   "description": "Within two years of the Apollo 1 tragedy, America sent a manned flight to the moon."
-}
-,
-{
-   "title": "CHASING THE MOON: 5 - Magnificent Desolation",
-   "shortName": "5 - Magnificent Desolation",
-   "urlLocal": "media/channel-2/../Core/Chasing the Moon/5 -  Magnificent Desolation.mp4",
-   "length": 2857.06,
-   "isVideo": true,
-   "description": "The space race takes a new twist as US astronauts compete to be the first man on the moon."
-}
-,
-{
-   "title": "CHASING THE MOON: 6 - Magnificent Desolation",
-   "shortName": "6 - Magnificent Desolation",
-   "urlLocal": "media/channel-2/../Core/Chasing the Moon/6 -  Magnificent Desolation.mp4",
-   "length": 2918.06,
-   "isVideo": true,
-   "description": "The world gathers around its television sets to watch Neil Armstrong set foot on the moon."
-}
-,
-{
-   "title": "FATHER TED: 1-1 Good Luck, Father Ted",
-   "shortName": "1-1 Good Luck, Father Ted",
-   "urlLocal": "media/channel-2/../Core/Father Ted/1-1 Good Luck, Father Ted.mp4",
-   "length": 1414.996,
-   "isVideo": true,
-   "description": "A television programme offers to interview Father Ted, who goes to extreme lengths to ensure the other members of the clergy on the island do not interrupt his moment in the spotlight."
-}
-,
-{
-   "title": "FATHER TED: 1-2 Entertaining Father Stone",
-   "shortName": "1-2 Entertaining Father Stone",
-   "urlLocal": "media/channel-2/../Core/Father Ted/1-2 Entertaining Father Stone.mp4",
-   "length": 1446,
-   "isVideo": true,
-   "description": "Ted and Dougal are devastated as an inoffensive but unbearably boring priest, Father Stone, arrives on Craggy Island for his annual visit."
-}
-,
-{
-   "title": "FATHER TED: 1-3 The Passion of Saint Tibulus",
-   "shortName": "1-3 The Passion of Saint Tibulus",
-   "urlLocal": "media/channel-2/../Core/Father Ted/1-3 The Passion of Saint Tibulus.mp4",
-   "length": 1462.612,
-   "isVideo": true,
-   "description": "Bishop Leonard Brennan arrives at the parochial house on an official visit with news that a blasphemous film, condemned by the pope and banned everywhere, is being shown in Craggy Island thanks to a loophole."
-}
-,
-{
-   "title": "FATHER TED: 1-4 Competition Time",
-   "shortName": "1-4 Competition Time",
-   "urlLocal": "media/channel-2/../Core/Father Ted/1-4 Competition Time.mp4",
-   "length": 1430,
-   "isVideo": true,
-   "description": "Ahead of the annual 'All Priests Stars in Their Eyes Lookalike Competition', Ted, determined to beat his arch-nemesis Father Dick Byrne, reveals his Elvis costume."
-}
-,
-{
-   "title": "FATHER TED: 1-5 And God Created Woman",
-   "shortName": "1-5 And God Created Woman",
-   "urlLocal": "media/channel-2/../Core/Father Ted/1-5 And God Created Woman.mp4",
-   "length": 1507.412,
-   "isVideo": true,
-   "description": "Father Ted meets novelist Polly Clarke at the book signing for her latest novel Bejewelled with Kisses."
-}
-,
-{
-   "title": "FATHER TED: 1-6 Grant Unto Him Eternal Rest",
-   "shortName": "1-6 Grant Unto Him Eternal Rest",
-   "urlLocal": "media/channel-2/../Core/Father Ted/1-6 Grant Unto Him Eternal Rest.mp4",
-   "length": 1471.316,
-   "isVideo": true,
-   "description": "Father Ted is unconcerned when he discovers Jack has drunk a bottle of floor polish, but a lack of pulse and no breathing can only mean one thing, Father Jack is dead."
-}
-,
-{
-   "title": "FATHER TED: 2-1 Hell",
-   "shortName": "2-1 Hell",
-   "urlLocal": "media/channel-2/../Core/Father Ted/2- 1 Hell.mp4",
-   "length": 1456.596,
-   "isVideo": true,
-   "description": "Ted, Dougal and Jack take their annual holiday and encounter Father Noel Furlong."
-}
-,
-{
-   "title": "FATHER TED: 2-2 Think Fast, Father Ted",
-   "shortName": "2-2 Think Fast, Father Ted",
-   "urlLocal": "media/channel-2/../Core/Father Ted/2- 2 Think Fast, Father Ted.mp4",
-   "length": 1455.978,
-   "isVideo": true,
-   "description": "When Ted holds a raffle, he destroys the prize - a new car."
-}
-,
-{
-   "title": "FATHER TED: 2-3 Tentacles of Doom",
-   "shortName": "2-3 Tentacles of Doom",
-   "urlLocal": "media/channel-2/../Core/Father Ted/2- 3 Tentacles of Doom.mp4",
-   "length": 1483.306,
-   "isVideo": true,
-   "description": "Three bishops visit the island."
-}
-,
-{
-   "title": "FATHER TED: 2-4 Old Grey Whistle Theft",
-   "shortName": "2-4 Old Grey Whistle Theft",
-   "urlLocal": "media/channel-2/../Core/Father Ted/2- 4 Old Grey Whistle Theft.mp4",
-   "length": 1459.604,
-   "isVideo": true,
-   "description": "Dougal starts hanging around with a rebellious priest, Father Damo Lennon."
-}
-,
-{
-   "title": "FATHER TED: 2-5 A Song for Europe",
-   "shortName": "2-5 A Song for Europe",
-   "urlLocal": "media/channel-2/../Core/Father Ted/2- 5 A Song for Europe.mp4",
-   "length": 1441.002,
-   "isVideo": true,
-   "description": "Ted is goaded by Father Dick Byrne into attempting to write a song for \"Eurosong '96\"."
-}
-,
-{
-   "title": "THATCHER: Brighton Bombing",
-   "shortName": "Brighton Bombing",
-   "urlLocal": "media/channel-2/../Core/Thatcher/Brighton Bombing.mp4",
-   "length": 4573.8,
-   "isVideo": true,
-   "description": "A look at the Brighton bombing of 1984, with new testimony from many of those affected."
-}
-,
-{
-   "title": "THATCHER: Downfall",
-   "shortName": "Downfall",
-   "urlLocal": "media/channel-2/../Core/Thatcher/Downfall.mp4",
-   "length": 3570.06,
-   "isVideo": true,
-   "description": "Splits in Mrs Thatcher's cabinet and public anger lead to her eventual downfall."
-}
-,
-{
-   "title": "THATCHER: Enemies",
-   "shortName": "Enemies",
-   "urlLocal": "media/channel-2/../Core/Thatcher/Enemies.mp4",
-   "length": 3570.06,
-   "isVideo": true,
-   "description": "Mrs Thatcher confronts her enemies and leads the country to war."
-}
-,
-{
-   "title": "THATCHER: Making Margaret",
-   "shortName": "Making Margaret",
-   "urlLocal": "media/channel-2/../Core/Thatcher/Making Margaret.mp4",
-   "length": 3570.06,
-   "isVideo": true,
-   "description": "Tracing Mrs Thatcher's startling rise to power and her Iron Lady image in the 1970s."
-}
-,
-{
-   "title": "THATCHER: Power",
-   "shortName": "Power",
-   "urlLocal": "media/channel-2/../Core/Thatcher/Power.mp4",
-   "length": 3539.06,
-   "isVideo": true,
-   "description": "Mrs Thatcher struggles to cling to power as she is subverted by members of her cabinet."
-}
-,
-{
-   "title": "THATCHER: That Bloody Woman",
-   "shortName": "That Bloody Woman",
-   "urlLocal": "media/channel-2/../Core/Thatcher/That Bloody Woman.mp4",
-   "length": 3570.06,
-   "isVideo": true,
-   "description": "Tensions erupt within Mrs Thatcher's inner circle and personal relationships are exposed."
-}
-,
-{
-   "title": "FAWLTY TOWERS: 1-1 A Touch of Class",
-   "shortName": "1-1 A Touch of Class",
-   "urlLocal": "media/channel-2/../Core/Fawlty Towers/1-1 A Touch of Class.mp4",
-   "length": 1821,
-   "isVideo": true,
-   "description": "As Basil tries to raise the tone of the hotel, the aristocratic Lord Melbury comes to stay at the hotel."
-}
-,
-{
-   "title": "FAWLTY TOWERS: 2-5 The Anniversary",
-   "shortName": "2-5 The Anniversary",
-   "urlLocal": "media/channel-2/../Core/Fawlty Towers/2-5 The Anniversary.mp4",
-   "length": 1747.028,
-   "isVideo": true,
-   "description": "Basil invites some friends for a surprise wedding anniversary party, but Sybil assumes he has forgotten their anniversary and storms off."
-}
-,
-{
-   "title": "FAWLTY TOWERS: 2-6 Basil the Rat",
-   "shortName": "2-6 Basil the Rat",
-   "urlLocal": "media/channel-2/../Core/Fawlty Towers/2-6 Basil the Rat.mp4",
-   "length": 2023.018,
-   "isVideo": true,
-   "description": "The local health inspector notes and reads out a long list of hygiene infractions which the staff must rectify before his next visit, or else face closure."
-}
-,
-{
-   "title": "REGINALD PERRIN: 1-1",
-   "shortName": "1-1",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-1.mp4",
-   "length": 1815.9,
-   "isVideo": true,
-   "description": "Reggie's life as a sales executive at Sunshine Desserts is getting too much for him and the strain is starting to show."
-}
-,
-{
-   "title": "REGINALD PERRIN: 1-2",
-   "shortName": "1-2",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-2.mp4",
-   "length": 1762.46,
-   "isVideo": true,
-   "description": "Reggie's plans for a relaxing weekend are scuppered when the family decides to visit a safari park."
-}
-,
-{
-   "title": "REGINALD PERRIN: 1-3",
-   "shortName": "1-3",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-3.mp4",
-   "length": 1790.84,
-   "isVideo": true,
-   "description": "Elizabeth is away, so Reggie decides to invite his secretary Joan over for a secret tryst."
-}
-,
-{
-   "title": "REGINALD PERRIN: 1-4",
-   "shortName": "1-4",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-4.mp4",
-   "length": 1742.38,
-   "isVideo": true,
-   "description": "With Elizabeth still away, Reggie hosts a dinner party (without any food) for his business associates."
-}
-,
-{
-   "title": "REGINALD PERRIN: 1-5",
-   "shortName": "1-5",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-5.mp4",
-   "length": 1742.62,
-   "isVideo": true,
-   "description": "After a disastrous public speech to the Fruit Association at Bilberry Hall, Reggie decides to take drastic action."
-}
-,
-{
-   "title": "REGINALD PERRIN: 1-6",
-   "shortName": "1-6",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-6.mp4",
-   "length": 1649.98,
-   "isVideo": true,
-   "description": "After his fake suicide, Reggie tries out a number of different new identities."
-}
-,
-{
-   "title": "REGINALD PERRIN: 1-7",
-   "shortName": "1-7",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/1-7.mp4",
-   "length": 1738.62,
-   "isVideo": true,
-   "description": "Reggie returns as Martin Wellbourne, attends his own memorial service, and wins back Elizabeth."
-}
-,
-{
-   "title": "REGINALD PERRIN: 2-1",
-   "shortName": "2-1",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-1.mp4",
-   "length": 1702.46,
-   "isVideo": true,
-   "description": "Reggie reveals his true identity and CJ promptly fires him."
-}
-,
-{
-   "title": "REGINALD PERRIN: 2-2",
-   "shortName": "2-2",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-2.mp4",
-   "length": 1854.46,
-   "isVideo": true,
-   "description": "Reggie is reduced to working at Mr Pelham's pig farm and Elizabeth decides to get a job."
-}
-,
-{
-   "title": "REGINALD PERRIN: 2-3",
-   "shortName": "2-3",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-3.mp4",
-   "length": 1648.7,
-   "isVideo": true,
-   "description": "Reggie has an idea for making a fortune: a shop that sells total rubbish."
-}
-,
-{
-   "title": "REGINALD PERRIN: 2-4",
-   "shortName": "2-4",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-4.mp4",
-   "length": 1893.2,
-   "isVideo": true,
-   "description": "Grot is a huge success selling all sorts of useless products."
-}
-,
-{
-   "title": "REGINALD PERRIN: 2-5",
-   "shortName": "2-5",
-   "urlLocal": "media/channel-2/../Core/Reginald Perrin/2-5.mp4",
-   "length": 1713.4,
-   "isVideo": true,
-   "description": "Sunshine Desserts goes bankrupt and Reggie hires his old coworkers and boss to Grot."
-}
-,
-{
-   "title": "THE IT CROWD: 4-3 Something Happened",
-   "shortName": "4-3 Something Happened",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/4-3 Something Happened.mp4",
-   "length": 1389.844,
-   "isVideo": true,
-   "description": "Douglas becomes interested in \"Spaceology\" – a new age-styled religion that employs cosmic ordering."
-}
-,
-{
-   "title": "THE IT CROWD: 4-4 Italian for Beginners",
-   "shortName": "4-4 Italian for Beginners",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/4-4 Italian for Beginners.mp4",
-   "length": 1440.212,
-   "isVideo": true,
-   "description": "Jealous that her co-worker Linda has been impressing everyone at their executive meetings, Jen pretends to be fluent in Italian so she can become Douglas's interpreter."
-}
-,
-{
-   "title": "THE IT CROWD: 4-5 Bad Boys",
-   "shortName": "4-5 Bad Boys",
-   "urlLocal": "media/channel-2/../Core/The IT Crowd/4-5 Bad Boys.mp4",
-   "length": 1308.138,
-   "isVideo": true,
-   "description": "At a Scared Straight!-styled talk, Moss is the first to present, recalling the events of the episode."
-}
-,
-{
-   "title": "HITCHHIKER'S GUIDE: (1 of 6)",
-   "shortName": "(1 of 6)",
-   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/(1 of 6).mp4",
-   "length": 1972.68,
-   "isVideo": true,
-   "description": "Arthur wakes to discover his house has been scheduled for demolition."
-}
-,
-{
-   "title": "HITCHHIKER'S GUIDE: (2 of 6)",
-   "shortName": "(2 of 6)",
-   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/(2 of 6).mp4",
-   "length": 2095.16,
-   "isVideo": true,
-   "description": "After being subjected to Vogon poetry, Arthur and Ford are thrown out of an airlock but improbably rescued just before death."
-}
-,
-{
-   "title": "HITCHHIKER'S GUIDE: (3 of 6)",
-   "shortName": "(3 of 6)",
-   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/(3 of 6).mp4",
-   "length": 1862.44,
-   "isVideo": true,
-   "description": "Zaphod finds the legendary plant of Magrathea, which manufactured planets for the hyper-wealthy until the galactic economy collapsed."
-}
-,
-{
-   "title": "HITCHHIKER'S GUIDE: (4 of 6)",
-   "shortName": "(4 of 6)",
-   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/(4 of 6).mp4",
-   "length": 1941.04,
-   "isVideo": true,
-   "description": "Slartibartfast shows Arthur the archive tapes of the development of Deep Thought, who was given the order to search for the Ultimate Answer to Life, The Universe and Everything."
-}
-,
-{
-   "title": "HITCHHIKER'S GUIDE: (5 of 6)",
-   "shortName": "(5 of 6)",
-   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/(5 of 6).mp4",
-   "length": 1972.4,
-   "isVideo": true,
-   "description": "The four travellers are transported forward in time to Milliways, the Restaurant at the End of the Universe."
-}
-,
-{
-   "title": "HITCHHIKER'S GUIDE: (6 of 6)",
-   "shortName": "(6 of 6)",
-   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/(6 of 6).mp4",
-   "length": 2144.72,
-   "isVideo": true,
-   "description": "Ford and Arthur arrive – without Zaphod and Trillian – on a spaceship carrying millions of people in cryogenic pods."
-}
-,
-{
-   "title": "HITCHHIKER'S GUIDE: The Making Of",
-   "shortName": "The Making Of",
-   "urlLocal": "media/channel-2/../Core/Hitchhiker's Guide/The Making Of.mp4",
-   "length": 3514.332,
-   "isVideo": true,
-   "description": ""
 }
 ]}
 

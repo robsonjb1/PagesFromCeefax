@@ -3,8 +3,7 @@ using System.Text.RegularExpressions;
 using API.Architecture;
 using HtmlAgilityPack;
 using Serilog;
-using SixLabors.ImageSharp.Formats.Jpeg;
-using SixLabors.ImageSharp.Processing;
+using SkiaSharp;
 using System.Diagnostics;
 
 namespace API.Magazine;
@@ -106,17 +105,32 @@ public class SpectatorContent : ISpectatorContent
     {
         try
         {
-            // Reduce image quality
-            using var image = SixLabors.ImageSharp.Image.Load(source);
-            image.Mutate(z => z.Brightness(1.2f));
-            using MemoryStream outputStream = new MemoryStream();
-            image.Save(outputStream, new JpegEncoder { Quality = 50 });
-            outputStream.Close();
+            using var image = SKBitmap.Decode(source)
+                ?? throw new InvalidDataException("Unable to decode image data.");
+            using var brightenedImage = new SKBitmap(image.Info);
+            using var brightnessFilter = SKColorFilter.CreateColorMatrix(
+            [
+                1.2f, 0, 0, 0, 0,
+                0, 1.2f, 0, 0, 0,
+                0, 0, 1.2f, 0, 0,
+                0, 0, 0, 1, 0
+            ]);
+            using (var canvas = new SKCanvas(brightenedImage))
+            using (var paint = new SKPaint
+            {
+                ColorFilter = brightnessFilter
+            })
+            {
+                canvas.DrawBitmap(image, 0, 0, SKSamplingOptions.Default, paint);
+            }
 
-            return Convert.ToBase64String(outputStream.ToArray());  
+            using var outputImage = SKImage.FromBitmap(brightenedImage);
+            using var outputData = outputImage.Encode(SKEncodedImageFormat.Jpeg, 50);
+            return Convert.ToBase64String(outputData.ToArray());
         }
-        catch
+        catch (Exception ex)
         {
+            Log.Error(ex, "Failed to brighten and encode image.");
             return String.Empty;
         }
     }
@@ -255,7 +269,7 @@ public class SpectatorContent : ISpectatorContent
     private async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
     {
         var client = new HttpClient();
-        client.DefaultRequestHeaders.Add("Cookie", _config.SpecSessionCookie);
+        //client.DefaultRequestHeaders.Add("Cookie", _config.SpecSessionCookie);
        
         var content = await client.GetAsync(location);
         return (location, content);

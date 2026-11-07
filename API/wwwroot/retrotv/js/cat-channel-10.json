@@ -1,120 +1,163 @@
-{ "lastRefresh": "Wed 28 Oct 17:49", 
+{ "lastRefresh": "Sat 07 Nov 17:47", 
    "episodeList": 
 [
 {
    "urlLocal": "media/Channel-10/1-SPECTATOR.mp3",
-   "length": 2701.426,
+   "length": 2306.611,
    "isPodcast": true,
+   "publishDate": "06/11/2026 00:01:00",
    "title": "PODCASTS: The Spectator Edition",
-   "shortName": "The Spectator Edition (5 days ago)",
-   "description": "Could France’s crisis come to Britain? with Louis Sarkozy & Loyd Grossman (5 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-LASTORDERS.mp3",
-   "length": 3624.724,
-   "isPodcast": true,
-   "title": "PODCASTS: Last Orders",
-   "shortName": "Last Orders (4 days ago)",
-   "description": "*Peter Hitchens, Douglas Murray and President Trump – live! (4 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-QUITERIGHT.mp3",
-   "length": 2330.879,
-   "isPodcast": true,
-   "title": "PODCASTS: Quite Right",
-   "shortName": "Quite Right (Yesterday)",
-   "description": "Douglas Murray: integration has failed – and Britain faces civil conflict | Part one (Yesterday)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/2-QUITERIGHT.mp3",
-   "length": 2733.113,
-   "isPodcast": true,
-   "title": "PODCASTS: Quite Right",
-   "shortName": "Quite Right (5 days ago)",
-   "description": "Andrew Roberts: Napoleon’s fatal flaw – and why he lost Waterloo | LIVE (5 days ago)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-SPIKED.mp3",
-   "length": 1044.166,
-   "isPodcast": true,
-   "title": "PODCASTS: Spiked",
-   "shortName": "Spiked (Yesterday)",
-   "description": "‘The BBC is terrified of its activist staff’ | BBC veteran Phil Craig (Yesterday)"
-}
-,
-{
-   "urlLocal": "media/Channel-10/1-RUNASRADIO.mp3",
-   "length": 2233.626,
-   "isPodcast": true,
-   "title": "PODCASTS: RunAs Radio",
-   "shortName": "RunAs Radio (Today)",
-   "description": "PostgreSQL with Elizabeth Christensen (Today)"
+   "shortName": "The Spectator Edition (Yesterday)",
+   "description": "Britain’s ‘carousel of crime’ – and can the American right recover? | with Tim Stanley (Yesterday)"
 }
 ,
 {
    "urlLocal": "media/Channel-10/1-CHS.mp3",
-   "length": 756.113,
+   "length": 2189.478,
    "isPodcast": true,
+   "publishDate": "07/11/2026 00:01:00",
    "title": "PODCASTS: Coffee House Shots",
    "shortName": "Coffee House Shots (Today)",
-   "description": "Healey's 'breathing space' budget – was that it? (Today)"
+   "description": "'We need to get real' – Claire Ainsley on Starmer, Burnham and Labour’s future (Today)"
 }
 ,
 {
    "urlLocal": "media/Channel-10/2-CHS.mp3",
-   "length": 1185.227,
+   "length": 1213.857,
    "isPodcast": true,
+   "publishDate": "06/11/2026 00:01:00",
    "title": "PODCASTS: Coffee House Shots",
    "shortName": "Coffee House Shots (Yesterday)",
-   "description": "Kwasi Kwarteng: what could go wrong for Burnham's budget (Yesterday)"
+   "description": "Why does everyone hate inheritance tax? | Dan Neidle (Yesterday)"
 }
 ,
 {
    "urlLocal": "media/Channel-10/3-CHS.mp3",
-   "length": 943.803,
+   "length": 1097.926,
    "isPodcast": true,
+   "publishDate": "05/11/2026 13:17:49",
    "title": "PODCASTS: Coffee House Shots",
    "shortName": "Coffee House Shots (2 days ago)",
-   "description": "Burnham's first budget – trick or treat? (2 days ago)"
+   "description": "Kim Darroch: ‘Trump was conned by Netanyahu’ over Iran (2 days ago)"
 }
 ,
 {
    "urlLocal": "media/Channel-10/1-SKYF1.mp3",
-   "length": 2390.648,
+   "length": 1267.931,
    "isPodcast": true,
+   "publishDate": "06/11/2026 07:50:00",
    "title": "PODCASTS: The Sky F1 Show",
    "shortName": "The Sky F1 Show (Yesterday)",
-   "description": "‘He’s the man of the moment in Italy!’ (Yesterday)"
+   "description": "Ted's Brazil Podbook: Interlagos welcomes the Champ! (Yesterday)"
 }
 ,
 {
    "urlLocal": "media/Channel-10/2-SKYF1.mp3",
-   "length": 646.112,
+   "length": 3329.332,
    "isPodcast": true,
+   "publishDate": "03/11/2026 12:00:00",
    "title": "PODCASTS: The Sky F1 Show",
-   "shortName": "The Sky F1 Show (5 days ago)",
-   "description": "Ted's Austin Podbook: Will Kimi be crowned world champion this weekend? (5 days ago)"
+   "shortName": "The Sky F1 Show (4 days ago)",
+   "description": "Kimi Antonelli F1’s Youngest World Champion! Plus, should Lewis Hamilton and Ferrari have won the Mexican GP? (4 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-RUNASRADIO.mp3",
+   "length": 2185.732,
+   "isPodcast": true,
+   "publishDate": "04/11/2026 00:00:00",
+   "title": "PODCASTS: RunAs Radio",
+   "shortName": "RunAs Radio (3 days ago)",
+   "description": "PowerShell 7.7 and DSC 3.3 with Jason Helmick (3 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-SPIKED.mp3",
+   "length": 2055.705,
+   "isPodcast": true,
+   "publishDate": "06/11/2026 20:02:00",
+   "title": "PODCASTS: Spiked",
+   "shortName": "Spiked (Yesterday)",
+   "description": "Why Trump imploded – and the revenge of woke (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-QUITERIGHT.mp3",
+   "length": 2782.04,
+   "isPodcast": true,
+   "publishDate": "04/11/2026 00:01:00",
+   "title": "PODCASTS: Quite Right",
+   "shortName": "Quite Right (3 days ago)",
+   "description": "Reparations row – why Britain should NOT pay up (3 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-PLANET-NORMAL.mp3",
+   "length": 3249.107,
+   "isPodcast": true,
+   "publishDate": "05/11/2026 00:30:00",
+   "title": "PODCASTS: Planet Normal",
+   "shortName": "Planet Normal (2 days ago)",
+   "description": "The hard left, the high street and the house of Trump (2 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-ANDREWNEIL.mp3",
+   "length": 1950.223,
+   "isPodcast": true,
+   "publishDate": "06/11/2026 16:00:00",
+   "title": "PODCASTS: Andrew Neil Report",
+   "shortName": "Andrew Neil Report (Yesterday)",
+   "description": "Knives are out in the White House & even I didn't see this coming (Yesterday)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/2-ANDREWNEIL.mp3",
+   "length": 2681.69,
+   "isPodcast": true,
+   "publishDate": "04/11/2026 17:48:26",
+   "title": "PODCASTS: Andrew Neil Report",
+   "shortName": "Andrew Neil Report (3 days ago)",
+   "description": "I knew it would be bad for Trump... but this bad? (3 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/3-ANDREWNEIL.mp3",
+   "length": 1062.926,
+   "isPodcast": true,
+   "publishDate": "02/11/2026 16:49:27",
+   "title": "PODCASTS: Andrew Neil Report",
+   "shortName": "Andrew Neil Report (5 days ago)",
+   "description": "Trump is heading for midterm humiliation & that should worry the world (5 days ago)"
 }
 ,
 {
    "urlLocal": "media/Channel-10/1-AMERICANO.mp3",
-   "length": 1562.095,
+   "length": 2800.639,
    "isPodcast": true,
+   "publishDate": "06/11/2026 17:32:31",
    "title": "PODCASTS: Americano",
    "shortName": "Americano (Yesterday)",
-   "description": "Jacob Heilbrunn: Is Trump's White House spinning out of control? (Yesterday)"
+   "description": "Andy Ngo: Inside the bizarre ‘Death Cult’ you’ve never heard of - The Zizians (Yesterday)"
 }
 ,
 {
-   "urlLocal": "media/Channel-10/1-B-ONEILL.mp3",
-   "length": 3006.85,
+   "urlLocal": "media/Channel-10/2-AMERICANO.mp3",
+   "length": 1324.277,
    "isPodcast": true,
-   "title": "PODCASTS: Brendan O'Neill",
-   "shortName": "Brendan O'Neill (3 days ago)",
-   "description": "How ‘trauma’ is weaponised by elites | Catherine Liu (3 days ago)"
+   "publishDate": "04/11/2026 19:19:38",
+   "title": "PODCASTS: Americano",
+   "shortName": "Americano (3 days ago)",
+   "description": "Trump’s midterm disaster: What went wrong? (3 days ago)"
+}
+,
+{
+   "urlLocal": "media/Channel-10/1-REALITY.mp3",
+   "length": 1241.678,
+   "isPodcast": true,
+   "publishDate": "05/11/2026 00:01:00",
+   "title": "PODCASTS: Reality Check",
+   "shortName": "Reality Check (2 days ago)",
+   "description": "Dan Neidle on Britain's most hated tax (2 days ago)"
 }
 ]}

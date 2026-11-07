@@ -1,78 +1,6 @@
-{ "lastRefresh": "Wed 28 Oct 10:47", 
+{ "lastRefresh": "Sun 01 Nov 18:42", 
    "episodeList": 
 [
-{
-   "title": "BLAKE'S-7: The Keeper (Commentary)",
-   "shortName": "The Keeper (Commentary)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/The Keeper (Commentary).mp4",
-   "length": 3081.904,
-   "isVideo": true,
-   "description": "With Sally Knyvette and Brian Croucher."
-}
-,
-{
-   "title": "BLAKE'S-7: The Making of Blake's-7 (Part 1)",
-   "shortName": "The Making of Blake's-7 (Part 1)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/The Making of Blake's-7 (Part 1).mp4",
-   "length": 2513.023,
-   "isVideo": true,
-   "description": "Part 1 of an unreleased documentary originally slated for release in the 1990's, featuring a comprehensive look back at Series 1."
-}
-,
-{
-   "title": "BLAKE'S-7: The Making of Blake's-7 (Part 2)",
-   "shortName": "The Making of Blake's-7 (Part 2)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/The Making of Blake's-7 (Part 2).mp4",
-   "length": 3561.066,
-   "isVideo": true,
-   "description": "Part 2 of this unreleased archival documentary featuring rare interviews with cast and crew."
-}
-,
-{
-   "title": "BLAKE'S-7: Trial (Commentary)",
-   "shortName": "Trial (Commentary)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Trial (Commentary).mp4",
-   "length": 3086.376,
-   "isVideo": true,
-   "description": "With Jan Chappell, Brian Croucher, David Maloney and Chris Boucher."
-}
-,
-{
-   "title": "RED DWARF: 1-1 The End",
-   "shortName": "1-1 The End",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/1-1 The End.mp4",
-   "length": 1800.06,
-   "isVideo": true,
-   "description": "Red Dwarf is a mining ship with a crew of 169."
-}
-,
-{
-   "title": "RED DWARF: 1-2 Future Echoes",
-   "shortName": "1-2 Future Echoes",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/1-2 Future Echoes.mp4",
-   "length": 1729.973,
-   "isVideo": true,
-   "description": "Red Dwarf breaks the light barrier and Rimmer sees a death in the future."
-}
-,
-{
-   "title": "BLAKE'S-7: 1-1 The Way Back",
-   "shortName": "1-1 The Way Back",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/1- 1 The Way Back.mp4",
-   "length": 2951.018,
-   "isVideo": true,
-   "description": "Roj Blake discovers shocking secrets about his past, pitting him against the tyrannical Federation."
-}
-,
-{
-   "title": "BLAKE'S-7: 1-2 Space Fall",
-   "shortName": "1-2 Space Fall",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/1- 2 Space Fall.mp4",
-   "length": 3134.868,
-   "isVideo": true,
-   "description": "Aboard a prison colony transport, Blake meets future comrades and encounters a mysterious space vessel that could liberate Earth from the grip of the Federation."
-}
-,
 {
    "title": "BLAKE'S-7: 1-3 Cygnus Alpha",
    "shortName": "1-3 Cygnus Alpha",
@@ -101,687 +29,30 @@
 }
 ,
 {
-   "title": "BLAKE'S-7: 1-9 Project Avalon",
-   "shortName": "1-9 Project Avalon",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/1- 9 Project Avalon.mp4",
-   "length": 3156.5,
-   "isVideo": true,
-   "description": "Travis holds a resistance leader captive, prompting Blake to launch a rescue mission."
-}
-,
-{
-   "title": "BLAKE'S-7: 1-10 Breakdown",
-   "shortName": "1-10 Breakdown",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/1-10 Breakdown.mp4",
-   "length": 3088.298,
-   "isVideo": true,
-   "description": "The behavioural limiter implanted in Gan's brain begins to malfunction, threatening the lives of everyone aboard the Liberator."
-}
-,
-{
-   "title": "BLAKE'S-7: 1-11 Bounty",
-   "shortName": "1-11 Bounty",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/1-11 Bounty.mp4",
-   "length": 3123.903,
-   "isVideo": true,
-   "description": "While Blake attemps to prevent a civil war, a bounty hunter takes control of the Liberator to deliver its crew to the Federation."
-}
-,
-{
-   "title": "BLAKE'S-7: 1-12 Deliverance",
-   "shortName": "1-12 Deliverance",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/1-12 Deliverance.mp4",
-   "length": 2957.226,
-   "isVideo": true,
-   "description": "Stranded on an alien planet, Avon, Vila and Gan discover an ancient space capsule, while Blake discovers that the Federation are hunting for a device called Orac."
-}
-,
-{
-   "title": "BLAKE'S-7: 1-13 Orac",
-   "shortName": "1-13 Orac",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/1-13 Orac.mp4",
-   "length": 3113.834,
-   "isVideo": true,
-   "description": "The Liberator crew converge on the planet Aristo to find the mysterious Orac, but Servalon and Travis are also on its trail."
-}
-,
-{
-   "title": "BLAKE'S-7: 2-1 Redemption",
-   "shortName": "2-1 Redemption",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 1 Redemption.mp4",
-   "length": 2983.615,
-   "isVideo": true,
-   "description": "The Liberator comes under attack from a powerful alien force."
-}
-,
-{
-   "title": "BLAKE'S-7: 2-2 Shadow",
-   "shortName": "2-2 Shadow",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 2 Shadow.mp4",
-   "length": 3036.031,
-   "isVideo": true,
-   "description": "Blake and his crew must locate the source of the drug 'Shadow'."
-}
-,
-{
-   "title": "BLAKE'S-7: 2-3 Weapon",
-   "shortName": "2-3 Weapon",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 3 Weapon.mp4",
-   "length": 3107.028,
-   "isVideo": true,
-   "description": "Servalan locates a powerful new weapon that marks Blake and his crew for elimination at her leisure."
-}
-,
-{
-   "title": "BLAKE'S-7: 2-4 Horizon",
-   "shortName": "2-4 Horizon",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 4 Horizon.mp4",
-   "length": 3032.02,
-   "isVideo": true,
-   "description": "On the mysterious planet Horizon, Blake finds a secret mining operation."
-}
-,
-{
-   "title": "BLAKE'S-7: A-6 Seek-Locate-Destroy",
-   "shortName": "A-6 Seek-Locate-Destroy",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/A- 6 Seek-Locate-Destroy.mp4",
+   "title": "BLAKE'S-7: 1-6 Seek-Locate-Destroy",
+   "shortName": "1-6 Seek-Locate-Destroy",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/1- 6 Seek-Locate-Destroy.mp4",
    "length": 3086.76,
    "isVideo": true,
    "description": "Ruthless Supreme Commander Servalan enlists Space Commander Travis to track down and eliminate Blake and his band of freedom fighters."
 }
 ,
 {
-   "title": "BLAKE'S-7: A-7 Mission to Destiny",
-   "shortName": "A-7 Mission to Destiny",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/A- 7 Mission to Destiny.mp4",
+   "title": "BLAKE'S-7: 1-7 Mission to Destiny",
+   "shortName": "1-7 Mission to Destiny",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/1- 7 Mission to Destiny.mp4",
    "length": 3068.628,
    "isVideo": true,
    "description": "Blake and his crew stumble upon a murder mystery aboard a drifting freighter."
 }
 ,
 {
-   "title": "RED DWARF: 2-4 Stasis Leak",
-   "shortName": "2-4 Stasis Leak",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/2-4 Stasis Leak.mp4",
-   "length": 1791.06,
-   "isVideo": true,
-   "description": "A leak from the suspended animation chamber has created a doorway to the past."
-}
-,
-{
-   "title": "RED DWARF: 2-5 Queeg",
-   "shortName": "2-5 Queeg",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/2-5 Queeg.mp4",
-   "length": 1778.386,
-   "isVideo": true,
-   "description": "Holly's behaviour begins to endanger the ship so he's replaced by the back-up computer."
-}
-,
-{
-   "title": "RED DWARF: 2-6 Parallel Universe",
-   "shortName": "2-6 Parallel Universe",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/2-6 Parallel Universe.mp4",
-   "length": 1703.658,
-   "isVideo": true,
-   "description": "Holly devises a faster-than-light drive that sends the crew into a parallel universe."
-}
-,
-{
-   "title": "RED DWARF: 3-1 Backwards",
-   "shortName": "3-1 Backwards",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-1 Backwards.mp4",
-   "length": 1639.746,
-   "isVideo": true,
-   "description": "Lister and Rimmer finally arrive back on earth only to find time is behaving strangely."
-}
-,
-{
-   "title": "RED DWARF: 3-2 Marooned",
-   "shortName": "3-2 Marooned",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-2 Marooned.mp4",
-   "length": 1714.06,
-   "isVideo": true,
-   "description": "Lister and Rimmer are stranded on a moon with only a pot noodle and a tin of dog food."
-}
-,
-{
-   "title": "RED DWARF: 3-3 Polymorph",
-   "shortName": "3-3 Polymorph",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-3 Polymorph.mp4",
-   "length": 1590.573,
-   "isVideo": true,
-   "description": "A genetic mutant gets loose aboard the ship, leading to 24 hours of gruesome horror."
-}
-,
-{
-   "title": "RED DWARF: 3-4 Bodyswap",
-   "shortName": "3-4 Bodyswap",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-4 Bodyswap.mp4",
-   "length": 1603.02,
-   "isVideo": true,
-   "description": "Rimmer convinces Lister that they should swap bodies for a fortnight."
-}
-,
-{
-   "title": "RED DWARF: 3-5 Timeslides",
-   "shortName": "3-5 Timeslides",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-5 Timeslides.mp4",
-   "length": 1663.295,
-   "isVideo": true,
-   "description": "Kryten discovers some developing fluid which prints photographs the crew can walk into."
-}
-,
-{
-   "title": "RED DWARF: 3-6 The Last Day",
-   "shortName": "3-6 The Last Day",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-6 The Last Day.mp4",
-   "length": 1637.738,
-   "isVideo": true,
-   "description": "Kryten discovers his in-built expiry date is only 24 hours away."
-}
-,
-{
-   "title": "RED DWARF: 4-1 Camille",
-   "shortName": "4-1 Camille",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-1 Camille.mp4",
-   "length": 1602.62,
-   "isVideo": true,
-   "description": "Kryten falls in love at first sight but has his heart broken in the process."
-}
-,
-{
-   "title": "RED DWARF: 4-2 D.N.A.",
-   "shortName": "4-2 D.N.A.",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-2 D.N.A..mp4",
-   "length": 1667.604,
-   "isVideo": true,
-   "description": "The crew encounter the ultimate in genetic engineering technology."
-}
-,
-{
-   "title": "RED DWARF: 4-3 Justice",
-   "shortName": "4-3 Justice",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-3 Justice.mp4",
-   "length": 1696.393,
-   "isVideo": true,
-   "description": "The crew land up in 'Justice World', where a crime's consequences affect the perpetrator."
-}
-,
-{
-   "title": "RED DWARF: 4-4 White Hole",
-   "shortName": "4-4 White Hole",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-4 White Hole.mp4",
-   "length": 1648.506,
-   "isVideo": true,
-   "description": "Holly leaves the crew drifting helplessly towards a white hole."
-}
-,
-{
-   "title": "RED DWARF: 4-5 Dimension Jump",
-   "shortName": "4-5 Dimension Jump",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-5 Dimension Jump.mp4",
-   "length": 1720.34,
-   "isVideo": true,
-   "description": "In a parallel universe, an Arnold Rimmer exists who's charming, popular, brave and modest."
-}
-,
-{
-   "title": "RED DWARF: 4-6 Meltdown",
-   "shortName": "4-6 Meltdown",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-6 Meltdown.mp4",
-   "length": 1583.06,
-   "isVideo": true,
-   "description": "A transporter whisks the crew to 'Waxworld' - a theme park where things are going wrong."
-}
-,
-{
-   "title": "RED DWARF: 5-1 Holoship",
-   "shortName": "5-1 Holoship",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-1 Holoship.mp4",
-   "length": 1671.213,
-   "isVideo": true,
-   "description": "Rimmer is transmitted from Red Dwarf to the advanced holoship Enlightenment."
-}
-,
-{
-   "title": "RED DWARF: 5-2 The Inquisitor",
-   "shortName": "5-2 The Inquisitor",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-2 The Inquisitor.mp4",
-   "length": 1691.78,
-   "isVideo": true,
-   "description": "The Inquisitor roams through time, weeding out life's wastrels and deleting the worthless."
-}
-,
-{
-   "title": "RED DWARF: 5-3 Terrorform",
-   "shortName": "5-3 Terrorform",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-3 Terrorform.mp4",
-   "length": 1627.46,
-   "isVideo": true,
-   "description": "Rimmer is taken prisoner in his own mind."
-}
-,
-{
-   "title": "RED DWARF: 5-4 Quarantine",
-   "shortName": "5-4 Quarantine",
-   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-4 Quarantine.mp4",
-   "length": 1697.686,
-   "isVideo": true,
-   "description": "Rimmer forces the crew to spend 12 weeks in quarantine."
-}
-,
-{
-   "title": "BLAKE'S-7: Deliverance '98 (Part 4)",
-   "shortName": "Deliverance '98 (Part 4)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Deliverance '98 (Part 4).mp4",
-   "length": 1142.015,
-   "isVideo": true,
-   "description": "Gareth Thomas, Michael Keating, David Maloney and make-up designer Sheelagh Wells pay tribute to creator Terry Nation."
-}
-,
-{
-   "title": "BLAKE'S-7: Deliverance '98 (Part 5)",
-   "shortName": "Deliverance '98 (Part 5)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Deliverance '98 (Part 5).mp4",
-   "length": 3169.663,
-   "isVideo": true,
-   "description": "With Jacqueline Pearce, Sally Kynvette and Jan Chappell."
-}
-,
-{
-   "title": "BLAKE'S-7: Gambit (Commentary)",
-   "shortName": "Gambit (Commentary)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Gambit (Commentary).mp4",
-   "length": 3114.077,
-   "isVideo": true,
-   "description": "With Jacqueline Pearce, Michael Keating, Brian Croucher and David Maloney."
-}
-,
-{
-   "title": "BLAKE'S-7: Horizon (Commentary)",
-   "shortName": "Horizon (Commentary)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Horizon (Commentary).mp4",
-   "length": 3031.285,
-   "isVideo": true,
-   "description": "With Sally Knyvette and Brian Miller."
-}
-,
-{
-   "title": "BLAKE'S-7: Jacqueline Pearce Tribute",
-   "shortName": "Jacqueline Pearce Tribute",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Jacqueline Pearce Tribute.mp4",
-   "length": 4696.66,
-   "isVideo": true,
-   "description": "An in-depth look at the life and career of the iconic Servalan actress."
-}
-,
-{
-   "title": "BLAKE'S-7: A-8 Duel",
-   "shortName": "A-8 Duel",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/A- 8 Duel.mp4",
+   "title": "BLAKE'S-7: 1-8 Duel",
+   "shortName": "1-8 Duel",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/1- 8 Duel.mp4",
    "length": 3078.271,
    "isVideo": true,
    "description": "Travis hunts down the Liberator and Blake must face his arch-enemy in hand-to-hand combat."
-}
-,
-{
-   "title": "BLAKE'S-7: A-9 Project Avalon",
-   "shortName": "A-9 Project Avalon",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/A- 9 Project Avalon.mp4",
-   "length": 3156.5,
-   "isVideo": true,
-   "description": "Travis holds a resistance leader captive, prompting Blake to launch a rescue mission."
-}
-,
-{
-   "title": "BLAKE'S-7: A-10 Breakdown",
-   "shortName": "A-10 Breakdown",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/A-10 Breakdown.mp4",
-   "length": 3088.298,
-   "isVideo": true,
-   "description": "The behavioural limiter implanted in Gan's brain begins to malfunction, threatening the lives of everyone aboard the Liberator."
-}
-,
-{
-   "title": "BLAKE'S-7: A-11 Bounty",
-   "shortName": "A-11 Bounty",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/A-11 Bounty.mp4",
-   "length": 3123.903,
-   "isVideo": true,
-   "description": "While Blake attemps to prevent a civil war, a bounty hunter takes control of the Liberator to deliver its crew to the Federation."
-}
-,
-{
-   "title": "BLAKE'S-7: A-12 Deliverance",
-   "shortName": "A-12 Deliverance",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/A-12 Deliverance.mp4",
-   "length": 2957.226,
-   "isVideo": true,
-   "description": "Stranded on an alien planet, Avon, Vila and Gan discover an ancient space capsule, while Blake discovers that the Federation are hunting for a device called Orac."
-}
-,
-{
-   "title": "BLAKE'S-7: A-13 Orac",
-   "shortName": "A-13 Orac",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/A-13 Orac.mp4",
-   "length": 3113.834,
-   "isVideo": true,
-   "description": "The Liberator crew converge on the planet Aristo to find the mysterious Orac, but Servalon and Travis are also on its trail."
-}
-,
-{
-   "title": "BLAKE'S-7: B-1 Redemption",
-   "shortName": "B-1 Redemption",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 1 Redemption.mp4",
-   "length": 2983.615,
-   "isVideo": true,
-   "description": "The Liberator comes under attack from a powerful alien force."
-}
-,
-{
-   "title": "BLAKE'S-7: B-2 Shadow",
-   "shortName": "B-2 Shadow",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 2 Shadow.mp4",
-   "length": 3036.031,
-   "isVideo": true,
-   "description": "Blake and his crew must locate the source of the drug 'Shadow'."
-}
-,
-{
-   "title": "BLAKE'S-7: B-3 Weapon",
-   "shortName": "B-3 Weapon",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 3 Weapon.mp4",
-   "length": 3107.028,
-   "isVideo": true,
-   "description": "Servalan locates a powerful new weapon that marks Blake and his crew for elimination at her leisure."
-}
-,
-{
-   "title": "BLAKE'S-7: B-4 Horizon",
-   "shortName": "B-4 Horizon",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 4 Horizon.mp4",
-   "length": 3032.02,
-   "isVideo": true,
-   "description": "On the mysterious planet Horizon, Blake finds a secret mining operation."
-}
-,
-{
-   "title": "BLAKE'S-7: B-5 Pressure Point",
-   "shortName": "B-5 Pressure Point",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 5 Pressure Point.mp4",
-   "length": 2970.026,
-   "isVideo": true,
-   "description": "Blake intends to make a devastating strike at the heart of the Federation, but at what cost ?"
-}
-,
-{
-   "title": "BLAKE'S-7: B-6 Trial",
-   "shortName": "B-6 Trial",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 6 Trial.mp4",
-   "length": 3087.018,
-   "isVideo": true,
-   "description": "Servalan seeks to have Travis killed, while Avon tries to persuade the crew to abandon Blake for good."
-}
-,
-{
-   "title": "BLAKE'S-7: B-7 Killer",
-   "shortName": "B-7 Killer",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 7 Killer.mp4",
-   "length": 3076.031,
-   "isVideo": true,
-   "description": "Avon and Vila break into a Federation stronghold to find a crystal that can decrypt enemy pulse-codes."
-}
-,
-{
-   "title": "BLAKE'S-7: B-8 Hostage",
-   "shortName": "B-8 Hostage",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 8 Hostage.mp4",
-   "length": 3069.823,
-   "isVideo": true,
-   "description": "Travis kidnaps Blake's cousin and lures Blake and his crew into a trap."
-}
-,
-{
-   "title": "BLAKE'S-7: B-9 Countdown",
-   "shortName": "B-9 Countdown",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 9 Countdown.mp4",
-   "length": 3070.015,
-   "isVideo": true,
-   "description": "Seeking the secret location of Federation Control, Blake travels to the planet Albion to capture a Space Major who may provide answers."
-}
-,
-{
-   "title": "BLAKE'S-7: B-10 Voice from the Past",
-   "shortName": "B-10 Voice from the Past",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B-10 Voice from the Past.mp4",
-   "length": 2920.02,
-   "isVideo": true,
-   "description": "A resistance group claim to have enough evidence to overthrow the Federation, but what are their real motives?"
-}
-,
-{
-   "title": "BLAKE'S-7: B-11 Gambit",
-   "shortName": "B-11 Gambit",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B-11 Gambit.mp4",
-   "length": 3115.028,
-   "isVideo": true,
-   "description": "Blake and his crew travel to Freedom City to find a cyber-surgeon who may hold the key to the location of Star One."
-}
-,
-{
-   "title": "BLAKE'S-7: B-12 The Keeper",
-   "shortName": "B-12 The Keeper",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B-12 The Keeper.mp4",
-   "length": 3082.623,
-   "isVideo": true,
-   "description": "The race to find Star One continues, as Blake heads to the planet Goth to find a royal leader called 'The Keeper'."
-}
-,
-{
-   "title": "BLAKE'S-7: B-13 Star One",
-   "shortName": "B-13 Star One",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/B-13 Star One.mp4",
-   "length": 2907.028,
-   "isVideo": true,
-   "description": "The Liberator crew converge on Star One, where they uncover a terrible truth."
-}
-,
-{
-   "title": "BLAKE'S-7: Cast Introductions",
-   "shortName": "Cast Introductions",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Cast Introductions.mp4",
-   "length": 1301.631,
-   "isVideo": true,
-   "description": "A look at some of the key characters from the series; Blake, Jenna, Avon, Vila, Gan and Zen."
-}
-,
-{
-   "title": "BLAKE'S-7: David Jackson Tribute",
-   "shortName": "David Jackson Tribute",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/David Jackson Tribute.mp4",
-   "length": 2807.658,
-   "isVideo": true,
-   "description": "Friends and colleagues remember the actor who played Gan."
-}
-,
-{
-   "title": "BLAKE'S-7: Deliverance '98 (Part 1)",
-   "shortName": "Deliverance '98 (Part 1)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Deliverance '98 (Part 1).mp4",
-   "length": 3556.01,
-   "isVideo": true,
-   "description": "With Gareth Thomas, Sally Knyvette, David Jackson and Peter Tuddenham."
-}
-,
-{
-   "title": "BLAKE'S-7: Deliverance '98 (Part 2)",
-   "shortName": "Deliverance '98 (Part 2)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Deliverance '98 (Part 2).mp4",
-   "length": 3682.41,
-   "isVideo": true,
-   "description": "With Gareth Thomas, David Jackson, Michael Keating, Peter Tuddenham and Stephen Greif."
-}
-,
-{
-   "title": "BLAKE'S-7: Deliverance '98 (Part 3)",
-   "shortName": "Deliverance '98 (Part 3)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Deliverance '98 (Part 3).mp4",
-   "length": 3896.063,
-   "isVideo": true,
-   "description": "With David Maloney, stuntman Stuart Fell and studio lighting designer Brian Clemett."
-}
-,
-{
-   "title": "BLAKE'S-7: Liberation (Series 1)",
-   "shortName": "Liberation (Series 1)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Liberation (Series 1).mp4",
-   "length": 5078.015,
-   "isVideo": true,
-   "description": "Actors Sally Knyvette and Jan Chappell meet to reminisce about making the first series."
-}
-,
-{
-   "title": "BLAKE'S-7: Liberation (Series 2)",
-   "shortName": "Liberation (Series 2)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Liberation (Series 2).mp4",
-   "length": 6742.655,
-   "isVideo": true,
-   "description": "Actors Sally Kynvette and Jan Chappell meet to look back on Series 2 with contributions from cast and crew."
-}
-,
-{
-   "title": "BLAKE'S-7: Michael E Briant in Conversation",
-   "shortName": "Michael E Briant in Conversation",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Michael E Briant in Conversation.mp4",
-   "length": 5290.026,
-   "isVideo": true,
-   "description": "The prolific director discusses his life, career and sci-fi work."
-}
-,
-{
-   "title": "BLAKE'S-7: Project Avalon (Commentary)",
-   "shortName": "Project Avalon (Commentary)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Project Avalon (Commentary).mp4",
-   "length": 3156.5,
-   "isVideo": true,
-   "description": "With Jacqueline Pearce, Stephen Greif and Sally Knyvette."
-}
-,
-{
-   "title": "BLAKE'S-7: Redemption (Commentary)",
-   "shortName": "Redemption (Commentary)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Redemption (Commentary).mp4",
-   "length": 2983.053,
-   "isVideo": true,
-   "description": "With Sally Knyvette and Mat Irvine."
-}
-,
-{
-   "title": "BLAKE'S-7: Roger Murray-Leach in Conversation",
-   "shortName": "Roger Murray-Leach in Conversation",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Roger Murray-Leach in Conversation.mp4",
-   "length": 4767.06,
-   "isVideo": true,
-   "description": "Matthew Sweet chats to designer Roger Murray-Leach."
-}
-,
-{
-   "title": "BLAKE'S-7: Sally Knyvette in Conversation",
-   "shortName": "Sally Knyvette in Conversation",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Sally Knyvette in Conversation.mp4",
-   "length": 4696.02,
-   "isVideo": true,
-   "description": "Matthew Sweet chats to Sally about her life, career and Blake's 7."
-}
-,
-{
-   "title": "BLAKE'S-7: Seek-Locate-Destroy (Commentary)",
-   "shortName": "Seek-Locate-Destroy (Commentary)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Seek-Locate-Destroy (Commentary).mp4",
-   "length": 3086.76,
-   "isVideo": true,
-   "description": "With Michael Keating, Jacqueline Pearce and Stephen Greif."
-}
-,
-{
-   "title": "BLAKE'S-7: Shadow (Commentary)",
-   "shortName": "Shadow (Commentary)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Shadow (Commentary).mp4",
-   "length": 3035.44,
-   "isVideo": true,
-   "description": "With Jan Chappell and Sally Knyvette."
-}
-,
-{
-   "title": "BLAKE'S-7: Space Fall (Commentary)",
-   "shortName": "Space Fall (Commentary)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Space Fall (Commentary).mp4",
-   "length": 3134.868,
-   "isVideo": true,
-   "description": "With Sally Knyvette, Michael Keating and producer David Maloney."
-}
-,
-{
-   "title": "BLAKE'S-7: Star One (Commentary)",
-   "shortName": "Star One (Commentary)",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Star One (Commentary).mp4",
-   "length": 2906.474,
-   "isVideo": true,
-   "description": "With Sally Knyvette, Brian Croucher and Matt Irvine."
-}
-,
-{
-   "title": "BLAKE'S-7: Stephen Greif Tribute",
-   "shortName": "Stephen Greif Tribute",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Stephen Greif Tribute.mp4",
-   "length": 2086.015,
-   "isVideo": true,
-   "description": "Friends and colleagues reminisce about the actor who first played Space Commander Travis."
-}
-,
-{
-   "title": "BLAKE'S-7: Tellycon Convention Panel",
-   "shortName": "Tellycon Convention Panel",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/Tellycon Convention Panel.mp4",
-   "length": 2862.058,
-   "isVideo": true,
-   "description": "From 23rd July 1988 with Brian Croucher."
-}
-,
-{
-   "title": "BLAKE'S-7: 2-12 The Keeper",
-   "shortName": "2-12 The Keeper",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2-12 The Keeper.mp4",
-   "length": 3082.623,
-   "isVideo": true,
-   "description": "The race to find Star One continues, as Blake heads to the planet Goth to find a royal leader called 'The Keeper'."
-}
-,
-{
-   "title": "BLAKE'S-7: 2-13 Star One",
-   "shortName": "2-13 Star One",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2-13 Star One.mp4",
-   "length": 2907.028,
-   "isVideo": true,
-   "description": "The Liberator crew converge on Star One, where they uncover a terrible truth."
-}
-,
-{
-   "title": "BLAKE'S-7: 3-1 Aftermath",
-   "shortName": "3-1 Aftermath",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/3- 1 Aftermath.mp4",
-   "length": 3106.613,
-   "isVideo": true,
-   "description": "In a desperate attempt to delay the invading aliens until the Federation battle fleet arrive, Blake has sacrificed the Liberator."
-}
-,
-{
-   "title": "BLAKE'S-7: 3-2 Powerplay",
-   "shortName": "3-2 Powerplay",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/3- 2 Powerplay.mp4",
-   "length": 3033.826,
-   "isVideo": true,
-   "description": "As Avon and Vila fight separate battles for survival, each find it difficult to distinguish between friends and enemies."
 }
 ,
 {
@@ -863,6 +134,87 @@
    "length": 3089.6,
    "isVideo": true,
    "description": "The planet Sardos holds the secret of almost limitless wealth and power."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-9 Countdown",
+   "shortName": "2-9 Countdown",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 9 Countdown.mp4",
+   "length": 3070.015,
+   "isVideo": true,
+   "description": "Seeking the secret location of Federation Control, Blake travels to the planet Albion to capture a Space Major who may provide answers."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-10 Voice from the Past",
+   "shortName": "2-10 Voice from the Past",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2-10 Voice from the Past.mp4",
+   "length": 2920.02,
+   "isVideo": true,
+   "description": "A resistance group claim to have enough evidence to overthrow the Federation, but what are their real motives?"
+}
+,
+{
+   "title": "BLAKE'S-7: 2-11 Gambit",
+   "shortName": "2-11 Gambit",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2-11 Gambit.mp4",
+   "length": 3115.028,
+   "isVideo": true,
+   "description": "Blake and his crew travel to Freedom City to find a cyber-surgeon who may hold the key to the location of Star One."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-12 The Keeper",
+   "shortName": "2-12 The Keeper",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2-12 The Keeper.mp4",
+   "length": 3082.623,
+   "isVideo": true,
+   "description": "The race to find Star One continues, as Blake heads to the planet Goth to find a royal leader called 'The Keeper'."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-13 Star One",
+   "shortName": "2-13 Star One",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2-13 Star One.mp4",
+   "length": 2907.028,
+   "isVideo": true,
+   "description": "The Liberator crew converge on Star One, where they uncover a terrible truth."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-1 Aftermath",
+   "shortName": "3-1 Aftermath",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/3- 1 Aftermath.mp4",
+   "length": 3106.613,
+   "isVideo": true,
+   "description": "In a desperate attempt to delay the invading aliens until the Federation battle fleet arrive, Blake has sacrificed the Liberator."
+}
+,
+{
+   "title": "BLAKE'S-7: 3-2 Powerplay",
+   "shortName": "3-2 Powerplay",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/3- 2 Powerplay.mp4",
+   "length": 3033.826,
+   "isVideo": true,
+   "description": "As Avon and Vila fight separate battles for survival, each find it difficult to distinguish between friends and enemies."
+}
+,
+{
+   "title": "BLAKE'S-7: Roger Murray-Leach in Conversation",
+   "shortName": "Roger Murray-Leach in Conversation",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Roger Murray-Leach in Conversation.mp4",
+   "length": 4767.06,
+   "isVideo": true,
+   "description": "Matthew Sweet chats to designer Roger Murray-Leach."
+}
+,
+{
+   "title": "BLAKE'S-7: Sally Knyvette in Conversation",
+   "shortName": "Sally Knyvette in Conversation",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Sally Knyvette in Conversation.mp4",
+   "length": 4696.02,
+   "isVideo": true,
+   "description": "Matthew Sweet chats to Sally about her life, career and Blake's 7."
 }
 ,
 {
@@ -1046,93 +398,75 @@
 }
 ,
 {
-   "title": "BLAKE'S-7: 1-6 Seek-Locate-Destroy",
-   "shortName": "1-6 Seek-Locate-Destroy",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/1- 6 Seek-Locate-Destroy.mp4",
+   "title": "BLAKE'S-7: A-6 Seek-Locate-Destroy",
+   "shortName": "A-6 Seek-Locate-Destroy",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/A- 6 Seek-Locate-Destroy.mp4",
    "length": 3086.76,
    "isVideo": true,
    "description": "Ruthless Supreme Commander Servalan enlists Space Commander Travis to track down and eliminate Blake and his band of freedom fighters."
 }
 ,
 {
-   "title": "BLAKE'S-7: 1-7 Mission to Destiny",
-   "shortName": "1-7 Mission to Destiny",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/1- 7 Mission to Destiny.mp4",
+   "title": "BLAKE'S-7: A-7 Mission to Destiny",
+   "shortName": "A-7 Mission to Destiny",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/A- 7 Mission to Destiny.mp4",
    "length": 3068.628,
    "isVideo": true,
    "description": "Blake and his crew stumble upon a murder mystery aboard a drifting freighter."
 }
 ,
 {
-   "title": "BLAKE'S-7: 1-8 Duel",
-   "shortName": "1-8 Duel",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/1- 8 Duel.mp4",
+   "title": "BLAKE'S-7: A-8 Duel",
+   "shortName": "A-8 Duel",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/A- 8 Duel.mp4",
    "length": 3078.271,
    "isVideo": true,
    "description": "Travis hunts down the Liberator and Blake must face his arch-enemy in hand-to-hand combat."
 }
 ,
 {
-   "title": "BLAKE'S-7: 2-5 Pressure Point",
-   "shortName": "2-5 Pressure Point",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 5 Pressure Point.mp4",
-   "length": 2970.026,
+   "title": "BLAKE'S-7: A-9 Project Avalon",
+   "shortName": "A-9 Project Avalon",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/A- 9 Project Avalon.mp4",
+   "length": 3156.5,
    "isVideo": true,
-   "description": "Blake intends to make a devastating strike at the heart of the Federation, but at what cost ?"
+   "description": "Travis holds a resistance leader captive, prompting Blake to launch a rescue mission."
 }
 ,
 {
-   "title": "BLAKE'S-7: 2-6 Trial",
-   "shortName": "2-6 Trial",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 6 Trial.mp4",
-   "length": 3087.018,
+   "title": "BLAKE'S-7: A-10 Breakdown",
+   "shortName": "A-10 Breakdown",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/A-10 Breakdown.mp4",
+   "length": 3088.298,
    "isVideo": true,
-   "description": "Servalan seeks to have Travis killed, while Avon tries to persuade the crew to abandon Blake for good."
+   "description": "The behavioural limiter implanted in Gan's brain begins to malfunction, threatening the lives of everyone aboard the Liberator."
 }
 ,
 {
-   "title": "BLAKE'S-7: 2-7 Killer",
-   "shortName": "2-7 Killer",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 7 Killer.mp4",
-   "length": 3076.031,
+   "title": "BLAKE'S-7: A-11 Bounty",
+   "shortName": "A-11 Bounty",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/A-11 Bounty.mp4",
+   "length": 3123.903,
    "isVideo": true,
-   "description": "Avon and Vila break into a Federation stronghold to find a crystal that can decrypt enemy pulse-codes."
+   "description": "While Blake attemps to prevent a civil war, a bounty hunter takes control of the Liberator to deliver its crew to the Federation."
 }
 ,
 {
-   "title": "BLAKE'S-7: 2-8 Hostage",
-   "shortName": "2-8 Hostage",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 8 Hostage.mp4",
-   "length": 3069.823,
+   "title": "RED DWARF: 1-1 The End",
+   "shortName": "1-1 The End",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/1-1 The End.mp4",
+   "length": 1800.06,
    "isVideo": true,
-   "description": "Travis kidnaps Blake's cousin and lures Blake and his crew into a trap."
+   "description": "Red Dwarf is a mining ship with a crew of 169."
 }
 ,
 {
-   "title": "BLAKE'S-7: 2-9 Countdown",
-   "shortName": "2-9 Countdown",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 9 Countdown.mp4",
-   "length": 3070.015,
+   "title": "RED DWARF: 1-2 Future Echoes",
+   "shortName": "1-2 Future Echoes",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/1-2 Future Echoes.mp4",
+   "length": 1729.973,
    "isVideo": true,
-   "description": "Seeking the secret location of Federation Control, Blake travels to the planet Albion to capture a Space Major who may provide answers."
-}
-,
-{
-   "title": "BLAKE'S-7: 2-10 Voice from the Past",
-   "shortName": "2-10 Voice from the Past",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2-10 Voice from the Past.mp4",
-   "length": 2920.02,
-   "isVideo": true,
-   "description": "A resistance group claim to have enough evidence to overthrow the Federation, but what are their real motives?"
-}
-,
-{
-   "title": "BLAKE'S-7: 2-11 Gambit",
-   "shortName": "2-11 Gambit",
-   "urlLocal": "media/channel-5/../Core/Blake's-7/2-11 Gambit.mp4",
-   "length": 3115.028,
-   "isVideo": true,
-   "description": "Blake and his crew travel to Freedom City to find a cyber-surgeon who may hold the key to the location of Star One."
+   "description": "Red Dwarf breaks the light barrier and Rimmer sees a death in the future."
 }
 ,
 {
@@ -1196,6 +530,177 @@
    "length": 1703.06,
    "isVideo": true,
    "description": "Someone's erased four days of the crew's memory, broken Lister's leg and done the jigsaw."
+}
+,
+{
+   "title": "RED DWARF: 2-4 Stasis Leak",
+   "shortName": "2-4 Stasis Leak",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/2-4 Stasis Leak.mp4",
+   "length": 1791.06,
+   "isVideo": true,
+   "description": "A leak from the suspended animation chamber has created a doorway to the past."
+}
+,
+{
+   "title": "RED DWARF: 2-5 Queeg",
+   "shortName": "2-5 Queeg",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/2-5 Queeg.mp4",
+   "length": 1778.386,
+   "isVideo": true,
+   "description": "Holly's behaviour begins to endanger the ship so he's replaced by the back-up computer."
+}
+,
+{
+   "title": "RED DWARF: 2-6 Parallel Universe",
+   "shortName": "2-6 Parallel Universe",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/2-6 Parallel Universe.mp4",
+   "length": 1703.658,
+   "isVideo": true,
+   "description": "Holly devises a faster-than-light drive that sends the crew into a parallel universe."
+}
+,
+{
+   "title": "RED DWARF: 3-1 Backwards",
+   "shortName": "3-1 Backwards",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-1 Backwards.mp4",
+   "length": 1639.746,
+   "isVideo": true,
+   "description": "Lister and Rimmer finally arrive back on earth only to find time is behaving strangely."
+}
+,
+{
+   "title": "RED DWARF: 3-2 Marooned",
+   "shortName": "3-2 Marooned",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-2 Marooned.mp4",
+   "length": 1714.06,
+   "isVideo": true,
+   "description": "Lister and Rimmer are stranded on a moon with only a pot noodle and a tin of dog food."
+}
+,
+{
+   "title": "RED DWARF: 3-3 Polymorph",
+   "shortName": "3-3 Polymorph",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-3 Polymorph.mp4",
+   "length": 1590.573,
+   "isVideo": true,
+   "description": "A genetic mutant gets loose aboard the ship, leading to 24 hours of gruesome horror."
+}
+,
+{
+   "title": "RED DWARF: 3-4 Bodyswap",
+   "shortName": "3-4 Bodyswap",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-4 Bodyswap.mp4",
+   "length": 1603.02,
+   "isVideo": true,
+   "description": "Rimmer convinces Lister that they should swap bodies for a fortnight."
+}
+,
+{
+   "title": "RED DWARF: 3-5 Timeslides",
+   "shortName": "3-5 Timeslides",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-5 Timeslides.mp4",
+   "length": 1663.295,
+   "isVideo": true,
+   "description": "Kryten discovers some developing fluid which prints photographs the crew can walk into."
+}
+,
+{
+   "title": "RED DWARF: 3-6 The Last Day",
+   "shortName": "3-6 The Last Day",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/3-6 The Last Day.mp4",
+   "length": 1637.738,
+   "isVideo": true,
+   "description": "Kryten discovers his in-built expiry date is only 24 hours away."
+}
+,
+{
+   "title": "RED DWARF: 4-1 Camille",
+   "shortName": "4-1 Camille",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-1 Camille.mp4",
+   "length": 1602.62,
+   "isVideo": true,
+   "description": "Kryten falls in love at first sight but has his heart broken in the process."
+}
+,
+{
+   "title": "RED DWARF: 4-2 D.N.A.",
+   "shortName": "4-2 D.N.A.",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-2 D.N.A..mp4",
+   "length": 1667.604,
+   "isVideo": true,
+   "description": "The crew encounter the ultimate in genetic engineering technology."
+}
+,
+{
+   "title": "RED DWARF: 4-3 Justice",
+   "shortName": "4-3 Justice",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-3 Justice.mp4",
+   "length": 1696.393,
+   "isVideo": true,
+   "description": "The crew land up in 'Justice World', where a crime's consequences affect the perpetrator."
+}
+,
+{
+   "title": "RED DWARF: 4-4 White Hole",
+   "shortName": "4-4 White Hole",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-4 White Hole.mp4",
+   "length": 1648.506,
+   "isVideo": true,
+   "description": "Holly leaves the crew drifting helplessly towards a white hole."
+}
+,
+{
+   "title": "RED DWARF: 4-5 Dimension Jump",
+   "shortName": "4-5 Dimension Jump",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-5 Dimension Jump.mp4",
+   "length": 1720.34,
+   "isVideo": true,
+   "description": "In a parallel universe, an Arnold Rimmer exists who's charming, popular, brave and modest."
+}
+,
+{
+   "title": "RED DWARF: 4-6 Meltdown",
+   "shortName": "4-6 Meltdown",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/4-6 Meltdown.mp4",
+   "length": 1583.06,
+   "isVideo": true,
+   "description": "A transporter whisks the crew to 'Waxworld' - a theme park where things are going wrong."
+}
+,
+{
+   "title": "RED DWARF: 5-1 Holoship",
+   "shortName": "5-1 Holoship",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-1 Holoship.mp4",
+   "length": 1671.213,
+   "isVideo": true,
+   "description": "Rimmer is transmitted from Red Dwarf to the advanced holoship Enlightenment."
+}
+,
+{
+   "title": "RED DWARF: 5-2 The Inquisitor",
+   "shortName": "5-2 The Inquisitor",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-2 The Inquisitor.mp4",
+   "length": 1691.78,
+   "isVideo": true,
+   "description": "The Inquisitor roams through time, weeding out life's wastrels and deleting the worthless."
+}
+,
+{
+   "title": "RED DWARF: 5-3 Terrorform",
+   "shortName": "5-3 Terrorform",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-3 Terrorform.mp4",
+   "length": 1627.46,
+   "isVideo": true,
+   "description": "Rimmer is taken prisoner in his own mind."
+}
+,
+{
+   "title": "RED DWARF: 5-4 Quarantine",
+   "shortName": "5-4 Quarantine",
+   "urlLocal": "media/channel-5/../Core/Red Dwarf/5-4 Quarantine.mp4",
+   "length": 1697.686,
+   "isVideo": true,
+   "description": "Rimmer forces the crew to spend 12 weeks in quarantine."
 }
 ,
 {
@@ -1268,6 +773,501 @@
    "length": 1705.5,
    "isVideo": true,
    "description": "The crew encounter several unreality bubbles."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-1 The Way Back",
+   "shortName": "1-1 The Way Back",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/1- 1 The Way Back.mp4",
+   "length": 2951.018,
+   "isVideo": true,
+   "description": "Roj Blake discovers shocking secrets about his past, pitting him against the tyrannical Federation."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-2 Space Fall",
+   "shortName": "1-2 Space Fall",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/1- 2 Space Fall.mp4",
+   "length": 3134.868,
+   "isVideo": true,
+   "description": "Aboard a prison colony transport, Blake meets future comrades and encounters a mysterious space vessel that could liberate Earth from the grip of the Federation."
+}
+,
+{
+   "title": "BLAKE'S-7: A-12 Deliverance",
+   "shortName": "A-12 Deliverance",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/A-12 Deliverance.mp4",
+   "length": 2957.226,
+   "isVideo": true,
+   "description": "Stranded on an alien planet, Avon, Vila and Gan discover an ancient space capsule, while Blake discovers that the Federation are hunting for a device called Orac."
+}
+,
+{
+   "title": "BLAKE'S-7: A-13 Orac",
+   "shortName": "A-13 Orac",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/A-13 Orac.mp4",
+   "length": 3113.834,
+   "isVideo": true,
+   "description": "The Liberator crew converge on the planet Aristo to find the mysterious Orac, but Servalon and Travis are also on its trail."
+}
+,
+{
+   "title": "BLAKE'S-7: B-1 Redemption",
+   "shortName": "B-1 Redemption",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 1 Redemption.mp4",
+   "length": 2983.615,
+   "isVideo": true,
+   "description": "The Liberator comes under attack from a powerful alien force."
+}
+,
+{
+   "title": "BLAKE'S-7: B-2 Shadow",
+   "shortName": "B-2 Shadow",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 2 Shadow.mp4",
+   "length": 3036.031,
+   "isVideo": true,
+   "description": "Blake and his crew must locate the source of the drug 'Shadow'."
+}
+,
+{
+   "title": "BLAKE'S-7: B-3 Weapon",
+   "shortName": "B-3 Weapon",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 3 Weapon.mp4",
+   "length": 3107.028,
+   "isVideo": true,
+   "description": "Servalan locates a powerful new weapon that marks Blake and his crew for elimination at her leisure."
+}
+,
+{
+   "title": "BLAKE'S-7: B-4 Horizon",
+   "shortName": "B-4 Horizon",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 4 Horizon.mp4",
+   "length": 3032.02,
+   "isVideo": true,
+   "description": "On the mysterious planet Horizon, Blake finds a secret mining operation."
+}
+,
+{
+   "title": "BLAKE'S-7: B-5 Pressure Point",
+   "shortName": "B-5 Pressure Point",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 5 Pressure Point.mp4",
+   "length": 2970.026,
+   "isVideo": true,
+   "description": "Blake intends to make a devastating strike at the heart of the Federation, but at what cost ?"
+}
+,
+{
+   "title": "BLAKE'S-7: B-6 Trial",
+   "shortName": "B-6 Trial",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 6 Trial.mp4",
+   "length": 3087.018,
+   "isVideo": true,
+   "description": "Servalan seeks to have Travis killed, while Avon tries to persuade the crew to abandon Blake for good."
+}
+,
+{
+   "title": "BLAKE'S-7: B-7 Killer",
+   "shortName": "B-7 Killer",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 7 Killer.mp4",
+   "length": 3076.031,
+   "isVideo": true,
+   "description": "Avon and Vila break into a Federation stronghold to find a crystal that can decrypt enemy pulse-codes."
+}
+,
+{
+   "title": "BLAKE'S-7: B-8 Hostage",
+   "shortName": "B-8 Hostage",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 8 Hostage.mp4",
+   "length": 3069.823,
+   "isVideo": true,
+   "description": "Travis kidnaps Blake's cousin and lures Blake and his crew into a trap."
+}
+,
+{
+   "title": "BLAKE'S-7: B-9 Countdown",
+   "shortName": "B-9 Countdown",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B- 9 Countdown.mp4",
+   "length": 3070.015,
+   "isVideo": true,
+   "description": "Seeking the secret location of Federation Control, Blake travels to the planet Albion to capture a Space Major who may provide answers."
+}
+,
+{
+   "title": "BLAKE'S-7: B-10 Voice from the Past",
+   "shortName": "B-10 Voice from the Past",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B-10 Voice from the Past.mp4",
+   "length": 2920.02,
+   "isVideo": true,
+   "description": "A resistance group claim to have enough evidence to overthrow the Federation, but what are their real motives?"
+}
+,
+{
+   "title": "BLAKE'S-7: B-11 Gambit",
+   "shortName": "B-11 Gambit",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B-11 Gambit.mp4",
+   "length": 3115.028,
+   "isVideo": true,
+   "description": "Blake and his crew travel to Freedom City to find a cyber-surgeon who may hold the key to the location of Star One."
+}
+,
+{
+   "title": "BLAKE'S-7: David Jackson Tribute",
+   "shortName": "David Jackson Tribute",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/David Jackson Tribute.mp4",
+   "length": 2807.658,
+   "isVideo": true,
+   "description": "Friends and colleagues remember the actor who played Gan."
+}
+,
+{
+   "title": "BLAKE'S-7: Deliverance '98 (Part 1)",
+   "shortName": "Deliverance '98 (Part 1)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Deliverance '98 (Part 1).mp4",
+   "length": 3556.01,
+   "isVideo": true,
+   "description": "With Gareth Thomas, Sally Knyvette, David Jackson and Peter Tuddenham."
+}
+,
+{
+   "title": "BLAKE'S-7: Deliverance '98 (Part 2)",
+   "shortName": "Deliverance '98 (Part 2)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Deliverance '98 (Part 2).mp4",
+   "length": 3682.41,
+   "isVideo": true,
+   "description": "With Gareth Thomas, David Jackson, Michael Keating, Peter Tuddenham and Stephen Greif."
+}
+,
+{
+   "title": "BLAKE'S-7: Deliverance '98 (Part 3)",
+   "shortName": "Deliverance '98 (Part 3)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Deliverance '98 (Part 3).mp4",
+   "length": 3896.063,
+   "isVideo": true,
+   "description": "With David Maloney, stuntman Stuart Fell and studio lighting designer Brian Clemett."
+}
+,
+{
+   "title": "BLAKE'S-7: Deliverance '98 (Part 4)",
+   "shortName": "Deliverance '98 (Part 4)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Deliverance '98 (Part 4).mp4",
+   "length": 1142.015,
+   "isVideo": true,
+   "description": "Gareth Thomas, Michael Keating, David Maloney and make-up designer Sheelagh Wells pay tribute to creator Terry Nation."
+}
+,
+{
+   "title": "BLAKE'S-7: Deliverance '98 (Part 5)",
+   "shortName": "Deliverance '98 (Part 5)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Deliverance '98 (Part 5).mp4",
+   "length": 3169.663,
+   "isVideo": true,
+   "description": "With Jacqueline Pearce, Sally Kynvette and Jan Chappell."
+}
+,
+{
+   "title": "BLAKE'S-7: Gambit (Commentary)",
+   "shortName": "Gambit (Commentary)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Gambit (Commentary).mp4",
+   "length": 3114.077,
+   "isVideo": true,
+   "description": "With Jacqueline Pearce, Michael Keating, Brian Croucher and David Maloney."
+}
+,
+{
+   "title": "BLAKE'S-7: Horizon (Commentary)",
+   "shortName": "Horizon (Commentary)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Horizon (Commentary).mp4",
+   "length": 3031.285,
+   "isVideo": true,
+   "description": "With Sally Knyvette and Brian Miller."
+}
+,
+{
+   "title": "BLAKE'S-7: Jacqueline Pearce Tribute",
+   "shortName": "Jacqueline Pearce Tribute",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Jacqueline Pearce Tribute.mp4",
+   "length": 4696.66,
+   "isVideo": true,
+   "description": "An in-depth look at the life and career of the iconic Servalan actress."
+}
+,
+{
+   "title": "BLAKE'S-7: Liberation (Series 1)",
+   "shortName": "Liberation (Series 1)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Liberation (Series 1).mp4",
+   "length": 5078.015,
+   "isVideo": true,
+   "description": "Actors Sally Knyvette and Jan Chappell meet to reminisce about making the first series."
+}
+,
+{
+   "title": "BLAKE'S-7: Liberation (Series 2)",
+   "shortName": "Liberation (Series 2)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Liberation (Series 2).mp4",
+   "length": 6742.655,
+   "isVideo": true,
+   "description": "Actors Sally Kynvette and Jan Chappell meet to look back on Series 2 with contributions from cast and crew."
+}
+,
+{
+   "title": "BLAKE'S-7: Michael E Briant in Conversation",
+   "shortName": "Michael E Briant in Conversation",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Michael E Briant in Conversation.mp4",
+   "length": 5290.026,
+   "isVideo": true,
+   "description": "The prolific director discusses his life, career and sci-fi work."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-9 Project Avalon",
+   "shortName": "1-9 Project Avalon",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/1- 9 Project Avalon.mp4",
+   "length": 3156.5,
+   "isVideo": true,
+   "description": "Travis holds a resistance leader captive, prompting Blake to launch a rescue mission."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-10 Breakdown",
+   "shortName": "1-10 Breakdown",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/1-10 Breakdown.mp4",
+   "length": 3088.298,
+   "isVideo": true,
+   "description": "The behavioural limiter implanted in Gan's brain begins to malfunction, threatening the lives of everyone aboard the Liberator."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-11 Bounty",
+   "shortName": "1-11 Bounty",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/1-11 Bounty.mp4",
+   "length": 3123.903,
+   "isVideo": true,
+   "description": "While Blake attemps to prevent a civil war, a bounty hunter takes control of the Liberator to deliver its crew to the Federation."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-12 Deliverance",
+   "shortName": "1-12 Deliverance",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/1-12 Deliverance.mp4",
+   "length": 2957.226,
+   "isVideo": true,
+   "description": "Stranded on an alien planet, Avon, Vila and Gan discover an ancient space capsule, while Blake discovers that the Federation are hunting for a device called Orac."
+}
+,
+{
+   "title": "BLAKE'S-7: 1-13 Orac",
+   "shortName": "1-13 Orac",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/1-13 Orac.mp4",
+   "length": 3113.834,
+   "isVideo": true,
+   "description": "The Liberator crew converge on the planet Aristo to find the mysterious Orac, but Servalon and Travis are also on its trail."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-1 Redemption",
+   "shortName": "2-1 Redemption",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 1 Redemption.mp4",
+   "length": 2983.615,
+   "isVideo": true,
+   "description": "The Liberator comes under attack from a powerful alien force."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-2 Shadow",
+   "shortName": "2-2 Shadow",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 2 Shadow.mp4",
+   "length": 3036.031,
+   "isVideo": true,
+   "description": "Blake and his crew must locate the source of the drug 'Shadow'."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-3 Weapon",
+   "shortName": "2-3 Weapon",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 3 Weapon.mp4",
+   "length": 3107.028,
+   "isVideo": true,
+   "description": "Servalan locates a powerful new weapon that marks Blake and his crew for elimination at her leisure."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-4 Horizon",
+   "shortName": "2-4 Horizon",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 4 Horizon.mp4",
+   "length": 3032.02,
+   "isVideo": true,
+   "description": "On the mysterious planet Horizon, Blake finds a secret mining operation."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-5 Pressure Point",
+   "shortName": "2-5 Pressure Point",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 5 Pressure Point.mp4",
+   "length": 2970.026,
+   "isVideo": true,
+   "description": "Blake intends to make a devastating strike at the heart of the Federation, but at what cost ?"
+}
+,
+{
+   "title": "BLAKE'S-7: 2-6 Trial",
+   "shortName": "2-6 Trial",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 6 Trial.mp4",
+   "length": 3087.018,
+   "isVideo": true,
+   "description": "Servalan seeks to have Travis killed, while Avon tries to persuade the crew to abandon Blake for good."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-7 Killer",
+   "shortName": "2-7 Killer",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 7 Killer.mp4",
+   "length": 3076.031,
+   "isVideo": true,
+   "description": "Avon and Vila break into a Federation stronghold to find a crystal that can decrypt enemy pulse-codes."
+}
+,
+{
+   "title": "BLAKE'S-7: 2-8 Hostage",
+   "shortName": "2-8 Hostage",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/2- 8 Hostage.mp4",
+   "length": 3069.823,
+   "isVideo": true,
+   "description": "Travis kidnaps Blake's cousin and lures Blake and his crew into a trap."
+}
+,
+{
+   "title": "BLAKE'S-7: B-12 The Keeper",
+   "shortName": "B-12 The Keeper",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B-12 The Keeper.mp4",
+   "length": 3082.623,
+   "isVideo": true,
+   "description": "The race to find Star One continues, as Blake heads to the planet Goth to find a royal leader called 'The Keeper'."
+}
+,
+{
+   "title": "BLAKE'S-7: B-13 Star One",
+   "shortName": "B-13 Star One",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/B-13 Star One.mp4",
+   "length": 2907.028,
+   "isVideo": true,
+   "description": "The Liberator crew converge on Star One, where they uncover a terrible truth."
+}
+,
+{
+   "title": "BLAKE'S-7: Cast Introductions",
+   "shortName": "Cast Introductions",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Cast Introductions.mp4",
+   "length": 1301.631,
+   "isVideo": true,
+   "description": "A look at some of the key characters from the series; Blake, Jenna, Avon, Vila, Gan and Zen."
+}
+,
+{
+   "title": "BLAKE'S-7: Project Avalon (Commentary)",
+   "shortName": "Project Avalon (Commentary)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Project Avalon (Commentary).mp4",
+   "length": 3156.5,
+   "isVideo": true,
+   "description": "With Jacqueline Pearce, Stephen Greif and Sally Knyvette."
+}
+,
+{
+   "title": "BLAKE'S-7: Redemption (Commentary)",
+   "shortName": "Redemption (Commentary)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Redemption (Commentary).mp4",
+   "length": 2983.053,
+   "isVideo": true,
+   "description": "With Sally Knyvette and Mat Irvine."
+}
+,
+{
+   "title": "BLAKE'S-7: Seek-Locate-Destroy (Commentary)",
+   "shortName": "Seek-Locate-Destroy (Commentary)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Seek-Locate-Destroy (Commentary).mp4",
+   "length": 3086.76,
+   "isVideo": true,
+   "description": "With Michael Keating, Jacqueline Pearce and Stephen Greif."
+}
+,
+{
+   "title": "BLAKE'S-7: Shadow (Commentary)",
+   "shortName": "Shadow (Commentary)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Shadow (Commentary).mp4",
+   "length": 3035.44,
+   "isVideo": true,
+   "description": "With Jan Chappell and Sally Knyvette."
+}
+,
+{
+   "title": "BLAKE'S-7: Space Fall (Commentary)",
+   "shortName": "Space Fall (Commentary)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Space Fall (Commentary).mp4",
+   "length": 3134.868,
+   "isVideo": true,
+   "description": "With Sally Knyvette, Michael Keating and producer David Maloney."
+}
+,
+{
+   "title": "BLAKE'S-7: Star One (Commentary)",
+   "shortName": "Star One (Commentary)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Star One (Commentary).mp4",
+   "length": 2906.474,
+   "isVideo": true,
+   "description": "With Sally Knyvette, Brian Croucher and Matt Irvine."
+}
+,
+{
+   "title": "BLAKE'S-7: Stephen Greif Tribute",
+   "shortName": "Stephen Greif Tribute",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Stephen Greif Tribute.mp4",
+   "length": 2086.015,
+   "isVideo": true,
+   "description": "Friends and colleagues reminisce about the actor who first played Space Commander Travis."
+}
+,
+{
+   "title": "BLAKE'S-7: Tellycon Convention Panel",
+   "shortName": "Tellycon Convention Panel",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Tellycon Convention Panel.mp4",
+   "length": 2862.058,
+   "isVideo": true,
+   "description": "From 23rd July 1988 with Brian Croucher."
+}
+,
+{
+   "title": "BLAKE'S-7: The Keeper (Commentary)",
+   "shortName": "The Keeper (Commentary)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/The Keeper (Commentary).mp4",
+   "length": 3081.904,
+   "isVideo": true,
+   "description": "With Sally Knyvette and Brian Croucher."
+}
+,
+{
+   "title": "BLAKE'S-7: The Making of Blake's-7 (Part 1)",
+   "shortName": "The Making of Blake's-7 (Part 1)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/The Making of Blake's-7 (Part 1).mp4",
+   "length": 2513.023,
+   "isVideo": true,
+   "description": "Part 1 of an unreleased documentary originally slated for release in the 1990's, featuring a comprehensive look back at Series 1."
+}
+,
+{
+   "title": "BLAKE'S-7: The Making of Blake's-7 (Part 2)",
+   "shortName": "The Making of Blake's-7 (Part 2)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/The Making of Blake's-7 (Part 2).mp4",
+   "length": 3561.066,
+   "isVideo": true,
+   "description": "Part 2 of this unreleased archival documentary featuring rare interviews with cast and crew."
+}
+,
+{
+   "title": "BLAKE'S-7: Trial (Commentary)",
+   "shortName": "Trial (Commentary)",
+   "urlLocal": "media/channel-5/../Core/Blake's-7/Trial (Commentary).mp4",
+   "length": 3086.376,
+   "isVideo": true,
+   "description": "With Jan Chappell, Brian Croucher, David Maloney and Chris Boucher."
 }
 ]}
 

@@ -1,15 +1,6 @@
-{ "lastRefresh": "Wed 28 Oct 10:48", 
+{ "lastRefresh": "Sun 01 Nov 18:43", 
    "episodeList": 
 [
-{
-   "title": "HITCHHIKER'S GUIDE: (10 of 26)",
-   "shortName": "(10 of 26)",
-   "urlLocal": "media/channel-9/Hitchhiker's Guide/(10 of 26).mp3",
-   "length": 1769.195,
-   "isAudioBook": true,
-   "description": "Our heroes have some close encounters with others and themselves."
-}
-,
 {
    "title": "HITCHHIKER'S GUIDE: (11 of 26)",
    "shortName": "(11 of 26)",
@@ -146,24 +137,6 @@
 }
 ,
 {
-   "title": "HITCHHIKER'S GUIDE: (26 of 26)",
-   "shortName": "(26 of 26)",
-   "urlLocal": "media/channel-9/Hitchhiker's Guide/(26 of 26).mp3",
-   "length": 2364.63,
-   "isAudioBook": true,
-   "description": "The Grebulons decide to take positive action and our heroes discover that Earth is never a safe place to be."
-}
-,
-{
-   "title": "BIG FINISH: 1-1 The Turing Test",
-   "shortName": "1-1 The Turing Test",
-   "urlLocal": "media/channel-9/Big Finish/ 1-1 The Turing Test.mp3",
-   "length": 3766.421,
-   "isAudioBook": true,
-   "description": "After evading an attack by Cassini Pirates, the Liberator heads to the rogue moon of Quentil."
-}
-,
-{
    "title": "BIG FINISH: 1-2 Solitary",
    "shortName": "1-2 Solitary",
    "urlLocal": "media/channel-9/Big Finish/ 1-2 Solitary.mp3",
@@ -224,6 +197,60 @@
    "length": 3250.16,
    "isAudioBook": true,
    "description": "Avon finds himself in a race against time, with his crew's lives hanging in the balance."
+}
+,
+{
+   "title": "BIG FINISH: 3-3 The Armageddon Storm (Part 3)",
+   "shortName": "3-3 The Armageddon Storm (Part 3)",
+   "urlLocal": "media/channel-9/Big Finish/ 3-3 The Armageddon Storm (Part 3).mp3",
+   "length": 3730.832,
+   "isAudioBook": true,
+   "description": "What will Grant do when he finds out about the blood on Avon's hands?"
+}
+,
+{
+   "title": "BIG FINISH: 4-1 Promises",
+   "shortName": "4-1 Promises",
+   "urlLocal": "media/channel-9/Big Finish/ 4-1 Promises.mp3",
+   "length": 3670.832,
+   "isAudioBook": true,
+   "description": "Cally is alone with Travis, Blake's mortal enemy, both trapped on this desolate world."
+}
+,
+{
+   "title": "BIG FINISH: 4-2 Epitaph",
+   "shortName": "4-2 Epitaph",
+   "urlLocal": "media/channel-9/Big Finish/ 4-2 Epitaph.mp3",
+   "length": 3613.088,
+   "isAudioBook": true,
+   "description": "When the Liberator picks up a distress call from a stricken strip, Jenna and Vila teleport across."
+}
+,
+{
+   "title": "BIG FINISH: 4-3 Kerr",
+   "shortName": "4-3 Kerr",
+   "urlLocal": "media/channel-9/Big Finish/ 4-3 Kerr.mp3",
+   "length": 4276.04,
+   "isAudioBook": true,
+   "description": "Supreme Commander Servalan believes she has a vital insight into the Liberator crew - a clone of Avon,"
+}
+,
+{
+   "title": "BIG FINISH: 5-1 Logic",
+   "shortName": "5-1 Logic",
+   "urlLocal": "media/channel-9/Big Finish/ 5-1 Logic.mp3",
+   "length": 4222.802,
+   "isAudioBook": true,
+   "description": "Pol Astat Constable is a woman living an ordinary life in a domed city on Earth."
+}
+,
+{
+   "title": "BIG FINISH: 5-2 Risk Management",
+   "shortName": "5-2 Risk Management",
+   "urlLocal": "media/channel-9/Big Finish/ 5-2 Risk Management.mp3",
+   "length": 3168.552,
+   "isAudioBook": true,
+   "description": "Blake and Jenna come to the aid of the planet Sutskar, which has fought off the shackles of the Federation and won independence and freedom."
 }
 ,
 {
@@ -362,6 +389,33 @@
 }
 ,
 {
+   "title": "BIG FINISH: 10-3 Ministry of Peace",
+   "shortName": "10-3 Ministry of Peace",
+   "urlLocal": "media/channel-9/Big Finish/10-3 Ministry of Peace.mp3",
+   "length": 3370.845,
+   "isAudioBook": true,
+   "description": "The Liberator crew are on the planet Speranza to assist its new interim government."
+}
+,
+{
+   "title": "HITCHHIKER'S GUIDE: (26 of 26)",
+   "shortName": "(26 of 26)",
+   "urlLocal": "media/channel-9/Hitchhiker's Guide/(26 of 26).mp3",
+   "length": 2364.63,
+   "isAudioBook": true,
+   "description": "The Grebulons decide to take positive action and our heroes discover that Earth is never a safe place to be."
+}
+,
+{
+   "title": "BIG FINISH: 1-1 The Turing Test",
+   "shortName": "1-1 The Turing Test",
+   "urlLocal": "media/channel-9/Big Finish/ 1-1 The Turing Test.mp3",
+   "length": 3766.421,
+   "isAudioBook": true,
+   "description": "After evading an attack by Cassini Pirates, the Liberator heads to the rogue moon of Quentil."
+}
+,
+{
    "title": "HITCHHIKER'S GUIDE: ( 1 of 26)",
    "shortName": "( 1 of 26)",
    "urlLocal": "media/channel-9/Hitchhiker's Guide/( 1 of 26).mp3",
@@ -443,66 +497,12 @@
 }
 ,
 {
-   "title": "BIG FINISH: 3-3 The Armageddon Storm (Part 3)",
-   "shortName": "3-3 The Armageddon Storm (Part 3)",
-   "urlLocal": "media/channel-9/Big Finish/ 3-3 The Armageddon Storm (Part 3).mp3",
-   "length": 3730.832,
+   "title": "HITCHHIKER'S GUIDE: (10 of 26)",
+   "shortName": "(10 of 26)",
+   "urlLocal": "media/channel-9/Hitchhiker's Guide/(10 of 26).mp3",
+   "length": 1769.195,
    "isAudioBook": true,
-   "description": "What will Grant do when he finds out about the blood on Avon's hands?"
-}
-,
-{
-   "title": "BIG FINISH: 4-1 Promises",
-   "shortName": "4-1 Promises",
-   "urlLocal": "media/channel-9/Big Finish/ 4-1 Promises.mp3",
-   "length": 3670.832,
-   "isAudioBook": true,
-   "description": "Cally is alone with Travis, Blake's mortal enemy, both trapped on this desolate world."
-}
-,
-{
-   "title": "BIG FINISH: 4-2 Epitaph",
-   "shortName": "4-2 Epitaph",
-   "urlLocal": "media/channel-9/Big Finish/ 4-2 Epitaph.mp3",
-   "length": 3613.088,
-   "isAudioBook": true,
-   "description": "When the Liberator picks up a distress call from a stricken strip, Jenna and Vila teleport across."
-}
-,
-{
-   "title": "BIG FINISH: 4-3 Kerr",
-   "shortName": "4-3 Kerr",
-   "urlLocal": "media/channel-9/Big Finish/ 4-3 Kerr.mp3",
-   "length": 4276.04,
-   "isAudioBook": true,
-   "description": "Supreme Commander Servalan believes she has a vital insight into the Liberator crew - a clone of Avon,"
-}
-,
-{
-   "title": "BIG FINISH: 5-1 Logic",
-   "shortName": "5-1 Logic",
-   "urlLocal": "media/channel-9/Big Finish/ 5-1 Logic.mp3",
-   "length": 4222.802,
-   "isAudioBook": true,
-   "description": "Pol Astat Constable is a woman living an ordinary life in a domed city on Earth."
-}
-,
-{
-   "title": "BIG FINISH: 5-2 Risk Management",
-   "shortName": "5-2 Risk Management",
-   "urlLocal": "media/channel-9/Big Finish/ 5-2 Risk Management.mp3",
-   "length": 3168.552,
-   "isAudioBook": true,
-   "description": "Blake and Jenna come to the aid of the planet Sutskar, which has fought off the shackles of the Federation and won independence and freedom."
-}
-,
-{
-   "title": "BIG FINISH: 10-3 Ministry of Peace",
-   "shortName": "10-3 Ministry of Peace",
-   "urlLocal": "media/channel-9/Big Finish/10-3 Ministry of Peace.mp3",
-   "length": 3370.845,
-   "isAudioBook": true,
-   "description": "The Liberator crew are on the planet Speranza to assist its new interim government."
+   "description": "Our heroes have some close encounters with others and themselves."
 }
 ,
 {
