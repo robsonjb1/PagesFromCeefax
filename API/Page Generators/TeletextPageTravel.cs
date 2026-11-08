@@ -21,7 +21,7 @@ public class TeletextPageTravel(CeefaxContent mc, TravelData td)
         {
             sb.Append(Graphics.HeaderTravel);
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]STONEGATE DEPARTURES               [{TeletextControl.AlphaWhite}]1/2");
-            OutputTrainRecord(sb, _td.SOGDepartures.Take(7).ToList());
+            OutputTrainRecord(sb, _td.SOGDepartures.Take(5).ToList());
             
             sb.AppendLine($"[{TeletextControl.AlphaGreen}]Updated at " + Utility.ConvertToUKTime(_td.LastRefreshUTC).ToString("HH:mm") + " (UK time)");
             sb.AppendLine("");
@@ -62,10 +62,9 @@ public class TeletextPageTravel(CeefaxContent mc, TravelData td)
         }
         else
         {
-            sb.LineBreak(TeletextControl.AlphaBlue);
-              
             foreach(var t in records)
             {
+                sb.LineBreak(TeletextControl.AlphaBlue);
                 TeletextControl alertCol = t.Status.StartsWith("On time") ? 
                     TeletextControl.AlphaGreen : t.Status.StartsWith("Exp.") ? TeletextControl.AlphaYellow : TeletextControl.AlphaRed;
                 sb.AppendLine($"[{TeletextControl.AlphaWhite}]{t.Destination.ToUpper().PadRightWithTrunc(24)}[{TeletextControl.AlphaWhite}]{t.Time.PadRightWithTrunc(4)}[{alertCol}]{t.Status.PadLeftWithTrunc(9)}");
@@ -74,7 +73,7 @@ public class TeletextPageTravel(CeefaxContent mc, TravelData td)
             sb.LineBreak(TeletextControl.AlphaBlue);
 
             // Pad to section end
-            sb.PadLines(14 - records.Count * 2);
+            sb.PadLines(15 - records.Count * 3);
         }
     }
 
