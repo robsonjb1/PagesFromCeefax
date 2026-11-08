@@ -160,6 +160,6 @@ public class TravelData
     private static string GetText(HtmlNode node, string xpath)
     {
         string text = node.SelectSingleNode(xpath)?.InnerText ?? string.Empty;
-        return HtmlEntity.DeEntitize(text).Trim();
+        return Utility.CleanHTML(HtmlEntity.DeEntitize(text).Trim());
     }
 }
