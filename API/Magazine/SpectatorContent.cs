@@ -42,28 +42,34 @@ public class SpectatorContent : ISpectatorContent
         SpectatorCartoons.ForEach(c => ReadSpectatorCartoon(c));
 
         // Process the URL image cache
-        Parallel.ForEach(ImageCache, i => i.ContentBytes = FetchPageAsync(i.Location).Result.httpResponse.Content.ReadAsByteArrayAsync().Result);
-        foreach(var a in SpectatorArticles)
+        try
         {
-            if(a.ImageUri != null)
+            Parallel.ForEach(ImageCache, i => i.ContentBytes = FetchPageAsync(i.Location).Result.httpResponse.Content.ReadAsByteArrayAsync().Result);
+            foreach(var a in SpectatorArticles)
             {
-                a.ImageBase64 = ReduceImageQuality(ImageCache.Find(z => z.Location == a.ImageUri).ContentBytes);             
+                if(a.ImageUri != null)
+                {
+                    a.ImageBase64 = ReduceImageQuality(ImageCache.Find(z => z.Location == a.ImageUri).ContentBytes);             
+                }
+
+                if(a.AvatarUri != null)
+                {
+                    a.AvatarBase64 = Convert.ToBase64String(ImageCache.Find(z => z.Location == a.AvatarUri).ContentBytes);
+                }
             }
 
-            if(a.AvatarUri != null)
+            foreach(var c in SpectatorCartoons)
             {
-                a.AvatarBase64 = Convert.ToBase64String(ImageCache.Find(z => z.Location == a.AvatarUri).ContentBytes);
+                if(c.ImageUri != null)
+                {
+                    c.ImageBase64 = ReduceImageQuality(ImageCache.Find(z => z.Location == c.ImageUri).ContentBytes);
+                }
             }
         }
-
-        foreach(var c in SpectatorCartoons)
+        catch(Exception ex)
         {
-            if(c.ImageUri != null)
-            {
-                c.ImageBase64 = ReduceImageQuality(ImageCache.Find(z => z.Location == c.ImageUri).ContentBytes);
-            }
+            Log.Error(ex, "Error processing URL image cache");
         }
-        
 
         // Attempt to retrieve the current magazine cover image
         DateTime coverSaturday;
