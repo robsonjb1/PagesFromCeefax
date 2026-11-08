@@ -99,9 +99,9 @@ public class TeletextPageTravel(CeefaxContent mc, TravelData td)
                 sb.Append($"{t.Time}");
 
                 TeletextControl statusCol = TeletextControl.AlphaGreen;
-                t.Status = t.Status.Replace(":", "").Replace("Expected", "Exp.");
+                t.Status = t.Status.Replace(":", "").Replace("Expected", "Expect");
 
-                if(t.Status.Contains("Exp."))
+                if(t.Status.Contains("Expect"))
                 {
                     statusCol = TeletextControl.AlphaYellow;
                 }
