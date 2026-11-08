@@ -1,4 +1,4 @@
-[![Build and deploy ASP.Net Core app to an Azure Web App](https://github.com/robsonjb1/PagesFromCeefax/actions/workflows/azure-webapps-dotnet-core.yml/badge.svg)](https://github.com/robsonjb1/PagesFromCeefax/actions/workflows/azure-webapps-dotnet-core.yml)
+[![Build and deploy ASP.Net Core app to Azure Web App - pagesfromceefax](https://github.com/robsonjb1/PagesFromCeefax/actions/workflows/master_pagesfromceefax.yml/badge.svg)](https://github.com/robsonjb1/PagesFromCeefax/actions/workflows/master_pagesfromceefax.yml)
 
 ## PagesFromCeefax
 

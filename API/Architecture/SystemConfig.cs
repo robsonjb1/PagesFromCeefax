@@ -3,6 +3,7 @@
     public interface ISystemConfig
     {
         public int ServiceContentExpiryMins { get; set; }
+        public bool LocalAuditLogging { get; set; }
         public string KindleFromAddress { get; set; }
         public string KindleFromUsername { get; set; }
         public string KindleFromPassword { get; set; }
@@ -17,6 +18,7 @@
     public class SystemConfig : ISystemConfig
     {
         public int ServiceContentExpiryMins { get; set; }
+        public bool LocalAuditLogging { get; set; }
         public string KindleFromAddress { get; set; }
         public string KindleFromUsername { get; set; }
         public string KindleFromPassword { get; set; }

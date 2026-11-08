@@ -21,6 +21,7 @@ try
     builder.Services.AddSingleton<ISystemConfig>(new SystemConfig()
     {
         ServiceContentExpiryMins = Convert.ToInt32(builder.Configuration["ServiceContentExpiryMins"]),
+        LocalAuditLogging = Convert.ToBoolean(builder.Configuration["LocalAuditLogging"]),
         KindleFromAddress = builder.Configuration["KindleFromAddress"],
         KindleFromUsername = builder.Configuration["KindleFromUsername"],
         KindleFromPassword = builder.Configuration["KindleFromPassword"],
@@ -39,23 +40,25 @@ try
     // Configure the HTTP request pipeline.
     app.UseHttpsRedirection();
 
-
-    app.MapGet("/carousel", (ICacheService cs, HttpContext context) =>
+    app.MapGet("/carousel", (ICacheService cs, ISystemConfig config, HttpContext context) =>
     {
-        //if (!context.Connection.RemoteIpAddress.ToString().Contains("192.168.") &&
-        //    !context.Connection.RemoteIpAddress.ToString().Contains("::1"))
-        //{
-        //    File.AppendAllText("/volumes/media/carousel_log.txt", $"{DateTime.Now} {context.Connection.RemoteIpAddress} carousel {Environment.NewLine}");
-        //}
+        if (config.LocalAuditLogging &&
+            !context.Connection.RemoteIpAddress.ToString().Contains("192.168.") &&
+            !context.Connection.RemoteIpAddress.ToString().Contains("::1"))
+        {
+            File.AppendAllText("/volumes/media/carousel_log.txt", $"{DateTime.Now} {context.Connection.RemoteIpAddress} carousel {Environment.NewLine}");
+        }
         return Results.Extensions.NoCache(cs.GetCarousel());
     });
 
-    app.MapGet("/ping/{channel}", (string channel, ICacheService cs, HttpContext context) =>
+    app.MapGet("/ping/{channel}", (string channel, ISystemConfig config, ICacheService cs, HttpContext context) =>
     {
-        //if (!context.Connection.RemoteIpAddress.ToString().Contains("192.168."))
-        //{
-        //    File.AppendAllText("/volumes/media/carousel_log.txt", $"{DateTime.Now} {context.Connection.RemoteIpAddress} {channel} {Environment.NewLine}");
-        //}
+        if (config.LocalAuditLogging &&
+            !context.Connection.RemoteIpAddress.ToString().Contains("192.168.") &&
+            !context.Connection.RemoteIpAddress.ToString().Contains("::1"))
+        {
+            File.AppendAllText("/volumes/media/carousel_log.txt", $"{DateTime.Now} {context.Connection.RemoteIpAddress} {channel} {Environment.NewLine}");
+        }
         return String.Empty;
     });
 
