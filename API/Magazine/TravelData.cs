@@ -104,14 +104,17 @@ public class TravelData
                 continue;
             }
 
-            flightTimes.Add(new TravelRecord
+            if(!GetText(cells[statusIndex], ".").Contains("Bag"))
             {
-                Time = time.Replace(":", ""),
-                Destination = destination,
-                OperatedBy = GetText(cells[operatedByIndex], "."),
-                Status = GetText(cells[statusIndex], "."),
-                Platform = GetText(cells[platformIndex], ".")
-            });
+                flightTimes.Add(new TravelRecord
+                {
+                    Time = time.Replace(":", ""),
+                    Destination = destination,
+                    OperatedBy = GetText(cells[operatedByIndex], "."),
+                    Status = GetText(cells[statusIndex], "."),
+                    Platform = GetText(cells[platformIndex], ".")
+                });
+            }
         }
 
         return flightTimes;
