@@ -17,6 +17,7 @@ public interface ISpectatorContent
 
 public class SpectatorContent : ISpectatorContent
 {
+    private static readonly HttpClient SharedHttpClient = new();
     public List<SpectatorArticle> SpectatorArticles { get; set; } = [];
     public List<SpectatorCartoon> SpectatorCartoons { get; set; } = [];
     public string CoverImageBase64 { get; set; } = String.Empty;
@@ -42,9 +43,12 @@ public class SpectatorContent : ISpectatorContent
         SpectatorCartoons.ForEach(c => ReadSpectatorCartoon(c));
 
         // Process the URL image cache
-        //try
-        //{
-            Parallel.ForEach(ImageCache, i => i.ContentBytes = FetchPageAsync(i.Location).Result.httpResponse.Content.ReadAsByteArrayAsync().Result);
+        try
+        {
+            Parallel.ForEach(
+                ImageCache,
+                new ParallelOptions { MaxDegreeOfParallelism = 4 },
+                i => i.ContentBytes = FetchPageAsync(i.Location).Result.httpResponse.Content.ReadAsByteArrayAsync().Result);
             foreach(var a in SpectatorArticles)
             {
                 if(a.ImageUri != null)
@@ -65,11 +69,11 @@ public class SpectatorContent : ISpectatorContent
                     c.ImageBase64 = ReduceImageQuality(ImageCache.Find(z => z.Location == c.ImageUri).ContentBytes);
                 }
             }
-        //}
-        //catch(Exception ex)
-        //{
-        //    Log.Error(ex, "Error processing URL image cache");
-        //}
+        }
+        catch(Exception ex)
+        {
+            Log.Error(ex, "Error processing URL image cache");
+        }
 
         // Attempt to retrieve the current magazine cover image
         DateTime coverSaturday;
@@ -186,7 +190,7 @@ public class SpectatorContent : ISpectatorContent
             a.Author = $"{author}";
 
             a.ImageUri = new Uri(doc.DocumentNode.SelectNodes("//meta[@property='og:image']")[0].GetAttributeValue("content", String.Empty));
-            ImageCache.Add(new CachedUri(a.ImageUri));
+            CacheImage(a.ImageUri);
 
             var avatarNode = doc.DocumentNode.SelectNodes("//a[@class='writers-link entry-header__author']/img");
             //if(avatarNode != null)
@@ -247,7 +251,7 @@ public class SpectatorContent : ISpectatorContent
             c.Caption = doc.DocumentNode.SelectNodes("//meta[@property='og:description']")[0].GetAttributeValue("content", String.Empty);
             c.Caption = c.Caption.StartsWith("Weekly magazine") ? String.Empty : c.Caption;
             c.ImageUri = new Uri(doc.DocumentNode.SelectNodes("//meta[@property='og:image']")[0].GetAttributeValue("content", String.Empty));
-            ImageCache.Add(new CachedUri(c.ImageUri));
+            CacheImage(c.ImageUri);
         }
         catch
         {
@@ -274,10 +278,17 @@ public class SpectatorContent : ISpectatorContent
 
     private async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
     {
-        var client = new HttpClient();
         //client.DefaultRequestHeaders.Add("Cookie", _config.SpecSessionCookie);
        
-        var content = await client.GetAsync(location);
+        var content = await SharedHttpClient.GetAsync(location);
         return (location, content);
+    }
+
+    private void CacheImage(Uri location)
+    {
+        if (!ImageCache.Exists(image => image.Location == location))
+        {
+            ImageCache.Add(new CachedUri(location));
+        }
     }
 }
