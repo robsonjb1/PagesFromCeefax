@@ -110,9 +110,9 @@ public class SpectatorContent : ISpectatorContent
             using var brightenedImage = new SKBitmap(image.Info);
             using var brightnessFilter = SKColorFilter.CreateColorMatrix(
             [
-                1.2f, 0, 0, 0, 0,
-                0, 1.2f, 0, 0, 0,
-                0, 0, 1.2f, 0, 0,
+                1.3f, 0, 0, 0, 0,
+                0, 1.3f, 0, 0, 0,
+                0, 0, 1.3f, 0, 0,
                 0, 0, 0, 1, 0
             ]);
             using (var canvas = new SKCanvas(brightenedImage))
