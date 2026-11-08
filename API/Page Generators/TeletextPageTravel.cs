@@ -118,7 +118,7 @@ public class TeletextPageTravel(CeefaxContent mc, TravelData td)
             sb.LineBreak(TeletextControl.AlphaBlue);
 
             // Pad to section end
-            sb.PadLines(14 - records.Count * 3);
+            sb.PadLines(14 - records.Count);
         }
     }
 
