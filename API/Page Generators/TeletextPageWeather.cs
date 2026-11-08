@@ -25,8 +25,8 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
 
             TeletextControl summaryColour = TeletextControl.AlphaYellow;
             
-            if(DateTime.Now.Hour >= Convert.ToInt32(_wd.Sunset[..1]) ||
-                DateTime.Now.Hour <= Convert.ToInt16(_wd.Sunrise[..1])) // Night time
+            if(DateTime.Now.Hour >= Convert.ToInt32(_wd.Sunset[..2]) ||
+                DateTime.Now.Hour <= Convert.ToInt32(_wd.Sunrise[..2])) // Night time
             {
                 summaryColour = TeletextControl.AlphaCyan;
             }
