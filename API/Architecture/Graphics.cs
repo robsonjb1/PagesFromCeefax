@@ -310,7 +310,7 @@ public class Graphics
         PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬ [{TeletextControl.GraphicsCyan}]||||||||||||||||");
         PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬ [{TeletextControl.GraphicsCyan}]¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
         PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬||||||||||||||||||");
-        PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
+        PromoCeefax.AppendLine($" @pfceefax[{TeletextControl.GraphicsBlue}]        ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬");
         PromoCeefax.AppendLine($"[{TeletextControl.GraphicsBlue}]                  ,,,,,,,,,,,,,,,,,,,,,");
         PromoCeefax.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]Latest news coming up next >>>");
      
