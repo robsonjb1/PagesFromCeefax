@@ -42,8 +42,8 @@ public class SpectatorContent : ISpectatorContent
         SpectatorCartoons.ForEach(c => ReadSpectatorCartoon(c));
 
         // Process the URL image cache
-        try
-        {
+        //try
+        //{
             Parallel.ForEach(ImageCache, i => i.ContentBytes = FetchPageAsync(i.Location).Result.httpResponse.Content.ReadAsByteArrayAsync().Result);
             foreach(var a in SpectatorArticles)
             {
@@ -65,11 +65,11 @@ public class SpectatorContent : ISpectatorContent
                     c.ImageBase64 = ReduceImageQuality(ImageCache.Find(z => z.Location == c.ImageUri).ContentBytes);
                 }
             }
-        }
-        catch(Exception ex)
-        {
-            Log.Error(ex, "Error processing URL image cache");
-        }
+        //}
+        //catch(Exception ex)
+        //{
+        //    Log.Error(ex, "Error processing URL image cache");
+        //}
 
         // Attempt to retrieve the current magazine cover image
         DateTime coverSaturday;

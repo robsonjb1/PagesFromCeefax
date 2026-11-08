@@ -63,7 +63,7 @@ public class CeefaxContent
         // Add the FT 10-year UK bond yields
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsBonds, new Uri("https://markets.ft.com/data/bonds/tearsheet/summary?s=UK10YG")));
 
-        // Add Travel departures (Stonegate)
+        // Add Travel departures
         Sections.Add(new CeefaxSection(CeefaxSectionType.TravelTrains, new Uri("https://www.thetrainline.com/live/departures/stonegate")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TravelFlights, new Uri("https://www.gatwickairport.com/flights")));
         
