@@ -34,14 +34,14 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
             int j = 1;
             foreach (string line in mapLines)
             {
-                string replacement = $"[{summaryColour}]{line.PadRightWithTrunc((j<8 ? 19 : 14))}";
+                string replacement = $"[{summaryColour}]{line.PadRightWithTrunc((j<8 ? 19 : 15))}";
                 map = map.Replace("[LINE" + j.ToString() + "]", replacement);
                 j++;
             }
             // Padding for any remaining lines
             for (int k = j; k <= 11; k++)
             {
-                map = map.Replace("[LINE" + k.ToString() + "]", $"[{TeletextControl.AlphaWhite}]{new string(' ', (k<8 ? 19 : 14))}");
+                map = map.Replace("[LINE" + k.ToString() + "]", $"[{TeletextControl.AlphaWhite}]{new string(' ', (k<8 ? 19 : 15))}");
             }
           
             // Insert temperatures

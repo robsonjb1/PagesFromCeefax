@@ -201,9 +201,9 @@ namespace API.Architecture
                 {
                     rows.Add(currentLine);
                     rowNumber++;
-                    if(rowNumber == 8)
+                    if(rowNumber >= 8)
                     {
-                        effectiveLineLength = 14;   // Flow around the map
+                        effectiveLineLength = 15;   // Flow around the map
                     }
                     
                     currentLine = "";

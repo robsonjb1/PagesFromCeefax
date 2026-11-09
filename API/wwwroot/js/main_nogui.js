@@ -49,7 +49,7 @@ import { video } from "./video.js";
     var carousel = null;
     var carouselRequestTime;
     var carouselIsValid = true; 
-    var pageBuffer = getLoadingPage();  // getTestPage();
+    var pageBuffer = new Uint8Array(); // getLoadingPage();  // getTestPage();
     var musicOn = false;
   
     // Functions
