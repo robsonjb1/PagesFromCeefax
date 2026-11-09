@@ -52,7 +52,7 @@ public class CarouselService
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Kent));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Sussex));
             BuildTeletextPage(_tl.CreateTravelTrainsPage());
-            BuildTeletextPage(_tl.CreateTravelFlightsPage());
+            //BuildTeletextPage(_tl.CreateTravelFlightsPage());
           
             // Business section
             BuildTeletextPage(Graphics.PromoBusiness);

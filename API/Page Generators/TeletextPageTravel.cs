@@ -20,7 +20,7 @@ public class TeletextPageTravel(CeefaxContent mc, TravelData td)
         if(_td.IsValid)             // Only construct the page if we have valid data
         {
             sb.Append(Graphics.HeaderTravel);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]STONEGATE DEPARTURES               [{TeletextControl.AlphaWhite}]1/2");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]STONEGATE DEPARTURES");//               [{TeletextControl.AlphaWhite}]1/2");
             OutputTrainRecord(sb, _td.SOGDepartures.Take(5).ToList());
             
             sb.AppendLine($"[{TeletextControl.AlphaGreen}]Updated at " + Utility.ConvertToUKTime(_td.LastRefreshUTC).ToString("HH:mm") + " (UK time)");
