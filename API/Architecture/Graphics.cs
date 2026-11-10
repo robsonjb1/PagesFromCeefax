@@ -182,7 +182,7 @@ public class Graphics
         PromoMap.AppendLine($"[LINE10][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]+¬¬¬¬¬ _4 +¬[CC]|0");
         PromoMap.AppendLine($"[LINE11][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}] \"%*o! \"   *¬¬¬¬¬u");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                       _   *¬¬¬¬¬¬}}");
-        PromoMap.AppendLine($"[{TeletextControl.AlphaMagenta}]HEATHFIELD[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]            k||¬¬[II]¬¬¬");
+        PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                       k||¬¬[II]¬¬¬");
         PromoMap.AppendLine($"[{TeletextControl.AlphaGreen}]Minimum   Maximum[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]     '¬¬¬¬¬¬¬¬¬¬}}z¬t");
         PromoMap.AppendLine($"[TE1]    [TE2] [{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]       j¬¬¬¬¬¬¬[HH]¬¬");
         PromoMap.AppendLine($"[{TeletextControl.AlphaGreen}]Pressure  Wind[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]       x|[BB]¬¬¬¬¬¬¬¬¬'");
