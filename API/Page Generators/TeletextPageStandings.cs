@@ -1,6 +1,7 @@
 using System.Text;
 using API.Architecture;
 using API.Magazine;
+using Microsoft.ApplicationInsights.Extensibility;
 
 namespace API.PageGenerators;
 
@@ -12,7 +13,37 @@ public class TeletextPageStandings(CeefaxContent mc, StandingsData sd)
 
     #region Public Methods
 
-    public StringBuilder CreateStandingsPage()
+    public StringBuilder CreateFootballStandingsPage()
+    {
+        StringBuilder sb = new StringBuilder();
+        CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.FootballStandings);
+
+        if(_sd.IsValid)             // Only construct the page if we have valid data
+        {
+            sb.Append(Graphics.HeaderFootball);
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]PREMIER LEAGUE     [{TeletextControl.AlphaGreen}]ply win lse drw pts");
+            for(int i=0; i<20; i++)
+            {
+                // Skip the middle rows as they can't fit
+                if ((i != 10) && (i != 11) && (i != 12))
+                {
+                    TeletextControl col = (i % 2 == 0) ? TeletextControl.AlphaWhite : TeletextControl.AlphaCyan;
+                    sb.Append($"[{col}]{_sd.PremierLeague[i].Position.PadLeftWithTrunc(2)} {_sd.PremierLeague[i].Team.PadRightWithTrunc(17)}");
+                    sb.AppendLine($"{_sd.PremierLeague[i].Played.PadLeftWithTrunc(3)} {_sd.PremierLeague[i].Won.PadLeftWithTrunc(3)} {_sd.PremierLeague[i].Lost.PadLeftWithTrunc(3)} {_sd.PremierLeague[i].Drawn.PadLeftWithTrunc(3)} {_sd.PremierLeague[i].Points.PadLeftWithTrunc(3)}");
+                }
+                else
+                {
+                    if (i == 10) {
+                        sb.LineBreak(TeletextControl.AlphaBlue);
+                    }
+                }
+            }
+            sb.FooterText(section, true);
+        }
+        return sb;
+    }
+
+    public StringBuilder CreateF1StandingsPage()
     {
         StringBuilder sb = new StringBuilder();
         CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Motorsport);

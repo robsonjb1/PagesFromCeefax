@@ -54,12 +54,13 @@ public class CeefaxSection
                 break;
 
             case CeefaxSectionType.Football:
+            case CeefaxSectionType.FootballStandings:
             case CeefaxSectionType.Rugby:
             case CeefaxSectionType.Cricket:
             case CeefaxSectionType.Tennis:
             case CeefaxSectionType.Golf:
             case CeefaxSectionType.Motorsport:
-            case CeefaxSectionType.Standings:
+            case CeefaxSectionType.F1Standings:
                 HeadingCol = TeletextControl.AlphaGreen;
                 HeadingHighlightCol = TeletextControl.AlphaYellow;
                 PromoBackground = TeletextControl.AlphaBlue;
@@ -146,6 +147,9 @@ public class CeefaxSection
                 PromoFooter = "Market data coming up next >>>";    
                 break;
             case CeefaxSectionType.Football:
+                Header = Graphics.HeaderFootball;
+                break;
+            case CeefaxSectionType.FootballStandings:
                 Header = Graphics.HeaderFootball;
                 PromoFooter = "Rugby news coming up next >>>";
                 break;

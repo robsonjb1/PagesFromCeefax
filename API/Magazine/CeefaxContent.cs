@@ -34,7 +34,8 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Tennis, new Uri("https://feeds.bbci.co.uk/sport/tennis/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Golf, new Uri("https://feeds.bbci.co.uk/sport/golf/rss.xml")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Motorsport, new Uri("https://feeds.bbci.co.uk/sport/formula1/rss.xml")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Standings, new Uri("https://www.bbc.co.uk/sport/formula1/standings")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.F1Standings, new Uri("https://www.bbc.co.uk/sport/formula1/standings")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.FootballStandings, new Uri("https://www.bbc.co.uk/sport/football/tables")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.Entertainment, new Uri("https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")));
         
         Sections.Add(new CeefaxSection(CeefaxSectionType.WeatherUK, new Uri("https://www.bbc.co.uk/weather"))); 

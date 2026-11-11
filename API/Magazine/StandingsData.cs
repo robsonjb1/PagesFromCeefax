@@ -1,20 +1,34 @@
+using System.Globalization;
 using API.Architecture;
 using HtmlAgilityPack;
 using Serilog;
 
 namespace API.Magazine;
 
-public record StandingsRecord
+public record F1StandingsRecord
 {
     public string Name { get; set; }
     public string Team { get; set;}
     public int Wins { get; set; }
     public int Points { get; set; }
 }
+
+public record FootballStandingsRecord
+{
+    public int Position {get; set; }
+    public string Team { get; set;}
+    public int Won { get; set; }
+    public int Drawn { get; set; }
+    public int Lost { get; set; }
+    public int Points { get; set; }
+    public int Played { get; set; }
+}
+
 public class StandingsData 
 {
-    public List<StandingsRecord> Drivers { get; set; } = [];
-    public List<StandingsRecord> Constructors { get; set; } = [];
+    public List<F1StandingsRecord> Drivers { get; set; } = [];
+    public List<F1StandingsRecord> Constructors { get; set; } = [];
+    public List<FootballStandingsRecord> PremierLeague { get; set; } = [];
     public bool IsValid { get; set; } = false;
 
     private readonly CeefaxContent _cc;
@@ -25,7 +39,8 @@ public class StandingsData
 
         try
         {
-            ParseStandingsPage(CeefaxSectionType.Standings);
+            ParseF1StandingsPage(CeefaxSectionType.F1Standings);
+            ParseFootballStandingsPage(CeefaxSectionType.FootballStandings);
             
             IsValid = true;
         }
@@ -36,7 +51,65 @@ public class StandingsData
         }
     }
 
-    private void ParseStandingsPage(CeefaxSectionType section)
+    private void ParseFootballStandingsPage(CeefaxSectionType section)
+    {
+        string html = _cc.UriCache.First(l => l.Location == _cc.Sections.First(z => z.Name == section).Feed).ContentString;
+        var doc = new HtmlDocument();
+        doc.LoadHtml(html);
+
+        var table = doc.DocumentNode.SelectSingleNode("//section[@id='PremierLeague']//table[@data-testid='football-table']");
+        var rows = table?.SelectNodes(".//tbody/tr");
+        if (rows is null || rows.Count == 0)
+        {
+            throw new InvalidDataException("The Premier League standings table was not found or contained no rows.");
+        }
+
+        foreach (var row in rows)
+        {
+            var teamCell = row.SelectSingleNode("./td[@aria-label='Team']");
+            var positionNode = teamCell?.SelectSingleNode(".//span");
+            var teamNode = teamCell?.SelectSingleNode(".//a");
+            if (positionNode is null || teamNode is null)
+            {
+                throw new InvalidDataException("A Premier League standings row was missing its position or team.");
+            }
+
+            PremierLeague.Add(new FootballStandingsRecord
+            {
+                Position = ReadInteger(positionNode.InnerText, "position"),
+                Team = HtmlEntity.DeEntitize(teamNode.InnerText).Trim(),
+                Won = ReadCellInteger(row, "Won"),
+                Drawn = ReadCellInteger(row, "Drawn"),
+                Lost = ReadCellInteger(row, "Lost"),
+                Points = ReadCellInteger(row, "Points"),
+                Played = ReadCellInteger(row, "Played")
+            });
+        }
+
+        static int ReadCellInteger(HtmlNode row, string label)
+        {
+            var cell = row.SelectSingleNode($"./td[@aria-label='{label}']");
+            if (cell is null)
+            {
+                throw new InvalidDataException($"A Premier League standings row was missing its {label} value.");
+            }
+
+            return ReadInteger(cell.InnerText, label);
+        }
+
+        static int ReadInteger(string text, string label)
+        {
+            var valueText = HtmlEntity.DeEntitize(text).Trim();
+            if (!int.TryParse(valueText, NumberStyles.Integer, CultureInfo.InvariantCulture, out int value))
+            {
+                throw new InvalidDataException($"Could not parse the Premier League standings {label}: '{valueText}'.");
+            }
+
+            return value;
+        }
+    }
+
+    private void ParseF1StandingsPage(CeefaxSectionType section)
     {
         string html = _cc.UriCache.First(l => l.Location == _cc.Sections.First(z => z.Name == section).Feed).ContentString;
         var doc = new HtmlDocument();
@@ -54,7 +127,7 @@ public class StandingsData
             int wins = Convert.ToInt32(nodes[8].InnerText);
             int points = Convert.ToInt32(nodes[10].InnerText);
             
-            Drivers.Add(new StandingsRecord() { Name = driverName, Team = team, Points = points, Wins = wins });
+            Drivers.Add(new F1StandingsRecord() { Name = driverName, Team = team, Points = points, Wins = wins });
         }
 
         // Constructors
@@ -66,7 +139,7 @@ public class StandingsData
             int wins = Convert.ToInt32(nodes[5].InnerText);
             int points = Convert.ToInt32(nodes[7].InnerText);
 
-            Constructors.Add(new StandingsRecord() { Team = team, Points = points, Wins = wins });
+            Constructors.Add(new F1StandingsRecord() { Team = team, Points = points, Wins = wins });
         }
     }
 }

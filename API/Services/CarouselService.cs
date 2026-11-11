@@ -62,12 +62,13 @@ public class CarouselService
             // Sports section
             BuildTeletextPage(Graphics.PromoSport);
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Football));
+            BuildTeletextPage(_ts.CreateFootballStandingsPage());
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Rugby));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Cricket));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Tennis));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Golf));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Motorsport));
-            BuildTeletextPage(_ts.CreateStandingsPage());
+            BuildTeletextPage(_ts.CreateF1StandingsPage());
 
             // Weather section
             BuildTeletextPage(Graphics.PromoWeather);
