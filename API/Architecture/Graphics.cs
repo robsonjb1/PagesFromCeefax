@@ -186,7 +186,7 @@ public class Graphics
         PromoMap.AppendLine($"[{TeletextControl.AlphaGreen}]Minimum   Maximum[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]     '¬¬¬¬¬¬¬¬¬¬}}z¬t");
         PromoMap.AppendLine($"[TE1]    [TE2] [{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]       j¬¬¬¬¬¬¬[HH]¬¬");
         PromoMap.AppendLine($"[{TeletextControl.AlphaGreen}]Pressure  Wind[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]       x|[BB]¬¬¬¬¬¬¬¬¬'");
-        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}][PR1]    [PR2] [{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]      !+/'i¬¬¬¬¬¬¬qp0");
+        PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}][PR1]mb  [PR2][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]!+/'i¬¬¬¬¬¬¬qp0");
         PromoMap.AppendLine($"[{TeletextControl.AlphaGreen}]Sunrise   Sunset[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]        t¬¬¬¬¬¬[AA]¬'");
         PromoMap.AppendLine($"[{TeletextControl.AlphaWhite}][SU1]     [SU2][{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]  [GG]¬¬¬¬¬¬¬¬?s///?!");
         PromoMap.AppendLine($"[{TeletextControl.GraphicsGreen}][{TeletextControl.SeparatedGraphics}]                    8?' \"'     \"");

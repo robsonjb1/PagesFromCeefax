@@ -1,7 +1,9 @@
-﻿using System.ServiceModel.Syndication;
+﻿using System.Collections;
+using System.ServiceModel.Syndication;
 using System.Xml;
 using API.Architecture;
 using HtmlAgilityPack;
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Serilog;
 
 namespace API.Magazine;
@@ -16,6 +18,7 @@ public class SpotTemperature
 {
     public int Temperature { get; set; }
     public int WindSpeed { get; set; }
+    public string WindDirection { get; set; }
     public int Pressure { get; set; }
     public bool PressureFalling { get; set; }
     public bool PressureRising { get; set; }
@@ -66,9 +69,18 @@ public class WeatherData
             {
                 max = 10;
             }
+            else
+            {
+                MaxTempLabel += " C";
+            }
+
             if(MinTempLabel.EndsWith("n/a"))
             {
                 min = 10;
+            }
+            else
+            {
+                MinTempLabel += " C";
             }
 
             MaxTemp = max;
@@ -113,9 +125,17 @@ public class WeatherData
         int temperature = Convert.ToInt32(feed.Items.First().Summary.Text.Split("°C")[0].Split(" ")[^1]);
         int pressure = Convert.ToInt32(feed.Items.First().Summary.Text.Split("mb")[0].Split(" ")[^1]);
         int.TryParse(feed.Items.First().Summary.Text.Split("mph")[0].Split(" ")[^1], out int windSpeed);
+
+        string[] compassWords = feed.Items.First().Summary.Text.Split("Wind Direction: ")[1].Split(", ")[0].Split(" ");
+        string windDirection = windSpeed.ToString() + "mph ";
+        foreach(string compass in compassWords)
+        {
+            windDirection += compass[..1];
+        }
+
         bool pressureFalling = feed.Items.First().Summary.Text.Contains("Falling");
         bool pressureRising = feed.Items.First().Summary.Text.Contains("Rising");
 
-        return new SpotTemperature() { Temperature = temperature, WindSpeed = windSpeed, Pressure = pressure, PressureFalling = pressureFalling, PressureRising = pressureRising };
+        return new SpotTemperature() { Temperature = temperature, WindDirection = windDirection, WindSpeed = windSpeed, Pressure = pressure, PressureFalling = pressureFalling, PressureRising = pressureRising };
     }
-}//
+}
