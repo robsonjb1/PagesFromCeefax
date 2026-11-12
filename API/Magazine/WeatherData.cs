@@ -122,15 +122,19 @@ public class WeatherData
         string html = String.Empty;
         TextReader tr = new StringReader(cc.UriCache.Find(l => l.Location == cc.Sections.Find(z => z.Name == city)!.Feed)!.ContentString!);
         SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(tr));
-        int temperature = Convert.ToInt32(feed.Items.First().Summary.Text.Split("°C")[0].Split(" ")[^1]);
-        int pressure = Convert.ToInt32(feed.Items.First().Summary.Text.Split("mb")[0].Split(" ")[^1]);
+        int.TryParse(feed.Items.First().Summary.Text.Split("°C")[0].Split(" ")[^1], out int temperature);
+        int.TryParse(feed.Items.First().Summary.Text.Split("mb")[0].Split(" ")[^1], out int pressure);
         int.TryParse(feed.Items.First().Summary.Text.Split("mph")[0].Split(" ")[^1], out int windSpeed);
 
         string[] compassWords = feed.Items.First().Summary.Text.Split("Wind Direction: ")[1].Split(", ")[0].Split(" ");
         string windDirection = windSpeed.ToString() + "mph ";
         foreach(string compass in compassWords)
         {
-            windDirection += compass[..1];
+            string letter = compass[..1];
+            if(letter == "N" || letter == "S" || letter == "E" || letter == "W")
+            {
+                windDirection += compass[..1];
+            }
         }
 
         bool pressureFalling = feed.Items.First().Summary.Text.Contains("Falling");
