@@ -133,7 +133,7 @@ public class WeatherData
             string letter = compass[..1].ToUpper();
             if(letter == "N" || letter == "S" || letter == "E" || letter == "W")
             {
-                windDirection += compass[..1];
+                windDirection += letter;
             }
         }
 
