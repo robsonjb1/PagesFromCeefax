@@ -130,7 +130,7 @@ public class WeatherData
         string windDirection = windSpeed.ToString() + "mph ";
         foreach(string compass in compassWords)
         {
-            string letter = compass[..1];
+            string letter = compass[..1].ToUpper();
             if(letter == "N" || letter == "S" || letter == "E" || letter == "W")
             {
                 windDirection += compass[..1];
