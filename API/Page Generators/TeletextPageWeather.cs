@@ -25,10 +25,13 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
 
             TeletextControl summaryColour = TeletextControl.AlphaYellow;
             
-            if(DateTime.Now.Hour >= Convert.ToInt32(_wd.Sunset[..2]) ||
-                DateTime.Now.Hour <= Convert.ToInt32(_wd.Sunrise[..2])) // Night time
+            if(int.TryParse(_wd.Sunset, out int sunset) && int.TryParse(_wd.Sunrise, out int sunrise))
             {
-                summaryColour = TeletextControl.AlphaCyan;
+                if(DateTime.Now.Hour >= Convert.ToInt32(_wd.Sunset[..2]) ||
+                    DateTime.Now.Hour <= Convert.ToInt32(_wd.Sunrise[..2])) // Night time
+                {
+                    summaryColour = TeletextControl.AlphaCyan;
+                }
             }
 
             int j = 1;
@@ -70,8 +73,8 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
                 .Replace("[HH]", FormatWeatherString(_wd.Locations["Cambridge"].Temperature, _wd.Locations["Cambridge"].WindSpeed) + $"[{TeletextControl.GraphicsGreen}]")
                 .Replace("[II]", FormatWeatherString(_wd.Locations["Birmingham"].Temperature, _wd.Locations["Birmingham"].WindSpeed) + $"[{TeletextControl.GraphicsGreen}]")
                 .Replace("[TTT]", Utility.ConvertToUKTime(_wd.LastRefreshUTC).ToString("HH:mm"))
-                .Replace("[SU1]", _wd.Sunrise)
-                .Replace("[SU2]", _wd.Sunset)
+                .Replace("[SU1]", _wd.Sunrise.PadRightWithTrunc(5))
+                .Replace("[SU2]", _wd.Sunset.PadRightWithTrunc(5))
                 .Replace("[TE1]", $"[{TemperatureColour(_wd.MinTemp)}]{_wd.MinTempLabel.PadRightWithTrunc(5)}")
                 .Replace("[TE2]", $"[{TemperatureColour(_wd.MaxTemp)}]{_wd.MaxTempLabel.PadRightWithTrunc(5)}")
                 .Replace("[PR1]", $"[{pressureMovement}]{_wd.Locations["Heathfield"].Pressure.PadLeftWithTrunc(4)}")

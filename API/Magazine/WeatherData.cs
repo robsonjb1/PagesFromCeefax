@@ -89,6 +89,9 @@ public class WeatherData
             Sunrise = doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'wr-c-environment-day-wrapper--active')]//span[contains(@class, 'wr-c-astro-data__sunrise')]/span[contains(@class, 'wr-c-astro-data__time')]")?.InnerText.Trim();
             Sunset = doc.DocumentNode.SelectSingleNode("//div[contains(@class, 'wr-c-environment-day-wrapper--active')]//span[contains(@class, 'wr-c-astro-data__sunset')]/span[contains(@class, 'wr-c-astro-data__time')]")?.InnerText.Trim();
 
+            Sunrise ??= "n/a";
+            Sunset ??= "n/a";
+
             LastRefreshUTC = DateTime.UtcNow;
             Locations.Add("Heathfield", GetTemperature(cc, CeefaxSectionType.WeatherSpotHeathfield));
             Locations.Add("Swansea", GetTemperature(cc, CeefaxSectionType.WeatherSpotCaerphilly));
