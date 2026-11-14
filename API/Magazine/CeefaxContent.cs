@@ -53,9 +53,12 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC1, new Uri("https://www.bbc.co.uk/schedules/p00fzl6x")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));
-                      
+              
         // Add The Register RSS feed
         Sections.Add(new CeefaxSection(CeefaxSectionType.Register, new Uri("https://www.theregister.com/?lab_viewport=rss")));
+        
+        // Add the F1 diary
+        Sections.Add(new CeefaxSection(CeefaxSectionType.F1Diary, new Uri("https://www.bbc.co.uk/sport/formula1/calendar")));
         
         // Add the Hargreaves Lansdown API markets and currency request to the URL cache
         Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.hl.co.uk/shares")));

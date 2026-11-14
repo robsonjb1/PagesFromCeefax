@@ -13,6 +13,12 @@ public record F1StandingsRecord
     public int Points { get; set; }
 }
 
+public record F1DiaryRecord
+{
+    public string EventName { get; set; }
+    public string Date { get; set; }
+}
+
 public record FootballStandingsRecord
 {
     public int Position {get; set; }
@@ -28,6 +34,7 @@ public class StandingsData
 {
     public List<F1StandingsRecord> Drivers { get; set; } = [];
     public List<F1StandingsRecord> Constructors { get; set; } = [];
+    public List<F1DiaryRecord> Diary { get; set; } = [];
     public List<FootballStandingsRecord> PremierLeague { get; set; } = [];
     public bool IsValid { get; set; } = false;
 
@@ -140,6 +147,36 @@ public class StandingsData
             int points = Convert.ToInt32(nodes[7].InnerText);
 
             Constructors.Add(new F1StandingsRecord() { Team = team, Points = points, Wins = wins });
+        }
+
+        // Diary
+        html = _cc.UriCache.First(l => l.Location == _cc.Sections.First(z => z.Name == CeefaxSectionType.F1Diary).Feed).ContentString;
+        doc.LoadHtml(html);
+
+        // Build the list Diary of F1DiaryRecord records
+        // https://www.bbc.co.uk/sport/formula1/calendar
+
+        var events = doc.DocumentNode.SelectNodes("//ul[@data-event-id]");
+        if (events is null || events.Count == 0)
+        {
+            throw new InvalidDataException("The Formula 1 calendar was not found or contained no events.");
+        }
+
+        foreach (var calendarEvent in events)
+        {
+            var eventNameNode = calendarEvent.SelectSingleNode("./li[1]");
+            var dateNode = calendarEvent.SelectSingleNode(
+                "./li[@aria-hidden='true']");
+            if (eventNameNode is null || dateNode is null)
+            {
+                throw new InvalidDataException("A Formula 1 calendar event was missing its name or date.");
+            }
+
+            Diary.Add(new F1DiaryRecord
+            {
+                EventName = HtmlEntity.DeEntitize(eventNameNode.InnerText).Trim(),
+                Date = HtmlEntity.DeEntitize(dateNode.InnerText).Trim()
+            });
         }
     }
 }

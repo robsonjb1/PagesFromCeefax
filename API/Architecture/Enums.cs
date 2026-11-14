@@ -15,6 +15,7 @@ public enum CeefaxSectionType
     Golf,
     Motorsport,
     F1Standings,
+    F1Diary,
     FootballStandings,
     Entertainment,
     Sussex,

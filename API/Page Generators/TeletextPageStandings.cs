@@ -1,3 +1,4 @@
+using System.Diagnostics.Tracing;
 using System.Text;
 using API.Architecture;
 using API.Magazine;
@@ -64,14 +65,40 @@ public class TeletextPageStandings(CeefaxContent mc, StandingsData sd)
                 count++;
             }
             sb.LineBreak(TeletextControl.AlphaBlue);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{"CONSTRUCTOR STANDINGS".PadRightWithTrunc(30)}[{TeletextControl.AlphaGreen}]wins pts");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{"DIARY           CONSTRUCTORS".PadRightWithTrunc(30)}[{TeletextControl.AlphaGreen}]wins pts");
 
-            // Constructors
+            // Constructors and diary events combined
             count=0;
+            int eventCount=0;
+            bool showEventTitle=true;
+
             foreach(var d in _sd.Constructors.Take(8))
             {
+                string eventName = _sd.Diary[eventCount].EventName.Replace("Grand Prix", "");
+                string dateRange = _sd.Diary[eventCount].Date.Replace(" - ", "-");
+                
+                if(eventCount < _sd.Diary.Count)
+                {
+                    TeletextControl eventCol = (eventCount % 2 == 0) ? TeletextControl.AlphaWhite : TeletextControl.AlphaCyan;
+                    
+                    showEventTitle = !showEventTitle;
+                    if(showEventTitle)
+                    {
+                        sb.Append($"[{eventCol}]{dateRange.PadRightWithTrunc(15)}");
+                        eventCount++;
+                    } 
+                    else
+                    {
+                        sb.Append($"[{eventCol}]{eventName.PadRightWithTrunc(15)}");
+                    }
+                }
+                else
+                { // Padding
+                    sb.Append(" ".PadRight(16));
+                }
+
                 TeletextControl col = (count % 2 == 0) ? TeletextControl.AlphaWhite : TeletextControl.AlphaCyan;
-                sb.AppendLine($"[{col}]{count+1 + " " + d.Team.PadRightWithTrunc(31)}{d.Wins.PadLeftWithTrunc(2)} {d.Points.PadLeftWithTrunc(3)}");
+                sb.AppendLine($"[{col}]{count+1 + " " + d.Team.PadRightWithTrunc(15)}{d.Wins.PadLeftWithTrunc(2)} {d.Points.PadLeftWithTrunc(3)}");
 
                 count++;
             }

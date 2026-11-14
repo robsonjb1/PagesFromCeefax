@@ -99,7 +99,9 @@ public class TeletextPageTravel(CeefaxContent mc, TravelData td)
                 sb.Append($"{t.Time}");
 
                 TeletextControl statusCol = TeletextControl.AlphaGreen;
-                t.Status = t.Status.Replace(":", "").Replace("Gate info at ", "Info ").Replace("Gate closes at ", "Closes ").Replace("Delayed to ", "Delayed ");
+                t.Status = t.Status.Replace(":", "").Replace("Gate info at ", "Info ")
+                    .Replace("Gate closes at ", "Closes ").Replace("Delayed to ", "Delayed ")
+                    .Replace("Departed ", "Depart ");
 
                 if(t.Status.Contains("Delayed"))
                 {
