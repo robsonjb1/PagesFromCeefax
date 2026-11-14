@@ -4,10 +4,12 @@ using API.Magazine;
 
 namespace API.PageGenerators;
 
-public class TeletextPageNews(CeefaxContent cc)
+public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
 {
     private readonly CeefaxContent _cc = cc;
-
+    private readonly WeatherData _wd = wd;
+    private readonly MarketsData _md = md;
+    
     #region Public Methods
     public List<StringBuilder> CreateNewsSection(CeefaxSectionType sectionName)
     {
@@ -26,50 +28,88 @@ public class TeletextPageNews(CeefaxContent cc)
     public StringBuilder CreateNewsHeadlines()
     {
         StringBuilder sb = new();
-        sb.Append(Graphics.HeaderHeadlines);
-        
-        // List latest stories regardless of section. If a story is shown, do not mark it as included
-        // It will be intentionally repeated on the relevant section page later
-        int rows = 0;
-        List<Uri> included = [];
-        foreach (NewsStory story in _cc.StoryList.OrderByDescending(z => z.PublishDate))
+       
+        if(_md != null && _wd != null)
         {
-            if(!included.Exists(z => z == story.Link))
+            // Create the weather and markets section 
+            List<string> weatherMarkets = [];
+            weatherMarkets.Add(string.Empty);
+            
+            foreach(string line in Utility.ParseParagraph("WEATHER " + _wd.Forecasts[0].Body[.._wd.Forecasts[0].Body.IndexOf('.')]))
             {
-                included.Add(story.Link);
-
-                List<string> HeadlineRows = Utility.ParseParagraph(story.SectionName.ToString().ToUpper() + " " + story.Headline);
-                List<string> SummaryRows = Utility.ParseParagraph(story.Summary);
-
-                if (rows + HeadlineRows.Count + SummaryRows.Count < 19)
+                if(line.StartsWith("WEATHER "))
                 {
-                    if(rows > 0) // Separator row
-                    {
-                        rows++;
-                        sb.AppendLine(string.Empty);
-                    }
-                    
-                    CeefaxSection section = _cc.Sections.Find(z => z.Name == story.SectionName)!;
-                    sb.AppendLine($"[{section.HeadingCol}]{story.SectionName.ToString().ToUpper()}[{TeletextControl.AlphaWhite}]" + HeadlineRows[0][(story.SectionName.ToString().Length+1)..]);
-                    if(HeadlineRows.Count > 1)
-                    {
-                        for(int i=1; i<HeadlineRows.Count; i++)
-                        {
-                            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{HeadlineRows[i]}");
-                        }
-                    }
-
-                    SummaryRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaCyan}]{l}"));
-                    rows += HeadlineRows.Count + SummaryRows.Count;
+                    weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]WEATHER[{TeletextControl.AlphaWhite}]" + line[8..]);
+                }
+                else
+                {
+                    weatherMarkets.Add(" " + line);
                 }
             }
+            
+            weatherMarkets.Add(string.Empty);
+
+            MarketRecord mr = _md.Markets.FirstOrDefault(z => z.Name == "UKX");
+            TeletextControl rateColour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
+            string indexes = $"FTSE-100[{rateColour}]{Utility.PadRightWithTrunc(mr.Value[..mr.Value.IndexOf('.')],6)}";
+            
+            MarketRecord br = _md.Markets.FirstOrDefault(z => z.Name == "UK-10YRBOND");
+            TeletextControl bondColour = br.Movement.StartsWith('-') ? TeletextControl.AlphaGreen : TeletextControl.AlphaRed;
+            string bonds = $"[{bondColour}]{Utility.PadRightWithTrunc(br.Value, 7)}";
+            
+            weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]MARKETS[{TeletextControl.AlphaWhite}]{indexes}[{TeletextControl.AlphaWhite}]10YR-BND{bonds}");
+
+            sb.Append(Graphics.HeaderHeadlines);
+        
+            // List latest stories regardless of section. If a story is shown, do not mark it as included
+            // It will be intentionally repeated on the relevant section page later
+            int rows = 0;
+            List<Uri> included = [];
+            foreach (NewsStory story in _cc.StoryList.OrderByDescending(z => z.PublishDate))
+            {
+                if(!included.Exists(z => z == story.Link))
+                {
+                    included.Add(story.Link);
+
+                    List<string> HeadlineRows = Utility.ParseParagraph(story.SectionName.ToString().ToUpper() + " " + story.Headline);
+                    List<string> SummaryRows = Utility.ParseParagraph(story.Summary);
+
+                    if (rows + HeadlineRows.Count + SummaryRows.Count < 19 - weatherMarkets.Count)
+                    {
+                        if(rows > 0) // Separator row
+                        {
+                            rows++;
+                            sb.AppendLine(string.Empty);
+                        }
+                        
+                        CeefaxSection section = _cc.Sections.Find(z => z.Name == story.SectionName)!;
+                        sb.AppendLine($"[{section.HeadingCol}]{story.SectionName.ToString().ToUpper()}[{TeletextControl.AlphaWhite}]" + HeadlineRows[0][(story.SectionName.ToString().Length+1)..]);
+                        if(HeadlineRows.Count > 1)
+                        {
+                            for(int i=1; i<HeadlineRows.Count; i++)
+                            {
+                                sb.AppendLine($"[{TeletextControl.AlphaWhite}]{HeadlineRows[i]}");
+                            }
+                        }
+
+                        SummaryRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaCyan}]{l}"));
+                        rows += HeadlineRows.Count + SummaryRows.Count;
+                    }
+                }
+            }
+
+            // Add weather markets
+            foreach(string line in weatherMarkets)
+            {
+                sb.AppendLine(line);
+            }
+
+            // Pad lines to the end
+            sb.PadLines(19 - weatherMarkets.Count - rows);
+
+            sb.Append($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]");
+            sb.AppendLine("Home news coming up next >>>");
         }
-
-        // Pad lines to the end
-        sb.PadLines(19 - rows);
-
-        sb.Append($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]");
-        sb.AppendLine("Home news coming up next >>>");
 
         return sb;
     }

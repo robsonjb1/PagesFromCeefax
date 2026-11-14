@@ -56,7 +56,7 @@ namespace API.Services
                         TravelData travelData = new(cc);
                         
                         CarouselService cs = new(
-                            new TeletextPageNews(cc),
+                            new TeletextPageNews(cc, weatherData, marketsData),
                             new TeletextPageTravel(cc, travelData),
                             new TeletextPageMarkets(cc, marketsData),
                             new TeletextPageStandings(cc, standingsData),
