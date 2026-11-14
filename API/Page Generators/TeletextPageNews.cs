@@ -55,7 +55,7 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
             
             MarketRecord br = _md.Markets.FirstOrDefault(z => z.Name == "UK-10YRBOND");
             TeletextControl bondColour = br.Movement.StartsWith('-') ? TeletextControl.AlphaGreen : TeletextControl.AlphaRed;
-            string bonds = $"[{bondColour}]{Utility.PadRightWithTrunc(br.Value, 7)}";
+            string bonds = $"[{bondColour}]{Utility.PadRightWithTrunc(br.Value, 6)}";
             
             weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]MARKETS[{TeletextControl.AlphaWhite}]{indexes}[{TeletextControl.AlphaWhite}]10YR-BND{bonds}");
 
