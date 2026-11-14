@@ -25,10 +25,10 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
 
             TeletextControl summaryColour = TeletextControl.AlphaYellow;
             
-            if(int.TryParse(_wd.Sunset, out int sunset) && int.TryParse(_wd.Sunrise, out int sunrise))
+            if(int.TryParse(_wd.Sunset[..2], out int sunsetHour) && int.TryParse(_wd.Sunrise[..2], out int sunriseHour))
             {
-                if(DateTime.Now.Hour >= Convert.ToInt32(_wd.Sunset[..2]) ||
-                    DateTime.Now.Hour <= Convert.ToInt32(_wd.Sunrise[..2])) // Night time
+                if(DateTime.Now.Hour >= sunsetHour ||
+                    DateTime.Now.Hour <= sunriseHour) // Night time
                 {
                     summaryColour = TeletextControl.AlphaCyan;
                 }

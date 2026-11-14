@@ -73,7 +73,16 @@ try
         FileProvider = new PhysicalFileProvider(
             Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
         RequestPath = "",
-        ServeUnknownFileTypes = true
+        ServeUnknownFileTypes = true,
+        OnPrepareResponse = context =>
+        {
+            var extension = Path.GetExtension(context.File.Name);
+            if (extension.Equals(".html", StringComparison.OrdinalIgnoreCase) ||
+                extension.Equals(".js", StringComparison.OrdinalIgnoreCase))
+            {
+                context.Context.Response.Headers["Cache-Control"] = "no-cache";
+            }
+        }
     });
 
     app.Run();
