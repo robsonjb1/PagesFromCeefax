@@ -30,7 +30,7 @@ public class TravelData
         try
         {
             SOGDepartures = ParseTrainTimes(CeefaxSectionType.TravelTrains);
-            //LGWArrivals = ParseFlightTimes(CeefaxSectionType.TravelFlights);
+            LGWArrivals = ParseFlightTimes(CeefaxSectionType.TravelFlights);
           
             IsValid = true;
         }
@@ -64,7 +64,7 @@ public class TravelData
             .ToDictionary(column => column.Name, column => column.Index, StringComparer.OrdinalIgnoreCase);
 
         if (!columnIndexes.TryGetValue("Time", out int timeIndex) ||
-            !columnIndexes.TryGetValue("From", out int destinationIndex) ||
+            !columnIndexes.TryGetValue("To", out int destinationIndex) ||
             !columnIndexes.TryGetValue("Flight No", out int operatedByIndex) ||
             !columnIndexes.TryGetValue("Status", out int statusIndex) ||
             !columnIndexes.TryGetValue("Terminal", out int platformIndex))

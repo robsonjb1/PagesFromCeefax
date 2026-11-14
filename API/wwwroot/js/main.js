@@ -128,6 +128,8 @@ import { video } from "./video.js";
         charData[970] = 2;  // Green
         charData[982] = 3;  // Yellow
         charData[989] = 6;  // Cyan
+        charData[972] = 0x5b; // Left arrow
+        charData[988] = 0x5d; // Right arrow
     }
    
     function getNewCarousel() {

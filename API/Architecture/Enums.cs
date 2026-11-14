@@ -73,7 +73,7 @@ public enum TeletextControl
     RightArrow = 93,
     UpArrow = 94,
     Half = 92,
-    Quarter = 123,
+    DownArrow = 123,
     ThreeQuarters = 125,
     LongLine = 95,
     Divide = 126,

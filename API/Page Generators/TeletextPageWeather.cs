@@ -60,7 +60,7 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
             }
             if(_wd.Locations["Heathfield"].PressureFalling)
             {
-                pressureMovement = TeletextControl.Quarter;
+                pressureMovement = TeletextControl.DownArrow;
             }
             
             map = map.Replace("[AA]", FormatWeatherString(_wd.Locations["Heathfield"].Temperature, _wd.Locations["Heathfield"].WindSpeed) + $"[{TeletextControl.GraphicsGreen}]")

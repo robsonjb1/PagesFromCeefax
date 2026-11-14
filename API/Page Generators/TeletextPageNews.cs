@@ -51,11 +51,13 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
 
             MarketRecord mr = _md.Markets.FirstOrDefault(z => z.Name == "UKX");
             TeletextControl rateColour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
-            string indexes = $"FTSE-100[{rateColour}]{Utility.PadRightWithTrunc(mr.Value[..mr.Value.IndexOf('.')],6)}";
+            TeletextControl rateArrow = rateColour == TeletextControl.AlphaGreen ? TeletextControl.UpArrow : TeletextControl.DownArrow;
+            string indexes = $"FTSE-100[{rateColour}][{rateArrow}]{Utility.PadRightWithTrunc(mr.Value[..mr.Value.IndexOf('.')],6)}";
             
             MarketRecord br = _md.Markets.FirstOrDefault(z => z.Name == "UK-10YRBOND");
             TeletextControl bondColour = br.Movement.StartsWith('-') ? TeletextControl.AlphaGreen : TeletextControl.AlphaRed;
-            string bonds = $"[{bondColour}]{Utility.PadRightWithTrunc(br.Value, 6)}";
+            TeletextControl bondArrow = bondColour == TeletextControl.AlphaGreen ? TeletextControl.DownArrow : TeletextControl.UpArrow;
+            string bonds = $"[{bondColour}][{bondArrow}]{Utility.PadRightWithTrunc(br.Value, 4)}";
             
             weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]MARKETS[{TeletextControl.AlphaWhite}]{indexes}[{TeletextControl.AlphaWhite}]10YR-BND{bonds}");
 
