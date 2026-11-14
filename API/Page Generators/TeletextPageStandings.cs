@@ -59,7 +59,7 @@ public class TeletextPageStandings(CeefaxContent mc, StandingsData sd)
             foreach(var d in _sd.Drivers.Take(8))
             {
                 TeletextControl col = (count % 2 == 0) ? TeletextControl.AlphaWhite : TeletextControl.AlphaCyan;
-                sb.AppendLine($"[{col}]{d.Name.PadRightWithTrunc(16)} {d.Team.PadRightWithTrunc(16)}{d.Wins.PadLeftWithTrunc(2)} {d.Points.PadLeftWithTrunc(3)}");
+                sb.AppendLine($"[{col}]{count+1 + "." + d.Name.PadRightWithTrunc(15)} {d.Team.PadRightWithTrunc(15)}{d.Wins.PadLeftWithTrunc(2)} {d.Points.PadLeftWithTrunc(3)}");
                 
                 count++;
             }
@@ -71,7 +71,7 @@ public class TeletextPageStandings(CeefaxContent mc, StandingsData sd)
             foreach(var d in _sd.Constructors.Take(8))
             {
                 TeletextControl col = (count % 2 == 0) ? TeletextControl.AlphaWhite : TeletextControl.AlphaCyan;
-                sb.AppendLine($"[{col}]{d.Team.PadRightWithTrunc(33)}{d.Wins.PadLeftWithTrunc(2)} {d.Points.PadLeftWithTrunc(3)}");
+                sb.AppendLine($"[{col}]{count+1 + "." + d.Team.PadRightWithTrunc(31)}{d.Wins.PadLeftWithTrunc(2)} {d.Points.PadLeftWithTrunc(3)}");
 
                 count++;
             }
