@@ -76,26 +76,29 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
                     List<string> HeadlineRows = Utility.ParseParagraph(story.SectionName.ToString().ToUpper() + " " + story.Headline);
                     List<string> SummaryRows = Utility.ParseParagraph(story.Summary);
 
-                    if (rows + HeadlineRows.Count + SummaryRows.Count < 19 - weatherMarkets.Count)
+                    if(HeadlineRows[0] != SummaryRows[0])
                     {
-                        if(rows > 0) // Separator row
+                        if (rows + HeadlineRows.Count + SummaryRows.Count < 19 - weatherMarkets.Count)
                         {
-                            rows++;
-                            sb.AppendLine(string.Empty);
-                        }
-                        
-                        CeefaxSection section = _cc.Sections.Find(z => z.Name == story.SectionName)!;
-                        sb.AppendLine($"[{section.HeadingCol}]{story.SectionName.ToString().ToUpper()}[{TeletextControl.AlphaWhite}]" + HeadlineRows[0][(story.SectionName.ToString().Length+1)..]);
-                        if(HeadlineRows.Count > 1)
-                        {
-                            for(int i=1; i<HeadlineRows.Count; i++)
+                            if(rows > 0) // Separator row
                             {
-                                sb.AppendLine($"[{TeletextControl.AlphaWhite}]{HeadlineRows[i]}");
+                                rows++;
+                                sb.AppendLine(string.Empty);
                             }
-                        }
+                            
+                            CeefaxSection section = _cc.Sections.Find(z => z.Name == story.SectionName)!;
+                            sb.AppendLine($"[{section.HeadingCol}]{story.SectionName.ToString().ToUpper()}[{TeletextControl.AlphaWhite}]" + HeadlineRows[0][(story.SectionName.ToString().Length+1)..]);
+                            if(HeadlineRows.Count > 1)
+                            {
+                                for(int i=1; i<HeadlineRows.Count; i++)
+                                {
+                                    sb.AppendLine($"[{TeletextControl.AlphaWhite}]{HeadlineRows[i]}");
+                                }
+                            }
 
-                        SummaryRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaCyan}]{l}"));
-                        rows += HeadlineRows.Count + SummaryRows.Count;
+                            SummaryRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaCyan}]{l}"));
+                            rows += HeadlineRows.Count + SummaryRows.Count;
+                        }
                     }
                 }
             }
@@ -152,24 +155,27 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
             List<string> HeadlineRows = Utility.ParseParagraph(story.Headline);
             List<string> SummaryRows = Utility.ParseParagraph(story.Summary);
 
-            if (!story.Included && (rows + HeadlineRows.Count + SummaryRows.Count < 18))
+            if(HeadlineRows[0] != SummaryRows[0])
             {
-                if (rows > 0) // Separator row
+                if (!story.Included && (rows + HeadlineRows.Count + SummaryRows.Count < 18))
                 {
-                    rows++;
-                    sb.AppendLine(string.Empty);
-                }
+                    if (rows > 0) // Separator row
+                    {
+                        rows++;
+                        sb.AppendLine(string.Empty);
+                    }
 
-                // Title
-                HeadlineRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaWhite}]{l}"));
-              
-                // Summary
-                SummaryRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaCyan}]{l}"));
+                    // Title
+                    HeadlineRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaWhite}]{l}"));
                 
-                rows += SummaryRows.Count + HeadlineRows.Count;
-              
-                // Ensure no other future pages include this story
-                story.Included = true;
+                    // Summary
+                    SummaryRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaCyan}]{l}"));
+                    
+                    rows += SummaryRows.Count + HeadlineRows.Count;
+                
+                    // Ensure no other future pages include this story
+                    story.Included = true;
+                }
             }
         }
 
