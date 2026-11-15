@@ -98,12 +98,9 @@ public class CeefaxSection
             case CeefaxSectionType.Politics:
             case CeefaxSectionType.Football:
             case CeefaxSectionType.Entertainment:
+            case CeefaxSectionType.Business:
             case CeefaxSectionType.Register:
                 TotalPages = 2;
-                break;
-
-            case CeefaxSectionType.Business:
-                TotalPages = 3;
                 break;
 
             default:
