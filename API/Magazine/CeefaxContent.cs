@@ -67,6 +67,9 @@ public class CeefaxContent
         // Add the FT 10-year UK bond yields
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsBonds, new Uri("https://markets.ft.com/data/bonds/tearsheet/summary?s=UK10YG")));
 
+        // Add market open/closure states
+        Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsOpen, new Uri("https://www.forexchurch.com/stock-market-hours")));
+
         // Add Travel departures
         Sections.Add(new CeefaxSection(CeefaxSectionType.TravelTrains, new Uri("https://www.thetrainline.com/live/departures/stonegate")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TravelFlights, new Uri("https://www.gatwickairport.com/flights?destination=D")));

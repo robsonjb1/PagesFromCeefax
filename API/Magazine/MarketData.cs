@@ -25,6 +25,51 @@ public class MarketsData
     {
         try
         {
+            string marketsOpen = cc.UriCache.First(l => l.Location == cc.Sections.First(z => z.Name == CeefaxSectionType.MarketsOpen).Feed).ContentString;
+            var marketsDoc = new HtmlDocument();
+            marketsDoc.LoadHtml(marketsOpen);
+
+            var marketExchanges = new Dictionary<string, string>
+            {
+                ["UKX"] = "LSE",
+                ["MCX"] = "LSE",
+                ["CAC"] = "EPA",
+                ["DAX"] = "FSX",
+                ["DJIA"] = "NYSE",
+                ["COMP"] = "NewYork",
+                ["HSI"] = "HKEX",
+                ["NK225"] = "TSE"
+            };
+            var exchangeStatuses = new Dictionary<string, bool>();
+            var exchangeRows = marketsDoc.DocumentNode.SelectNodes("//table//tr");
+            if (exchangeRows is not null)
+            {
+                foreach (var row in exchangeRows)
+                {
+                    var exchangeNode = row.SelectSingleNode("./td[1]/a");
+                    var statusNode = row.SelectSingleNode("./td[2]");
+                    if (exchangeNode is null || statusNode is null)
+                    {
+                        continue;
+                    }
+
+                    string exchangeName = exchangeNode.InnerText.Trim();
+                    int exchangeCodeStart = exchangeName.LastIndexOf('(');
+                    if (exchangeCodeStart < 0 || !exchangeName.EndsWith(')'))
+                    {
+                        continue;
+                    }
+
+                    string exchangeCode = exchangeName[(exchangeCodeStart + 1)..^1].Trim();
+                    string status = statusNode.InnerText.Trim();
+                    if (status is "Open" or "Closed")
+                    {
+                        exchangeStatuses.TryAdd(exchangeCode, status == "Closed");
+                    }
+                }
+            }
+
+
             string html = cc.UriCache.First(l => l.Location == cc.Sections.First(z => z.Name == CeefaxSectionType.Markets).Feed).ContentString;
             var doc = new HtmlDocument();
             doc.LoadHtml(html);
@@ -39,12 +84,19 @@ public class MarketsData
               
                 if (name != String.Empty)
                 {
+                    bool marketClosed = false;
+                    if (marketExchanges.TryGetValue(name, out var exchange) &&
+                        !exchangeStatuses.TryGetValue(exchange, out marketClosed))
+                    {
+                        throw new InvalidOperationException($"No market status found for exchange '{exchange}' mapped from '{name}'.");
+                    }
+
                     Markets.Add(new MarketRecord()
                     {
                         Name = name,
                         Movement = movement,
                         Value = value,
-                        MarketClosed = false
+                        MarketClosed = marketClosed
                     });
                 }
             }

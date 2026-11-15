@@ -1,16 +1,15 @@
 // Initialisation
-let totalChannels = 10;
-let selectedChannel = 0;
-
+const totalChannels = 10;
+let selectedChannel = 1;
 let showIdentNext = true;
 let settingsVisible = false;
-let channelsVisible = true;
-let channelSelections = "";
+let channelSelections = "|1||2||3||4||8||10|";
 let halfWidth = false;
 let lastBannerRefresh = new Date();
 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
+// Functions
 function refreshChannelFeeds() {
     console.log("Refreshing channel feeds...");
     
@@ -55,25 +54,6 @@ function autoRefreshChannelFeeds() {
     refreshChannelFeeds();
 }
 
-function switchSettings(channel) {
-    var sChannel = channel.toString();
-
-    if(channelSelections.indexOf("|" + sChannel + "|") == -1) {
-        $(`#channel${channel}row`).show();
-        $(`#settings${channel}icon`).removeClass("bi-layout-sidebar-inset-reverse");    
-        $(`#settings${channel}icon`).addClass("bi-layout-sidebar-inset");    
-        channelSelections += "|" + sChannel + "|";
-    } else {
-        $(`#channel${channel}row`).hide();
-        $(`#settings${channel}icon`).removeClass("bi-layout-sidebar-inset");    
-        $(`#settings${channel}icon`).addClass("bi-layout-sidebar-inset-reverse");  
-        channelSelections = channelSelections.replace("|" + sChannel + "|", "");
-    }
-    document.cookie = `channelSelections=${channelSelections}; expires=Thu, 1 Jan 2029 12:00:00 UTC; path=/`;
-
-    syncChannelRows();
-}
-
 function switchChannel(channel) {
     showIdentNext = true;
                 
@@ -107,6 +87,8 @@ function switchChannel(channel) {
         videoContainer.video.load();
         videoContainer.video.play();
 
+        console.log(videoContainer.video.src);
+
         displayCaption();
     }
 }
@@ -130,6 +112,7 @@ function updateChannelStats(advanceOffset = false) {
                 let nextEpisodeId = (i == episodeList[channel].data.length - 1) ? 0 : i + 1;
                 let currentPosition = dayPosition - sum;
 
+                episodeList[channel].episodeId = i;                
                 episodeList[channel].duration = Math.floor(episodeList[channel].data[i].length / 60);   // whole minutes 
                 episodeList[channel].currentPosition = currentPosition;
                 episodeList[channel].startTime = new Date(now.getTime() - (currentPosition * 1000)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour24: "true" });
@@ -282,16 +265,9 @@ function playPauseClick() {
 
 function pfcClick() {
     if(settingsVisible) {
-        // If you've clicked on the video whilst the settings was open, close settings and go back to the channel list in the background
-        settingsVisible = false;
-        channelsVisible = true;
-
-        $('#settingsToggleIcon').removeClass("bi-gear-fill");
-        $('#settingsToggleIcon').addClass("bi-gear");
-
+        // Switch back to show episode descriptions
+        $("#settingsToggle").click();
         $("#planner").hide();
-        $("#settings").hide();
-        $("#channelList").fadeIn();
     }
     else {
         // Update stats for each channel
@@ -322,6 +298,9 @@ function syncChannelRows() {
         }
     }
 }
+
+// End of functions
+// Wire up UI
 
 // Wire up channel selection buttons
 for(let i=1; i<=totalChannels; i++) {
@@ -360,41 +339,26 @@ $("#speakerToggle").on('click', function(event) {
 
 // Wire up settings toggle
 $("#settingsToggle").on('click', function(event) {
-    if(channelsVisible) {
-        settingsVisible = !settingsVisible;
-        $("#settings").toggle();
-        $("#channelList").toggle();
+    settingsVisible = !settingsVisible;
 
-        if(settingsVisible) {
-            $('#settingsToggleIcon').removeClass("bi-gear");
-            $('#settingsToggleIcon').addClass("bi-gear-fill");
-        } else {
-            $('#settingsToggleIcon').removeClass("bi-gear-fill");
-            $('#settingsToggleIcon').addClass("bi-gear");
-        }
+    document.querySelectorAll('.plannerShuffleDate').forEach(el => {
+    if (el.style.display == 'none' || el.style.display == '') {
+        el.style.display = 'block'; 
+    } else {
+        el.style.display = 'none';
     }
+    });
 
-    // Allow the channel numbers to show in the planner after we've visited the channel list page
-    $('#channelList').find('.inTitleChannel').removeClass('initially-hidden');
+    document.querySelectorAll('.plannerDescription').forEach(el => {
+    if (el.style.display == 'none') {
+        el.style.display = 'block'; 
+    } else {
+        el.style.display = 'none';
+    }
+    });
 
     return false;
 });
-
-// Wire up settings selector buttons
-for(let i=1; i<=totalChannels; i++) {
-    $(`#settings${i}button`).on('click', function(event) {
-        switchSettings(i);
-        event.preventDefault();
-    });
-    $(`#settings${i}title`).on('click', function(event) {
-        switchSettings(i);
-        event.preventDefault();
-    });
-    $(`#settings${i}description`).on('click', function(event) {
-        switchSettings(i);
-        event.preventDefault();
-    });
-};
 
 // Wire up iFrame listener
 window.onmessage = function(e) {
@@ -439,33 +403,7 @@ $("#reverseChannels").on('click', function(event) {
 videoCanvas.addEventListener("click", playPauseClick);
 videoCanvas.addEventListener("ended", advanceEpisode);
 
-// Start
-
-// Retrieve channel selection cookie if present
-if(document.cookie) {
-    channelSelections = document.cookie.substring(document.cookie.indexOf("=") + 1)
-}
-if(channelSelections == "" || channelSelections.indexOf("|") == -1) {
-    channelSelections = "|1||2||3||8||10|";
-}
-
-// Enable channel settings
-for(var c=1; c<=totalChannels; c++) {   
-    var test = "|" + c.toString() + "|";
-    if(channelSelections.indexOf(test) > -1) {
-        $(`#settings${c}icon`).addClass("bi-layout-sidebar-inset");
-        $(`#settings${c}icon`).removeClass("bi-layout-sidebar-inset-reverse");        
-        $(`#channel${c}row`).show();
-
-        if(selectedChannel == 0) {
-            selectedChannel = c; // Use this as initial channel
-        }
-    } else {
-        $(`#settings${c}icon`).addClass("bi-layout-sidebar-inset-reverse");
-        $(`#settings${c}icon`).removeClass("bi-layout-sidebar-inset");    
-        $(`#channel${c}row`).hide();
-    }
-}
+// Boot up
 
 // Initialise episode list
 let episodeList = new Array(totalChannels+1);
@@ -476,6 +414,7 @@ for(var c=0; c<=totalChannels; c++) {
 // Load the channel feeds
 refreshChannelFeeds();
 updateChannelStats();
+syncChannelRows();
 
 // Set up the canvas
 let video = document.getElementById("videoCanvas");
@@ -490,8 +429,9 @@ let videoContainer = {
      ready : false
 };
 
-// Start video
+// Start timers
 setInterval(autoRefreshChannelFeeds, 600000);    // 10 minutes
 setInterval(autoRefreshCaption, 15000);          // 15 seconds
 
+// Start video
 switchChannel(selectedChannel);
