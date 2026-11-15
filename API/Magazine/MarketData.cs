@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text.Json;
 using API.Architecture;
 using HtmlAgilityPack;
@@ -25,6 +26,40 @@ public class MarketsData
     {
         try
         {
+            // Brent Crude Oil Price
+            string brentCrude = cc.UriCache.First(l => l.Location == cc.Sections.First(z => z.Name == CeefaxSectionType.MarketsOil).Feed).ContentString;
+            var brentDoc = new HtmlDocument();
+            brentDoc.LoadHtml(brentCrude);
+
+            var oilPriceNode = brentDoc.DocumentNode.SelectSingleNode("//*[@id='market-current']//span[@data-field='value']/strong");
+            var oilChangeNode = brentDoc.DocumentNode.SelectSingleNode("//*[@id='market-current']/div[2]/strong[2]");
+            if (oilPriceNode is null || oilChangeNode is null)
+            {
+                throw new InvalidOperationException("Could not find the Brent crude price and change in the market data page.");
+            }
+
+            string oilPriceText = oilPriceNode.InnerText.Trim().Replace("$", "").Replace(",", "");
+           
+            string oilChangeText = oilChangeNode.SelectSingleNode("./span")?.InnerText.Trim() ?? oilChangeNode.InnerText.Trim();
+            oilChangeText = oilChangeText.Trim('(', ')', '%');
+            if (oilChangeNode.GetAttributeValue("class", "").Contains("negative", StringComparison.Ordinal))
+            {
+                oilChangeText = $"-{oilChangeText}%";
+            }
+            else
+            {
+                oilChangeText = $"+{oilChangeText}%";
+            }
+
+            Markets.Add(new MarketRecord()
+            {
+                Name = "BRENT-CRUDE",
+                Movement = oilChangeText,
+                Value = $"{oilPriceText}  ",
+                MarketClosed = false
+            });
+
+            // Market Open/Close state
             string marketsOpen = cc.UriCache.First(l => l.Location == cc.Sections.First(z => z.Name == CeefaxSectionType.MarketsOpen).Feed).ContentString;
             var marketsDoc = new HtmlDocument();
             marketsDoc.LoadHtml(marketsOpen);
@@ -124,7 +159,7 @@ public class MarketsData
             {
                 Name = "UK-10YRBOND",
                 Movement = changeText,
-                Value = $"{yield}00",
+                Value = $"{yield}  ",
                 MarketClosed = false
             });
             

@@ -65,11 +65,10 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.Markets, new Uri("https://www.hl.co.uk/shares")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsCurrencies, new Uri("https://www.hl.co.uk/ajax/home/currency-json")));
         
-        // Add the FT 10-year UK bond yields
+        // Add the FT 10-year UK bond yields, open/closed states and oil price
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsBonds, new Uri("https://markets.ft.com/data/bonds/tearsheet/summary?s=UK10YG")));
-
-        // Add market open/closure states
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsOpen, new Uri("https://www.forexchurch.com/stock-market-hours")));
+        Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsOil, new Uri("https://www.hl.co.uk/shares/trading-commodities/brent-crude-oil")));
 
         // Add Travel departures
         Sections.Add(new CeefaxSection(CeefaxSectionType.TravelTrains, new Uri("https://www.thetrainline.com/live/departures/stonegate")));

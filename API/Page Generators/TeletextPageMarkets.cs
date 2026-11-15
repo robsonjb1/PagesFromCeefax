@@ -40,11 +40,11 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
             sb.Append(OutputMarket("NK225", "Nikkei 225"));
 
             sb.LineBreak(TeletextControl.AlphaRed);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]CURRENCIES/BONDS");
+            sb.AppendLine($"[{TeletextControl.AlphaYellow}]CURRENCIES/OTHER");
             sb.Append(OutputCurrency("EUR"));
             sb.Append(OutputCurrency("USD"));
-			sb.LineBreak(TeletextControl.AlphaRed);
-            sb.Append(OutputMarket("UK-10YRBOND", "10Yr Yield"));
+			sb.Append(OutputMarket("UK-10YRBOND", "10Year Bond"));
+            sb.Append(OutputMarket("BRENT-CRUDE", "Brent Crude"));
 
             // Display footer
             sb.FooterText(_cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
@@ -64,7 +64,7 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
         {
             TeletextControl rateColour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
 
-            if(marketName == "UK-10YRBOND")
+            if(marketName == "UK-10YRBOND" || marketName == "BRENT-CRUDE")
             {
                 // Inverse colour
                 rateColour = rateColour == TeletextControl.AlphaRed ? TeletextControl.AlphaGreen : TeletextControl.AlphaRed;
@@ -73,7 +73,7 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
             string partMovement = $"[{rateColour}] {mr.Movement.PadLeftWithTrunc(7)}";
             string marketClosed = mr.MarketClosed ? "Closed" : "      ";
 
-            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{displayName.PadRightWithTrunc(10)} [{TeletextControl.AlphaCyan}]{marketClosed}[{TeletextControl.AlphaWhite}]{mr.Value.PadLeftWithTrunc(11)}{partMovement}");
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{displayName.PadRightWithTrunc(11)}[{TeletextControl.AlphaCyan}]{marketClosed}[{TeletextControl.AlphaWhite}]{mr.Value.PadLeftWithTrunc(11)}{partMovement}");
         }
 
         return sb;
