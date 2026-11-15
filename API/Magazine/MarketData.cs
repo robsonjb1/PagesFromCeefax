@@ -55,7 +55,7 @@ public class MarketsData
             {
                 Name = "BRENT-CRUDE",
                 Movement = oilChangeText,
-                Value = $"{oilPriceText}  ",
+                Value = $"{oilPriceText}",
                 MarketClosed = false
             });
 
@@ -159,7 +159,7 @@ public class MarketsData
             {
                 Name = "UK-10YRBOND",
                 Movement = changeText,
-                Value = $"{yield}  ",
+                Value = $"{yield}",
                 MarketClosed = false
             });
             

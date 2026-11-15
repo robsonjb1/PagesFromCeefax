@@ -43,7 +43,7 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]CURRENCIES/OTHER");
             sb.Append(OutputCurrency("EUR"));
             sb.Append(OutputCurrency("USD"));
-			sb.Append(OutputMarket("UK-10YRBOND", "10Year Bond"));
+			sb.Append(OutputMarket("UK-10YRBOND", "10-Year Bond"));
             sb.Append(OutputMarket("BRENT-CRUDE", "Brent Crude"));
 
             // Display footer
@@ -70,10 +70,10 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
                 rateColour = rateColour == TeletextControl.AlphaRed ? TeletextControl.AlphaGreen : TeletextControl.AlphaRed;
             }
 
-            string partMovement = $"[{rateColour}] {mr.Movement.PadLeftWithTrunc(7)}";
+            string partMovement = $"[{rateColour}]{mr.Movement.PadLeftWithTrunc(7)}";
             string marketClosed = mr.MarketClosed ? "Closed" : "      ";
 
-            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{displayName.PadRightWithTrunc(11)}[{TeletextControl.AlphaCyan}]{marketClosed}[{TeletextControl.AlphaWhite}]{mr.Value.PadLeftWithTrunc(11)}{partMovement}");
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{displayName.PadRightWithTrunc(12)}[{TeletextControl.AlphaCyan}]{marketClosed}[{TeletextControl.AlphaWhite}]{mr.Value.PadLeftWithTrunc(11)}{partMovement}");
         }
 
         return sb;
@@ -86,7 +86,7 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
 
         if (record != null)
         {
-            double rate = Math.Round(Convert.ToDouble(record.RateCurrent), 4);
+            double rate = Math.Round(Convert.ToDouble(record.RateCurrent), 2);
             double change = Math.Round(Convert.ToDouble(record.RateDayChangePercent), 2);
 
             TeletextControl rateColour = change < 0 ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
@@ -95,9 +95,9 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
             {
                 changeFormatted = "+" + changeFormatted;
             }
-            string partMovement = $"[{rateColour}]  {changeFormatted}";
+            string partMovement = $"[{rateColour}] {changeFormatted}";
             
-            sb.AppendLine($"[{TeletextControl.AlphaWhite}]GBP[{TeletextControl.RightArrow}]{currency.PadRightWithTrunc(17)}{rate.ToString("0.0000").PadLeftWithTrunc(9)}{partMovement:0.00}%");
+            sb.AppendLine($"[{TeletextControl.AlphaWhite}]GBP[{TeletextControl.RightArrow}]{currency.PadRightWithTrunc(20)}{rate.ToString("0.00").PadLeftWithTrunc(7)}{partMovement:0.00}%");
         }
 
         return sb;
