@@ -44,7 +44,7 @@ public class MarketsData
             oilChangeText = oilChangeText.Trim('(', ')', '%');
             if (oilChangeNode.GetAttributeValue("class", "").Contains("negative", StringComparison.Ordinal))
             {
-                oilChangeText = $"-{oilChangeText}%";
+                oilChangeText = $"{oilChangeText}%";
             }
             else
             {
