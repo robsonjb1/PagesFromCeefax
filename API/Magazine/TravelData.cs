@@ -30,7 +30,7 @@ public class TravelData
         try
         {
             SOGDepartures = ParseTrainTimes(CeefaxSectionType.TravelTrains);
-            LGWArrivals = ParseFlightTimes(CeefaxSectionType.TravelFlights);
+            //LGWArrivals = ParseFlightTimes(CeefaxSectionType.TravelFlights);
           
             IsValid = true;
         }

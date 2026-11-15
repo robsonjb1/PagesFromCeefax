@@ -125,8 +125,8 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
 
         sb.Append(section.Header);
 
-        // Workaround for The Register
-        if(section.Name == CeefaxSectionType.Register)
+        // Workaround for The Register and Thurrott
+        if(section.Name == CeefaxSectionType.Register || section.Name == CeefaxSectionType.Thurrott)
         {
             sb.AppendLine($"[{TeletextControl.AlphaWhite}]{Utility.PadLeftWithTrunc($"{currentPage}/{totalPages}", 39)}");
         }

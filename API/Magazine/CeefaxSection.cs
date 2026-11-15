@@ -47,6 +47,7 @@ public class CeefaxSection
             case CeefaxSectionType.Business:
             case CeefaxSectionType.Markets:
             case CeefaxSectionType.Register:
+            case CeefaxSectionType.Thurrott:
                 HeadingCol = TeletextControl.AlphaYellow;
                 HeadingHighlightCol = TeletextControl.AlphaGreen;
                 PromoBackground = TeletextControl.AlphaRed;
@@ -100,6 +101,7 @@ public class CeefaxSection
             case CeefaxSectionType.Entertainment:
             case CeefaxSectionType.Business:
             case CeefaxSectionType.Register:
+            case CeefaxSectionType.Thurrott:
                 TotalPages = 2;
                 break;
 
@@ -182,6 +184,9 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Register:
                 Header = Graphics.HeaderRegister;
+                break;
+            case CeefaxSectionType.Thurrott:
+                Header = Graphics.HeaderThurrott;
                 PromoFooter = "CEEFAX: The world at your fingertips";
                 break;
             default:

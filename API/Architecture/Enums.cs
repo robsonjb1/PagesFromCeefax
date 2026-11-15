@@ -42,7 +42,8 @@ public enum CeefaxSectionType
     MarketsOpen,
     TravelTrains,
     TravelFlights,
-    Register
+    Register,
+    Thurrott
 }
 
 public enum TeletextControl

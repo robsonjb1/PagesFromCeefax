@@ -52,7 +52,7 @@ public class CarouselService
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Kent));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Sussex));
             BuildTeletextPage(_tl.CreateTravelTrainsPage());
-            BuildTeletextPage(_tl.CreateTravelFlightsPage());
+            //BuildTeletextPage(_tl.CreateTravelFlightsPage());
           
             // Business section
             BuildTeletextPage(Graphics.PromoBusiness);
@@ -83,8 +83,9 @@ public class CarouselService
             BuildTeletextPage(_tt.CreateSchedule(CeefaxSectionType.TVScheduleBBC4));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Entertainment));
 
-            // The Register
+            // The Register + Thurrott
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Register));
+            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Thurrott));
 
             // Close
             if(DateTime.Now.Month == 12) {

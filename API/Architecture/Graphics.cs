@@ -26,6 +26,7 @@ public class Graphics
     public readonly static StringBuilder HeaderWeather = new();
     public readonly static StringBuilder HeaderTravel = new();
     public readonly static StringBuilder HeaderRegister = new();
+    public readonly static StringBuilder HeaderThurrott = new();
     public readonly static StringBuilder HeaderHeadlines = new();
     
     
@@ -127,6 +128,10 @@ public class Graphics
         HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]<,,4<,,4<,,l");
         HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]5b(55b{{55jjj[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    HEADLINES FROM");
         HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]-.,%-,,%-...[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]     THE REGISTER");
+
+        HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]<,,4<,,4<,,l");
+        HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]5b(55b{{55jjj[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    HEADLINES FROM");
+        HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]-.,%-,,%-...[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]     THURROTT.COM");
 
         HeaderHeadlines.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]h4|h<h<|h<th4h4xl0|$|,");
         HeaderHeadlines.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]j7¬jwj7¬ju?juj5¬j5¬1s¬");
