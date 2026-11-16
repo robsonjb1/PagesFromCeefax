@@ -125,13 +125,24 @@ public class Graphics
         HeaderTravel.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsCyan}]  j5 ¬£}}j7k5\"m' ¬sju0");
         HeaderTravel.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]££££££££££££££££££££££££££");
 
-        HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]<,,4<,,4<,,l");
-        HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]5b(55b{{55jjj[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    HEADLINES FROM");
-        HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]-.,%-,,%-...[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]     THE REGISTER");
+        //HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]<,,4<,,4<,,l");
+        //HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]5b(55b{{55jjj[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    HEADLINES FROM");
+        //HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]-.,%-,,%-...[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]     THE REGISTER");
 
-        HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]<,,4<,,4<,,l");
-        HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]5b(55b{{55jjj[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    HEADLINES FROM");
-        HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]-.,%-,,%-...[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]     THURROTT.COM");
+        //HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]<,,4<,,4<,,l");
+        //HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]5b(55b{{55jjj[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    HEADLINES FROM");
+        //HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]-.,%-,,%-...[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]     THURROTT.COM");
+
+        HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]x¬¬¬¬¬¬¬'[{TeletextControl.GraphicsRed}] x¬¬");
+        HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]   z¬![{TeletextControl.GraphicsRed}]x||[{TeletextControl.Divide}]¬¬¬ [{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]   HEADLINES FROM");
+        HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]  h¬%[{TeletextControl.GraphicsRed}]h¬¬¬¬¬¬¬ [{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    THE REGISTER");
+        HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}] _¬7[{TeletextControl.GraphicsRed}]_¬¬¬¬¬¬¬¬                   [{TeletextControl.AlphaWhite}] A/B");
+        
+        HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]x¬¬¬¬¬¬¬'[{TeletextControl.GraphicsRed}] x¬¬");
+        HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]   z¬![{TeletextControl.GraphicsRed}]x||[{TeletextControl.Divide}]¬¬¬ [{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]   HEADLINES FROM");
+        HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]  h¬%[{TeletextControl.GraphicsRed}]h¬¬¬¬¬¬¬ [{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    THURROTT.COM");
+        HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}] _¬7[{TeletextControl.GraphicsRed}]_¬¬¬¬¬¬¬¬                   [{TeletextControl.AlphaWhite}] A/B");
+        
 
         HeaderHeadlines.AppendLine($"[{TeletextControl.GraphicsWhite}]j£3kj£3kj£3k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]h4|h<h<|h<th4h4xl0|$|,");
         HeaderHeadlines.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsYellow}]j7¬jwj7¬ju?juj5¬j5¬1s¬");

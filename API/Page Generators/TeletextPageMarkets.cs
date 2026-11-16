@@ -24,27 +24,27 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
             sb.Append(Graphics.HeaderMarkets);
 
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]UK MARKETS[{TeletextControl.AlphaWhite}]");
-            sb.Append(OutputMarket("UKX", "FTSE 100"));
-            sb.Append(OutputMarket("MCX", "FTSE 250"));
+            sb.Append(OutputMarket(TeletextControl.AlphaWhite, "UKX", "FTSE 100"));
+            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "MCX", "FTSE 250"));
             sb.LineBreak(TeletextControl.AlphaRed);
 
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]EUROPE MARKETS");
-            sb.Append(OutputMarket("CAC", "CAC 40"));
-            sb.Append(OutputMarket("DAX", "DAX"));
+            sb.Append(OutputMarket(TeletextControl.AlphaWhite, "CAC", "CAC 40"));
+            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "DAX", "DAX"));
             sb.LineBreak(TeletextControl.AlphaRed);
 
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]WORLDWIDE");
-            sb.Append(OutputMarket("DJIA", "Dow Jones"));
-            sb.Append(OutputMarket("COMP", "NASDAQ"));
-            sb.Append(OutputMarket("HSI", "Hang Seng"));
-            sb.Append(OutputMarket("NK225", "Nikkei 225"));
+            sb.Append(OutputMarket(TeletextControl.AlphaWhite, "DJIA", "Dow Jones"));
+            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "COMP", "NASDAQ"));
+            sb.Append(OutputMarket(TeletextControl.AlphaWhite, "HSI", "Hang Seng"));
+            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "NK225", "Nikkei 225"));
 
             sb.LineBreak(TeletextControl.AlphaRed);
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]CURRENCIES/OTHER");
-            sb.Append(OutputCurrency("EUR"));
-            sb.Append(OutputCurrency("USD"));
-			sb.Append(OutputMarket("UK-10YRBOND", "10-Year Bond"));
-            sb.Append(OutputMarket("BRENT-CRUDE", "Brent Crude"));
+            sb.Append(OutputCurrency(TeletextControl.AlphaWhite, "EUR"));
+            sb.Append(OutputCurrency(TeletextControl.AlphaCyan, "USD"));
+			sb.Append(OutputMarket(TeletextControl.AlphaWhite, "UK-10YRBOND", "10-Year Bond"));
+            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "BRENT-CRUDE", "Brent Crude"));
 
             // Display footer
             sb.FooterText(_cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
@@ -55,7 +55,7 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
     #endregion
 
     #region Private Methods
-    private StringBuilder OutputMarket(string marketName, string displayName)
+    private StringBuilder OutputMarket(TeletextControl rowColour, string marketName, string displayName)
     {
         StringBuilder sb = new();
         MarketRecord mr = _md.Markets.FirstOrDefault(z => z.Name == marketName);
@@ -71,15 +71,15 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
             }
 
             string partMovement = $"[{rateColour}]{mr.Movement.PadLeftWithTrunc(7)}";
-            string marketClosed = mr.MarketClosed ? "Closed" : "      ";
+            string marketClosed = mr.MarketClosed ? " Closed " : "        ";
 
-            sb.AppendLine($"[{TeletextControl.AlphaWhite}]{displayName.PadRightWithTrunc(12)}[{TeletextControl.AlphaCyan}]{marketClosed}[{TeletextControl.AlphaWhite}]{mr.Value.PadLeftWithTrunc(11)}{partMovement}");
+            sb.AppendLine($"[{rowColour}]{displayName.PadRightWithTrunc(12)}{marketClosed}{mr.Value.PadLeftWithTrunc(11)}{partMovement}");
         }
 
         return sb;
     }
 
-    private StringBuilder OutputCurrency(string currency)
+    private StringBuilder OutputCurrency(TeletextControl rowColour, string currency)
     {
         StringBuilder sb = new();
         var record = _md.Currencies.list.FirstOrDefault(z => z.FromISO == "GBP" && z.ToISO == currency);
@@ -97,7 +97,7 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
             }
             string partMovement = $"[{rateColour}] {changeFormatted}";
             
-            sb.AppendLine($"[{TeletextControl.AlphaWhite}]GBP[{TeletextControl.RightArrow}]{currency.PadRightWithTrunc(20)}{rate.ToString("0.00").PadLeftWithTrunc(7)}{partMovement:0.00}%");
+            sb.AppendLine($"[{rowColour}]GBP[{TeletextControl.RightArrow}]{currency.PadRightWithTrunc(20)}{rate.ToString("0.00").PadLeftWithTrunc(7)}{partMovement:0.00}%");
         }
 
         return sb;

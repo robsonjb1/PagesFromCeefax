@@ -177,7 +177,6 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Entertainment:
                 Header = Graphics.HeaderEntertainment;
-                PromoFooter = "The Register coming up next >>>";
                 break;
             case CeefaxSectionType.WeatherUK:
                 Header = Graphics.HeaderWeather;
