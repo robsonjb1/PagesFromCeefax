@@ -11,7 +11,7 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
     private readonly MarketsData _md = md;
     
     #region Public Methods
-    public List<StringBuilder> CreateNewsSection(CeefaxSectionType sectionName)
+    public List<StringBuilder> CreateNewsSection(CeefaxSectionType sectionName, int countOffset = 0, int totalPagesOffset = 0)
     {
         CeefaxSection section = _cc.Sections.Find(z => z.Name == sectionName)!;
         List<StringBuilder> content = [];
@@ -19,7 +19,7 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
         // Loop through each story and generate a news page (excluding commentary articles)
         for(int pageCount = 1; pageCount <= section.TotalPages; pageCount++)
         {
-            content.Add(CreateNewsInBrief(section, pageCount, section.TotalPages));
+            content.Add(CreateNewsInBrief(section, pageCount + countOffset, section.TotalPages + totalPagesOffset));
         }
 
         return content;

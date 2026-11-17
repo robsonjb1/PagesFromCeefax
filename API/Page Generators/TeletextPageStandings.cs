@@ -47,7 +47,7 @@ public class TeletextPageStandings(CeefaxContent mc, StandingsData sd)
     public StringBuilder CreateF1StandingsPage()
     {
         StringBuilder sb = new StringBuilder();
-        CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Motorsport);
+        CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.F1Standings);
         
         if(_sd.IsValid)             // Only construct the page if we have valid data
         {
@@ -102,7 +102,7 @@ public class TeletextPageStandings(CeefaxContent mc, StandingsData sd)
 
                 count++;
             }
-            sb.FooterText(section);
+            sb.FooterText(section, true);
         }
 
         return sb;

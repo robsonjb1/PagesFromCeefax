@@ -84,8 +84,8 @@ public class CarouselService
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Entertainment));
 
             // The Register + Thurrott
-            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Register));
-            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Thurrott));
+            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Register, 0, 2));
+            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Thurrott, 2, 2));
 
             // Close
             if(DateTime.Now.Month == 12) {

@@ -82,7 +82,7 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
                 
             sb.Append(map);
 
-            Utility.FooterText(sb, section);
+            sb.FooterText(section);
         }
         return sb;
     }

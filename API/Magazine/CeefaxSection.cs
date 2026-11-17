@@ -177,6 +177,7 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Entertainment:
                 Header = Graphics.HeaderEntertainment;
+                PromoFooter = "IT news coming up next >>>";
                 break;
             case CeefaxSectionType.WeatherUK:
                 Header = Graphics.HeaderWeather;
@@ -187,6 +188,15 @@ public class CeefaxSection
             case CeefaxSectionType.Thurrott:
                 Header = Graphics.HeaderThurrott;
                 PromoFooter = "CEEFAX: The world at your fingertips";
+                break;
+            case CeefaxSectionType.TravelTrains:
+                Header = Graphics.HeaderTravel;
+                break;
+            case CeefaxSectionType.Markets:
+                Header = Graphics.HeaderMarkets;
+                break;
+            case CeefaxSectionType.F1Standings:
+                Header = Graphics.HeaderFormula1;
                 break;
             default:
                 break;

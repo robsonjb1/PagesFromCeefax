@@ -18,10 +18,12 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
 
     public StringBuilder CreateMarketsPage()
     {
+        CeefaxSection section = _cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets);
         StringBuilder sb = new();
+        
         if(_md.IsValid)             // Only construct the page if we have valid data
         {
-            sb.Append(Graphics.HeaderMarkets);
+            sb.Append(section.Header);
 
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]UK MARKETS[{TeletextControl.AlphaWhite}]");
             sb.Append(OutputMarket(TeletextControl.AlphaWhite, "UKX", "FTSE 100"));
@@ -47,7 +49,7 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
             sb.Append(OutputMarket(TeletextControl.AlphaCyan, "BRENT-CRUDE", "Brent Crude"));
 
             // Display footer
-            sb.FooterText(_cc.Sections.Find(z => z.Name == CeefaxSectionType.Markets));
+            sb.FooterText(section, true);
         }
 
         return sb;
