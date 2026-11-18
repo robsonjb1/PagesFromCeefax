@@ -25,6 +25,10 @@ import { video } from "./video.js";
             if(x >= canvasWidth * 0.7 && x < canvasWidth * 0.9) { debugOffset++; moveNextPage(); }      // Yellow
             if(x >= canvasWidth * 0.9) toggleHold();                                                   // Cyan
         }
+        else
+        {
+            window.top.postMessage('click', '*');
+        }
     });
 
     // Carousel state
@@ -34,7 +38,7 @@ import { video } from "./video.js";
     var rowLimit = 0;
     var lastRowRefresh = false;
     var currentPage = 0
-    var loadingPageDuration = 8;
+    var loadingPageDuration = (window.location.search == "" ? 8 : 1);
     var pageDuration = 30;
     var pageTickerNo = 100;
     var pageTicking = true;
