@@ -75,8 +75,8 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
                 .Replace("[TTT]", Utility.ConvertToUKTime(_wd.LastRefreshUTC).ToString("HH:mm"))
                 .Replace("[SU1]", _wd.Sunrise.PadRightWithTrunc(5))
                 .Replace("[SU2]", _wd.Sunset.PadRightWithTrunc(5))
-                .Replace("[TE1]", $"[{TemperatureColour(_wd.MinTemp)}]{_wd.MinTempLabel.PadRightWithTrunc(5)}")
-                .Replace("[TE2]", $"[{TemperatureColour(_wd.MaxTemp)}]{_wd.MaxTempLabel.PadRightWithTrunc(5)}")
+                .Replace("[TE1]", $"[{TemperatureColour(_wd.MinTemp)}]{_wd.MinTempLabel.PadRightWithTrunc(5).Replace("'", $"[{TeletextControl.ThreeQuarters}]")}")
+                .Replace("[TE2]", $"[{TemperatureColour(_wd.MaxTemp)}]{_wd.MaxTempLabel.PadRightWithTrunc(5).Replace("'", $"[{TeletextControl.ThreeQuarters}]")}")
                 .Replace("[PR1]", $"[{pressureMovement}]{_wd.Locations["Heathfield"].Pressure.PadLeftWithTrunc(4)}")
                 .Replace("[PR2]", $"[{windCol}]{_wd.Locations["Heathfield"].WindDirection.PadRightWithTrunc(12)}");                
                 

@@ -45,7 +45,7 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
                 pressureMovement = TeletextControl.DownArrow;
             }
 
-            weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]WEATHER[{TeletextControl.AlphaWhite}]{localTemp.Temperature} C, [{pressureMovement}]{localTemp.Pressure}mb, {localTemp.WindDirection}");
+            weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]WEATHER[{TeletextControl.AlphaWhite}]{localTemp.Temperature}[{TeletextControl.ThreeQuarters}]C, [{pressureMovement}]{localTemp.Pressure}mb, {localTemp.WindDirection}");
             
             foreach(string line in Utility.ParseParagraph(_wd.Forecasts[0].Body[.._wd.Forecasts[0].Body.IndexOf('.')]))
             {

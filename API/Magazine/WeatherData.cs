@@ -71,7 +71,7 @@ public class WeatherData
             }
             else
             {
-                MaxTempLabel += " C";
+                MaxTempLabel += "'C";
             }
 
             if(MinTempLabel.EndsWith("n/a"))
@@ -80,7 +80,7 @@ public class WeatherData
             }
             else
             {
-                MinTempLabel += " C";
+                MinTempLabel += "'C";
             }
 
             MaxTemp = max;
