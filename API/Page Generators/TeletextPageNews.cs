@@ -34,17 +34,22 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
             // Create the weather and markets section 
             List<string> weatherMarkets = [];
             weatherMarkets.Add(string.Empty);
-            
-            foreach(string line in Utility.ParseParagraph($"WEATHER {_wd.Locations["Heathfield"].Temperature}C. {_wd.Forecasts[0].Body[.._wd.Forecasts[0].Body.IndexOf('.')]}"))
+            SpotTemperature localTemp = _wd.Locations["Heathfield"];
+            TeletextControl pressureMovement = TeletextControl.RightArrow;
+            if(_wd.Locations["Heathfield"].PressureRising)
             {
-                if(line.StartsWith("WEATHER "))
-                {
-                    weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]WEATHER[{TeletextControl.AlphaWhite}]" + line[8..]);
-                }
-                else
-                {
-                    weatherMarkets.Add(" " + line);
-                }
+                pressureMovement = TeletextControl.UpArrow;
+            }
+            if(_wd.Locations["Heathfield"].PressureFalling)
+            {
+                pressureMovement = TeletextControl.DownArrow;
+            }
+
+            weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]WEATHER[{TeletextControl.AlphaWhite}]{localTemp.Temperature} C, [{pressureMovement}]{localTemp.Pressure}mb, {localTemp.WindDirection}");
+            
+            foreach(string line in Utility.ParseParagraph(_wd.Forecasts[0].Body[.._wd.Forecasts[0].Body.IndexOf('.')]))
+            {
+                weatherMarkets.Add($"[{TeletextControl.AlphaCyan}]{line}");
             }
             
             weatherMarkets.Add(string.Empty);
