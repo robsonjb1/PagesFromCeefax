@@ -49,17 +49,22 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
             
             weatherMarkets.Add(string.Empty);
 
-            MarketRecord mr = _md.Markets.FirstOrDefault(z => z.Name == "UKX");
-            TeletextControl rateColour = mr.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
+            MarketRecord marketCurrency = _md.Markets.FirstOrDefault(z => z.Name == "UKX");
+            TeletextControl rateColour = marketCurrency.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
             TeletextControl rateArrow = rateColour == TeletextControl.AlphaGreen ? TeletextControl.UpArrow : TeletextControl.DownArrow;
-            string indexes = $"FTSE-100[{rateColour}][{rateArrow}]{Utility.PadRightWithTrunc(mr.Value[..mr.Value.IndexOf('.')],6)}";
+            string indexes = $"FTSE[{rateColour}][{rateArrow}]{Utility.PadRightWithTrunc(marketCurrency.Value[..marketCurrency.Value.IndexOf('.')],6)}";
             
-            MarketRecord br = _md.Markets.FirstOrDefault(z => z.Name == "UK-10YRBOND");
-            TeletextControl bondColour = br.Movement.StartsWith('-') ? TeletextControl.AlphaGreen : TeletextControl.AlphaRed;
+            MarketRecord marketBond = _md.Markets.FirstOrDefault(z => z.Name == "UK-10YRBOND");
+            TeletextControl bondColour = marketBond.Movement.StartsWith('-') ? TeletextControl.AlphaGreen : TeletextControl.AlphaRed;
             TeletextControl bondArrow = bondColour == TeletextControl.AlphaGreen ? TeletextControl.DownArrow : TeletextControl.UpArrow;
-            string bonds = $"[{bondColour}][{bondArrow}]{Utility.PadRightWithTrunc(br.Value, 4)}";
+            string bonds = $"[{bondColour}][{bondArrow}]{Utility.PadRightWithTrunc(marketBond.Value, 4)}";
+
+            MarketRecord marketOil = _md.Markets.FirstOrDefault(z => z.Name == "BRENT-CRUDE");
+            TeletextControl oilColour = marketOil.Movement.StartsWith('-') ? TeletextControl.AlphaGreen : TeletextControl.AlphaRed;
+            TeletextControl oilArrow = oilColour == TeletextControl.AlphaGreen ? TeletextControl.DownArrow : TeletextControl.UpArrow;
+            string oil = $"[{oilColour}][{oilArrow}]{Utility.PadRightWithTrunc(Math.Round(Convert.ToDouble(marketOil.Value), 0).ToString(), 3)}";
             
-            weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]MARKETS[{TeletextControl.AlphaWhite}]{indexes}[{TeletextControl.AlphaWhite}]10YR-BND{bonds}");
+            weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]MARKETS[{TeletextControl.AlphaWhite}]{indexes}[{TeletextControl.AlphaWhite}]BND{bonds}[{TeletextControl.AlphaWhite}]OIL{oil}");
 
             sb.Append(Graphics.HeaderHeadlines);
         
