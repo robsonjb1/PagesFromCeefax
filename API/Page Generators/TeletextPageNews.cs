@@ -35,7 +35,7 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
             List<string> weatherMarkets = [];
             weatherMarkets.Add(string.Empty);
             
-            foreach(string line in Utility.ParseParagraph("WEATHER " + _wd.Forecasts[0].Body[.._wd.Forecasts[0].Body.IndexOf('.')]))
+            foreach(string line in Utility.ParseParagraph($"WEATHER {_wd.Locations["Heathfield"].Temperature}C. {_wd.Forecasts[0].Body[.._wd.Forecasts[0].Body.IndexOf('.')]}"))
             {
                 if(line.StartsWith("WEATHER "))
                 {
