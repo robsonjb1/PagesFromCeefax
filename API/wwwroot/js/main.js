@@ -102,7 +102,7 @@ import { video } from "./video.js";
                         
             // Render page
             insertPageHeader(carouselIsValid, pageIsValid, pageBuffer, pageTickerNo, musicOn);
-            screen.redraw(ctx, pageBuffer, imgData, rowLimit);
+            screen.redraw(ctx, pageBuffer, imgData, (window.location.search != "" && rowLimit >= 25 ? 24 : rowLimit));
         }
 
         requestAnimationFrame(timerTrigger);
@@ -114,13 +114,13 @@ import { video } from "./video.js";
         var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         var now = new Date();
     
-        const header = ' P152   CEEFAX 1 ' + pageCycle.toString() + ' ' + days[now.getDay()] + ' ' + ('0' + now.getDate()).slice(-2) + ' ' + months[now.getMonth()] + 
+        const header = ' ' + (holdPage ? 'HOLD' : 'P152') + '   CEEFAX 1 ' + pageCycle.toString() + ' ' + days[now.getDay()] + ' ' + ('0' + now.getDate()).slice(-2) + ' ' + months[now.getMonth()] + 
             String.fromCharCode(3) +
             ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2) + '/' + ('0' + now.getSeconds()).slice(-2);
         
         for(var i=0; i<header.length; i++) charData[i] = header.charCodeAt(i);
         
-        charData[0] = pageIsValid ? 32 : 1; // Set red page number if invalid
+        charData[0] = (pageIsValid && !holdPage) ? 32 : 1; // Set red page number if invalid or on hold
         charData[5] = carouselIsValid ? 7 : 1; // Set red page number if invalid
         charData[16] = 7; // Set white text for the remainder
 
