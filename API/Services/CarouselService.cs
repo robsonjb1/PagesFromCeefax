@@ -120,7 +120,6 @@ public class CarouselService
                     if(ascii > 127) // We can't display this character
                     {
                         ascii = 128;
-                        page.IsValid = false;
                     }
                     
                     page.Data[dataPos] = ascii;

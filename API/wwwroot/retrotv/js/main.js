@@ -1,9 +1,9 @@
 // Initialisation
-const totalChannels = 10;
+const totalChannels = 9;
 let selectedChannel = 1;
 let showIdentNext = true;
 let settingsVisible = false;
-let channelSelections = "|1||2||3||4||8||10|";
+let channelSelections = "|1||2||3||7||9|";
 let halfWidth = false;
 let lastBannerRefresh = new Date();
 var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
