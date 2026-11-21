@@ -125,14 +125,6 @@ public class Graphics
         HeaderTravel.AppendLine($"[{TeletextControl.GraphicsWhite}]j $kj $kj 'k[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.GraphicsCyan}]  j5 ¬£}}j7k5\"m' ¬sju0");
         HeaderTravel.AppendLine($"[{TeletextControl.GraphicsWhite}]\"£££\"£££\"£££[{TeletextControl.GraphicsBlue}]££££££££££££££££££££££££££");
 
-        //HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]<,,4<,,4<,,l");
-        //HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]5b(55b{{55jjj[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    HEADLINES FROM");
-        //HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]-.,%-,,%-...[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]     THE REGISTER");
-
-        //HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]<,,4<,,4<,,l");
-        //HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]5b(55b{{55jjj[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    HEADLINES FROM");
-        //HeaderThurrott.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]-.,%-,,%-...[{TeletextControl.AlphaRed}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]     THURROTT.COM");
-
         HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]x¬¬¬¬¬¬¬'[{TeletextControl.GraphicsRed}] x¬¬");
         HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]   z¬![{TeletextControl.GraphicsRed}]x||[{TeletextControl.Divide}]¬¬¬ [{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]   HEADLINES FROM");
         HeaderRegister.AppendLine($"[{TeletextControl.GraphicsYellow}][{TeletextControl.SeparatedGraphics}]  h¬%[{TeletextControl.GraphicsRed}]h¬¬¬¬¬¬¬ [{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]    THE REGISTER");
@@ -155,11 +147,6 @@ public class Graphics
         //HeaderShares.AppendLine("<p>" + Utility.BlockGraph("j£3kj£3kj£3k ") + "<span class=\"paper2 ink7\">" + Utility.BlockGraph("    |,$| |h<l4|,|h<$|,$   ") + "</span></p>");
         //HeaderShares.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"paper2 ink7\">" + Utility.BlockGraph("    s{5¬£¬j7k5¬£}jw1s{5   ") + "</span></p>");
         //HeaderShares.AppendLine("<p>" + Utility.BlockGraph("\"£££\"£££\"£££ ") + "<span class=\"ink2\">" + Utility.BlockGraph("////,,.,/,-.-.,/,-,.,,.///") + "</span></p>");
-
-        //HeaderHeadlines.AppendLine("<p>" + Utility.BlockGraph("j£3kj£3kj£3k ") + "<span class=\"paper1 ink6\">" + Utility.BlockGraph("  h4|h<h<|h<th4h4xl0|$|,  ") + "</span></p>");
-        //HeaderHeadlines.AppendLine("<p>" + Utility.BlockGraph("j $kj $kj 'k ") + "<span class=\"paper1 ink6\">" + Utility.BlockGraph("  j7¬jwj7¬ju?juj5¬j5¬1s¬  ") + "</span></p>");
-        //HeaderHeadlines.AppendLine("<p>" + Utility.BlockGraph("\"£££\"£££\"£££ ") + "<span class=\"ink1\">" + Utility.BlockGraph("//-.,-,-.,-,.-,-.,-.,.,,//") + "</span></p>");
-
 
         PromoLoading.AppendLine(String.Empty);
         PromoLoading.AppendLine($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaWhite}][{TeletextControl.DoubleHeight}] YOU ARE WATCHING ITEMS OF NEWS");

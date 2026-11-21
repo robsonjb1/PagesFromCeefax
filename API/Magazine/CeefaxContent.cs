@@ -139,6 +139,7 @@ public class CeefaxContent
                 !item.Title.Text.Contains('?') &&
                 !item.Links[0].Uri.ToString().Contains("/live/") &&
                 !item.Summary.Text.Contains("PARTNER CONTENT:") &&
+                !item.Summary.Text.Contains("SPONSORED CONTENT:") &&
                 !item.Summary.Text.Contains("SPONSORED FEATURE:"))
             {
                 StoryList.Add(new NewsStory(
@@ -151,23 +152,6 @@ public class CeefaxContent
         }        
     }
 
-/*
-    private void ProcessPodcastList()
-    {
-        string json = UriCache.First(l => l.Location == Sections.First(z => z.Name == CeefaxSectionType.Podcasts).Feed).ContentString;
-        RetroTVChannelData data = JsonSerializer.Deserialize<RetroTVChannelData>(json);
-
-        foreach (RetroTVEpisodeData episode in data.EpisodeList)
-        {
-            StoryList.Add(new NewsStory(
-                CeefaxSectionType.Podcasts,
-                episode.ShortName,
-                episode.Description,
-                Convert.ToDateTime(episode.PublishDate),
-                new Uri("http://localhost/" + episode.UrlLocal)));
-        }
-    }
-*/
     private static async Task<(Uri location, HttpResponseMessage httpResponse)> FetchPageAsync(Uri location)
     {
         var httpHandler = new SocketsHttpHandler() {
