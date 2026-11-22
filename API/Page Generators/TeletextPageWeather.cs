@@ -23,17 +23,9 @@ public class TeletextPageWeather(CeefaxContent cc, WeatherData wd)
             
             List<string> mapLines = Utility.ParseParagraph(summaryText, -1, true); // -1 special case to flow around the map
 
-            TeletextControl summaryColour = TeletextControl.AlphaYellow;
-            
-            if(int.TryParse(_wd.Sunset[..2], out int sunsetHour) && int.TryParse(_wd.Sunrise[..2], out int sunriseHour))
-            {
-                if(DateTime.Now.Hour >= sunsetHour ||
-                    DateTime.Now.Hour <= sunriseHour) // Night time
-                {
-                    summaryColour = TeletextControl.AlphaCyan;
-                }
-            }
-
+            TeletextControl summaryColour = 
+                (DateTime.Now.Hour >= 18 || DateTime.Now.Hour <= 6) ? TeletextControl.AlphaCyan : TeletextControl.AlphaYellow;
+                
             int j = 1;
             foreach (string line in mapLines)
             {

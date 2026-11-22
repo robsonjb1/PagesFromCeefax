@@ -27,8 +27,16 @@ import { video } from "./video.js";
         }
         else
         {
-            window.top.postMessage('click', '*');
-        }
+            if(y < canvasHeight * 0.10)            // Top row
+            {
+                if(x < canvasWidth * 0.35) toggleHold();                                               // Hold
+                if(x >= canvasWidth * 0.35) { debugOffset--; moveNextPage(); }                         // Previous
+            }
+            else
+            {
+                window.top.postMessage('click', '*');
+            }
+        }       
     });
 
     // Carousel state
@@ -234,6 +242,9 @@ import { video } from "./video.js";
         if(key.keyCode === 39) {  
             debugOffset++;          // Right arrow
             moveNextPage();
+        };  
+        if(key.keyCode === 40) {  
+            holdPage = !holdPage;   // Down arrow
         };  
     }
 
