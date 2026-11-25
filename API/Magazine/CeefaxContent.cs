@@ -56,7 +56,7 @@ public class CeefaxContent
               
         // Add The Register + Thurrott RSS feeds
         Sections.Add(new CeefaxSection(CeefaxSectionType.Register, new Uri("https://www.theregister.com/?lab_viewport=rss")));
-        Sections.Add(new CeefaxSection(CeefaxSectionType.Thurrott, new Uri("https://www.thurrott.com/feed")));
+        //Sections.Add(new CeefaxSection(CeefaxSectionType.Thurrott, new Uri("https://www.thurrott.com/feed")));
         
         // Add the F1 diary
         Sections.Add(new CeefaxSection(CeefaxSectionType.F1Diary, new Uri("https://www.bbc.co.uk/sport/formula1/calendar")));

@@ -51,13 +51,14 @@ public class CarouselService
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Technology));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Kent));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Sussex));
-            //BuildTeletextPage(_tl.CreateTravelTrainsPage());
+            BuildTeletextPage(_tl.CreateTravelTrainsPage());
           
             // Business section
             BuildTeletextPage(Graphics.PromoBusiness);
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Business));
             BuildTeletextPage(_tm.CreateMarketsPage());
-           
+            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Register));
+            
             // Sports section
             BuildTeletextPage(Graphics.PromoSport);
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Football));
@@ -83,9 +84,8 @@ public class CarouselService
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Entertainment));
 
             // The Register + Thurrott
-            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Register, 0, 2));
-            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Thurrott, 2, 2));
-
+            //BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Thurrott, 2, 2));
+ 
             // Close
             if(DateTime.Now.Month == 12) {
                 BuildTeletextPage(Graphics.PromoChristmas);

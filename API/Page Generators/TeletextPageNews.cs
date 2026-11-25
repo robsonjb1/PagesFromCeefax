@@ -45,7 +45,10 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
                 pressureMovement = TeletextControl.DownArrow;
             }
 
-            weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]WEATHER[{TeletextControl.AlphaWhite}]{localTemp.Temperature}[{TeletextControl.ThreeQuarters}]C, [{pressureMovement}]{localTemp.Pressure}mb, {localTemp.WindDirection}");
+            string sunRiseSet = !_wd.Sunset.Contains("n/a") ? $" [{TeletextControl.DownArrow}]{_wd.Sunset}" : 
+                !_wd.Sunrise.Contains("n/a") ? $" [{TeletextControl.UpArrow}]{_wd.Sunrise}" : "";
+
+            weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]WEATHER[{TeletextControl.AlphaWhite}]{localTemp.Temperature}[{TeletextControl.ThreeQuarters}]C [{pressureMovement}]{localTemp.Pressure}mb {localTemp.WindDirection}{sunRiseSet}");
             
             foreach(string line in Utility.ParseParagraph(_wd.Forecasts[0].Body[.._wd.Forecasts[0].Body.IndexOf('.')]))
             {
@@ -145,11 +148,11 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
             // Regular news page
             if(totalPages > 1)
             {
-                sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} HEADLINES {" ".PadRight(22-section.Name.ToString().Length)} [{TeletextControl.AlphaWhite}] {currentPage}/{totalPages}");
+                sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} NEWS{" ".PadRight(28-section.Name.ToString().Length)} [{TeletextControl.AlphaWhite}] {currentPage}/{totalPages}");
             }
             else
             {
-                sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} HEADLINES");
+                sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} NEWS");
             }
         }
     

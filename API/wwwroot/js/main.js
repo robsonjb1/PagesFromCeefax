@@ -18,7 +18,7 @@ import { video } from "./video.js";
         var canvasWidth = $('#magazineCanvas').width();
         var canvasHeight = $('#magazineCanvas').height();
 
-        if(y > canvasHeight * 0.90) // User as selected the bottom row
+        if((y > canvasHeight * 0.90) && (window.location.search == "")) // User has selected the bottom row
         {        
             if(x < canvasWidth * 0.35) toggleMusic();                                                    // Red
             if(x >= canvasWidth * 0.35 && x < canvasWidth * 0.7) { debugOffset--; moveNextPage(); }      // Green
@@ -180,12 +180,15 @@ import { video } from "./video.js";
         // force new page redraw
         rowLimit = 0;
         
+        if(debugOffset < 0) { debugOffset = pagesInCarousel; }
+
         if(!holdPage)   // If holding a page, do not recalculate the current page or blank the screen, just keep showing the current page
         {
             currentPage = (debugOffset + (Math.floor(((now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds()) / pageDuration))) % pagesInCarousel;
             for(var i=3+(40*20*4); i<40*20*12*24*4; i+=4) imgData.data[i] = 0;   // Blank the screen (only lines 2 to 24, keep header and Fastext buttons)
         }
 
+        console.log(debugOffset);
         pageBuffer = carousel.content[currentPage].data;
         pageIsValid = carousel.content[currentPage].isValid;
     }

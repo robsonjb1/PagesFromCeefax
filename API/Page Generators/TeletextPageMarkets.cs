@@ -45,8 +45,8 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
             sb.AppendLine($"[{TeletextControl.AlphaYellow}]CURRENCIES/OTHER");
             sb.Append(OutputCurrency(TeletextControl.AlphaWhite, "EUR"));
             sb.Append(OutputCurrency(TeletextControl.AlphaCyan, "USD"));
-			sb.Append(OutputMarket(TeletextControl.AlphaWhite, "UK-10YRBOND", "10-Year Bond"));
-            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "BRENT-CRUDE", "Brent Crude"));
+			sb.Append(OutputMarket(TeletextControl.AlphaWhite, "UK-10YRBOND", "10-Year Bond Yield", true));
+            sb.Append(OutputMarket(TeletextControl.AlphaCyan, "BRENT-CRUDE", "Brent Crude Oil $", true));
 
             // Display footer
             sb.FooterText(section, true);
@@ -57,7 +57,7 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
     #endregion
 
     #region Private Methods
-    private StringBuilder OutputMarket(TeletextControl rowColour, string marketName, string displayName)
+    private StringBuilder OutputMarket(TeletextControl rowColour, string marketName, string displayName, bool extendedName = false)
     {
         StringBuilder sb = new();
         MarketRecord mr = _md.Markets.FirstOrDefault(z => z.Name == marketName);
@@ -75,7 +75,7 @@ public class TeletextPageMarkets(CeefaxContent cc, MarketsData md) : ITeletextPa
             string partMovement = $"[{rateColour}]{mr.Movement.PadLeftWithTrunc(7)}";
             string marketClosed = mr.MarketClosed ? " Closed " : "        ";
 
-            sb.AppendLine($"[{rowColour}]{displayName.PadRightWithTrunc(12)}{marketClosed}{mr.Value.PadLeftWithTrunc(11)}{partMovement}");
+            sb.AppendLine($"[{rowColour}]{displayName.PadRightWithTrunc(extendedName ? 20 : 12)}{(extendedName ? "" : marketClosed)}{mr.Value.PadLeftWithTrunc(11)}{partMovement}");
         }
 
         return sb;

@@ -22,7 +22,7 @@ public class TeletextPageStandings(CeefaxContent mc, StandingsData sd)
         if(_sd.IsValid)             // Only construct the page if we have valid data
         {
             sb.Append(Graphics.HeaderFootball);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]PREMIER LEAGUE           [{TeletextControl.AlphaGreen}]P  W  L  D  [{TeletextControl.DownArrow}]");
+            sb.AppendLine($"[{TeletextControl.AlphaGreen}]PREMIER LEAGUE           [{TeletextControl.AlphaGreen}]P  W  L  D  [{TeletextControl.DownArrow}]");
             for(int i=0; i<20; i++)
             {
                 // Skip the middle rows as they can't fit
@@ -54,7 +54,7 @@ public class TeletextPageStandings(CeefaxContent mc, StandingsData sd)
             int count = 0;
             sb.Append(Graphics.HeaderFormula1);
             string driverHeading = $"DRIVER STANDINGS (ROUND {_sd.Drivers.Sum(z => z.Wins)})";
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{driverHeading.PadRightWithTrunc(30)}[{TeletextControl.AlphaGreen}]wins pts");
+            sb.AppendLine($"[{TeletextControl.AlphaGreen}]{driverHeading.PadRightWithTrunc(30)}[{TeletextControl.AlphaGreen}]wins pts");
             
             // Drivers
             foreach(var d in _sd.Drivers.Take(8))
@@ -65,7 +65,7 @@ public class TeletextPageStandings(CeefaxContent mc, StandingsData sd)
                 count++;
             }
             sb.LineBreak(TeletextControl.AlphaBlue);
-            sb.AppendLine($"[{TeletextControl.AlphaYellow}]{"DIARY           CONSTRUCTORS".PadRightWithTrunc(30)}[{TeletextControl.AlphaGreen}]wins pts");
+            sb.AppendLine($"[{TeletextControl.AlphaGreen}]{"DIARY           CONSTRUCTORS".PadRightWithTrunc(30)}[{TeletextControl.AlphaGreen}]wins pts");
 
             // Constructors and diary events combined
             count=0;

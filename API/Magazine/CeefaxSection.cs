@@ -39,7 +39,7 @@ public class CeefaxSection
             case CeefaxSectionType.TravelTrains:
             case CeefaxSectionType.TravelFlights:
                 HeadingCol = TeletextControl.AlphaYellow;
-                HeadingHighlightCol = TeletextControl.AlphaGreen;
+                HeadingHighlightCol = TeletextControl.AlphaYellow;
                 PromoBackground = TeletextControl.AlphaBlue;
                 PromoCol = TeletextControl.AlphaYellow;
                 break;
@@ -49,7 +49,7 @@ public class CeefaxSection
             case CeefaxSectionType.Register:
             case CeefaxSectionType.Thurrott:
                 HeadingCol = TeletextControl.AlphaYellow;
-                HeadingHighlightCol = TeletextControl.AlphaGreen;
+                HeadingHighlightCol = TeletextControl.AlphaRed;
                 PromoBackground = TeletextControl.AlphaRed;
                 PromoCol = TeletextControl.AlphaWhite;
                 break;
@@ -63,14 +63,14 @@ public class CeefaxSection
             case CeefaxSectionType.Motorsport:
             case CeefaxSectionType.F1Standings:
                 HeadingCol = TeletextControl.AlphaGreen;
-                HeadingHighlightCol = TeletextControl.AlphaYellow;
+                HeadingHighlightCol = TeletextControl.AlphaGreen;
                 PromoBackground = TeletextControl.AlphaBlue;
                 PromoCol = TeletextControl.AlphaYellow;
                 break;
 
             case CeefaxSectionType.Entertainment:
                 HeadingCol = TeletextControl.AlphaYellow;
-                HeadingHighlightCol = TeletextControl.AlphaGreen;
+                HeadingHighlightCol = TeletextControl.AlphaMagenta;
                 PromoBackground = TeletextControl.AlphaMagenta;
                 PromoCol = TeletextControl.AlphaYellow;
                 break;
@@ -135,7 +135,7 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Sussex:
                 Header = Graphics.HeaderSussex;
-            //    PromoFooter = "Travel news coming up next >>>";
+                PromoFooter = "Travel news coming up next >>>";
                 break;
             case CeefaxSectionType.Kent:
                 Header = Graphics.HeaderKent;
@@ -177,7 +177,7 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Entertainment:
                 Header = Graphics.HeaderEntertainment;
-                PromoFooter = "IT news coming up next >>>";
+                PromoFooter = "CEEFAX: The world at your fingertips";
                 break;
             case CeefaxSectionType.WeatherUK:
                 Header = Graphics.HeaderWeather;
@@ -187,7 +187,6 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Thurrott:
                 Header = Graphics.HeaderThurrott;
-                PromoFooter = "CEEFAX: The world at your fingertips";
                 break;
             case CeefaxSectionType.TravelTrains:
                 Header = Graphics.HeaderTravel;
