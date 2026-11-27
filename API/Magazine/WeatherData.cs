@@ -54,14 +54,11 @@ public class WeatherData
             doc.LoadHtml(html);
 
             HtmlNode todayForecast = doc.DocumentNode.SelectSingleNode("//a[contains(@class, 'wr-day__content')][.//span[contains(@class, 'wr-date') and normalize-space(.)='Today']]");
-            if(todayForecast == null)
-            {
-                todayForecast = doc.DocumentNode.SelectSingleNode("//a[contains(@class, 'wr-day__content')][.//span[contains(@class, 'wr-date') and normalize-space(.)='Tonight']]");   
-            }
+            todayForecast ??= doc.DocumentNode.SelectSingleNode("//a[contains(@class, 'wr-day__content')][.//span[contains(@class, 'wr-date') and normalize-space(.)='Tonight']]");
 
             MaxTempLabel = todayForecast?.SelectSingleNode(".//span[contains(@class, 'wr-day-temperature__high-value')]//span[contains(@class, 'wr-value--temperature--c')]")?.InnerText[..^1].Trim() ?? "n/a";
             MinTempLabel = todayForecast?.SelectSingleNode(".//span[contains(@class, 'wr-day-temperature__low-value')]//span[contains(@class, 'wr-value--temperature--c')]")?.InnerText[..^1].Trim() ?? "n/a";
-            
+
             int.TryParse(MaxTempLabel, out int max);
             int.TryParse(MinTempLabel, out int min);
 

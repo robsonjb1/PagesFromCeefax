@@ -41,10 +41,7 @@ public enum CeefaxSectionType
     MarketsBonds,
     MarketsOpen,
     MarketsOil,
-    TravelTrains,
-    TravelFlights,
-    Register,
-    Thurrott
+    Register
 }
 
 public enum TeletextControl

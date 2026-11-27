@@ -10,7 +10,6 @@ public class CeefaxSection
     public readonly int TotalPages;
     public readonly StringBuilder Header;
     public readonly TeletextControl HeadingCol;
-    public readonly TeletextControl HeadingHighlightCol;
     public readonly string PromoFooter;
     public readonly TeletextControl PromoBackground;
     public readonly TeletextControl PromoCol;
@@ -36,10 +35,7 @@ public class CeefaxSection
             case CeefaxSectionType.WeatherUK:
             case CeefaxSectionType.WeatherForecast1:
             case CeefaxSectionType.WeatherForecast2:
-            case CeefaxSectionType.TravelTrains:
-            case CeefaxSectionType.TravelFlights:
                 HeadingCol = TeletextControl.AlphaYellow;
-                HeadingHighlightCol = TeletextControl.AlphaYellow;
                 PromoBackground = TeletextControl.AlphaBlue;
                 PromoCol = TeletextControl.AlphaYellow;
                 break;
@@ -47,9 +43,7 @@ public class CeefaxSection
             case CeefaxSectionType.Business:
             case CeefaxSectionType.Markets:
             case CeefaxSectionType.Register:
-            case CeefaxSectionType.Thurrott:
                 HeadingCol = TeletextControl.AlphaYellow;
-                HeadingHighlightCol = TeletextControl.AlphaRed;
                 PromoBackground = TeletextControl.AlphaRed;
                 PromoCol = TeletextControl.AlphaWhite;
                 break;
@@ -63,14 +57,12 @@ public class CeefaxSection
             case CeefaxSectionType.Motorsport:
             case CeefaxSectionType.F1Standings:
                 HeadingCol = TeletextControl.AlphaGreen;
-                HeadingHighlightCol = TeletextControl.AlphaGreen;
                 PromoBackground = TeletextControl.AlphaBlue;
                 PromoCol = TeletextControl.AlphaYellow;
                 break;
 
             case CeefaxSectionType.Entertainment:
                 HeadingCol = TeletextControl.AlphaYellow;
-                HeadingHighlightCol = TeletextControl.AlphaMagenta;
                 PromoBackground = TeletextControl.AlphaMagenta;
                 PromoCol = TeletextControl.AlphaYellow;
                 break;
@@ -101,7 +93,6 @@ public class CeefaxSection
             case CeefaxSectionType.Entertainment:
             case CeefaxSectionType.Business:
             case CeefaxSectionType.Register:
-            case CeefaxSectionType.Thurrott:
                 TotalPages = 2;
                 break;
 
@@ -135,7 +126,6 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Sussex:
                 Header = Graphics.HeaderSussex;
-                PromoFooter = "Travel news coming up next >>>";
                 break;
             case CeefaxSectionType.Kent:
                 Header = Graphics.HeaderKent;
@@ -184,12 +174,6 @@ public class CeefaxSection
                 break;
             case CeefaxSectionType.Register:
                 Header = Graphics.HeaderRegister;
-                break;
-            case CeefaxSectionType.Thurrott:
-                Header = Graphics.HeaderThurrott;
-                break;
-            case CeefaxSectionType.TravelTrains:
-                Header = Graphics.HeaderTravel;
                 break;
             case CeefaxSectionType.Markets:
                 Header = Graphics.HeaderMarkets;

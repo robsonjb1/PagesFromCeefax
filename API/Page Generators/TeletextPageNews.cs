@@ -4,12 +4,10 @@ using API.Magazine;
 
 namespace API.PageGenerators;
 
-public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
+public class TeletextPageNews(CeefaxContent cc)
 {
     private readonly CeefaxContent _cc = cc;
-    private readonly WeatherData _wd = wd;
-    private readonly MarketsData _md = md;
-    
+  
     #region Public Methods
     public List<StringBuilder> CreateNewsSection(CeefaxSectionType sectionName, int countOffset = 0, int totalPagesOffset = 0)
     {
@@ -25,119 +23,12 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
         return content;
     }
 
-    public StringBuilder CreateNewsHeadlines()
-    {
-        StringBuilder sb = new();
-       
-        if(_md != null && _wd != null)
-        {
-            // Create the weather and markets section 
-            List<string> weatherMarkets = [];
-            weatherMarkets.Add(string.Empty);
-            SpotTemperature localTemp = _wd.Locations["Heathfield"];
-            TeletextControl pressureMovement = TeletextControl.RightArrow;
-            if(_wd.Locations["Heathfield"].PressureRising)
-            {
-                pressureMovement = TeletextControl.UpArrow;
-            }
-            if(_wd.Locations["Heathfield"].PressureFalling)
-            {
-                pressureMovement = TeletextControl.DownArrow;
-            }
-
-            string sunRiseSet = !_wd.Sunset.Contains("n/a") ? $" [{TeletextControl.DownArrow}]{_wd.Sunset}" : 
-                !_wd.Sunrise.Contains("n/a") ? $" [{TeletextControl.UpArrow}]{_wd.Sunrise}" : "";
-
-            weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]WEATHER[{TeletextControl.AlphaWhite}]{localTemp.Temperature}[{TeletextControl.ThreeQuarters}]C [{pressureMovement}]{localTemp.Pressure}mb {localTemp.WindDirection}{sunRiseSet}");
-            
-            foreach(string line in Utility.ParseParagraph(_wd.Forecasts[0].Body[.._wd.Forecasts[0].Body.IndexOf('.')]))
-            {
-                weatherMarkets.Add($"[{TeletextControl.AlphaCyan}]{line}");
-            }
-            
-            weatherMarkets.Add(string.Empty);
-
-            MarketRecord marketCurrency = _md.Markets.FirstOrDefault(z => z.Name == "UKX");
-            TeletextControl rateColour = marketCurrency.Movement.StartsWith('-') ? TeletextControl.AlphaRed : TeletextControl.AlphaGreen;
-            TeletextControl rateArrow = rateColour == TeletextControl.AlphaGreen ? TeletextControl.UpArrow : TeletextControl.DownArrow;
-            string indexes = $"FTSE[{rateColour}][{rateArrow}]{Utility.PadRightWithTrunc(marketCurrency.Value[..marketCurrency.Value.IndexOf('.')],6)}";
-            
-            MarketRecord marketBond = _md.Markets.FirstOrDefault(z => z.Name == "UK-10YRBOND");
-            TeletextControl bondColour = marketBond.Movement.StartsWith('-') ? TeletextControl.AlphaGreen : TeletextControl.AlphaRed;
-            TeletextControl bondArrow = bondColour == TeletextControl.AlphaGreen ? TeletextControl.DownArrow : TeletextControl.UpArrow;
-            string bonds = $"[{bondColour}][{bondArrow}]{Utility.PadRightWithTrunc(marketBond.Value, 4)}";
-
-            MarketRecord marketOil = _md.Markets.FirstOrDefault(z => z.Name == "BRENT-CRUDE");
-            TeletextControl oilColour = marketOil.Movement.StartsWith('-') ? TeletextControl.AlphaGreen : TeletextControl.AlphaRed;
-            TeletextControl oilArrow = oilColour == TeletextControl.AlphaGreen ? TeletextControl.DownArrow : TeletextControl.UpArrow;
-            string oil = $"[{oilColour}][{oilArrow}]{Utility.PadRightWithTrunc(Math.Round(Convert.ToDouble(marketOil.Value), 0).ToString(), 3)}";
-            
-            weatherMarkets.Add($"[{TeletextControl.AlphaYellow}]MARKETS[{TeletextControl.AlphaWhite}]{indexes}[{TeletextControl.AlphaWhite}]BND{bonds}[{TeletextControl.AlphaWhite}]OIL{oil}");
-
-            sb.Append(Graphics.HeaderHeadlines);
-        
-            // List latest stories regardless of section. If a story is shown, do not mark it as included
-            // It will be intentionally repeated on the relevant section page later
-            int rows = 0;
-            List<Uri> included = [];
-            foreach (NewsStory story in _cc.StoryList.OrderByDescending(z => z.PublishDate))
-            {
-                if(!included.Exists(z => z == story.Link))
-                {
-                    included.Add(story.Link);
-
-                    List<string> HeadlineRows = Utility.ParseParagraph(story.SectionName.ToString().ToUpper() + " " + story.Headline);
-                    List<string> SummaryRows = Utility.ParseParagraph(story.Summary);
-
-                    if(HeadlineRows[0] != SummaryRows[0])
-                    {
-                        if (rows + HeadlineRows.Count + SummaryRows.Count < 19 - weatherMarkets.Count)
-                        {
-                            if(rows > 0) // Separator row
-                            {
-                                rows++;
-                                sb.AppendLine(string.Empty);
-                            }
-                            
-                            CeefaxSection section = _cc.Sections.Find(z => z.Name == story.SectionName)!;
-                            sb.AppendLine($"[{section.HeadingCol}]{story.SectionName.ToString().ToUpper()}[{TeletextControl.AlphaWhite}]" + HeadlineRows[0][(story.SectionName.ToString().Length+1)..]);
-                            if(HeadlineRows.Count > 1)
-                            {
-                                for(int i=1; i<HeadlineRows.Count; i++)
-                                {
-                                    sb.AppendLine($"[{TeletextControl.AlphaWhite}]{HeadlineRows[i]}");
-                                }
-                            }
-
-                            SummaryRows.ForEach(l => sb.AppendLine($"[{TeletextControl.AlphaCyan}]{l}"));
-                            rows += HeadlineRows.Count + SummaryRows.Count;
-                        }
-                    }
-                }
-            }
-
-            // Add weather markets
-            foreach(string line in weatherMarkets)
-            {
-                sb.AppendLine(line);
-            }
-
-            // Pad lines to the end
-            sb.PadLines(19 - weatherMarkets.Count - rows);
-
-            sb.Append($"[{TeletextControl.AlphaBlue}][{TeletextControl.NewBackground}][{TeletextControl.AlphaYellow}]");
-            sb.AppendLine("Home news coming up next >>>");
-        }
-
-        return sb;
-    }
-
     public StringBuilder CreateNewsInBrief(CeefaxSection section, int currentPage, int totalPages)
     {
         StringBuilder sb = new();
 
-        // Workaround for The Register and Thurrott
-        if(section.Name == CeefaxSectionType.Thurrott || section.Name == CeefaxSectionType.Register)
+        // Workaround for The Register
+        if(section.Name == CeefaxSectionType.Register)
         {
             sb.Append(section.Header.ToString().Replace("A/B", $"{currentPage}/{totalPages}"));
         }
@@ -148,11 +39,11 @@ public class TeletextPageNews(CeefaxContent cc, WeatherData wd, MarketsData md)
             // Regular news page
             if(totalPages > 1)
             {
-                sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} NEWS{" ".PadRight(28-section.Name.ToString().Length)} [{TeletextControl.AlphaWhite}] {currentPage}/{totalPages}");
+                sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} HEADLINES{" ".PadRight(23-section.Name.ToString().Length)} [{TeletextControl.AlphaWhite}] {currentPage}/{totalPages}");
             }
             else
             {
-                sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} NEWS");
+                sb.AppendLine($"[{section.HeadingCol}]{section.Name.ToString().ToUpper()} HEADLINES");
             }
         }
     

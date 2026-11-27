@@ -54,9 +54,8 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC2, new Uri("https://www.bbc.co.uk/schedules/p015pksy")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.TVScheduleBBC4, new Uri("https://www.bbc.co.uk/schedules/p01kv81d")));
               
-        // Add The Register + Thurrott RSS feeds
+        // Add The Register feed
         Sections.Add(new CeefaxSection(CeefaxSectionType.Register, new Uri("https://www.theregister.com/?lab_viewport=rss")));
-        //Sections.Add(new CeefaxSection(CeefaxSectionType.Thurrott, new Uri("https://www.thurrott.com/feed")));
         
         // Add the F1 diary
         Sections.Add(new CeefaxSection(CeefaxSectionType.F1Diary, new Uri("https://www.bbc.co.uk/sport/formula1/calendar")));
@@ -69,11 +68,7 @@ public class CeefaxContent
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsBonds, new Uri("https://markets.ft.com/data/bonds/tearsheet/summary?s=UK10YG")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsOpen, new Uri("https://www.forexchurch.com/stock-market-hours")));
         Sections.Add(new CeefaxSection(CeefaxSectionType.MarketsOil, new Uri("https://www.hl.co.uk/shares/trading-commodities/brent-crude-oil")));
-
-        // Add Travel departures
-        Sections.Add(new CeefaxSection(CeefaxSectionType.TravelTrains, new Uri("https://www.thetrainline.com/live/departures/stonegate")));
-        //Sections.Add(new CeefaxSection(CeefaxSectionType.TravelFlights, new Uri("https://www.gatwickairport.com/flights?destination=D")));
-        
+    
         // Add each section's feed URL to URL cache
         Sections.ForEach(z => UriCache.Add(new CachedUri(z.Feed)));
 
@@ -123,17 +118,6 @@ public class CeefaxContent
 
         foreach (SyndicationItem item in feed.Items)
         {
-            // Hack for Thurrott.com
-            string summaryDescription = item.Summary.Text;
-
-            if(section.Name == CeefaxSectionType.Thurrott)
-            {
-                if(summaryDescription.Contains("The post"))
-                {
-                    summaryDescription = summaryDescription.Substring(0, summaryDescription.IndexOf("The post"));
-                }
-            }
-
             // Only add if not a comment piece, or a 'live' scrolling story, or a Register sponsored article
             if (!item.Title.Text.Contains(':') && 
                 !item.Title.Text.Contains('?') &&
@@ -145,7 +129,7 @@ public class CeefaxContent
                 StoryList.Add(new NewsStory(
                     section.Name, 
                     item.Title.Text.Trim(),
-                    summaryDescription.Trim(),
+                    item.Summary.Text.Trim(),
                     item.PublishDate.UtcDateTime,
                     item.Links[0].Uri));
             }

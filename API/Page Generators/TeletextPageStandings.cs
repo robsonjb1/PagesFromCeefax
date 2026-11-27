@@ -65,7 +65,7 @@ public class TeletextPageStandings(CeefaxContent mc, StandingsData sd)
                 count++;
             }
             sb.LineBreak(TeletextControl.AlphaBlue);
-            sb.AppendLine($"[{TeletextControl.AlphaGreen}]{"DIARY           CONSTRUCTORS".PadRightWithTrunc(30)}[{TeletextControl.AlphaGreen}]wins pts");
+            sb.AppendLine($"[{TeletextControl.AlphaGreen}]{"CALENDAR        CONSTRUCTORS".PadRightWithTrunc(30)}[{TeletextControl.AlphaGreen}]wins pts");
 
             // Constructors and diary events combined
             count=0;

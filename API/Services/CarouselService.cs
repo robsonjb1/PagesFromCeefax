@@ -26,11 +26,9 @@ public class CarouselService
     private readonly TeletextPageTV _tt;
     private readonly TeletextPageStandings _ts;
     private readonly TeletextPageMarkets _tm;
-    private readonly TeletextPageTravel _tl;
-
-    public CarouselService(TeletextPageNews tn, TeletextPageTravel tl,TeletextPageMarkets tm, TeletextPageStandings ts, TeletextPageWeather tw, TeletextPageTV tt)
+  
+    public CarouselService(TeletextPageNews tn, TeletextPageMarkets tm, TeletextPageStandings ts, TeletextPageWeather tw, TeletextPageTV tt)
     {
-        _tl = tl;
         _tn = tn;
         _tm = tm;
         _ts = ts;
@@ -43,7 +41,6 @@ public class CarouselService
             BuildTeletextPage(Graphics.PromoCeefax);
 
             // News section
-            BuildTeletextPage(_tn.CreateNewsHeadlines());
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Home));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.World));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Politics));
@@ -51,13 +48,11 @@ public class CarouselService
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Technology));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Kent));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Sussex));
-            BuildTeletextPage(_tl.CreateTravelTrainsPage());
           
             // Business section
             BuildTeletextPage(Graphics.PromoBusiness);
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Business));
             BuildTeletextPage(_tm.CreateMarketsPage());
-            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Register));
             
             // Sports section
             BuildTeletextPage(Graphics.PromoSport);
@@ -83,9 +78,9 @@ public class CarouselService
             BuildTeletextPage(_tt.CreateSchedule(CeefaxSectionType.TVScheduleBBC4));
             BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Entertainment));
 
-            // The Register + Thurrott
-            //BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Thurrott, 2, 2));
- 
+            // The Register 
+            BuildTeletextPage(_tn.CreateNewsSection(CeefaxSectionType.Register));
+            
             // Close
             if(DateTime.Now.Month == 12) {
                 BuildTeletextPage(Graphics.PromoChristmas);
